@@ -470,7 +470,6 @@ function HomeFlow() {
                   placeholder="Search for items..."
                   searchPlaceholder="Search items..."
                   emptyText="No items found."
-                  maxDisplayItems={30}
                 />
               </CardContent>
             </Card>

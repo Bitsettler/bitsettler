@@ -80,6 +80,19 @@ export default function ChangelogPage() {
                       </p>
                     </div>
                   </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Enhanced Search Experience
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Combobox now uses virtualization for fast search in
+                        large lists. Results only appear after typing. Popover
+                        rendering issues fixed.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 

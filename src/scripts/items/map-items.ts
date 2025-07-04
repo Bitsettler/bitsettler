@@ -110,6 +110,9 @@ function processItems(config: ItemMappingConfig): void {
       }
     }
 
+    // Sort items alphabetically by name
+    frontendItems.sort((a, b) => a.name.localeCompare(b.name));
+
     // Write single JSON file for the category
     const outputPath = path.join(config.outputDir, `${config.category}.json`);
     fs.writeFileSync(

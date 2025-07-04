@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { useVirtualizer } from "@tanstack/react-virtual";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -33,7 +34,6 @@ interface ComboboxProps {
   searchPlaceholder?: string;
   emptyText?: string;
   className?: string;
-  maxDisplayItems?: number;
 }
 
 export function Combobox({
@@ -44,41 +44,55 @@ export function Combobox({
   searchPlaceholder = "Search items...",
   emptyText = "No items found.",
   className,
-  maxDisplayItems = 50,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
-  // Debounced search value
-  const [debouncedSearch, setDebouncedSearch] = React.useState("");
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(searchValue);
-    }, 150); // 150ms debounce
-
-    return () => clearTimeout(timer);
-  }, [searchValue]);
+  // Parent ref for virtualization
+  const parentRef = React.useRef<HTMLDivElement>(null);
 
   // Filter options based on search
   const filteredOptions = React.useMemo(() => {
-    if (!debouncedSearch) {
-      // If no search, show first maxDisplayItems items
-      return options.slice(0, maxDisplayItems);
+    if (!searchValue) {
+      return [];
     }
-
-    const searchLower = debouncedSearch.toLowerCase();
-    const filtered = options.filter((option) => {
+    const searchLower = searchValue.toLowerCase();
+    return options.filter((option) => {
       const haystack = `${option.label} ${option.keywords || ""}`.toLowerCase();
       return haystack.includes(searchLower);
     });
+  }, [options, searchValue]);
 
-    // Limit results to maxDisplayItems
-    return filtered.slice(0, maxDisplayItems);
-  }, [options, debouncedSearch, maxDisplayItems]);
+  // Set up virtualization
+  const virtualizer = useVirtualizer({
+    count: filteredOptions.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 36, // Approximate height of each CommandItem
+    overscan: 5, // Number of items to render outside the visible area
+  });
 
-  // Custom filter function for cmdk - always return 1 to let our custom filtering handle it
-  const filter = React.useCallback(() => 1, []);
+  const virtualOptions = virtualizer.getVirtualItems();
+
+  // Force virtualizer to recalculate on open using ResizeObserver and animation frame
+  React.useEffect(() => {
+    if (!open || !parentRef.current) return;
+    const ro = new window.ResizeObserver(() => {
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          virtualizer.measure();
+          virtualizer.scrollToIndex(0);
+        });
+      }, 0);
+    });
+    ro.observe(parentRef.current);
+    return () => ro.disconnect();
+  }, [open, virtualizer]);
+
+  // Calculate total height - ensure it's at least the height of visible items
+  const totalHeight = Math.max(
+    virtualizer.getTotalSize(),
+    Math.min(filteredOptions.length * 36, 300) // Max 300px height
+  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -95,45 +109,64 @@ export function Combobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full p-0" align="start">
-        <Command filter={filter}>
+      <PopoverContent
+        className="w-full p-0"
+        align="start"
+        style={{ width: "var(--radix-popover-trigger-width)" }}
+      >
+        <Command shouldFilter={false}>
           <CommandInput
             placeholder={searchPlaceholder}
             className="h-9"
             value={searchValue}
             onValueChange={setSearchValue}
           />
-          <CommandList className="max-h-[300px] overflow-y-auto">
+          <CommandList
+            ref={parentRef}
+            className="max-h-[300px] overflow-y-auto"
+          >
             <CommandEmpty>
-              {debouncedSearch ? emptyText : "Type to search..."}
+              {searchValue ? emptyText : "Type to search..."}
             </CommandEmpty>
             <CommandGroup>
-              {filteredOptions.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={(currentValue) => {
-                    onValueChange(currentValue === value ? "" : currentValue);
-                    setOpen(false);
-                    setSearchValue(""); // Clear search when item is selected
+              {searchValue && filteredOptions.length > 0 && (
+                <div
+                  style={{
+                    height: `${totalHeight}px`,
+                    width: "100%",
+                    position: "relative",
                   }}
                 >
-                  {option.label}
-                  <Check
-                    className={cn(
-                      "ml-auto h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-              ))}
+                  {virtualOptions.map((virtualOption) => {
+                    const option = filteredOptions[virtualOption.index];
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        value={`${option.label} ${option.keywords || ""}`}
+                        className="absolute left-0 top-0 w-full bg-transparent whitespace-nowrap"
+                        style={{
+                          height: `${virtualOption.size}px`,
+                          transform: `translateY(${virtualOption.start}px)`,
+                        }}
+                        onSelect={() => {
+                          onValueChange(option.value);
+                          setOpen(false);
+                          setSearchValue(""); // Clear search when item is selected
+                        }}
+                      >
+                        {option.label}
+                        <Check
+                          className={cn(
+                            "ml-auto h-4 w-4",
+                            value === option.value ? "opacity-100" : "opacity-0"
+                          )}
+                        />
+                      </CommandItem>
+                    );
+                  })}
+                </div>
+              )}
             </CommandGroup>
-            {filteredOptions.length === maxDisplayItems && debouncedSearch && (
-              <div className="px-2 py-1.5 text-xs text-muted-foreground text-center border-t">
-                Showing first {maxDisplayItems} results. Refine your search for
-                more.
-              </div>
-            )}
           </CommandList>
         </Command>
       </PopoverContent>
