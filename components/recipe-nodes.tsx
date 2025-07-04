@@ -1,6 +1,6 @@
 "use client";
 
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { Handle, Position, NodeProps, useReactFlow } from "@xyflow/react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,6 +67,17 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data;
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow();
 
+  // Auto-select recipe if there's only one available
+  useEffect(() => {
+    if (
+      itemData.recipes &&
+      itemData.recipes.length === 1 &&
+      !itemData.selectedRecipe
+    ) {
+      handleRecipeSelect(itemData.recipes[0].id.toString());
+    }
+  }, [itemData.recipes, itemData.selectedRecipe]);
+
   const handleRecipeSelect = (recipeId: string) => {
     // Use imported data
     const items = [
@@ -118,43 +129,54 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
     ) {
       // Create material nodes
       const materialNodes: any[] = recipe.requirements.materials.map(
-        (material: string, index: number) => {
-          const materialData = items.find((item) => item.slug === material);
+        (material: any, index: number) => {
+          // Handle both string and object material requirements
+          const materialSlug =
+            typeof material === "string" ? material : material.slug;
+          const materialData = items.find((item) => item.slug === materialSlug);
 
           // Check if this material has recipes (for recursive expansion)
           const materialRecipes = recipes.filter((r) =>
-            r.output.some((output) => output.item === material)
+            r.output.some((output) => output.item === materialSlug)
           );
 
           return {
-            id: `${material}_${recipe.id}`,
+            id: `${materialSlug}_${recipe.id}`,
             type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
             data: {
-              label: materialData?.name || material,
+              label: materialData?.name || materialSlug,
               tier: materialData?.tier || 1,
               rarity: materialData?.rarity || "common",
               category: materialData?.category || "unknown",
-              quantity: 1,
+              quantity:
+                typeof material === "string"
+                  ? 1
+                  : material.qty !== null &&
+                    material.qty !== undefined &&
+                    materialData?.category !== "resources"
+                  ? material.qty
+                  : undefined, // Only set quantity if not null/undefined and not a resource
               recipes: materialRecipes, // Pass recipes if available
               selectedRecipe: null,
-              itemSlug: material,
+              itemSlug: materialSlug,
             },
-            position: {
-              x: 100 + index * 200,
-              y: 300,
-            },
+            position: { x: 0, y: 0 }, // Let dagre handle positioning
           };
         }
       );
 
       // Create edges connecting main item to materials
       const materialEdges: any[] = recipe.requirements.materials.map(
-        (material: string, index: number) => ({
-          id: `${id}-${material}_${recipe.id}`,
-          source: id,
-          target: `${material}_${recipe.id}`,
-          type: "smoothstep",
-        })
+        (material: any, index: number) => {
+          const materialSlug =
+            typeof material === "string" ? material : material.slug;
+          return {
+            id: `${id}-${materialSlug}_${recipe.id}`,
+            source: id,
+            target: `${materialSlug}_${recipe.id}`,
+            type: "smoothstep",
+          };
+        }
       );
 
       console.log("Creating material nodes:", materialNodes.length);
@@ -172,7 +194,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   };
 
   return (
-    <Card className="w-64 shadow-lg border-2 border-primary/20">
+    <Card className="w-fit min-w-64 max-w-80 shadow-lg border-2 border-primary/20">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <CardTitle className="text-sm font-semibold">
@@ -210,9 +232,15 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
 
         {itemData.recipes && itemData.recipes.length > 0 && (
           <div className="mt-2">
-            <div className="text-xs font-medium mb-1">
-              Select Recipe ({itemData.recipes.length} available):
-            </div>
+            {itemData.recipes.length === 1 ? (
+              <div className="text-xs font-medium mb-1">
+                Recipe (auto-selected):
+              </div>
+            ) : (
+              <div className="text-xs font-medium mb-1">
+                Select Recipe ({itemData.recipes.length} available):
+              </div>
+            )}
             <Select
               value={itemData.selectedRecipe?.id?.toString() || ""}
               onValueChange={handleRecipeSelect}
@@ -220,10 +248,12 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
               <SelectTrigger className="h-8 text-xs">
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="max-w-80">
                 {itemData.recipes.map((recipe: any) => (
                   <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                    {recipe.name || `Recipe #${recipe.id}`}
+                    <div className="truncate">
+                      {recipe.name || `Recipe #${recipe.id}`}
+                    </div>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -285,6 +315,12 @@ export const MaterialNode = memo(({ data }: NodeProps & { data: ItemData }) => {
             className={`text-xs ${getRarityColor(itemData.rarity)}`}
           >
             {itemData.rarity}
+          </Badge>
+          <Badge
+            variant="outline"
+            className="text-xs bg-blue-50 text-blue-700 border-blue-200"
+          >
+            {itemData.category}
           </Badge>
         </div>
       </CardContent>
