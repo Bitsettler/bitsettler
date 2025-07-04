@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "name": "Gathering Young Oak Tree",
+    "requirements": {
+      "professions": "level-1-forestry",
+      "tool": "tier-1-axe",
+      "materials": ["mature-oak-tree"]
+    },
+    "output": [
+      {
+        "item": "rough-wood-trunk",
+        "qty": null
+      },
+      {
+        "item": "tree-sap",
+        "qty": null
+      },
+      {
+        "item": "tier-1-rough-tree-bark",
+        "qty": null
+      },
+      {
+        "item": "tier-1-basic-amber-resin",
+        "qty": null
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "name": "1/1 Split into Rough Wood Log Output",
+    "requirements": {
+      "professions": "forestry",
+      "tool": "tier-1-axe",
+      "building": "tier-1-forestry-station",
+      "materials": ["rough-wood-trunk"]
+    },
+    "output": [
+      {
+        "item": "rough-wood-log",
+        "qty": [6, 6]
+      },
+      {
+        "item": "basic-amber-resin",
+        "qty": [0, 1]
+      }
+    ]
+  }
+]
