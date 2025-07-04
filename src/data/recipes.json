@@ -5,7 +5,7 @@
     "requirements": {
       "professions": "level-1-forestry",
       "tool": "tier-1-axe",
-      "materials": ["mature-oak-tree"]
+      "materials": [{ "slug": "mature-oak-tree", "qty": null }]
     },
     "output": [
       {
@@ -33,7 +33,7 @@
       "professions": "forestry",
       "tool": "tier-1-axe",
       "building": "tier-1-forestry-station",
-      "materials": ["rough-wood-trunk"]
+      "materials": [{ "slug": "rough-wood-trunk", "qty": 1 }]
     },
     "output": [
       {
