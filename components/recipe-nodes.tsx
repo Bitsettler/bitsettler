@@ -209,6 +209,10 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         recipe.requirements.materials &&
         recipe.requirements.materials.length > 0
       ) {
+        // Get the current node's quantity to calculate child quantities
+        const currentNode = filteredNodes.find((node) => node.id === id);
+        const parentQuantity = (currentNode?.data?.quantity as number) || 1;
+
         // Create material nodes
         const materialNodes = recipe.requirements.materials.map(
           (material: { id: number; qty: number | null }) => {
@@ -222,6 +226,17 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
               r.output.some((output) => output.item === materialId)
             );
 
+            // Calculate the total quantity needed for this material
+            let calculatedQuantity: number | undefined;
+            if (
+              material.qty !== null &&
+              material.qty !== undefined &&
+              materialData?.category !== "resources"
+            ) {
+              // Multiply the material requirement by the parent's quantity
+              calculatedQuantity = (material.qty as number) * parentQuantity;
+            }
+
             return {
               id: `${materialId}_${recipe.id}`,
               type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
@@ -230,12 +245,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
                 tier: materialData?.tier || 1,
                 rarity: materialData?.rarity || "common",
                 category: materialData?.category || "unknown",
-                quantity:
-                  material.qty !== null &&
-                  material.qty !== undefined &&
-                  materialData?.category !== "resources"
-                    ? material.qty
-                    : undefined, // Only set quantity if not null/undefined and not a resource
+                quantity: calculatedQuantity, // Use calculated quantity
                 recipes: materialRecipes, // Pass recipes if available
                 selectedRecipe: null,
                 itemId: materialId,

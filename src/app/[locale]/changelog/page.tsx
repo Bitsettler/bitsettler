@@ -18,13 +18,62 @@ export default function ChangelogPage() {
             </p>
           </div>
 
-          {/* Version Card */}
+          {/* Version Card - Latest */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.1 Bug Fixes</CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Fixed quantity calculation issues in recipe tree
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Bug Fixes Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  🐛 Bug Fixes
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Child Recipe Quantity Calculation
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed issue where child recipe nodes were showing Qty: 1
+                        instead of the correct quantity based on parent
+                        requirements. Now child materials properly calculate
+                        quantities by multiplying the parent&apos;s required
+                        amount.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="text-center pt-4">
+                <p className="text-sm text-muted-foreground">
+                  Fixed quantity propagation through the recipe tree 🎯
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Version Card - Previous */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">v1 MVP Release</CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">
