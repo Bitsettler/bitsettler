@@ -1,0 +1,58 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "search": "Rechercher",
+    "quantity": "Quantité",
+    "calculate": "Calculer",
+    "total": "Total",
+    "effort": "Effort",
+    "category": "Catégorie",
+    "description": "Description"
+  },
+  "header": {
+    "title": "Guide Bitcraft",
+    "subtitle": "Calculateur de Crafting & Wiki",
+    "navigation": {
+      "calculator": "Calculateur",
+      "wiki": "Wiki",
+      "projects": "Projets",
+      "about": "À propos"
+    },
+    "language": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español"
+    }
+  },
+  "calculator": {
+    "title": "Calculateur de Crafting",
+    "selectItem": "Sélectionner un Objet à Créer",
+    "searchPlaceholder": "Rechercher des objets...",
+    "quantityLabel": "Quantité",
+    "calculateButton": "Calculer les Exigences de Crafting",
+    "requirements": "Exigences de Crafting",
+    "targetItem": "Objet Cible",
+    "baseResources": "Ressources de Base Nécessaires",
+    "craftingSteps": "Étapes de Crafting",
+    "selectItemPrompt": "Sélectionnez un objet et une quantité pour voir les exigences de crafting",
+    "totalEffort": "Effort Total",
+    "materialsNeeded": "Matériaux Nécessaires"
+  },
+  "items": {
+    "categories": {
+      "wood": "Bois",
+      "stone": "Pierre",
+      "metal": "Métal",
+      "textile": "Textile",
+      "fuel": "Combustible",
+      "tool": "Outil",
+      "vehicle": "Véhicule",
+      "container": "Conteneur"
+    }
+  },
+  "errors": {
+    "itemNotFound": "Objet non trouvé",
+    "calculationError": "Erreur lors du calcul des exigences de crafting"
+  }
+}

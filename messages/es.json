@@ -1,0 +1,58 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "search": "Buscar",
+    "quantity": "Cantidad",
+    "calculate": "Calcular",
+    "total": "Total",
+    "effort": "Esfuerzo",
+    "category": "Categoría",
+    "description": "Descripción"
+  },
+  "header": {
+    "title": "Guía de Bitcraft",
+    "subtitle": "Calculadora de Crafteo y Wiki",
+    "navigation": {
+      "calculator": "Calculadora",
+      "wiki": "Wiki",
+      "projects": "Proyectos",
+      "about": "Acerca de"
+    },
+    "language": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español"
+    }
+  },
+  "calculator": {
+    "title": "Calculadora de Crafteo",
+    "selectItem": "Seleccionar Objeto para Crear",
+    "searchPlaceholder": "Buscar objetos...",
+    "quantityLabel": "Cantidad",
+    "calculateButton": "Calcular Requisitos de Crafteo",
+    "requirements": "Requisitos de Crafteo",
+    "targetItem": "Objeto Objetivo",
+    "baseResources": "Recursos Base Necesarios",
+    "craftingSteps": "Pasos de Crafteo",
+    "selectItemPrompt": "Selecciona un objeto y cantidad para ver los requisitos de crafteo",
+    "totalEffort": "Esfuerzo Total",
+    "materialsNeeded": "Materiales Necesarios"
+  },
+  "items": {
+    "categories": {
+      "wood": "Madera",
+      "stone": "Piedra",
+      "metal": "Metal",
+      "textile": "Textil",
+      "fuel": "Combustible",
+      "tool": "Herramienta",
+      "vehicle": "Vehículo",
+      "container": "Contenedor"
+    }
+  },
+  "errors": {
+    "itemNotFound": "Objeto no encontrado",
+    "calculationError": "Error al calcular los requisitos de crafteo"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "search": "Search",
+    "quantity": "Quantity",
+    "calculate": "Calculate",
+    "total": "Total",
+    "effort": "Effort",
+    "category": "Category",
+    "description": "Description"
+  },
+  "header": {
+    "title": "Bitcraft Guide",
+    "subtitle": "Crafting Calculator & Wiki",
+    "navigation": {
+      "calculator": "Calculator",
+      "wiki": "Wiki",
+      "projects": "Projects",
+      "about": "About"
+    },
+    "language": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español"
+    }
+  },
+  "calculator": {
+    "title": "Crafting Calculator",
+    "selectItem": "Select Item to Craft",
+    "searchPlaceholder": "Search items...",
+    "quantityLabel": "Quantity",
+    "calculateButton": "Calculate Crafting Requirements",
+    "requirements": "Crafting Requirements",
+    "targetItem": "Target Item",
+    "baseResources": "Base Resources Needed",
+    "craftingSteps": "Crafting Steps",
+    "selectItemPrompt": "Select an item and quantity to see crafting requirements",
+    "totalEffort": "Total Effort",
+    "materialsNeeded": "Materials Needed"
+  },
+  "items": {
+    "categories": {
+      "wood": "Wood",
+      "stone": "Stone",
+      "metal": "Metal",
+      "textile": "Textile",
+      "fuel": "Fuel",
+      "tool": "Tool",
+      "vehicle": "Vehicle",
+      "container": "Container"
+    }
+  },
+  "errors": {
+    "itemNotFound": "Item not found",
+    "calculationError": "Error calculating crafting requirements"
+  }
+}
