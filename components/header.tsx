@@ -6,9 +6,11 @@ import { GithubLogo, PencilRuler } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
 // import { MainNav } from "@/components/main-nav";
 // import { MobileNav } from "@/components/mobile-nav";
-import { ModeToggle } from '@/components/mode-toggle'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 // import { Search } from "@/components/search";
 // import { Separator } from "@/components/ui/separator";
+import { LanguageSwitcher } from '@/src/components/language-switcher'
+import { SITE_CONFIG } from '@/src/config/site-config'
 import { Link } from '@/src/i18n/navigation'
 
 export function Header() {
@@ -27,7 +29,7 @@ export function Header() {
         {/* <MainNav className="hidden lg:flex" /> */}
         <div className="flex items-center">
           <Button asChild variant="ghost" size="sm">
-            <Link href="/changelog">Changelog</Link>
+            <Link href="/changelog">{t('header.navigation.changelog')}</Link>
           </Button>
         </div>
         <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
@@ -36,15 +38,12 @@ export function Header() {
           </div>
           <Separator orientation="vertical" className="h-6 block" /> */}
           <Button asChild variant="ghost" size="icon" className="size-8" title="GitHub Repository">
-            <a
-              href="https://github.com/duy-the-developer/bitcraft.guide-web-next"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={SITE_CONFIG.links.github} target="_blank" rel="noopener noreferrer">
               <GithubLogo className="size-5" />
             </a>
           </Button>
-          <ModeToggle />
+          <LanguageSwitcher />
+          <ThemeSwitcher />
         </div>
       </Container>
     </header>

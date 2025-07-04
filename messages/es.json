@@ -8,7 +8,13 @@
     "total": "Total",
     "effort": "Esfuerzo",
     "category": "Categoría",
-    "description": "Descripción"
+    "description": "Descripción",
+    "info": "Info",
+    "usage": "Uso",
+    "latest": "Último",
+    "previous": "Anterior",
+    "firstRelease": "Primera Versión",
+    "menu": "Menú"
   },
   "header": {
     "title": "Bitcraft.Guide",
@@ -17,7 +23,8 @@
       "calculator": "Calculadora",
       "wiki": "Wiki",
       "projects": "Proyectos",
-      "about": "Acerca de"
+      "about": "Acerca de",
+      "changelog": "Changelog"
     },
     "language": {
       "en": "English",
@@ -29,6 +36,8 @@
     "title": "Calculadora de Crafteo",
     "selectItem": "Seleccionar Objeto para Crear",
     "searchPlaceholder": "Buscar objetos...",
+    "searchItems": "Buscar objetos...",
+    "noItemsFound": "No se encontraron objetos.",
     "quantityLabel": "Cantidad",
     "calculateButton": "Calcular Requisitos de Crafteo",
     "requirements": "Requisitos de Crafteo",
@@ -37,7 +46,11 @@
     "craftingSteps": "Pasos de Crafteo",
     "selectItemPrompt": "Selecciona un objeto y cantidad para ver los requisitos de crafteo",
     "totalEffort": "Esfuerzo Total",
-    "materialsNeeded": "Materiales Necesarios"
+    "materialsNeeded": "Materiales Necesarios",
+    "craftingQuantity": "Cantidad de Crafteo",
+    "itemsToCraft": "objetos para crear",
+    "noRecipes": "Este objeto no se usa en ninguna receta",
+    "produces": "Produce"
   },
   "items": {
     "categories": {
@@ -54,5 +67,16 @@
   "errors": {
     "itemNotFound": "Objeto no encontrado",
     "calculationError": "Error al calcular los requisitos de crafteo"
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados.",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "unofficialDisclaimer": "Este es un proyecto de fan no oficial y no está afiliado a BitCraft o sus desarrolladores.",
+    "assetsDisclaimer": "Todos los datos y recursos del juego pertenecen a sus respectivos propietarios."
+  },
+  "languageSwitcher": {
+    "switchLanguage": "Cambiar idioma",
+    "switchLanguageSr": "Cambiar idioma"
   }
 }

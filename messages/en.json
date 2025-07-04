@@ -8,7 +8,13 @@
     "total": "Total",
     "effort": "Effort",
     "category": "Category",
-    "description": "Description"
+    "description": "Description",
+    "info": "Info",
+    "usage": "Usage",
+    "latest": "Latest",
+    "previous": "Previous",
+    "firstRelease": "First Release",
+    "menu": "Menu"
   },
   "header": {
     "title": "Bitcraft.Guide",
@@ -17,7 +23,8 @@
       "calculator": "Calculator",
       "wiki": "Wiki",
       "projects": "Projects",
-      "about": "About"
+      "about": "About",
+      "changelog": "Changelog"
     },
     "language": {
       "en": "English",
@@ -28,7 +35,9 @@
   "calculator": {
     "title": "Crafting Calculator",
     "selectItem": "Select Item to Craft",
-    "searchPlaceholder": "Search items...",
+    "searchPlaceholder": "Search for items...",
+    "searchItems": "Search items...",
+    "noItemsFound": "No items found.",
     "quantityLabel": "Quantity",
     "calculateButton": "Calculate Crafting Requirements",
     "requirements": "Crafting Requirements",
@@ -37,7 +46,11 @@
     "craftingSteps": "Crafting Steps",
     "selectItemPrompt": "Select an item and quantity to see crafting requirements",
     "totalEffort": "Total Effort",
-    "materialsNeeded": "Materials Needed"
+    "materialsNeeded": "Materials Needed",
+    "craftingQuantity": "Crafting Quantity",
+    "itemsToCraft": "items to craft",
+    "noRecipes": "This item is not used in any recipes",
+    "produces": "Produces"
   },
   "items": {
     "categories": {
@@ -54,5 +67,71 @@
   "errors": {
     "itemNotFound": "Item not found",
     "calculationError": "Error calculating crafting requirements"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "unofficialDisclaimer": "This is an unofficial fan project and is not affiliated with BitCraft or its developers.",
+    "assetsDisclaimer": "All game data and assets belong to their respective owners."
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Track the latest updates and improvements to {siteName}",
+    "enhancedRecipeSystem": "v1.1.0 Enhanced Recipe System",
+    "bugDataFixes": "v1.0.1 Bug & Data Fixes",
+    "initialRelease": "v1.0.0 Initial Release",
+    "majorUpdate": "Major update: comprehensive recipe system improvements, data fixes, and enhanced user experience",
+    "patchRelease": "Patch release: bug fixes and data corrections for cargo items and recipe trees",
+    "initialReleaseDesc": "Initial release of the {siteName} web application",
+    "newFeatures": "✨ New Features",
+    "dataFixes": "🗃️ Data Fixes",
+    "bugFixes": "🐛 Bug Fixes",
+    "technicalFeatures": "⚙️ Technical Features",
+    "enhancedInfoPanel": "Enhanced Info Panel",
+    "enhancedInfoPanelDesc": "Added item descriptions, improved badge styling for tier/rarity/category, and better recipe requirement display with proper lookup tables from game data.",
+    "materialNodeRecipeSupport": "Material Node Recipe Support",
+    "materialNodeRecipeSupportDesc": "Material nodes now support recipe selection and display recipe requirements, matching the functionality of item nodes for complete recipe tree visibility.",
+    "improvedLayoutAlgorithm": "Improved Layout Algorithm",
+    "improvedLayoutAlgorithmDesc": "Switched from depth-first to breadth-first ranking for better recipe tree visualization with more compact node spacing.",
+    "enhancedSearchExperience": "Enhanced Search Experience",
+    "enhancedSearchExperienceDesc": "Combobox now uses virtualization for fast search in large lists. Results only appear after typing. Popover rendering issues fixed.",
+    "completeCargoItemSupport": "Complete Cargo Item Support",
+    "completeCargoItemSupportDesc": "Fixed cargo items (like Rough Plant Roots) missing from the app. Updated mapping script to include all cargo items regardless of compendium_entry field.",
+    "recipeRequirementsDatabase": "Recipe Requirements Database",
+    "recipeRequirementsDatabaseDesc": "Built comprehensive lookup tables from game data for professions, tools, and buildings instead of using placeholder mappings. Now displays accurate requirements like \"forestry\", \"axe\", \"tier-1-forestry-station\".",
+    "recipeQuantityCalculation": "Recipe Quantity Calculation",
+    "recipeQuantityCalculationDesc": "Fixed child recipe nodes showing incorrect quantities. Now properly calculates quantities by multiplying parent requirements throughout the entire recipe tree.",
+    "recipeOutputDisplay": "Recipe Output Display",
+    "recipeOutputDisplayDesc": "Fixed recipe output showing raw IDs instead of item names in the Usage section. Now displays proper names like \"Produces: 1x Refined Rough Cloth\".",
+    "recipeRequirementsVisibility": "Recipe Requirements Visibility",
+    "recipeRequirementsVisibilityDesc": "Fixed recipe requirements showing as empty strings for nodes beyond the 2nd level. Now all nodes in the recipe tree display proper profession, building, and tool requirements.",
+    "cargoItemsNowAppear": "Cargo Items Now Appear",
+    "cargoItemsNowAppearDesc": "Fixed cargo items missing from the app due to mapping script filtering. Now includes all cargo items regardless of compendium_entry field.",
+    "childRecipeQuantityCalculation": "Child Recipe Quantity Calculation",
+    "childRecipeQuantityCalculationDesc": "Fixed child recipe nodes showing Qty: 1 instead of correct quantities based on parent requirements.",
+    "interactiveRecipeVisualizer": "Interactive Recipe Visualizer",
+    "interactiveRecipeVisualizerDesc": "Visual flow diagrams showing crafting dependencies and requirements for any item in the game.",
+    "quantityCalculator": "Quantity Calculator",
+    "quantityCalculatorDesc": "Calculate exact material requirements for any desired output quantity with automatic recipe scaling.",
+    "comprehensiveItemDatabase": "Comprehensive Item Database",
+    "comprehensiveItemDatabaseDesc": "Search through all items, cargo, and resources with detailed information including tier, rarity, and category.",
+    "multiLanguageSupport": "Multi-language Support",
+    "multiLanguageSupportDesc": "Internationalization support for English, French, and Spanish with easy language switching.",
+    "modernResponsiveUI": "Modern Responsive UI",
+    "modernResponsiveUIDesc": "Beautiful, responsive interface built with shadcn/ui components and Tailwind CSS, optimized for both desktop and mobile.",
+    "realGameDataIntegration": "Real Game Data Integration",
+    "realGameDataIntegrationDesc": "Built using actual game data from BitCraft server files, ensuring accuracy and completeness.",
+    "performanceOptimized": "Performance Optimized",
+    "performanceOptimizedDesc": "Virtualized search, efficient data structures, and optimized rendering for smooth performance even with large datasets.",
+    "typescriptModernStack": "TypeScript & Modern Stack",
+    "typescriptModernStackDesc": "Built with Next.js 15, TypeScript, and modern React patterns for maintainability and type safety.",
+    "completeOverhaul": "Complete recipe system overhaul with accurate data and enhanced user experience! 🎯✨",
+    "patchReleaseComplete": "Patch release with important bug fixes and data corrections! 🔧",
+    "firstMVPRelease": "This marks the first MVP release of the {siteName} web app. 🎉"
+  },
+  "languageSwitcher": {
+    "switchLanguage": "Switch language",
+    "switchLanguageSr": "Switch language"
   }
 }

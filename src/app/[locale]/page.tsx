@@ -406,16 +406,16 @@ function HomeFlow() {
             {/* Search Card */}
             <Card className="flex-shrink-0">
               <CardHeader>
-                <CardTitle>Search Items</CardTitle>
+                <CardTitle>{t('calculator.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <Combobox
                   options={itemOptions}
                   value={selectedItem?.id.toString() || ''}
                   onValueChange={handleItemSelect}
-                  placeholder="Search for items..."
-                  searchPlaceholder="Search items..."
-                  emptyText="No items found."
+                  placeholder={t('calculator.searchPlaceholder')}
+                  searchPlaceholder={t('calculator.searchItems')}
+                  emptyText={t('calculator.noItemsFound')}
                 />
               </CardContent>
             </Card>
@@ -429,10 +429,10 @@ function HomeFlow() {
                 <CardContent className="flex flex-1 flex-col space-y-4 overflow-hidden">
                   {/* Info Section */}
                   <div className="flex-shrink-0">
-                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">Info</h3>
+                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">{t('common.info')}</h3>
                     <div className="space-y-2 text-sm">
                       <div>
-                        <span className="font-medium">Description:</span>
+                        <span className="font-medium">{t('common.description')}:</span>
                         <p className="text-muted-foreground mt-1">
                           {selectedItem.description || 'No description available'}
                         </p>
@@ -453,7 +453,9 @@ function HomeFlow() {
 
                   {/* Quantity Input Section */}
                   <div className="flex-shrink-0">
-                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">Crafting Quantity</h3>
+                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">
+                      {t('calculator.craftingQuantity')}
+                    </h3>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <Input
@@ -469,14 +471,16 @@ function HomeFlow() {
                           }}
                           className="w-20"
                         />
-                        <span className="text-muted-foreground text-sm">items to craft</span>
+                        <span className="text-muted-foreground text-sm">{t('calculator.itemsToCraft')}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Usage Section */}
                   <div className="flex flex-1 flex-col overflow-hidden">
-                    <h3 className="text-muted-foreground mb-2 flex-shrink-0 text-sm font-semibold">Usage</h3>
+                    <h3 className="text-muted-foreground mb-2 flex-shrink-0 text-sm font-semibold">
+                      {t('common.usage')}
+                    </h3>
                     <ScrollArea className="flex-1">
                       <div className="space-y-2 pr-4">
                         {recipes.filter((recipe) =>
@@ -494,7 +498,7 @@ function HomeFlow() {
                               <div key={index} className="bg-muted rounded p-2 text-sm">
                                 <div className="font-medium">{resolveRecipeName(recipe, allItems)}</div>
                                 <div className="text-muted-foreground text-xs">
-                                  Produces:{' '}
+                                  {t('calculator.produces')}:{' '}
                                   {recipe.output.map((output, i) => {
                                     const outputItem = allItems.find((item) => item.id === output.item)
                                     return (
@@ -513,7 +517,7 @@ function HomeFlow() {
                               </div>
                             ))
                         ) : (
-                          <p className="text-muted-foreground text-sm">This item is not used in any recipes</p>
+                          <p className="text-muted-foreground text-sm">{t('calculator.noRecipes')}</p>
                         )}
                       </div>
                     </ScrollArea>
@@ -538,6 +542,7 @@ function HomeFlow() {
                   }}
                   className="h-full"
                 >
+                  {/* <MiniMap nodeStrokeWidth={3} position="top-right" /> */}
                   <Controls className="bg-background border-border border" />
                   <Background />
                 </ReactFlow>

@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bitcraft.Guide
+
+A comprehensive crafting guide and recipe visualizer for BitCraft, built with Next.js, React Flow, and TypeScript.
+
+## Features
+
+- 🔍 **Item Search**: Search through all items, cargo, and resources in the game
+- 📊 **Recipe Visualization**: Interactive flow diagrams showing crafting dependencies
+- 🎯 **Quantity Calculator**: Calculate required materials for any desired output quantity
+- 🌐 **Internationalization**: Multi-language support with next-intl
+- 🎨 **Modern UI**: Built with shadcn/ui components and Tailwind CSS
+- 📱 **Responsive Design**: Works on desktop and mobile devices
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **UI Components**: shadcn/ui + Radix UI
+- **Styling**: Tailwind CSS
+- **Flow Diagrams**: React Flow (@xyflow/react)
+- **Layout Engine**: Dagre.js
+- **Internationalization**: next-intl
+- **Code Quality**: ESLint, Prettier with organize-imports plugin
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd bitcraft.guide-web-next
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting without changes
+- `npm run generate-samples` - Generate sample data
+- `npm run map-items` - Map game items from server data
+- `npm run map-items:sample` - Map items with sample data
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                    # Next.js App Router pages
+│   └── [locale]/          # Internationalized routes
+├── components/            # React components
+│   └── ui/               # shadcn/ui components
+├── data/                 # Game data (items, recipes, etc.)
+├── lib/                  # Utility functions and types
+├── scripts/              # Data processing scripts
+└── styles/               # Global styles
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data Sources
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project uses game data from BitCraft's server files, including:
 
-## Deploy on Vercel
+- Items, cargo, and resources
+- Crafting recipes and requirements
+- Building and tool information
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Code Style
+
+This project uses:
+
+- **Prettier** for code formatting with organize-imports plugin
+- **ESLint** for code linting
+- **TypeScript** for type safety
+
+### Adding New Features
+
+1. Follow the existing component patterns using shadcn/ui
+2. Add proper TypeScript types in `src/lib/types.ts`
+3. Use the established import organization
+4. Test on both desktop and mobile
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run `npm run format` and `npm run lint`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.

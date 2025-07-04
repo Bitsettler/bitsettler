@@ -8,3 +8,7 @@ export const languages = [
   { code: 'fr', name: 'Français' },
   { code: 'es', name: 'Español' }
 ] as const
+
+// Type exports for reuse throughout the application
+export type Locale = (typeof I18N_CONFIG)['locales'][number]
+export type Language = (typeof languages)[number]

@@ -1,17 +1,36 @@
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
-import { I18N_CONFIG } from '@/src/i18n/config'
+import { Footer } from '@/src/components/footer'
+import { I18N_CONFIG, type Locale } from '@/src/i18n/config'
 import { geistSans } from '@/src/styles/typography'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import '../globals.css'
 
-export const metadata: Metadata = {
-  title: 'Bitcraft Guide',
-  description: 'Crafting Calculator & Wiki for Bitcraft Online'
+export function generateStaticParams() {
+  return I18N_CONFIG.locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+
+  // Validate that the incoming `locale` parameter is valid
+  if (!I18N_CONFIG.locales.includes(locale as Locale)) {
+    notFound()
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale)
+
+  const t = await getTranslations()
+
+  return {
+    title: t('header.title'),
+    description: t('header.subtitle')
+  }
 }
 
 export default async function LocaleLayout({
@@ -24,9 +43,12 @@ export default async function LocaleLayout({
   const { locale } = await params
 
   // Validate that the incoming `locale` parameter is valid
-  if (!I18N_CONFIG.locales.includes(locale as 'en' | 'fr' | 'es')) {
+  if (!I18N_CONFIG.locales.includes(locale as Locale)) {
     notFound()
   }
+
+  // Enable static rendering
+  setRequestLocale(locale)
 
   // Providing all messages to the client
   // side is the easiest way to get started
@@ -37,8 +59,11 @@ export default async function LocaleLayout({
       <body className={`${geistSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
-            <Header />
-            {children}
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
             <Analytics />
           </NextIntlClientProvider>
         </ThemeProvider>

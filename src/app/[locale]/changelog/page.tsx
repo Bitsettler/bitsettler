@@ -2,8 +2,28 @@ import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { SITE_CONFIG } from '@/src/config/site-config'
+import { I18N_CONFIG } from '@/src/i18n/config'
+import type { Metadata } from 'next'
+import { setRequestLocale } from 'next-intl/server'
 
-export default function ChangelogPage() {
+export function generateStaticParams() {
+  return I18N_CONFIG.locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: `Changelog - ${SITE_CONFIG.name}`,
+    description: `Track the latest updates and improvements to ${SITE_CONFIG.name}`
+  }
+}
+
+export default async function ChangelogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+
+  // Enable static rendering
+  setRequestLocale(locale)
+
   return (
     <div className="bg-background min-h-screen">
       <Container className="py-8">
@@ -11,16 +31,158 @@ export default function ChangelogPage() {
           {/* Header */}
           <div className="mb-8 text-center">
             <h1 className="text-foreground mb-4 text-4xl font-bold">Changelog</h1>
-            <p className="text-muted-foreground text-lg">Track the latest updates and improvements to BitCraft Guide</p>
+            <p className="text-muted-foreground text-lg">
+              Track the latest updates and improvements to {SITE_CONFIG.name}
+            </p>
           </div>
+
+          {/* Version Card - v1.2.0 Internationalization */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.2.0 Internationalization</CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Major update: full internationalization support with English, French, and Spanish languages
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">✨ New Features</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Full Internationalization Support</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Complete i18n support with English, French, and Spanish languages. All UI text is now
+                        translatable and the site automatically adapts to the user&apos;s language preference.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Language Switcher</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Added a language switcher component in the header allowing users to easily switch between
+                        supported languages with a dropdown menu.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Translated Metadata</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Page titles and descriptions are now translated for better SEO and user experience in each
+                        supported language.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Type Safety Improvements</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Added exported locale and language types for better TypeScript support and consistency across
+                        the application.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Changed Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🔄 Changed</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">UI Text Internationalization</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Replaced all hardcoded UI text with translation keys. The entire interface now supports multiple
+                        languages seamlessly.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Metadata Generation</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Updated metadata generation to use translations instead of hardcoded site config values for
+                        better localization support.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Technical Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">⚙️ Technical</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Next.js Internationalization</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Integrated next-intl for robust internationalization support with automatic locale detection and
+                        static generation.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Translation Files</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Created comprehensive translation files: messages/en.json, messages/fr.json, messages/es.json
+                        with all UI text properly organized.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Component Updates</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Updated all components to use translation hooks and removed hardcoded text throughout the
+                        application.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">
+                  Complete internationalization support with three languages! 🌍✨
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Version Card - v1.1.0 Enhanced Recipe System */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">v1.1.0 Enhanced Recipe System</CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">
@@ -97,8 +259,8 @@ export default function ChangelogPage() {
                       <h4 className="text-foreground font-medium">Recipe Requirements Database</h4>
                       <p className="text-muted-foreground text-sm">
                         Built comprehensive lookup tables from game data for professions, tools, and buildings instead
-                        of using placeholder mappings. Now displays accurate requirements like &quot;forestry&quot;,
-                        &quot;axe&quot;, &quot;tier-1-forestry-station&quot;.
+                        of using placeholder mappings. Now displays accurate requirements like "forestry", "axe",
+                        "tier-1-forestry-station".
                       </p>
                     </div>
                   </div>
@@ -127,7 +289,7 @@ export default function ChangelogPage() {
                       <h4 className="text-foreground font-medium">Recipe Output Display</h4>
                       <p className="text-muted-foreground text-sm">
                         Fixed recipe output showing raw IDs instead of item names in the Usage section. Now displays
-                        proper names like &quot;Produces: 1x Refined Rough Cloth&quot;.
+                        proper names like "Produces: 1x Refined Rough Cloth".
                       </p>
                     </div>
                   </div>
@@ -207,155 +369,8 @@ export default function ChangelogPage() {
                     <div>
                       <h4 className="text-foreground font-medium">Recipe Output Display</h4>
                       <p className="text-muted-foreground text-sm">
-                        Fixed recipe output showing raw IDs instead of item names in the Usage section.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Version Card - v1 MVP Release */}
-          <Card className="mb-8">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-2xl">v1 MVP Release</CardTitle>
-                <Badge variant="secondary" className="text-sm">
-                  Previous
-                </Badge>
-              </div>
-              <p className="text-muted-foreground">Initial release of the BitCraft Guide web application</p>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Features Section */}
-              <div>
-                <h3 className="text-foreground mb-3 text-lg font-semibold">✨ New Features</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Crafting Recipe Visualization</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Visualize crafting recipes and dependencies using ReactFlow
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Item Search & Selection</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Fast, debounced search for 300+ items with a scrollable, performant dropdown
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Info Panel</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Displays selected item details, recipe requirements, and usage
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Recipe Node Details</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Shows profession, building, and tool requirements as colored badges
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Mark Items as Done</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Checkbox in item/material nodes to mark as done, updating colors to green
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Viewport Management</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Prevents ReactFlow viewport from resetting on recipe selection
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <Separator />
-
-              {/* Tech & UI Section */}
-              <div>
-                <h3 className="text-foreground mb-3 text-lg font-semibold">🛠️ Technical Improvements</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Performance Optimizations</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Memoized options, limited dropdown results, and efficient edge/node updates
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Modern UI Components</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Uses shadcn/ui components for all UI elements (Combobox, Card, Badge, Checkbox, etc.)
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">TypeScript-First Development</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Functional React components with proper type safety
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <Separator />
-
-              {/* Fixes Section */}
-              <div>
-                <h3 className="text-foreground mb-3 text-lg font-semibold">🐛 Bug Fixes & Improvements</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Recipe Name Resolution</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Fixed cryptic recipe names by resolving placeholders (e.g., &ldquo;Carve {0}&rdquo;) to actual
-                        item names
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Recipe Requirements Display</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Fixed display of recipe requirements and fallback messages
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></div>
-                    <div>
-                      <h4 className="text-foreground font-medium">Performance Issues</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Fixed infinite update loop in edge color updates and React hook usage
+                        Fixed recipe output showing raw IDs instead of item names in the Usage section. Now displays
+                        proper names like &quot;Produces: 1x Refined Rough Cloth&quot;.
                       </p>
                     </div>
                   </div>
@@ -367,9 +382,124 @@ export default function ChangelogPage() {
               {/* Footer */}
               <div className="pt-4 text-center">
                 <p className="text-muted-foreground text-sm">
-                  This marks the first MVP release of the BitCraft Guide web app. 🎉
+                  Patch release with important bug fixes and data corrections! 🔧
                 </p>
-                <p className="text-muted-foreground mt-2 text-xs">Built with Next.js, ReactFlow, and shadcn/ui</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Version Card - v1.0.0 Initial Release */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.0.0 Initial Release</CardTitle>
+                <Badge variant="outline" className="text-sm">
+                  First Release
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">Initial release of the {SITE_CONFIG.name} web application</p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">✨ New Features</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Interactive Recipe Visualizer</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Visual flow diagrams showing crafting dependencies and requirements for any item in the game.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Quantity Calculator</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Calculate exact material requirements for any desired output quantity with automatic recipe
+                        scaling.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Comprehensive Item Database</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Search through all items, cargo, and resources with detailed information including tier, rarity,
+                        and category.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Multi-language Support</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Internationalization support for English, French, and Spanish with easy language switching.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Modern Responsive UI</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Beautiful, responsive interface built with shadcn/ui components and Tailwind CSS, optimized for
+                        both desktop and mobile.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Technical Features */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">⚙️ Technical Features</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Real Game Data Integration</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Built using actual game data from BitCraft server files, ensuring accuracy and completeness.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Performance Optimized</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Virtualized search, efficient data structures, and optimized rendering for smooth performance
+                        even with large datasets.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">TypeScript & Modern Stack</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Built with Next.js 15, TypeScript, and modern React patterns for maintainability and type
+                        safety.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">
+                  This marks the first MVP release of the {SITE_CONFIG.name} web app. 🎉
+                </p>
               </div>
             </CardContent>
           </Card>
