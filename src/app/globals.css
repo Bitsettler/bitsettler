@@ -120,3 +120,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ReactFlow Controls Dark Mode Styling */
+.dark .react-flow__controls {
+  background-color: black;
+  border: hsl(var(--border));
+}
+
+.dark .react-flow__controls button {
+  background-color: black;
+  border: hsl(var(--border));
+}
+
+.dark .react-flow__controls button svg {
+  fill: white;
+}
