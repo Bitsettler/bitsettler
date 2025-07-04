@@ -1,22 +1,22 @@
-import * as fs from "fs";
-import * as path from "path";
-import { fileURLToPath } from "url";
-import type { ServerItem } from "../../../src/lib/types";
+import * as fs from 'fs'
+import * as path from 'path'
+import { fileURLToPath } from 'url'
+import type { ServerItem } from '../../../src/lib/types'
 
 interface FrontendItem {
-  id: number;
-  name: string;
-  slug: string;
-  tier: number;
-  rarity: string;
-  category: string;
-  description: string;
+  id: number
+  name: string
+  slug: string
+  tier: number
+  rarity: string
+  category: string
+  description: string
 }
 
 interface ItemMappingConfig {
-  sourceFile: string;
-  outputDir: string;
-  category: string;
+  sourceFile: string
+  outputDir: string
+  category: string
 }
 
 /**
@@ -24,14 +24,14 @@ interface ItemMappingConfig {
  */
 function mapRarity(rarityArr: [number, Record<string, unknown>]): string {
   const rarityMap: Record<number, string> = {
-    1: "common",
-    2: "uncommon",
-    3: "rare",
-    4: "epic",
-    5: "legendary",
-    6: "mythic",
-  };
-  return rarityMap[rarityArr[0]] || "common";
+    1: 'common',
+    2: 'uncommon',
+    3: 'rare',
+    4: 'epic',
+    5: 'legendary',
+    6: 'mythic'
+  }
+  return rarityMap[rarityArr[0]] || 'common'
 }
 
 /**
@@ -40,8 +40,8 @@ function mapRarity(rarityArr: [number, Record<string, unknown>]): string {
 function toSlug(name: string): string {
   return name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 }
 
 /**
@@ -55,8 +55,8 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
     tier: serverItem.tier,
     rarity: mapRarity(serverItem.rarity),
     category,
-    description: serverItem.description || "No description available",
-  };
+    description: serverItem.description || 'No description available'
+  }
 }
 
 /**
@@ -65,7 +65,7 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
 function shouldFilterItem(serverItem: ServerItem): boolean {
   // Only filter out items with "Output" suffix
   // These are typically recipe outputs rather than actual items
-  return serverItem.name.includes("Output");
+  return serverItem.name.includes('Output')
 }
 
 /**
@@ -73,66 +73,62 @@ function shouldFilterItem(serverItem: ServerItem): boolean {
  */
 function processItems(config: ItemMappingConfig): void {
   try {
-    console.log(`📄 Processing items from: ${config.sourceFile}`);
+    console.log(`📄 Processing items from: ${config.sourceFile}`)
 
     // Read source file
-    const sourceContent = fs.readFileSync(config.sourceFile, "utf-8");
-    const serverItems: ServerItem[] = JSON.parse(sourceContent);
+    const sourceContent = fs.readFileSync(config.sourceFile, 'utf-8')
+    const serverItems: ServerItem[] = JSON.parse(sourceContent)
 
-    console.log(`📊 Found ${serverItems.length} items to convert`);
+    console.log(`📊 Found ${serverItems.length} items to convert`)
 
     // Create output directory if it doesn't exist
     if (!fs.existsSync(config.outputDir)) {
-      fs.mkdirSync(config.outputDir, { recursive: true });
-      console.log(`✅ Created output directory: ${config.outputDir}`);
+      fs.mkdirSync(config.outputDir, { recursive: true })
+      console.log(`✅ Created output directory: ${config.outputDir}`)
     }
 
     // Convert all items to frontend format
-    const frontendItems: FrontendItem[] = [];
-    let processedCount = 0;
-    let errorCount = 0;
-    let filteredCount = 0;
+    const frontendItems: FrontendItem[] = []
+    let processedCount = 0
+    let errorCount = 0
+    let filteredCount = 0
 
     for (const serverItem of serverItems) {
       try {
         if (shouldFilterItem(serverItem)) {
-          console.log(`❌ Skipping filtered item: ${serverItem.name}`);
-          filteredCount++;
-          continue;
+          console.log(`❌ Skipping filtered item: ${serverItem.name}`)
+          filteredCount++
+          continue
         }
-        const frontendItem = convertItem(serverItem, config.category);
-        frontendItems.push(frontendItem);
-        processedCount++;
-        console.log(`✅ Converted: ${serverItem.name}`);
+        const frontendItem = convertItem(serverItem, config.category)
+        frontendItems.push(frontendItem)
+        processedCount++
+        console.log(`✅ Converted: ${serverItem.name}`)
       } catch (error) {
-        errorCount++;
-        console.error(`❌ Error converting ${serverItem.name}:`, error);
+        errorCount++
+        console.error(`❌ Error converting ${serverItem.name}:`, error)
       }
     }
 
     // Sort items alphabetically by name
-    frontendItems.sort((a, b) => a.name.localeCompare(b.name));
+    frontendItems.sort((a, b) => a.name.localeCompare(b.name))
 
     // Write single JSON file for the category
-    const outputPath = path.join(config.outputDir, `${config.category}.json`);
-    fs.writeFileSync(
-      outputPath,
-      JSON.stringify(frontendItems, null, 2),
-      "utf-8"
-    );
+    const outputPath = path.join(config.outputDir, `${config.category}.json`)
+    fs.writeFileSync(outputPath, JSON.stringify(frontendItems, null, 2), 'utf-8')
 
-    console.log(`\n🎉 Item conversion completed for ${config.category}!`);
-    console.log(`✅ Successfully converted: ${processedCount} items`);
-    console.log(`📄 Output file: ${outputPath}`);
+    console.log(`\n🎉 Item conversion completed for ${config.category}!`)
+    console.log(`✅ Successfully converted: ${processedCount} items`)
+    console.log(`📄 Output file: ${outputPath}`)
     if (filteredCount > 0) {
-      console.log(`🚫 Filtered out: ${filteredCount} items (recipes/outputs)`);
+      console.log(`🚫 Filtered out: ${filteredCount} items (recipes/outputs)`)
     }
     if (errorCount > 0) {
-      console.log(`❌ Errors: ${errorCount} items`);
+      console.log(`❌ Errors: ${errorCount} items`)
     }
   } catch (error) {
-    console.error(`💥 Error processing ${config.sourceFile}:`, error);
-    throw error;
+    console.error(`💥 Error processing ${config.sourceFile}:`, error)
+    throw error
   }
 }
 
@@ -140,9 +136,9 @@ function processItems(config: ItemMappingConfig): void {
  * Parse command line arguments
  */
 function parseArgs(): { useSample: boolean } {
-  const args = process.argv.slice(2);
-  const useSample = args.includes("--sample");
-  return { useSample };
+  const args = process.argv.slice(2)
+  const useSample = args.includes('--sample')
+  return { useSample }
 }
 
 /**
@@ -150,10 +146,10 @@ function parseArgs(): { useSample: boolean } {
  */
 function getSourceDir(useSample: boolean, __dirname: string): string {
   if (useSample) {
-    return path.resolve(__dirname, "../../../data/sample");
+    return path.resolve(__dirname, '../../../data/sample')
   } else {
     // Look for BitCraft_GameData at the root level (same level as bitcraft.guide-web-next)
-    return path.resolve(__dirname, "../../../../BitCraft_GameData");
+    return path.resolve(__dirname, '../../../../BitCraft_GameData')
   }
 }
 
@@ -161,47 +157,47 @@ function getSourceDir(useSample: boolean, __dirname: string): string {
  * Main execution function
  */
 function main(): void {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = path.dirname(__filename)
 
   // Parse command line arguments
-  const { useSample } = parseArgs();
-  const sourceDir = getSourceDir(useSample, __dirname);
+  const { useSample } = parseArgs()
+  const sourceDir = getSourceDir(useSample, __dirname)
 
-  console.log("🚀 Starting item conversion...");
-  console.log(`📁 Source directory: ${sourceDir}`);
-  console.log(`📊 Using ${useSample ? "sample" : "real"} data`);
-  console.log(`📁 Working directory: ${__dirname}`);
+  console.log('🚀 Starting item conversion...')
+  console.log(`📁 Source directory: ${sourceDir}`)
+  console.log(`📊 Using ${useSample ? 'sample' : 'real'} data`)
+  console.log(`📁 Working directory: ${__dirname}`)
 
   // Configuration for different item types
   const configs: ItemMappingConfig[] = [
     {
-      sourceFile: path.join(sourceDir, "server/region/item_desc.json"),
-      outputDir: path.resolve(__dirname, "../../../src/data"),
-      category: "items",
+      sourceFile: path.join(sourceDir, 'server/region/item_desc.json'),
+      outputDir: path.resolve(__dirname, '../../../src/data'),
+      category: 'items'
     },
     {
-      sourceFile: path.join(sourceDir, "server/region/cargo_desc.json"),
-      outputDir: path.resolve(__dirname, "../../../src/data"),
-      category: "cargo",
+      sourceFile: path.join(sourceDir, 'server/region/cargo_desc.json'),
+      outputDir: path.resolve(__dirname, '../../../src/data'),
+      category: 'cargo'
     },
     {
-      sourceFile: path.join(sourceDir, "server/region/resource_desc.json"),
-      outputDir: path.resolve(__dirname, "../../../src/data"),
-      category: "resources",
-    },
-  ];
+      sourceFile: path.join(sourceDir, 'server/region/resource_desc.json'),
+      outputDir: path.resolve(__dirname, '../../../src/data'),
+      category: 'resources'
+    }
+  ]
 
   // Process each item type
   for (const config of configs) {
-    console.log(`\n📦 Processing ${config.category}...`);
-    processItems(config);
+    console.log(`\n📦 Processing ${config.category}...`)
+    processItems(config)
   }
 
-  console.log("\n🎉 All item conversions completed!");
+  console.log('\n🎉 All item conversions completed!')
 }
 
 // Run the script if it's executed directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  main();
+  main()
 }

@@ -1,216 +1,184 @@
-"use client";
+'use client'
 
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import { Container } from '@/components/container'
+import { ItemNode, MaterialNode } from '@/components/recipe-nodes'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Combobox } from '@/components/ui/combobox'
+import { Input } from '@/components/ui/input'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Recipe } from '@/src/lib/types'
+import Dagre from '@dagrejs/dagre'
+import type { Edge, Node } from '@xyflow/react'
 import {
+  Background,
+  Controls,
   ReactFlow,
   ReactFlowProvider,
-  Controls,
-  useNodesState,
   useEdgesState,
-  useReactFlow,
-  Background,
-} from "@xyflow/react";
-import type { Node, Edge } from "@xyflow/react";
-import "@xyflow/react/dist/style.css";
-import Dagre from "@dagrejs/dagre";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ItemNode, MaterialNode } from "@/components/recipe-nodes";
-import { Container } from "@/components/container";
-import { useTranslations } from "next-intl";
-import { Combobox } from "@/components/ui/combobox";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
-
-// Import types
-interface Recipe {
-  id: number;
-  name: string;
-  output: Array<{
-    item: number;
-    qty: number | number[] | null;
-  }>;
-  requirements: {
-    materials: Array<{ id: number | null; qty: number | null }>;
-    professions?: string;
-    tool?: string;
-    building?: string;
-  };
-}
+  useNodesState,
+  useReactFlow
+} from '@xyflow/react'
+import '@xyflow/react/dist/style.css'
+import { useTranslations } from 'next-intl'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 // Utility function to resolve recipe name placeholders
 const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
-  let resolvedName = recipe.name;
+  let resolvedName = recipe.name
 
   // Replace {0} with output item name
   if (recipe.output && recipe.output.length > 0) {
-    const outputItem = allItems.find(
-      (item) => item.id === recipe.output[0].item
-    );
+    const outputItem = allItems.find((item) => item.id === recipe.output[0].item)
     if (outputItem) {
-      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name);
+      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name)
     }
   }
 
   // Replace {1} with first input material name
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 0
-  ) {
-    const firstMaterial = recipe.requirements.materials[0];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
+    const firstMaterial = recipe.requirements.materials[0]
     if (firstMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === firstMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === firstMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name)
       }
     }
   }
 
   // Replace {2} with second input material name (if exists)
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 1
-  ) {
-    const secondMaterial = recipe.requirements.materials[1];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 1) {
+    const secondMaterial = recipe.requirements.materials[1]
     if (secondMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === secondMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === secondMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name)
       }
     }
   }
 
   // Replace {3} with third input material name (if exists)
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 2
-  ) {
-    const thirdMaterial = recipe.requirements.materials[2];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 2) {
+    const thirdMaterial = recipe.requirements.materials[2]
     if (thirdMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === thirdMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === thirdMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name)
       }
     }
   }
 
-  return resolvedName;
-};
+  return resolvedName
+}
 
-import recipes from "@/src/data/recipes.json";
-import items from "@/src/data/items.json";
-import cargo from "@/src/data/cargo.json";
-import resources from "@/src/data/resources.json";
+import cargo from '@/src/data/cargo.json'
+import items from '@/src/data/items.json'
+import recipes from '@/src/data/recipes.json'
+import resources from '@/src/data/resources.json'
 
 // All available items in the database
 const allItems: Array<{
-  id: number;
-  name: string;
-  slug: string;
-  tier: number;
-  rarity: string;
-  category: string;
-  description: string;
-}> = [...items, ...cargo, ...resources];
+  id: number
+  name: string
+  slug: string
+  tier: number
+  rarity: string
+  category: string
+  description: string
+}> = [...items, ...cargo, ...resources]
 
-const initialNodes: Node[] = [];
-const initialEdges: Edge[] = [];
+const initialNodes: Node[] = []
+const initialEdges: Edge[] = []
 
 const useLayoutedElements = () => {
-  const { getNodes, setNodes, getEdges, fitView } = useReactFlow();
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const { getNodes, setNodes, getEdges, fitView } = useReactFlow()
+  const [isInitialLoad, setIsInitialLoad] = useState(true)
 
   const getLayoutedElements = useCallback(
     (shouldFitView = false) => {
-      const nodes = getNodes();
-      const edges = getEdges();
+      const nodes = getNodes()
+      const edges = getEdges()
 
-      const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
+      const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}))
       g.setGraph({
-        rankdir: "TB",
-        ranker: "network-simplex",
-        align: "UL",
+        rankdir: 'TB',
+        ranker: 'network-simplex',
+        align: 'UL',
         nodesep: 40,
-        ranksep: 80,
-      });
+        ranksep: 80
+      })
 
-      edges.forEach((edge) => g.setEdge(edge.source, edge.target));
+      edges.forEach((edge) => g.setEdge(edge.source, edge.target))
       nodes.forEach((node) =>
         g.setNode(node.id, {
           width: node.measured?.width ?? 320,
-          height: node.measured?.height ?? 120,
+          height: node.measured?.height ?? 120
         })
-      );
+      )
 
-      Dagre.layout(g);
+      Dagre.layout(g)
 
       const layoutedNodes = nodes.map((node) => {
-        const position = g.node(node.id);
+        const position = g.node(node.id)
         return {
           ...node,
           position: {
             x: position.x - (node.measured?.width ?? 0) / 2,
-            y: position.y - (node.measured?.height ?? 0) / 2,
-          },
-        };
-      });
+            y: position.y - (node.measured?.height ?? 0) / 2
+          }
+        }
+      })
 
-      setNodes(layoutedNodes);
+      setNodes(layoutedNodes)
 
       // Only fit view on initial load or when explicitly requested
       if (shouldFitView || isInitialLoad) {
-        fitView();
-        setIsInitialLoad(false);
+        fitView()
+        setIsInitialLoad(false)
       }
     },
     [getNodes, getEdges, setNodes, fitView, isInitialLoad]
-  );
+  )
 
-  return { getLayoutedElements };
-};
+  return { getLayoutedElements }
+}
 
 // Add these helper functions near the top (after imports):
 const getRarityColor = (rarity: string) => {
   switch (rarity.toLowerCase()) {
-    case "common":
-      return "bg-gray-100 text-gray-800 border-gray-300";
-    case "uncommon":
-      return "bg-green-100 text-green-800 border-green-300";
-    case "rare":
-      return "bg-blue-100 text-blue-800 border-blue-300";
-    case "epic":
-      return "bg-purple-100 text-purple-800 border-purple-300";
-    case "legendary":
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+    case 'common':
+      return 'bg-gray-100 text-gray-800 border-gray-300'
+    case 'uncommon':
+      return 'bg-green-100 text-green-800 border-green-300'
+    case 'rare':
+      return 'bg-blue-100 text-blue-800 border-blue-300'
+    case 'epic':
+      return 'bg-purple-100 text-purple-800 border-purple-300'
+    case 'legendary':
+      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
   }
-};
+}
 const getTierColor = (tier: number) => {
   switch (tier) {
     case 1:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
     case 2:
-      return "bg-green-100 text-green-800 border-green-300";
+      return 'bg-green-100 text-green-800 border-green-300'
     case 3:
-      return "bg-blue-100 text-blue-800 border-blue-300";
+      return 'bg-blue-100 text-blue-800 border-blue-300'
     case 4:
-      return "bg-purple-100 text-purple-800 border-purple-300";
+      return 'bg-purple-100 text-purple-800 border-purple-300'
     case 5:
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
   }
-};
+}
 
 function HomeFlow() {
-  const t = useTranslations();
+  const t = useTranslations()
 
   // Convert items to combobox options - memoized for performance
   const itemOptions = React.useMemo(
@@ -218,72 +186,70 @@ function HomeFlow() {
       allItems.map((item) => ({
         value: item.id.toString(),
         label: item.name,
-        keywords: `${item.name} ${item.slug} ${item.category}`,
+        keywords: `${item.name} ${item.slug} ${item.category}`
       })),
     []
-  );
+  )
 
-  const [selectedItem, setSelectedItem] = useState<(typeof allItems)[0] | null>(
-    null
-  );
-  const [desiredQuantity, setDesiredQuantity] = useState(1);
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const { getLayoutedElements } = useLayoutedElements();
+  const [selectedItem, setSelectedItem] = useState<(typeof allItems)[0] | null>(null)
+  const [desiredQuantity, setDesiredQuantity] = useState(1)
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
+  const { getLayoutedElements } = useLayoutedElements()
 
   // Track previous node states to prevent unnecessary edge updates
-  const prevNodeStates = useRef<Map<string, boolean>>(new Map());
+  const prevNodeStates = useRef<Map<string, boolean>>(new Map())
 
   // Update edge colors when nodes change
   useEffect(() => {
     if (edges.length > 0) {
       // Check if any node's done state has actually changed
-      let hasChanges = false;
-      const currentNodeStates = new Map<string, boolean>();
+      let hasChanges = false
+      const currentNodeStates = new Map<string, boolean>()
 
       nodes.forEach((node) => {
-        const isDone = Boolean(node.data?.isDone);
-        const prevIsDone = prevNodeStates.current.get(node.id) || false;
-        currentNodeStates.set(node.id, isDone);
+        const isDone = Boolean(node.data?.isDone)
+        const prevIsDone = prevNodeStates.current.get(node.id) || false
+        currentNodeStates.set(node.id, isDone)
 
         if (isDone !== prevIsDone) {
-          hasChanges = true;
+          hasChanges = true
         }
-      });
+      })
 
       // Only update edges if there are actual changes
       if (hasChanges) {
         const updatedEdges = edges.map((edge) => {
-          const targetNode = nodes.find((node) => node.id === edge.target);
-          const isTargetDone = Boolean(targetNode?.data?.isDone);
+          const targetNode = nodes.find((node) => node.id === edge.target)
+          const isTargetDone = Boolean(targetNode?.data?.isDone)
 
           return {
             ...edge,
             style: {
               ...edge.style,
-              stroke: isTargetDone ? "#22c55e" : "#64748b", // Green if done, gray if not
-              strokeWidth: isTargetDone ? 3 : 2,
-            },
-          };
-        });
-        setEdges(updatedEdges);
+              stroke: isTargetDone ? '#22c55e' : '#64748b', // Green if done, gray if not
+              strokeWidth: isTargetDone ? 3 : 2
+            }
+          }
+        })
+        setEdges(updatedEdges)
 
         // Update the ref with current states
-        prevNodeStates.current = currentNodeStates;
+        prevNodeStates.current = currentNodeStates
       }
     }
-  }, [nodes, edges, setEdges]);
+  }, [nodes, edges, setEdges])
 
   // Apply layout whenever nodes or edges change (but don't fit view)
   useEffect(() => {
     if (nodes.length > 1 || edges.length > 0) {
-      setTimeout(() => getLayoutedElements(false), 0); // Don't fit view on recipe selections
+      setTimeout(() => getLayoutedElements(false), 0) // Don't fit view on recipe selections
     }
-  }, [nodes.length, edges.length, getLayoutedElements]);
+  }, [nodes.length, edges.length, getLayoutedElements])
 
   const updateNodeQuantities = useCallback(
     (targetQuantity: number) => {
-      if (!selectedItem) return;
+      if (!selectedItem) return
 
       const updatedNodes = nodes.map((node) => {
         if (node.id === selectedItem.id.toString()) {
@@ -292,92 +258,78 @@ function HomeFlow() {
             ...node,
             data: {
               ...node.data,
-              quantity: targetQuantity,
-            },
-          };
+              quantity: targetQuantity
+            }
+          }
         } else {
           // For all other nodes, calculate quantities based on their recipe
-          const recipe = node.data.selectedRecipe as Recipe;
+          const recipe = node.data.selectedRecipe as Recipe
           if (recipe) {
             // Find the output item that matches the selected item
             const outputItem = recipe.output?.find(
-              (output: { item: number; qty: number | number[] | null }) =>
-                output.item === selectedItem.id
-            );
+              (output: { item: number; qty: number | number[] | null }) => output.item === selectedItem.id
+            )
 
             if (outputItem) {
               const outputQty = Array.isArray(outputItem.qty)
                 ? outputItem.qty[0] // Use minimum quantity for calculation
-                : outputItem.qty || 1;
+                : outputItem.qty || 1
 
               // Calculate how many times we need to run this recipe
-              const recipeRuns = Math.ceil(targetQuantity / outputQty);
+              const recipeRuns = Math.ceil(targetQuantity / outputQty)
 
               return {
                 ...node,
                 data: {
                   ...node.data,
-                  quantity: recipeRuns,
-                },
-              };
+                  quantity: recipeRuns
+                }
+              }
             }
           }
         }
-        return node;
-      });
+        return node
+      })
 
       // Now update material nodes based on recipe requirements
       const finalNodes = updatedNodes.map((node) => {
         // Check if this is a material node (has recipe ID in its ID)
-        if (node.id.includes("_") && node.id !== selectedItem.id.toString()) {
-          const [materialId, recipeId] = node.id.split("_");
-          const recipe = recipes.find(
-            (r: Recipe) => r.id.toString() === recipeId
-          );
+        if (node.id.includes('_') && node.id !== selectedItem.id.toString()) {
+          const [materialId, recipeId] = node.id.split('_')
+          const recipe = recipes.find((r: Recipe) => r.id.toString() === recipeId)
 
           if (recipe) {
             // Find the material requirement
-            const materialReq = recipe.requirements.materials?.find(
-              (mat) => mat.id?.toString() === materialId
-            );
+            const materialReq = recipe.requirements.materials?.find((mat) => mat.id?.toString() === materialId)
 
             if (materialReq) {
               // Get the quantity needed per recipe run
-              const materialQty = materialReq?.qty;
+              const materialQty = materialReq?.qty
 
               // Only calculate quantities if the material has a specific quantity requirement
               // and is not a resource (resources don't show quantities)
-              if (
-                materialQty !== null &&
-                materialQty !== undefined &&
-                node.data.category !== "resources"
-              ) {
+              if (materialQty !== null && materialQty !== undefined && node.data.category !== 'resources') {
                 // Find the parent recipe node to get how many times we need to run it
-                const parentNode = updatedNodes.find(
-                  (n) => n.id === selectedItem.id.toString()
-                );
+                const parentNode = updatedNodes.find((n) => n.id === selectedItem.id.toString())
                 if (parentNode && parentNode.data.selectedRecipe) {
-                  const parentRecipe = parentNode.data.selectedRecipe as Recipe;
+                  const parentRecipe = parentNode.data.selectedRecipe as Recipe
                   const outputItem = parentRecipe.output?.find(
-                    (output: { item: number; qty: number | number[] | null }) =>
-                      output.item === selectedItem.id
-                  );
+                    (output: { item: number; qty: number | number[] | null }) => output.item === selectedItem.id
+                  )
 
                   if (outputItem) {
-                    const outputQty = Array.isArray(outputItem.qty)
-                      ? outputItem.qty[0]
-                      : outputItem.qty || 1;
+                    const outputQty = Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty || 1
 
-                    const recipeRuns = Math.ceil(targetQuantity / outputQty);
-                    const totalMaterialQty = recipeRuns * materialQty;
+                    const recipeRuns = Math.ceil(targetQuantity / outputQty)
+                    const totalMaterialQty = recipeRuns * materialQty
 
                     return {
                       ...node,
                       data: {
                         ...node.data,
-                        quantity: totalMaterialQty,
-                      },
-                    };
+                        quantity: totalMaterialQty
+                      }
+                    }
                   }
                 }
               } else {
@@ -386,38 +338,36 @@ function HomeFlow() {
                   ...node,
                   data: {
                     ...node.data,
-                    quantity: undefined,
-                  },
-                };
+                    quantity: undefined
+                  }
+                }
               }
             }
           }
         }
-        return node;
-      });
+        return node
+      })
 
-      setNodes(finalNodes);
+      setNodes(finalNodes)
     },
     [nodes, selectedItem, setNodes]
-  );
+  )
 
   const handleItemSelect = useCallback(
     (itemId: string) => {
-      const item = allItems.find((item) => item.id.toString() === itemId);
-      if (!item) return;
+      const item = allItems.find((item) => item.id.toString() === itemId)
+      if (!item) return
 
-      setSelectedItem(item);
-      setDesiredQuantity(1); // Reset quantity when selecting new item
+      setSelectedItem(item)
+      setDesiredQuantity(1) // Reset quantity when selecting new item
 
       // Find recipes for this specific item
-      const itemRecipes = recipes.filter((recipe) =>
-        recipe.output.some((output) => output.item === item.id)
-      );
+      const itemRecipes = recipes.filter((recipe) => recipe.output.some((output) => output.item === item.id))
 
       // Create only the main item node initially
       const itemNode: Node = {
         id: item.id.toString(),
-        type: "itemNode",
+        type: 'itemNode',
         data: {
           label: item.name,
           tier: item.tier,
@@ -427,34 +377,30 @@ function HomeFlow() {
           selectedRecipe: null,
           itemId: item.id,
           quantity: 1,
-          isDone: false, // Initialize as not done
+          isDone: false // Initialize as not done
         },
-        position: { x: 0, y: 0 }, // Will be positioned by dagre
-      };
+        position: { x: 0, y: 0 } // Will be positioned by dagre
+      }
 
       // Set the node and apply layout
-      setNodes([itemNode]);
-      setEdges([]);
-      setTimeout(() => getLayoutedElements(true), 0); // Fit view on initial item selection
+      setNodes([itemNode])
+      setEdges([])
+      setTimeout(() => getLayoutedElements(true), 0) // Fit view on initial item selection
     },
     [setNodes, setEdges, getLayoutedElements]
-  );
+  )
 
   return (
-    <div className="h-[calc(100vh-3.5rem)] bg-background overflow-hidden">
-      <Container className="py-8 h-full">
+    <div className="bg-background h-[calc(100vh-3.5rem)] overflow-hidden">
+      <Container className="h-full py-8">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-12 gap-6 h-full">
+        <div className="grid h-full grid-cols-12 gap-6">
           {/* Left Column - Title, Search and Info Section (3 columns) */}
           <div className="col-span-3 flex flex-col space-y-4 overflow-hidden">
             {/* Title and Subtitle */}
-            <div className="text-left flex-shrink-0">
-              <h1 className="text-3xl font-bold text-foreground mb-2">
-                {t("header.title")}
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                {t("header.subtitle")}
-              </p>
+            <div className="flex-shrink-0 text-left">
+              <h1 className="text-foreground mb-2 text-3xl font-bold">{t('header.title')}</h1>
+              <p className="text-muted-foreground text-lg">{t('header.subtitle')}</p>
             </div>
 
             {/* Search Card */}
@@ -465,7 +411,7 @@ function HomeFlow() {
               <CardContent>
                 <Combobox
                   options={itemOptions}
-                  value={selectedItem?.id.toString() || ""}
+                  value={selectedItem?.id.toString() || ''}
                   onValueChange={handleItemSelect}
                   placeholder="Search for items..."
                   searchPlaceholder="Search items..."
@@ -476,46 +422,30 @@ function HomeFlow() {
 
             {/* Item Information Card */}
             {selectedItem && (
-              <Card className="flex-1 overflow-hidden flex flex-col">
+              <Card className="flex flex-1 flex-col overflow-hidden">
                 <CardHeader className="flex-shrink-0">
                   <CardTitle>{selectedItem.name}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 flex-1 overflow-hidden flex flex-col">
+                <CardContent className="flex flex-1 flex-col space-y-4 overflow-hidden">
                   {/* Info Section */}
                   <div className="flex-shrink-0">
-                    <h3 className="font-semibold text-sm text-muted-foreground mb-2">
-                      Info
-                    </h3>
+                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">Info</h3>
                     <div className="space-y-2 text-sm">
                       <div>
                         <span className="font-medium">Description:</span>
                         <p className="text-muted-foreground mt-1">
-                          {selectedItem.description ||
-                            "No description available"}
+                          {selectedItem.description || 'No description available'}
                         </p>
                       </div>
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        <Badge
-                          variant="outline"
-                          className={`text-xs ${getTierColor(
-                            selectedItem.tier
-                          )}`}
-                        >
-                          Tier {selectedItem.tier || "Unknown"}
+                      <div className="mt-2 flex flex-wrap gap-1">
+                        <Badge variant="outline" className={`text-xs ${getTierColor(selectedItem.tier)}`}>
+                          Tier {selectedItem.tier || 'Unknown'}
                         </Badge>
-                        <Badge
-                          variant="outline"
-                          className={`text-xs ${getRarityColor(
-                            selectedItem.rarity
-                          )}`}
-                        >
-                          {selectedItem.rarity || "Unknown"}
+                        <Badge variant="outline" className={`text-xs ${getRarityColor(selectedItem.rarity)}`}>
+                          {selectedItem.rarity || 'Unknown'}
                         </Badge>
-                        <Badge
-                          variant="outline"
-                          className="text-xs bg-blue-50 text-blue-700 border-blue-200"
-                        >
-                          {selectedItem.category || "Unknown"}
+                        <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
+                          {selectedItem.category || 'Unknown'}
                         </Badge>
                       </div>
                     </div>
@@ -523,92 +453,67 @@ function HomeFlow() {
 
                   {/* Quantity Input Section */}
                   <div className="flex-shrink-0">
-                    <h3 className="font-semibold text-sm text-muted-foreground mb-2">
-                      Crafting Quantity
-                    </h3>
+                    <h3 className="text-muted-foreground mb-2 text-sm font-semibold">Crafting Quantity</h3>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <Input
                           type="number"
                           min="1"
                           value={desiredQuantity}
-                          onChange={(
-                            e: React.ChangeEvent<HTMLInputElement>
-                          ) => {
-                            const newQuantity = parseInt(e.target.value) || 1;
-                            setDesiredQuantity(newQuantity);
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            const newQuantity = parseInt(e.target.value) || 1
+                            setDesiredQuantity(newQuantity)
                             if (nodes.length > 0 && selectedItem) {
-                              updateNodeQuantities(newQuantity);
+                              updateNodeQuantities(newQuantity)
                             }
                           }}
                           className="w-20"
                         />
-                        <span className="text-sm text-muted-foreground">
-                          items to craft
-                        </span>
+                        <span className="text-muted-foreground text-sm">items to craft</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Usage Section */}
-                  <div className="flex-1 overflow-hidden flex flex-col">
-                    <h3 className="font-semibold text-sm text-muted-foreground mb-2 flex-shrink-0">
-                      Usage
-                    </h3>
+                  <div className="flex flex-1 flex-col overflow-hidden">
+                    <h3 className="text-muted-foreground mb-2 flex-shrink-0 text-sm font-semibold">Usage</h3>
                     <ScrollArea className="flex-1">
                       <div className="space-y-2 pr-4">
                         {recipes.filter((recipe) =>
                           recipe.requirements.materials?.some(
-                            (material) =>
-                              material.id?.toString() ===
-                              selectedItem?.id.toString()
+                            (material) => material.id?.toString() === selectedItem?.id.toString()
                           )
                         ).length > 0 ? (
                           recipes
                             .filter((recipe) =>
                               recipe.requirements.materials?.some(
-                                (material) =>
-                                  material.id?.toString() ===
-                                  selectedItem?.id.toString()
+                                (material) => material.id?.toString() === selectedItem?.id.toString()
                               )
                             )
                             .map((recipe, index) => (
-                              <div
-                                key={index}
-                                className="text-sm p-2 bg-muted rounded"
-                              >
-                                <div className="font-medium">
-                                  {resolveRecipeName(recipe, allItems)}
-                                </div>
+                              <div key={index} className="bg-muted rounded p-2 text-sm">
+                                <div className="font-medium">{resolveRecipeName(recipe, allItems)}</div>
                                 <div className="text-muted-foreground text-xs">
-                                  Produces:{" "}
+                                  Produces:{' '}
                                   {recipe.output.map((output, i) => {
-                                    const outputItem = allItems.find(
-                                      (item) => item.id === output.item
-                                    );
+                                    const outputItem = allItems.find((item) => item.id === output.item)
                                     return (
                                       <span key={i}>
                                         {output.qty
                                           ? Array.isArray(output.qty)
                                             ? `${output.qty[0]}-${output.qty[1]}`
                                             : output.qty
-                                          : "?"}
-                                        x{" "}
-                                        {outputItem?.name ||
-                                          `Item ${output.item}`}
-                                        {i < recipe.output.length - 1
-                                          ? ", "
-                                          : ""}
+                                          : '?'}
+                                        x {outputItem?.name || `Item ${output.item}`}
+                                        {i < recipe.output.length - 1 ? ', ' : ''}
                                       </span>
-                                    );
+                                    )
                                   })}
                                 </div>
                               </div>
                             ))
                         ) : (
-                          <p className="text-sm text-muted-foreground">
-                            This item is not used in any recipes
-                          </p>
+                          <p className="text-muted-foreground text-sm">This item is not used in any recipes</p>
                         )}
                       </div>
                     </ScrollArea>
@@ -621,7 +526,7 @@ function HomeFlow() {
           {/* Right Column - React Flow Canvas (9 columns) */}
           <div className="col-span-9">
             <Card className="h-full">
-              <CardContent className="p-0 h-full">
+              <CardContent className="h-full p-0">
                 <ReactFlow
                   nodes={nodes}
                   edges={edges}
@@ -629,11 +534,11 @@ function HomeFlow() {
                   onEdgesChange={onEdgesChange}
                   nodeTypes={{
                     itemNode: ItemNode,
-                    materialNode: MaterialNode,
+                    materialNode: MaterialNode
                   }}
                   className="h-full"
                 >
-                  <Controls className="bg-background border border-border" />
+                  <Controls className="bg-background border-border border" />
                   <Background />
                 </ReactFlow>
               </CardContent>
@@ -642,7 +547,7 @@ function HomeFlow() {
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
 export default function Home() {
@@ -650,5 +555,5 @@ export default function Home() {
     <ReactFlowProvider>
       <HomeFlow />
     </ReactFlowProvider>
-  );
+  )
 }

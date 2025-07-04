@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { MagnifyingGlass } from "@phosphor-icons/react";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
+import { MagnifyingGlass } from '@phosphor-icons/react'
 
 export function Search() {
   return (
@@ -9,5 +9,5 @@ export function Search() {
       <MagnifyingGlass className="h-4 w-4" />
       <span className="sr-only">Search</span>
     </Button>
-  );
+  )
 }

@@ -1,153 +1,130 @@
-"use client";
+'use client'
 
-import { memo, useEffect, useCallback } from "react";
-import { Handle, Position, NodeProps, useReactFlow } from "@xyflow/react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
+import { memo, useCallback, useEffect } from 'react'
 
 // Import data
-import recipes from "@/src/data/recipes.json";
-import items from "@/src/data/items.json";
-import cargo from "@/src/data/cargo.json";
-import resources from "@/src/data/resources.json";
+import cargo from '@/src/data/cargo.json'
+import items from '@/src/data/items.json'
+import recipes from '@/src/data/recipes.json'
+import resources from '@/src/data/resources.json'
 
 interface Recipe {
-  id: number;
-  name: string;
+  id: number
+  name: string
   output: Array<{
-    item: number;
-    qty: number | number[] | null;
-  }>;
+    item: number
+    qty: number | number[] | null
+  }>
   requirements: {
-    materials: Array<{ id: number; qty: number | null }>;
-    professions?: string;
-    tool?: string;
-    building?: string;
-  };
+    materials: Array<{ id: number; qty: number | null }>
+    professions?: string
+    tool?: string
+    building?: string
+  }
 }
 
 // Utility function to resolve recipe name placeholders
 const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
-  let resolvedName = recipe.name;
+  let resolvedName = recipe.name
 
   // Replace {0} with output item name
   if (recipe.output && recipe.output.length > 0) {
-    const outputItem = allItems.find(
-      (item) => item.id === recipe.output[0].item
-    );
+    const outputItem = allItems.find((item) => item.id === recipe.output[0].item)
     if (outputItem) {
-      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name);
+      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name)
     }
   }
 
   // Replace {1} with first input material name
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 0
-  ) {
-    const firstMaterial = recipe.requirements.materials[0];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
+    const firstMaterial = recipe.requirements.materials[0]
     if (firstMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === firstMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === firstMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name)
       }
     }
   }
 
   // Replace {2} with second input material name (if exists)
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 1
-  ) {
-    const secondMaterial = recipe.requirements.materials[1];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 1) {
+    const secondMaterial = recipe.requirements.materials[1]
     if (secondMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === secondMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === secondMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name)
       }
     }
   }
 
   // Replace {3} with third input material name (if exists)
-  if (
-    recipe.requirements.materials &&
-    recipe.requirements.materials.length > 2
-  ) {
-    const thirdMaterial = recipe.requirements.materials[2];
+  if (recipe.requirements.materials && recipe.requirements.materials.length > 2) {
+    const thirdMaterial = recipe.requirements.materials[2]
     if (thirdMaterial.id) {
-      const materialItem = allItems.find(
-        (item) => item.id === thirdMaterial.id
-      );
+      const materialItem = allItems.find((item) => item.id === thirdMaterial.id)
       if (materialItem) {
-        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name);
+        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name)
       }
     }
   }
 
-  return resolvedName;
-};
+  return resolvedName
+}
 
 interface ItemData {
-  label: string;
-  tier: number;
-  rarity: string;
-  category: string;
-  quantity?: number;
-  recipes?: Recipe[];
-  selectedRecipe?: Recipe | null;
-  itemId?: number;
-  isDone?: boolean;
+  label: string
+  tier: number
+  rarity: string
+  category: string
+  quantity?: number
+  recipes?: Recipe[]
+  selectedRecipe?: Recipe | null
+  itemId?: number
+  isDone?: boolean
 }
 
 const getRarityColor = (rarity: string) => {
   switch (rarity.toLowerCase()) {
-    case "common":
-      return "bg-gray-100 text-gray-800 border-gray-300";
-    case "uncommon":
-      return "bg-green-100 text-green-800 border-green-300";
-    case "rare":
-      return "bg-blue-100 text-blue-800 border-blue-300";
-    case "epic":
-      return "bg-purple-100 text-purple-800 border-purple-300";
-    case "legendary":
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+    case 'common':
+      return 'bg-gray-100 text-gray-800 border-gray-300'
+    case 'uncommon':
+      return 'bg-green-100 text-green-800 border-green-300'
+    case 'rare':
+      return 'bg-blue-100 text-blue-800 border-blue-300'
+    case 'epic':
+      return 'bg-purple-100 text-purple-800 border-purple-300'
+    case 'legendary':
+      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
   }
-};
+}
 
 const getTierColor = (tier: number) => {
   switch (tier) {
     case 1:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
     case 2:
-      return "bg-green-100 text-green-800 border-green-300";
+      return 'bg-green-100 text-green-800 border-green-300'
     case 3:
-      return "bg-blue-100 text-blue-800 border-blue-300";
+      return 'bg-blue-100 text-blue-800 border-blue-300'
     case 4:
-      return "bg-purple-100 text-purple-800 border-purple-300";
+      return 'bg-purple-100 text-purple-800 border-purple-300'
     case 5:
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return 'bg-gray-100 text-gray-800 border-gray-300'
   }
-};
+}
 
 export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
-  const itemData = data;
-  const { setNodes, setEdges, getNodes, getEdges } = useReactFlow();
+  const itemData = data
+  const { setNodes, setEdges, getNodes, getEdges } = useReactFlow()
 
   const handleToggleDone = useCallback(() => {
     const updatedNodes = getNodes().map((node) => {
@@ -156,22 +133,22 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
           ...node,
           data: {
             ...node.data,
-            isDone: !node.data.isDone,
-          },
-        };
+            isDone: !node.data.isDone
+          }
+        }
       }
-      return node;
-    });
-    setNodes(updatedNodes);
-  }, [id, getNodes, setNodes]);
+      return node
+    })
+    setNodes(updatedNodes)
+  }, [id, getNodes, setNodes])
 
   const handleRecipeSelect = useCallback(
     (recipeId: string) => {
       // Use imported data
-      const allItems = [...items, ...cargo, ...resources];
+      const allItems = [...items, ...cargo, ...resources]
 
-      const recipe = recipes.find((r) => r.id.toString() === recipeId);
-      if (!recipe) return;
+      const recipe = recipes.find((r) => r.id.toString() === recipeId)
+      if (!recipe) return
 
       // Update the current node with selected recipe
       const updatedNodes = getNodes().map((node) => {
@@ -180,123 +157,102 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
             ...node,
             data: {
               ...node.data,
-              selectedRecipe: recipe,
-            },
-          };
+              selectedRecipe: recipe
+            }
+          }
         }
-        return node;
-      });
+        return node
+      })
 
       // Remove existing material nodes and edges for this specific recipe
       const filteredNodes = updatedNodes.filter((node) => {
         // Keep the current node
-        if (node.id === id) return true;
+        if (node.id === id) return true
         // Remove only material nodes that belong to this specific recipe
-        if (node.id.includes(`-${recipe.id}`)) return false;
+        if (node.id.includes(`-${recipe.id}`)) return false
         // Keep all other nodes (including parent nodes)
-        return true;
-      });
+        return true
+      })
 
       const filteredEdges = getEdges().filter((edge) => {
         // Remove only edges that belong to this specific recipe
         // The edge ID format is: e{source}-{material}-{recipeId}
         // We only want to remove edges that end with -{recipeId}
-        return !edge.id.endsWith(`-${recipe.id}`);
-      });
+        return !edge.id.endsWith(`-${recipe.id}`)
+      })
 
       // Only create material nodes if the recipe has materials
-      if (
-        recipe.requirements.materials &&
-        recipe.requirements.materials.length > 0
-      ) {
+      if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
         // Get the current node's quantity to calculate child quantities
-        const currentNode = filteredNodes.find((node) => node.id === id);
-        const parentQuantity = (currentNode?.data?.quantity as number) || 1;
+        const currentNode = filteredNodes.find((node) => node.id === id)
+        const parentQuantity = (currentNode?.data?.quantity as number) || 1
 
         // Create material nodes
-        const materialNodes = recipe.requirements.materials.map(
-          (material: { id: number; qty: number | null }) => {
-            const materialId = material.id;
-            const materialData = allItems.find(
-              (item) => item.id === materialId
-            );
+        const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+          const materialId = material.id
+          const materialData = allItems.find((item) => item.id === materialId)
 
-            // Check if this material has recipes (for recursive expansion)
-            const materialRecipes = recipes.filter((r) =>
-              r.output.some((output) => output.item === materialId)
-            );
+          // Check if this material has recipes (for recursive expansion)
+          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
 
-            // Calculate the total quantity needed for this material
-            let calculatedQuantity: number | undefined;
-            if (
-              material.qty !== null &&
-              material.qty !== undefined &&
-              materialData?.category !== "resources"
-            ) {
-              // Multiply the material requirement by the parent's quantity
-              calculatedQuantity = (material.qty as number) * parentQuantity;
-            }
-
-            return {
-              id: `${materialId}_${recipe.id}`,
-              type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
-              data: {
-                label: materialData?.name || `Item ${materialId}`,
-                tier: materialData?.tier || 1,
-                rarity: materialData?.rarity || "common",
-                category: materialData?.category || "unknown",
-                quantity: calculatedQuantity, // Use calculated quantity
-                recipes: materialRecipes, // Pass recipes if available
-                selectedRecipe: null,
-                itemId: materialId,
-                isDone: false, // Initialize as not done
-              },
-              position: { x: 0, y: 0 }, // Let dagre handle positioning
-            };
+          // Calculate the total quantity needed for this material
+          let calculatedQuantity: number | undefined
+          if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
+            // Multiply the material requirement by the parent's quantity
+            calculatedQuantity = (material.qty as number) * parentQuantity
           }
-        );
+
+          return {
+            id: `${materialId}_${recipe.id}`,
+            type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
+            data: {
+              label: materialData?.name || `Item ${materialId}`,
+              tier: materialData?.tier || 1,
+              rarity: materialData?.rarity || 'common',
+              category: materialData?.category || 'unknown',
+              quantity: calculatedQuantity, // Use calculated quantity
+              recipes: materialRecipes, // Pass recipes if available
+              selectedRecipe: null,
+              itemId: materialId,
+              isDone: false // Initialize as not done
+            },
+            position: { x: 0, y: 0 } // Let dagre handle positioning
+          }
+        })
 
         // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map(
-          (material: { id: number; qty: number | null }) => {
-            const materialId = material.id;
-            return {
-              id: `${id}-${materialId}_${recipe.id}`,
-              source: id,
-              target: `${materialId}_${recipe.id}`,
-              type: "smoothstep",
-            };
+        const materialEdges = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+          const materialId = material.id
+          return {
+            id: `${id}-${materialId}_${recipe.id}`,
+            source: id,
+            target: `${materialId}_${recipe.id}`,
+            type: 'smoothstep'
           }
-        );
+        })
 
-        setNodes([...filteredNodes, ...materialNodes]);
-        setEdges([...filteredEdges, ...materialEdges]);
+        setNodes([...filteredNodes, ...materialNodes])
+        setEdges([...filteredEdges, ...materialEdges])
       } else {
         // For gathering recipes without materials, just update the node
-        setNodes([...filteredNodes]);
-        setEdges([...filteredEdges]);
+        setNodes([...filteredNodes])
+        setEdges([...filteredEdges])
       }
     },
     [id, getNodes, getEdges, setNodes, setEdges]
-  );
+  )
 
   // Auto-select recipe if there's only one available
   useEffect(() => {
-    if (
-      itemData.recipes &&
-      itemData.recipes.length === 1 &&
-      !itemData.selectedRecipe
-    ) {
-      handleRecipeSelect(itemData.recipes[0].id.toString());
+    if (itemData.recipes && itemData.recipes.length === 1 && !itemData.selectedRecipe) {
+      handleRecipeSelect(itemData.recipes[0].id.toString())
     }
-  }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect]);
+  }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect])
 
   return (
     <Card
-      className={`w-fit min-w-64 max-w-80 shadow-lg border-2 ${
-        itemData.isDone
-          ? "border-green-500 bg-green-50/30"
-          : "border-primary/20"
+      className={`w-fit max-w-80 min-w-64 border-2 shadow-lg ${
+        itemData.isDone ? 'border-green-500 bg-green-50/30' : 'border-primary/20'
       }`}
     >
       <CardHeader className="pb-2">
@@ -305,13 +261,9 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
             <Checkbox
               checked={itemData.isDone}
               onCheckedChange={handleToggleDone}
-              className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+              className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
             />
-            <CardTitle
-              className={`text-sm font-semibold ${
-                itemData.isDone ? "line-through text-green-700" : ""
-              }`}
-            >
+            <CardTitle className={`text-sm font-semibold ${itemData.isDone ? 'text-green-700 line-through' : ''}`}>
               {itemData.label}
             </CardTitle>
           </div>
@@ -324,23 +276,14 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
       </CardHeader>
 
       <CardContent className="pt-0">
-        <div className="flex flex-wrap gap-1 mb-2">
-          <Badge
-            variant="outline"
-            className={`text-xs ${getTierColor(itemData.tier)}`}
-          >
+        <div className="mb-2 flex flex-wrap gap-1">
+          <Badge variant="outline" className={`text-xs ${getTierColor(itemData.tier)}`}>
             Tier {itemData.tier}
           </Badge>
-          <Badge
-            variant="outline"
-            className={`text-xs ${getRarityColor(itemData.rarity)}`}
-          >
+          <Badge variant="outline" className={`text-xs ${getRarityColor(itemData.rarity)}`}>
             {itemData.rarity}
           </Badge>
-          <Badge
-            variant="outline"
-            className="text-xs bg-blue-50 text-blue-700 border-blue-200"
-          >
+          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {itemData.category}
           </Badge>
         </div>
@@ -348,30 +291,22 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         {itemData.recipes && itemData.recipes.length > 0 && (
           <div className="mt-2">
             {itemData.recipes.length === 1 ? (
-              <div className="text-xs font-medium mb-1">Recipe:</div>
+              <div className="mb-1 text-xs font-medium">Recipe:</div>
             ) : (
-              <div className="text-xs font-medium mb-1">
-                Select Recipe ({itemData.recipes.length} available):
-              </div>
+              <div className="mb-1 text-xs font-medium">Select Recipe ({itemData.recipes.length} available):</div>
             )}
-            <Select
-              value={itemData.selectedRecipe?.id?.toString() || ""}
-              onValueChange={handleRecipeSelect}
-            >
+            <Select value={itemData.selectedRecipe?.id?.toString() || ''} onValueChange={handleRecipeSelect}>
               <SelectTrigger className="h-8 text-xs">
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
               <SelectContent className="max-w-80">
                 {itemData.recipes.map((recipe: Recipe) => {
-                  const allItems = [...items, ...cargo, ...resources];
+                  const allItems = [...items, ...cargo, ...resources]
                   return (
                     <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                      <div className="truncate">
-                        {resolveRecipeName(recipe, allItems) ||
-                          `Recipe #${recipe.id}`}
-                      </div>
+                      <div className="truncate">{resolveRecipeName(recipe, allItems) || `Recipe #${recipe.id}`}</div>
                     </SelectItem>
-                  );
+                  )
                 })}
               </SelectContent>
             </Select>
@@ -379,289 +314,235 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         )}
 
         {(!itemData.recipes || itemData.recipes.length === 0) && (
-          <div className="mt-2 text-xs text-muted-foreground">
-            No recipes available for this item
-          </div>
+          <div className="text-muted-foreground mt-2 text-xs">No recipes available for this item</div>
         )}
 
         {itemData.selectedRecipe && (
-          <div className="mt-2 p-2 bg-muted/50 rounded text-xs">
-            <div className="font-medium mb-1">Recipe requirement:</div>
-            <div>
-              Profession: {itemData.selectedRecipe.requirements.professions}
-            </div>
+          <div className="bg-muted/50 mt-2 rounded p-2 text-xs">
+            <div className="mb-1 font-medium">Recipe requirement:</div>
+            <div>Profession: {itemData.selectedRecipe.requirements.professions}</div>
             <div>Building: {itemData.selectedRecipe.requirements.building}</div>
             <div>Tool: {itemData.selectedRecipe.requirements.tool}</div>
           </div>
         )}
       </CardContent>
 
-      <Handle type="source" position={Position.Bottom} className="w-3 h-3" />
-      <Handle type="target" position={Position.Top} className="w-3 h-3" />
+      <Handle type="source" position={Position.Bottom} className="h-3 w-3" />
+      <Handle type="target" position={Position.Top} className="h-3 w-3" />
     </Card>
-  );
-});
+  )
+})
 
-export const MaterialNode = memo(
-  ({ id, data }: NodeProps & { data: ItemData }) => {
-    const itemData = data;
-    const { setNodes, getNodes, getEdges, setEdges } = useReactFlow();
+export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
+  const itemData = data
+  const { setNodes, getNodes, getEdges, setEdges } = useReactFlow()
 
-    const handleToggleDone = useCallback(() => {
+  const handleToggleDone = useCallback(() => {
+    const updatedNodes = getNodes().map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            isDone: !node.data.isDone
+          }
+        }
+      }
+      return node
+    })
+    setNodes(updatedNodes)
+  }, [id, getNodes, setNodes])
+
+  const handleRecipeSelect = useCallback(
+    (recipeId: string) => {
+      // Use imported data
+      const allItems = [...items, ...cargo, ...resources]
+
+      const recipe = recipes.find((r) => r.id.toString() === recipeId)
+      if (!recipe) return
+
+      // Update the current node with selected recipe
       const updatedNodes = getNodes().map((node) => {
         if (node.id === id) {
           return {
             ...node,
             data: {
               ...node.data,
-              isDone: !node.data.isDone,
-            },
-          };
-        }
-        return node;
-      });
-      setNodes(updatedNodes);
-    }, [id, getNodes, setNodes]);
-
-    const handleRecipeSelect = useCallback(
-      (recipeId: string) => {
-        // Use imported data
-        const allItems = [...items, ...cargo, ...resources];
-
-        const recipe = recipes.find((r) => r.id.toString() === recipeId);
-        if (!recipe) return;
-
-        // Update the current node with selected recipe
-        const updatedNodes = getNodes().map((node) => {
-          if (node.id === id) {
-            return {
-              ...node,
-              data: {
-                ...node.data,
-                selectedRecipe: recipe,
-              },
-            };
+              selectedRecipe: recipe
+            }
           }
-          return node;
-        });
-
-        // Remove existing material nodes and edges for this specific recipe
-        const filteredNodes = updatedNodes.filter((node) => {
-          // Keep the current node
-          if (node.id === id) return true;
-          // Remove only material nodes that belong to this specific recipe
-          if (node.id.includes(`-${recipe.id}`)) return false;
-          // Keep all other nodes (including parent nodes)
-          return true;
-        });
-
-        const filteredEdges = getEdges().filter((edge) => {
-          // Remove only edges that belong to this specific recipe
-          // The edge ID format is: e{source}-{material}-{recipeId}
-          // We only want to remove edges that end with -{recipeId}
-          return !edge.id.endsWith(`-${recipe.id}`);
-        });
-
-        // Only create material nodes if the recipe has materials
-        if (
-          recipe.requirements.materials &&
-          recipe.requirements.materials.length > 0
-        ) {
-          // Get the current node's quantity to calculate child quantities
-          const currentNode = filteredNodes.find((node) => node.id === id);
-          const parentQuantity = (currentNode?.data?.quantity as number) || 1;
-
-          // Create material nodes
-          const materialNodes = recipe.requirements.materials.map(
-            (material: { id: number; qty: number | null }) => {
-              const materialId = material.id;
-              const materialData = allItems.find(
-                (item) => item.id === materialId
-              );
-
-              // Check if this material has recipes (for recursive expansion)
-              const materialRecipes = recipes.filter((r) =>
-                r.output.some((output) => output.item === materialId)
-              );
-
-              // Calculate the total quantity needed for this material
-              let calculatedQuantity: number | undefined;
-              if (
-                material.qty !== null &&
-                material.qty !== undefined &&
-                materialData?.category !== "resources"
-              ) {
-                // Multiply the material requirement by the parent's quantity
-                calculatedQuantity = (material.qty as number) * parentQuantity;
-              }
-
-              return {
-                id: `${materialId}_${recipe.id}`,
-                type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
-                data: {
-                  label: materialData?.name || `Item ${materialId}`,
-                  tier: materialData?.tier || 1,
-                  rarity: materialData?.rarity || "common",
-                  category: materialData?.category || "unknown",
-                  quantity: calculatedQuantity, // Use calculated quantity
-                  recipes: materialRecipes, // Pass recipes if available
-                  selectedRecipe: null,
-                  itemId: materialId,
-                  isDone: false, // Initialize as not done
-                },
-                position: { x: 0, y: 0 }, // Let dagre handle positioning
-              };
-            }
-          );
-
-          // Create edges connecting main item to materials
-          const materialEdges = recipe.requirements.materials.map(
-            (material: { id: number; qty: number | null }) => {
-              const materialId = material.id;
-              return {
-                id: `${id}-${materialId}_${recipe.id}`,
-                source: id,
-                target: `${materialId}_${recipe.id}`,
-                type: "smoothstep",
-              };
-            }
-          );
-
-          setNodes([...filteredNodes, ...materialNodes]);
-          setEdges([...filteredEdges, ...materialEdges]);
-        } else {
-          // For gathering recipes without materials, just update the node
-          setNodes([...filteredNodes]);
-          setEdges([...filteredEdges]);
         }
-      },
-      [id, getNodes, getEdges, setNodes, setEdges]
-    );
+        return node
+      })
 
-    // Auto-select recipe if there's only one available
-    useEffect(() => {
-      if (
-        itemData.recipes &&
-        itemData.recipes.length === 1 &&
-        !itemData.selectedRecipe
-      ) {
-        handleRecipeSelect(itemData.recipes[0].id.toString());
+      // Remove existing material nodes and edges for this specific recipe
+      const filteredNodes = updatedNodes.filter((node) => {
+        // Keep the current node
+        if (node.id === id) return true
+        // Remove only material nodes that belong to this specific recipe
+        if (node.id.includes(`-${recipe.id}`)) return false
+        // Keep all other nodes (including parent nodes)
+        return true
+      })
+
+      const filteredEdges = getEdges().filter((edge) => {
+        // Remove only edges that belong to this specific recipe
+        // The edge ID format is: e{source}-{material}-{recipeId}
+        // We only want to remove edges that end with -{recipeId}
+        return !edge.id.endsWith(`-${recipe.id}`)
+      })
+
+      // Only create material nodes if the recipe has materials
+      if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
+        // Get the current node's quantity to calculate child quantities
+        const currentNode = filteredNodes.find((node) => node.id === id)
+        const parentQuantity = (currentNode?.data?.quantity as number) || 1
+
+        // Create material nodes
+        const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+          const materialId = material.id
+          const materialData = allItems.find((item) => item.id === materialId)
+
+          // Check if this material has recipes (for recursive expansion)
+          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
+
+          // Calculate the total quantity needed for this material
+          let calculatedQuantity: number | undefined
+          if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
+            // Multiply the material requirement by the parent's quantity
+            calculatedQuantity = (material.qty as number) * parentQuantity
+          }
+
+          return {
+            id: `${materialId}_${recipe.id}`,
+            type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
+            data: {
+              label: materialData?.name || `Item ${materialId}`,
+              tier: materialData?.tier || 1,
+              rarity: materialData?.rarity || 'common',
+              category: materialData?.category || 'unknown',
+              quantity: calculatedQuantity, // Use calculated quantity
+              recipes: materialRecipes, // Pass recipes if available
+              selectedRecipe: null,
+              itemId: materialId,
+              isDone: false // Initialize as not done
+            },
+            position: { x: 0, y: 0 } // Let dagre handle positioning
+          }
+        })
+
+        // Create edges connecting main item to materials
+        const materialEdges = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+          const materialId = material.id
+          return {
+            id: `${id}-${materialId}_${recipe.id}`,
+            source: id,
+            target: `${materialId}_${recipe.id}`,
+            type: 'smoothstep'
+          }
+        })
+
+        setNodes([...filteredNodes, ...materialNodes])
+        setEdges([...filteredEdges, ...materialEdges])
+      } else {
+        // For gathering recipes without materials, just update the node
+        setNodes([...filteredNodes])
+        setEdges([...filteredEdges])
       }
-    }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect]);
+    },
+    [id, getNodes, getEdges, setNodes, setEdges]
+  )
 
-    return (
-      <Card
-        className={`w-fit min-w-64 max-w-80 shadow-lg border-2 ${
-          itemData.isDone
-            ? "border-green-500 bg-green-50/30"
-            : "border-primary/20"
-        }`}
-      >
-        <CardHeader className="pb-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Checkbox
-                checked={itemData.isDone}
-                onCheckedChange={handleToggleDone}
-                className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
-              />
-              <CardTitle
-                className={`text-sm font-semibold ${
-                  itemData.isDone ? "line-through text-green-700" : ""
-                }`}
-              >
-                {itemData.label}
-              </CardTitle>
-            </div>
-            {itemData.quantity && (
-              <Badge variant="secondary" className="text-xs">
-                Qty: {itemData.quantity}
-              </Badge>
+  // Auto-select recipe if there's only one available
+  useEffect(() => {
+    if (itemData.recipes && itemData.recipes.length === 1 && !itemData.selectedRecipe) {
+      handleRecipeSelect(itemData.recipes[0].id.toString())
+    }
+  }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect])
+
+  return (
+    <Card
+      className={`w-fit max-w-80 min-w-64 border-2 shadow-lg ${
+        itemData.isDone ? 'border-green-500 bg-green-50/30' : 'border-primary/20'
+      }`}
+    >
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Checkbox
+              checked={itemData.isDone}
+              onCheckedChange={handleToggleDone}
+              className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
+            />
+            <CardTitle className={`text-sm font-semibold ${itemData.isDone ? 'text-green-700 line-through' : ''}`}>
+              {itemData.label}
+            </CardTitle>
+          </div>
+          {itemData.quantity && (
+            <Badge variant="secondary" className="text-xs">
+              Qty: {itemData.quantity}
+            </Badge>
+          )}
+        </div>
+      </CardHeader>
+
+      <CardContent className="pt-0">
+        <div className="mb-2 flex flex-wrap gap-1">
+          <Badge variant="outline" className={`text-xs ${getTierColor(itemData.tier)}`}>
+            Tier {itemData.tier}
+          </Badge>
+          <Badge variant="outline" className={`text-xs ${getRarityColor(itemData.rarity)}`}>
+            {itemData.rarity}
+          </Badge>
+          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
+            {itemData.category}
+          </Badge>
+        </div>
+
+        {itemData.recipes && itemData.recipes.length > 0 && (
+          <div className="mt-2">
+            {itemData.recipes.length === 1 ? (
+              <div className="mb-1 text-xs font-medium">Recipe:</div>
+            ) : (
+              <div className="mb-1 text-xs font-medium">Select Recipe ({itemData.recipes.length} available):</div>
             )}
+            <Select value={itemData.selectedRecipe?.id?.toString() || ''} onValueChange={handleRecipeSelect}>
+              <SelectTrigger className="h-8 text-xs">
+                <SelectValue placeholder="Choose recipe..." />
+              </SelectTrigger>
+              <SelectContent className="max-w-80">
+                {itemData.recipes.map((recipe: Recipe) => {
+                  const allItems = [...items, ...cargo, ...resources]
+                  return (
+                    <SelectItem key={recipe.id} value={recipe.id.toString()}>
+                      <div className="truncate">{resolveRecipeName(recipe, allItems) || `Recipe #${recipe.id}`}</div>
+                    </SelectItem>
+                  )
+                })}
+              </SelectContent>
+            </Select>
           </div>
-        </CardHeader>
+        )}
 
-        <CardContent className="pt-0">
-          <div className="flex flex-wrap gap-1 mb-2">
-            <Badge
-              variant="outline"
-              className={`text-xs ${getTierColor(itemData.tier)}`}
-            >
-              Tier {itemData.tier}
-            </Badge>
-            <Badge
-              variant="outline"
-              className={`text-xs ${getRarityColor(itemData.rarity)}`}
-            >
-              {itemData.rarity}
-            </Badge>
-            <Badge
-              variant="outline"
-              className="text-xs bg-blue-50 text-blue-700 border-blue-200"
-            >
-              {itemData.category}
-            </Badge>
+        {(!itemData.recipes || itemData.recipes.length === 0) && (
+          <div className="text-muted-foreground mt-2 text-xs">No recipes available for this item</div>
+        )}
+
+        {itemData.selectedRecipe && (
+          <div className="bg-muted/50 mt-2 rounded p-2 text-xs">
+            <div className="mb-1 font-medium">Recipe requirement:</div>
+            <div>Profession: {itemData.selectedRecipe.requirements.professions}</div>
+            <div>Building: {itemData.selectedRecipe.requirements.building}</div>
+            <div>Tool: {itemData.selectedRecipe.requirements.tool}</div>
           </div>
+        )}
+      </CardContent>
 
-          {itemData.recipes && itemData.recipes.length > 0 && (
-            <div className="mt-2">
-              {itemData.recipes.length === 1 ? (
-                <div className="text-xs font-medium mb-1">Recipe:</div>
-              ) : (
-                <div className="text-xs font-medium mb-1">
-                  Select Recipe ({itemData.recipes.length} available):
-                </div>
-              )}
-              <Select
-                value={itemData.selectedRecipe?.id?.toString() || ""}
-                onValueChange={handleRecipeSelect}
-              >
-                <SelectTrigger className="h-8 text-xs">
-                  <SelectValue placeholder="Choose recipe..." />
-                </SelectTrigger>
-                <SelectContent className="max-w-80">
-                  {itemData.recipes.map((recipe: Recipe) => {
-                    const allItems = [...items, ...cargo, ...resources];
-                    return (
-                      <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                        <div className="truncate">
-                          {resolveRecipeName(recipe, allItems) ||
-                            `Recipe #${recipe.id}`}
-                        </div>
-                      </SelectItem>
-                    );
-                  })}
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+      <Handle type="source" position={Position.Bottom} className="h-3 w-3" />
+      <Handle type="target" position={Position.Top} className="h-3 w-3" />
+    </Card>
+  )
+})
 
-          {(!itemData.recipes || itemData.recipes.length === 0) && (
-            <div className="mt-2 text-xs text-muted-foreground">
-              No recipes available for this item
-            </div>
-          )}
-
-          {itemData.selectedRecipe && (
-            <div className="mt-2 p-2 bg-muted/50 rounded text-xs">
-              <div className="font-medium mb-1">Recipe requirement:</div>
-              <div>
-                Profession: {itemData.selectedRecipe.requirements.professions}
-              </div>
-              <div>
-                Building: {itemData.selectedRecipe.requirements.building}
-              </div>
-              <div>Tool: {itemData.selectedRecipe.requirements.tool}</div>
-            </div>
-          )}
-        </CardContent>
-
-        <Handle type="source" position={Position.Bottom} className="w-3 h-3" />
-        <Handle type="target" position={Position.Top} className="w-3 h-3" />
-      </Card>
-    );
-  }
-);
-
-ItemNode.displayName = "ItemNode";
-MaterialNode.displayName = "MaterialNode";
+ItemNode.displayName = 'ItemNode'
+MaterialNode.displayName = 'MaterialNode'
