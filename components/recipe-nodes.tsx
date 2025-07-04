@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect } from "react";
+import { memo, useEffect, useCallback } from "react";
 import { Handle, Position, NodeProps, useReactFlow } from "@xyflow/react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,14 +18,29 @@ import roughWoodLog from "@/src/data/items/rough-wood-log.json";
 import roughWoodTrunk from "@/src/data/cargo/rough-wood-trunk.json";
 import matureOakTree from "@/src/data/resources/mature-oak-tree.json";
 
+interface Recipe {
+  id: number;
+  name: string;
+  output: Array<{
+    item: string;
+    qty: number | number[] | null;
+  }>;
+  requirements: {
+    materials: Array<{ slug: string; qty: number | null }>;
+    professions: string;
+    tool: string;
+    building?: string;
+  };
+}
+
 interface ItemData {
   label: string;
   tier: number;
   rarity: string;
   category: string;
   quantity?: number;
-  recipes?: any[];
-  selectedRecipe?: any;
+  recipes?: Recipe[];
+  selectedRecipe?: Recipe | null;
   itemSlug?: string;
 }
 
@@ -67,6 +82,121 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data;
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow();
 
+  const handleRecipeSelect = useCallback(
+    (recipeId: string) => {
+      // Use imported data
+      const items = [
+        { ...roughWoodLog, slug: "rough-wood-log" },
+        { ...roughWoodTrunk, slug: "rough-wood-trunk" },
+        { ...matureOakTree, slug: "mature-oak-tree" },
+      ];
+
+      const recipe = recipes.find((r) => r.id.toString() === recipeId);
+      if (!recipe) return;
+
+      // Update the current node with selected recipe
+      const updatedNodes = getNodes().map((node) => {
+        if (node.id === id) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              selectedRecipe: recipe,
+            },
+          };
+        }
+        return node;
+      });
+
+      console.log({ updatedNodes });
+
+      // Remove existing material nodes and edges for this specific recipe
+      const filteredNodes = updatedNodes.filter((node) => {
+        // Keep the current node
+        if (node.id === id) return true;
+        // Remove only material nodes that belong to this specific recipe
+        if (node.id.includes(`-${recipe.id}`)) return false;
+        // Keep all other nodes (including parent nodes)
+        return true;
+      });
+
+      const filteredEdges = getEdges().filter((edge) => {
+        // Remove only edges that belong to this specific recipe
+        // The edge ID format is: e{source}-{material}-{recipeId}
+        // We only want to remove edges that end with -{recipeId}
+        return !edge.id.endsWith(`-${recipe.id}`);
+      });
+
+      // Only create material nodes if the recipe has materials
+      if (
+        recipe.requirements.materials &&
+        recipe.requirements.materials.length > 0
+      ) {
+        // Create material nodes
+        const materialNodes = recipe.requirements.materials.map(
+          (material: { slug: string; qty: number | null }) => {
+            const materialSlug = material.slug;
+            const materialData = items.find(
+              (item) => item.slug === materialSlug
+            );
+
+            // Check if this material has recipes (for recursive expansion)
+            const materialRecipes = recipes.filter((r) =>
+              r.output.some((output) => output.item === materialSlug)
+            );
+
+            return {
+              id: `${materialSlug}_${recipe.id}`,
+              type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
+              data: {
+                label: materialData?.name || materialSlug,
+                tier: materialData?.tier || 1,
+                rarity: materialData?.rarity || "common",
+                category: materialData?.category || "unknown",
+                quantity:
+                  material.qty !== null &&
+                  material.qty !== undefined &&
+                  materialData?.category !== "resources"
+                    ? material.qty
+                    : undefined, // Only set quantity if not null/undefined and not a resource
+                recipes: materialRecipes, // Pass recipes if available
+                selectedRecipe: null,
+                itemSlug: materialSlug,
+              },
+              position: { x: 0, y: 0 }, // Let dagre handle positioning
+            };
+          }
+        );
+
+        // Create edges connecting main item to materials
+        const materialEdges = recipe.requirements.materials.map(
+          (material: { slug: string; qty: number | null }) => {
+            const materialSlug = material.slug;
+            return {
+              id: `${id}-${materialSlug}_${recipe.id}`,
+              source: id,
+              target: `${materialSlug}_${recipe.id}`,
+              type: "smoothstep",
+            };
+          }
+        );
+
+        console.log("Creating material nodes:", materialNodes.length);
+        console.log("Creating material edges:", materialEdges.length);
+        console.log("Filtered nodes count:", filteredNodes.length);
+        console.log("Filtered edges count:", filteredEdges.length);
+
+        setNodes([...filteredNodes, ...materialNodes]);
+        setEdges([...filteredEdges, ...materialEdges]);
+      } else {
+        // For gathering recipes without materials, just update the node
+        setNodes([...filteredNodes]);
+        setEdges([...filteredEdges]);
+      }
+    },
+    [id, getNodes, getEdges, setNodes, setEdges]
+  );
+
   // Auto-select recipe if there's only one available
   useEffect(() => {
     if (
@@ -76,122 +206,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
     ) {
       handleRecipeSelect(itemData.recipes[0].id.toString());
     }
-  }, [itemData.recipes, itemData.selectedRecipe]);
-
-  const handleRecipeSelect = (recipeId: string) => {
-    // Use imported data
-    const items = [
-      { ...roughWoodLog, slug: "rough-wood-log" },
-      { ...roughWoodTrunk, slug: "rough-wood-trunk" },
-      { ...matureOakTree, slug: "mature-oak-tree" },
-    ];
-
-    const recipe = recipes.find((r) => r.id.toString() === recipeId);
-    if (!recipe) return;
-
-    // Update the current node with selected recipe
-    const updatedNodes = getNodes().map((node) => {
-      if (node.id === id) {
-        return {
-          ...node,
-          data: {
-            ...node.data,
-            selectedRecipe: recipe,
-          },
-        };
-      }
-      return node;
-    });
-
-    console.log({ updatedNodes });
-
-    // Remove existing material nodes and edges for this specific recipe
-    const filteredNodes = updatedNodes.filter((node) => {
-      // Keep the current node
-      if (node.id === id) return true;
-      // Remove only material nodes that belong to this specific recipe
-      if (node.id.includes(`-${recipe.id}`)) return false;
-      // Keep all other nodes (including parent nodes)
-      return true;
-    });
-
-    const filteredEdges = getEdges().filter((edge) => {
-      // Remove only edges that belong to this specific recipe
-      // The edge ID format is: e{source}-{material}-{recipeId}
-      // We only want to remove edges that end with -{recipeId}
-      return !edge.id.endsWith(`-${recipe.id}`);
-    });
-
-    // Only create material nodes if the recipe has materials
-    if (
-      recipe.requirements.materials &&
-      recipe.requirements.materials.length > 0
-    ) {
-      // Create material nodes
-      const materialNodes: any[] = recipe.requirements.materials.map(
-        (material: any, index: number) => {
-          // Handle both string and object material requirements
-          const materialSlug =
-            typeof material === "string" ? material : material.slug;
-          const materialData = items.find((item) => item.slug === materialSlug);
-
-          // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r) =>
-            r.output.some((output) => output.item === materialSlug)
-          );
-
-          return {
-            id: `${materialSlug}_${recipe.id}`,
-            type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
-            data: {
-              label: materialData?.name || materialSlug,
-              tier: materialData?.tier || 1,
-              rarity: materialData?.rarity || "common",
-              category: materialData?.category || "unknown",
-              quantity:
-                typeof material === "string"
-                  ? 1
-                  : material.qty !== null &&
-                    material.qty !== undefined &&
-                    materialData?.category !== "resources"
-                  ? material.qty
-                  : undefined, // Only set quantity if not null/undefined and not a resource
-              recipes: materialRecipes, // Pass recipes if available
-              selectedRecipe: null,
-              itemSlug: materialSlug,
-            },
-            position: { x: 0, y: 0 }, // Let dagre handle positioning
-          };
-        }
-      );
-
-      // Create edges connecting main item to materials
-      const materialEdges: any[] = recipe.requirements.materials.map(
-        (material: any, index: number) => {
-          const materialSlug =
-            typeof material === "string" ? material : material.slug;
-          return {
-            id: `${id}-${materialSlug}_${recipe.id}`,
-            source: id,
-            target: `${materialSlug}_${recipe.id}`,
-            type: "smoothstep",
-          };
-        }
-      );
-
-      console.log("Creating material nodes:", materialNodes.length);
-      console.log("Creating material edges:", materialEdges.length);
-      console.log("Filtered nodes count:", filteredNodes.length);
-      console.log("Filtered edges count:", filteredEdges.length);
-
-      setNodes([...filteredNodes, ...materialNodes]);
-      setEdges([...filteredEdges, ...materialEdges]);
-    } else {
-      // For gathering recipes without materials, just update the node
-      setNodes([...filteredNodes]);
-      setEdges([...filteredEdges]);
-    }
-  };
+  }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect]);
 
   return (
     <Card className="w-fit min-w-64 max-w-80 shadow-lg border-2 border-primary/20">
@@ -249,7 +264,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
               <SelectContent className="max-w-80">
-                {itemData.recipes.map((recipe: any) => (
+                {itemData.recipes.map((recipe: Recipe) => (
                   <SelectItem key={recipe.id} value={recipe.id.toString()}>
                     <div className="truncate">
                       {recipe.name || `Recipe #${recipe.id}`}

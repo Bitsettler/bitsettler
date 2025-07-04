@@ -23,7 +23,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Validate that the incoming `locale` parameter is valid
-  if (!I18N_CONFIG.locales.includes(locale as any)) {
+  if (!I18N_CONFIG.locales.includes(locale as "en" | "fr" | "es")) {
     notFound();
   }
 

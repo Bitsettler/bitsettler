@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   ReactFlow,
   ReactFlowProvider,
   Controls,
-  Panel,
   useNodesState,
   useEdgesState,
   useReactFlow,
@@ -14,7 +13,6 @@ import {
 import type { Node, Edge } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import Dagre from "@dagrejs/dagre";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ItemNode, MaterialNode } from "@/components/recipe-nodes";
@@ -22,13 +20,35 @@ import { Container } from "@/components/container";
 import { useTranslations } from "next-intl";
 import { Combobox } from "@/components/ui/combobox";
 
+// Import types
+interface Recipe {
+  id: number;
+  name: string;
+  output: Array<{
+    item: string;
+    qty: number | number[] | null;
+  }>;
+  requirements: {
+    materials: Array<{ slug: string; qty: number | null }>;
+    professions: string;
+    tool: string;
+    building?: string;
+  };
+}
+
 import recipes from "@/src/data/recipes.json";
 import roughWoodLog from "@/src/data/items/rough-wood-log.json";
 import roughWoodTrunk from "@/src/data/cargo/rough-wood-trunk.json";
 import matureOakTree from "@/src/data/resources/mature-oak-tree.json";
 
 // All available items in the database
-const allItems = [
+const allItems: Array<{
+  name: string;
+  slug: string;
+  tier: number;
+  rarity: string;
+  category: string;
+}> = [
   { ...roughWoodLog, slug: "rough-wood-log" },
   { ...roughWoodTrunk, slug: "rough-wood-trunk" },
   { ...matureOakTree, slug: "mature-oak-tree" },
@@ -89,7 +109,9 @@ const useLayoutedElements = () => {
 
 function HomeFlow() {
   const t = useTranslations();
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<(typeof allItems)[0] | null>(
+    null
+  );
   const [desiredQuantity, setDesiredQuantity] = useState(1);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -107,10 +129,12 @@ function HomeFlow() {
     if (nodes.length > 0 && selectedItem) {
       updateNodeQuantities(desiredQuantity);
     }
-  }, [desiredQuantity, selectedItem]);
+  }, [desiredQuantity, selectedItem, nodes.length]);
 
   const updateNodeQuantities = useCallback(
     (targetQuantity: number) => {
+      if (!selectedItem) return;
+
       const updatedNodes = nodes.map((node) => {
         if (node.id === selectedItem.slug) {
           // Update main item quantity
@@ -123,11 +147,12 @@ function HomeFlow() {
           };
         } else {
           // For all other nodes, calculate quantities based on their recipe
-          const recipe = node.data.selectedRecipe as any;
+          const recipe = node.data.selectedRecipe as Recipe;
           if (recipe) {
             // Find the output item that matches the selected item
             const outputItem = recipe.output?.find(
-              (output: any) => output.item === selectedItem.slug
+              (output: { item: string; qty: number | number[] | null }) =>
+                output.item === selectedItem.slug
             );
 
             if (outputItem) {
@@ -156,24 +181,19 @@ function HomeFlow() {
         // Check if this is a material node (has recipe ID in its ID)
         if (node.id.includes("_") && node.id !== selectedItem.slug) {
           const [materialSlug, recipeId] = node.id.split("_");
-          const recipe = recipes.find((r: any) => r.id.toString() === recipeId);
+          const recipe = recipes.find(
+            (r: Recipe) => r.id.toString() === recipeId
+          );
 
           if (recipe) {
             // Find the material requirement
             const materialReq = recipe.requirements.materials?.find(
-              (mat: any) => {
-                if (typeof mat === "string") {
-                  return mat === materialSlug;
-                } else {
-                  return mat.slug === materialSlug;
-                }
-              }
+              (mat) => mat.slug === materialSlug
             );
 
             if (materialReq) {
               // Get the quantity needed per recipe run
-              const materialQty =
-                typeof materialReq === "string" ? 1 : materialReq.qty;
+              const materialQty = materialReq?.qty;
 
               // Only calculate quantities if the material has a specific quantity requirement
               // and is not a resource (resources don't show quantities)
@@ -187,9 +207,10 @@ function HomeFlow() {
                   (n) => n.id === selectedItem.slug
                 );
                 if (parentNode && parentNode.data.selectedRecipe) {
-                  const parentRecipe = parentNode.data.selectedRecipe as any;
+                  const parentRecipe = parentNode.data.selectedRecipe as Recipe;
                   const outputItem = parentRecipe.output?.find(
-                    (output: any) => output.item === selectedItem.slug
+                    (output: { item: string; qty: number | number[] | null }) =>
+                      output.item === selectedItem.slug
                   );
 
                   if (outputItem) {
@@ -234,7 +255,7 @@ function HomeFlow() {
 
   const handleItemSelect = useCallback(
     (itemSlug: string) => {
-      const item = allItems.find((item: any) => item.slug === itemSlug);
+      const item = allItems.find((item) => item.slug === itemSlug);
       if (!item) return;
 
       setSelectedItem(item);
@@ -320,8 +341,7 @@ function HomeFlow() {
                       <div>
                         <span className="font-medium">Description:</span>
                         <p className="text-muted-foreground mt-1">
-                          {selectedItem.description ||
-                            "No description available"}
+                          {"No description available"}
                         </p>
                       </div>
                       <div>
@@ -376,13 +396,13 @@ function HomeFlow() {
                     <div className="space-y-2">
                       {recipes.filter((recipe) =>
                         recipe.requirements.materials?.some(
-                          (material) => material === selectedItem.slug
+                          (material) => material.slug === selectedItem?.slug
                         )
                       ).length > 0 ? (
                         recipes
                           .filter((recipe) =>
                             recipe.requirements.materials?.some(
-                              (material) => material === selectedItem.slug
+                              (material) => material.slug === selectedItem?.slug
                             )
                           )
                           .map((recipe, index) => (
