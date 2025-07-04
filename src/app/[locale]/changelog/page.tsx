@@ -18,20 +18,50 @@ export default function ChangelogPage() {
             </p>
           </div>
 
-          {/* Version Card - Latest */}
+          {/* Version Card - v1.0.1 Bug & Data Fixes */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle className="text-2xl">v1.1 Bug Fixes</CardTitle>
+                <CardTitle className="text-2xl">
+                  v1.0.1 Bug & Data Fixes
+                </CardTitle>
                 <Badge variant="default" className="text-sm">
                   Latest
                 </Badge>
               </div>
               <p className="text-muted-foreground">
-                Fixed quantity calculation issues in recipe tree
+                Patch release: bug fixes and data corrections for cargo items
+                and recipe trees
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
+              {/* Data Fixes Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  🗃️ Data Fixes
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Cargo Items Now Appear
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed an issue where all cargo items (like Rough Plant
+                        Roots) were missing from the app due to the mapping
+                        script filtering out items without a{" "}
+                        <code>compendium_entry</code> field. The script now
+                        properly includes all cargo items, so they show up with
+                        correct names and details.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
               {/* Bug Fixes Section */}
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-3">
@@ -61,7 +91,8 @@ export default function ChangelogPage() {
               {/* Footer */}
               <div className="text-center pt-4">
                 <p className="text-sm text-muted-foreground">
-                  Fixed quantity propagation through the recipe tree 🎯
+                  All cargo items are now visible and recipe trees calculate
+                  quantities correctly! 📦🎯
                 </p>
               </div>
             </CardContent>

@@ -61,9 +61,19 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
  * Check if an item should be filtered out (recipes, etc.)
  */
 function shouldFilterItem(serverItem: ServerItem): boolean {
-  // Filter out items with "Output" suffix and compendium_entry set to false
-  // These are typically recipe outputs rather than actual items
-  return serverItem.name.includes("Output") || !serverItem.compendium_entry;
+  // Filter out items with "Output" suffix
+  if (serverItem.name.includes("Output")) {
+    return true;
+  }
+
+  // For items with compendium_entry field, filter out those set to false
+  // Cargo items don't have this field, so we don't filter them out
+  if ("compendium_entry" in serverItem) {
+    return !serverItem.compendium_entry;
+  }
+
+  // If no compendium_entry field (like cargo items), don't filter out
+  return false;
 }
 
 /**
