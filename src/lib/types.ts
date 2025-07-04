@@ -13,6 +13,7 @@ export interface GameItem {
   tier: number;
   rarity: Rarity;
   category: Category;
+  description: string;
 }
 
 export interface Profession {

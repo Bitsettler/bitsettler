@@ -10,6 +10,7 @@ interface FrontendItem {
   tier: number;
   rarity: string;
   category: string;
+  description: string;
 }
 
 interface ItemMappingConfig {
@@ -54,6 +55,7 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
     tier: serverItem.tier,
     rarity: mapRarity(serverItem.rarity),
     category,
+    description: serverItem.description || "No description available",
   };
 }
 
@@ -61,19 +63,9 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
  * Check if an item should be filtered out (recipes, etc.)
  */
 function shouldFilterItem(serverItem: ServerItem): boolean {
-  // Filter out items with "Output" suffix
-  if (serverItem.name.includes("Output")) {
-    return true;
-  }
-
-  // For items with compendium_entry field, filter out those set to false
-  // Cargo items don't have this field, so we don't filter them out
-  if ("compendium_entry" in serverItem) {
-    return !serverItem.compendium_entry;
-  }
-
-  // If no compendium_entry field (like cargo items), don't filter out
-  return false;
+  // Only filter out items with "Output" suffix
+  // These are typically recipe outputs rather than actual items
+  return serverItem.name.includes("Output");
 }
 
 /**

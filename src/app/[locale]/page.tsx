@@ -20,6 +20,7 @@ import { Container } from "@/components/container";
 import { useTranslations } from "next-intl";
 import { Combobox } from "@/components/ui/combobox";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "@/components/ui/badge";
 
 // Import types
 interface Recipe {
@@ -115,6 +116,7 @@ const allItems: Array<{
   tier: number;
   rarity: string;
   category: string;
+  description: string;
 }> = [...items, ...cargo, ...resources];
 
 const initialNodes: Node[] = [];
@@ -132,10 +134,10 @@ const useLayoutedElements = () => {
       const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
       g.setGraph({
         rankdir: "TB",
-        ranker: "longest-path",
+        ranker: "network-simplex",
         align: "UL",
-        nodesep: 100,
-        ranksep: 100,
+        nodesep: 40,
+        ranksep: 80,
       });
 
       edges.forEach((edge) => g.setEdge(edge.source, edge.target));
@@ -171,6 +173,40 @@ const useLayoutedElements = () => {
   );
 
   return { getLayoutedElements };
+};
+
+// Add these helper functions near the top (after imports):
+const getRarityColor = (rarity: string) => {
+  switch (rarity.toLowerCase()) {
+    case "common":
+      return "bg-gray-100 text-gray-800 border-gray-300";
+    case "uncommon":
+      return "bg-green-100 text-green-800 border-green-300";
+    case "rare":
+      return "bg-blue-100 text-blue-800 border-blue-300";
+    case "epic":
+      return "bg-purple-100 text-purple-800 border-purple-300";
+    case "legendary":
+      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+    default:
+      return "bg-gray-100 text-gray-800 border-gray-300";
+  }
+};
+const getTierColor = (tier: number) => {
+  switch (tier) {
+    case 1:
+      return "bg-gray-100 text-gray-800 border-gray-300";
+    case 2:
+      return "bg-green-100 text-green-800 border-green-300";
+    case 3:
+      return "bg-blue-100 text-blue-800 border-blue-300";
+    case 4:
+      return "bg-purple-100 text-purple-800 border-purple-300";
+    case 5:
+      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+    default:
+      return "bg-gray-100 text-gray-800 border-gray-300";
+  }
 };
 
 function HomeFlow() {
@@ -455,26 +491,33 @@ function HomeFlow() {
                       <div>
                         <span className="font-medium">Description:</span>
                         <p className="text-muted-foreground mt-1">
-                          {"No description available"}
+                          {selectedItem.description ||
+                            "No description available"}
                         </p>
                       </div>
-                      <div>
-                        <span className="font-medium">Tier:</span>
-                        <span className="text-muted-foreground ml-1">
-                          {selectedItem.tier || "Unknown"}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Rarity:</span>
-                        <span className="text-muted-foreground ml-1">
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        <Badge
+                          variant="outline"
+                          className={`text-xs ${getTierColor(
+                            selectedItem.tier
+                          )}`}
+                        >
+                          Tier {selectedItem.tier || "Unknown"}
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className={`text-xs ${getRarityColor(
+                            selectedItem.rarity
+                          )}`}
+                        >
                           {selectedItem.rarity || "Unknown"}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Category:</span>
-                        <span className="text-muted-foreground ml-1">
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="text-xs bg-blue-50 text-blue-700 border-blue-200"
+                        >
                           {selectedItem.category || "Unknown"}
-                        </span>
+                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -540,17 +583,26 @@ function HomeFlow() {
                                 </div>
                                 <div className="text-muted-foreground text-xs">
                                   Produces:{" "}
-                                  {recipe.output.map((output, i) => (
-                                    <span key={i}>
-                                      {output.qty
-                                        ? Array.isArray(output.qty)
-                                          ? `${output.qty[0]}-${output.qty[1]}`
-                                          : output.qty
-                                        : "?"}
-                                      x {output.item}
-                                      {i < recipe.output.length - 1 ? ", " : ""}
-                                    </span>
-                                  ))}
+                                  {recipe.output.map((output, i) => {
+                                    const outputItem = allItems.find(
+                                      (item) => item.id === output.item
+                                    );
+                                    return (
+                                      <span key={i}>
+                                        {output.qty
+                                          ? Array.isArray(output.qty)
+                                            ? `${output.qty[0]}-${output.qty[1]}`
+                                            : output.qty
+                                          : "?"}
+                                        x{" "}
+                                        {outputItem?.name ||
+                                          `Item ${output.item}`}
+                                        {i < recipe.output.length - 1
+                                          ? ", "
+                                          : ""}
+                                      </span>
+                                    );
+                                  })}
                                 </div>
                               </div>
                             ))

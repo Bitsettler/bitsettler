@@ -18,6 +18,173 @@ export default function ChangelogPage() {
             </p>
           </div>
 
+          {/* Version Card - v1.1.0 Enhanced Recipe System */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">
+                  v1.1.0 Enhanced Recipe System
+                </CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Major update: comprehensive recipe system improvements, data
+                fixes, and enhanced user experience
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  ✨ New Features
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Enhanced Info Panel
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Added item descriptions, improved badge styling for
+                        tier/rarity/category, and better recipe requirement
+                        display with proper lookup tables from game data.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Material Node Recipe Support
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Material nodes now support recipe selection and display
+                        recipe requirements, matching the functionality of item
+                        nodes for complete recipe tree visibility.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Improved Layout Algorithm
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Switched from depth-first to breadth-first ranking for
+                        better recipe tree visualization with more compact node
+                        spacing.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Data Fixes Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  🗃️ Data Fixes
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Complete Cargo Item Support
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed cargo items (like Rough Plant Roots) missing from
+                        the app. Updated mapping script to include all cargo
+                        items regardless of compendium_entry field.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Recipe Requirements Database
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Built comprehensive lookup tables from game data for
+                        professions, tools, and buildings instead of using
+                        placeholder mappings. Now displays accurate requirements
+                        like &quot;forestry&quot;, &quot;axe&quot;,
+                        &quot;tier-1-forestry-station&quot;.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Bug Fixes Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  🐛 Bug Fixes
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Recipe Quantity Calculation
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed child recipe nodes showing incorrect quantities.
+                        Now properly calculates quantities by multiplying parent
+                        requirements throughout the entire recipe tree.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Recipe Output Display
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed recipe output showing raw IDs instead of item
+                        names in the Usage section. Now displays proper names
+                        like &quot;Produces: 1x Refined Rough Cloth&quot;.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Recipe Requirements Visibility
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed recipe requirements showing as empty strings for
+                        nodes beyond the 2nd level. Now all nodes in the recipe
+                        tree display proper profession, building, and tool
+                        requirements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="text-center pt-4">
+                <p className="text-sm text-muted-foreground">
+                  Complete recipe system overhaul with accurate data and
+                  enhanced user experience! 🎯✨
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.0.1 Bug & Data Fixes */}
           <Card className="mb-8">
             <CardHeader>
@@ -25,8 +192,8 @@ export default function ChangelogPage() {
                 <CardTitle className="text-2xl">
                   v1.0.1 Bug & Data Fixes
                 </CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">
@@ -48,12 +215,9 @@ export default function ChangelogPage() {
                         Cargo Items Now Appear
                       </h4>
                       <p className="text-sm text-muted-foreground">
-                        Fixed an issue where all cargo items (like Rough Plant
-                        Roots) were missing from the app due to the mapping
-                        script filtering out items without a{" "}
-                        <code>compendium_entry</code> field. The script now
-                        properly includes all cargo items, so they show up with
-                        correct names and details.
+                        Fixed cargo items missing from the app due to mapping
+                        script filtering. Now includes all cargo items
+                        regardless of compendium_entry field.
                       </p>
                     </div>
                   </div>
@@ -75,30 +239,29 @@ export default function ChangelogPage() {
                         Child Recipe Quantity Calculation
                       </h4>
                       <p className="text-sm text-muted-foreground">
-                        Fixed issue where child recipe nodes were showing Qty: 1
-                        instead of the correct quantity based on parent
-                        requirements. Now child materials properly calculate
-                        quantities by multiplying the parent&apos;s required
-                        amount.
+                        Fixed child recipe nodes showing Qty: 1 instead of
+                        correct quantities based on parent requirements.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <h4 className="font-medium text-foreground">
+                        Recipe Output Display
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fixed recipe output showing raw IDs instead of item
+                        names in the Usage section.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <Separator />
-
-              {/* Footer */}
-              <div className="text-center pt-4">
-                <p className="text-sm text-muted-foreground">
-                  All cargo items are now visible and recipe trees calculate
-                  quantities correctly! 📦🎯
-                </p>
-              </div>
             </CardContent>
           </Card>
 
-          {/* Version Card - Previous */}
+          {/* Version Card - v1 MVP Release */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">

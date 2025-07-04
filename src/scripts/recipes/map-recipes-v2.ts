@@ -197,26 +197,43 @@ function loadLookupTables(
       } mappings`
     );
 
-    // For now, use placeholder lookups for tools, buildings, and professions
-    // These would need their own data files to be properly mapped
-    const toolLookupPlaceholder: Record<number, string> = {
-      2: "tier-1-axe",
-      13: "tier-4-research-tool",
-    };
+    // Load skill data for profession lookups
+    const skillPath = path.join(sourceDir, "server/region/skill_desc.json");
+    const skills = JSON.parse(fs.readFileSync(skillPath, "utf-8"));
 
-    const buildingLookupPlaceholder: Record<number, string> = {
-      20: "tier-1-forestry-station",
-      48: "tier-4-research-station",
-    };
+    // Build profession lookup (skill ID -> skill name)
+    for (const skill of skills) {
+      professionLookup[skill.id] = skill.name.toLowerCase();
+      console.log(`✅ Mapped profession: ${skill.name} (ID: ${skill.id})`);
+    }
 
-    const professionLookupPlaceholder: Record<number, string> = {
-      3: "forestry",
-      7: "research",
-    };
+    // Load tool type data for tool lookups
+    const toolTypePath = path.join(
+      sourceDir,
+      "server/region/tool_type_desc.json"
+    );
+    const toolTypes = JSON.parse(fs.readFileSync(toolTypePath, "utf-8"));
 
-    Object.assign(toolLookup, toolLookupPlaceholder);
-    Object.assign(buildingLookup, buildingLookupPlaceholder);
-    Object.assign(professionLookup, professionLookupPlaceholder);
+    // Build tool lookup (tool_type ID -> tool name)
+    for (const toolType of toolTypes) {
+      toolLookup[toolType.id] = toolType.name.toLowerCase();
+      console.log(`✅ Mapped tool: ${toolType.name} (ID: ${toolType.id})`);
+    }
+
+    // Load building data for building lookups
+    const buildingPath = path.join(
+      sourceDir,
+      "server/region/building_desc.json"
+    );
+    const buildings = JSON.parse(fs.readFileSync(buildingPath, "utf-8"));
+
+    // Build building lookup (building ID -> building name)
+    for (const building of buildings) {
+      buildingLookup[building.id] = building.name
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+      console.log(`✅ Mapped building: ${building.name} (ID: ${building.id})`);
+    }
 
     return {
       itemLookup,
