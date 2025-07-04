@@ -4,6 +4,7 @@ import { memo, useEffect, useCallback } from "react";
 import { Handle, Position, NodeProps, useReactFlow } from "@xyflow/react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -14,24 +15,89 @@ import {
 
 // Import data
 import recipes from "@/src/data/recipes.json";
-import roughWoodLog from "@/src/data/items/rough-wood-log.json";
-import roughWoodTrunk from "@/src/data/cargo/rough-wood-trunk.json";
-import matureOakTree from "@/src/data/resources/mature-oak-tree.json";
+import items from "@/src/data/items.json";
+import cargo from "@/src/data/cargo.json";
+import resources from "@/src/data/resources.json";
 
 interface Recipe {
   id: number;
   name: string;
   output: Array<{
-    item: string;
+    item: number;
     qty: number | number[] | null;
   }>;
   requirements: {
-    materials: Array<{ slug: string; qty: number | null }>;
-    professions: string;
-    tool: string;
+    materials: Array<{ id: number; qty: number | null }>;
+    professions?: string;
+    tool?: string;
     building?: string;
   };
 }
+
+// Utility function to resolve recipe name placeholders
+const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
+  let resolvedName = recipe.name;
+
+  // Replace {0} with output item name
+  if (recipe.output && recipe.output.length > 0) {
+    const outputItem = allItems.find(
+      (item) => item.id === recipe.output[0].item
+    );
+    if (outputItem) {
+      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name);
+    }
+  }
+
+  // Replace {1} with first input material name
+  if (
+    recipe.requirements.materials &&
+    recipe.requirements.materials.length > 0
+  ) {
+    const firstMaterial = recipe.requirements.materials[0];
+    if (firstMaterial.id) {
+      const materialItem = allItems.find(
+        (item) => item.id === firstMaterial.id
+      );
+      if (materialItem) {
+        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name);
+      }
+    }
+  }
+
+  // Replace {2} with second input material name (if exists)
+  if (
+    recipe.requirements.materials &&
+    recipe.requirements.materials.length > 1
+  ) {
+    const secondMaterial = recipe.requirements.materials[1];
+    if (secondMaterial.id) {
+      const materialItem = allItems.find(
+        (item) => item.id === secondMaterial.id
+      );
+      if (materialItem) {
+        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name);
+      }
+    }
+  }
+
+  // Replace {3} with third input material name (if exists)
+  if (
+    recipe.requirements.materials &&
+    recipe.requirements.materials.length > 2
+  ) {
+    const thirdMaterial = recipe.requirements.materials[2];
+    if (thirdMaterial.id) {
+      const materialItem = allItems.find(
+        (item) => item.id === thirdMaterial.id
+      );
+      if (materialItem) {
+        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name);
+      }
+    }
+  }
+
+  return resolvedName;
+};
 
 interface ItemData {
   label: string;
@@ -41,7 +107,8 @@ interface ItemData {
   quantity?: number;
   recipes?: Recipe[];
   selectedRecipe?: Recipe | null;
-  itemSlug?: string;
+  itemId?: number;
+  isDone?: boolean;
 }
 
 const getRarityColor = (rarity: string) => {
@@ -82,14 +149,26 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data;
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow();
 
+  const handleToggleDone = useCallback(() => {
+    const updatedNodes = getNodes().map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            isDone: !node.data.isDone,
+          },
+        };
+      }
+      return node;
+    });
+    setNodes(updatedNodes);
+  }, [id, getNodes, setNodes]);
+
   const handleRecipeSelect = useCallback(
     (recipeId: string) => {
       // Use imported data
-      const items = [
-        { ...roughWoodLog, slug: "rough-wood-log" },
-        { ...roughWoodTrunk, slug: "rough-wood-trunk" },
-        { ...matureOakTree, slug: "mature-oak-tree" },
-      ];
+      const allItems = [...items, ...cargo, ...resources];
 
       const recipe = recipes.find((r) => r.id.toString() === recipeId);
       if (!recipe) return;
@@ -107,8 +186,6 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         }
         return node;
       });
-
-      console.log({ updatedNodes });
 
       // Remove existing material nodes and edges for this specific recipe
       const filteredNodes = updatedNodes.filter((node) => {
@@ -134,22 +211,22 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
       ) {
         // Create material nodes
         const materialNodes = recipe.requirements.materials.map(
-          (material: { slug: string; qty: number | null }) => {
-            const materialSlug = material.slug;
-            const materialData = items.find(
-              (item) => item.slug === materialSlug
+          (material: { id: number; qty: number | null }) => {
+            const materialId = material.id;
+            const materialData = allItems.find(
+              (item) => item.id === materialId
             );
 
             // Check if this material has recipes (for recursive expansion)
             const materialRecipes = recipes.filter((r) =>
-              r.output.some((output) => output.item === materialSlug)
+              r.output.some((output) => output.item === materialId)
             );
 
             return {
-              id: `${materialSlug}_${recipe.id}`,
+              id: `${materialId}_${recipe.id}`,
               type: materialRecipes.length > 0 ? "itemNode" : "materialNode",
               data: {
-                label: materialData?.name || materialSlug,
+                label: materialData?.name || `Item ${materialId}`,
                 tier: materialData?.tier || 1,
                 rarity: materialData?.rarity || "common",
                 category: materialData?.category || "unknown",
@@ -161,7 +238,8 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
                     : undefined, // Only set quantity if not null/undefined and not a resource
                 recipes: materialRecipes, // Pass recipes if available
                 selectedRecipe: null,
-                itemSlug: materialSlug,
+                itemId: materialId,
+                isDone: false, // Initialize as not done
               },
               position: { x: 0, y: 0 }, // Let dagre handle positioning
             };
@@ -170,21 +248,16 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
 
         // Create edges connecting main item to materials
         const materialEdges = recipe.requirements.materials.map(
-          (material: { slug: string; qty: number | null }) => {
-            const materialSlug = material.slug;
+          (material: { id: number; qty: number | null }) => {
+            const materialId = material.id;
             return {
-              id: `${id}-${materialSlug}_${recipe.id}`,
+              id: `${id}-${materialId}_${recipe.id}`,
               source: id,
-              target: `${materialSlug}_${recipe.id}`,
+              target: `${materialId}_${recipe.id}`,
               type: "smoothstep",
             };
           }
         );
-
-        console.log("Creating material nodes:", materialNodes.length);
-        console.log("Creating material edges:", materialEdges.length);
-        console.log("Filtered nodes count:", filteredNodes.length);
-        console.log("Filtered edges count:", filteredEdges.length);
 
         setNodes([...filteredNodes, ...materialNodes]);
         setEdges([...filteredEdges, ...materialEdges]);
@@ -209,12 +282,29 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect]);
 
   return (
-    <Card className="w-fit min-w-64 max-w-80 shadow-lg border-2 border-primary/20">
+    <Card
+      className={`w-fit min-w-64 max-w-80 shadow-lg border-2 ${
+        itemData.isDone
+          ? "border-green-500 bg-green-50/30"
+          : "border-primary/20"
+      }`}
+    >
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-semibold">
-            {itemData.label}
-          </CardTitle>
+          <div className="flex items-center gap-2">
+            <Checkbox
+              checked={itemData.isDone}
+              onCheckedChange={handleToggleDone}
+              className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+            />
+            <CardTitle
+              className={`text-sm font-semibold ${
+                itemData.isDone ? "line-through text-green-700" : ""
+              }`}
+            >
+              {itemData.label}
+            </CardTitle>
+          </div>
           {itemData.quantity && (
             <Badge variant="secondary" className="text-xs">
               Qty: {itemData.quantity}
@@ -248,9 +338,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         {itemData.recipes && itemData.recipes.length > 0 && (
           <div className="mt-2">
             {itemData.recipes.length === 1 ? (
-              <div className="text-xs font-medium mb-1">
-                Recipe (auto-selected):
-              </div>
+              <div className="text-xs font-medium mb-1">Recipe:</div>
             ) : (
               <div className="text-xs font-medium mb-1">
                 Select Recipe ({itemData.recipes.length} available):
@@ -264,13 +352,17 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
               <SelectContent className="max-w-80">
-                {itemData.recipes.map((recipe: Recipe) => (
-                  <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                    <div className="truncate">
-                      {recipe.name || `Recipe #${recipe.id}`}
-                    </div>
-                  </SelectItem>
-                ))}
+                {itemData.recipes.map((recipe: Recipe) => {
+                  const allItems = [...items, ...cargo, ...resources];
+                  return (
+                    <SelectItem key={recipe.id} value={recipe.id.toString()}>
+                      <div className="truncate">
+                        {resolveRecipeName(recipe, allItems) ||
+                          `Recipe #${recipe.id}`}
+                      </div>
+                    </SelectItem>
+                  );
+                })}
               </SelectContent>
             </Select>
           </div>
@@ -284,7 +376,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
 
         {itemData.selectedRecipe && (
           <div className="mt-2 p-2 bg-muted/50 rounded text-xs">
-            <div className="font-medium mb-1">Selected Recipe:</div>
+            <div className="font-medium mb-1">Recipe requirement:</div>
             <div>
               Profession: {itemData.selectedRecipe.requirements.professions}
             </div>
@@ -300,50 +392,85 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   );
 });
 
-export const MaterialNode = memo(({ data }: NodeProps & { data: ItemData }) => {
-  const itemData = data;
-  return (
-    <Card className="w-48 shadow-md border border-border">
-      <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-medium">
-            {itemData.label}
-          </CardTitle>
-          {itemData.quantity && (
-            <Badge variant="secondary" className="text-xs">
-              {itemData.quantity}
+export const MaterialNode = memo(
+  ({ id, data }: NodeProps & { data: ItemData }) => {
+    const itemData = data;
+    const { setNodes, getNodes } = useReactFlow();
+
+    const handleToggleDone = useCallback(() => {
+      const updatedNodes = getNodes().map((node) => {
+        if (node.id === id) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              isDone: !node.data.isDone,
+            },
+          };
+        }
+        return node;
+      });
+      setNodes(updatedNodes);
+    }, [id, getNodes, setNodes]);
+
+    return (
+      <Card
+        className={`w-48 shadow-md border-2 ${
+          itemData.isDone ? "border-green-500 bg-green-50/30" : "border-border"
+        }`}
+      >
+        <CardHeader className="pb-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Checkbox
+                checked={itemData.isDone}
+                onCheckedChange={handleToggleDone}
+                className="h-4 w-4 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+              />
+              <CardTitle
+                className={`text-sm font-medium ${
+                  itemData.isDone ? "line-through text-green-700" : ""
+                }`}
+              >
+                {itemData.label}
+              </CardTitle>
+            </div>
+            {itemData.quantity && (
+              <Badge variant="secondary" className="text-xs">
+                {itemData.quantity}
+              </Badge>
+            )}
+          </div>
+        </CardHeader>
+
+        <CardContent className="pt-0">
+          <div className="flex flex-wrap gap-1">
+            <Badge
+              variant="outline"
+              className={`text-xs ${getTierColor(itemData.tier)}`}
+            >
+              T{itemData.tier}
             </Badge>
-          )}
-        </div>
-      </CardHeader>
+            <Badge
+              variant="outline"
+              className={`text-xs ${getRarityColor(itemData.rarity)}`}
+            >
+              {itemData.rarity}
+            </Badge>
+            <Badge
+              variant="outline"
+              className="text-xs bg-blue-50 text-blue-700 border-blue-200"
+            >
+              {itemData.category}
+            </Badge>
+          </div>
+        </CardContent>
 
-      <CardContent className="pt-0">
-        <div className="flex flex-wrap gap-1">
-          <Badge
-            variant="outline"
-            className={`text-xs ${getTierColor(itemData.tier)}`}
-          >
-            T{itemData.tier}
-          </Badge>
-          <Badge
-            variant="outline"
-            className={`text-xs ${getRarityColor(itemData.rarity)}`}
-          >
-            {itemData.rarity}
-          </Badge>
-          <Badge
-            variant="outline"
-            className="text-xs bg-blue-50 text-blue-700 border-blue-200"
-          >
-            {itemData.category}
-          </Badge>
-        </div>
-      </CardContent>
-
-      <Handle type="target" position={Position.Top} className="w-3 h-3" />
-    </Card>
-  );
-});
+        <Handle type="target" position={Position.Top} className="w-3 h-3" />
+      </Card>
+    );
+  }
+);
 
 ItemNode.displayName = "ItemNode";
 MaterialNode.displayName = "MaterialNode";

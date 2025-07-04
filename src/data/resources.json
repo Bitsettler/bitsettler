@@ -1,0 +1,2586 @@
+[
+  {
+    "id": 1,
+    "name": "Sticks",
+    "slug": "sticks",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2,
+    "name": "Bush",
+    "slug": "bush",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3,
+    "name": "Rotten Log",
+    "slug": "rotten-log",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4,
+    "name": "Rotten Stump",
+    "slug": "rotten-stump",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5,
+    "name": "Maple Sapling",
+    "slug": "maple-sapling",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6,
+    "name": "Pine Sapling",
+    "slug": "pine-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 7,
+    "name": "Spruce Sapling",
+    "slug": "spruce-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 8,
+    "name": "Oak Sapling",
+    "slug": "oak-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 9,
+    "name": "Birch Sapling",
+    "slug": "birch-sapling",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 10,
+    "name": "Beech Sapling",
+    "slug": "beech-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 11,
+    "name": "Dead Tree",
+    "slug": "dead-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 12,
+    "name": "Young Beech Tree",
+    "slug": "young-beech-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 13,
+    "name": "Young Birch Tree",
+    "slug": "young-birch-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 14,
+    "name": "Young Oak Tree",
+    "slug": "young-oak-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 15,
+    "name": "Young Spruce Tree",
+    "slug": "young-spruce-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 16,
+    "name": "Young Pine Tree",
+    "slug": "young-pine-tree",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 17,
+    "name": "Young Maple Tree",
+    "slug": "young-maple-tree",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 18,
+    "name": "Dendro Tree",
+    "slug": "dendro-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 19,
+    "name": "Mature Beech Tree",
+    "slug": "mature-beech-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 20,
+    "name": "Mature Birch Tree",
+    "slug": "mature-birch-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 21,
+    "name": "Mature Oak Tree",
+    "slug": "mature-oak-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 23,
+    "name": "Ancient Oak Tree",
+    "slug": "ancient-oak-tree",
+    "tier": 6,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 24,
+    "name": "Gnarled Maple Tree",
+    "slug": "gnarled-maple-tree",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 25,
+    "name": "Mature Maple Tree",
+    "slug": "mature-maple-tree",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 26,
+    "name": "Mature Pine Tree",
+    "slug": "mature-pine-tree",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 27,
+    "name": "Mature Spruce Tree",
+    "slug": "mature-spruce-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 28,
+    "name": "Large Fallen Tree",
+    "slug": "large-fallen-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 30,
+    "name": "Stunted Cypress Tree",
+    "slug": "stunted-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 31,
+    "name": "Dead Cypress Tree",
+    "slug": "dead-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 32,
+    "name": "Ancient Pine Tree",
+    "slug": "ancient-pine-tree",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 33,
+    "name": "Mature Cypress Tree",
+    "slug": "mature-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 34,
+    "name": "Ancient Cypress Tree",
+    "slug": "ancient-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 35,
+    "name": "Young Baobab Tree",
+    "slug": "young-baobab-tree",
+    "tier": 7,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 36,
+    "name": "Ancient Baobab Tree",
+    "slug": "ancient-baobab-tree",
+    "tier": 7,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 38,
+    "name": "Flint Pile",
+    "slug": "flint-pile",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 40,
+    "name": "Limestone Boulder",
+    "slug": "limestone-boulder",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 41,
+    "name": "Limestone Outcrop",
+    "slug": "limestone-outcrop",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 42,
+    "name": "Large Limestone Outcrop",
+    "slug": "large-limestone-outcrop",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 43,
+    "name": "Large Limestone Rock",
+    "slug": "large-limestone-rock",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 44,
+    "name": "Large Limestone Boulder",
+    "slug": "large-limestone-boulder",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 45,
+    "name": "Limestone Rock Formation",
+    "slug": "limestone-rock-formation",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 46,
+    "name": "Shale Boulder",
+    "slug": "shale-boulder",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 47,
+    "name": "Shale Outcrop",
+    "slug": "shale-outcrop",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 48,
+    "name": "Sandstone Boulder",
+    "slug": "sandstone-boulder",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 49,
+    "name": "Sandstone Outcrop",
+    "slug": "sandstone-outcrop",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 50,
+    "name": "Granite Boulder",
+    "slug": "granite-boulder",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 51,
+    "name": "Granite Outcrop",
+    "slug": "granite-outcrop",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 52,
+    "name": "Basalt Outcrop",
+    "slug": "basalt-outcrop",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 53,
+    "name": "Basalt Stalagmite",
+    "slug": "basalt-stalagmite",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 54,
+    "name": "Diorite Outcrop",
+    "slug": "diorite-outcrop",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 55,
+    "name": "Diorite Boulder",
+    "slug": "diorite-boulder",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 56,
+    "name": "Marble Outcrop",
+    "slug": "marble-outcrop",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 57,
+    "name": "Marble Boulder",
+    "slug": "marble-boulder",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 58,
+    "name": "Ferralith Vein",
+    "slug": "ferralith-vein",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 59,
+    "name": "Ferralith Outcrop",
+    "slug": "ferralith-outcrop",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 60,
+    "name": "Rich Ferralith Vein",
+    "slug": "rich-ferralith-vein",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 61,
+    "name": "Pyrelite Vein",
+    "slug": "pyrelite-vein",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 62,
+    "name": "Emarium Vein",
+    "slug": "emarium-vein",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 63,
+    "name": "Elenvar Vein",
+    "slug": "elenvar-vein",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 64,
+    "name": "Luminite Vein",
+    "slug": "luminite-vein",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 65,
+    "name": "Rathium Vein",
+    "slug": "rathium-vein",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 66,
+    "name": "Mud Mound",
+    "slug": "mud-mound",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 67,
+    "name": "Clay Mound",
+    "slug": "clay-mound",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 68,
+    "name": "Earthenware Clay",
+    "slug": "earthenware-clay",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 69,
+    "name": "Fine Clay",
+    "slug": "fine-clay",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 70,
+    "name": "Kaolinite Clay",
+    "slug": "kaolinite-clay",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 71,
+    "name": "Bentonite Clay",
+    "slug": "bentonite-clay",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 72,
+    "name": "Wild Grains",
+    "slug": "wild-grains",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 73,
+    "name": "Strawberry Bush",
+    "slug": "strawberry-bush",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 74,
+    "name": "Button Mushrooms",
+    "slug": "button-mushrooms",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 75,
+    "name": "Blackberry Bush",
+    "slug": "blackberry-bush",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 76,
+    "name": "Oyster Mushrooms",
+    "slug": "oyster-mushrooms",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 77,
+    "name": "Prickly Pear",
+    "slug": "prickly-pear",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 78,
+    "name": "Juniper Berry Bush",
+    "slug": "juniper-berry-bush",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 79,
+    "name": "Chanterelles",
+    "slug": "chanterelles",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 80,
+    "name": "Honeyberry Bush",
+    "slug": "honeyberry-bush",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 81,
+    "name": "Morel Mushrooms",
+    "slug": "morel-mushrooms",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 82,
+    "name": "Truffle Patch",
+    "slug": "truffle-patch",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 83,
+    "name": "King Trumpet",
+    "slug": "king-trumpet",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 84,
+    "name": "Cloudberry Bush",
+    "slug": "cloudberry-bush",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 85,
+    "name": "Ghost Mushroom",
+    "slug": "ghost-mushroom",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 86,
+    "name": "Citriformis",
+    "slug": "citriformis",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 87,
+    "name": "Dandelions",
+    "slug": "dandelions",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 88,
+    "name": "Daisies",
+    "slug": "daisies",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 89,
+    "name": "Lavender",
+    "slug": "lavender",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 92,
+    "name": "Bluebell",
+    "slug": "bluebell",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 93,
+    "name": "Aloe",
+    "slug": "aloe",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 94,
+    "name": "Peppermint",
+    "slug": "peppermint",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 95,
+    "name": "Snowdrop Flowers",
+    "slug": "snowdrop-flowers",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 96,
+    "name": "Marigold",
+    "slug": "marigold",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 97,
+    "name": "Thyme",
+    "slug": "thyme",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 98,
+    "name": "Morning Glory",
+    "slug": "morning-glory",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 99,
+    "name": "Desert Rose",
+    "slug": "desert-rose",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 100,
+    "name": "Rosemary",
+    "slug": "rosemary",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 101,
+    "name": "Fireweed",
+    "slug": "fireweed",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 102,
+    "name": "White Lily",
+    "slug": "white-lily",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 103,
+    "name": "Ghost Thyme",
+    "slug": "ghost-thyme",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 104,
+    "name": "Golden Witlow",
+    "slug": "golden-witlow",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 105,
+    "name": "King of the Alps",
+    "slug": "king-of-the-alps",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 125,
+    "name": "Ferns",
+    "slug": "ferns",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 127,
+    "name": "Pine Weed",
+    "slug": "pine-weed",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 128,
+    "name": "Grassy Reeds",
+    "slug": "grassy-reeds",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 129,
+    "name": "Reindeer Lichen",
+    "slug": "reindeer-lichen",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 130,
+    "name": "Ghost Succulent",
+    "slug": "ghost-succulent",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 131,
+    "name": "Bullrushes",
+    "slug": "bullrushes",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 132,
+    "name": "Spanish Moss",
+    "slug": "spanish-moss",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 134,
+    "name": "Brambles",
+    "slug": "brambles",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 135,
+    "name": "Heather",
+    "slug": "heather",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 136,
+    "name": "Large Brambles",
+    "slug": "large-brambles",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 137,
+    "name": "Arctic Grass",
+    "slug": "arctic-grass",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 138,
+    "name": "Pink Lilies",
+    "slug": "pink-lilies",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 139,
+    "name": "Ancient Thorns",
+    "slug": "ancient-thorns",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 140,
+    "name": "Rough Hieroglyphs",
+    "slug": "rough-hieroglyphs",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 141,
+    "name": "Simple Hieroglyphs",
+    "slug": "simple-hieroglyphs",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 142,
+    "name": "Neat Hieroglyphs",
+    "slug": "neat-hieroglyphs",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 143,
+    "name": "Fine Hieroglyphs",
+    "slug": "fine-hieroglyphs",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 144,
+    "name": "Exquisite Hieroglyphs",
+    "slug": "exquisite-hieroglyphs",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 145,
+    "name": "Peerless Hieroglyphs",
+    "slug": "peerless-hieroglyphs",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 153,
+    "name": "Fossils",
+    "slug": "fossils",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 154,
+    "name": "Sandcovered Fossils",
+    "slug": "sandcovered-fossils",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 156,
+    "name": "Wild Starbulb Plant",
+    "slug": "wild-starbulb-plant",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 158,
+    "name": "Salt Deposit",
+    "slug": "salt-deposit",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1000028,
+    "name": "Large Fallen Tree Stump",
+    "slug": "large-fallen-tree-stump",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1000029,
+    "name": "Fallen Grove Tree",
+    "slug": "fallen-grove-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1010008,
+    "name": "Planted Birch Sapling",
+    "slug": "planted-birch-sapling",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1010009,
+    "name": "Planted Beech Sapling",
+    "slug": "planted-beech-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1010010,
+    "name": "Planted Oak Sapling",
+    "slug": "planted-oak-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1011008,
+    "name": "Planted Birch Tree",
+    "slug": "planted-birch-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1011009,
+    "name": "Planted Beech Tree",
+    "slug": "planted-beech-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1011010,
+    "name": "Planted Oak Tree",
+    "slug": "planted-oak-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1012008,
+    "name": "Fully Grown Birch Tree",
+    "slug": "fully-grown-birch-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1012009,
+    "name": "Fully Grown Beech Tree",
+    "slug": "fully-grown-beech-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1012010,
+    "name": "Fully Grown Oak Tree",
+    "slug": "fully-grown-oak-tree",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1020001,
+    "name": "Medium Ferralith Vein",
+    "slug": "medium-ferralith-vein",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1090000,
+    "name": "Silken Hexmoths",
+    "slug": "silken-hexmoths",
+    "tier": 1,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1110000,
+    "name": "Moonlit Crawdads",
+    "slug": "moonlit-crawdads",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1110001,
+    "name": "School Of Breezy Fin Darters ",
+    "slug": "school-of-breezy-fin-darters",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1110002,
+    "name": "School Of Oceancrest Marlins",
+    "slug": "school-of-oceancrest-marlins",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1110003,
+    "name": "Frenzied School Of Oceancrest Marlins",
+    "slug": "frenzied-school-of-oceancrest-marlins",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1110004,
+    "name": "Seaside Clam",
+    "slug": "seaside-clam",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2010008,
+    "name": "Planted Dendro Sapling",
+    "slug": "planted-dendro-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2011008,
+    "name": "Planted Dendro Tree",
+    "slug": "planted-dendro-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2012008,
+    "name": "Fully Grown Dendro Tree",
+    "slug": "fully-grown-dendro-tree",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2020001,
+    "name": "Medium Pyrelite Vein",
+    "slug": "medium-pyrelite-vein",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2020002,
+    "name": "Large Pyrelite Vein",
+    "slug": "large-pyrelite-vein",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2050000,
+    "name": "Garden Boulder",
+    "slug": "garden-boulder",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2050001,
+    "name": "Large Garden Boulder",
+    "slug": "large-garden-boulder",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110000,
+    "name": "Driftwood Crayfish",
+    "slug": "driftwood-crayfish",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110001,
+    "name": "School Of Emberfin Shiners",
+    "slug": "school-of-emberfin-shiners",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110002,
+    "name": "School Of Serpentfish",
+    "slug": "school-of-serpentfish",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110003,
+    "name": "Frenzied School Of Serpentfish",
+    "slug": "frenzied-school-of-serpentfish",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110004,
+    "name": "Tough Shelled Mussel",
+    "slug": "tough-shelled-mussel",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2140000,
+    "name": "Giant Groundsel Plant",
+    "slug": "giant-groundsel-plant",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2390533,
+    "name": "School Of Mysterious Anglerfish",
+    "slug": "school-of-mysterious-anglerfish",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3010008,
+    "name": "Planted Maple Sapling",
+    "slug": "planted-maple-sapling",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3010009,
+    "name": "Planted Pine Sapling",
+    "slug": "planted-pine-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3010010,
+    "name": "Planted Spruce Sapling",
+    "slug": "planted-spruce-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3010011,
+    "name": "Planted Willow Sapling",
+    "slug": "planted-willow-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3011008,
+    "name": "Planted Maple Tree",
+    "slug": "planted-maple-tree",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3011009,
+    "name": "Planted Pine Tree",
+    "slug": "planted-pine-tree",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3011010,
+    "name": "Planted Spruce Tree",
+    "slug": "planted-spruce-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3011011,
+    "name": "Planted Willow Tree",
+    "slug": "planted-willow-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3012008,
+    "name": "Fully Grown Maple Tree",
+    "slug": "fully-grown-maple-tree",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3012009,
+    "name": "Fully Grown Pine Tree",
+    "slug": "fully-grown-pine-tree",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3012010,
+    "name": "Fully Grown Spruce Tree",
+    "slug": "fully-grown-spruce-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3012011,
+    "name": "Fully Grown Willow Tree",
+    "slug": "fully-grown-willow-tree",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3020001,
+    "name": "Medium Emarium Vein",
+    "slug": "medium-emarium-vein",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3020002,
+    "name": "Large Emarium Vein",
+    "slug": "large-emarium-vein",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3110000,
+    "name": "Hunchback Prawns",
+    "slug": "hunchback-prawns",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3110001,
+    "name": "School Of Coralcrest Darter",
+    "slug": "school-of-coralcrest-darter",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3110002,
+    "name": "School Of Wavecrest Eels",
+    "slug": "school-of-wavecrest-eels",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3110003,
+    "name": "Frenzied School Of Wavecrest Eels",
+    "slug": "frenzied-school-of-wavecrest-eels",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 3110004,
+    "name": "Pearlback Snail",
+    "slug": "pearlback-snail",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4010011,
+    "name": "Planted Cypress Sapling",
+    "slug": "planted-cypress-sapling",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4011011,
+    "name": "Planted Cypress Tree",
+    "slug": "planted-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4012011,
+    "name": "Fully Grown Cypress Tree",
+    "slug": "fully-grown-cypress-tree",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050000,
+    "name": "Garden Pillar",
+    "slug": "garden-pillar",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050001,
+    "name": "Garden Formation",
+    "slug": "garden-formation",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050002,
+    "name": "Rocky Garden Pillar",
+    "slug": "rocky-garden-pillar",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050003,
+    "name": "Rocky Garden Pillars",
+    "slug": "rocky-garden-pillars",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050004,
+    "name": "Rocky Garden Formation",
+    "slug": "rocky-garden-formation",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050005,
+    "name": "Diorite Pillar",
+    "slug": "diorite-pillar",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050006,
+    "name": "Large Rocky Garden Pillars",
+    "slug": "large-rocky-garden-pillars",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4050007,
+    "name": "Large Rocky Garden Formations",
+    "slug": "large-rocky-garden-formations",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4110000,
+    "name": "Pygmy Lobsters",
+    "slug": "pygmy-lobsters",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4110001,
+    "name": "School Of Mossfin Chub",
+    "slug": "school-of-mossfin-chub",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4110002,
+    "name": "School Of Seastorm Tuna",
+    "slug": "school-of-seastorm-tuna",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4110003,
+    "name": "Frenzied School Of Seastorm Tuna",
+    "slug": "frenzied-school-of-seastorm-tuna",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 4110004,
+    "name": "Crystal Shell Scallop",
+    "slug": "crystal-shell-scallop",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5045122,
+    "name": "School Of Tidebreaker Barracuda",
+    "slug": "school-of-tidebreaker-barracuda",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5050000,
+    "name": "Garden Pillar Interior",
+    "slug": "garden-pillar-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5050001,
+    "name": "Garden Formation Interior",
+    "slug": "garden-formation-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5050002,
+    "name": "Diorite Pillar Interior",
+    "slug": "diorite-pillar-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5110000,
+    "name": "Golden Crawfish",
+    "slug": "golden-crawfish",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5110001,
+    "name": "School Of Emberscale Sturgeon",
+    "slug": "school-of-emberscale-sturgeon",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5110002,
+    "name": "School Of Azure Sharks",
+    "slug": "school-of-azure-sharks",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5110003,
+    "name": "Frenzied School Of Azure Sharks",
+    "slug": "frenzied-school-of-azure-sharks",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 5110004,
+    "name": "Armored Reef Clam",
+    "slug": "armored-reef-clam",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6110000,
+    "name": "Sunrise Shrimp",
+    "slug": "sunrise-shrimp",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6110001,
+    "name": "School Of Hexfin Perch",
+    "slug": "school-of-hexfin-perch",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6110002,
+    "name": "School Of Abyssal Swordfish",
+    "slug": "school-of-abyssal-swordfish",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6110003,
+    "name": "Frenzied School Of Abyssal Swordfish",
+    "slug": "frenzied-school-of-abyssal-swordfish",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 6110004,
+    "name": "Abyssal Oyster",
+    "slug": "abyssal-oyster",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 20857160,
+    "name": "Celestium Outcrop Interior",
+    "slug": "celestium-outcrop-interior",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 64125498,
+    "name": "Umbracite Vein Interior",
+    "slug": "umbracite-vein-interior",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 70663203,
+    "name": "Tier 10 Boulder",
+    "slug": "tier-10-boulder",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 93152192,
+    "name": "Flawless Hieroglyphs",
+    "slug": "flawless-hieroglyphs",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 139483458,
+    "name": "Aurumite Vein",
+    "slug": "aurumite-vein",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 182331452,
+    "name": "Traveler's Fruit",
+    "slug": "traveler-s-fruit",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 189403270,
+    "name": "Tier 9 Fibers",
+    "slug": "tier-9-fibers",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 198759779,
+    "name": "Emarium Outcrop Interior",
+    "slug": "emarium-outcrop-interior",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 204021372,
+    "name": "Rough Sand Pile",
+    "slug": "rough-sand-pile",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 218270468,
+    "name": "Ferralith Outcrop Interior",
+    "slug": "ferralith-outcrop-interior",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 284200468,
+    "name": "Tier 9 Flower",
+    "slug": "tier-9-flower",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 331687458,
+    "name": "Magnificient Hieroglyphs",
+    "slug": "magnificient-hieroglyphs",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 368570220,
+    "name": "Cranberry Bush",
+    "slug": "cranberry-bush",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 370078223,
+    "name": "Astralite Outcrop Interior",
+    "slug": "astralite-outcrop-interior",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 374159821,
+    "name": "School Of Flawless Lakefish",
+    "slug": "school-of-flawless-lakefish",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 379219978,
+    "name": "Medium Emarium Vein Interior",
+    "slug": "medium-emarium-vein-interior",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 387666932,
+    "name": "Tier 7 Tree",
+    "slug": "tier-7-tree",
+    "tier": 7,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 424796674,
+    "name": "School Of Flawless Ocean Fish",
+    "slug": "school-of-flawless-ocean-fish",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 457752715,
+    "name": "Pristine Sand",
+    "slug": "pristine-sand",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 464034838,
+    "name": "Olivine Sand",
+    "slug": "olivine-sand",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 473828668,
+    "name": "Bamboo",
+    "slug": "bamboo",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 479638263,
+    "name": "Tier 8 Boulder",
+    "slug": "tier-8-boulder",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 505488132,
+    "name": "Pristine Clay",
+    "slug": "pristine-clay",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 509854054,
+    "name": "Frenzied School Of Mysterious Anglerfish",
+    "slug": "frenzied-school-of-mysterious-anglerfish",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 532077242,
+    "name": "Indigo Milk Cap",
+    "slug": "indigo-milk-cap",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 541862086,
+    "name": "Garnet Sand",
+    "slug": "garnet-sand",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 549538391,
+    "name": "Medium Luminite Vein Interior",
+    "slug": "medium-luminite-vein-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 562432497,
+    "name": "Magnificient Sand",
+    "slug": "magnificient-sand",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 582591086,
+    "name": "Ornate Berry Bush",
+    "slug": "ornate-berry-bush",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 586543849,
+    "name": "Ornate Mushroom",
+    "slug": "ornate-mushroom",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 642972236,
+    "name": "Luminite Outcrop Interior",
+    "slug": "luminite-outcrop-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 699727318,
+    "name": "Medium Pyrelite Vein Interior",
+    "slug": "medium-pyrelite-vein-interior",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 702104027,
+    "name": "Clay Termite Mound",
+    "slug": "clay-termite-mound",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 715451185,
+    "name": "Blueberry Bush",
+    "slug": "blueberry-bush",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 722506673,
+    "name": "School Of Rainbowscaled Tilapia",
+    "slug": "school-of-rainbowscaled-tilapia",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 723013812,
+    "name": "Tier 7 Flower",
+    "slug": "tier-7-flower",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 756579517,
+    "name": "Magnificient Baitfish",
+    "slug": "magnificient-baitfish",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 762731569,
+    "name": "Palmetto",
+    "slug": "palmetto",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 763946195,
+    "name": "TEST BirdSpawn",
+    "slug": "test-birdspawn",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 773149133,
+    "name": "Medium Rathium Vein Interior",
+    "slug": "medium-rathium-vein-interior",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 782933576,
+    "name": "Elenvar Outcrop Interior",
+    "slug": "elenvar-outcrop-interior",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 814703516,
+    "name": "Umbracite Outcrop Interior",
+    "slug": "umbracite-outcrop-interior",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 826362353,
+    "name": "Frenzied School Of Tidebreaker Barracuda",
+    "slug": "frenzied-school-of-tidebreaker-barracuda",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 834195042,
+    "name": "Ornate Clay",
+    "slug": "ornate-clay",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 875245395,
+    "name": "Mistberry Bush",
+    "slug": "mistberry-bush",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 887736443,
+    "name": "Luminite Vein Interior",
+    "slug": "luminite-vein-interior",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 904022325,
+    "name": "School Of Speedy Glowfin",
+    "slug": "school-of-speedy-glowfin",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 916586661,
+    "name": "Rathium Outcrop Interior",
+    "slug": "rathium-outcrop-interior",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 939382648,
+    "name": "Wisteria Tree",
+    "slug": "wisteria-tree",
+    "tier": 10,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 939701809,
+    "name": "Gigantic Sapwood Tree",
+    "slug": "gigantic-sapwood-tree",
+    "tier": 9,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 963451338,
+    "name": "Magnificient Berry Bush",
+    "slug": "magnificient-berry-bush",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 999376882,
+    "name": "Desert Sand",
+    "slug": "desert-sand",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1005142992,
+    "name": "Elephant Fibers",
+    "slug": "elephant-fibers",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1006230316,
+    "name": "Frenzied School Of Flawless Ocean Fish",
+    "slug": "frenzied-school-of-flawless-ocean-fish",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1023127595,
+    "name": "Flawless Clay",
+    "slug": "flawless-clay",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1045808810,
+    "name": "Pyrelite Outcrop Interior",
+    "slug": "pyrelite-outcrop-interior",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1072537375,
+    "name": "Russala",
+    "slug": "russala",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1077990023,
+    "name": "Elenvar Vein Interior",
+    "slug": "elenvar-vein-interior",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1101060328,
+    "name": "Ficus Tree",
+    "slug": "ficus-tree",
+    "tier": 8,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1113640469,
+    "name": "Tier 9 Outcrop",
+    "slug": "tier-9-outcrop",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1125409070,
+    "name": "Tier 8 Fibers",
+    "slug": "tier-8-fibers",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1141184831,
+    "name": "Frenzied School Of Magnificient Ocean Fish",
+    "slug": "frenzied-school-of-magnificient-ocean-fish",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1157887989,
+    "name": "School Of Magnificient Lake Fish",
+    "slug": "school-of-magnificient-lake-fish",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1159270109,
+    "name": "Tier 10 Tree",
+    "slug": "tier-10-tree",
+    "tier": 10,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1162923141,
+    "name": "Celestium Vein Interior",
+    "slug": "celestium-vein-interior",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1180909566,
+    "name": "Crystalized Sand",
+    "slug": "crystalized-sand",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1262898141,
+    "name": "Misty Crustacean",
+    "slug": "misty-crustacean",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1264935363,
+    "name": "Tier 8 Flower",
+    "slug": "tier-8-flower",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1283632905,
+    "name": "Traveler's Fruit (Depleted)",
+    "slug": "traveler-s-fruit-depleted",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1283711960,
+    "name": "Flawless Baitfish",
+    "slug": "flawless-baitfish",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1303955933,
+    "name": "Traveler's Tree",
+    "slug": "traveler-s-tree",
+    "tier": 1,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1332535555,
+    "name": "Ornate Sand",
+    "slug": "ornate-sand",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1332797261,
+    "name": "Celestium Vein",
+    "slug": "celestium-vein",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1333270269,
+    "name": "Flawless Sand",
+    "slug": "flawless-sand",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1384946093,
+    "name": "Medium Umbracite Vein Interior",
+    "slug": "medium-umbracite-vein-interior",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1386735112,
+    "name": "Umbracite Vein",
+    "slug": "umbracite-vein",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1423928615,
+    "name": "Tier 8 Outcrop",
+    "slug": "tier-8-outcrop",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1435874592,
+    "name": "Traveler's Tree (Depleted)",
+    "slug": "traveler-s-tree-depleted",
+    "tier": 1,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1440062914,
+    "name": "Tier 7 Boulder",
+    "slug": "tier-7-boulder",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1452484871,
+    "name": "Medium Astralite Vein Interior",
+    "slug": "medium-astralite-vein-interior",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1458811602,
+    "name": "Seaweed",
+    "slug": "seaweed",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1467799531,
+    "name": "Dewberry Bush",
+    "slug": "dewberry-bush",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1489491467,
+    "name": "Tier 10 Fibers",
+    "slug": "tier-10-fibers",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1526038154,
+    "name": "Magnificient Clay",
+    "slug": "magnificient-clay",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1558728865,
+    "name": "Sparkling Prawn",
+    "slug": "sparkling-prawn",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1565420196,
+    "name": "Medium Ferralith Vein Interior",
+    "slug": "medium-ferralith-vein-interior",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1566846336,
+    "name": "Rosewood Tree",
+    "slug": "rosewood-tree",
+    "tier": 4,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1567694896,
+    "name": "Pristine Hieroglyphs",
+    "slug": "pristine-hieroglyphs",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1574437474,
+    "name": "Sapwood Tree",
+    "slug": "sapwood-tree",
+    "tier": 9,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1579330042,
+    "name": "Yellow Apricot Bush",
+    "slug": "yellow-apricot-bush",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1592739620,
+    "name": "Pristine Berry Bush",
+    "slug": "pristine-berry-bush",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1606770008,
+    "name": "Astralite Vein",
+    "slug": "astralite-vein",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1619369727,
+    "name": "Pyrelite Vein Interior",
+    "slug": "pyrelite-vein-interior",
+    "tier": 2,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1637125903,
+    "name": "Flawless Mushroom",
+    "slug": "flawless-mushroom",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1657885116,
+    "name": "Pristine Mushroom",
+    "slug": "pristine-mushroom",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1691492474,
+    "name": "Coral Sand",
+    "slug": "coral-sand",
+    "tier": 5,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1742959882,
+    "name": "Magnificient Mushroom",
+    "slug": "magnificient-mushroom",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1747556974,
+    "name": "Astralite Vein Interior",
+    "slug": "astralite-vein-interior",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1800013378,
+    "name": "Medium Aurumite Vein Interior",
+    "slug": "medium-aurumite-vein-interior",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1812221896,
+    "name": "School Of Magnificient Ocean Fish",
+    "slug": "school-of-magnificient-ocean-fish",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1821415333,
+    "name": "Mature Sapwood Tree",
+    "slug": "mature-sapwood-tree",
+    "tier": 9,
+    "rarity": "rare",
+    "category": "resources"
+  },
+  {
+    "id": 1902966974,
+    "name": "Tier 9 Boulder",
+    "slug": "tier-9-boulder",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1917261269,
+    "name": "Jute",
+    "slug": "jute",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1954847232,
+    "name": "Black Fig Bush",
+    "slug": "black-fig-bush",
+    "tier": 9,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1962517199,
+    "name": "Ferralith Vein Interior",
+    "slug": "ferralith-vein-interior",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1981854097,
+    "name": "Tier 7 Fibers",
+    "slug": "tier-7-fibers",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1986100626,
+    "name": "Tier 10 Flower",
+    "slug": "tier-10-flower",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 1996631377,
+    "name": "Tier 10 Outcrop",
+    "slug": "tier-10-outcrop",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2025189123,
+    "name": "Medium Celestium Vein Interior",
+    "slug": "medium-celestium-vein-interior",
+    "tier": 8,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2027405944,
+    "name": "Rathium Vein Interior",
+    "slug": "rathium-vein-interior",
+    "tier": 6,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2031243337,
+    "name": "Aurumite Vein Interior",
+    "slug": "aurumite-vein-interior",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2066552867,
+    "name": "Medium Elenvar Vein Interior",
+    "slug": "medium-elenvar-vein-interior",
+    "tier": 4,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2072988001,
+    "name": "Emarium Vein Interior",
+    "slug": "emarium-vein-interior",
+    "tier": 3,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2073862342,
+    "name": "Aurumite Outcrop Interior",
+    "slug": "aurumite-outcrop-interior",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2089197796,
+    "name": "Enoki",
+    "slug": "enoki",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2104975743,
+    "name": "Tier 7 Outcrop",
+    "slug": "tier-7-outcrop",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2110330714,
+    "name": "Flawless Berry Bush",
+    "slug": "flawless-berry-bush",
+    "tier": 10,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2124845482,
+    "name": "Ornate Hieroglyphs",
+    "slug": "ornate-hieroglyphs",
+    "tier": 7,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2144918116,
+    "name": "Daisy",
+    "slug": "daisy",
+    "tier": 1,
+    "rarity": "common",
+    "category": "resources"
+  },
+  {
+    "id": 2145270439,
+    "name": "Jakyl Den",
+    "slug": "jakyl-den",
+    "tier": -1,
+    "rarity": "common",
+    "category": "resources"
+  }
+]

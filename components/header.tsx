@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { PencilRuler } from "@phosphor-icons/react";
+import { PencilRuler, GithubLogo } from "@phosphor-icons/react";
 import { Container } from "@/components/container";
 // import { MainNav } from "@/components/main-nav";
 // import { MobileNav } from "@/components/mobile-nav";
@@ -30,11 +30,31 @@ export function Header() {
           </Link>
         </Button>
         {/* <MainNav className="hidden lg:flex" /> */}
+        <div className="flex items-center">
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/changelog">Changelog</Link>
+          </Button>
+        </div>
         <div className="ml-auto flex items-center md:flex-1 md:justify-end gap-2">
           {/* <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
             <Search />
           </div>
           <Separator orientation="vertical" className="h-6 block" /> */}
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="size-8"
+            title="GitHub Repository"
+          >
+            <a
+              href="https://github.com/duy-the-developer/bitcraft.guide-web-next"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubLogo className="size-5" />
+            </a>
+          </Button>
           <ModeToggle />
         </div>
       </Container>

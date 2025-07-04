@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 import { I18N_CONFIG } from "@/src/i18n/config";
 import "../globals.css";
 import { geistSans } from "@/src/styles/typography";
@@ -43,6 +44,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <Header />
             {children}
+            <Analytics />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
