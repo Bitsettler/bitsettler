@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
+import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import { memo, useCallback, useEffect } from 'react'
 
@@ -28,54 +30,6 @@ interface Recipe {
   }
 }
 
-// Utility function to resolve recipe name placeholders
-const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
-  let resolvedName = recipe.name
-
-  // Replace {0} with output item name
-  if (recipe.output && recipe.output.length > 0) {
-    const outputItem = allItems.find((item) => item.id === recipe.output[0].item)
-    if (outputItem) {
-      resolvedName = resolvedName.replace(/\{0\}/g, outputItem.name)
-    }
-  }
-
-  // Replace {1} with first input material name
-  if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
-    const firstMaterial = recipe.requirements.materials[0]
-    if (firstMaterial.id) {
-      const materialItem = allItems.find((item) => item.id === firstMaterial.id)
-      if (materialItem) {
-        resolvedName = resolvedName.replace(/\{1\}/g, materialItem.name)
-      }
-    }
-  }
-
-  // Replace {2} with second input material name (if exists)
-  if (recipe.requirements.materials && recipe.requirements.materials.length > 1) {
-    const secondMaterial = recipe.requirements.materials[1]
-    if (secondMaterial.id) {
-      const materialItem = allItems.find((item) => item.id === secondMaterial.id)
-      if (materialItem) {
-        resolvedName = resolvedName.replace(/\{2\}/g, materialItem.name)
-      }
-    }
-  }
-
-  // Replace {3} with third input material name (if exists)
-  if (recipe.requirements.materials && recipe.requirements.materials.length > 2) {
-    const thirdMaterial = recipe.requirements.materials[2]
-    if (thirdMaterial.id) {
-      const materialItem = allItems.find((item) => item.id === thirdMaterial.id)
-      if (materialItem) {
-        resolvedName = resolvedName.replace(/\{3\}/g, materialItem.name)
-      }
-    }
-  }
-
-  return resolvedName
-}
-
 interface ItemData {
   label: string
   tier: number
@@ -86,40 +40,6 @@ interface ItemData {
   selectedRecipe?: Recipe | null
   itemId?: number
   isDone?: boolean
-}
-
-const getRarityColor = (rarity: string) => {
-  switch (rarity.toLowerCase()) {
-    case 'common':
-      return 'bg-gray-100 text-gray-800 border-gray-300'
-    case 'uncommon':
-      return 'bg-green-100 text-green-800 border-green-300'
-    case 'rare':
-      return 'bg-blue-100 text-blue-800 border-blue-300'
-    case 'epic':
-      return 'bg-purple-100 text-purple-800 border-purple-300'
-    case 'legendary':
-      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
-    default:
-      return 'bg-gray-100 text-gray-800 border-gray-300'
-  }
-}
-
-const getTierColor = (tier: number) => {
-  switch (tier) {
-    case 1:
-      return 'bg-gray-100 text-gray-800 border-gray-300'
-    case 2:
-      return 'bg-green-100 text-green-800 border-green-300'
-    case 3:
-      return 'bg-blue-100 text-blue-800 border-blue-300'
-    case 4:
-      return 'bg-purple-100 text-purple-800 border-purple-300'
-    case 5:
-      return 'bg-yellow-100 text-yellow-800 border-yellow-300'
-    default:
-      return 'bg-gray-100 text-gray-800 border-gray-300'
-  }
 }
 
 export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {

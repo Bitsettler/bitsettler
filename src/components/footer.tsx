@@ -11,9 +11,17 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
             <p className="text-muted-foreground text-center text-sm md:text-left">
-              © {new Date().getFullYear()} {SITE_CONFIG.name}. {t('footer.allRightsReserved')}
+              © 2025 Duy Nguyen. {t('footer.allRightsReserved')}
             </p>
             <div className="flex items-center gap-4">
+              <a
+                href={SITE_CONFIG.links.discord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+              >
+                {t('footer.discord')}
+              </a>
               <a
                 href={SITE_CONFIG.links.github}
                 target="_blank"

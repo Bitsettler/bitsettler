@@ -2,14 +2,14 @@
 
 import { Container } from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { GithubLogoIcon, TreeViewIcon } from '@phosphor-icons/react'
+import { DiscordLogoIcon, GithubLogoIcon, TreeViewIcon } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
 // import { MainNav } from "@/components/main-nav";
 // import { MobileNav } from "@/components/mobile-nav";
 import { ThemeSwitcher } from '@/components/theme-switcher'
 // import { Search } from "@/components/search";
-// import { Separator } from "@/components/ui/separator";
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { Separator } from '@/components/ui/separator'
 import { SITE_CONFIG } from '@/config/site-config'
 import { Link } from '@/i18n/navigation'
 
@@ -37,11 +37,17 @@ export function Header() {
             <Search />
           </div>
           <Separator orientation="vertical" className="h-6 block" /> */}
-          <Button asChild variant="ghost" size="icon" className="size-8" title="GitHub Repository">
+          <Button asChild variant="ghost" size="icon" className="size-8" title={t('header.discord')}>
+            <a href={SITE_CONFIG.links.discord} target="_blank" rel="noopener noreferrer">
+              <DiscordLogoIcon className="size-5" />
+            </a>
+          </Button>
+          <Button asChild variant="ghost" size="icon" className="size-8" title={t('header.github')}>
             <a href={SITE_CONFIG.links.github} target="_blank" rel="noopener noreferrer">
               <GithubLogoIcon className="size-5" />
             </a>
           </Button>
+          <Separator orientation="vertical" className="h-6" />
           <LanguageSwitcher />
           <ThemeSwitcher />
         </div>

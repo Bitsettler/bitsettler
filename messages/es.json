@@ -30,7 +30,9 @@
       "en": "English",
       "fr": "Français",
       "es": "Español"
-    }
+    },
+    "discord": "Servidor de Discord",
+    "github": "Repositorio de GitHub"
   },
   "calculator": {
     "title": "Calculadora de Crafteo",
@@ -72,6 +74,7 @@
     "allRightsReserved": "Todos los derechos reservados.",
     "github": "GitHub",
     "twitter": "Twitter",
+    "discord": "Discord",
     "unofficialDisclaimer": "Este es un proyecto de fan no oficial y no está afiliado a BitCraft o sus desarrolladores.",
     "assetsDisclaimer": "Todos los datos y recursos del juego pertenecen a sus respectivos propietarios."
   },
