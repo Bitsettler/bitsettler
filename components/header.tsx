@@ -2,7 +2,7 @@
 
 import { Container } from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { GithubLogo, PencilRuler } from '@phosphor-icons/react'
+import { GithubLogoIcon, TreeViewIcon } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
 // import { MainNav } from "@/components/main-nav";
 // import { MobileNav } from "@/components/mobile-nav";
@@ -22,7 +22,7 @@ export function Header() {
         {/* <MobileNav className="flex lg:hidden" /> */}
         <Button asChild variant="ghost" size="icon" className="hidden size-8 lg:flex">
           <Link href="/">
-            <PencilRuler className="size-5" />
+            <TreeViewIcon className="size-7" />
             <span className="sr-only">{t('header.title')}</span>
           </Link>
         </Button>
@@ -39,7 +39,7 @@ export function Header() {
           <Separator orientation="vertical" className="h-6 block" /> */}
           <Button asChild variant="ghost" size="icon" className="size-8" title="GitHub Repository">
             <a href={SITE_CONFIG.links.github} target="_blank" rel="noopener noreferrer">
-              <GithubLogo className="size-5" />
+              <GithubLogoIcon className="size-5" />
             </a>
           </Button>
           <LanguageSwitcher />

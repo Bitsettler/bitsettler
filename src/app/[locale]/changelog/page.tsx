@@ -36,13 +36,91 @@ export default async function ChangelogPage({ params }: { params: Promise<{ loca
             </p>
           </div>
 
+          {/* Version Card - v1.3.1 Favicon & Structure */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.3.1 Favicon & Structure</CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Patch update: new tree-view favicon, improved project structure, and middleware fixes
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">✨ New Features</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Tree-View Favicon</h4>
+                      <p className="text-muted-foreground text-sm">
+                        New tree-view favicon and app icon with dynamic generation using Next.js 13+ conventions. The
+                        icon represents the hierarchical nature of crafting recipes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Improved Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🔄 Improved</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Project Structure</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Consolidated duplicate lib folders into a single organized structure for better maintainability
+                        and cleaner imports throughout the application.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Fixed Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🐛 Fixed</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Dynamic Icon Generation</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Fixed middleware configuration to properly handle dynamic favicon and icon generation routes,
+                        ensuring icons display correctly in all browsers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">New branding and improved project structure! 🌳✨</p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.3.0 Debug & UX Improvements */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">v1.3.0 Debug & UX Improvements</CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">

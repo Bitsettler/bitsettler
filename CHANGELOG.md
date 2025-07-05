@@ -5,7 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.0] - 2024-07-05
+## [1.3.1]
+
+### Added
+
+- New tree-view-icon favicon and app icon with dynamic generation
+
+### Improved
+
+- Project structure: Consolidated lib folders for better organization
+
+### Fixed
+
+- Middleware configuration to properly handle dynamic favicon/icon generation
+
+## [1.3.0]
 
 ### Added
 
@@ -26,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0] - 2024-01-XX
+## [1.2.0]
 
 ### Added
 
@@ -49,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added type exports in `src/i18n/config.ts`
 - Updated all components to use translation hooks
 
-## [1.1.0] - 2024-01-XX
+## [1.1.0]
 
 ### Added
 
@@ -71,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recipe Output Display - fixed showing raw IDs instead of item names
 - Recipe Requirements Visibility - fixed empty strings for nodes beyond 2nd level
 
-## [1.0.1] - 2024-01-XX
+## [1.0.1]
 
 ### Fixed
 
@@ -79,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Child Recipe Quantity Calculation - fixed child recipe nodes showing Qty: 1 instead of correct quantities
 - Recipe Output Display - fixed recipe output showing raw IDs instead of item names
 
-## [1.0.0] - 2024-01-XX
+## [1.0.0]
 
 ### Added
 
