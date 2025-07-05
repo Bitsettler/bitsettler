@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox } from '@/components/ui/combobox'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Recipe } from '@/src/lib/types'
+import { Recipe } from '@/lib/types'
 import Dagre from '@dagrejs/dagre'
 import type { Edge, Node } from '@xyflow/react'
 import {
@@ -72,10 +72,10 @@ const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
   return resolvedName
 }
 
-import cargo from '@/src/data/cargo.json'
-import items from '@/src/data/items.json'
-import recipes from '@/src/data/recipes.json'
-import resources from '@/src/data/resources.json'
+import cargo from '@/data/cargo.json'
+import items from '@/data/items.json'
+import recipes from '@/data/recipes.json'
+import resources from '@/data/resources.json'
 
 // All available items in the database
 const allItems: Array<{

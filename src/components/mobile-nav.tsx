@@ -6,8 +6,8 @@ import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Link } from '@/src/i18n/navigation'
-import { cn } from '@/src/lib/utils'
+import { Link } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 
 export function MobileNav({ className }: { className?: string }) {
   const [open, setOpen] = React.useState(false)

@@ -8,10 +8,10 @@ import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import { memo, useCallback, useEffect } from 'react'
 
 // Import data
-import cargo from '@/src/data/cargo.json'
-import items from '@/src/data/items.json'
-import recipes from '@/src/data/recipes.json'
-import resources from '@/src/data/resources.json'
+import cargo from '@/data/cargo.json'
+import items from '@/data/items.json'
+import recipes from '@/data/recipes.json'
+import resources from '@/data/resources.json'
 
 interface Recipe {
   id: number

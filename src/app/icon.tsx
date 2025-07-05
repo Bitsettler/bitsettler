@@ -1,4 +1,4 @@
-import { TreeViewIcon } from '@/src/components/icons/tree-view-icon'
+import { TreeViewIcon } from '@/components/icons/tree-view-icon'
 import { ImageResponse } from 'next/og'
 
 export const size = {

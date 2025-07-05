@@ -1,5 +1,5 @@
 import { Container } from '@/components/container'
-import { SITE_CONFIG } from '@/src/config/site-config'
+import { SITE_CONFIG } from '@/config/site-config'
 import { useTranslations } from 'next-intl'
 
 export function Footer() {

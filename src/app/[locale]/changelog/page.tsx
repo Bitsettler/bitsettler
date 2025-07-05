@@ -2,8 +2,8 @@ import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { SITE_CONFIG } from '@/src/config/site-config'
-import { I18N_CONFIG } from '@/src/i18n/config'
+import { SITE_CONFIG } from '@/config/site-config'
+import { I18N_CONFIG } from '@/i18n/config'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 
@@ -36,13 +36,82 @@ export default async function ChangelogPage({ params }: { params: Promise<{ loca
             </p>
           </div>
 
+          {/* Version Card - v1.3.2 Import Path Refactoring */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.3.2 Import Path Refactoring</CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Patch update: standardized import paths for better maintainability and code organization
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Improved Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🔄 Improved</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Import Path Standardization</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Standardized all imports to use the `@/*` convention for better maintainability and consistent
+                        code organization throughout the application.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Technical Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">⚙️ Technical</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">TypeScript Configuration</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Updated tsconfig.json to map `@/*` to `./src/*` for consistent import paths and improved
+                        developer experience.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Component Import Refactoring</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Refactored all component imports to use the new convention, improving code organization and
+                        maintainability across the entire codebase.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">Cleaner imports and better code organization! 🧹✨</p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.3.1 Favicon & Structure */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">v1.3.1 Favicon & Structure</CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">

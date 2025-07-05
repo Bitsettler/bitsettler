@@ -9,9 +9,9 @@ import { useTranslations } from 'next-intl'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 // import { Search } from "@/components/search";
 // import { Separator } from "@/components/ui/separator";
-import { LanguageSwitcher } from '@/src/components/language-switcher'
-import { SITE_CONFIG } from '@/src/config/site-config'
-import { Link } from '@/src/i18n/navigation'
+import { LanguageSwitcher } from '@/components/language-switcher'
+import { SITE_CONFIG } from '@/config/site-config'
+import { Link } from '@/i18n/navigation'
 
 export function Header() {
   const t = useTranslations()

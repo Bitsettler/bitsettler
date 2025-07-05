@@ -2,8 +2,8 @@
 
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { languages, type Locale } from '@/src/i18n/config'
-import { Link, usePathname } from '@/src/i18n/navigation'
+import { languages, type Locale } from '@/i18n/config'
+import { Link, usePathname } from '@/i18n/navigation'
 import { Globe } from '@phosphor-icons/react'
 import { useLocale, useTranslations } from 'next-intl'
 

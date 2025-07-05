@@ -1,8 +1,8 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Link } from '@/src/i18n/navigation'
-import { cn } from '@/src/lib/utils'
+import { Link } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 
