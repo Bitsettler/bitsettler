@@ -86,6 +86,10 @@ The project uses game data from BitCraft's server files, including:
 - Crafting recipes and requirements
 - Building and tool information
 
+## Acknowledgments
+
+Special thanks to [@wizjany](https://github.com/wizjany) and the [BitCraft ToolBox](https://github.com/BitCraftToolBox) organization for providing access to the in-game database repositories that make this project possible.
+
 ## Development
 
 ### Code Style
