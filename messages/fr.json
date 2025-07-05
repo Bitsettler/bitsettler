@@ -78,5 +78,9 @@
   "languageSwitcher": {
     "switchLanguage": "Changer de langue",
     "switchLanguageSr": "Changer de langue"
+  },
+  "toast": {
+    "quantityAdjusted": "Quantité ajustée au minimum de {minQuantity}. Cette recette produit {minQuantity} objets par craft.",
+    "quantityAdjustedDescription": "Vous ne pouvez pas créer moins que ce qu'une exécution de recette produit."
   }
 }

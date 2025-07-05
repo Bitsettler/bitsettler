@@ -1,5 +1,6 @@
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 import { Footer } from '@/src/components/footer'
 import { I18N_CONFIG, type Locale } from '@/src/i18n/config'
 import { geistSans } from '@/src/styles/typography'
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
               <Footer />
             </div>
             <Analytics />
+            <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

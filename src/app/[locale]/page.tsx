@@ -22,6 +22,7 @@ import {
 import '@xyflow/react/dist/style.css'
 import { useTranslations } from 'next-intl'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { toast } from 'sonner'
 
 // Utility function to resolve recipe name placeholders
 const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
@@ -193,6 +194,7 @@ function HomeFlow() {
 
   const [selectedItem, setSelectedItem] = useState<(typeof allItems)[0] | null>(null)
   const [desiredQuantity, setDesiredQuantity] = useState(1)
+  const [minQuantity, setMinQuantity] = useState(1)
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
   const { getLayoutedElements } = useLayoutedElements()
@@ -358,11 +360,25 @@ function HomeFlow() {
       const item = allItems.find((item) => item.id.toString() === itemId)
       if (!item) return
 
-      setSelectedItem(item)
-      setDesiredQuantity(1) // Reset quantity when selecting new item
-
       // Find recipes for this specific item
       const itemRecipes = recipes.filter((recipe) => recipe.output.some((output) => output.item === item.id))
+
+      // Calculate default quantity based on recipe output
+      let defaultQuantity = 1
+      let minQty = 1
+      if (itemRecipes.length > 0) {
+        // Use the first recipe's output quantity as default and minimum
+        const firstRecipe = itemRecipes[0]
+        const outputItem = firstRecipe.output.find((output) => output.item === item.id)
+        if (outputItem && outputItem.qty) {
+          defaultQuantity = Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty
+          minQty = defaultQuantity // Minimum quantity is the same as the recipe output
+        }
+      }
+
+      setSelectedItem(item)
+      setDesiredQuantity(defaultQuantity)
+      setMinQuantity(minQty)
 
       // Create only the main item node initially
       const itemNode: Node = {
@@ -376,7 +392,7 @@ function HomeFlow() {
           recipes: itemRecipes,
           selectedRecipe: null,
           itemId: item.id,
-          quantity: 1,
+          quantity: defaultQuantity,
           isDone: false // Initialize as not done
         },
         position: { x: 0, y: 0 } // Will be positioned by dagre
@@ -460,7 +476,6 @@ function HomeFlow() {
                       <div className="flex items-center gap-2">
                         <Input
                           type="number"
-                          min="1"
                           value={desiredQuantity}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             const newQuantity = parseInt(e.target.value) || 1
@@ -469,10 +484,25 @@ function HomeFlow() {
                               updateNodeQuantities(newQuantity)
                             }
                           }}
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                            const newQuantity = parseInt(e.target.value) || 1
+                            if (newQuantity < minQuantity) {
+                              toast.warning(t('toast.quantityAdjusted', { minQuantity }), {
+                                description: t('toast.quantityAdjustedDescription')
+                              })
+                              setDesiredQuantity(minQuantity)
+                              if (nodes.length > 0 && selectedItem) {
+                                updateNodeQuantities(minQuantity)
+                              }
+                            }
+                          }}
                           className="w-20"
                         />
                         <span className="text-muted-foreground text-sm">{t('calculator.itemsToCraft')}</span>
                       </div>
+                      <p className="text-muted-foreground text-xs">
+                        Minimum: {minQuantity} (one complete recipe execution)
+                      </p>
                     </div>
                   </div>
 

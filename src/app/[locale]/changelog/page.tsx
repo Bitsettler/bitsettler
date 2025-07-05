@@ -36,13 +36,123 @@ export default async function ChangelogPage({ params }: { params: Promise<{ loca
             </p>
           </div>
 
+          {/* Version Card - v1.3.0 Debug & UX Improvements */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">v1.3.0 Debug & UX Improvements</CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Minor update: debug mode, improved quantity logic, and better user feedback for recipe calculator
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">✨ New Features</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Debug Mode</h4>
+                      <p className="text-muted-foreground text-sm">
+                        When running in development mode, item and recipe IDs are displayed in each node for easier
+                        debugging and data validation.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Toast Notifications</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Added toast notifications (using shadcn/ui Sonner) to inform users when they attempt to set a
+                        quantity below the minimum craftable amount. All toast messages are now fully internationalized.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Helper Text for Minimum Quantity</h4>
+                      <p className="text-muted-foreground text-sm">
+                        The calculator now displays a helper message below the quantity input, showing the minimum
+                        allowed value for each recipe.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Improved Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🔄 Improved</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Quantity Input Logic</h4>
+                      <p className="text-muted-foreground text-sm">
+                        The quantity input now defaults to the recipe&apos;s output amount, and users can freely type
+                        any value. Validation and correction occur on blur, with clear feedback.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">User Feedback</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Users are now clearly informed when they attempt to set a quantity below the minimum, and the
+                        input is automatically corrected.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Fixed Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">🐛 Fixed</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">Material Quantity Calculation</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Material requirements now correctly scale with recipe output (e.g., 1 plank for 10 buckets), and
+                        all child/descendant node quantities are accurate for all recipes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">
+                  Debug mode, smarter quantity logic, and better user feedback for a smoother crafting experience! 🛠️✨
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.2.0 Internationalization */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">v1.2.0 Internationalization</CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">
@@ -259,8 +369,8 @@ export default async function ChangelogPage({ params }: { params: Promise<{ loca
                       <h4 className="text-foreground font-medium">Recipe Requirements Database</h4>
                       <p className="text-muted-foreground text-sm">
                         Built comprehensive lookup tables from game data for professions, tools, and buildings instead
-                        of using placeholder mappings. Now displays accurate requirements like "forestry", "axe",
-                        "tier-1-forestry-station".
+                        of using placeholder mappings. Now displays accurate requirements like &quot;forestry&quot;,
+                        &quot;axe&quot;, &quot;tier-1-forestry-station&quot;.
                       </p>
                     </div>
                   </div>
@@ -289,7 +399,7 @@ export default async function ChangelogPage({ params }: { params: Promise<{ loca
                       <h4 className="text-foreground font-medium">Recipe Output Display</h4>
                       <p className="text-muted-foreground text-sm">
                         Fixed recipe output showing raw IDs instead of item names in the Usage section. Now displays
-                        proper names like "Produces: 1x Refined Rough Cloth".
+                        proper names like &quot;Produces: 1x Refined Rough Cloth&quot;.
                       </p>
                     </div>
                   </div>

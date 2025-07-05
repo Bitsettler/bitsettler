@@ -133,5 +133,9 @@
   "languageSwitcher": {
     "switchLanguage": "Switch language",
     "switchLanguageSr": "Switch language"
+  },
+  "toast": {
+    "quantityAdjusted": "Quantity adjusted to minimum of {minQuantity}. This recipe produces {minQuantity} items per craft.",
+    "quantityAdjustedDescription": "You cannot craft less than what one recipe execution produces."
   }
 }

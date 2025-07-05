@@ -187,6 +187,11 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
         const currentNode = filteredNodes.find((node) => node.id === id)
         const parentQuantity = (currentNode?.data?.quantity as number) || 1
 
+        // Calculate how many times we need to run this recipe
+        const outputItem = recipe.output.find((output) => output.item === currentNode?.data?.itemId)
+        const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+        const recipeRuns = Math.ceil(parentQuantity / outputQty)
+
         // Create material nodes
         const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
           const materialId = material.id
@@ -198,8 +203,8 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number | undefined
           if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
-            // Multiply the material requirement by the parent's quantity
-            calculatedQuantity = (material.qty as number) * parentQuantity
+            // Multiply the material requirement by the number of recipe runs needed
+            calculatedQuantity = (material.qty as number) * recipeRuns
           }
 
           return {
@@ -251,10 +256,23 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
 
   return (
     <Card
-      className={`w-fit max-w-80 min-w-64 border-2 shadow-lg ${
+      className={`relative w-fit max-w-80 min-w-64 border-2 shadow-lg ${
         itemData.isDone ? 'border-green-500 bg-green-50/30' : 'border-primary/20'
       }`}
     >
+      {/* Debug mode: Show item ID and recipe ID in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
+          {itemData.itemId && (
+            <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>
+          )}
+          {itemData.selectedRecipe && (
+            <div className="rounded bg-blue-500 px-1 py-0.5 font-mono text-xs text-white">
+              Recipe: {itemData.selectedRecipe.id}
+            </div>
+          )}
+        </div>
+      )}
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -398,6 +416,11 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
         const currentNode = filteredNodes.find((node) => node.id === id)
         const parentQuantity = (currentNode?.data?.quantity as number) || 1
 
+        // Calculate how many times we need to run this recipe
+        const outputItem = recipe.output.find((output) => output.item === currentNode?.data?.itemId)
+        const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+        const recipeRuns = Math.ceil(parentQuantity / outputQty)
+
         // Create material nodes
         const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
           const materialId = material.id
@@ -409,8 +432,8 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number | undefined
           if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
-            // Multiply the material requirement by the parent's quantity
-            calculatedQuantity = (material.qty as number) * parentQuantity
+            // Multiply the material requirement by the number of recipe runs needed
+            calculatedQuantity = (material.qty as number) * recipeRuns
           }
 
           return {
@@ -462,10 +485,23 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
 
   return (
     <Card
-      className={`w-fit max-w-80 min-w-64 border-2 shadow-lg ${
+      className={`relative w-fit max-w-80 min-w-64 border-2 shadow-lg ${
         itemData.isDone ? 'border-green-500 bg-green-50/30' : 'border-primary/20'
       }`}
     >
+      {/* Debug mode: Show item ID and recipe ID in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
+          {itemData.itemId && (
+            <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>
+          )}
+          {itemData.selectedRecipe && (
+            <div className="rounded bg-blue-500 px-1 py-0.5 font-mono text-xs text-white">
+              Recipe: {itemData.selectedRecipe.id}
+            </div>
+          )}
+        </div>
+      )}
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

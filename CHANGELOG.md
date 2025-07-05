@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2024-07-05
+
+### Added
+
+- Debug mode: Show item and recipe IDs in nodes when NODE_ENV is 'development'
+- Toast notification system for user feedback (using shadcn/ui Sonner) with full internationalization support
+- Helper text and toast for minimum craftable quantity in the calculator
+
+### Improved
+
+- Quantity input now defaults to the recipe's output amount
+- Users cannot set a quantity below the recipe's output; clear feedback is provided
+- UX: Users can freely type in the quantity field, with validation and correction on blur
+
+### Fixed
+
+- Material requirements now correctly scale with recipe output (e.g., 1 plank for 10 buckets)
+- Child and descendant node quantities are now accurate for all recipes
+
 ## [Unreleased]
 
 ## [1.2.0] - 2024-01-XX
