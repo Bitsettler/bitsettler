@@ -13,8 +13,8 @@ export const useLayoutedElements = () => {
 
       const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}))
       g.setGraph({
-        rankdir: 'TB',
-        ranker: 'longest-path',
+        rankdir: 'LR',
+        ranker: 'tight-tree',
         align: 'UL',
         nodesep: 40,
         ranksep: 80

@@ -86,7 +86,7 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
         const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
         const recipeRuns = Math.ceil(parentQuantity / outputQty)
 
-        // Create material nodes
+        // Create material nodes with quantity aggregation
         const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
           const materialId = material.id
           const materialData = allItems.find((item) => item.id === materialId)
@@ -95,27 +95,44 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
           const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
 
           // Calculate the total quantity needed for this material
-          let calculatedQuantity: number | undefined
+          let calculatedQuantity: number = 0
           if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
-            // Multiply the material requirement by the number of recipe runs needed
             calculatedQuantity = (material.qty as number) * recipeRuns
           }
 
-          return {
-            id: `${materialId}_${recipe.id}`,
-            type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
-            data: {
-              label: materialData?.name || `Item ${materialId}`,
-              tier: materialData?.tier || 1,
-              rarity: materialData?.rarity || 'common',
-              category: materialData?.category || 'unknown',
-              quantity: calculatedQuantity, // Use calculated quantity
-              recipes: materialRecipes, // Pass recipes if available
-              selectedRecipe: null,
-              itemId: materialId,
-              isDone: false // Initialize as not done
-            },
-            position: { x: 0, y: 0 } // Let dagre handle positioning
+          // Check if a node for this material already exists
+          const existingNode = filteredNodes.find((node) => node.id === materialId.toString())
+
+          if (existingNode) {
+            // Node exists, update its quantity by adding the new requirement
+            const existingQuantity = (existingNode.data as any).quantity || 0
+            const newTotalQuantity = existingQuantity + calculatedQuantity
+
+            return {
+              ...existingNode,
+              data: {
+                ...existingNode.data,
+                quantity: newTotalQuantity
+              }
+            }
+          } else {
+            // Create new node
+            return {
+              id: `${materialId}`,
+              type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
+              data: {
+                label: materialData?.name || `Item ${materialId}`,
+                tier: materialData?.tier || 1,
+                rarity: materialData?.rarity || 'common',
+                category: materialData?.category || 'unknown',
+                quantity: calculatedQuantity,
+                recipes: materialRecipes,
+                selectedRecipe: null,
+                itemId: materialId,
+                isDone: false
+              },
+              position: { x: 0, y: 0 }
+            }
           }
         })
 
@@ -123,9 +140,9 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
         const materialEdges = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
           const materialId = material.id
           return {
-            id: `${id}-${materialId}_${recipe.id}`,
+            id: `${id}-${materialId}`,
             source: id,
-            target: `${materialId}_${recipe.id}`,
+            target: `${materialId}`,
             type: 'smoothstep'
           }
         })
@@ -239,8 +256,8 @@ export const MaterialNode = memo(({ id, data }: NodeProps & { data: ItemData }) 
         )}
       </CardContent>
 
-      <Handle type="source" position={Position.Bottom} className="h-3 w-3" />
-      <Handle type="target" position={Position.Top} className="h-3 w-3" />
+      <Handle type="source" position={Position.Right} className="h-3 w-3" />
+      <Handle type="target" position={Position.Left} className="h-3 w-3" />
     </Card>
   )
 })
