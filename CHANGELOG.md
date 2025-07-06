@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2024-12-19
+
+### Improved
+
+- **Node Component Consolidation**: Unified `ItemNode` and `MaterialNode` into a single `CustomNode` component, reducing code duplication by ~500 lines
+- **Edge Direction Consistency**: Standardized edge direction to flow from materials (source) to crafted items (target)
+- **Edge Highlighting Logic**: Fixed edge highlighting to show green when materials are completed and blue when crafted items are hovered
+- **Visual Feedback Enhancement**: Added blue border glow effect when nodes are hovered for better user interaction feedback
+
+### Changed
+
+- **Edge Animation**: Disabled default edge animations for cleaner visual presentation
+- **Edge Type**: Changed edge type from 'smoothstep' to 'bezier' for smoother visual flow
+- **Component Architecture**: Simplified component structure by consolidating duplicate node components
+
+### Technical
+
+- **Code Refactoring**: Removed duplicate `item-node.tsx` and `material-node.tsx` files
+- **Type Safety**: Improved TypeScript type safety in edge color management
+- **Performance**: Optimized edge color updates with proper change detection
+
 ## [1.3.2]
 
 ### Improved
@@ -45,8 +66,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Material requirements now correctly scale with recipe output (e.g., 1 plank for 10 buckets)
 - Child and descendant node quantities are now accurate for all recipes
-
-## [Unreleased]
 
 ## [1.2.0]
 
