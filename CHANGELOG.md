@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0] - 2024-12-19
+## [1.4.0]
 
 ### Improved
 
+- **Flow Node Consolidation**: Recipe Flows will now only display one node per item instead of multiple nodes when the item is used in multiple recipes/ sub recipes. Thanks @floofwax for the suggestion!
 - **Node Component Consolidation**: Unified `ItemNode` and `MaterialNode` into a single `CustomNode` component, reducing code duplication by ~500 lines
 - **Edge Direction Consistency**: Standardized edge direction to flow from materials (source) to crafted items (target)
 - **Edge Highlighting Logic**: Fixed edge highlighting to show green when materials are completed and blue when crafted items are hovered
