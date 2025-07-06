@@ -78,10 +78,11 @@ function View({ gameData }: FlowVisualizeViewProps) {
     (targetQuantity: number) => {
       if (!selectedItem) return
 
-      const updatedNodes = updateNodeQuantities(nodes, selectedItem, targetQuantity, recipes)
-      setNodes(updatedNodes)
+      setNodes((currentNodes) => {
+        return updateNodeQuantities(currentNodes, selectedItem, targetQuantity)
+      })
     },
-    [nodes, selectedItem, setNodes, recipes]
+    [selectedItem, setNodes]
   )
 
   const handleItemSelectWithNodes = useCallback(

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1]
+
+### Fixed
+
+- **Recipe Quantity Calculation**: Fixed quantity updates after node consolidation by removing dependency on compound node IDs and updating the calculation logic to work with the new node structure
+
 ## [1.4.0]
 
 ### Improved

@@ -49,17 +49,12 @@ export const resolveRecipeName = (recipe: Recipe, allItems: typeof items): strin
   return resolvedName
 }
 
-export const updateNodeQuantities = (
-  nodes: Node[],
-  selectedItem: { id: number },
-  targetQuantity: number,
-  recipes: Recipe[]
-): Node[] => {
+export const updateNodeQuantities = (nodes: Node[], selectedItem: { id: number }, targetQuantity: number): Node[] => {
   if (!selectedItem) return nodes
 
-  const updatedNodes = nodes.map((node) => {
+  // First, update the selected item's quantity
+  let updatedNodes = nodes.map((node) => {
     if (node.id === selectedItem.id.toString()) {
-      // Update main item quantity
       return {
         ...node,
         data: {
@@ -67,92 +62,79 @@ export const updateNodeQuantities = (
           quantity: targetQuantity
         }
       }
-    } else {
-      // For all other nodes, calculate quantities based on their recipe
-      const recipe = node.data.selectedRecipe as Recipe
-      if (recipe) {
-        // Find the output item that matches the selected item
-        const outputItem = recipe.output?.find(
-          (output: { item: number; qty: number | number[] | null }) => output.item === selectedItem.id
-        )
+    }
+    return node
+  })
 
-        if (outputItem) {
-          const outputQty = Array.isArray(outputItem.qty)
-            ? outputItem.qty[0] // Use minimum quantity for calculation
-            : outputItem.qty || 1
+  // Keep updating until no more changes occur (to handle deep nesting)
+  let hasChanges = true
+  let iterations = 0
+  const maxIterations = 10 // Prevent infinite loops
+
+  while (hasChanges && iterations < maxIterations) {
+    const previousQuantities = updatedNodes.map((n) => ({ id: n.id, quantity: n.data.quantity }))
+
+    // Update all material nodes based on their parent requirements
+    updatedNodes = updatedNodes.map((node) => {
+      // Skip if this is the selected item or doesn't have an itemId
+      if (node.id === selectedItem.id.toString() || !node.data.itemId) {
+        return node
+      }
+
+      // Find all parent nodes that use this material
+      const parentNodes = updatedNodes.filter((parentNode) => {
+        if (!parentNode.data.selectedRecipe) return false
+        const recipe = parentNode.data.selectedRecipe as Recipe
+        return recipe.requirements.materials?.some((mat) => mat.id === node.data.itemId)
+      })
+
+      // Calculate total quantity needed for this material from all parent nodes
+      let totalQuantityNeeded = 0
+
+      parentNodes.forEach((parentNode) => {
+        const recipe = parentNode.data.selectedRecipe as Recipe
+        const materialReq = recipe.requirements.materials?.find((mat) => mat.id === node.data.itemId)
+
+        if (materialReq && materialReq.qty !== null && materialReq.qty !== undefined) {
+          const parentQuantity = (parentNode.data.quantity as number) || 1
 
           // Calculate how many times we need to run this recipe
-          const recipeRuns = Math.ceil(targetQuantity / outputQty)
+          const outputItem = recipe.output?.find((output) => output.item === parentNode.data.itemId)
+          const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+          const recipeRuns = Math.ceil(parentQuantity / outputQty)
 
-          return {
-            ...node,
-            data: {
-              ...node.data,
-              quantity: recipeRuns
-            }
+          totalQuantityNeeded += recipeRuns * materialReq.qty
+        }
+      })
+
+      // Update quantity for materials that need it
+      if (totalQuantityNeeded > 0 && node.data.category !== 'resources') {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            quantity: totalQuantityNeeded
+          }
+        }
+      } else if (node.data.category === 'resources') {
+        // For resources, remove the quantity
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            quantity: undefined
           }
         }
       }
-    }
-    return node
-  })
 
-  // Now update material nodes based on recipe requirements
-  const finalNodes = updatedNodes.map((node) => {
-    // Check if this is a material node (has recipe ID in its ID)
-    if (node.id.includes('_') && node.id !== selectedItem.id.toString()) {
-      const [materialId, recipeId] = node.id.split('_')
-      const recipe = recipes.find((r: Recipe) => r.id.toString() === recipeId)
+      return node
+    })
 
-      if (recipe) {
-        // Find the material requirement
-        const materialReq = recipe.requirements.materials?.find((mat) => mat.id?.toString() === materialId)
+    // Check if any quantities changed
+    const currentQuantities = updatedNodes.map((n) => ({ id: n.id, quantity: n.data.quantity }))
+    hasChanges = JSON.stringify(previousQuantities) !== JSON.stringify(currentQuantities)
+    iterations++
+  }
 
-        if (materialReq) {
-          // Get the quantity needed per recipe run
-          const materialQty = materialReq?.qty
-
-          // Only calculate quantities if the material has a specific quantity requirement
-          // and is not a resource (resources don't show quantities)
-          if (materialQty !== null && materialQty !== undefined && node.data.category !== 'resources') {
-            // Find the parent recipe node to get how many times we need to run it
-            const parentNode = updatedNodes.find((n) => n.id === selectedItem.id.toString())
-            if (parentNode && parentNode.data.selectedRecipe) {
-              const parentRecipe = parentNode.data.selectedRecipe as Recipe
-              const outputItem = parentRecipe.output?.find(
-                (output: { item: number; qty: number | number[] | null }) => output.item === selectedItem.id
-              )
-
-              if (outputItem) {
-                const outputQty = Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty || 1
-
-                const recipeRuns = Math.ceil(targetQuantity / outputQty)
-                const totalMaterialQty = recipeRuns * materialQty
-
-                return {
-                  ...node,
-                  data: {
-                    ...node.data,
-                    quantity: totalMaterialQty
-                  }
-                }
-              }
-            }
-          } else {
-            // For resources or items without quantity requirements, remove the quantity
-            return {
-              ...node,
-              data: {
-                ...node.data,
-                quantity: undefined
-              }
-            }
-          }
-        }
-      }
-    }
-    return node
-  })
-
-  return finalNodes
+  return updatedNodes
 }
