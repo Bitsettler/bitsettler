@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   url: 'https://bitcraft.guide',
   ogImage: 'https://bitcraft.guide/og.jpg',
   links: {
-    twitter: 'https://twitter.com/bitcraftguide',
+    twitter: 'https://x.com/duy_the_dev',
     github: 'https://github.com/duy-the-developer/bitcraft.guide-web-next',
     discord: 'https://discord.gg/DYzfsbVyNw'
   },
