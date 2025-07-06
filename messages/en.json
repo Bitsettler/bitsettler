@@ -52,7 +52,8 @@
     "craftingQuantity": "Crafting Quantity",
     "itemsToCraft": "items to craft",
     "noRecipes": "This item is not used in any recipes",
-    "produces": "Produces"
+    "produces": "Produces",
+    "usedIn": "Used in"
   },
   "items": {
     "categories": {

@@ -13,6 +13,7 @@ interface ComboboxOption {
   value: string
   label: string
   keywords?: string
+  id: number
 }
 
 interface ComboboxProps {
@@ -119,7 +120,7 @@ export function Combobox({
                     const option = filteredOptions[virtualOption.index]
                     return (
                       <CommandItem
-                        key={option.value}
+                        key={option.id}
                         value={`${option.label} ${option.keywords || ''}`}
                         className="absolute top-0 left-0 w-full bg-transparent whitespace-nowrap"
                         style={{
