@@ -35,7 +35,7 @@ export const useEdgeColors = (nodes: Node[], edges: Edge[], setEdges: ReturnType
           const isTargetHovered = Boolean(targetNode?.data?.isHovered)
 
           let strokeColor = undefined // default grey
-          let strokeWidth = 2
+          const strokeWidth = 2
 
           if (isTargetHovered) {
             strokeColor = '#3b82f6' // Blue when target (crafted item) is hovered
