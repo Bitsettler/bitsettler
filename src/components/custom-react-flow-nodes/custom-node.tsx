@@ -200,7 +200,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
 
   return (
     <Card
-      className={`relative w-fit max-w-80 min-w-64 border-2 shadow-lg ${
+      className={`relative w-fit min-w-64 border-2 shadow-lg ${
         itemData.isDone
           ? 'border-green-500 bg-green-50/30'
           : itemData.isHovered
@@ -211,7 +211,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       onMouseLeave={handleMouseLeave}
     >
       {/* Debug mode: Show item ID and recipe ID in development */}
-      {process.env.NODE_ENV === 'development' && (
+      {process.env.DEBUG_MODE === 'true' && (
         <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
           {itemData.itemId && (
             <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>
