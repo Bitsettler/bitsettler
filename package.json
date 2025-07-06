@@ -12,7 +12,8 @@
     "generate-samples": "npx ts-node scripts/generate-sample-data.ts",
     "map-items": "npx ts-node scripts/items/map-items.ts",
     "map-items:sample": "npx ts-node scripts/items/map-items.ts --sample",
-    "generate-bindings": "npx ts-node scripts/generate-bindings.ts"
+    "generate-bindings": "npx ts-node scripts/generate-bindings.ts",
+    "generate-game-data": "npx ts-node scripts/generate-game-data.ts"
   },
   "dependencies": {
     "@clockworklabs/spacetimedb-sdk": "^1.2.1",
