@@ -15,10 +15,13 @@ export const useEdgeColors = (nodes: Node[], edges: Edge[], setEdges: ReturnType
 
       nodes.forEach((node) => {
         const isDone = Boolean(node.data?.isDone)
+        const isHovered = Boolean(node.data?.isHovered)
         const prevIsDone = prevNodeStates.current.get(node.id) || false
+        const prevIsHovered = prevNodeStates.current.get(`${node.id}-hover`) || false
         currentNodeStates.set(node.id, isDone)
+        currentNodeStates.set(`${node.id}-hover`, isHovered)
 
-        if (isDone !== prevIsDone) {
+        if (isDone !== prevIsDone || isHovered !== prevIsHovered) {
           hasChanges = true
         }
       })
@@ -26,15 +29,26 @@ export const useEdgeColors = (nodes: Node[], edges: Edge[], setEdges: ReturnType
       // Only update edges if there are actual changes
       if (hasChanges) {
         const updatedEdges = edges.map((edge) => {
+          const sourceNode = nodes.find((node) => node.id === edge.source)
           const targetNode = nodes.find((node) => node.id === edge.target)
-          const isTargetDone = Boolean(targetNode?.data?.isDone)
+          const isSourceDone = Boolean(sourceNode?.data?.isDone)
+          const isTargetHovered = Boolean(targetNode?.data?.isHovered)
+
+          let strokeColor = undefined // default grey
+          let strokeWidth = 2
+
+          if (isTargetHovered) {
+            strokeColor = '#3b82f6' // Blue when target (crafted item) is hovered
+          } else if (isSourceDone) {
+            strokeColor = '#22c55e' // Green when source (material) is done
+          }
 
           return {
             ...edge,
             style: {
               ...edge.style,
-              stroke: isTargetDone ? '#22c55e' : '#64748b', // Green if done, gray if not
-              strokeWidth: isTargetDone ? 3 : 2
+              stroke: strokeColor,
+              strokeWidth: strokeWidth
             }
           }
         })

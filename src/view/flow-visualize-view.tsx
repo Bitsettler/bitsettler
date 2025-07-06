@@ -1,8 +1,7 @@
 'use client'
 
 import { Container } from '@/components/container'
-import { ItemNode } from '@/components/custom-react-flow-nodes/item-node'
-import { MaterialNode } from '@/components/custom-react-flow-nodes/material-node'
+import { CustomNode } from '@/components/custom-react-flow-nodes/custom-node'
 import { FlowCanvas } from '@/components/flow-canvas'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -277,8 +276,8 @@ function View({ gameData }: FlowVisualizeViewProps) {
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
               nodeTypes={{
-                itemNode: ItemNode,
-                materialNode: MaterialNode
+                itemNode: CustomNode,
+                materialNode: CustomNode
               }}
               className="h-full"
             />

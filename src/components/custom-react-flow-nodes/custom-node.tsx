@@ -16,7 +16,7 @@ import recipes from '@/data/recipes.json'
 import resources from '@/data/resources.json'
 import { ItemData, Recipe } from './types'
 
-export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
+export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow()
 
@@ -105,7 +105,7 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
 
           if (existingNode) {
             // Node exists, update its quantity by adding the new requirement
-            const existingQuantity = (existingNode.data as any).quantity || 0
+            const existingQuantity = (existingNode.data as unknown as { quantity?: number }).quantity || 0
             const newTotalQuantity = existingQuantity + calculatedQuantity
 
             return {
@@ -143,8 +143,8 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
             id: `${id}-${materialId}`,
             source: `${materialId}`,
             target: id,
-            type: 'smoothstep',
-            animated: true
+            type: 'bezier',
+            animated: false
           }
         })
 
@@ -166,11 +166,49 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
     }
   }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect])
 
+  const handleMouseEnter = useCallback(() => {
+    const updatedNodes = getNodes().map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            isHovered: true
+          }
+        }
+      }
+      return node
+    })
+    setNodes(updatedNodes)
+  }, [id, getNodes, setNodes])
+
+  const handleMouseLeave = useCallback(() => {
+    const updatedNodes = getNodes().map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            isHovered: false
+          }
+        }
+      }
+      return node
+    })
+    setNodes(updatedNodes)
+  }, [id, getNodes, setNodes])
+
   return (
     <Card
       className={`relative w-fit max-w-80 min-w-64 border-2 shadow-lg ${
-        itemData.isDone ? 'border-green-500 bg-green-50/30' : 'border-primary/20'
+        itemData.isDone
+          ? 'border-green-500 bg-green-50/30'
+          : itemData.isHovered
+            ? 'border-blue-500 shadow-blue-500/50'
+            : 'border-primary/20'
       }`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Debug mode: Show item ID and recipe ID in development */}
       {process.env.NODE_ENV === 'development' && (
@@ -263,4 +301,4 @@ export const ItemNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   )
 })
 
-ItemNode.displayName = 'ItemNode'
+CustomNode.displayName = 'CustomNode'
