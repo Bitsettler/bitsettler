@@ -41,6 +41,7 @@ function FlowCanvasInner({
         >
           {showControls && <Controls className="bg-background border-border border" />}
           {showBackground && <Background />}
+          {/* <MiniMap nodeStrokeWidth={3} position="top-right" /> */}
         </ReactFlow>
       </CardContent>
     </Card>

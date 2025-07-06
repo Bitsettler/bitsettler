@@ -1,8 +1,9 @@
 'use client'
 
 import { Container } from '@/components/container'
+import { ItemNode } from '@/components/custom-react-flow-nodes/item-node'
+import { MaterialNode } from '@/components/custom-react-flow-nodes/material-node'
 import { FlowCanvas } from '@/components/flow-canvas'
-import { ItemNode, MaterialNode } from '@/components/recipe-nodes'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox } from '@/components/ui/combobox'

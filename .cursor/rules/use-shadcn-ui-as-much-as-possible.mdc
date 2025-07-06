@@ -1,5 +1,0 @@
----
-description: Use shadcn/ui as much as possible
-globs: Always use shadcn/ui as much as possible, either with components already installed in the project or installed using shadcn/ui documentation.
-alwaysApply: true
----

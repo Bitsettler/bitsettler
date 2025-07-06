@@ -2,6 +2,9 @@
 
 A comprehensive crafting guide and recipe visualizer for BitCraft, built with Next.js, React Flow, and TypeScript.
 
+Got questions or feedback? Come say hi!
+[Discord](https://discord.gg/DYzfsbVyNw)
+
 ## Features
 
 - 🔍 **Item Search**: Search through all items, cargo, and resources in the game
