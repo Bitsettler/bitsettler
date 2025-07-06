@@ -1,7 +1,7 @@
+import type { Recipe, ServerItem, ServerItemList, ServerRecipe } from '@/lib/types'
 import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
-import type { Recipe, ServerItem, ServerItemList, ServerRecipe } from '../../../src/lib/types'
 
 interface RecipeMappingConfig {
   sourceFile: string

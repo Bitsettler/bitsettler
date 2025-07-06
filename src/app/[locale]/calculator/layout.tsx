@@ -4,7 +4,6 @@ import { Container } from '@/components/container'
 import { useItemSelection } from '@/hooks/use-item-selection'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { Recipe } from '@/lib/types'
-import { useTranslations } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
 
 import cargo from '@/data/cargo.json'
@@ -23,7 +22,6 @@ const gameData = {
 }
 
 export default function CalculatorLayout({ children }: { children: React.ReactNode }) {
-  const t = useTranslations()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -56,29 +54,24 @@ export default function CalculatorLayout({ children }: { children: React.ReactNo
       <Container className="h-full py-8">
         <div className="grid h-full grid-cols-12 gap-6">
           {/* Left Column - Search and Info (3 columns) */}
-          <div className="col-span-3 flex flex-col space-y-4">
-            {/* Title and Subtitle */}
-            <div className="text-left">
-              <h1 className="text-foreground mb-2 text-3xl font-bold">{t('header.title')}</h1>
-              <p className="text-muted-foreground text-lg">{t('header.subtitle')}</p>
+          <div className="col-span-3 flex min-h-0 flex-col space-y-4">
+            {/* Search Card */}
+            <div className="flex-shrink-0">
+              <CalculatorSearchInput items={items} selectedItem={selectedItem} onItemSelect={handleItemSelect} />
             </div>
 
-            {/* Search Card (1) */}
-            <CalculatorSearchInput items={items} selectedItem={selectedItem} onItemSelect={handleItemSelect} />
-
-            {/* Item Information Card (2) */}
-            {selectedItem && (
-              <CalculatorItemInfoPanel
-                selectedItem={selectedItem}
-                desiredQuantity={desiredQuantity}
-                onQuantityChange={handleQuantityChange}
-                recipes={recipes}
-              />
-            )}
+            {/* Item Information Card */}
+            <CalculatorItemInfoPanel
+              selectedItem={selectedItem}
+              desiredQuantity={desiredQuantity}
+              onQuantityChange={handleQuantityChange}
+              recipes={recipes}
+              items={items}
+            />
           </div>
 
           {/* Right Column - Flow Canvas (3) */}
-          <div className="col-span-9 h-full overflow-hidden">{children}</div>
+          <div className="col-span-9 h-full">{children}</div>
         </div>
       </Container>
     </div>

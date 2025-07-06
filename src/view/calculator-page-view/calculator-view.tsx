@@ -49,27 +49,6 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
   const { getLayoutedElements } = useLayoutedElements()
   useEdgeColors(nodes, edges, setEdges)
 
-  // Apply layout whenever nodes or edges change (but don't fit view)
-  useEffect(() => {
-    if (nodes.length > 1 || edges.length > 0) {
-      setTimeout(() => getLayoutedElements(false), 0) // Don't fit view on recipe selections
-    }
-  }, [nodes.length, edges.length, getLayoutedElements])
-
-  // Initialize with the initial item if provided
-  useEffect(() => {
-    if (initialItemId && !selectedItem) {
-      handleItemSelectWithNodes(initialItemId)
-    }
-  }, [initialItemId, selectedItem])
-
-  // Update node quantities when initialQuantity changes
-  useEffect(() => {
-    if (selectedItem && nodes.length > 0) {
-      updateNodeQuantitiesCallback(initialQuantity)
-    }
-  }, [initialQuantity, selectedItem])
-
   const updateNodeQuantitiesCallback = useCallback(
     (targetQuantity: number) => {
       if (!selectedItem) return
@@ -100,19 +79,40 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
           recipes: itemRecipes,
           selectedRecipe: null,
           itemId: item.id,
-          quantity: initialQuantity, // Use initialQuantity instead of defaultQuantity
-          isDone: false // Initialize as not done
+          quantity: initialQuantity,
+          isDone: false
         },
-        position: { x: 0, y: 0 } // Will be positioned by dagre
+        position: { x: 0, y: 0 }
       }
 
       // Set the node and apply layout
       setNodes([itemNode])
       setEdges([])
-      setTimeout(() => getLayoutedElements(true), 0) // Fit view on initial item selection
+      setTimeout(() => getLayoutedElements(true), 0)
     },
     [handleItemSelect, setNodes, setEdges, getLayoutedElements, initialQuantity]
   )
+
+  // Apply layout whenever nodes or edges change (but don't fit view)
+  useEffect(() => {
+    if (nodes.length > 1 || edges.length > 0) {
+      setTimeout(() => getLayoutedElements(false), 0)
+    }
+  }, [nodes.length, edges.length, getLayoutedElements])
+
+  // Initialize with the initial item if provided
+  useEffect(() => {
+    if (initialItemId && !selectedItem) {
+      handleItemSelectWithNodes(initialItemId)
+    }
+  }, [initialItemId, selectedItem, handleItemSelectWithNodes])
+
+  // Update node quantities when initialQuantity changes
+  useEffect(() => {
+    if (selectedItem && nodes.length > 0) {
+      updateNodeQuantitiesCallback(initialQuantity)
+    }
+  }, [initialQuantity, selectedItem, nodes.length, updateNodeQuantitiesCallback])
 
   return (
     <div className="h-full">

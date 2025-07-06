@@ -1,7 +1,7 @@
+import type { ServerItem } from '@/lib/types'
 import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
-import type { ServerItem } from '../../../src/lib/types'
 
 interface FrontendItem {
   id: number
