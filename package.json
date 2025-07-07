@@ -11,7 +11,7 @@
     "format:check": "prettier --check .",
     "generate-samples": "npx ts-node scripts/generate-sample-data.ts",
     "map-items": "npx ts-node scripts/items/map-items.ts",
-    "map-items:sample": "npx ts-node scripts/items/map-items.ts --sample",
+    "map-recipes": "npx ts-node scripts/recipes/map-recipes.ts",
     "generate-bindings": "npx ts-node scripts/generate-bindings.ts",
     "generate-game-data": "npx ts-node scripts/generate-game-data.ts"
   },

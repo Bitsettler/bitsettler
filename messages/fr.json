@@ -1,7 +1,7 @@
 {
   "common": {
     "loading": "Chargement...",
-    "error": "Une erreur s'est produite",
+    "error": "Une erreur est survenue",
     "search": "Rechercher",
     "quantity": "Quantité",
     "calculate": "Calculer",

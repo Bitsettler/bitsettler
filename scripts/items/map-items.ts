@@ -145,11 +145,13 @@ function parseArgs(): { useSample: boolean } {
  * Get source directory based on arguments
  */
 function getSourceDir(useSample: boolean, __dirname: string): string {
+  const workspaceRoot = path.resolve(__dirname, '../../')
+
   if (useSample) {
-    return path.resolve(__dirname, '../../../data/sample')
+    return path.join(workspaceRoot, 'data/sample')
   } else {
-    // Look for BitCraft_GameData at the root level (same level as bitcraft.guide-web-next)
-    return path.resolve(__dirname, '../../../../BitCraft_GameData')
+    // Use the new @/data directory
+    return path.join(workspaceRoot, 'src/data')
   }
 }
 
@@ -172,17 +174,17 @@ function main(): void {
   // Configuration for different item types
   const configs: ItemMappingConfig[] = [
     {
-      sourceFile: path.join(sourceDir, 'server/region/item_desc.json'),
+      sourceFile: path.join(sourceDir, 'global/item_desc.json'),
       outputDir: path.resolve(__dirname, '../../../src/data'),
       category: 'items'
     },
     {
-      sourceFile: path.join(sourceDir, 'server/region/cargo_desc.json'),
+      sourceFile: path.join(sourceDir, 'global/cargo_desc.json'),
       outputDir: path.resolve(__dirname, '../../../src/data'),
       category: 'cargo'
     },
     {
-      sourceFile: path.join(sourceDir, 'server/region/resource_desc.json'),
+      sourceFile: path.join(sourceDir, 'global/resource_desc.json'),
       outputDir: path.resolve(__dirname, '../../../src/data'),
       category: 'resources'
     }

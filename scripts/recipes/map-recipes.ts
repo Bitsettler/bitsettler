@@ -27,11 +27,13 @@ function parseArgs(): { useSample: boolean } {
  * Get source directory based on arguments
  */
 function getSourceDir(useSample: boolean, __dirname: string): string {
+  const workspaceRoot = path.resolve(__dirname, '../../')
+
   if (useSample) {
-    return path.resolve(__dirname, '../../../data/sample')
+    return path.join(workspaceRoot, 'data/sample')
   } else {
-    // Look for BitCraft_GameData at the root level (same level as bitcraft.guide-web-next)
-    return path.resolve(__dirname, '../../../../BitCraft_GameData')
+    // Use the new @/data directory
+    return path.join(workspaceRoot, 'src/data')
   }
 }
 
@@ -61,10 +63,10 @@ function loadLookupTables(
 
     // Load server data for cross-referencing
     const sourceDir = getSourceDir(useSample, __dirname)
-    const serverItemsPath = path.join(sourceDir, 'server/region/item_desc.json')
-    const serverCargoPath = path.join(sourceDir, 'server/region/cargo_desc.json')
-    const serverResourcesPath = path.join(sourceDir, 'server/region/resource_desc.json')
-    const serverItemListPath = path.join(sourceDir, 'server/region/item_list_desc.json')
+    const serverItemsPath = path.join(sourceDir, 'global/item_desc.json')
+    const serverCargoPath = path.join(sourceDir, 'global/cargo_desc.json')
+    const serverResourcesPath = path.join(sourceDir, 'global/resource_desc.json')
+    const serverItemListPath = path.join(sourceDir, 'global/item_list_desc.json')
 
     const serverItems: ServerItem[] = JSON.parse(fs.readFileSync(serverItemsPath, 'utf-8'))
     const serverCargo = JSON.parse(fs.readFileSync(serverCargoPath, 'utf-8'))
@@ -147,7 +149,7 @@ function loadLookupTables(
     console.log(`📊 Built item list lookup with ${Object.keys(itemListLookup).length} mappings`)
 
     // Load skill data for profession lookups
-    const skillPath = path.join(sourceDir, 'server/region/skill_desc.json')
+    const skillPath = path.join(sourceDir, 'global/skill_desc.json')
     const skills = JSON.parse(fs.readFileSync(skillPath, 'utf-8'))
 
     // Build profession lookup (skill ID -> skill name)
@@ -157,7 +159,7 @@ function loadLookupTables(
     }
 
     // Load tool type data for tool lookups
-    const toolTypePath = path.join(sourceDir, 'server/region/tool_type_desc.json')
+    const toolTypePath = path.join(sourceDir, 'global/tool_type_desc.json')
     const toolTypes = JSON.parse(fs.readFileSync(toolTypePath, 'utf-8'))
 
     // Build tool lookup (tool_type ID -> tool name)
@@ -167,7 +169,7 @@ function loadLookupTables(
     }
 
     // Load building data for building lookups
-    const buildingPath = path.join(sourceDir, 'server/region/building_desc.json')
+    const buildingPath = path.join(sourceDir, 'global/building_desc.json')
     const buildings = JSON.parse(fs.readFileSync(buildingPath, 'utf-8'))
 
     // Build building lookup (building ID -> building name)
@@ -322,24 +324,22 @@ function main(): void {
   const { useSample } = parseArgs()
   const sourceDir = getSourceDir(useSample, __dirname)
 
-  console.log('🚀 Starting recipe conversion (v2)...')
+  console.log('🚀 Starting recipe conversion...')
   console.log(`📁 Source directory: ${sourceDir}`)
   console.log(`📊 Using ${useSample ? 'sample' : 'real'} data`)
   console.log(`📁 Working directory: ${__dirname}`)
 
   // Load lookup tables
-  console.log('\n📚 Loading lookup tables...')
   const lookups = loadLookupTables(__dirname, useSample)
 
-  // Configuration
+  // Configuration for recipe conversion
   const config: RecipeMappingConfig = {
-    sourceFile: path.join(sourceDir, 'server/region/crafting_recipe_desc.json'),
+    sourceFile: path.join(sourceDir, 'global/crafting_recipe_desc.json'),
     outputFile: path.resolve(__dirname, '../../../src/data/recipes.json'),
     ...lookups
   }
 
   // Process recipes
-  console.log('\n📦 Processing recipes...')
   processRecipes(config)
 
   console.log('\n🎉 Recipe conversion completed!')
