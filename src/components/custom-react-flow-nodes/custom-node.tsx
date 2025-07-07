@@ -141,7 +141,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         })
 
         // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+        const materialEdges = recipe.requirements.materials.map((material) => {
           const materialId = material.id
           return {
             id: `${id}-${materialId}`,

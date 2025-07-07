@@ -2,7 +2,7 @@ import { Container } from '@/components/container'
 import { HeroSection } from './hero-section'
 
 interface Item {
-  id: number
+  id: string
   name: string
   slug: string
   category: string

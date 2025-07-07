@@ -13,7 +13,7 @@ interface ComboboxOption {
   value: string
   label: string
   keywords?: string
-  id: number
+  id: string
 }
 
 interface ComboboxProps {

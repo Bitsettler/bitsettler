@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 
 interface Item {
-  id: number
+  id: string
   name: string
   slug: string
   category: string

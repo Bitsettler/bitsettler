@@ -14,7 +14,7 @@ import { useCallback, useEffect } from 'react'
 // Define the data structure that will be passed as props
 interface GameData {
   items: Array<{
-    id: number
+    id: string
     name: string
     slug: string
     tier: number

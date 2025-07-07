@@ -2,7 +2,7 @@ export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'
 export type Category = 'items' | 'cargo' | 'creatures' | 'resources' | 'structures'
 
 export interface GameItem {
-  id: number
+  id: string
   name: string
   slug: string
   tier: number
