@@ -335,7 +335,7 @@ function main(): void {
   // Configuration for recipe conversion
   const config: RecipeMappingConfig = {
     sourceFile: path.join(sourceDir, 'global/crafting_recipe_desc.json'),
-    outputFile: path.resolve(__dirname, '../../../src/data/recipes.json'),
+    outputFile: path.resolve(__dirname, '../../src/data/recipes.json'),
     ...lookups
   }
 

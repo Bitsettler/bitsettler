@@ -175,17 +175,17 @@ function main(): void {
   const configs: ItemMappingConfig[] = [
     {
       sourceFile: path.join(sourceDir, 'global/item_desc.json'),
-      outputDir: path.resolve(__dirname, '../../../src/data'),
+      outputDir: path.resolve(__dirname, '../../src/data'),
       category: 'items'
     },
     {
       sourceFile: path.join(sourceDir, 'global/cargo_desc.json'),
-      outputDir: path.resolve(__dirname, '../../../src/data'),
+      outputDir: path.resolve(__dirname, '../../src/data'),
       category: 'cargo'
     },
     {
       sourceFile: path.join(sourceDir, 'global/resource_desc.json'),
-      outputDir: path.resolve(__dirname, '../../../src/data'),
+      outputDir: path.resolve(__dirname, '../../src/data'),
       category: 'resources'
     }
   ]

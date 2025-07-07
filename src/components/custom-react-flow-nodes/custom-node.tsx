@@ -211,7 +211,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       onMouseLeave={handleMouseLeave}
     >
       {/* Debug mode: Show item ID and recipe ID in development */}
-      {process.env.DEBUG_MODE === 'true' && (
+      {process.env.NEXT_PUBLIC_DEBUG == 'true' && (
         <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
           {itemData.itemId && (
             <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>

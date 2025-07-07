@@ -1,0 +1,7066 @@
+[
+  {
+    "id": 1,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010001,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 1001,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00747
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 2220024,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2010008,
+        "qty": 1,
+        "probability": 0.0022222
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1010009,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.006665
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 1010008,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 1001,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1010010,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00747
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00747
+      },
+      {
+        "item": 3010008,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 3010009,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3010010,
+        "qty": 1,
+        "probability": 0.0016666
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 2220024,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 3010009,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 4010011,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0059
+      },
+      {
+        "item": 654118462,
+        "qty": 1,
+        "probability": 0.00689
+      },
+      {
+        "item": 1872489539,
+        "qty": 1,
+        "probability": 0.0059
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0059
+      },
+      {
+        "item": 654118462,
+        "qty": 1,
+        "probability": 0.00689
+      },
+      {
+        "item": 1872489539,
+        "qty": 1,
+        "probability": 0.0059
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11002,
+        "qty": 1,
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.00007
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220026,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220026,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220026,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220026,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220026,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.000035
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220026,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.000035
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220026,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000023331
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220026,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000023331
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220026,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220026,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.00006666
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220027,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.00004
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220027,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000033334
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220027,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1678317368,
+        "qty": 1,
+        "probability": 0.12
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220032,
+        "qty": 1,
+        "probability": 0.10084
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220032,
+        "qty": 1,
+        "probability": 0.08753
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220032,
+        "qty": 1,
+        "probability": 0.07769
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220032,
+        "qty": 1,
+        "probability": 0.07008
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220032,
+        "qty": 1,
+        "probability": 0.06401
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 71,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2017446682,
+        "qty": 1,
+        "probability": 0.08
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130002,
+        "qty": 1,
+        "probability": 0.08
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1116765938,
+        "qty": 1,
+        "probability": 0.04672
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1188640605,
+        "qty": 1,
+        "probability": 0.03935
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1007577047,
+        "qty": 1,
+        "probability": 0.06723
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1534590561,
+        "qty": 1,
+        "probability": 0.05835
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2130002,
+        "qty": 1,
+        "probability": 0.06723
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1007577047,
+        "qty": 1,
+        "probability": 0.06723
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6130002,
+        "qty": 1,
+        "probability": 0.04267
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5130002,
+        "qty": 1,
+        "probability": 0.04672
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 892842742,
+        "qty": 1,
+        "probability": 0.03422
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1324511604,
+        "qty": 1,
+        "probability": 0.03658
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 121211472,
+        "qty": 1,
+        "probability": 0.03658
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1359045035,
+        "qty": 1,
+        "probability": 0.02139
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2130005,
+        "qty": 1,
+        "probability": 0.04202
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130005,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130005,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130005,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130005,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4130005,
+        "qty": 1,
+        "probability": 0.03237
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3130005,
+        "qty": 1,
+        "probability": 0.03647
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220034,
+        "qty": 1,
+        "probability": 0.04202
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220034,
+        "qty": 1,
+        "probability": 0.03647
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220034,
+        "qty": 1,
+        "probability": 0.03647
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220034,
+        "qty": 1,
+        "probability": 0.03647
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5130005,
+        "qty": 1,
+        "probability": 0.0292
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220034,
+        "qty": 1,
+        "probability": 0.02667
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220034,
+        "qty": 1,
+        "probability": 0.03237
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6130005,
+        "qty": 1,
+        "probability": 0.02667
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1879591029,
+        "qty": 1,
+        "probability": 0.02012
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220034,
+        "qty": 1,
+        "probability": 0.0292
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 418805707,
+        "qty": 1,
+        "probability": 0.0246
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1935440864,
+        "qty": 1,
+        "probability": 0.02286
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 192409188,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 192409188,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 847045992,
+        "qty": 1,
+        "probability": 0.0059
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 418805707,
+        "qty": 1,
+        "probability": 0.0246
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220028,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220028,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220028,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220028,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220028,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220028,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220028,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1240725629,
+        "qty": 1,
+        "probability": 0.00549
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5130005,
+        "qty": 1,
+        "probability": 0.0292
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220028,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1220017,
+        "qty": 1,
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220017,
+        "qty": 1,
+        "probability": 0.0084
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220017,
+        "qty": 1,
+        "probability": 0.00729
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220017,
+        "qty": 1,
+        "probability": 0.00647
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220017,
+        "qty": 1,
+        "probability": 0.00584
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220017,
+        "qty": 1,
+        "probability": 0.00533
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3030012,
+        "qty": 1,
+        "probability": 0.0002
+      },
+      {
+        "item": 3030016,
+        "qty": 1,
+        "probability": 0.0002
+      },
+      {
+        "item": 3030008,
+        "qty": 1,
+        "probability": 0.0002
+      },
+      {
+        "item": 3030020,
+        "qty": 1,
+        "probability": 0.0002
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1080003,
+        "qty": 1,
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1638186849,
+        "qty": 1,
+        "probability": 0.005
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Dig Up",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 150,
+    "name": "Chip",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1110015,
+        "qty": 1,
+        "probability": 0.03
+      }
+    ]
+  },
+  {
+    "id": 5036,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 60000,
+        "qty": 1,
+        "probability": 1
+      },
+      {
+        "item": 60000,
+        "qty": 1,
+        "probability": 0.5
+      },
+      {
+        "item": 60000,
+        "qty": 1,
+        "probability": 0.25
+      },
+      {
+        "item": 60000,
+        "qty": 1,
+        "probability": 0.125
+      },
+      {
+        "item": 60000,
+        "qty": 1,
+        "probability": 0.0625
+      }
+    ]
+  },
+  {
+    "id": 5037,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 60001,
+        "qty": 1,
+        "probability": 1
+      },
+      {
+        "item": 60001,
+        "qty": 1,
+        "probability": 0.5
+      },
+      {
+        "item": 60001,
+        "qty": 1,
+        "probability": 0.25
+      },
+      {
+        "item": 60001,
+        "qty": 1,
+        "probability": 0.125
+      },
+      {
+        "item": 60001,
+        "qty": 1,
+        "probability": 0.0625
+      }
+    ]
+  },
+  {
+    "id": 100001,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100004,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1190000,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100009,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1190011,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100010,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100011,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100012,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100013,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 11002,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100014,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 11002,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100015,
+    "name": "Pickup",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100016,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100017,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 11009,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100018,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100019,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100020,
+    "name": "Cut",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100021,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 11009,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100022,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100023,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100024,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100025,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100026,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100027,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100028,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100029,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 2190011,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100030,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100031,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6190011,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100032,
+    "name": "Power",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 70001,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100033,
+    "name": "Power",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 70001,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100034,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100035,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100036,
+    "name": "Power",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6190014,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100037,
+    "name": "Power",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6190012,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100038,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100039,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100040,
+    "name": "Repair",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 2405,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100041,
+    "name": "Destroy",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100042,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6190013,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100043,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100044,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100045,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100046,
+    "name": "Destroy",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100047,
+    "name": "Power",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 70002,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100048,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100049,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100050,
+    "name": "Cut",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100051,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100052,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 100053,
+    "name": "Open",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 5002,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 100054,
+    "name": "Take",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 1000028,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 1000029,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 1010000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 1010001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 1010002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 1011000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 1011001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 1001,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 1011002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.012
+      }
+    ]
+  },
+  {
+    "id": 1012000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1010009,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.006665
+      }
+    ]
+  },
+  {
+    "id": 1012001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 1010008,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 1001,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 1012002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1650990879,
+        "qty": 1,
+        "probability": 0.014
+      },
+      {
+        "item": 1010010,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1000,
+        "qty": 1,
+        "probability": 0.006665
+      }
+    ]
+  },
+  {
+    "id": 1095000,
+    "name": "Catch",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1075000,
+        "qty": 1,
+        "probability": 0.2
+      },
+      {
+        "item": 1075001,
+        "qty": 1,
+        "probability": 0.035
+      }
+    ]
+  },
+  {
+    "id": 1110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1110016,
+        "qty": 1,
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "id": 1110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 1110017,
+        "qty": 1,
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "id": 1110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6000,
+        "qty": 1,
+        "probability": 0.002
+      }
+    ]
+  },
+  {
+    "id": 1110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1110011,
+        "qty": 1,
+        "probability": 0.04
+      }
+    ]
+  },
+  {
+    "id": 2018631,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 2050000,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 2050001,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220026,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 2050002,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 2050003,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 2110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220029,
+        "qty": 1,
+        "probability": 0.01681
+      }
+    ]
+  },
+  {
+    "id": 2110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 2110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 2220030,
+        "qty": 1,
+        "probability": 0.01681
+      }
+    ]
+  },
+  {
+    "id": 2110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 2110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 2110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220031,
+        "qty": 1,
+        "probability": 0.00168
+      }
+    ]
+  },
+  {
+    "id": 2110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220035,
+        "qty": 1,
+        "probability": 0.0264
+      }
+    ]
+  },
+  {
+    "id": 3010000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 3010001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 3010002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 3010003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 3011000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 3011001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 3011002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00747
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 3011003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 3012000,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220025,
+        "qty": 1,
+        "probability": 0.00747
+      },
+      {
+        "item": 3010008,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 6220024,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 3012001,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 3010009,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 3012002,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3010010,
+        "qty": 1,
+        "probability": 0.0011111
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 3012003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3010011,
+        "qty": 1,
+        "probability": 0.0011111
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 3050000,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 3050001,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 3110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220029,
+        "qty": 1,
+        "probability": 0.01459
+      }
+    ]
+  },
+  {
+    "id": 3110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 3110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 3220030,
+        "qty": 1,
+        "probability": 0.01459
+      }
+    ]
+  },
+  {
+    "id": 3110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 3110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 3110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220031,
+        "qty": 1,
+        "probability": 0.00146
+      }
+    ]
+  },
+  {
+    "id": 3110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220035,
+        "qty": 1,
+        "probability": 0.02
+      }
+    ]
+  },
+  {
+    "id": 4010003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11001,
+        "qty": 1,
+        "probability": 0.35
+      }
+    ]
+  },
+  {
+    "id": 4011003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 4012003,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220025,
+        "qty": 1,
+        "probability": 0.00818
+      },
+      {
+        "item": 4010011,
+        "qty": 1,
+        "probability": 0.00701
+      },
+      {
+        "item": 5220024,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 4050000,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050001,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050002,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050003,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050004,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050005,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050006,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4050007,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220026,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.000028
+      }
+    ]
+  },
+  {
+    "id": 4110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220029,
+        "qty": 1,
+        "probability": 0.01295
+      }
+    ]
+  },
+  {
+    "id": 4110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 4110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 4220030,
+        "qty": 1,
+        "probability": 0.01295
+      }
+    ]
+  },
+  {
+    "id": 4110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 4110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 4110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220031,
+        "qty": 1,
+        "probability": 0.00129
+      }
+    ]
+  },
+  {
+    "id": 4110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220035,
+        "qty": 1,
+        "probability": 0.016
+      }
+    ]
+  },
+  {
+    "id": 5050000,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220026,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000023331
+      }
+    ]
+  },
+  {
+    "id": 5050001,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220026,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000023331
+      }
+    ]
+  },
+  {
+    "id": 5050002,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220026,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000023331
+      }
+    ]
+  },
+  {
+    "id": 5110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220029,
+        "qty": 1,
+        "probability": 0.01168
+      }
+    ]
+  },
+  {
+    "id": 5110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 5110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 5220030,
+        "qty": 1,
+        "probability": 0.01168
+      }
+    ]
+  },
+  {
+    "id": 5110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 5110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 5110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220031,
+        "qty": 1,
+        "probability": 0.00117
+      }
+    ]
+  },
+  {
+    "id": 5110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220035,
+        "qty": 1,
+        "probability": 0.013332
+      }
+    ]
+  },
+  {
+    "id": 6110000,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220029,
+        "qty": 1,
+        "probability": 0.01067
+      }
+    ]
+  },
+  {
+    "id": 6110001,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6110003,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 6220030,
+        "qty": 1,
+        "probability": 0.01067
+      }
+    ]
+  },
+  {
+    "id": 6110002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 6110026,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 6110003,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220031,
+        "qty": 1,
+        "probability": 0.00107
+      }
+    ]
+  },
+  {
+    "id": 6110004,
+    "name": "Net Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220035,
+        "qty": 1,
+        "probability": 0.011428
+      }
+    ]
+  },
+  {
+    "id": 28073362,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1143621247,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 44747026,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 61701399,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3130002,
+        "qty": 1,
+        "probability": 0.05835
+      }
+    ]
+  },
+  {
+    "id": 72350648,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 121211472,
+        "qty": 1,
+        "probability": 0.03658
+      }
+    ]
+  },
+  {
+    "id": 76713978,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2095311627,
+        "qty": 1,
+        "probability": 0.01408
+      }
+    ]
+  },
+  {
+    "id": 86745700,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 113858023,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220027,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 153129370,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 58757068,
+        "qty": 1,
+        "probability": 0.00457
+      },
+      {
+        "item": 2063391815,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 199949224,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1052901724,
+        "qty": 1,
+        "probability": 0.00402
+      },
+      {
+        "item": 962018090,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 215732709,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220028,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 216686925,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 566752507,
+        "qty": 1,
+        "probability": 0.05903
+      }
+    ]
+  },
+  {
+    "id": 268632318,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1359045035,
+        "qty": 1,
+        "probability": 0.02139
+      }
+    ]
+  },
+  {
+    "id": 302798978,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1983041065,
+        "qty": 1,
+        "probability": 0.03935
+      }
+    ]
+  },
+  {
+    "id": 304798021,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1237816866,
+        "qty": 1,
+        "probability": 0.0008
+      }
+    ]
+  },
+  {
+    "id": 313145168,
+    "name": "Loot",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1665899831,
+        "qty": 5,
+        "probability": 1
+      },
+      {
+        "item": 617029534,
+        "qty": 1,
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 333428949,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00777
+      },
+      {
+        "item": 4220025,
+        "qty": 1,
+        "probability": 0.00906
+      },
+      {
+        "item": 4220024,
+        "qty": 1,
+        "probability": 0.00777
+      }
+    ]
+  },
+  {
+    "id": 333503414,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1143621247,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 350808417,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220027,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000033334
+      }
+    ]
+  },
+  {
+    "id": 377144201,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 587697308,
+        "qty": 1,
+        "probability": 0.00483
+      }
+    ]
+  },
+  {
+    "id": 379818652,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1052901724,
+        "qty": 1,
+        "probability": 0.00402
+      },
+      {
+        "item": 962018090,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 396814979,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1983041065,
+        "qty": 1,
+        "probability": 0.03935
+      }
+    ]
+  },
+  {
+    "id": 400447965,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1143621247,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 455815760,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 76399881,
+        "qty": 1,
+        "probability": 0.00457
+      },
+      {
+        "item": 2063391815,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 463926431,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 529872437,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1743603212,
+        "qty": 1,
+        "probability": 0.0059
+      }
+    ]
+  },
+  {
+    "id": 552100844,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 418805707,
+        "qty": 1,
+        "probability": 0.0246
+      }
+    ]
+  },
+  {
+    "id": 573778226,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 2220024,
+        "qty": 1,
+        "probability": 0.01008
+      }
+    ]
+  },
+  {
+    "id": 576232325,
+    "name": "Absorb",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 324734363,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 583358138,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1175301043,
+        "qty": 1,
+        "probability": 0.01497
+      }
+    ]
+  },
+  {
+    "id": 609137392,
+    "name": "Read",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 616423819,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00483
+      },
+      {
+        "item": 585086064,
+        "qty": 1,
+        "probability": 0.00563
+      },
+      {
+        "item": 1885212129,
+        "qty": 1,
+        "probability": 0.00483
+      }
+    ]
+  },
+  {
+    "id": 618164587,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 625806020,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1854175100,
+        "qty": 1,
+        "probability": 0.02941
+      }
+    ]
+  },
+  {
+    "id": 629658781,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 233804195,
+        "qty": 1,
+        "probability": 0.04267
+      }
+    ]
+  },
+  {
+    "id": 636895886,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1723948353,
+        "qty": 1,
+        "probability": 0.00457
+      }
+    ]
+  },
+  {
+    "id": 644407358,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 954664564,
+        "qty": 1,
+        "probability": 0.00428
+      },
+      {
+        "item": 1706418122,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 653316482,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1130005,
+        "qty": 1,
+        "probability": 0.05
+      }
+    ]
+  },
+  {
+    "id": 653449777,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 359813833,
+        "qty": 1,
+        "probability": 0.00098
+      }
+    ]
+  },
+  {
+    "id": 657903749,
+    "name": "Destroy",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": []
+  },
+  {
+    "id": 687466155,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 652981079,
+        "qty": 1,
+        "probability": 0.012
+      },
+      {
+        "item": 1100014,
+        "qty": 1,
+        "probability": 0.01
+      }
+    ]
+  },
+  {
+    "id": 729673178,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00513
+      },
+      {
+        "item": 135126637,
+        "qty": 1,
+        "probability": 0.00599
+      },
+      {
+        "item": 827937528,
+        "qty": 1,
+        "probability": 0.00513
+      }
+    ]
+  },
+  {
+    "id": 747261493,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 747837548,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 297634455,
+        "qty": 1,
+        "probability": 0.00984
+      }
+    ]
+  },
+  {
+    "id": 771982743,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1935440864,
+        "qty": 1,
+        "probability": 0.02286
+      }
+    ]
+  },
+  {
+    "id": 783360638,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 673329530,
+        "qty": 1,
+        "probability": 0.03219
+      }
+    ]
+  },
+  {
+    "id": 795125398,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1386206302,
+        "qty": 1,
+        "probability": 0.01722
+      }
+    ]
+  },
+  {
+    "id": 809093509,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1190169870,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 811427422,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 587697308,
+        "qty": 1,
+        "probability": 0.00483
+      }
+    ]
+  },
+  {
+    "id": 830755920,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1910282428,
+        "qty": 1,
+        "probability": 0.05487
+      }
+    ]
+  },
+  {
+    "id": 854631002,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 565236047,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 867133238,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 954664564,
+        "qty": 1,
+        "probability": 0.00428
+      },
+      {
+        "item": 1706418122,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 867258717,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1143621247,
+        "qty": 1,
+        "probability": 0.00492
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 885026581,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 247059400,
+        "qty": 1,
+        "probability": 0.02044
+      }
+    ]
+  },
+  {
+    "id": 892592002,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220027,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.00004
+      }
+    ]
+  },
+  {
+    "id": 898184037,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1387807410,
+        "qty": 1,
+        "probability": 0.03422
+      }
+    ]
+  },
+  {
+    "id": 910384691,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 518969403,
+        "qty": 1,
+        "probability": 0.00492
+      }
+    ]
+  },
+  {
+    "id": 914281297,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1324511604,
+        "qty": 1,
+        "probability": 0.03658
+      }
+    ]
+  },
+  {
+    "id": 929961662,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 954664564,
+        "qty": 1,
+        "probability": 0.00428
+      },
+      {
+        "item": 1706418122,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 975522317,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00549
+      },
+      {
+        "item": 1209911361,
+        "qty": 1,
+        "probability": 0.0064
+      },
+      {
+        "item": 826930059,
+        "qty": 1,
+        "probability": 0.00549
+      }
+    ]
+  },
+  {
+    "id": 982924690,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 233804195,
+        "qty": 1,
+        "probability": 0.04267
+      }
+    ]
+  },
+  {
+    "id": 1012559172,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 1028776331,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 699985609,
+        "qty": 1,
+        "probability": 0.03219
+      }
+    ]
+  },
+  {
+    "id": 1049132649,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1869617386,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1057686694,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220027,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000033334
+      }
+    ]
+  },
+  {
+    "id": 1081427584,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00875
+      },
+      {
+        "item": 3220025,
+        "qty": 1,
+        "probability": 0.01021
+      },
+      {
+        "item": 3220024,
+        "qty": 1,
+        "probability": 0.00875
+      }
+    ]
+  },
+  {
+    "id": 1099367840,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 540806596,
+        "qty": 1,
+        "probability": 0.00914
+      }
+    ]
+  },
+  {
+    "id": 1114644287,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00483
+      },
+      {
+        "item": 585086064,
+        "qty": 1,
+        "probability": 0.00563
+      },
+      {
+        "item": 1885212129,
+        "qty": 1,
+        "probability": 0.00483
+      }
+    ]
+  },
+  {
+    "id": 1143894781,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.000046662
+      }
+    ]
+  },
+  {
+    "id": 1163901183,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220032,
+        "qty": 1,
+        "probability": 0.06401
+      }
+    ]
+  },
+  {
+    "id": 1205481710,
+    "name": "Chum",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 259796113,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1232802582,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 343539652,
+        "qty": 1,
+        "probability": 0.00513
+      }
+    ]
+  },
+  {
+    "id": 1248150585,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4130002,
+        "qty": 1,
+        "probability": 0.05179
+      }
+    ]
+  },
+  {
+    "id": 1250648291,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1954280449,
+        "qty": 1,
+        "probability": 0.00492
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1267234481,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2220025,
+        "qty": 1,
+        "probability": 0.01176
+      },
+      {
+        "item": 2220024,
+        "qty": 1,
+        "probability": 0.01008
+      },
+      {
+        "item": 2010008,
+        "qty": 1,
+        "probability": 0.0022222
+      }
+    ]
+  },
+  {
+    "id": 1270272982,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220027,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.00004
+      }
+    ]
+  },
+  {
+    "id": 1282858906,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1052901724,
+        "qty": 1,
+        "probability": 0.00402
+      },
+      {
+        "item": 962018090,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1288166058,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1170732802,
+        "qty": 1,
+        "probability": 0.00402
+      },
+      {
+        "item": 962018090,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 1341695047,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220028,
+        "qty": 1,
+        "probability": 0.0064
+      }
+    ]
+  },
+  {
+    "id": 1344636817,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1879591029,
+        "qty": 1,
+        "probability": 0.02012
+      }
+    ]
+  },
+  {
+    "id": 1346335742,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220027,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1347187799,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1143621247,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 1357469578,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1638186849,
+        "qty": 1,
+        "probability": 0.02553
+      }
+    ]
+  },
+  {
+    "id": 1384627091,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 4220027,
+        "qty": 1,
+        "probability": 0.00647
+      },
+      {
+        "item": 4003,
+        "qty": 1,
+        "probability": 0.00004
+      }
+    ]
+  },
+  {
+    "id": 1389008737,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 673329530,
+        "qty": 1,
+        "probability": 0.03219
+      }
+    ]
+  },
+  {
+    "id": 1391523281,
+    "name": "Absorb",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1813380695,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1421385357,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 50901979,
+        "qty": 1,
+        "probability": 0.00428
+      }
+    ]
+  },
+  {
+    "id": 1429800397,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 6220027,
+        "qty": 1,
+        "probability": 0.00533
+      },
+      {
+        "item": 4005,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1435286027,
+    "name": "Loot",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 767727086,
+        "qty": 1,
+        "probability": 1
+      },
+      {
+        "item": 225094001,
+        "qty": 1,
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "id": 1468082989,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1954280449,
+        "qty": 1,
+        "probability": 0.00492
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1482311916,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1794492607,
+        "qty": 1,
+        "probability": 0.00402
+      }
+    ]
+  },
+  {
+    "id": 1498068948,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1147002521,
+        "qty": 1,
+        "probability": 0.00856
+      }
+    ]
+  },
+  {
+    "id": 1534389193,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 495585314,
+        "qty": 1,
+        "probability": 0.00091
+      }
+    ]
+  },
+  {
+    "id": 1635796919,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1954280449,
+        "qty": 1,
+        "probability": 0.00492
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1643523237,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2110425560,
+        "qty": 1,
+        "probability": 0.02266
+      }
+    ]
+  },
+  {
+    "id": 1664207130,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 456832545,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 126302392,
+        "qty": 1,
+        "probability": 0.00914
+      }
+    ]
+  },
+  {
+    "id": 1669221499,
+    "name": "Absorb",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 164359825,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1686518947,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1990669797,
+        "qty": 1,
+        "probability": 0.035
+      }
+    ]
+  },
+  {
+    "id": 1689731010,
+    "name": "Absorb",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1069197121,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 1724524646,
+    "name": "Loot",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 828731292,
+        "qty": 1,
+        "probability": 1
+      },
+      {
+        "item": 225094001,
+        "qty": 1,
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 1728862076,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1387807410,
+        "qty": 1,
+        "probability": 0.03422
+      }
+    ]
+  },
+  {
+    "id": 1732423052,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1010501089,
+        "qty": 1,
+        "probability": 0.05179
+      }
+    ]
+  },
+  {
+    "id": 1738353862,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1954280449,
+        "qty": 1,
+        "probability": 0.00492
+      },
+      {
+        "item": 2139638761,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1739885301,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.0059
+      },
+      {
+        "item": 654118462,
+        "qty": 1,
+        "probability": 0.00689
+      },
+      {
+        "item": 1872489539,
+        "qty": 1,
+        "probability": 0.0059
+      }
+    ]
+  },
+  {
+    "id": 1742764067,
+    "name": "Chop",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 11012,
+        "qty": 1,
+        "probability": 0.00513
+      },
+      {
+        "item": 135126637,
+        "qty": 1,
+        "probability": 0.00599
+      },
+      {
+        "item": 827937528,
+        "qty": 1,
+        "probability": 0.00513
+      }
+    ]
+  },
+  {
+    "id": 1774028752,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220027,
+        "qty": 1,
+        "probability": 0.00584
+      },
+      {
+        "item": 4004,
+        "qty": 1,
+        "probability": 0.000033334
+      }
+    ]
+  },
+  {
+    "id": 1776847080,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 76399881,
+        "qty": 1,
+        "probability": 0.00457
+      },
+      {
+        "item": 2063391815,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1778168385,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1809533949,
+        "qty": 1,
+        "probability": 0.04828
+      }
+    ]
+  },
+  {
+    "id": 1798019273,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 699985609,
+        "qty": 1,
+        "probability": 0.03219
+      }
+    ]
+  },
+  {
+    "id": 1804248726,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 343539652,
+        "qty": 1,
+        "probability": 0.00513
+      }
+    ]
+  },
+  {
+    "id": 1814132892,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 390639013,
+        "qty": 1,
+        "probability": 0.00086
+      }
+    ]
+  },
+  {
+    "id": 1828401949,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1188640605,
+        "qty": 1,
+        "probability": 0.03935
+      }
+    ]
+  },
+  {
+    "id": 1889474738,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 2220027,
+        "qty": 1,
+        "probability": 0.0084
+      },
+      {
+        "item": 4001,
+        "qty": 1,
+        "probability": 0.00006666
+      }
+    ]
+  },
+  {
+    "id": 1932296108,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3000,
+        "qty": 1,
+        "probability": 0.01
+      },
+      {
+        "item": 4000,
+        "qty": 1,
+        "probability": 0.0001
+      }
+    ]
+  },
+  {
+    "id": 1941847716,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 37723214,
+        "qty": 1,
+        "probability": 0.00805
+      }
+    ]
+  },
+  {
+    "id": 1944938244,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1047327336,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 1831764501,
+        "qty": 1,
+        "probability": 0.00856
+      }
+    ]
+  },
+  {
+    "id": 1959014177,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 1997986205,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 750073180,
+        "qty": 1,
+        "probability": 0.00984
+      }
+    ]
+  },
+  {
+    "id": 1964372810,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 954664564,
+        "qty": 1,
+        "probability": 0.00428
+      },
+      {
+        "item": 1706418122,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 1975877319,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1173828253,
+        "qty": 1,
+        "probability": 0.00428
+      },
+      {
+        "item": 1706418122,
+        "qty": 1,
+        "probability": 0.00001995
+      }
+    ]
+  },
+  {
+    "id": 1981602240,
+    "name": "Absorb",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 181402733,
+          "qty": 1
+        }
+      ]
+    },
+    "output": []
+  },
+  {
+    "id": 2004377377,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 76399881,
+        "qty": 1,
+        "probability": 0.00457
+      },
+      {
+        "item": 2063391815,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 2020965244,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 76399881,
+        "qty": 1,
+        "probability": 0.00457
+      },
+      {
+        "item": 2063391815,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 2027254142,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1052901724,
+        "qty": 1,
+        "probability": 0.00402
+      },
+      {
+        "item": 962018090,
+        "qty": 1,
+        "probability": 0.0000286
+      }
+    ]
+  },
+  {
+    "id": 2029583735,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 892842742,
+        "qty": 1,
+        "probability": 0.03422
+      }
+    ]
+  },
+  {
+    "id": 2031513682,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 786677406,
+        "qty": 1,
+        "probability": 0.01867
+      }
+    ]
+  },
+  {
+    "id": 2038499281,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 153737425,
+        "qty": 1,
+        "probability": 0.05133
+      }
+    ]
+  },
+  {
+    "id": 2046456984,
+    "name": "Fish",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": [
+        {
+          "id": 94044442,
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": 426552137,
+        "qty": 1,
+        "probability": 0.00805
+      }
+    ]
+  },
+  {
+    "id": 2083012478,
+    "name": "Dig",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 500129057,
+        "qty": 1,
+        "probability": 0.016
+      }
+    ]
+  },
+  {
+    "id": 2084103997,
+    "name": "Mine",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 3220027,
+        "qty": 1,
+        "probability": 0.00729
+      },
+      {
+        "item": 4002,
+        "qty": 1,
+        "probability": 0.00005
+      }
+    ]
+  },
+  {
+    "id": 2111640252,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 5220028,
+        "qty": 1,
+        "probability": 0.00701
+      }
+    ]
+  },
+  {
+    "id": 2132688746,
+    "name": "Gather",
+    "requirements": {
+      "professions": "any",
+      "tool": "hands",
+      "materials": []
+    },
+    "output": [
+      {
+        "item": 1558771097,
+        "qty": 1,
+        "probability": 0.00549
+      }
+    ]
+  }
+]
