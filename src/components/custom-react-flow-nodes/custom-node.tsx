@@ -62,21 +62,48 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         return node
       })
 
-      // Remove existing material nodes and edges for this specific recipe
-      const filteredNodes = updatedNodes.filter((node) => {
-        // Keep the current node
-        if (node.id === id) return true
-        // Remove only material nodes that belong to this specific recipe
-        if (node.id.includes(`-${recipe.id}`)) return false
-        // Keep all other nodes (including parent nodes)
-        return true
+      // Remove ALL existing material nodes and edges that were created FROM this parent node
+      // We need to find all nodes that are children of the current node (id)
+      const currentEdges = getEdges()
+      const childNodeIds = new Set<string>()
+
+      // Find all nodes that are directly connected as children (targets of edges from current node)
+      currentEdges.forEach((edge) => {
+        if (edge.target === id) {
+          childNodeIds.add(edge.source)
+        }
       })
 
-      const filteredEdges = getEdges().filter((edge) => {
-        // Remove only edges that belong to this specific recipe
-        // The edge ID format is: e{source}-{material}-{recipeId}
-        // We only want to remove edges that end with -{recipeId}
-        return !edge.id.endsWith(`-${recipe.id}`)
+      // Recursively find all descendant nodes
+      const findAllDescendants = (nodeIds: Set<string>): Set<string> => {
+        const allDescendants = new Set(nodeIds)
+        let foundNew = true
+
+        while (foundNew) {
+          foundNew = false
+          currentEdges.forEach((edge) => {
+            if (allDescendants.has(edge.target) && !allDescendants.has(edge.source)) {
+              allDescendants.add(edge.source)
+              foundNew = true
+            }
+          })
+        }
+
+        return allDescendants
+      }
+
+      const allChildNodeIds = findAllDescendants(childNodeIds)
+
+      // Remove all child nodes (but keep the current parent node)
+      const filteredNodes = updatedNodes.filter((node) => {
+        if (node.id === id) return true // Keep the current node
+        return !allChildNodeIds.has(node.id) // Remove all child nodes
+      })
+
+      // Remove all edges connected to the removed child nodes
+      const filteredEdges = currentEdges.filter((edge) => {
+        // Keep edges that don't involve any of the removed child nodes
+        return !allChildNodeIds.has(edge.source) && !allChildNodeIds.has(edge.target)
       })
 
       // Only create material nodes if the recipe has materials
