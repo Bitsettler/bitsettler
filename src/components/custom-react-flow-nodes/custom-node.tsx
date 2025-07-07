@@ -241,7 +241,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           </div>
           {itemData.quantity && (
             <Badge variant="secondary" className="text-xs">
-              Qty: {itemData.quantity}
+              Qty: {Math.round(itemData.quantity)}
             </Badge>
           )}
         </div>
