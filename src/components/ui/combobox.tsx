@@ -13,6 +13,7 @@ interface ComboboxOption {
   value: string
   label: string
   keywords?: string
+  id: string
 }
 
 interface ComboboxProps {
@@ -23,6 +24,8 @@ interface ComboboxProps {
   searchPlaceholder?: string
   emptyText?: string
   className?: string
+  triggerClassName?: string
+  inputClassName?: string
 }
 
 export function Combobox({
@@ -32,7 +35,9 @@ export function Combobox({
   placeholder = 'Select item...',
   searchPlaceholder = 'Search items...',
   emptyText = 'No items found.',
-  className
+  className,
+  triggerClassName,
+  inputClassName
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false)
   const [searchValue, setSearchValue] = React.useState('')
@@ -90,7 +95,7 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn('w-full justify-between', className)}
+          className={cn('w-full justify-between', className, triggerClassName)}
         >
           {value ? options.find((option) => option.value === value)?.label : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -100,7 +105,7 @@ export function Combobox({
         <Command shouldFilter={false}>
           <CommandInput
             placeholder={searchPlaceholder}
-            className="h-9"
+            className={cn('h-9', inputClassName)}
             value={searchValue}
             onValueChange={setSearchValue}
           />
@@ -119,7 +124,7 @@ export function Combobox({
                     const option = filteredOptions[virtualOption.index]
                     return (
                       <CommandItem
-                        key={option.value}
+                        key={option.id}
                         value={`${option.label} ${option.keywords || ''}`}
                         className="absolute top-0 left-0 w-full bg-transparent whitespace-nowrap"
                         style={{

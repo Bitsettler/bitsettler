@@ -1,0 +1,2999 @@
+[
+  {
+    "entity_id": 360287970203128500,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751089645582278
+    }
+  },
+  {
+    "entity_id": 360287970203065340,
+    "empire_entity_id": 40,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751697627565394
+    }
+  },
+  {
+    "entity_id": 360287970203128100,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751087834499721
+    }
+  },
+  {
+    "entity_id": 360287970203058900,
+    "empire_entity_id": 40,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751775124999906
+    }
+  },
+  {
+    "entity_id": 576460752316685000,
+    "empire_entity_id": 217,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751814923991532
+    }
+  },
+  {
+    "entity_id": 576460752317180800,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525309963075
+    }
+  },
+  {
+    "entity_id": 144115188089203900,
+    "empire_entity_id": 492,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751487987935586
+    }
+  },
+  {
+    "entity_id": 144115188089230300,
+    "empire_entity_id": 540,
+    "hexite_capsules": 2,
+    "queued": 5,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833627192200
+    }
+  },
+  {
+    "entity_id": 648518346354828000,
+    "empire_entity_id": 620,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751414904546068
+    }
+  },
+  {
+    "entity_id": 72057594052163660,
+    "empire_entity_id": 717,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751819273152046
+    }
+  },
+  {
+    "entity_id": 72057594052213760,
+    "empire_entity_id": 810,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751827069056939
+    }
+  },
+  {
+    "entity_id": 648518346355259300,
+    "empire_entity_id": 965,
+    "hexite_capsules": 6,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751822704001210
+    }
+  },
+  {
+    "entity_id": 576460752318074000,
+    "empire_entity_id": 1010,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750770437746827
+    }
+  },
+  {
+    "entity_id": 504403158279049100,
+    "empire_entity_id": 1095,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751670281126201
+    }
+  },
+  {
+    "entity_id": 216172782127904450,
+    "empire_entity_id": 1137,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751830512915481
+    }
+  },
+  {
+    "entity_id": 576460752318329300,
+    "empire_entity_id": 1203,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751512765308513
+    }
+  },
+  {
+    "entity_id": 72057594052998510,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393541213619
+    }
+  },
+  {
+    "entity_id": 504403158279271000,
+    "empire_entity_id": 1095,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751810002178110
+    }
+  },
+  {
+    "entity_id": 216172782128037000,
+    "empire_entity_id": 1137,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751830517378895
+    }
+  },
+  {
+    "entity_id": 360287970205158600,
+    "empire_entity_id": 1560,
+    "hexite_capsules": 10,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751240435382247
+    }
+  },
+  {
+    "entity_id": 504403158279627000,
+    "empire_entity_id": 1605,
+    "hexite_capsules": 6,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751753990134520
+    }
+  },
+  {
+    "entity_id": 288230376167364160,
+    "empire_entity_id": 1807,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751554647049059
+    }
+  },
+  {
+    "entity_id": 72057594053545740,
+    "empire_entity_id": 1914,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750965540834925
+    }
+  },
+  {
+    "entity_id": 432345564243002100,
+    "empire_entity_id": 1881,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751821721092404
+    }
+  },
+  {
+    "entity_id": 432345564243002560,
+    "empire_entity_id": 1881,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751821707903129
+    }
+  },
+  {
+    "entity_id": 144115188091002270,
+    "empire_entity_id": 1965,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751618947071183
+    }
+  },
+  {
+    "entity_id": 72057594053554640,
+    "empire_entity_id": 1985,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751807804153771
+    }
+  },
+  {
+    "entity_id": 216172782128711870,
+    "empire_entity_id": 2096,
+    "hexite_capsules": 0,
+    "queued": 1,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751834160900877
+    }
+  },
+  {
+    "entity_id": 360287970205512900,
+    "empire_entity_id": 2222,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751039863449620
+    }
+  },
+  {
+    "entity_id": 576460752319099600,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243201470532
+    }
+  },
+  {
+    "entity_id": 288230376167661000,
+    "empire_entity_id": 2395,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750961347134380
+    }
+  },
+  {
+    "entity_id": 504403158280136260,
+    "empire_entity_id": 2433,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751135883326291
+    }
+  },
+  {
+    "entity_id": 576460752319279600,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243207591407
+    }
+  },
+  {
+    "entity_id": 576460752319280000,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243197166226
+    }
+  },
+  {
+    "entity_id": 576460752319320300,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525302570820
+    }
+  },
+  {
+    "entity_id": 288230376167736700,
+    "empire_entity_id": 2730,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751658221783113
+    }
+  },
+  {
+    "entity_id": 216172782128986300,
+    "empire_entity_id": 2669,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751662813276118
+    }
+  },
+  {
+    "entity_id": 576460752319563800,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243188398231
+    }
+  },
+  {
+    "entity_id": 144115188091626940,
+    "empire_entity_id": 2977,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751225597386267
+    }
+  },
+  {
+    "entity_id": 648518346356587800,
+    "empire_entity_id": 3033,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751491372648772
+    }
+  },
+  {
+    "entity_id": 648518346356590500,
+    "empire_entity_id": 3065,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751778990943382
+    }
+  },
+  {
+    "entity_id": 432345564243569150,
+    "empire_entity_id": 3166,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751521675391663
+    }
+  },
+  {
+    "entity_id": 576460752324397600,
+    "empire_entity_id": 1010,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751716762249728
+    }
+  },
+  {
+    "entity_id": 576460752319633300,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525323258402
+    }
+  },
+  {
+    "entity_id": 576460752319633400,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525313167151
+    }
+  },
+  {
+    "entity_id": 576460752319662100,
+    "empire_entity_id": 217,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751814927675144
+    }
+  },
+  {
+    "entity_id": 576460752319662700,
+    "empire_entity_id": 217,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751814917724860
+    }
+  },
+  {
+    "entity_id": 144115188091900600,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751676465712850
+    }
+  },
+  {
+    "entity_id": 576460752319803300,
+    "empire_entity_id": 1010,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751716758819066
+    }
+  },
+  {
+    "entity_id": 432345564243958100,
+    "empire_entity_id": 3504,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750941180120505
+    }
+  },
+  {
+    "entity_id": 72057594054595330,
+    "empire_entity_id": 3671,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751757202364229
+    }
+  },
+  {
+    "entity_id": 576460752320102500,
+    "empire_entity_id": 3608,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751812852618979
+    }
+  },
+  {
+    "entity_id": 576460752320103400,
+    "empire_entity_id": 3608,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751812856312340
+    }
+  },
+  {
+    "entity_id": 360287970206604740,
+    "empire_entity_id": 3753,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750948673765303
+    }
+  },
+  {
+    "entity_id": 216172782129844860,
+    "empire_entity_id": 3816,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750885357779193
+    }
+  },
+  {
+    "entity_id": 288230376168495550,
+    "empire_entity_id": 3788,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751815732826226
+    }
+  },
+  {
+    "entity_id": 360287970206681800,
+    "empire_entity_id": 2222,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751039856243180
+    }
+  },
+  {
+    "entity_id": 504403158280991100,
+    "empire_entity_id": 3973,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751319807458268
+    }
+  },
+  {
+    "entity_id": 144115188092476860,
+    "empire_entity_id": 3959,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751068864789903
+    }
+  },
+  {
+    "entity_id": 288230376168682700,
+    "empire_entity_id": 4113,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750862904692381
+    }
+  },
+  {
+    "entity_id": 144115188092566400,
+    "empire_entity_id": 4174,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751732625982266
+    }
+  },
+  {
+    "entity_id": 144115188092566600,
+    "empire_entity_id": 4174,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751732606018952
+    }
+  },
+  {
+    "entity_id": 144115188092566800,
+    "empire_entity_id": 4174,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751732614462879
+    }
+  },
+  {
+    "entity_id": 72057594054881020,
+    "empire_entity_id": 3671,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751760981156523
+    }
+  },
+  {
+    "entity_id": 288230376168807550,
+    "empire_entity_id": 4386,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750816047078216
+    }
+  },
+  {
+    "entity_id": 504403158281295100,
+    "empire_entity_id": 4460,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751822358447164
+    }
+  },
+  {
+    "entity_id": 144115188092790430,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751662068842282
+    }
+  },
+  {
+    "entity_id": 648518346357400700,
+    "empire_entity_id": 4541,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750800082534212
+    }
+  },
+  {
+    "entity_id": 360287970207098000,
+    "empire_entity_id": 4580,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751416981101643
+    }
+  },
+  {
+    "entity_id": 72057594055112670,
+    "empire_entity_id": 1914,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750965544399218
+    }
+  },
+  {
+    "entity_id": 288230376168974600,
+    "empire_entity_id": 4630,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751441593889361
+    }
+  },
+  {
+    "entity_id": 288230376168976800,
+    "empire_entity_id": 4630,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751441589115089
+    }
+  },
+  {
+    "entity_id": 360287970207149600,
+    "empire_entity_id": 4705,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751016429051717
+    }
+  },
+  {
+    "entity_id": 360287970207152300,
+    "empire_entity_id": 4705,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751016424129247
+    }
+  },
+  {
+    "entity_id": 144115188092866400,
+    "empire_entity_id": 4797,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751322751271560
+    }
+  },
+  {
+    "entity_id": 288230376169233100,
+    "empire_entity_id": 5139,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751745734263148
+    }
+  },
+  {
+    "entity_id": 288230376169244100,
+    "empire_entity_id": 4386,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751450411002781
+    }
+  },
+  {
+    "entity_id": 288230376169280200,
+    "empire_entity_id": 5210,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751829151632960
+    }
+  },
+  {
+    "entity_id": 288230376169281400,
+    "empire_entity_id": 4386,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750813863098952
+    }
+  },
+  {
+    "entity_id": 288230376169309060,
+    "empire_entity_id": 2730,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751658218447639
+    }
+  },
+  {
+    "entity_id": 432345564244965900,
+    "empire_entity_id": 5421,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751097704621092
+    }
+  },
+  {
+    "entity_id": 72057594055745550,
+    "empire_entity_id": 5409,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751555765019591
+    }
+  },
+  {
+    "entity_id": 432345564244997800,
+    "empire_entity_id": 5465,
+    "hexite_capsules": 1,
+    "queued": 3,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833913900336
+    }
+  },
+  {
+    "entity_id": 432345564245000900,
+    "empire_entity_id": 5465,
+    "hexite_capsules": 1,
+    "queued": 3,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833926089130
+    }
+  },
+  {
+    "entity_id": 432345564245013250,
+    "empire_entity_id": 5537,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750830247761177
+    }
+  },
+  {
+    "entity_id": 432345564245051460,
+    "empire_entity_id": 5617,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751288906021346
+    }
+  },
+  {
+    "entity_id": 432345564245201900,
+    "empire_entity_id": 5716,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751780924719279
+    }
+  },
+  {
+    "entity_id": 288230376169748200,
+    "empire_entity_id": 5677,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751060764159010
+    }
+  },
+  {
+    "entity_id": 576460752321477200,
+    "empire_entity_id": 5782,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750944086577260
+    }
+  },
+  {
+    "entity_id": 288230376170075100,
+    "empire_entity_id": 5981,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751748061582389
+    }
+  },
+  {
+    "entity_id": 432345564245545500,
+    "empire_entity_id": 6043,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751753218807930
+    }
+  },
+  {
+    "entity_id": 216172782131713300,
+    "empire_entity_id": 3816,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750885352296246
+    }
+  },
+  {
+    "entity_id": 288230376170236160,
+    "empire_entity_id": 6096,
+    "hexite_capsules": 7,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751772061832177
+    }
+  },
+  {
+    "entity_id": 360287970208510200,
+    "empire_entity_id": 6219,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751434796089050
+    }
+  },
+  {
+    "entity_id": 432345564245795800,
+    "empire_entity_id": 6290,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751159764798774
+    }
+  },
+  {
+    "entity_id": 360287970208578370,
+    "empire_entity_id": 6318,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751130797014536
+    }
+  },
+  {
+    "entity_id": 288230376170379100,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751038238920234
+    }
+  },
+  {
+    "entity_id": 288230376170514370,
+    "empire_entity_id": 5677,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751073737963345
+    }
+  },
+  {
+    "entity_id": 288230376170515900,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751039426508673
+    }
+  },
+  {
+    "entity_id": 288230376170516740,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751036689535764
+    }
+  },
+  {
+    "entity_id": 72057594056863360,
+    "empire_entity_id": 6472,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751737980946077
+    }
+  },
+  {
+    "entity_id": 288230376170517900,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750897900831300
+    }
+  },
+  {
+    "entity_id": 288230376170520770,
+    "empire_entity_id": 6492,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751330376270259
+    }
+  },
+  {
+    "entity_id": 288230376170532000,
+    "empire_entity_id": 5677,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751056774811244
+    }
+  },
+  {
+    "entity_id": 288230376170532100,
+    "empire_entity_id": 5677,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751056782347220
+    }
+  },
+  {
+    "entity_id": 360287970208756800,
+    "empire_entity_id": 6534,
+    "hexite_capsules": 14,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751261793024303
+    }
+  },
+  {
+    "entity_id": 72057594056890990,
+    "empire_entity_id": 6565,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751123010799258
+    }
+  },
+  {
+    "entity_id": 72057594056977400,
+    "empire_entity_id": 5409,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751555768906336
+    }
+  },
+  {
+    "entity_id": 72057594056981280,
+    "empire_entity_id": 5409,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751555761898309
+    }
+  },
+  {
+    "entity_id": 216172782132155650,
+    "empire_entity_id": 6754,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750910868585590
+    }
+  },
+  {
+    "entity_id": 576460752326779500,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243222540299
+    }
+  },
+  {
+    "entity_id": 216172782132346300,
+    "empire_entity_id": 6932,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750910877381839
+    }
+  },
+  {
+    "entity_id": 216172782132362880,
+    "empire_entity_id": 6932,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750936577388982
+    }
+  },
+  {
+    "entity_id": 216172782132363230,
+    "empire_entity_id": 6932,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750962315629558
+    }
+  },
+  {
+    "entity_id": 432345564246308900,
+    "empire_entity_id": 7015,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751619806904018
+    }
+  },
+  {
+    "entity_id": 648518346359487100,
+    "empire_entity_id": 7139,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750917452876689
+    }
+  },
+  {
+    "entity_id": 144115188095375940,
+    "empire_entity_id": 7212,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751194682532916
+    }
+  },
+  {
+    "entity_id": 432345564259482200,
+    "empire_entity_id": 17871,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751768049432890
+    }
+  },
+  {
+    "entity_id": 576460752322994000,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525299402963
+    }
+  },
+  {
+    "entity_id": 72057594057961120,
+    "empire_entity_id": 7423,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751244038521531
+    }
+  },
+  {
+    "entity_id": 360287970209910340,
+    "empire_entity_id": 7443,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751424624126688
+    }
+  },
+  {
+    "entity_id": 360287970210044900,
+    "empire_entity_id": 7549,
+    "hexite_capsules": 0,
+    "queued": 1,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833618672525
+    }
+  },
+  {
+    "entity_id": 72057594058209470,
+    "empire_entity_id": 7632,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751558237721672
+    }
+  },
+  {
+    "entity_id": 216172782133357570,
+    "empire_entity_id": 6932,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750962310818011
+    }
+  },
+  {
+    "entity_id": 288230376171803000,
+    "empire_entity_id": 2395,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750963159328218
+    }
+  },
+  {
+    "entity_id": 288230376171803650,
+    "empire_entity_id": 2395,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750961406591254
+    }
+  },
+  {
+    "entity_id": 216172782133368480,
+    "empire_entity_id": 7761,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751355985670317
+    }
+  },
+  {
+    "entity_id": 648518346360210200,
+    "empire_entity_id": 7731,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751037680796387
+    }
+  },
+  {
+    "entity_id": 432345564247185100,
+    "empire_entity_id": 1881,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751821713274921
+    }
+  },
+  {
+    "entity_id": 648518346360221600,
+    "empire_entity_id": 7807,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751093029307746
+    }
+  },
+  {
+    "entity_id": 72057594058259710,
+    "empire_entity_id": 3671,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751757316393157
+    }
+  },
+  {
+    "entity_id": 72057594058260900,
+    "empire_entity_id": 3671,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751757161746581
+    }
+  },
+  {
+    "entity_id": 72057594058315090,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393546972958
+    }
+  },
+  {
+    "entity_id": 576460752323575200,
+    "empire_entity_id": 7894,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1750966013271997
+    }
+  },
+  {
+    "entity_id": 72057594058332450,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751224094167225
+    }
+  },
+  {
+    "entity_id": 72057594058460080,
+    "empire_entity_id": 3671,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751757346590098
+    }
+  },
+  {
+    "entity_id": 432345564247427200,
+    "empire_entity_id": 8072,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751772280225491
+    }
+  },
+  {
+    "entity_id": 144115188096457120,
+    "empire_entity_id": 8135,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751456635226638
+    }
+  },
+  {
+    "entity_id": 648518346360503400,
+    "empire_entity_id": 8201,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751826846586860
+    }
+  },
+  {
+    "entity_id": 648518346360504600,
+    "empire_entity_id": 8234,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751472915747771
+    }
+  },
+  {
+    "entity_id": 576460752333751800,
+    "empire_entity_id": 15715,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751724205360724
+    }
+  },
+  {
+    "entity_id": 72057594058575000,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393560591997
+    }
+  },
+  {
+    "entity_id": 288230376172191000,
+    "empire_entity_id": 8371,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751485110353569
+    }
+  },
+  {
+    "entity_id": 648518346360708500,
+    "empire_entity_id": 8483,
+    "hexite_capsules": 0,
+    "queued": 2,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751832718237707
+    }
+  },
+  {
+    "entity_id": 504403158284616450,
+    "empire_entity_id": 8593,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751486203056683
+    }
+  },
+  {
+    "entity_id": 72057594058885260,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751075533321274
+    }
+  },
+  {
+    "entity_id": 576460752324168600,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243183098225
+    }
+  },
+  {
+    "entity_id": 576460752324169100,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243176000286
+    }
+  },
+  {
+    "entity_id": 72057594058939650,
+    "empire_entity_id": 8742,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751556912272523
+    }
+  },
+  {
+    "entity_id": 432345564247971400,
+    "empire_entity_id": 8828,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751042309915387
+    }
+  },
+  {
+    "entity_id": 144115188097265150,
+    "empire_entity_id": 8993,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751322885365228
+    }
+  },
+  {
+    "entity_id": 144115188100376450,
+    "empire_entity_id": 11732,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751798784173009
+    }
+  },
+  {
+    "entity_id": 648518346361380900,
+    "empire_entity_id": 9128,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751419234967299
+    }
+  },
+  {
+    "entity_id": 504403158295378500,
+    "empire_entity_id": 16857,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751643992577783
+    }
+  },
+  {
+    "entity_id": 504403158285248500,
+    "empire_entity_id": 2433,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751207808426358
+    }
+  },
+  {
+    "entity_id": 288230376173176700,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751038027934242
+    }
+  },
+  {
+    "entity_id": 288230376173176770,
+    "empire_entity_id": 6385,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751038030352113
+    }
+  },
+  {
+    "entity_id": 288230376173183700,
+    "empire_entity_id": 9339,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751036713727880
+    }
+  },
+  {
+    "entity_id": 216172782134987170,
+    "empire_entity_id": 9440,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751068747376479
+    }
+  },
+  {
+    "entity_id": 504403158285436600,
+    "empire_entity_id": 1095,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751809929097440
+    }
+  },
+  {
+    "entity_id": 360287970211958460,
+    "empire_entity_id": 9526,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751099085400435
+    }
+  },
+  {
+    "entity_id": 504403158285518700,
+    "empire_entity_id": 1095,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751670313829632
+    }
+  },
+  {
+    "entity_id": 576460752325060500,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243194432742
+    }
+  },
+  {
+    "entity_id": 432345564248740740,
+    "empire_entity_id": 9655,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751327278982825
+    }
+  },
+  {
+    "entity_id": 144115188097960800,
+    "empire_entity_id": 9671,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751122302564243
+    }
+  },
+  {
+    "entity_id": 648518346361873300,
+    "empire_entity_id": 9793,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751076848509214
+    }
+  },
+  {
+    "entity_id": 288230376173625200,
+    "empire_entity_id": 9829,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751798056075910
+    }
+  },
+  {
+    "entity_id": 648518346361893400,
+    "empire_entity_id": 9867,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751400398265412
+    }
+  },
+  {
+    "entity_id": 360287970212378000,
+    "empire_entity_id": 6318,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751130802460609
+    }
+  },
+  {
+    "entity_id": 648518346361994100,
+    "empire_entity_id": 10023,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751681931438445
+    }
+  },
+  {
+    "entity_id": 360287970212405800,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088631411661
+    }
+  },
+  {
+    "entity_id": 360287970212405950,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088614898373
+    }
+  },
+  {
+    "entity_id": 360287970212406100,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088609175200
+    }
+  },
+  {
+    "entity_id": 360287970212406600,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088604280388
+    }
+  },
+  {
+    "entity_id": 432345564249038700,
+    "empire_entity_id": 1881,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751821704160189
+    }
+  },
+  {
+    "entity_id": 504403158285988000,
+    "empire_entity_id": 10076,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751703804497310
+    }
+  },
+  {
+    "entity_id": 432345564249213760,
+    "empire_entity_id": 10197,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751822009279180
+    }
+  },
+  {
+    "entity_id": 360287970212660160,
+    "empire_entity_id": 126,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751089637618279
+    }
+  },
+  {
+    "entity_id": 360287970212660300,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088542327565
+    }
+  },
+  {
+    "entity_id": 360287970212660350,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751088527951249
+    }
+  },
+  {
+    "entity_id": 360287970212660500,
+    "empire_entity_id": 126,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751087111415302
+    }
+  },
+  {
+    "entity_id": 144115188098552450,
+    "empire_entity_id": 10290,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751241559713931
+    }
+  },
+  {
+    "entity_id": 432345564249398850,
+    "empire_entity_id": 5617,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751288911311258
+    }
+  },
+  {
+    "entity_id": 648518346362383700,
+    "empire_entity_id": 10422,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751346114381415
+    }
+  },
+  {
+    "entity_id": 504403158286269400,
+    "empire_entity_id": 2433,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751199527898334
+    }
+  },
+  {
+    "entity_id": 504403158286282430,
+    "empire_entity_id": 10453,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751108218836646
+    }
+  },
+  {
+    "entity_id": 288230376174748740,
+    "empire_entity_id": 10836,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751125215033075
+    }
+  },
+  {
+    "entity_id": 288230376174789000,
+    "empire_entity_id": 10867,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751697409590691
+    }
+  },
+  {
+    "entity_id": 576460752326772700,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525327347178
+    }
+  },
+  {
+    "entity_id": 576460752326772700,
+    "empire_entity_id": 381,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751525329807179
+    }
+  },
+  {
+    "entity_id": 432345564250399940,
+    "empire_entity_id": 11098,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751322008207291
+    }
+  },
+  {
+    "entity_id": 144115188099914270,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751676468178106
+    }
+  },
+  {
+    "entity_id": 144115188099914400,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751662061698332
+    }
+  },
+  {
+    "entity_id": 576460752326978300,
+    "empire_entity_id": 2291,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751243180566460
+    }
+  },
+  {
+    "entity_id": 144115188099990850,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751662065098814
+    }
+  },
+  {
+    "entity_id": 144115188099991070,
+    "empire_entity_id": 3299,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751676474032538
+    }
+  },
+  {
+    "entity_id": 144115188100010500,
+    "empire_entity_id": 11311,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751156557038274
+    }
+  },
+  {
+    "entity_id": 360287970214183300,
+    "empire_entity_id": 11323,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393640094402
+    }
+  },
+  {
+    "entity_id": 216172782136981000,
+    "empire_entity_id": 2096,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751830958494184
+    }
+  },
+  {
+    "entity_id": 216172782136981300,
+    "empire_entity_id": 2096,
+    "hexite_capsules": 0,
+    "queued": 1,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751834167273222
+    }
+  },
+  {
+    "entity_id": 576460752327051100,
+    "empire_entity_id": 11365,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751675149308815
+    }
+  },
+  {
+    "entity_id": 648518346363474400,
+    "empire_entity_id": 11397,
+    "hexite_capsules": 6,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751661087752707
+    }
+  },
+  {
+    "entity_id": 360287970214443650,
+    "empire_entity_id": 11575,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751167380738749
+    }
+  },
+  {
+    "entity_id": 504403158287613200,
+    "empire_entity_id": 8593,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751170994913542
+    }
+  },
+  {
+    "entity_id": 504403158287614300,
+    "empire_entity_id": 8593,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751168752375494
+    }
+  },
+  {
+    "entity_id": 360287970214506300,
+    "empire_entity_id": 11680,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751765912175483
+    }
+  },
+  {
+    "entity_id": 360287970214679300,
+    "empire_entity_id": 8953,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751353268812264
+    }
+  },
+  {
+    "entity_id": 360287970214704000,
+    "empire_entity_id": 11816,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751484914152283
+    }
+  },
+  {
+    "entity_id": 288230376175862900,
+    "empire_entity_id": 11902,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393353682846
+    }
+  },
+  {
+    "entity_id": 648518346364014000,
+    "empire_entity_id": 11937,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 648518346364143400,
+    "empire_entity_id": 620,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751414901585380
+    }
+  },
+  {
+    "entity_id": 144115188100968350,
+    "empire_entity_id": 12103,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751644878515361
+    }
+  },
+  {
+    "entity_id": 360287970215341600,
+    "empire_entity_id": 12223,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751207530960407
+    }
+  },
+  {
+    "entity_id": 576460752328105100,
+    "empire_entity_id": 12242,
+    "hexite_capsules": 18,
+    "queued": 3,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751832830165367
+    }
+  },
+  {
+    "entity_id": 432345564251465700,
+    "empire_entity_id": 12206,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751328225298353
+    }
+  },
+  {
+    "entity_id": 432345564251497000,
+    "empire_entity_id": 3166,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751521688615988
+    }
+  },
+  {
+    "entity_id": 288230376176558300,
+    "empire_entity_id": 1807,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751554650467596
+    }
+  },
+  {
+    "entity_id": 288230376176566660,
+    "empire_entity_id": 1807,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751554655131844
+    }
+  },
+  {
+    "entity_id": 288230376176566850,
+    "empire_entity_id": 1807,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751554658973909
+    }
+  },
+  {
+    "entity_id": 360287970215631900,
+    "empire_entity_id": 12458,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751784887064575
+    }
+  },
+  {
+    "entity_id": 288230376176640400,
+    "empire_entity_id": 12518,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751224088110157
+    }
+  },
+  {
+    "entity_id": 360287970215824260,
+    "empire_entity_id": 12613,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751714158681288
+    }
+  },
+  {
+    "entity_id": 144115188101688960,
+    "empire_entity_id": 12658,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751629305027678
+    }
+  },
+  {
+    "entity_id": 72057594063244690,
+    "empire_entity_id": 12744,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751491045799186
+    }
+  },
+  {
+    "entity_id": 288230376176935900,
+    "empire_entity_id": 12795,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751236345945022
+    }
+  },
+  {
+    "entity_id": 288230376176955400,
+    "empire_entity_id": 11902,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751393361857067
+    }
+  },
+  {
+    "entity_id": 288230376176976060,
+    "empire_entity_id": 11902,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751395142166993
+    }
+  },
+  {
+    "entity_id": 360287970216041000,
+    "empire_entity_id": 12855,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751428844578122
+    }
+  },
+  {
+    "entity_id": 216172782138847230,
+    "empire_entity_id": 7761,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751355996723270
+    }
+  },
+  {
+    "entity_id": 216172782138884350,
+    "empire_entity_id": 13008,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751636255621267
+    }
+  },
+  {
+    "entity_id": 648518346365345000,
+    "empire_entity_id": 13075,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751257565373107
+    }
+  },
+  {
+    "entity_id": 72057594063750340,
+    "empire_entity_id": 13103,
+    "hexite_capsules": 9,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751762264308322
+    }
+  },
+  {
+    "entity_id": 360287970216608830,
+    "empire_entity_id": 13227,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751744113749003
+    }
+  },
+  {
+    "entity_id": 648518346365551400,
+    "empire_entity_id": 13243,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751413638864724
+    }
+  },
+  {
+    "entity_id": 648518346365631600,
+    "empire_entity_id": 13285,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 576460752329613700,
+    "empire_entity_id": 1010,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751716765705823
+    }
+  },
+  {
+    "entity_id": 72057594069981900,
+    "empire_entity_id": 16728,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751618528570481
+    }
+  },
+  {
+    "entity_id": 216172782139624580,
+    "empire_entity_id": 13438,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751468352444673
+    }
+  },
+  {
+    "entity_id": 432345564252973060,
+    "empire_entity_id": 13479,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751647886893552
+    }
+  },
+  {
+    "entity_id": 432345564253188000,
+    "empire_entity_id": 13595,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751584725903901
+    }
+  },
+  {
+    "entity_id": 648518346366265100,
+    "empire_entity_id": 9128,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751419237850996
+    }
+  },
+  {
+    "entity_id": 648518346366277800,
+    "empire_entity_id": 13735,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751322506536323
+    }
+  },
+  {
+    "entity_id": 216172782140102850,
+    "empire_entity_id": 13438,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751468347862366
+    }
+  },
+  {
+    "entity_id": 648518346366290000,
+    "empire_entity_id": 9867,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751400389985562
+    }
+  },
+  {
+    "entity_id": 504403158290271300,
+    "empire_entity_id": 13792,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751382886105648
+    }
+  },
+  {
+    "entity_id": 648518346366353800,
+    "empire_entity_id": 9128,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751419241223091
+    }
+  },
+  {
+    "entity_id": 648518346366491100,
+    "empire_entity_id": 9867,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751387578475337
+    }
+  },
+  {
+    "entity_id": 648518346366564200,
+    "empire_entity_id": 11397,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751661095347793
+    }
+  },
+  {
+    "entity_id": 576460752330743000,
+    "empire_entity_id": 14031,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751589753028406
+    }
+  },
+  {
+    "entity_id": 288230376179394500,
+    "empire_entity_id": 14241,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751733826860124
+    }
+  },
+  {
+    "entity_id": 288230376179421060,
+    "empire_entity_id": 14241,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751733820488786
+    }
+  },
+  {
+    "entity_id": 504403158291280100,
+    "empire_entity_id": 13792,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 504403158291502200,
+    "empire_entity_id": 14414,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751495140324488
+    }
+  },
+  {
+    "entity_id": 648518346367450600,
+    "empire_entity_id": 620,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751414915116015
+    }
+  },
+  {
+    "entity_id": 648518346367451100,
+    "empire_entity_id": 620,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751414911262768
+    }
+  },
+  {
+    "entity_id": 72057594066169730,
+    "empire_entity_id": 14490,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751401232339228
+    }
+  },
+  {
+    "entity_id": 504403158291796160,
+    "empire_entity_id": 14611,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751413104075338
+    }
+  },
+  {
+    "entity_id": 72057594066382900,
+    "empire_entity_id": 1262,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 432345564255130900,
+    "empire_entity_id": 14757,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751565922725765
+    }
+  },
+  {
+    "entity_id": 360287970219526600,
+    "empire_entity_id": 14823,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751474466839143
+    }
+  },
+  {
+    "entity_id": 216172782142335230,
+    "empire_entity_id": 14137,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751740379210202
+    }
+  },
+  {
+    "entity_id": 432345564255473500,
+    "empire_entity_id": 15007,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751746467836174
+    }
+  },
+  {
+    "entity_id": 144115188105886800,
+    "empire_entity_id": 9175,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751455714777184
+    }
+  },
+  {
+    "entity_id": 504403158292652600,
+    "empire_entity_id": 15073,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751522502411827
+    }
+  },
+  {
+    "entity_id": 576460752332868600,
+    "empire_entity_id": 14031,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 72057594067544450,
+    "empire_entity_id": 15254,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751483665034230
+    }
+  },
+  {
+    "entity_id": 216172782143020670,
+    "empire_entity_id": 15272,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751563468967826
+    }
+  },
+  {
+    "entity_id": 288230376181212860,
+    "empire_entity_id": 15320,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751646168079156
+    }
+  },
+  {
+    "entity_id": 576460752333225900,
+    "empire_entity_id": 15337,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751782400013247
+    }
+  },
+  {
+    "entity_id": 72057594067659060,
+    "empire_entity_id": 15388,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751558735483816
+    }
+  },
+  {
+    "entity_id": 504403158293414900,
+    "empire_entity_id": 15601,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751588191842526
+    }
+  },
+  {
+    "entity_id": 72057594068161170,
+    "empire_entity_id": 15741,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751818999787947
+    }
+  },
+  {
+    "entity_id": 504403158293670000,
+    "empire_entity_id": 15601,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751610937157532
+    }
+  },
+  {
+    "entity_id": 216172782143819900,
+    "empire_entity_id": 15837,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751751062382070
+    }
+  },
+  {
+    "entity_id": 72057594068576800,
+    "empire_entity_id": 810,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751827065013470
+    }
+  },
+  {
+    "entity_id": 576460752334529300,
+    "empire_entity_id": 16049,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751557823294796
+    }
+  },
+  {
+    "entity_id": 72057594068839500,
+    "empire_entity_id": 717,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751819277260192
+    }
+  },
+  {
+    "entity_id": 576460752334636000,
+    "empire_entity_id": 12242,
+    "hexite_capsules": 17,
+    "queued": 3,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751832831832758
+    }
+  },
+  {
+    "entity_id": 432345564257223360,
+    "empire_entity_id": 16156,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751604886575201
+    }
+  },
+  {
+    "entity_id": 576460752335045500,
+    "empire_entity_id": 16324,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751587199849746
+    }
+  },
+  {
+    "entity_id": 432345564257601400,
+    "empire_entity_id": 16389,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751595681063852
+    }
+  },
+  {
+    "entity_id": 648518346370463400,
+    "empire_entity_id": 16503,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751767924344299
+    }
+  },
+  {
+    "entity_id": 216172782145324770,
+    "empire_entity_id": 16578,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751813611198212
+    }
+  },
+  {
+    "entity_id": 216172782145341950,
+    "empire_entity_id": 16593,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751668303036716
+    }
+  },
+  {
+    "entity_id": 288230376183234240,
+    "empire_entity_id": 16640,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751701335967574
+    }
+  },
+  {
+    "entity_id": 144115188108851620,
+    "empire_entity_id": 12658,
+    "hexite_capsules": 7,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751629308849041
+    }
+  },
+  {
+    "entity_id": 144115188108852320,
+    "empire_entity_id": 12658,
+    "hexite_capsules": 5,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751629311631948
+    }
+  },
+  {
+    "entity_id": 360287970211641860,
+    "empire_entity_id": 9155,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751633749712057
+    }
+  },
+  {
+    "entity_id": 432345564258218430,
+    "empire_entity_id": 16869,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751730067172694
+    }
+  },
+  {
+    "entity_id": 288230376183607100,
+    "empire_entity_id": 5981,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751748065434598
+    }
+  },
+  {
+    "entity_id": 576460752336110500,
+    "empire_entity_id": 15337,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751782396414052
+    }
+  },
+  {
+    "entity_id": 216172782146061300,
+    "empire_entity_id": 17113,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751658967528888
+    }
+  },
+  {
+    "entity_id": 432345564258476100,
+    "empire_entity_id": 17083,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751656981493865
+    }
+  },
+  {
+    "entity_id": 72057594070607020,
+    "empire_entity_id": 17177,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751770175597785
+    }
+  },
+  {
+    "entity_id": 504403158295839360,
+    "empire_entity_id": 17094,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751799192376568
+    }
+  },
+  {
+    "entity_id": 576460752336463400,
+    "empire_entity_id": 17262,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 576460752336465200,
+    "empire_entity_id": 16957,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751666260244549
+    }
+  },
+  {
+    "entity_id": 72057594071342420,
+    "empire_entity_id": 17558,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751702099348996
+    }
+  },
+  {
+    "entity_id": 504403158296274500,
+    "empire_entity_id": 17571,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751828055751146
+    }
+  },
+  {
+    "entity_id": 432345564259111400,
+    "empire_entity_id": 17589,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751740937844169
+    }
+  },
+  {
+    "entity_id": 432345564259132160,
+    "empire_entity_id": 17603,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751700416576587
+    }
+  },
+  {
+    "entity_id": 432345564259177900,
+    "empire_entity_id": 17692,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751702056564037
+    }
+  },
+  {
+    "entity_id": 72057594071462990,
+    "empire_entity_id": 17722,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751779923562881
+    }
+  },
+  {
+    "entity_id": 216172782147241340,
+    "empire_entity_id": 17929,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751734181653315
+    }
+  },
+  {
+    "entity_id": 72057594071853250,
+    "empire_entity_id": 17834,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751779005432886
+    }
+  },
+  {
+    "entity_id": 648518346372257700,
+    "empire_entity_id": 17993,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751725439218480
+    }
+  },
+  {
+    "entity_id": 216172782147322340,
+    "empire_entity_id": 17929,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751733185592973
+    }
+  },
+  {
+    "entity_id": 144115188111036860,
+    "empire_entity_id": 17893,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751806145591857
+    }
+  },
+  {
+    "entity_id": 504403158296858900,
+    "empire_entity_id": 18103,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751793078149476
+    }
+  },
+  {
+    "entity_id": 216172782147493020,
+    "empire_entity_id": 16578,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751813620513837
+    }
+  },
+  {
+    "entity_id": 288230376185223200,
+    "empire_entity_id": 18167,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751815867942232
+    }
+  },
+  {
+    "entity_id": 504403158296942660,
+    "empire_entity_id": 18103,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751797505996622
+    }
+  },
+  {
+    "entity_id": 576460752337835800,
+    "empire_entity_id": 18250,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751750734717781
+    }
+  },
+  {
+    "entity_id": 432345564259831400,
+    "empire_entity_id": 17312,
+    "hexite_capsules": 4,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751798655122772
+    }
+  },
+  {
+    "entity_id": 216172782147660200,
+    "empire_entity_id": 15837,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751751052434669
+    }
+  },
+  {
+    "entity_id": 504403158297198500,
+    "empire_entity_id": 18450,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751832161498282
+    }
+  },
+  {
+    "entity_id": 216172782147851140,
+    "empire_entity_id": 18436,
+    "hexite_capsules": 0,
+    "queued": 1,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833383420630
+    }
+  },
+  {
+    "entity_id": 504403158297208300,
+    "empire_entity_id": 17571,
+    "hexite_capsules": 1,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751831938591083
+    }
+  },
+  {
+    "entity_id": 504403158297236700,
+    "empire_entity_id": 17571,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751828050376077
+    }
+  },
+  {
+    "entity_id": 432345564260172600,
+    "empire_entity_id": 10197,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751822011923031
+    }
+  },
+  {
+    "entity_id": 648518346372961500,
+    "empire_entity_id": 8201,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751826850164018
+    }
+  },
+  {
+    "entity_id": 648518346372965400,
+    "empire_entity_id": 8201,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751826717256223
+    }
+  },
+  {
+    "entity_id": 648518346372965500,
+    "empire_entity_id": 8201,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751826710235103
+    }
+  },
+  {
+    "entity_id": 432345564260198850,
+    "empire_entity_id": 10197,
+    "hexite_capsules": 2,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751822014838322
+    }
+  },
+  {
+    "entity_id": 216172782148108900,
+    "empire_entity_id": 13438,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 504403158297433540,
+    "empire_entity_id": 18103,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  },
+  {
+    "entity_id": 504403158297434800,
+    "empire_entity_id": 18103,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751797511966505
+    }
+  },
+  {
+    "entity_id": 648518346373167600,
+    "empire_entity_id": 8483,
+    "hexite_capsules": 0,
+    "queued": 2,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833857608847
+    }
+  },
+  {
+    "entity_id": 648518346373168600,
+    "empire_entity_id": 8483,
+    "hexite_capsules": 0,
+    "queued": 2,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833850741946
+    }
+  },
+  {
+    "entity_id": 648518346373278100,
+    "empire_entity_id": 8483,
+    "hexite_capsules": 0,
+    "queued": 2,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751833844705290
+    }
+  },
+  {
+    "entity_id": 216172782148543940,
+    "empire_entity_id": 1137,
+    "hexite_capsules": 3,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751830508280593
+    }
+  },
+  {
+    "entity_id": 288230376186533570,
+    "empire_entity_id": 19013,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 1751818159334194
+    }
+  },
+  {
+    "entity_id": 576460752339281300,
+    "empire_entity_id": 18660,
+    "hexite_capsules": 0,
+    "queued": 0,
+    "started": {
+      "__timestamp_micros_since_unix_epoch__": 0
+    }
+  }
+]

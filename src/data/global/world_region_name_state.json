@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "player_facing_name": "Calenthyr",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 2,
+    "player_facing_name": "Oruvale",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 3,
+    "player_facing_name": "Veltrassa",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 4,
+    "player_facing_name": "Solvenar",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 5,
+    "player_facing_name": "Marundel",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 6,
+    "player_facing_name": "Tessavar",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 7,
+    "player_facing_name": "Elyvarin",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 8,
+    "player_facing_name": "Draxionne",
+    "module_name_prefix": ""
+  },
+  {
+    "id": 9,
+    "player_facing_name": "Zepharel",
+    "module_name_prefix": ""
+  }
+]

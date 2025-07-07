@@ -20,12 +20,17 @@ export function Header() {
     <header className="bg-background border-border sticky top-0 z-50 w-full border-b">
       <Container className="flex h-14 items-center gap-2">
         {/* <MobileNav className="flex lg:hidden" /> */}
-        <Button asChild variant="ghost" size="icon" className="hidden size-8 lg:flex">
-          <Link href="/">
-            <TreeViewIcon className="size-7" />
-            <span className="sr-only">{t('header.title')}</span>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="ghost" size="icon" className="hidden size-8 lg:flex">
+            <Link href="/">
+              <TreeViewIcon className="size-7" />
+              <span className="sr-only">{t('header.title')}</span>
+            </Link>
+          </Button>
+          <Link href="/" className="hidden text-xl font-bold lg:block">
+            {t('header.title')}
           </Link>
-        </Button>
+        </div>
         {/* <MainNav className="hidden lg:flex" /> */}
         <div className="flex items-center">
           <Button asChild variant="ghost" size="sm">

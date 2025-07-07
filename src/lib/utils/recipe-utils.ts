@@ -49,12 +49,12 @@ export const resolveRecipeName = (recipe: Recipe, allItems: typeof items): strin
   return resolvedName
 }
 
-export const updateNodeQuantities = (nodes: Node[], selectedItem: { id: number }, targetQuantity: number): Node[] => {
+export const updateNodeQuantities = (nodes: Node[], selectedItem: { id: string }, targetQuantity: number): Node[] => {
   if (!selectedItem) return nodes
 
   // First, update the selected item's quantity
   let updatedNodes = nodes.map((node) => {
-    if (node.id === selectedItem.id.toString()) {
+    if (node.id === selectedItem.id) {
       return {
         ...node,
         data: {
@@ -77,7 +77,7 @@ export const updateNodeQuantities = (nodes: Node[], selectedItem: { id: number }
     // Update all material nodes based on their parent requirements
     updatedNodes = updatedNodes.map((node) => {
       // Skip if this is the selected item or doesn't have an itemId
-      if (node.id === selectedItem.id.toString() || !node.data.itemId) {
+      if (node.id === selectedItem.id || !node.data.itemId) {
         return node
       }
 

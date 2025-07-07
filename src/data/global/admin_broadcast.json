@@ -1,0 +1,11 @@
+[
+  {
+    "version": 0,
+    "title": "Server Technical Issues",
+    "message": "In order to stabilize the servers we are going to restart the servers and we might add temporary connection queues. You won't be able to connect for a short period of time while we bring everything back up.",
+    "sign_out": false,
+    "timestamp": {
+      "__timestamp_micros_since_unix_epoch__": 1751633722712548
+    }
+  }
+]

@@ -1,7 +1,7 @@
 {
   "common": {
     "loading": "Cargando...",
-    "error": "Ocurrió un error",
+    "error": "Se produjo un error",
     "search": "Buscar",
     "quantity": "Cantidad",
     "calculate": "Calcular",
@@ -9,11 +9,11 @@
     "effort": "Esfuerzo",
     "category": "Categoría",
     "description": "Descripción",
-    "info": "Info",
+    "info": "Información",
     "usage": "Uso",
     "latest": "Último",
     "previous": "Anterior",
-    "firstRelease": "Primera Versión",
+    "firstRelease": "Primer Lanzamiento",
     "menu": "Menú"
   },
   "header": {

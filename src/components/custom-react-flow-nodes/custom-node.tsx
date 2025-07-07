@@ -11,10 +11,14 @@ import { memo, useCallback, useEffect } from 'react'
 
 // Import data
 import cargo from '@/data/cargo.json'
+import extractionRecipes from '@/data/extraction-recipes.json'
 import items from '@/data/items.json'
-import recipes from '@/data/recipes.json'
+import craftingRecipes from '@/data/recipes.json'
 import resources from '@/data/resources.json'
 import { ItemData, Recipe } from './types'
+
+// Merge crafting and extraction recipes
+const recipes = [...craftingRecipes, ...extractionRecipes] as Recipe[]
 
 export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data
@@ -87,12 +91,12 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         const recipeRuns = Math.ceil(parentQuantity / outputQty)
 
         // Create material nodes with quantity aggregation
-        const materialNodes = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+        const materialNodes = recipe.requirements.materials.map((material: { id: string; qty: number | null }) => {
           const materialId = material.id
           const materialData = allItems.find((item) => item.id === materialId)
 
           // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
+          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number = 0
@@ -101,7 +105,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           }
 
           // Check if a node for this material already exists
-          const existingNode = filteredNodes.find((node) => node.id === materialId.toString())
+          const existingNode = filteredNodes.find((node) => node.id === material.id)
 
           if (existingNode) {
             // Node exists, update its quantity by adding the new requirement
@@ -118,17 +122,17 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           } else {
             // Create new node
             return {
-              id: `${materialId}`,
+              id: material.id,
               type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
               data: {
-                label: materialData?.name || `Item ${materialId}`,
+                label: materialData?.name || `Item ${material.id}`,
                 tier: materialData?.tier || 1,
                 rarity: materialData?.rarity || 'common',
                 category: materialData?.category || 'unknown',
                 quantity: calculatedQuantity,
                 recipes: materialRecipes,
                 selectedRecipe: null,
-                itemId: materialId,
+                itemId: material.id,
                 isDone: false
               },
               position: { x: 0, y: 0 }
@@ -137,7 +141,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         })
 
         // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map((material: { id: number; qty: number | null }) => {
+        const materialEdges = recipe.requirements.materials.map((material) => {
           const materialId = material.id
           return {
             id: `${id}-${materialId}`,
@@ -211,7 +215,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       onMouseLeave={handleMouseLeave}
     >
       {/* Debug mode: Show item ID and recipe ID in development */}
-      {process.env.DEBUG_MODE === 'true' && (
+      {process.env.NEXT_PUBLIC_DEBUG == 'true' && (
         <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
           {itemData.itemId && (
             <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>

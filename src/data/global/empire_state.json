@@ -1,0 +1,2693 @@
+[
+  {
+    "entity_id": 40,
+    "capital_building_entity_id": 360287970202488700,
+    "name": "The Ottoadman Empire",
+    "shard_treasury": 580020,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11626,
+      "z": 11757,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 126,
+    "capital_building_entity_id": 360287970202571100,
+    "name": "Jaruudian Kingdom",
+    "shard_treasury": 1163100,
+    "nobility_threshold": 1000,
+    "num_claims": 3,
+    "location": {
+      "x": 11980,
+      "z": 10369,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 217,
+    "capital_building_entity_id": 576460752315947900,
+    "name": "Legion",
+    "shard_treasury": 1101101,
+    "nobility_threshold": 5000,
+    "num_claims": 2,
+    "location": {
+      "x": 12931,
+      "z": 19381,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 381,
+    "capital_building_entity_id": 576460752316133900,
+    "name": "Royaume de France",
+    "shard_treasury": 860095,
+    "nobility_threshold": 10000,
+    "num_claims": 4,
+    "location": {
+      "x": 11928,
+      "z": 16816,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 492,
+    "capital_building_entity_id": 144115188087564700,
+    "name": "Valeria",
+    "shard_treasury": 248300,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 11374,
+      "z": 6566,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 540,
+    "capital_building_entity_id": 144115188087273900,
+    "name": "Umbilica",
+    "shard_treasury": 1162206,
+    "nobility_threshold": 1000,
+    "num_claims": 5,
+    "location": {
+      "x": 10343,
+      "z": 5663,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 620,
+    "capital_building_entity_id": 648518346353424400,
+    "name": "Classis Borealis",
+    "shard_treasury": 859716,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 18830,
+      "z": 19217,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 717,
+    "capital_building_entity_id": 72057594050557780,
+    "name": "Purgatory",
+    "shard_treasury": 509678,
+    "nobility_threshold": 1000,
+    "num_claims": 4,
+    "location": {
+      "x": 1894,
+      "z": 2941,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 810,
+    "capital_building_entity_id": 72057594050716340,
+    "name": "Tavernhold",
+    "shard_treasury": 475477,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 4740,
+      "z": 4361,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15715,
+    "capital_building_entity_id": 576460752318915600,
+    "name": "Order of the Mystic White Owl",
+    "shard_treasury": 71200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10959,
+      "z": 16926,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1010,
+    "capital_building_entity_id": 576460752316505200,
+    "name": "YAMATO",
+    "shard_treasury": 242610,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11466,
+      "z": 19926,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1095,
+    "capital_building_entity_id": 504403158277322050,
+    "name": "New Haven",
+    "shard_treasury": 351971,
+    "nobility_threshold": 1000000,
+    "num_claims": 1,
+    "location": {
+      "x": 5497,
+      "z": 18292,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17834,
+    "capital_building_entity_id": 72057594071073980,
+    "name": "Lag Detected",
+    "shard_treasury": 57100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5151,
+      "z": 2220,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1203,
+    "capital_building_entity_id": 576460752316405200,
+    "name": "Volkov Trade Company",
+    "shard_treasury": 700827,
+    "nobility_threshold": 10000,
+    "num_claims": 3,
+    "location": {
+      "x": 9911,
+      "z": 18450,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1262,
+    "capital_building_entity_id": 72057594050714510,
+    "name": "Sol da Meia Noite",
+    "shard_treasury": 153882,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 4317,
+      "z": 6107,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1560,
+    "capital_building_entity_id": 360287970203282600,
+    "name": "Tortuga",
+    "shard_treasury": 1781172,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13482,
+      "z": 11814,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1605,
+    "capital_building_entity_id": 504403158277380740,
+    "name": "Chilling Place",
+    "shard_treasury": 363184,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 2289,
+      "z": 18980,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1807,
+    "capital_building_entity_id": 288230376165363840,
+    "name": "TLR",
+    "shard_treasury": 419572,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6107,
+      "z": 11596,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1881,
+    "capital_building_entity_id": 432345564240296640,
+    "name": "The Shire",
+    "shard_treasury": 448618,
+    "nobility_threshold": 10000,
+    "num_claims": 2,
+    "location": {
+      "x": 19802,
+      "z": 11659,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1914,
+    "capital_building_entity_id": 72057594051772320,
+    "name": "Realm Of Ranoa",
+    "shard_treasury": 77400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 2791,
+      "z": 4491,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15007,
+    "capital_building_entity_id": 432345564252451300,
+    "name": "DangrLand",
+    "shard_treasury": 26900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21455,
+      "z": 9558,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1985,
+    "capital_building_entity_id": 72057594050479740,
+    "name": "The Free Cities of Floathaven",
+    "shard_treasury": 306778,
+    "nobility_threshold": 2500,
+    "num_claims": 2,
+    "location": {
+      "x": 7261,
+      "z": 3989,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2096,
+    "capital_building_entity_id": 216172782125650180,
+    "name": "JAKYLS OF THE COAST",
+    "shard_treasury": 470512,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17825,
+      "z": 3751,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2222,
+    "capital_building_entity_id": 360287970203677100,
+    "name": "Kaiserreich Ethorium",
+    "shard_treasury": 121161,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 8642,
+      "z": 11173,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2291,
+    "capital_building_entity_id": 576460752316468100,
+    "name": "Eclipse",
+    "shard_treasury": 217721,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 12725,
+      "z": 17029,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2395,
+    "capital_building_entity_id": 288230376164498300,
+    "name": "Talzarian Empire",
+    "shard_treasury": 262715,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 4190,
+      "z": 9734,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2433,
+    "capital_building_entity_id": 504403158277057700,
+    "name": "The Realm of Crown and Cask",
+    "shard_treasury": 761297,
+    "nobility_threshold": 1000,
+    "num_claims": 3,
+    "location": {
+      "x": 3952,
+      "z": 16462,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16800,
+    "capital_building_entity_id": 360287970222511550,
+    "name": "Nordic Domain",
+    "shard_treasury": 1000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13795,
+      "z": 10524,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2730,
+    "capital_building_entity_id": 288230376165785660,
+    "name": "Wardens of the Grove",
+    "shard_treasury": 114784,
+    "nobility_threshold": 100,
+    "num_claims": 1,
+    "location": {
+      "x": 4905,
+      "z": 9717,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2977,
+    "capital_building_entity_id": 144115188089204640,
+    "name": "Elysium",
+    "shard_treasury": 198027,
+    "nobility_threshold": 1000,
+    "num_claims": 3,
+    "location": {
+      "x": 10991,
+      "z": 3968,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3033,
+    "capital_building_entity_id": 648518346353847700,
+    "name": "The 300",
+    "shard_treasury": 188700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20727,
+      "z": 19278,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3065,
+    "capital_building_entity_id": 648518346354023800,
+    "name": "Fjordian Province",
+    "shard_treasury": 310911,
+    "nobility_threshold": 7500,
+    "num_claims": 1,
+    "location": {
+      "x": 20265,
+      "z": 19097,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3166,
+    "capital_building_entity_id": 432345564241264960,
+    "name": "OutLawZ",
+    "shard_treasury": 75314,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20938,
+      "z": 10509,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11816,
+    "capital_building_entity_id": 360287970203739900,
+    "name": "The Bootyman Empire",
+    "shard_treasury": 29145,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10144,
+      "z": 11093,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3299,
+    "capital_building_entity_id": 144115188087883230,
+    "name": "Nivveras Fortune",
+    "shard_treasury": 241300,
+    "nobility_threshold": 10000,
+    "num_claims": 1,
+    "location": {
+      "x": 13354,
+      "z": 2640,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3504,
+    "capital_building_entity_id": 432345564241013950,
+    "name": "Ratopia",
+    "shard_treasury": 217725,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 18445,
+      "z": 10704,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3608,
+    "capital_building_entity_id": 576460752316143700,
+    "name": "BitStreetBoys",
+    "shard_treasury": 96173,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12669,
+      "z": 19736,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3671,
+    "capital_building_entity_id": 72057594050549340,
+    "name": "The Empire of Nordgaard",
+    "shard_treasury": 145837,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3863,
+      "z": 6024,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3753,
+    "capital_building_entity_id": 360287970203658050,
+    "name": "Lunaciel",
+    "shard_treasury": 186579,
+    "nobility_threshold": 2000,
+    "num_claims": 1,
+    "location": {
+      "x": 8199,
+      "z": 10126,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3788,
+    "capital_building_entity_id": 288230376167085060,
+    "name": "Roman Empire",
+    "shard_treasury": 153612,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3568,
+      "z": 11102,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3816,
+    "capital_building_entity_id": 216172782126254720,
+    "name": "Hold My Beer",
+    "shard_treasury": 160048,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16694,
+      "z": 2697,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3959,
+    "capital_building_entity_id": 144115188087837470,
+    "name": "The Hempire",
+    "shard_treasury": 126101,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9475,
+      "z": 6617,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 3973,
+    "capital_building_entity_id": 504403158277407740,
+    "name": "The Moonlight Empire",
+    "shard_treasury": 143423,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 1084,
+      "z": 18338,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15741,
+    "capital_building_entity_id": 72057594050753680,
+    "name": "Hexwater Accord",
+    "shard_treasury": 148750,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 984,
+      "z": 3263,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4174,
+    "capital_building_entity_id": 144115188088106900,
+    "name": "Gallifrey Emporium",
+    "shard_treasury": 163400,
+    "nobility_threshold": 2500,
+    "num_claims": 2,
+    "location": {
+      "x": 13364,
+      "z": 4462,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4386,
+    "capital_building_entity_id": 288230376164551800,
+    "name": "Hex Trade Imperium",
+    "shard_treasury": 147000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5555,
+      "z": 10734,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4460,
+    "capital_building_entity_id": 504403158277895900,
+    "name": "Widmoria",
+    "shard_treasury": 102116,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3617,
+      "z": 19954,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4541,
+    "capital_building_entity_id": 648518346354554100,
+    "name": "The Island of Pugs",
+    "shard_treasury": 7700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20772,
+      "z": 17733,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4580,
+    "capital_building_entity_id": 360287970202982660,
+    "name": "Venture Trading Company",
+    "shard_treasury": 83751,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11186,
+      "z": 11186,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4630,
+    "capital_building_entity_id": 288230376164265340,
+    "name": "Wardens",
+    "shard_treasury": 800000,
+    "nobility_threshold": 50,
+    "num_claims": 2,
+    "location": {
+      "x": 2726,
+      "z": 11923,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4705,
+    "capital_building_entity_id": 360287970203601150,
+    "name": "The Stone Citadel",
+    "shard_treasury": 461689,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9649,
+      "z": 10957,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 4797,
+    "capital_building_entity_id": 144115188091295550,
+    "name": "Foundation",
+    "shard_treasury": 40450,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 14109,
+      "z": 4507,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5139,
+    "capital_building_entity_id": 288230376166328200,
+    "name": "Tempest",
+    "shard_treasury": 613082,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5734,
+      "z": 9860,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5210,
+    "capital_building_entity_id": 288230376166873000,
+    "name": "ALTIMIT",
+    "shard_treasury": 235251,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6758,
+      "z": 9848,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5409,
+    "capital_building_entity_id": 72057594050943740,
+    "name": "AWOL",
+    "shard_treasury": 62800,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 4069,
+      "z": 5302,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5421,
+    "capital_building_entity_id": 432345564241741900,
+    "name": "Northspire",
+    "shard_treasury": 6000,
+    "nobility_threshold": 2000,
+    "num_claims": 1,
+    "location": {
+      "x": 18939,
+      "z": 14725,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5465,
+    "capital_building_entity_id": 432345564242979400,
+    "name": "The Crimson Tide",
+    "shard_treasury": 289653,
+    "nobility_threshold": 10000,
+    "num_claims": 2,
+    "location": {
+      "x": 18327,
+      "z": 12794,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5537,
+    "capital_building_entity_id": 432345564241541600,
+    "name": "The Lands of Mordor",
+    "shard_treasury": 49400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20579,
+      "z": 10805,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5617,
+    "capital_building_entity_id": 432345564244762940,
+    "name": "First Light",
+    "shard_treasury": 69415,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19715,
+      "z": 13373,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5677,
+    "capital_building_entity_id": 288230376168180000,
+    "name": "ZYNBABWE",
+    "shard_treasury": 207504,
+    "nobility_threshold": 5000,
+    "num_claims": 2,
+    "location": {
+      "x": 3442,
+      "z": 9796,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5716,
+    "capital_building_entity_id": 432345564241458700,
+    "name": "Ancient Greece",
+    "shard_treasury": 63269,
+    "nobility_threshold": 4000,
+    "num_claims": 1,
+    "location": {
+      "x": 19557,
+      "z": 12397,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5782,
+    "capital_building_entity_id": 576460752318649600,
+    "name": "Holy Bunbun Empire",
+    "shard_treasury": 42186,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9837,
+      "z": 19814,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 5981,
+    "capital_building_entity_id": 288230376167154700,
+    "name": "Kingdom Of Silent Bloom",
+    "shard_treasury": 24000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5057,
+      "z": 12396,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6043,
+    "capital_building_entity_id": 432345564241465150,
+    "name": "Solumbris",
+    "shard_treasury": 166703,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 17014,
+      "z": 12305,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6096,
+    "capital_building_entity_id": 288230376165598000,
+    "name": "Dragons Maw",
+    "shard_treasury": 177577,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3526,
+      "z": 14207,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6219,
+    "capital_building_entity_id": 360287970202802900,
+    "name": "Alkahest",
+    "shard_treasury": 13100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11025,
+      "z": 11537,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6290,
+    "capital_building_entity_id": 432345564242767400,
+    "name": "Mox",
+    "shard_treasury": 900,
+    "nobility_threshold": 100,
+    "num_claims": 1,
+    "location": {
+      "x": 19665,
+      "z": 14151,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6318,
+    "capital_building_entity_id": 360287970203655230,
+    "name": "Melnibone",
+    "shard_treasury": 91078,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10390,
+      "z": 8951,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6385,
+    "capital_building_entity_id": 288230376166834100,
+    "name": "BLG",
+    "shard_treasury": 95902,
+    "nobility_threshold": 10000,
+    "num_claims": 1,
+    "location": {
+      "x": 3574,
+      "z": 9884,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6472,
+    "capital_building_entity_id": 72057594052719940,
+    "name": "The Dark Carnival",
+    "shard_treasury": 34000,
+    "nobility_threshold": 1500,
+    "num_claims": 1,
+    "location": {
+      "x": 3829,
+      "z": 2506,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6492,
+    "capital_building_entity_id": 288230376166879200,
+    "name": "Talkarn Trade Federation",
+    "shard_treasury": 89900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5028,
+      "z": 14223,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6534,
+    "capital_building_entity_id": 360287970206093250,
+    "name": "Imperio de la Luz",
+    "shard_treasury": 186918,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 8262,
+      "z": 11294,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6565,
+    "capital_building_entity_id": 72057594052977310,
+    "name": "Umburan Trade Alliance",
+    "shard_treasury": 65537,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 5044,
+      "z": 7474,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6754,
+    "capital_building_entity_id": 216172782130317760,
+    "name": "Wits End",
+    "shard_treasury": 55569,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16274,
+      "z": 3611,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11311,
+    "capital_building_entity_id": 144115188092318820,
+    "name": "Empire of Velmara",
+    "shard_treasury": 17000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 14101,
+      "z": 3893,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 6932,
+    "capital_building_entity_id": 216172782127066020,
+    "name": "Tidehold",
+    "shard_treasury": 103000,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 15730,
+      "z": 4106,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7015,
+    "capital_building_entity_id": 432345564243525500,
+    "name": "Transclowntic Trading Company",
+    "shard_treasury": 15270,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16153,
+      "z": 11440,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7139,
+    "capital_building_entity_id": 648518346354026100,
+    "name": "Shiretoko",
+    "shard_treasury": 30150,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19238,
+      "z": 19555,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7212,
+    "capital_building_entity_id": 144115188089195230,
+    "name": "ONYX trading Empire",
+    "shard_treasury": 29101,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9147,
+      "z": 6830,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1137,
+    "capital_building_entity_id": 216172782125422850,
+    "name": "Yggdrasil",
+    "shard_treasury": 336200,
+    "nobility_threshold": 1000,
+    "num_claims": 4,
+    "location": {
+      "x": 18610,
+      "z": 1473,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7423,
+    "capital_building_entity_id": 72057594053056270,
+    "name": "The Kingdom of Bebbanburg",
+    "shard_treasury": 36324,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 3278,
+      "z": 2345,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7443,
+    "capital_building_entity_id": 360287970203435700,
+    "name": "Die Erbauer",
+    "shard_treasury": 63000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13376,
+      "z": 14116,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7549,
+    "capital_building_entity_id": 360287970202914800,
+    "name": "Lich Core Dominion",
+    "shard_treasury": 70962,
+    "nobility_threshold": 3000,
+    "num_claims": 1,
+    "location": {
+      "x": 8143,
+      "z": 13815,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7632,
+    "capital_building_entity_id": 72057594051973380,
+    "name": "Bloomburrow",
+    "shard_treasury": 106600,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 3168,
+      "z": 3570,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7731,
+    "capital_building_entity_id": 648518346354532900,
+    "name": "The Citadel",
+    "shard_treasury": 103446,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 18781,
+      "z": 16287,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7761,
+    "capital_building_entity_id": 216172782128281920,
+    "name": "Pepi Trade Federation",
+    "shard_treasury": 37095,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19342,
+      "z": 4155,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7807,
+    "capital_building_entity_id": 648518346355661600,
+    "name": "NUSANTARA ID",
+    "shard_treasury": 6600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19261,
+      "z": 16695,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 7894,
+    "capital_building_entity_id": 576460752317835800,
+    "name": "Sailfin Federation",
+    "shard_treasury": 57400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10779,
+      "z": 17640,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8072,
+    "capital_building_entity_id": 432345564242397300,
+    "name": "The United States of Bitcraft",
+    "shard_treasury": 238221,
+    "nobility_threshold": 1000,
+    "num_claims": 3,
+    "location": {
+      "x": 20966,
+      "z": 12635,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8135,
+    "capital_building_entity_id": 144115188088673760,
+    "name": "Urk",
+    "shard_treasury": 69496,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13878,
+      "z": 5224,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8201,
+    "capital_building_entity_id": 648518346356379400,
+    "name": "Imperium of the Drowned Sun",
+    "shard_treasury": 26500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20823,
+      "z": 17376,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 965,
+    "capital_building_entity_id": 648518346353799600,
+    "name": "Odynholm",
+    "shard_treasury": 489756,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 19998,
+      "z": 19549,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8234,
+    "capital_building_entity_id": 648518346354577800,
+    "name": "The Abyss",
+    "shard_treasury": 157294,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17351,
+      "z": 17985,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8371,
+    "capital_building_entity_id": 288230376165623230,
+    "name": "Many Whelps",
+    "shard_treasury": 31712,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3874,
+      "z": 14548,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8483,
+    "capital_building_entity_id": 648518346356392400,
+    "name": "Justice League QC",
+    "shard_treasury": 154700,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 20680,
+      "z": 17094,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8580,
+    "capital_building_entity_id": 432345564241510700,
+    "name": "Collective Braincell",
+    "shard_treasury": 54000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21559,
+      "z": 10920,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8593,
+    "capital_building_entity_id": 504403158280184770,
+    "name": "The Kingdom of Misthalin",
+    "shard_treasury": 208350,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3381,
+      "z": 19211,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8742,
+    "capital_building_entity_id": 72057594053901620,
+    "name": "Doozer Dome",
+    "shard_treasury": 47100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3164,
+      "z": 1816,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8828,
+    "capital_building_entity_id": 432345564241692100,
+    "name": "Luminark",
+    "shard_treasury": 2500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16671,
+      "z": 10571,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8953,
+    "capital_building_entity_id": 360287970209466200,
+    "name": "The Towerborne Ecclesium",
+    "shard_treasury": 129000,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 12217,
+      "z": 9173,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 8993,
+    "capital_building_entity_id": 144115188089298500,
+    "name": "Golden Jakyls Trade Network",
+    "shard_treasury": 39035,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 9367,
+      "z": 4989,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9128,
+    "capital_building_entity_id": 648518346359754400,
+    "name": "Proxaii",
+    "shard_treasury": 28650,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21532,
+      "z": 17838,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9155,
+    "capital_building_entity_id": 360287970205225660,
+    "name": "VOC Trading Centre",
+    "shard_treasury": 7500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9834,
+      "z": 10292,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9175,
+    "capital_building_entity_id": 144115188089286530,
+    "name": "The Coven",
+    "shard_treasury": 175000,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 8860,
+      "z": 5402,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9339,
+    "capital_building_entity_id": 288230376167396800,
+    "name": "Vortex of Shadows",
+    "shard_treasury": 7400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 916,
+      "z": 10575,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9440,
+    "capital_building_entity_id": 216172782130758370,
+    "name": "High Perch",
+    "shard_treasury": 74000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16346,
+      "z": 4249,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9526,
+    "capital_building_entity_id": 360287970206583400,
+    "name": "Vaelthar Empire",
+    "shard_treasury": 14000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10683,
+      "z": 10143,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9655,
+    "capital_building_entity_id": 432345564243009300,
+    "name": "Vodowls",
+    "shard_treasury": 158200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16918,
+      "z": 10802,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9671,
+    "capital_building_entity_id": 144115188087480000,
+    "name": "Bober Empire",
+    "shard_treasury": 196900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10495,
+      "z": 3662,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9793,
+    "capital_building_entity_id": 648518346354955100,
+    "name": "Saramangotango",
+    "shard_treasury": 5700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 18712,
+      "z": 16965,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9829,
+    "capital_building_entity_id": 288230376167519300,
+    "name": "Jura Tempest Federation",
+    "shard_treasury": 98763,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 2430,
+      "z": 11425,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 9867,
+    "capital_building_entity_id": 648518346355197600,
+    "name": "Lunar Legion",
+    "shard_treasury": 165250,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21220,
+      "z": 19035,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10023,
+    "capital_building_entity_id": 648518346356801700,
+    "name": "The Ashen Empire",
+    "shard_treasury": 67600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19624,
+      "z": 17106,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10076,
+    "capital_building_entity_id": 504403158281188860,
+    "name": "Knights Who Say NI",
+    "shard_treasury": 241250,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3865,
+      "z": 18363,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10197,
+    "capital_building_entity_id": 432345564241285900,
+    "name": "Númenor",
+    "shard_treasury": 30416,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19731,
+      "z": 12015,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10290,
+    "capital_building_entity_id": 144115188089840320,
+    "name": "Seabrook",
+    "shard_treasury": 12801,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12687,
+      "z": 2952,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10422,
+    "capital_building_entity_id": 648518346355228800,
+    "name": "Saltwater Syndicate",
+    "shard_treasury": 16600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20228,
+      "z": 16812,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10453,
+    "capital_building_entity_id": 504403158281991230,
+    "name": "Sweetserland",
+    "shard_treasury": 76501,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 2342,
+      "z": 16523,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10836,
+    "capital_building_entity_id": 288230376168400060,
+    "name": "Kingsworth",
+    "shard_treasury": 1900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 4689,
+      "z": 12302,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 10867,
+    "capital_building_entity_id": 288230376168175800,
+    "name": "Shores of Aurum",
+    "shard_treasury": 63000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3270,
+      "z": 10074,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11098,
+    "capital_building_entity_id": 432345564244263040,
+    "name": "Saint Empire de Vachy",
+    "shard_treasury": 43500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17183,
+      "z": 13021,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11323,
+    "capital_building_entity_id": 360287970203022200,
+    "name": "Ashenreach Kingdom",
+    "shard_treasury": 30600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11270,
+      "z": 13872,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11365,
+    "capital_building_entity_id": 576460752322049000,
+    "name": "Great Star Ascendancy",
+    "shard_treasury": 2300,
+    "nobility_threshold": 2000,
+    "num_claims": 1,
+    "location": {
+      "x": 8135,
+      "z": 18064,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11397,
+    "capital_building_entity_id": 648518346359976600,
+    "name": "The Vermilion Expanse",
+    "shard_treasury": 178069,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 22049,
+      "z": 18591,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11575,
+    "capital_building_entity_id": 360287970203850430,
+    "name": "Honeydew Collective",
+    "shard_treasury": 126050,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11952,
+      "z": 8679,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11680,
+    "capital_building_entity_id": 360287970203477300,
+    "name": "Neitiznot",
+    "shard_treasury": 43200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11778,
+      "z": 14353,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11732,
+    "capital_building_entity_id": 144115188093109980,
+    "name": "Crystal Forge",
+    "shard_treasury": 29400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12572,
+      "z": 6901,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11902,
+    "capital_building_entity_id": 288230376165353300,
+    "name": "Lazy Nation",
+    "shard_treasury": 117800,
+    "nobility_threshold": 7500,
+    "num_claims": 1,
+    "location": {
+      "x": 4883,
+      "z": 14525,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 11937,
+    "capital_building_entity_id": 648518346355926700,
+    "name": "Merehengest",
+    "shard_treasury": 0,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21048,
+      "z": 17747,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12103,
+    "capital_building_entity_id": 144115188090117920,
+    "name": "The Wyrd",
+    "shard_treasury": 42300,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 9549,
+      "z": 2730,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12206,
+    "capital_building_entity_id": 432345564242176830,
+    "name": "Puck Empire",
+    "shard_treasury": 82966,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 22052,
+      "z": 13336,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12223,
+    "capital_building_entity_id": 360287970203858400,
+    "name": "Twin Shore Trading",
+    "shard_treasury": 48500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10203,
+      "z": 9520,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12242,
+    "capital_building_entity_id": 576460752316945800,
+    "name": "SAKURA",
+    "shard_treasury": 163263,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10412,
+      "z": 19532,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12458,
+    "capital_building_entity_id": 360287970203325060,
+    "name": "Emberveil",
+    "shard_treasury": 120800,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11554,
+      "z": 13257,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12518,
+    "capital_building_entity_id": 288230376173414400,
+    "name": "Goyda Federation",
+    "shard_treasury": 5900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 808,
+      "z": 13602,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12613,
+    "capital_building_entity_id": 360287970206351170,
+    "name": "Arcadia",
+    "shard_treasury": 19400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10360,
+      "z": 9331,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12658,
+    "capital_building_entity_id": 144115188095216100,
+    "name": "Bubbletown",
+    "shard_treasury": 154430,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 14914,
+      "z": 4191,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12744,
+    "capital_building_entity_id": 72057594051912850,
+    "name": "Freeren",
+    "shard_treasury": 5511,
+    "nobility_threshold": 999999,
+    "num_claims": 2,
+    "location": {
+      "x": 3483,
+      "z": 4902,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12795,
+    "capital_building_entity_id": 288230376171323260,
+    "name": "Pirate Bay",
+    "shard_treasury": 4000,
+    "nobility_threshold": 2500,
+    "num_claims": 1,
+    "location": {
+      "x": 1336,
+      "z": 8638,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 12855,
+    "capital_building_entity_id": 360287970206962900,
+    "name": "Greywood",
+    "shard_treasury": 2000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12436,
+      "z": 13546,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13008,
+    "capital_building_entity_id": 216172782133989980,
+    "name": "Greed Island",
+    "shard_treasury": 4100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21143,
+      "z": 4988,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13075,
+    "capital_building_entity_id": 648518346360547700,
+    "name": "The Dropbear Dynasty",
+    "shard_treasury": 54650,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 18848,
+      "z": 16462,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13103,
+    "capital_building_entity_id": 72057594055871980,
+    "name": "Arcana Leporis",
+    "shard_treasury": 14000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 4333,
+      "z": 2601,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13227,
+    "capital_building_entity_id": 360287970211113700,
+    "name": "Dreadmark Empire",
+    "shard_treasury": 45800,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13030,
+      "z": 13401,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13243,
+    "capital_building_entity_id": 648518346360246500,
+    "name": "Revline",
+    "shard_treasury": 13736,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 22640,
+      "z": 19217,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13285,
+    "capital_building_entity_id": 648518346363394600,
+    "name": "Freakyborea RU",
+    "shard_treasury": 12828,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21595,
+      "z": 19596,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 2669,
+    "capital_building_entity_id": 216172782125351650,
+    "name": "Ludens Empire",
+    "shard_treasury": 1472306,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 18469,
+      "z": 4881,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13438,
+    "capital_building_entity_id": 216172782129771040,
+    "name": "KOTONOE Shrine",
+    "shard_treasury": 11600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16703,
+      "z": 6499,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13479,
+    "capital_building_entity_id": 432345564245955000,
+    "name": "Dark Lore Brotherhood",
+    "shard_treasury": 46300,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 21236,
+      "z": 8601,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13595,
+    "capital_building_entity_id": 432345564246241400,
+    "name": "Idiot Isles",
+    "shard_treasury": 420,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 16167,
+      "z": 12655,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13735,
+    "capital_building_entity_id": 648518346361696000,
+    "name": "Die Hanse",
+    "shard_treasury": 27200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 22180,
+      "z": 19523,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 13792,
+    "capital_building_entity_id": 504403158277585860,
+    "name": "Forest Passage",
+    "shard_treasury": 91199,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3587,
+      "z": 17031,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14031,
+    "capital_building_entity_id": 576460752329424000,
+    "name": "Heroes Hearth",
+    "shard_treasury": 19700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 13523,
+      "z": 17256,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18630,
+    "capital_building_entity_id": 576460752319583400,
+    "name": "Republic of Korea",
+    "shard_treasury": 1000,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 12479,
+      "z": 18973,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14241,
+    "capital_building_entity_id": 288230376175513200,
+    "name": "Call Center Tutorial",
+    "shard_treasury": 25150,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 4860,
+      "z": 13442,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14414,
+    "capital_building_entity_id": 504403158280128300,
+    "name": "Kings of the North",
+    "shard_treasury": 18200,
+    "nobility_threshold": 4000,
+    "num_claims": 1,
+    "location": {
+      "x": 6716,
+      "z": 20230,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14490,
+    "capital_building_entity_id": 72057594063153440,
+    "name": "Nine Isles Exchange",
+    "shard_treasury": 20100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6328,
+      "z": 5648,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14611,
+    "capital_building_entity_id": 504403158287759800,
+    "name": "The Cozy Empire",
+    "shard_treasury": 8000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6220,
+      "z": 21053,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14695,
+    "capital_building_entity_id": 216172782127425120,
+    "name": "Fintastic Friends",
+    "shard_treasury": 111000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 16106,
+      "z": 3161,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14757,
+    "capital_building_entity_id": 432345564249172400,
+    "name": "Kijin Empire",
+    "shard_treasury": 43363,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21217,
+      "z": 9462,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 1965,
+    "capital_building_entity_id": 144115188087798050,
+    "name": "New Dawn Coalition",
+    "shard_treasury": 257215,
+    "nobility_threshold": 500,
+    "num_claims": 2,
+    "location": {
+      "x": 10269,
+      "z": 4951,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 14823,
+    "capital_building_entity_id": 360287970211182600,
+    "name": "Dawnsbirth Trade Coalition",
+    "shard_treasury": 11000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12614,
+      "z": 14351,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15073,
+    "capital_building_entity_id": 504403158283393100,
+    "name": "Buffalo Wild Wings",
+    "shard_treasury": 35300,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 1861,
+      "z": 17403,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15254,
+    "capital_building_entity_id": 72057594063212130,
+    "name": "The Kingdom of Mythrillon",
+    "shard_treasury": 16700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6513,
+      "z": 4967,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15272,
+    "capital_building_entity_id": 216172782131226400,
+    "name": "The Commonwealth",
+    "shard_treasury": 53100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 18660,
+      "z": 554,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15320,
+    "capital_building_entity_id": 288230376175507100,
+    "name": "The Rebel Alliance",
+    "shard_treasury": 11906,
+    "nobility_threshold": 10,
+    "num_claims": 1,
+    "location": {
+      "x": 5031,
+      "z": 11515,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15337,
+    "capital_building_entity_id": 576460752324387600,
+    "name": "The Blackraven Empire",
+    "shard_treasury": 23301,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10514,
+      "z": 19226,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15388,
+    "capital_building_entity_id": 72057594053516320,
+    "name": "Evergreen",
+    "shard_treasury": 26600,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3507,
+      "z": 4046,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15601,
+    "capital_building_entity_id": 504403158282153000,
+    "name": "Hearthwood Industries",
+    "shard_treasury": 51200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3945,
+      "z": 21612,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 15837,
+    "capital_building_entity_id": 216172782135637570,
+    "name": "Forsaken Nephilim Ascendancy",
+    "shard_treasury": 47900,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 20824,
+      "z": 3849,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16049,
+    "capital_building_entity_id": 576460752326425700,
+    "name": "Alfheimr",
+    "shard_treasury": 900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 8695,
+      "z": 18052,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16156,
+    "capital_building_entity_id": 432345564241487200,
+    "name": "Karamja",
+    "shard_treasury": 27000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21231,
+      "z": 11476,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16324,
+    "capital_building_entity_id": 576460752326127500,
+    "name": "Mordor",
+    "shard_treasury": 800,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 14074,
+      "z": 21799,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16389,
+    "capital_building_entity_id": 432345564245015200,
+    "name": "Dragons Throat",
+    "shard_treasury": 9000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17055,
+      "z": 8994,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16438,
+    "capital_building_entity_id": 216172782137224320,
+    "name": "Waylanders",
+    "shard_treasury": 26000,
+    "nobility_threshold": 5000,
+    "num_claims": 1,
+    "location": {
+      "x": 18129,
+      "z": 3498,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16503,
+    "capital_building_entity_id": 648518346364637000,
+    "name": "Empyrelite",
+    "shard_treasury": 44250,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 21069,
+      "z": 18367,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16578,
+    "capital_building_entity_id": 216172782140618000,
+    "name": "Ithacan Thalassocracy",
+    "shard_treasury": 141700,
+    "nobility_threshold": 1000,
+    "num_claims": 2,
+    "location": {
+      "x": 18993,
+      "z": 4503,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16593,
+    "capital_building_entity_id": 216172782133966940,
+    "name": "Knights of the Kitchen Table",
+    "shard_treasury": 28100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19749,
+      "z": 1751,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16640,
+    "capital_building_entity_id": 288230376176634700,
+    "name": "Halluci Nation",
+    "shard_treasury": 7700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3423,
+      "z": 10483,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16728,
+    "capital_building_entity_id": 72057594054165330,
+    "name": "The Dragon",
+    "shard_treasury": 37400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 6983,
+      "z": 5061,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16857,
+    "capital_building_entity_id": 504403158291558340,
+    "name": "A L P E N R E P U B L I C",
+    "shard_treasury": 10750,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3831,
+      "z": 17945,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16869,
+    "capital_building_entity_id": 432345564256430800,
+    "name": "Bloodbourne Reach",
+    "shard_treasury": 16900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19395,
+      "z": 8710,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16957,
+    "capital_building_entity_id": 576460752334966900,
+    "name": "The 100",
+    "shard_treasury": 2400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 11637,
+      "z": 17733,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 16989,
+    "capital_building_entity_id": 576460752322760600,
+    "name": "Mutually Assured  Suction",
+    "shard_treasury": 21000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12587,
+      "z": 18255,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17083,
+    "capital_building_entity_id": 432345564249258100,
+    "name": "Koyo",
+    "shard_treasury": 4900,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17227,
+      "z": 11121,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17094,
+    "capital_building_entity_id": 504403158287377340,
+    "name": "IVI",
+    "shard_treasury": 2300,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 3245,
+      "z": 17930,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18436,
+    "capital_building_entity_id": 216172782137779100,
+    "name": "Buris Rest",
+    "shard_treasury": 3000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17555,
+      "z": 4641,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17177,
+    "capital_building_entity_id": 72057594068296160,
+    "name": "Nova Roma",
+    "shard_treasury": 133350,
+    "nobility_threshold": 10000,
+    "num_claims": 1,
+    "location": {
+      "x": 6014,
+      "z": 5062,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17262,
+    "capital_building_entity_id": 576460752325371000,
+    "name": "New Asgard Merchantile",
+    "shard_treasury": 1000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10061,
+      "z": 19383,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17298,
+    "capital_building_entity_id": 360287970203585200,
+    "name": "Trailblazers Guild",
+    "shard_treasury": 7016,
+    "nobility_threshold": 1,
+    "num_claims": 1,
+    "location": {
+      "x": 12012,
+      "z": 9966,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17312,
+    "capital_building_entity_id": 432345564246898050,
+    "name": "Just A Bit Freaky",
+    "shard_treasury": 31500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19834,
+      "z": 12351,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17506,
+    "capital_building_entity_id": 144115188088438700,
+    "name": "Caprica",
+    "shard_treasury": 174250,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 10892,
+      "z": 6350,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17558,
+    "capital_building_entity_id": 72057594055287040,
+    "name": "Garden of Thornes",
+    "shard_treasury": 7000,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 2949,
+      "z": 2845,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17571,
+    "capital_building_entity_id": 504403158278650400,
+    "name": "Kingdom of Westmarch",
+    "shard_treasury": 81500,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 2242,
+      "z": 17329,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17589,
+    "capital_building_entity_id": 432345564246910200,
+    "name": "The Municipality of DEMA",
+    "shard_treasury": 7550,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19148,
+      "z": 8741,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17603,
+    "capital_building_entity_id": 432345564254822500,
+    "name": "Warsong",
+    "shard_treasury": 32850,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 17645,
+      "z": 9439,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 19013,
+    "capital_building_entity_id": 288230376184364540,
+    "name": "The Dodo Horde",
+    "shard_treasury": 7300,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 554,
+      "z": 10974,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17722,
+    "capital_building_entity_id": 72057594068130930,
+    "name": "The League of Extraordinary Bozos",
+    "shard_treasury": 3176,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 4442,
+      "z": 1929,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17871,
+    "capital_building_entity_id": 432345564245463300,
+    "name": "The Tarot Club",
+    "shard_treasury": 16785,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 20043,
+      "z": 8927,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17893,
+    "capital_building_entity_id": 144115188100844000,
+    "name": "Muppet Dynasty",
+    "shard_treasury": 10100,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 12955,
+      "z": 4398,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17929,
+    "capital_building_entity_id": 216172782133295840,
+    "name": "The Free City of Wayrest",
+    "shard_treasury": 39063,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 19150,
+      "z": 3591,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 17993,
+    "capital_building_entity_id": 648518346361002200,
+    "name": "Scholars of the Wildreach",
+    "shard_treasury": 48400,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 22630,
+      "z": 18424,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18103,
+    "capital_building_entity_id": 504403158290537600,
+    "name": "The Verdant Empire",
+    "shard_treasury": 65460,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 2346,
+      "z": 17659,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18167,
+    "capital_building_entity_id": 288230376180646900,
+    "name": "JAPAN COMM",
+    "shard_treasury": 7400,
+    "nobility_threshold": 10000,
+    "num_claims": 1,
+    "location": {
+      "x": 5025,
+      "z": 10179,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18250,
+    "capital_building_entity_id": 576460752328416900,
+    "name": "Imperium Solis",
+    "shard_treasury": 14700,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 8859,
+      "z": 18282,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18450,
+    "capital_building_entity_id": 504403158277843600,
+    "name": "OSAKANA",
+    "shard_treasury": 7200,
+    "nobility_threshold": 1000,
+    "num_claims": 1,
+    "location": {
+      "x": 7315,
+      "z": 20815,
+      "dimension": 1
+    }
+  },
+  {
+    "entity_id": 18660,
+    "capital_building_entity_id": 576460752330499800,
+    "name": "Karhide",
+    "shard_treasury": 0,
+    "nobility_threshold": 500,
+    "num_claims": 1,
+    "location": {
+      "x": 13922,
+      "z": 18150,
+      "dimension": 1
+    }
+  }
+]

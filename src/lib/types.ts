@@ -2,7 +2,7 @@ export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'
 export type Category = 'items' | 'cargo' | 'creatures' | 'resources' | 'structures'
 
 export interface GameItem {
-  id: number
+  id: string
   name: string
   slug: string
   tier: number
@@ -38,11 +38,12 @@ export interface Recipe {
     professions?: string
     tool?: string
     building?: string
-    materials: Array<{ id: number; qty: number | null }>
+    materials: Array<{ id: string; qty: number | null }>
   }
   output: Array<{
-    item: number
+    item: string
     qty: number | number[] | null
+    probability?: number // Drop rate/chance for extraction recipes (0-1)
   }>
 }
 

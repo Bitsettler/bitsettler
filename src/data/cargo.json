@@ -1,6 +1,6 @@
 [
   {
-    "id": 6005,
+    "id": "cargo_6005",
     "name": "Abyssal Swordfish",
     "slug": "abyssal-swordfish",
     "tier": 6,
@@ -9,7 +9,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 203,
+    "id": "cargo_203",
     "name": "Advanced Skiff Material Pack",
     "slug": "advanced-skiff-material-pack",
     "tier": 3,
@@ -18,7 +18,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 68464789,
+    "id": "cargo_68464789",
     "name": "Advanced Stone Carving Package",
     "slug": "advanced-stone-carving-package",
     "tier": 5,
@@ -27,7 +27,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 159122533,
+    "id": "cargo_159122533",
     "name": "Alpha Jakyl",
     "slug": "alpha-jakyl",
     "tier": -1,
@@ -36,7 +36,7 @@
     "description": "An animal body that could be processed for monster parts"
   },
   {
-    "id": 9,
+    "id": "cargo_9",
     "name": "Ardea",
     "slug": "ardea",
     "tier": 4,
@@ -45,7 +45,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 60000,
+    "id": "cargo_60000",
     "name": "Argent Ore Chunk",
     "slug": "argent-ore-chunk",
     "tier": -1,
@@ -54,7 +54,7 @@
     "description": "A chunk of precious ore. Harvest it to get some ore pieces."
   },
   {
-    "id": 1811266661,
+    "id": "cargo_1811266661",
     "name": "Astralite Frames",
     "slug": "astralite-frames",
     "tier": 10,
@@ -63,7 +63,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 1678244395,
+    "id": "cargo_1678244395",
     "name": "Astralite Ingot Package",
     "slug": "astralite-ingot-package",
     "tier": 10,
@@ -72,7 +72,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 1052901724,
+    "id": "cargo_1052901724",
     "name": "Astralite Ore Chunk",
     "slug": "astralite-ore-chunk",
     "tier": 10,
@@ -81,7 +81,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 60001,
+    "id": "cargo_60001",
     "name": "Auric Ore Chunk",
     "slug": "auric-ore-chunk",
     "tier": -1,
@@ -90,7 +90,7 @@
     "description": "A chunk of precious ore. Harvest it to get some ore pieces."
   },
   {
-    "id": 1219367849,
+    "id": "cargo_1219367849",
     "name": "Aurumite Frames",
     "slug": "aurumite-frames",
     "tier": 7,
@@ -99,7 +99,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 1130442333,
+    "id": "cargo_1130442333",
     "name": "Aurumite Ingot Package",
     "slug": "aurumite-ingot-package",
     "tier": 7,
@@ -108,7 +108,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 1954280449,
+    "id": "cargo_1954280449",
     "name": "Aurumite Ore Chunk",
     "slug": "aurumite-ore-chunk",
     "tier": 7,
@@ -117,7 +117,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 6004,
+    "id": "cargo_6004",
     "name": "Azure Shark",
     "slug": "azure-shark",
     "tier": 5,
@@ -126,7 +126,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 1566064503,
+    "id": "cargo_1566064503",
     "name": "Beginner's Stone Carving Package",
     "slug": "beginner-s-stone-carving-package",
     "tier": 1,
@@ -135,7 +135,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 501736939,
+    "id": "cargo_501736939",
     "name": "Bottomless Sack of Hex Coins",
     "slug": "bottomless-sack-of-hex-coins",
     "tier": 1,
@@ -144,7 +144,7 @@
     "description": "A near bottomless sack filled to the brim with hex coins. Worth 10,000 Hex Coins. Can be used to fuel a claim with 7,500 supplies."
   },
   {
-    "id": 1654222357,
+    "id": "cargo_1654222357",
     "name": "Celestium Frames",
     "slug": "celestium-frames",
     "tier": 8,
@@ -153,7 +153,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 1734989829,
+    "id": "cargo_1734989829",
     "name": "Celestium Ingot Package",
     "slug": "celestium-ingot-package",
     "tier": 8,
@@ -162,7 +162,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 76399881,
+    "id": "cargo_76399881",
     "name": "Celestium Ore Chunk",
     "slug": "celestium-ore-chunk",
     "tier": 8,
@@ -171,7 +171,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 10006,
+    "id": "cargo_10006",
     "name": "Cheater's Boat",
     "slug": "cheater-s-boat",
     "tier": 1,
@@ -180,7 +180,7 @@
     "description": "A boat in a box."
   },
   {
-    "id": 1084839114,
+    "id": "cargo_1084839114",
     "name": "Comprehensive Stone Carving Package",
     "slug": "comprehensive-stone-carving-package",
     "tier": 6,
@@ -189,7 +189,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 1196702534,
+    "id": "cargo_1196702534",
     "name": "Desert Terrorbird",
     "slug": "desert-terrorbird",
     "tier": 10,
@@ -198,7 +198,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 10,
+    "id": "cargo_10",
     "name": "Dromai",
     "slug": "dromai",
     "tier": 5,
@@ -207,7 +207,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 7,
+    "id": "cargo_7",
     "name": "Elder Scrofa",
     "slug": "elder-scrofa",
     "tier": 8,
@@ -216,7 +216,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 341301575,
+    "id": "cargo_341301575",
     "name": "Elenvar Frames",
     "slug": "elenvar-frames",
     "tier": 4,
@@ -225,7 +225,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 450006,
+    "id": "cargo_450006",
     "name": "Elenvar Ingot Package",
     "slug": "elenvar-ingot-package",
     "tier": 4,
@@ -234,7 +234,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3003,
+    "id": "cargo_3003",
     "name": "Elenvar Ore Chunk",
     "slug": "elenvar-ore-chunk",
     "tier": 4,
@@ -243,7 +243,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 15195543,
+    "id": "cargo_15195543",
     "name": "Emarium Frames",
     "slug": "emarium-frames",
     "tier": 3,
@@ -252,7 +252,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 350006,
+    "id": "cargo_350006",
     "name": "Emarium Ingot Package",
     "slug": "emarium-ingot-package",
     "tier": 3,
@@ -261,7 +261,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3002,
+    "id": "cargo_3002",
     "name": "Emarium Ore Chunk",
     "slug": "emarium-ore-chunk",
     "tier": 3,
@@ -270,7 +270,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 1849328525,
+    "id": "cargo_1849328525",
     "name": "Essential Stone Carving Package",
     "slug": "essential-stone-carving-package",
     "tier": 3,
@@ -279,7 +279,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 204,
+    "id": "cargo_204",
     "name": "Expert's Skiff Material Pack",
     "slug": "expert-s-skiff-material-pack",
     "tier": 4,
@@ -288,7 +288,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 1650891842,
+    "id": "cargo_1650891842",
     "name": "Exquisite Brick Package",
     "slug": "exquisite-brick-package",
     "tier": 5,
@@ -297,7 +297,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2404,
+    "id": "cargo_2404",
     "name": "Exquisite Brick Slab",
     "slug": "exquisite-brick-slab",
     "tier": 5,
@@ -306,7 +306,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 550002,
+    "id": "cargo_550002",
     "name": "Exquisite Cloth Package",
     "slug": "exquisite-cloth-package",
     "tier": 5,
@@ -315,7 +315,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7004,
+    "id": "cargo_7004",
     "name": "Exquisite Cloth Tarp",
     "slug": "exquisite-cloth-tarp",
     "tier": 5,
@@ -324,7 +324,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1050000,
+    "id": "cargo_1050000",
     "name": "Exquisite Clothing Materials Pack",
     "slug": "exquisite-clothing-materials-pack",
     "tier": 5,
@@ -333,7 +333,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1050001,
+    "id": "cargo_1050001",
     "name": "Exquisite Construction Materials Pack",
     "slug": "exquisite-construction-materials-pack",
     "tier": 5,
@@ -342,7 +342,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4004,
+    "id": "cargo_4004",
     "name": "Exquisite Geode",
     "slug": "exquisite-geode",
     "tier": 5,
@@ -351,7 +351,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 550005,
+    "id": "cargo_550005",
     "name": "Exquisite Leather Package",
     "slug": "exquisite-leather-package",
     "tier": 5,
@@ -360,7 +360,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 741862367,
+    "id": "cargo_741862367",
     "name": "Exquisite Leather Sheeting",
     "slug": "exquisite-leather-sheeting",
     "tier": 5,
@@ -369,7 +369,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1632765422,
+    "id": "cargo_1632765422",
     "name": "Exquisite Plant Roots",
     "slug": "exquisite-plant-roots",
     "tier": 5,
@@ -378,7 +378,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 550004,
+    "id": "cargo_550004",
     "name": "Exquisite Rock Package",
     "slug": "exquisite-rock-package",
     "tier": 5,
@@ -387,7 +387,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 2005,
+    "id": "cargo_2005",
     "name": "Exquisite Stone Chunk",
     "slug": "exquisite-stone-chunk",
     "tier": 5,
@@ -396,7 +396,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1204,
+    "id": "cargo_1204",
     "name": "Exquisite Timber",
     "slug": "exquisite-timber",
     "tier": 5,
@@ -405,7 +405,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1004,
+    "id": "cargo_1004",
     "name": "Exquisite Trunk",
     "slug": "exquisite-trunk",
     "tier": 5,
@@ -414,7 +414,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 550000,
+    "id": "cargo_550000",
     "name": "Exquisite Wood Log Package",
     "slug": "exquisite-wood-log-package",
     "tier": 5,
@@ -423,7 +423,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 560001,
+    "id": "cargo_560001",
     "name": "Exquisite Wood Plank Package",
     "slug": "exquisite-wood-plank-package",
     "tier": 5,
@@ -432,7 +432,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 70002,
+    "id": "cargo_70002",
     "name": "Faint Energy",
     "slug": "faint-energy",
     "tier": -1,
@@ -441,7 +441,7 @@
     "description": "This energy could be used to power a mechanism somewhere in this ruin."
   },
   {
-    "id": 983297878,
+    "id": "cargo_983297878",
     "name": "Fair Sack of Hex Coins",
     "slug": "fair-sack-of-hex-coins",
     "tier": 1,
@@ -450,7 +450,7 @@
     "description": "A fair sized sack filled to the brim with hex coins. Worth 500 Hex Coins. Can be used to fuel a claim with 375 supplies."
   },
   {
-    "id": 3,
+    "id": "cargo_3",
     "name": "Female Cervus",
     "slug": "female-cervus",
     "tier": 3,
@@ -459,7 +459,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 5,
+    "id": "cargo_5",
     "name": "Female Scrofa",
     "slug": "female-scrofa",
     "tier": 4,
@@ -468,7 +468,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 970827760,
+    "id": "cargo_970827760",
     "name": "Ferralith Frames",
     "slug": "ferralith-frames",
     "tier": 1,
@@ -477,7 +477,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 150006,
+    "id": "cargo_150006",
     "name": "Ferralith Ingot Package",
     "slug": "ferralith-ingot-package",
     "tier": 1,
@@ -486,7 +486,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3000,
+    "id": "cargo_3000",
     "name": "Ferralith Ore Chunk",
     "slug": "ferralith-ore-chunk",
     "tier": 1,
@@ -495,7 +495,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 734768563,
+    "id": "cargo_734768563",
     "name": "Fine Brick Package",
     "slug": "fine-brick-package",
     "tier": 4,
@@ -504,7 +504,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2403,
+    "id": "cargo_2403",
     "name": "Fine Brick Slab",
     "slug": "fine-brick-slab",
     "tier": 4,
@@ -513,7 +513,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 450002,
+    "id": "cargo_450002",
     "name": "Fine Cloth Package",
     "slug": "fine-cloth-package",
     "tier": 4,
@@ -522,7 +522,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7003,
+    "id": "cargo_7003",
     "name": "Fine Cloth Tarp",
     "slug": "fine-cloth-tarp",
     "tier": 4,
@@ -531,7 +531,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1040000,
+    "id": "cargo_1040000",
     "name": "Fine Clothing Materials Pack",
     "slug": "fine-clothing-materials-pack",
     "tier": 4,
@@ -540,7 +540,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1040001,
+    "id": "cargo_1040001",
     "name": "Fine Construction Materials Pack",
     "slug": "fine-construction-materials-pack",
     "tier": 4,
@@ -549,7 +549,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4003,
+    "id": "cargo_4003",
     "name": "Fine Geode",
     "slug": "fine-geode",
     "tier": 4,
@@ -558,7 +558,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 450005,
+    "id": "cargo_450005",
     "name": "Fine Leather Package",
     "slug": "fine-leather-package",
     "tier": 4,
@@ -567,7 +567,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1784593653,
+    "id": "cargo_1784593653",
     "name": "Fine Leather Sheeting",
     "slug": "fine-leather-sheeting",
     "tier": 4,
@@ -576,7 +576,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 442004724,
+    "id": "cargo_442004724",
     "name": "Fine Plant Roots",
     "slug": "fine-plant-roots",
     "tier": 4,
@@ -585,7 +585,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 450004,
+    "id": "cargo_450004",
     "name": "Fine Rock Package",
     "slug": "fine-rock-package",
     "tier": 4,
@@ -594,7 +594,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 2004,
+    "id": "cargo_2004",
     "name": "Fine Stone Chunk",
     "slug": "fine-stone-chunk",
     "tier": 4,
@@ -603,7 +603,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1203,
+    "id": "cargo_1203",
     "name": "Fine Timber",
     "slug": "fine-timber",
     "tier": 4,
@@ -612,7 +612,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1003,
+    "id": "cargo_1003",
     "name": "Fine Trunk",
     "slug": "fine-trunk",
     "tier": 4,
@@ -621,7 +621,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 450000,
+    "id": "cargo_450000",
     "name": "Fine Wood Log Package",
     "slug": "fine-wood-log-package",
     "tier": 4,
@@ -630,7 +630,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 460001,
+    "id": "cargo_460001",
     "name": "Fine Wood Plank Package",
     "slug": "fine-wood-plank-package",
     "tier": 4,
@@ -639,7 +639,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 10005,
+    "id": "cargo_10005",
     "name": "Fisher's Boat",
     "slug": "fisher-s-boat",
     "tier": 1,
@@ -648,7 +648,7 @@
     "description": "A boat made for a fisherman. Allows you to fish faster."
   },
   {
-    "id": 206,
+    "id": "cargo_206",
     "name": "Fisher's Boat Material Pack",
     "slug": "fisher-s-boat-material-pack",
     "tier": 6,
@@ -657,7 +657,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 1600887285,
+    "id": "cargo_1600887285",
     "name": "Flawless Brick Package",
     "slug": "flawless-brick-package",
     "tier": 10,
@@ -666,7 +666,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 631093405,
+    "id": "cargo_631093405",
     "name": "Flawless Brick Slab",
     "slug": "flawless-brick-slab",
     "tier": 10,
@@ -675,7 +675,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 474946295,
+    "id": "cargo_474946295",
     "name": "Flawless Cloth Package",
     "slug": "flawless-cloth-package",
     "tier": 10,
@@ -684,7 +684,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1836028490,
+    "id": "cargo_1836028490",
     "name": "Flawless Cloth Tarp",
     "slug": "flawless-cloth-tarp",
     "tier": 10,
@@ -693,7 +693,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 962018090,
+    "id": "cargo_962018090",
     "name": "Flawless Geode",
     "slug": "flawless-geode",
     "tier": 10,
@@ -702,7 +702,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 275722091,
+    "id": "cargo_275722091",
     "name": "Flawless Leather Package",
     "slug": "flawless-leather-package",
     "tier": 10,
@@ -711,7 +711,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1935556465,
+    "id": "cargo_1935556465",
     "name": "Flawless Leather Sheeting",
     "slug": "flawless-leather-sheeting",
     "tier": 10,
@@ -720,7 +720,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1237816866,
+    "id": "cargo_1237816866",
     "name": "Flawless Ocean Fish",
     "slug": "flawless-ocean-fish",
     "tier": 10,
@@ -729,7 +729,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 587697308,
+    "id": "cargo_587697308",
     "name": "Flawless Plant Roots",
     "slug": "flawless-plant-roots",
     "tier": 10,
@@ -738,7 +738,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 1141395882,
+    "id": "cargo_1141395882",
     "name": "Flawless Rock Package",
     "slug": "flawless-rock-package",
     "tier": 10,
@@ -747,7 +747,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 1817314019,
+    "id": "cargo_1817314019",
     "name": "Flawless Stone Carving Package",
     "slug": "flawless-stone-carving-package",
     "tier": 10,
@@ -756,7 +756,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 1170732802,
+    "id": "cargo_1170732802",
     "name": "Flawless Stone Chunk",
     "slug": "flawless-stone-chunk",
     "tier": 10,
@@ -765,7 +765,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1585122058,
+    "id": "cargo_1585122058",
     "name": "Flawless Timber",
     "slug": "flawless-timber",
     "tier": 10,
@@ -774,7 +774,7 @@
     "description": "Can be sawed into boards or used in construction."
   },
   {
-    "id": 1885212129,
+    "id": "cargo_1885212129",
     "name": "Flawless Trunk",
     "slug": "flawless-trunk",
     "tier": 10,
@@ -783,7 +783,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 1256199066,
+    "id": "cargo_1256199066",
     "name": "Flawless Wood Log Package",
     "slug": "flawless-wood-log-package",
     "tier": 10,
@@ -792,7 +792,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 858083216,
+    "id": "cargo_858083216",
     "name": "Flawless Wood Plank Package",
     "slug": "flawless-wood-plank-package",
     "tier": 10,
@@ -801,7 +801,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 2001,
+    "id": "cargo_2001",
     "name": "Flint Chunk",
     "slug": "flint-chunk",
     "tier": 1,
@@ -810,7 +810,7 @@
     "description": "No description available"
   },
   {
-    "id": 2000000,
+    "id": "cargo_2000000",
     "name": "Hexite Capsule",
     "slug": "hexite-capsule",
     "tier": -1,
@@ -819,7 +819,7 @@
     "description": "A container full of crushed energized hexite crystals; A very valuable commodity. Could be used to power structures or contraptions operating on hexite power."
   },
   {
-    "id": 202,
+    "id": "cargo_202",
     "name": "Improved Skiff Material Pack",
     "slug": "improved-skiff-material-pack",
     "tier": 2,
@@ -828,7 +828,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 502961868,
+    "id": "cargo_502961868",
     "name": "Jakyl",
     "slug": "jakyl",
     "tier": -1,
@@ -837,7 +837,7 @@
     "description": "An animal body that could be processed for monster parts"
   },
   {
-    "id": 2141814235,
+    "id": "cargo_2141814235",
     "name": "Jungle Terrorbird",
     "slug": "jungle-terrorbird",
     "tier": 7,
@@ -846,7 +846,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1955158156,
+    "id": "cargo_1955158156",
     "name": "Large Sack of Hex Coins",
     "slug": "large-sack-of-hex-coins",
     "tier": 1,
@@ -855,7 +855,7 @@
     "description": "A fair sized sack filled to the brim with hex coins. Worth 1,000 Hex Coins. Can be used to fuel a claim with 750 supplies."
   },
   {
-    "id": 1080157951,
+    "id": "cargo_1080157951",
     "name": "Luminite Frames",
     "slug": "luminite-frames",
     "tier": 5,
@@ -864,7 +864,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 550006,
+    "id": "cargo_550006",
     "name": "Luminite Ingot Package",
     "slug": "luminite-ingot-package",
     "tier": 5,
@@ -873,7 +873,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3004,
+    "id": "cargo_3004",
     "name": "Luminite Ore Chunk",
     "slug": "luminite-ore-chunk",
     "tier": 5,
@@ -882,7 +882,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 358427678,
+    "id": "cargo_358427678",
     "name": "Magnificient Brick Package",
     "slug": "magnificient-brick-package",
     "tier": 9,
@@ -891,7 +891,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 888273394,
+    "id": "cargo_888273394",
     "name": "Magnificient Brick Slab",
     "slug": "magnificient-brick-slab",
     "tier": 9,
@@ -900,7 +900,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 2136010679,
+    "id": "cargo_2136010679",
     "name": "Magnificient Cloth Package",
     "slug": "magnificient-cloth-package",
     "tier": 9,
@@ -909,7 +909,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 392822871,
+    "id": "cargo_392822871",
     "name": "Magnificient Cloth Tarp",
     "slug": "magnificient-cloth-tarp",
     "tier": 9,
@@ -918,7 +918,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1706418122,
+    "id": "cargo_1706418122",
     "name": "Magnificient Geode",
     "slug": "magnificient-geode",
     "tier": 9,
@@ -927,7 +927,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 995872483,
+    "id": "cargo_995872483",
     "name": "Magnificient Leather Package",
     "slug": "magnificient-leather-package",
     "tier": 9,
@@ -936,7 +936,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 898540348,
+    "id": "cargo_898540348",
     "name": "Magnificient Leather Sheeting",
     "slug": "magnificient-leather-sheeting",
     "tier": 9,
@@ -945,7 +945,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 390639013,
+    "id": "cargo_390639013",
     "name": "Magnificient Ocean Fish",
     "slug": "magnificient-ocean-fish",
     "tier": 9,
@@ -954,7 +954,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 343539652,
+    "id": "cargo_343539652",
     "name": "Magnificient Plant Roots",
     "slug": "magnificient-plant-roots",
     "tier": 9,
@@ -963,7 +963,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 951128402,
+    "id": "cargo_951128402",
     "name": "Magnificient Rock Package",
     "slug": "magnificient-rock-package",
     "tier": 9,
@@ -972,7 +972,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 682008419,
+    "id": "cargo_682008419",
     "name": "Magnificient Stone Carving Package",
     "slug": "magnificient-stone-carving-package",
     "tier": 9,
@@ -981,7 +981,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 1173828253,
+    "id": "cargo_1173828253",
     "name": "Magnificient Stone Chunk",
     "slug": "magnificient-stone-chunk",
     "tier": 9,
@@ -990,7 +990,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1473504323,
+    "id": "cargo_1473504323",
     "name": "Magnificient Timber",
     "slug": "magnificient-timber",
     "tier": 9,
@@ -999,7 +999,7 @@
     "description": "Can be sawed into boards or used in construction."
   },
   {
-    "id": 827937528,
+    "id": "cargo_827937528",
     "name": "Magnificient Trunk",
     "slug": "magnificient-trunk",
     "tier": 9,
@@ -1008,7 +1008,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 589088166,
+    "id": "cargo_589088166",
     "name": "Magnificient Wood Log Package",
     "slug": "magnificient-wood-log-package",
     "tier": 9,
@@ -1017,7 +1017,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 900126092,
+    "id": "cargo_900126092",
     "name": "Magnificient Wood Plank Package",
     "slug": "magnificient-wood-plank-package",
     "tier": 9,
@@ -1026,7 +1026,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 4,
+    "id": "cargo_4",
     "name": "Male Cervus",
     "slug": "male-cervus",
     "tier": 3,
@@ -1035,7 +1035,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 6,
+    "id": "cargo_6",
     "name": "Male Scrofa",
     "slug": "male-scrofa",
     "tier": 4,
@@ -1044,7 +1044,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 205,
+    "id": "cargo_205",
     "name": "Masterful Skiff Material Pack",
     "slug": "masterful-skiff-material-pack",
     "tier": 5,
@@ -1053,7 +1053,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 495585314,
+    "id": "cargo_495585314",
     "name": "Mysterious Anglerfish",
     "slug": "mysterious-anglerfish",
     "tier": 8,
@@ -1062,7 +1062,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 2090274245,
+    "id": "cargo_2090274245",
     "name": "Novice Stone Carving Package",
     "slug": "novice-stone-carving-package",
     "tier": 2,
@@ -1071,7 +1071,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 2,
+    "id": "cargo_2",
     "name": "Nubi Goat",
     "slug": "nubi-goat",
     "tier": 2,
@@ -1080,7 +1080,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 6000,
+    "id": "cargo_6000",
     "name": "Oceancrest Marlin",
     "slug": "oceancrest-marlin",
     "tier": 1,
@@ -1089,7 +1089,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 240804709,
+    "id": "cargo_240804709",
     "name": "Ornate Brick Package",
     "slug": "ornate-brick-package",
     "tier": 7,
@@ -1098,7 +1098,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 302152262,
+    "id": "cargo_302152262",
     "name": "Ornate Brick Slab",
     "slug": "ornate-brick-slab",
     "tier": 7,
@@ -1107,7 +1107,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 423112838,
+    "id": "cargo_423112838",
     "name": "Ornate Cloth Package",
     "slug": "ornate-cloth-package",
     "tier": 7,
@@ -1116,7 +1116,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1791508890,
+    "id": "cargo_1791508890",
     "name": "Ornate Cloth Tarp",
     "slug": "ornate-cloth-tarp",
     "tier": 7,
@@ -1125,7 +1125,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 608138386,
+    "id": "cargo_608138386",
     "name": "Ornate Clothing Materials Pack",
     "slug": "ornate-clothing-materials-pack",
     "tier": 7,
@@ -1134,7 +1134,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 2139638761,
+    "id": "cargo_2139638761",
     "name": "Ornate Geode",
     "slug": "ornate-geode",
     "tier": 7,
@@ -1143,7 +1143,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 1545224886,
+    "id": "cargo_1545224886",
     "name": "Ornate Leather Package",
     "slug": "ornate-leather-package",
     "tier": 7,
@@ -1152,7 +1152,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 897676087,
+    "id": "cargo_897676087",
     "name": "Ornate Leather Sheeting",
     "slug": "ornate-leather-sheeting",
     "tier": 7,
@@ -1161,7 +1161,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1743603212,
+    "id": "cargo_1743603212",
     "name": "Ornate Plant Roots",
     "slug": "ornate-plant-roots",
     "tier": 7,
@@ -1170,7 +1170,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 2036554187,
+    "id": "cargo_2036554187",
     "name": "Ornate Rock Package",
     "slug": "ornate-rock-package",
     "tier": 7,
@@ -1179,7 +1179,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 45282003,
+    "id": "cargo_45282003",
     "name": "Ornate Stone Carving Package",
     "slug": "ornate-stone-carving-package",
     "tier": 7,
@@ -1188,7 +1188,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 1143621247,
+    "id": "cargo_1143621247",
     "name": "Ornate Stone Chunk",
     "slug": "ornate-stone-chunk",
     "tier": 7,
@@ -1197,7 +1197,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 884292413,
+    "id": "cargo_884292413",
     "name": "Ornate Timber",
     "slug": "ornate-timber",
     "tier": 7,
@@ -1206,7 +1206,7 @@
     "description": "Can be sawed into boards or used in construction."
   },
   {
-    "id": 1872489539,
+    "id": "cargo_1872489539",
     "name": "Ornate Trunk",
     "slug": "ornate-trunk",
     "tier": 7,
@@ -1215,7 +1215,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 1757815413,
+    "id": "cargo_1757815413",
     "name": "Ornate Wood Log Package",
     "slug": "ornate-wood-log-package",
     "tier": 7,
@@ -1224,7 +1224,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 763674218,
+    "id": "cargo_763674218",
     "name": "Ornate Wood Plank Package",
     "slug": "ornate-wood-plank-package",
     "tier": 7,
@@ -1233,7 +1233,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 70001,
+    "id": "cargo_70001",
     "name": "Overwhelming Energy",
     "slug": "overwhelming-energy",
     "tier": -1,
@@ -1242,7 +1242,7 @@
     "description": "This energy is overwhelming you. You can barely move. Place it in a nearby receptacle!"
   },
   {
-    "id": 2112363612,
+    "id": "cargo_2112363612",
     "name": "Peerless Brick Package",
     "slug": "peerless-brick-package",
     "tier": 6,
@@ -1251,7 +1251,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2405,
+    "id": "cargo_2405",
     "name": "Peerless Brick Slab",
     "slug": "peerless-brick-slab",
     "tier": 6,
@@ -1260,7 +1260,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 650002,
+    "id": "cargo_650002",
     "name": "Peerless Cloth Package",
     "slug": "peerless-cloth-package",
     "tier": 6,
@@ -1269,7 +1269,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7005,
+    "id": "cargo_7005",
     "name": "Peerless Cloth Tarp",
     "slug": "peerless-cloth-tarp",
     "tier": 6,
@@ -1278,7 +1278,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1060000,
+    "id": "cargo_1060000",
     "name": "Peerless Clothing Materials Pack",
     "slug": "peerless-clothing-materials-pack",
     "tier": 6,
@@ -1287,7 +1287,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1060001,
+    "id": "cargo_1060001",
     "name": "Peerless Construction Materials Pack",
     "slug": "peerless-construction-materials-pack",
     "tier": 6,
@@ -1296,7 +1296,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4005,
+    "id": "cargo_4005",
     "name": "Peerless Geode",
     "slug": "peerless-geode",
     "tier": 6,
@@ -1305,7 +1305,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 650005,
+    "id": "cargo_650005",
     "name": "Peerless Leather Package",
     "slug": "peerless-leather-package",
     "tier": 6,
@@ -1314,7 +1314,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1863123674,
+    "id": "cargo_1863123674",
     "name": "Peerless Leather Sheeting",
     "slug": "peerless-leather-sheeting",
     "tier": 6,
@@ -1323,7 +1323,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1440938837,
+    "id": "cargo_1440938837",
     "name": "Peerless Plant Roots",
     "slug": "peerless-plant-roots",
     "tier": 6,
@@ -1332,7 +1332,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 650004,
+    "id": "cargo_650004",
     "name": "Peerless Rock Package",
     "slug": "peerless-rock-package",
     "tier": 6,
@@ -1341,7 +1341,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 2006,
+    "id": "cargo_2006",
     "name": "Peerless Stone Chunk",
     "slug": "peerless-stone-chunk",
     "tier": 6,
@@ -1350,7 +1350,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1205,
+    "id": "cargo_1205",
     "name": "Peerless Timber",
     "slug": "peerless-timber",
     "tier": 6,
@@ -1359,7 +1359,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1005,
+    "id": "cargo_1005",
     "name": "Peerless Trunk",
     "slug": "peerless-trunk",
     "tier": 6,
@@ -1368,7 +1368,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 650000,
+    "id": "cargo_650000",
     "name": "Peerless Wood Log Package",
     "slug": "peerless-wood-log-package",
     "tier": 6,
@@ -1377,7 +1377,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 660001,
+    "id": "cargo_660001",
     "name": "Peerless Wood Plank Package",
     "slug": "peerless-wood-plank-package",
     "tier": 6,
@@ -1386,7 +1386,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 141869841,
+    "id": "cargo_141869841",
     "name": "Plains Ox",
     "slug": "plains-ox",
     "tier": 5,
@@ -1395,7 +1395,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 660210536,
+    "id": "cargo_660210536",
     "name": "Pristine Brick Package",
     "slug": "pristine-brick-package",
     "tier": 8,
@@ -1404,7 +1404,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 360403214,
+    "id": "cargo_360403214",
     "name": "Pristine Brick Slab",
     "slug": "pristine-brick-slab",
     "tier": 8,
@@ -1413,7 +1413,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 215164936,
+    "id": "cargo_215164936",
     "name": "Pristine Cloth Package",
     "slug": "pristine-cloth-package",
     "tier": 8,
@@ -1422,7 +1422,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 503195279,
+    "id": "cargo_503195279",
     "name": "Pristine Cloth Tarp",
     "slug": "pristine-cloth-tarp",
     "tier": 8,
@@ -1431,7 +1431,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1209662673,
+    "id": "cargo_1209662673",
     "name": "Pristine Clothing Materials Pack",
     "slug": "pristine-clothing-materials-pack",
     "tier": 8,
@@ -1440,7 +1440,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 2063391815,
+    "id": "cargo_2063391815",
     "name": "Pristine Geode",
     "slug": "pristine-geode",
     "tier": 8,
@@ -1449,7 +1449,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 542839177,
+    "id": "cargo_542839177",
     "name": "Pristine Leather Package",
     "slug": "pristine-leather-package",
     "tier": 8,
@@ -1458,7 +1458,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 715636845,
+    "id": "cargo_715636845",
     "name": "Pristine Leather Sheeting",
     "slug": "pristine-leather-sheeting",
     "tier": 8,
@@ -1467,7 +1467,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1558771097,
+    "id": "cargo_1558771097",
     "name": "Pristine Plant Roots",
     "slug": "pristine-plant-roots",
     "tier": 8,
@@ -1476,7 +1476,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 619763519,
+    "id": "cargo_619763519",
     "name": "Pristine Rock Package",
     "slug": "pristine-rock-package",
     "tier": 8,
@@ -1485,7 +1485,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 1853253398,
+    "id": "cargo_1853253398",
     "name": "Pristine Stone Carving Package",
     "slug": "pristine-stone-carving-package",
     "tier": 8,
@@ -1494,7 +1494,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 58757068,
+    "id": "cargo_58757068",
     "name": "Pristine Stone Chunk",
     "slug": "pristine-stone-chunk",
     "tier": 8,
@@ -1503,7 +1503,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1948570022,
+    "id": "cargo_1948570022",
     "name": "Pristine Timber",
     "slug": "pristine-timber",
     "tier": 8,
@@ -1512,7 +1512,7 @@
     "description": "Can be sawed into boards or used in construction."
   },
   {
-    "id": 826930059,
+    "id": "cargo_826930059",
     "name": "Pristine Trunk",
     "slug": "pristine-trunk",
     "tier": 8,
@@ -1521,7 +1521,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 1499890756,
+    "id": "cargo_1499890756",
     "name": "Pristine Wood Log Package",
     "slug": "pristine-wood-log-package",
     "tier": 8,
@@ -1530,7 +1530,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 2142991097,
+    "id": "cargo_2142991097",
     "name": "Pristine Wood Plank Package",
     "slug": "pristine-wood-plank-package",
     "tier": 8,
@@ -1539,7 +1539,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 318494855,
+    "id": "cargo_318494855",
     "name": "Proficient Stone Carving Package",
     "slug": "proficient-stone-carving-package",
     "tier": 4,
@@ -1548,7 +1548,7 @@
     "description": "A package of stone carvings"
   },
   {
-    "id": 1044447676,
+    "id": "cargo_1044447676",
     "name": "Pyrelite Frames",
     "slug": "pyrelite-frames",
     "tier": 2,
@@ -1557,7 +1557,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 250006,
+    "id": "cargo_250006",
     "name": "Pyrelite Ingot Package",
     "slug": "pyrelite-ingot-package",
     "tier": 2,
@@ -1566,7 +1566,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3001,
+    "id": "cargo_3001",
     "name": "Pyrelite Ore Chunk",
     "slug": "pyrelite-ore-chunk",
     "tier": 2,
@@ -1575,7 +1575,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 8,
+    "id": "cargo_8",
     "name": "Rangifer",
     "slug": "rangifer",
     "tier": 4,
@@ -1584,7 +1584,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1989901185,
+    "id": "cargo_1989901185",
     "name": "Rathium Frames",
     "slug": "rathium-frames",
     "tier": 6,
@@ -1593,7 +1593,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 650006,
+    "id": "cargo_650006",
     "name": "Rathium Ingot Package",
     "slug": "rathium-ingot-package",
     "tier": 6,
@@ -1602,7 +1602,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 3005,
+    "id": "cargo_3005",
     "name": "Rathium Ore Chunk",
     "slug": "rathium-ore-chunk",
     "tier": 6,
@@ -1611,7 +1611,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 1537744479,
+    "id": "cargo_1537744479",
     "name": "Refined Astralite Ingot Package",
     "slug": "refined-astralite-ingot-package",
     "tier": 10,
@@ -1620,7 +1620,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 2031494957,
+    "id": "cargo_2031494957",
     "name": "Refined Aurumite Ingot Package",
     "slug": "refined-aurumite-ingot-package",
     "tier": 7,
@@ -1629,7 +1629,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 1149474387,
+    "id": "cargo_1149474387",
     "name": "Refined Celestium Ingot Package",
     "slug": "refined-celestium-ingot-package",
     "tier": 8,
@@ -1638,7 +1638,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 1970868786,
+    "id": "cargo_1970868786",
     "name": "Refined Elenvar Ingot Package",
     "slug": "refined-elenvar-ingot-package",
     "tier": 4,
@@ -1647,7 +1647,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 737787118,
+    "id": "cargo_737787118",
     "name": "Refined Emarium Ingot Package",
     "slug": "refined-emarium-ingot-package",
     "tier": 3,
@@ -1656,7 +1656,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 1355550411,
+    "id": "cargo_1355550411",
     "name": "Refined Exquisite Brick Package",
     "slug": "refined-exquisite-brick-package",
     "tier": 5,
@@ -1665,7 +1665,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 430760414,
+    "id": "cargo_430760414",
     "name": "Refined Exquisite Cloth Package",
     "slug": "refined-exquisite-cloth-package",
     "tier": 5,
@@ -1674,7 +1674,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 401422893,
+    "id": "cargo_401422893",
     "name": "Refined Exquisite Leather Package",
     "slug": "refined-exquisite-leather-package",
     "tier": 5,
@@ -1683,7 +1683,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 1061473254,
+    "id": "cargo_1061473254",
     "name": "Refined Exquisite Wood Plank Package",
     "slug": "refined-exquisite-wood-plank-package",
     "tier": 5,
@@ -1692,7 +1692,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1939907236,
+    "id": "cargo_1939907236",
     "name": "Refined Ferralith Ingot Package",
     "slug": "refined-ferralith-ingot-package",
     "tier": 1,
@@ -1701,7 +1701,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 1257581327,
+    "id": "cargo_1257581327",
     "name": "Refined Fine Brick Package",
     "slug": "refined-fine-brick-package",
     "tier": 4,
@@ -1710,7 +1710,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 175169224,
+    "id": "cargo_175169224",
     "name": "Refined Fine Cloth Package",
     "slug": "refined-fine-cloth-package",
     "tier": 4,
@@ -1719,7 +1719,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 558591220,
+    "id": "cargo_558591220",
     "name": "Refined Fine Leather Package",
     "slug": "refined-fine-leather-package",
     "tier": 4,
@@ -1728,7 +1728,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 2205071,
+    "id": "cargo_2205071",
     "name": "Refined Fine Wood Plank Package",
     "slug": "refined-fine-wood-plank-package",
     "tier": 4,
@@ -1737,7 +1737,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1353316935,
+    "id": "cargo_1353316935",
     "name": "Refined Flawless Brick Package",
     "slug": "refined-flawless-brick-package",
     "tier": 10,
@@ -1746,7 +1746,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 1199657444,
+    "id": "cargo_1199657444",
     "name": "Refined Flawless Cloth Package",
     "slug": "refined-flawless-cloth-package",
     "tier": 10,
@@ -1755,7 +1755,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 911456665,
+    "id": "cargo_911456665",
     "name": "Refined Flawless Leather Package",
     "slug": "refined-flawless-leather-package",
     "tier": 10,
@@ -1764,7 +1764,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 95258393,
+    "id": "cargo_95258393",
     "name": "Refined Flawless Wood Plank Package",
     "slug": "refined-flawless-wood-plank-package",
     "tier": 10,
@@ -1773,7 +1773,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1702598806,
+    "id": "cargo_1702598806",
     "name": "Refined Luminite Ingot Package",
     "slug": "refined-luminite-ingot-package",
     "tier": 5,
@@ -1782,7 +1782,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 1240047044,
+    "id": "cargo_1240047044",
     "name": "Refined Magnificient Brick Package",
     "slug": "refined-magnificient-brick-package",
     "tier": 9,
@@ -1791,7 +1791,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 1325900577,
+    "id": "cargo_1325900577",
     "name": "Refined Magnificient Cloth Package",
     "slug": "refined-magnificient-cloth-package",
     "tier": 9,
@@ -1800,7 +1800,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 1834928292,
+    "id": "cargo_1834928292",
     "name": "Refined Magnificient Leather Package",
     "slug": "refined-magnificient-leather-package",
     "tier": 9,
@@ -1809,7 +1809,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 667352556,
+    "id": "cargo_667352556",
     "name": "Refined Magnificient Wood Plank Package",
     "slug": "refined-magnificient-wood-plank-package",
     "tier": 9,
@@ -1818,7 +1818,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1874690022,
+    "id": "cargo_1874690022",
     "name": "Refined Ornate Brick Package",
     "slug": "refined-ornate-brick-package",
     "tier": 7,
@@ -1827,7 +1827,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 285041017,
+    "id": "cargo_285041017",
     "name": "Refined Ornate Cloth Package",
     "slug": "refined-ornate-cloth-package",
     "tier": 7,
@@ -1836,7 +1836,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 2056394300,
+    "id": "cargo_2056394300",
     "name": "Refined Ornate Leather Package",
     "slug": "refined-ornate-leather-package",
     "tier": 7,
@@ -1845,7 +1845,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 649530050,
+    "id": "cargo_649530050",
     "name": "Refined Ornate Wood Plank Package",
     "slug": "refined-ornate-wood-plank-package",
     "tier": 7,
@@ -1854,7 +1854,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1960857664,
+    "id": "cargo_1960857664",
     "name": "Refined Peerless Brick Package",
     "slug": "refined-peerless-brick-package",
     "tier": 6,
@@ -1863,7 +1863,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 2050184559,
+    "id": "cargo_2050184559",
     "name": "Refined Peerless Cloth Package",
     "slug": "refined-peerless-cloth-package",
     "tier": 6,
@@ -1872,7 +1872,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 173938045,
+    "id": "cargo_173938045",
     "name": "Refined Peerless Leather Package",
     "slug": "refined-peerless-leather-package",
     "tier": 6,
@@ -1881,7 +1881,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 563167126,
+    "id": "cargo_563167126",
     "name": "Refined Peerless Wood Plank Package",
     "slug": "refined-peerless-wood-plank-package",
     "tier": 6,
@@ -1890,7 +1890,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 928273751,
+    "id": "cargo_928273751",
     "name": "Refined Pristine Brick Package",
     "slug": "refined-pristine-brick-package",
     "tier": 8,
@@ -1899,7 +1899,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 92008547,
+    "id": "cargo_92008547",
     "name": "Refined Pristine Cloth Package",
     "slug": "refined-pristine-cloth-package",
     "tier": 8,
@@ -1908,7 +1908,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 1641266654,
+    "id": "cargo_1641266654",
     "name": "Refined Pristine Leather Package",
     "slug": "refined-pristine-leather-package",
     "tier": 8,
@@ -1917,7 +1917,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 1268700873,
+    "id": "cargo_1268700873",
     "name": "Refined Pristine Wood Plank Package",
     "slug": "refined-pristine-wood-plank-package",
     "tier": 8,
@@ -1926,7 +1926,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 146616436,
+    "id": "cargo_146616436",
     "name": "Refined Pyrelite Ingot Package",
     "slug": "refined-pyrelite-ingot-package",
     "tier": 2,
@@ -1935,7 +1935,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 318715450,
+    "id": "cargo_318715450",
     "name": "Refined Rathium Ingot Package",
     "slug": "refined-rathium-ingot-package",
     "tier": 6,
@@ -1944,7 +1944,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 325062913,
+    "id": "cargo_325062913",
     "name": "Refined Rough Brick Package",
     "slug": "refined-rough-brick-package",
     "tier": 1,
@@ -1953,7 +1953,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 406649258,
+    "id": "cargo_406649258",
     "name": "Refined Rough Cloth Package",
     "slug": "refined-rough-cloth-package",
     "tier": 1,
@@ -1962,7 +1962,7 @@
     "description": "A package of Cloth Bricks"
   },
   {
-    "id": 483159161,
+    "id": "cargo_483159161",
     "name": "Refined Rough Leather Package",
     "slug": "refined-rough-leather-package",
     "tier": 1,
@@ -1971,7 +1971,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 1563500083,
+    "id": "cargo_1563500083",
     "name": "Refined Rough Wood Plank Package",
     "slug": "refined-rough-wood-plank-package",
     "tier": 1,
@@ -1980,7 +1980,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 602596873,
+    "id": "cargo_602596873",
     "name": "Refined Simple Brick Package",
     "slug": "refined-simple-brick-package",
     "tier": 2,
@@ -1989,7 +1989,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 1717592399,
+    "id": "cargo_1717592399",
     "name": "Refined Simple Cloth Package",
     "slug": "refined-simple-cloth-package",
     "tier": 2,
@@ -1998,7 +1998,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 1645099428,
+    "id": "cargo_1645099428",
     "name": "Refined Simple Leather Package",
     "slug": "refined-simple-leather-package",
     "tier": 2,
@@ -2007,7 +2007,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 1144253843,
+    "id": "cargo_1144253843",
     "name": "Refined Simple Wood Plank Package",
     "slug": "refined-simple-wood-plank-package",
     "tier": 2,
@@ -2016,7 +2016,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1076106303,
+    "id": "cargo_1076106303",
     "name": "Refined Sturdy Brick Package",
     "slug": "refined-sturdy-brick-package",
     "tier": 3,
@@ -2025,7 +2025,7 @@
     "description": "A package of Refined Bricks"
   },
   {
-    "id": 1785339298,
+    "id": "cargo_1785339298",
     "name": "Refined Sturdy Cloth Package",
     "slug": "refined-sturdy-cloth-package",
     "tier": 3,
@@ -2034,7 +2034,7 @@
     "description": "A package of Refined Cloth"
   },
   {
-    "id": 408485354,
+    "id": "cargo_408485354",
     "name": "Refined Sturdy Leather Package",
     "slug": "refined-sturdy-leather-package",
     "tier": 3,
@@ -2043,7 +2043,7 @@
     "description": "A package of Refined Leather"
   },
   {
-    "id": 1236479328,
+    "id": "cargo_1236479328",
     "name": "Refined Sturdy Wood Plank Package",
     "slug": "refined-sturdy-wood-plank-package",
     "tier": 3,
@@ -2052,7 +2052,7 @@
     "description": "A package of Refined Wood Planks"
   },
   {
-    "id": 1070869485,
+    "id": "cargo_1070869485",
     "name": "Refined Umbracite Ingot Package",
     "slug": "refined-umbracite-ingot-package",
     "tier": 9,
@@ -2061,7 +2061,7 @@
     "description": "A package of Refined Metal Ingots"
   },
   {
-    "id": 400,
+    "id": "cargo_400",
     "name": "Rideable Deer",
     "slug": "rideable-deer",
     "tier": 1,
@@ -2070,7 +2070,7 @@
     "description": "A trusty mount."
   },
   {
-    "id": 683661636,
+    "id": "cargo_683661636",
     "name": "Rough Brick Package",
     "slug": "rough-brick-package",
     "tier": 1,
@@ -2079,7 +2079,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2400,
+    "id": "cargo_2400",
     "name": "Rough Brick Slab",
     "slug": "rough-brick-slab",
     "tier": 1,
@@ -2088,7 +2088,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 100,
+    "id": "cargo_100",
     "name": "Rough Cart Material Pack",
     "slug": "rough-cart-material-pack",
     "tier": 1,
@@ -2097,7 +2097,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 150002,
+    "id": "cargo_150002",
     "name": "Rough Cloth Package",
     "slug": "rough-cloth-package",
     "tier": 1,
@@ -2106,7 +2106,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7000,
+    "id": "cargo_7000",
     "name": "Rough Cloth Tarp",
     "slug": "rough-cloth-tarp",
     "tier": 1,
@@ -2115,7 +2115,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1010000,
+    "id": "cargo_1010000",
     "name": "Rough Clothing Materials Pack",
     "slug": "rough-clothing-materials-pack",
     "tier": 1,
@@ -2124,7 +2124,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1010001,
+    "id": "cargo_1010001",
     "name": "Rough Construction Materials Pack",
     "slug": "rough-construction-materials-pack",
     "tier": 1,
@@ -2133,7 +2133,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4000,
+    "id": "cargo_4000",
     "name": "Rough Geode",
     "slug": "rough-geode",
     "tier": 1,
@@ -2142,7 +2142,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 101,
+    "id": "cargo_101",
     "name": "Rough Large Cart Material Pack",
     "slug": "rough-large-cart-material-pack",
     "tier": 1,
@@ -2151,7 +2151,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 150005,
+    "id": "cargo_150005",
     "name": "Rough Leather Package",
     "slug": "rough-leather-package",
     "tier": 1,
@@ -2160,7 +2160,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1552106905,
+    "id": "cargo_1552106905",
     "name": "Rough Leather Sheeting",
     "slug": "rough-leather-sheeting",
     "tier": 1,
@@ -2169,7 +2169,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 652981079,
+    "id": "cargo_652981079",
     "name": "Rough Plant Roots",
     "slug": "rough-plant-roots",
     "tier": 1,
@@ -2178,7 +2178,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 200,
+    "id": "cargo_200",
     "name": "Rough Raft Material Pack",
     "slug": "rough-raft-material-pack",
     "tier": 1,
@@ -2187,7 +2187,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 150003,
+    "id": "cargo_150003",
     "name": "Rough Rock Package",
     "slug": "rough-rock-package",
     "tier": 1,
@@ -2196,7 +2196,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 201,
+    "id": "cargo_201",
     "name": "Rough Skiff Material Pack",
     "slug": "rough-skiff-material-pack",
     "tier": 1,
@@ -2205,7 +2205,7 @@
     "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
   },
   {
-    "id": 2000,
+    "id": "cargo_2000",
     "name": "Rough Stone Chunk",
     "slug": "rough-stone-chunk",
     "tier": 1,
@@ -2214,7 +2214,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1200,
+    "id": "cargo_1200",
     "name": "Rough Timber",
     "slug": "rough-timber",
     "tier": 1,
@@ -2223,7 +2223,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 150000,
+    "id": "cargo_150000",
     "name": "Rough Wood Log Package",
     "slug": "rough-wood-log-package",
     "tier": 1,
@@ -2232,7 +2232,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 160001,
+    "id": "cargo_160001",
     "name": "Rough Wood Plank Package",
     "slug": "rough-wood-plank-package",
     "tier": 1,
@@ -2241,7 +2241,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 1000,
+    "id": "cargo_1000",
     "name": "Rough Wood Trunk",
     "slug": "rough-wood-trunk",
     "tier": 1,
@@ -2250,7 +2250,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 1,
+    "id": "cargo_1",
     "name": "Sagi Bird",
     "slug": "sagi-bird",
     "tier": 1,
@@ -2259,7 +2259,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 6003,
+    "id": "cargo_6003",
     "name": "Seastorm Tuna",
     "slug": "seastorm-tuna",
     "tier": 4,
@@ -2268,7 +2268,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 6001,
+    "id": "cargo_6001",
     "name": "Serpentfish",
     "slug": "serpentfish",
     "tier": 2,
@@ -2277,7 +2277,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 429970990,
+    "id": "cargo_429970990",
     "name": "Simple Brick Package",
     "slug": "simple-brick-package",
     "tier": 2,
@@ -2286,7 +2286,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2401,
+    "id": "cargo_2401",
     "name": "Simple Brick Slab",
     "slug": "simple-brick-slab",
     "tier": 2,
@@ -2295,7 +2295,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 250002,
+    "id": "cargo_250002",
     "name": "Simple Cloth Package",
     "slug": "simple-cloth-package",
     "tier": 2,
@@ -2304,7 +2304,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7001,
+    "id": "cargo_7001",
     "name": "Simple Cloth Tarp",
     "slug": "simple-cloth-tarp",
     "tier": 2,
@@ -2313,7 +2313,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1020000,
+    "id": "cargo_1020000",
     "name": "Simple Clothing Materials Pack",
     "slug": "simple-clothing-materials-pack",
     "tier": 2,
@@ -2322,7 +2322,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1020001,
+    "id": "cargo_1020001",
     "name": "Simple Construction Materials Pack",
     "slug": "simple-construction-materials-pack",
     "tier": 2,
@@ -2331,7 +2331,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4001,
+    "id": "cargo_4001",
     "name": "Simple Geode",
     "slug": "simple-geode",
     "tier": 2,
@@ -2340,7 +2340,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 250005,
+    "id": "cargo_250005",
     "name": "Simple Leather Package",
     "slug": "simple-leather-package",
     "tier": 2,
@@ -2349,7 +2349,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1297204491,
+    "id": "cargo_1297204491",
     "name": "Simple Leather Sheeting",
     "slug": "simple-leather-sheeting",
     "tier": 2,
@@ -2358,7 +2358,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 192409188,
+    "id": "cargo_192409188",
     "name": "Simple Plant Roots",
     "slug": "simple-plant-roots",
     "tier": 2,
@@ -2367,7 +2367,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 250004,
+    "id": "cargo_250004",
     "name": "Simple Rock Package",
     "slug": "simple-rock-package",
     "tier": 2,
@@ -2376,7 +2376,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 2002,
+    "id": "cargo_2002",
     "name": "Simple Stone Chunk",
     "slug": "simple-stone-chunk",
     "tier": 2,
@@ -2385,7 +2385,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1201,
+    "id": "cargo_1201",
     "name": "Simple Timber",
     "slug": "simple-timber",
     "tier": 2,
@@ -2394,7 +2394,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 250000,
+    "id": "cargo_250000",
     "name": "Simple Wood Log Package",
     "slug": "simple-wood-log-package",
     "tier": 2,
@@ -2403,7 +2403,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 260001,
+    "id": "cargo_260001",
     "name": "Simple Wood Plank Package",
     "slug": "simple-wood-plank-package",
     "tier": 2,
@@ -2412,7 +2412,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 1001,
+    "id": "cargo_1001",
     "name": "Simple Wood Trunk",
     "slug": "simple-wood-trunk",
     "tier": 2,
@@ -2421,7 +2421,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 1290464936,
+    "id": "cargo_1290464936",
     "name": "Small Sack of Hex Coins",
     "slug": "small-sack-of-hex-coins",
     "tier": 1,
@@ -2430,7 +2430,7 @@
     "description": "A small sack filled to the brim with hex coins. Worth 100 Hex Coins. Can be used to fuel a claim with 75 supplies."
   },
   {
-    "id": 118221190,
+    "id": "cargo_118221190",
     "name": "Sturdy Brick Package",
     "slug": "sturdy-brick-package",
     "tier": 3,
@@ -2439,7 +2439,7 @@
     "description": "A package of bricks"
   },
   {
-    "id": 2402,
+    "id": "cargo_2402",
     "name": "Sturdy Brick Slab",
     "slug": "sturdy-brick-slab",
     "tier": 3,
@@ -2448,7 +2448,7 @@
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
   },
   {
-    "id": 350002,
+    "id": "cargo_350002",
     "name": "Sturdy Cloth Package",
     "slug": "sturdy-cloth-package",
     "tier": 3,
@@ -2457,7 +2457,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 7002,
+    "id": "cargo_7002",
     "name": "Sturdy Cloth Tarp",
     "slug": "sturdy-cloth-tarp",
     "tier": 3,
@@ -2466,7 +2466,7 @@
     "description": "A package of Cloth"
   },
   {
-    "id": 1030000,
+    "id": "cargo_1030000",
     "name": "Sturdy Clothing Materials Pack",
     "slug": "sturdy-clothing-materials-pack",
     "tier": 3,
@@ -2475,7 +2475,7 @@
     "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
   },
   {
-    "id": 1030001,
+    "id": "cargo_1030001",
     "name": "Sturdy Construction Materials Pack",
     "slug": "sturdy-construction-materials-pack",
     "tier": 3,
@@ -2484,7 +2484,7 @@
     "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
   },
   {
-    "id": 4002,
+    "id": "cargo_4002",
     "name": "Sturdy Geode",
     "slug": "sturdy-geode",
     "tier": 3,
@@ -2493,7 +2493,7 @@
     "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
   },
   {
-    "id": 350005,
+    "id": "cargo_350005",
     "name": "Sturdy Leather Package",
     "slug": "sturdy-leather-package",
     "tier": 3,
@@ -2502,7 +2502,7 @@
     "description": "A package of Leather"
   },
   {
-    "id": 1090747065,
+    "id": "cargo_1090747065",
     "name": "Sturdy Leather Sheeting",
     "slug": "sturdy-leather-sheeting",
     "tier": 3,
@@ -2511,7 +2511,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 1094309053,
+    "id": "cargo_1094309053",
     "name": "Sturdy Plant Roots",
     "slug": "sturdy-plant-roots",
     "tier": 3,
@@ -2520,7 +2520,7 @@
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
   },
   {
-    "id": 350004,
+    "id": "cargo_350004",
     "name": "Sturdy Rock Package",
     "slug": "sturdy-rock-package",
     "tier": 3,
@@ -2529,7 +2529,7 @@
     "description": "A package of Rocks"
   },
   {
-    "id": 2003,
+    "id": "cargo_2003",
     "name": "Sturdy Stone Chunk",
     "slug": "sturdy-stone-chunk",
     "tier": 3,
@@ -2538,7 +2538,7 @@
     "description": "Can be used in construction or refined into a block."
   },
   {
-    "id": 1202,
+    "id": "cargo_1202",
     "name": "Sturdy Timber",
     "slug": "sturdy-timber",
     "tier": 3,
@@ -2547,7 +2547,7 @@
     "description": "Can be used in the construction of buildings and material packs."
   },
   {
-    "id": 350000,
+    "id": "cargo_350000",
     "name": "Sturdy Wood Log Package",
     "slug": "sturdy-wood-log-package",
     "tier": 3,
@@ -2556,7 +2556,7 @@
     "description": "A package of Wood Logs"
   },
   {
-    "id": 360001,
+    "id": "cargo_360001",
     "name": "Sturdy Wood Plank Package",
     "slug": "sturdy-wood-plank-package",
     "tier": 3,
@@ -2565,7 +2565,7 @@
     "description": "A package of Wood Planks"
   },
   {
-    "id": 1002,
+    "id": "cargo_1002",
     "name": "Sturdy Wood Trunk",
     "slug": "sturdy-wood-trunk",
     "tier": 3,
@@ -2574,7 +2574,7 @@
     "description": "Can be processed into timber or cut into logs."
   },
   {
-    "id": 359813833,
+    "id": "cargo_359813833",
     "name": "Tidebreaker Barracuda",
     "slug": "tidebreaker-barracuda",
     "tier": 7,
@@ -2583,7 +2583,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 296932208,
+    "id": "cargo_296932208",
     "name": "Tier 10 Animal",
     "slug": "tier-10-animal",
     "tier": 10,
@@ -2592,7 +2592,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1074356657,
+    "id": "cargo_1074356657",
     "name": "Tier 7 Animal",
     "slug": "tier-7-animal",
     "tier": 7,
@@ -2601,7 +2601,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1331734964,
+    "id": "cargo_1331734964",
     "name": "Tier 8 Animal",
     "slug": "tier-8-animal",
     "tier": 8,
@@ -2610,7 +2610,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1504489682,
+    "id": "cargo_1504489682",
     "name": "Tier 9 Animal",
     "slug": "tier-9-animal",
     "tier": 9,
@@ -2619,7 +2619,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 870566793,
+    "id": "cargo_870566793",
     "name": "Tundra Ox",
     "slug": "tundra-ox",
     "tier": 5,
@@ -2628,7 +2628,7 @@
     "description": "An animal body that could be processed for meat and hides."
   },
   {
-    "id": 1167304009,
+    "id": "cargo_1167304009",
     "name": "Umbracite Frames",
     "slug": "umbracite-frames",
     "tier": 9,
@@ -2637,7 +2637,7 @@
     "description": "Can be used in the construction of buildings."
   },
   {
-    "id": 700754089,
+    "id": "cargo_700754089",
     "name": "Umbracite Ingot Package",
     "slug": "umbracite-ingot-package",
     "tier": 9,
@@ -2646,7 +2646,7 @@
     "description": "A package of Metal Ingots"
   },
   {
-    "id": 954664564,
+    "id": "cargo_954664564",
     "name": "Umbracite Ore Chunk",
     "slug": "umbracite-ore-chunk",
     "tier": 9,
@@ -2655,7 +2655,7 @@
     "description": "A chunk of ore. Could be processed into ore pieces."
   },
   {
-    "id": 14878832,
+    "id": "cargo_14878832",
     "name": "Umbura",
     "slug": "umbura",
     "tier": -1,
@@ -2664,7 +2664,7 @@
     "description": "An animal body that could be processed for monster parts"
   },
   {
-    "id": 6002,
+    "id": "cargo_6002",
     "name": "Wavecrest Eel",
     "slug": "wavecrest-eel",
     "tier": 3,
@@ -2673,7 +2673,7 @@
     "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
   },
   {
-    "id": 11,
+    "id": "cargo_11",
     "name": "Yagi",
     "slug": "yagi",
     "tier": 6,

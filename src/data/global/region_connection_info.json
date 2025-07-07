@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-1"
+  },
+  {
+    "id": 2,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-2"
+  },
+  {
+    "id": 3,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-3"
+  },
+  {
+    "id": 4,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-4"
+  },
+  {
+    "id": 5,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-5"
+  },
+  {
+    "id": 6,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-6"
+  },
+  {
+    "id": 7,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-7"
+  },
+  {
+    "id": 8,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-8"
+  },
+  {
+    "id": 9,
+    "host": "https://bitcraft-early-access.spacetimedb.com",
+    "module": "bitcraft-9"
+  }
+]
