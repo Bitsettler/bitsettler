@@ -241,6 +241,42 @@ function loadLookupTables(
 }
 
 /**
+ * Get the correct item prefix based on item type
+ */
+function getItemPrefix(itemType: any): string {
+  // SpacetimeDB format: [variant_index, variant_data]
+  if (Array.isArray(itemType) && itemType.length >= 1) {
+    const variantIndex = itemType[0]
+    switch (variantIndex) {
+      case 0:
+        return 'item_' // Item variant
+      case 1:
+        return 'cargo_' // Cargo variant
+      default:
+        console.warn(`Unknown item type variant index: ${variantIndex}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Legacy format with tag property
+  if (typeof itemType === 'object' && itemType?.tag) {
+    switch (itemType.tag) {
+      case 'Item':
+        return 'item_'
+      case 'Cargo':
+        return 'cargo_'
+      default:
+        console.warn(`Unknown item type: ${itemType.tag}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Fallback for old format or missing type
+  console.warn(`Unknown item type format:`, itemType, `defaulting to item_`)
+  return 'item_'
+}
+
+/**
  * Calculate expected resource quantity needed for extraction
  */
 function calculateResourceQuantity(
@@ -250,7 +286,18 @@ function calculateResourceQuantity(
   let expectedItemsPerExtraction = 0
 
   for (const [itemStackData, probability] of extractedItemStacks) {
-    const [, [, quantity, ,]] = itemStackData
+    // Add type guards to handle malformed data
+    if (!Array.isArray(itemStackData) || itemStackData.length < 2) {
+      continue
+    }
+
+    // itemStackData structure: [index, [itemId, quantity, itemType, durability]]
+    const [, itemInfo] = itemStackData
+    if (!Array.isArray(itemInfo) || itemInfo.length < 2) {
+      continue
+    }
+
+    const quantity = itemInfo[1]
     const safeQuantity = typeof quantity === 'number' ? quantity : 1
     const safeProbability = typeof probability === 'number' ? probability : 0
     expectedItemsPerExtraction += safeQuantity * safeProbability
@@ -315,9 +362,9 @@ function expandLootTable(
  * Convert server extraction recipe to frontend format
  */
 function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: ExtractionRecipeMappingConfig): Recipe {
-  // Convert consumed items (materials) - use prefixed ID
-  const materials = serverRecipe.consumed_item_stacks.map(([itemId, quantity, , ,]) => ({
-    id: `item_${itemId}`, // Add prefix - consumed items are typically items
+  // Convert consumed items (materials) - use prefixed ID based on itemType
+  const materials = serverRecipe.consumed_item_stacks.map(([itemId, quantity, itemType, ,]) => ({
+    id: `${getItemPrefix(itemType)}${itemId}`, // Use correct prefix based on itemType
     qty: quantity || null
   }))
 
@@ -336,9 +383,31 @@ function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: 
   const output: Array<{ item: string; qty: number | number[] | null; probability?: number }> = []
 
   for (const [itemStackData, probability] of serverRecipe.extracted_item_stacks) {
-    // itemStackData is a single array like [0, [itemId, quantity, itemType, durability]]
-    // Extract the item info from the nested structure
-    const [, [itemId, quantity, ,]] = itemStackData
+    // Add type guards to handle malformed data
+    if (!Array.isArray(itemStackData) || itemStackData.length < 2) {
+      console.warn(`⚠️  Skipping malformed itemStackData for recipe ${serverRecipe.id}:`, itemStackData)
+      continue
+    }
+
+    // itemStackData structure: [index, [itemId, quantity, itemType, durability]]
+    const [, itemInfo] = itemStackData
+    if (!Array.isArray(itemInfo) || itemInfo.length < 3) {
+      console.warn(`⚠️  Skipping malformed item info for recipe ${serverRecipe.id}:`, itemInfo)
+      continue
+    }
+
+    // Destructure with proper safety for the actual data structure
+    // Note: TypeScript interface is incomplete - actual data has 4 elements
+    const itemId = itemInfo[0]
+    const quantity = itemInfo[1]
+    const itemType = (itemInfo as any)[2]
+    const durability = (itemInfo as any)[3]
+
+    // Validate that we have the required data
+    if (typeof itemId !== 'number' || typeof quantity !== 'number') {
+      console.warn(`⚠️  Skipping invalid item data for recipe ${serverRecipe.id}:`, { itemId, quantity })
+      continue
+    }
 
     // Check if this is a loot table container
     if (isLootTableContainer(itemId, lookups.serverItems)) {
@@ -347,8 +416,18 @@ function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: 
 
       // Add each expanded item to output
       for (const expandedItem of expandedItems) {
+        // For loot table items, we need to look up their itemType from server data
+        const expandedServerItem = lookups.serverItems[expandedItem.itemId]
+        let expandedItemType = { tag: 'Item' } // Default fallback
+
+        // Try to determine item type from server data context
+        if (expandedServerItem) {
+          // Most loot table items are regular items, but check if it's in cargo data
+          expandedItemType = { tag: 'Item' } // Default to Item for loot table contents
+        }
+
         output.push({
-          item: `item_${expandedItem.itemId}`, // Add prefix - most extracted items are items
+          item: `${getItemPrefix(expandedItemType)}${expandedItem.itemId}`, // Use correct prefix
           qty: expandedItem.quantity || null,
           probability: expandedItem.probability // Calculated effective probability
         })
@@ -356,7 +435,7 @@ function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: 
     } else {
       // Regular item, not a loot table
       output.push({
-        item: `item_${itemId}`, // Add prefix - most extracted items are items
+        item: `${getItemPrefix(itemType)}${itemId}`, // Use correct prefix based on itemType
         qty: quantity || null,
         probability: probability // Include the drop rate/chance
       })
