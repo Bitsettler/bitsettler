@@ -203,14 +203,14 @@ function loadLookupTables(
  * Convert server recipe to frontend format
  */
 function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig): Recipe {
-  // Convert consumed items (materials) - use ID instead of slug
+  // Convert consumed items (materials) - use prefixed ID
   const materials = serverRecipe.consumed_item_stacks.map(([itemId, qty]) => ({
-    id: itemId, // Use the actual server item ID
+    id: `item_${itemId}`, // Add prefix to match the converted items
     qty: qty || null
   }))
 
-  // Convert crafted items (output) - use ID instead of slug
-  const output: Array<{ item: number; qty: number | number[] | null }> = []
+  // Convert crafted items (output) - use prefixed ID
+  const output: Array<{ item: string; qty: number | number[] | null }> = []
 
   for (const tuple of serverRecipe.crafted_item_stacks) {
     const [outputItemId, qty] = tuple
@@ -222,7 +222,7 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
       for (const [, itemStacks] of outputItem.possibilities) {
         for (const [actualItemId, actualQty] of itemStacks) {
           output.push({
-            item: actualItemId, // Use the actual server item ID
+            item: `item_${actualItemId}`, // Add prefix to match the converted items
             qty: actualQty || null
           })
         }
@@ -230,7 +230,7 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
     } else {
       // This is a direct item output
       output.push({
-        item: outputItemId, // Use the actual server item ID
+        item: `item_${outputItemId}`, // Add prefix to match the converted items
         qty: qty || null
       })
     }

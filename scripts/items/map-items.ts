@@ -4,7 +4,7 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 
 interface FrontendItem {
-  id: number
+  id: string
   name: string
   slug: string
   tier: number
@@ -17,6 +17,7 @@ interface ItemMappingConfig {
   sourceFile: string
   outputDir: string
   category: string
+  outputFileName: string
 }
 
 /**
@@ -48,8 +49,11 @@ function toSlug(name: string): string {
  * Convert server item to frontend format
  */
 function convertItem(serverItem: ServerItem, category: string): FrontendItem {
+  // Add category prefix to ID to avoid collisions (category is already singular)
+  const prefixedId = `${category}_${serverItem.id}`
+
   return {
-    id: serverItem.id,
+    id: prefixedId,
     name: serverItem.name,
     slug: toSlug(serverItem.name),
     tier: serverItem.tier,
@@ -114,7 +118,7 @@ function processItems(config: ItemMappingConfig): void {
     frontendItems.sort((a, b) => a.name.localeCompare(b.name))
 
     // Write single JSON file for the category
-    const outputPath = path.join(config.outputDir, `${config.category}.json`)
+    const outputPath = path.join(config.outputDir, config.outputFileName)
     fs.writeFileSync(outputPath, JSON.stringify(frontendItems, null, 2), 'utf-8')
 
     console.log(`\n🎉 Item conversion completed for ${config.category}!`)
@@ -176,17 +180,20 @@ function main(): void {
     {
       sourceFile: path.join(sourceDir, 'global/item_desc.json'),
       outputDir: path.resolve(__dirname, '../../src/data'),
-      category: 'items'
+      category: 'item',
+      outputFileName: 'items.json'
     },
     {
       sourceFile: path.join(sourceDir, 'global/cargo_desc.json'),
       outputDir: path.resolve(__dirname, '../../src/data'),
-      category: 'cargo'
+      category: 'cargo',
+      outputFileName: 'cargo.json'
     },
     {
       sourceFile: path.join(sourceDir, 'global/resource_desc.json'),
       outputDir: path.resolve(__dirname, '../../src/data'),
-      category: 'resources'
+      category: 'resource',
+      outputFileName: 'resources.json'
     }
   ]
 

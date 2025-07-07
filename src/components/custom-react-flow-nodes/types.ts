@@ -2,12 +2,12 @@ export interface Recipe {
   id: number
   name: string
   output: Array<{
-    item: number
+    item: string
     qty: number | number[] | null
     probability?: number // Drop rate/chance for extraction recipes (0-1)
   }>
   requirements: {
-    materials: Array<{ id: number; qty: number | null }>
+    materials: Array<{ id: string; qty: number | null }>
     professions?: string
     tool?: string
     building?: string
@@ -22,6 +22,6 @@ export interface ItemData {
   quantity?: number
   recipes?: Recipe[]
   selectedRecipe?: Recipe | null
-  itemId?: number
+  itemId?: string
   isDone?: boolean
 }

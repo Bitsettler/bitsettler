@@ -25,6 +25,21 @@ interface ServerExtractionRecipe {
   recipe_performance_id: number
 }
 
+// Server item format (to check for loot tables)
+interface ServerItem {
+  id: number
+  name: string
+  item_list_id?: number
+  compendium_entry?: boolean
+}
+
+// Server loot table format
+interface ServerLootTable {
+  id: number
+  name: string
+  possibilities: Array<[number, Array<[number, number, any, any]>]>
+}
+
 interface ExtractionRecipeMappingConfig {
   sourceFile: string
   outputFile: string
@@ -32,6 +47,8 @@ interface ExtractionRecipeMappingConfig {
   itemIdLookup: Record<string, number>
   toolLookup: Record<number, string>
   professionLookup: Record<number, string>
+  lootTableLookup: Record<number, ServerLootTable>
+  serverItems: Record<number, ServerItem>
 }
 
 /**
@@ -68,12 +85,14 @@ function loadLookupTables(
   itemIdLookup: Record<string, number>
   toolLookup: Record<number, string>
   professionLookup: Record<number, string>
+  lootTableLookup: Record<number, ServerLootTable>
+  serverItems: Record<number, ServerItem>
 } {
   try {
     // Load converted item data
-    const itemsPath = path.resolve(__dirname, '../../../src/data/items.json')
-    const cargoPath = path.resolve(__dirname, '../../../src/data/cargo.json')
-    const resourcesPath = path.resolve(__dirname, '../../../src/data/resources.json')
+    const itemsPath = path.resolve(__dirname, '../../src/data/items.json')
+    const cargoPath = path.resolve(__dirname, '../../src/data/cargo.json')
+    const resourcesPath = path.resolve(__dirname, '../../src/data/resources.json')
 
     const items = JSON.parse(fs.readFileSync(itemsPath, 'utf-8'))
     const cargo = JSON.parse(fs.readFileSync(cargoPath, 'utf-8'))
@@ -176,11 +195,37 @@ function loadLookupTables(
       console.log(`✅ Mapped tool: ${toolType.name} (ID: ${toolType.id})`)
     }
 
+    // Load loot tables
+    const lootTablePath = path.join(sourceDir, 'global/item_list_desc.json')
+    const lootTables = JSON.parse(fs.readFileSync(lootTablePath, 'utf-8'))
+    const lootTableLookup: Record<number, ServerLootTable> = {}
+
+    for (const lootTable of lootTables) {
+      lootTableLookup[lootTable.id] = lootTable
+    }
+
+    // Build server items lookup
+    const serverItemsLookup: Record<number, ServerItem> = {}
+    for (const serverItem of serverItems) {
+      serverItemsLookup[serverItem.id] = serverItem
+    }
+    for (const serverCargoItem of serverCargo) {
+      serverItemsLookup[serverCargoItem.id] = serverCargoItem
+    }
+    for (const serverResource of serverResources) {
+      serverItemsLookup[serverResource.id] = serverResource
+    }
+
+    console.log(`📊 Built loot table lookup with ${Object.keys(lootTableLookup).length} tables`)
+    console.log(`📊 Built server items lookup with ${Object.keys(serverItemsLookup).length} items`)
+
     return {
       itemLookup,
       itemIdLookup,
       toolLookup,
-      professionLookup
+      professionLookup,
+      lootTableLookup,
+      serverItems: serverItemsLookup
     }
   } catch (error) {
     console.error('Error loading lookup tables:', error)
@@ -188,34 +233,134 @@ function loadLookupTables(
       itemLookup: {},
       itemIdLookup: {},
       toolLookup: {},
-      professionLookup: {}
+      professionLookup: {},
+      lootTableLookup: {},
+      serverItems: {}
     }
   }
+}
+
+/**
+ * Calculate expected resource quantity needed for extraction
+ */
+function calculateResourceQuantity(
+  extractedItemStacks: Array<[Array<[number, [number, number, any, any]]>, number]>
+): number {
+  // Calculate the expected total items per extraction
+  let expectedItemsPerExtraction = 0
+
+  for (const [itemStackData, probability] of extractedItemStacks) {
+    const [, [, quantity, ,]] = itemStackData
+    const safeQuantity = typeof quantity === 'number' ? quantity : 1
+    const safeProbability = typeof probability === 'number' ? probability : 0
+    expectedItemsPerExtraction += safeQuantity * safeProbability
+  }
+
+  // To get 1 expected item, you need 1/expectedItemsPerExtraction resources
+  // We'll return the inverse, representing resources needed per expected output item
+  return expectedItemsPerExtraction > 0 ? Math.round((1 / expectedItemsPerExtraction) * 100) / 100 : 1
+}
+
+/**
+ * Check if an item is a loot table container
+ */
+function isLootTableContainer(itemId: number, serverItems: Record<number, ServerItem>): boolean {
+  const item = serverItems[itemId]
+  return item?.item_list_id != null
+}
+
+/**
+ * Expand a loot table into actual items with calculated probabilities
+ */
+function expandLootTable(
+  itemId: number,
+  extractionProbability: number,
+  serverItems: Record<number, ServerItem>,
+  lootTableLookup: Record<number, ServerLootTable>
+): Array<{ itemId: number; quantity: number; probability: number }> {
+  const item = serverItems[itemId]
+  if (!item?.item_list_id) {
+    // Not a loot table, return the original item
+    return [{ itemId, quantity: 1, probability: extractionProbability }]
+  }
+
+  const lootTable = lootTableLookup[item.item_list_id]
+  if (!lootTable) {
+    console.warn(`⚠️  Loot table ${item.item_list_id} not found for item ${itemId}`)
+    return [{ itemId, quantity: 1, probability: extractionProbability }]
+  }
+
+  const expandedItems: Array<{ itemId: number; quantity: number; probability: number }> = []
+
+  for (const [lootProbability, itemStacks] of lootTable.possibilities) {
+    for (const [resultItemId, quantity] of itemStacks) {
+      const effectiveProbability = extractionProbability * lootProbability
+      expandedItems.push({
+        itemId: resultItemId,
+        quantity: quantity || 1,
+        probability: effectiveProbability
+      })
+    }
+  }
+
+  console.log(`🎲 Expanded loot table "${lootTable.name}" for item ${itemId}:`)
+  for (const item of expandedItems) {
+    console.log(`   → Item ${item.itemId}: ${(item.probability * 100).toFixed(2)}% chance`)
+  }
+
+  return expandedItems
 }
 
 /**
  * Convert server extraction recipe to frontend format
  */
 function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: ExtractionRecipeMappingConfig): Recipe {
-  // Convert consumed items (materials) - use ID instead of slug
+  // Convert consumed items (materials) - use prefixed ID
   const materials = serverRecipe.consumed_item_stacks.map(([itemId, quantity, , ,]) => ({
-    id: itemId, // Use the actual server item ID
+    id: `item_${itemId}`, // Add prefix - consumed items are typically items
     qty: quantity || null
   }))
 
-  // Convert extracted items (output) - use ID instead of slug
-  const output: Array<{ item: number; qty: number | number[] | null; probability?: number }> = []
+  // Calculate expected resource quantity needed
+  const resourceQuantity = calculateResourceQuantity(serverRecipe.extracted_item_stacks)
+
+  // Add the resource_id as a required material (this is what you extract from)
+  if (serverRecipe.resource_id) {
+    materials.push({
+      id: `resource_${serverRecipe.resource_id}`, // Add prefix for resource
+      qty: resourceQuantity // Expected resources needed per unit of output
+    })
+  }
+
+  // Convert extracted items (output) - handle loot tables
+  const output: Array<{ item: string; qty: number | number[] | null; probability?: number }> = []
 
   for (const [itemStackData, probability] of serverRecipe.extracted_item_stacks) {
     // itemStackData is a single array like [0, [itemId, quantity, itemType, durability]]
     // Extract the item info from the nested structure
     const [, [itemId, quantity, ,]] = itemStackData
 
-    output.push({
-      item: itemId,
-      qty: quantity || null,
-      probability: probability // Include the drop rate/chance
-    })
+    // Check if this is a loot table container
+    if (isLootTableContainer(itemId, lookups.serverItems)) {
+      // Expand loot table into actual items
+      const expandedItems = expandLootTable(itemId, probability, lookups.serverItems, lookups.lootTableLookup)
+
+      // Add each expanded item to output
+      for (const expandedItem of expandedItems) {
+        output.push({
+          item: `item_${expandedItem.itemId}`, // Add prefix - most extracted items are items
+          qty: expandedItem.quantity || null,
+          probability: expandedItem.probability // Calculated effective probability
+        })
+      }
+    } else {
+      // Regular item, not a loot table
+      output.push({
+        item: `item_${itemId}`, // Add prefix - most extracted items are items
+        qty: quantity || null,
+        probability: probability // Include the drop rate/chance
+      })
+    }
   }
 
   // Convert level requirements

@@ -7,8 +7,9 @@ import { Recipe } from '@/lib/types'
 import { useSearchParams } from 'next/navigation'
 
 import cargo from '@/data/cargo.json'
+import extractionRecipes from '@/data/extraction-recipes.json'
 import items from '@/data/items.json'
-import recipes from '@/data/recipes.json'
+import craftingRecipes from '@/data/recipes.json'
 import resources from '@/data/resources.json'
 import { CalculatorItemInfoPanel } from '@/view/calculator-page-view/calculator-item-info-panel'
 import { CalculatorSearchInput } from '@/view/calculator-page-view/calculator-search-input'
@@ -16,9 +17,12 @@ import { CalculatorSearchInput } from '@/view/calculator-page-view/calculator-se
 // Prepare and combine all game data
 const allItems = [...items, ...cargo, ...resources]
 
+// Merge crafting and extraction recipes
+const allRecipes = [...craftingRecipes, ...extractionRecipes] as Recipe[]
+
 const gameData = {
   items: allItems,
-  recipes: recipes as Recipe[]
+  recipes: allRecipes
 }
 
 export default function CalculatorLayout({ children }: { children: React.ReactNode }) {
