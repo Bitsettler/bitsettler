@@ -531,7 +531,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1000",
+          "id": "cargo_1000",
           "qty": 1
         }
       ]
@@ -559,7 +559,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1000",
+          "id": "cargo_1000",
           "qty": 1
         }
       ]
@@ -614,7 +614,7 @@
     },
     "output": [
       {
-        "item": "item_1200",
+        "item": "cargo_1200",
         "qty": 1
       }
     ]
@@ -798,7 +798,7 @@
     },
     "output": [
       {
-        "item": "item_2400",
+        "item": "cargo_2400",
         "qty": 1
       }
     ]
@@ -839,7 +839,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3000",
+          "id": "cargo_3000",
           "qty": 1
         }
       ]
@@ -979,7 +979,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2000",
+          "id": "cargo_2000",
           "qty": 1
         }
       ]
@@ -1399,7 +1399,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_1",
+          "id": "cargo_1",
           "qty": 1
         }
       ]
@@ -1622,7 +1622,7 @@
     },
     "output": [
       {
-        "item": "item_7000",
+        "item": "cargo_7000",
         "qty": 1
       }
     ]
@@ -2210,7 +2210,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6000",
+          "id": "cargo_6000",
           "qty": 1
         }
       ]
@@ -2859,7 +2859,7 @@
     },
     "output": [
       {
-        "item": "item_150000",
+        "item": "cargo_150000",
         "qty": 1
       }
     ]
@@ -2880,7 +2880,7 @@
     },
     "output": [
       {
-        "item": "item_150002",
+        "item": "cargo_150002",
         "qty": 1
       }
     ]
@@ -2900,7 +2900,7 @@
     },
     "output": [
       {
-        "item": "item_150003",
+        "item": "cargo_150003",
         "qty": 1
       }
     ]
@@ -2921,7 +2921,7 @@
     },
     "output": [
       {
-        "item": "item_150005",
+        "item": "cargo_150005",
         "qty": 1
       }
     ]
@@ -2941,7 +2941,7 @@
     },
     "output": [
       {
-        "item": "item_150006",
+        "item": "cargo_150006",
         "qty": 1
       }
     ]
@@ -2961,7 +2961,7 @@
     },
     "output": [
       {
-        "item": "item_160001",
+        "item": "cargo_160001",
         "qty": 1
       }
     ]
@@ -3207,7 +3207,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1001",
+          "id": "cargo_1001",
           "qty": 1
         }
       ]
@@ -3235,7 +3235,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1001",
+          "id": "cargo_1001",
           "qty": 1
         }
       ]
@@ -3270,7 +3270,7 @@
     },
     "output": [
       {
-        "item": "item_1201",
+        "item": "cargo_1201",
         "qty": 1
       }
     ]
@@ -3366,7 +3366,7 @@
     },
     "output": [
       {
-        "item": "item_2401",
+        "item": "cargo_2401",
         "qty": 1
       }
     ]
@@ -3407,7 +3407,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3001",
+          "id": "cargo_3001",
           "qty": 1
         }
       ]
@@ -3547,7 +3547,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2002",
+          "id": "cargo_2002",
           "qty": 1
         }
       ]
@@ -3779,7 +3779,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_2",
+          "id": "cargo_2",
           "qty": 1
         }
       ]
@@ -3956,7 +3956,7 @@
     },
     "output": [
       {
-        "item": "item_7001",
+        "item": "cargo_7001",
         "qty": 1
       }
     ]
@@ -4535,7 +4535,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6001",
+          "id": "cargo_6001",
           "qty": 1
         }
       ]
@@ -5103,7 +5103,7 @@
     },
     "output": [
       {
-        "item": "item_250000",
+        "item": "cargo_250000",
         "qty": 1
       }
     ]
@@ -5124,7 +5124,7 @@
     },
     "output": [
       {
-        "item": "item_250002",
+        "item": "cargo_250002",
         "qty": 1
       }
     ]
@@ -5144,7 +5144,7 @@
     },
     "output": [
       {
-        "item": "item_250004",
+        "item": "cargo_250004",
         "qty": 1
       }
     ]
@@ -5165,7 +5165,7 @@
     },
     "output": [
       {
-        "item": "item_250005",
+        "item": "cargo_250005",
         "qty": 1
       }
     ]
@@ -5185,7 +5185,7 @@
     },
     "output": [
       {
-        "item": "item_250006",
+        "item": "cargo_250006",
         "qty": 1
       }
     ]
@@ -5205,7 +5205,7 @@
     },
     "output": [
       {
-        "item": "item_260001",
+        "item": "cargo_260001",
         "qty": 1
       }
     ]
@@ -5419,7 +5419,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1002",
+          "id": "cargo_1002",
           "qty": 1
         }
       ]
@@ -5447,7 +5447,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1002",
+          "id": "cargo_1002",
           "qty": 1
         }
       ]
@@ -5486,7 +5486,7 @@
     },
     "output": [
       {
-        "item": "item_1202",
+        "item": "cargo_1202",
         "qty": 1
       }
     ]
@@ -5690,7 +5690,7 @@
     },
     "output": [
       {
-        "item": "item_2402",
+        "item": "cargo_2402",
         "qty": 1
       }
     ]
@@ -5731,7 +5731,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3002",
+          "id": "cargo_3002",
           "qty": 1
         }
       ]
@@ -5871,7 +5871,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2003",
+          "id": "cargo_2003",
           "qty": 1
         }
       ]
@@ -6107,7 +6107,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_3",
+          "id": "cargo_3",
           "qty": 1
         }
       ]
@@ -6143,7 +6143,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_4",
+          "id": "cargo_4",
           "qty": 1
         }
       ]
@@ -6179,7 +6179,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_5",
+          "id": "cargo_5",
           "qty": 1
         }
       ]
@@ -6215,7 +6215,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_6",
+          "id": "cargo_6",
           "qty": 1
         }
       ]
@@ -6404,7 +6404,7 @@
     },
     "output": [
       {
-        "item": "item_7002",
+        "item": "cargo_7002",
         "qty": 1
       }
     ]
@@ -6979,7 +6979,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6002",
+          "id": "cargo_6002",
           "qty": 1
         }
       ]
@@ -7543,7 +7543,7 @@
     },
     "output": [
       {
-        "item": "item_350000",
+        "item": "cargo_350000",
         "qty": 1
       }
     ]
@@ -7564,7 +7564,7 @@
     },
     "output": [
       {
-        "item": "item_350002",
+        "item": "cargo_350002",
         "qty": 1
       }
     ]
@@ -7584,7 +7584,7 @@
     },
     "output": [
       {
-        "item": "item_350004",
+        "item": "cargo_350004",
         "qty": 1
       }
     ]
@@ -7605,7 +7605,7 @@
     },
     "output": [
       {
-        "item": "item_350005",
+        "item": "cargo_350005",
         "qty": 1
       }
     ]
@@ -7625,7 +7625,7 @@
     },
     "output": [
       {
-        "item": "item_350006",
+        "item": "cargo_350006",
         "qty": 1
       }
     ]
@@ -7645,7 +7645,7 @@
     },
     "output": [
       {
-        "item": "item_360001",
+        "item": "cargo_360001",
         "qty": 1
       }
     ]
@@ -7884,7 +7884,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1003",
+          "id": "cargo_1003",
           "qty": 1
         }
       ]
@@ -7912,7 +7912,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1003",
+          "id": "cargo_1003",
           "qty": 1
         }
       ]
@@ -7951,7 +7951,7 @@
     },
     "output": [
       {
-        "item": "item_1203",
+        "item": "cargo_1203",
         "qty": 1
       }
     ]
@@ -8059,7 +8059,7 @@
     },
     "output": [
       {
-        "item": "item_2403",
+        "item": "cargo_2403",
         "qty": 1
       }
     ]
@@ -8100,7 +8100,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3003",
+          "id": "cargo_3003",
           "qty": 1
         }
       ]
@@ -8240,7 +8240,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2004",
+          "id": "cargo_2004",
           "qty": 1
         }
       ]
@@ -8476,7 +8476,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_8",
+          "id": "cargo_8",
           "qty": 1
         }
       ]
@@ -8512,7 +8512,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_9",
+          "id": "cargo_9",
           "qty": 1
         }
       ]
@@ -8701,7 +8701,7 @@
     },
     "output": [
       {
-        "item": "item_7003",
+        "item": "cargo_7003",
         "qty": 1
       }
     ]
@@ -9276,7 +9276,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6003",
+          "id": "cargo_6003",
           "qty": 1
         }
       ]
@@ -9856,7 +9856,7 @@
     },
     "output": [
       {
-        "item": "item_450000",
+        "item": "cargo_450000",
         "qty": 1
       }
     ]
@@ -9877,7 +9877,7 @@
     },
     "output": [
       {
-        "item": "item_450002",
+        "item": "cargo_450002",
         "qty": 1
       }
     ]
@@ -9897,7 +9897,7 @@
     },
     "output": [
       {
-        "item": "item_450004",
+        "item": "cargo_450004",
         "qty": 1
       }
     ]
@@ -9918,7 +9918,7 @@
     },
     "output": [
       {
-        "item": "item_450005",
+        "item": "cargo_450005",
         "qty": 1
       }
     ]
@@ -9938,7 +9938,7 @@
     },
     "output": [
       {
-        "item": "item_450006",
+        "item": "cargo_450006",
         "qty": 1
       }
     ]
@@ -9958,7 +9958,7 @@
     },
     "output": [
       {
-        "item": "item_460001",
+        "item": "cargo_460001",
         "qty": 1
       }
     ]
@@ -10172,7 +10172,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1004",
+          "id": "cargo_1004",
           "qty": 1
         }
       ]
@@ -10200,7 +10200,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1004",
+          "id": "cargo_1004",
           "qty": 1
         }
       ]
@@ -10239,7 +10239,7 @@
     },
     "output": [
       {
-        "item": "item_1204",
+        "item": "cargo_1204",
         "qty": 1
       }
     ]
@@ -10315,7 +10315,7 @@
     },
     "output": [
       {
-        "item": "item_2404",
+        "item": "cargo_2404",
         "qty": 1
       }
     ]
@@ -10356,7 +10356,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3004",
+          "id": "cargo_3004",
           "qty": 1
         }
       ]
@@ -10496,7 +10496,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2005",
+          "id": "cargo_2005",
           "qty": 1
         }
       ]
@@ -10732,7 +10732,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_141869841",
+          "id": "cargo_141869841",
           "qty": 1
         }
       ]
@@ -10921,7 +10921,7 @@
     },
     "output": [
       {
-        "item": "item_7004",
+        "item": "cargo_7004",
         "qty": 1
       }
     ]
@@ -11496,7 +11496,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6004",
+          "id": "cargo_6004",
           "qty": 1
         }
       ]
@@ -12076,7 +12076,7 @@
     },
     "output": [
       {
-        "item": "item_550000",
+        "item": "cargo_550000",
         "qty": 1
       }
     ]
@@ -12097,7 +12097,7 @@
     },
     "output": [
       {
-        "item": "item_550002",
+        "item": "cargo_550002",
         "qty": 1
       }
     ]
@@ -12117,7 +12117,7 @@
     },
     "output": [
       {
-        "item": "item_550004",
+        "item": "cargo_550004",
         "qty": 1
       }
     ]
@@ -12138,7 +12138,7 @@
     },
     "output": [
       {
-        "item": "item_550005",
+        "item": "cargo_550005",
         "qty": 1
       }
     ]
@@ -12158,7 +12158,7 @@
     },
     "output": [
       {
-        "item": "item_550006",
+        "item": "cargo_550006",
         "qty": 1
       }
     ]
@@ -12178,7 +12178,7 @@
     },
     "output": [
       {
-        "item": "item_560001",
+        "item": "cargo_560001",
         "qty": 1
       }
     ]
@@ -12372,7 +12372,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1005",
+          "id": "cargo_1005",
           "qty": 1
         }
       ]
@@ -12400,7 +12400,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1005",
+          "id": "cargo_1005",
           "qty": 1
         }
       ]
@@ -12439,7 +12439,7 @@
     },
     "output": [
       {
-        "item": "item_1205",
+        "item": "cargo_1205",
         "qty": 1
       }
     ]
@@ -12515,7 +12515,7 @@
     },
     "output": [
       {
-        "item": "item_2405",
+        "item": "cargo_2405",
         "qty": 1
       }
     ]
@@ -12556,7 +12556,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_3005",
+          "id": "cargo_3005",
           "qty": 1
         }
       ]
@@ -12676,7 +12676,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_2006",
+          "id": "cargo_2006",
           "qty": 1
         }
       ]
@@ -12912,7 +12912,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_11",
+          "id": "cargo_11",
           "qty": 1
         }
       ]
@@ -13060,7 +13060,7 @@
     },
     "output": [
       {
-        "item": "item_7005",
+        "item": "cargo_7005",
         "qty": 1
       }
     ]
@@ -13575,7 +13575,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_6005",
+          "id": "cargo_6005",
           "qty": 1
         }
       ]
@@ -14151,7 +14151,7 @@
     },
     "output": [
       {
-        "item": "item_650000",
+        "item": "cargo_650000",
         "qty": 1
       }
     ]
@@ -14172,7 +14172,7 @@
     },
     "output": [
       {
-        "item": "item_650002",
+        "item": "cargo_650002",
         "qty": 1
       }
     ]
@@ -14192,7 +14192,7 @@
     },
     "output": [
       {
-        "item": "item_650004",
+        "item": "cargo_650004",
         "qty": 1
       }
     ]
@@ -14213,7 +14213,7 @@
     },
     "output": [
       {
-        "item": "item_650005",
+        "item": "cargo_650005",
         "qty": 1
       }
     ]
@@ -14233,7 +14233,7 @@
     },
     "output": [
       {
-        "item": "item_650006",
+        "item": "cargo_650006",
         "qty": 1
       }
     ]
@@ -14253,7 +14253,7 @@
     },
     "output": [
       {
-        "item": "item_660001",
+        "item": "cargo_660001",
         "qty": 1
       }
     ]
@@ -14758,7 +14758,7 @@
     },
     "output": [
       {
-        "item": "item_1219367849",
+        "item": "cargo_1219367849",
         "qty": 1
       }
     ]
@@ -14804,7 +14804,7 @@
     },
     "output": [
       {
-        "item": "item_215164936",
+        "item": "cargo_215164936",
         "qty": 1
       }
     ]
@@ -14982,7 +14982,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4001",
+          "id": "cargo_4001",
           "qty": 1
         }
       ]
@@ -15168,7 +15168,7 @@
     },
     "output": [
       {
-        "item": "item_1297204491",
+        "item": "cargo_1297204491",
         "qty": 1
       }
     ]
@@ -15902,7 +15902,7 @@
     },
     "output": [
       {
-        "item": "item_1989901185",
+        "item": "cargo_1989901185",
         "qty": 1
       }
     ]
@@ -16177,7 +16177,7 @@
     },
     "output": [
       {
-        "item": "item_1076106303",
+        "item": "cargo_1076106303",
         "qty": 1
       }
     ]
@@ -16444,7 +16444,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_192409188",
+          "id": "cargo_192409188",
           "qty": 1
         }
       ]
@@ -17208,7 +17208,7 @@
     },
     "output": [
       {
-        "item": "item_1874690022",
+        "item": "cargo_1874690022",
         "qty": 1
       }
     ]
@@ -17308,7 +17308,7 @@
     },
     "output": [
       {
-        "item": "item_1149474387",
+        "item": "cargo_1149474387",
         "qty": 1
       }
     ]
@@ -17803,7 +17803,7 @@
     },
     "output": [
       {
-        "item": "item_1545224886",
+        "item": "cargo_1545224886",
         "qty": 1
       }
     ]
@@ -18025,7 +18025,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_1954280449",
+          "id": "cargo_1954280449",
           "qty": 1
         }
       ]
@@ -18457,7 +18457,7 @@
     },
     "output": [
       {
-        "item": "item_1256199066",
+        "item": "cargo_1256199066",
         "qty": 1
       }
     ]
@@ -18780,7 +18780,7 @@
     },
     "output": [
       {
-        "item": "item_1473504323",
+        "item": "cargo_1473504323",
         "qty": 1
       }
     ]
@@ -19168,7 +19168,7 @@
     },
     "output": [
       {
-        "item": "item_715636845",
+        "item": "cargo_715636845",
         "qty": 1
       }
     ]
@@ -20505,7 +20505,7 @@
     },
     "output": [
       {
-        "item": "item_430760414",
+        "item": "cargo_430760414",
         "qty": 1
       }
     ]
@@ -20599,7 +20599,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_1237816866",
+          "id": "cargo_1237816866",
           "qty": 1
         }
       ]
@@ -20646,7 +20646,7 @@
     },
     "output": [
       {
-        "item": "item_858083216",
+        "item": "cargo_858083216",
         "qty": 1
       }
     ]
@@ -20691,7 +20691,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_827937528",
+          "id": "cargo_827937528",
           "qty": 1
         }
       ]
@@ -20921,7 +20921,7 @@
     },
     "output": [
       {
-        "item": "item_1811266661",
+        "item": "cargo_1811266661",
         "qty": 1
       }
     ]
@@ -22497,7 +22497,7 @@
     },
     "output": [
       {
-        "item": "item_1645099428",
+        "item": "cargo_1645099428",
         "qty": 1
       }
     ]
@@ -22920,7 +22920,7 @@
     },
     "output": [
       {
-        "item": "item_173938045",
+        "item": "cargo_173938045",
         "qty": 1
       }
     ]
@@ -22945,7 +22945,7 @@
     },
     "output": [
       {
-        "item": "item_1791508890",
+        "item": "cargo_1791508890",
         "qty": 1
       }
     ]
@@ -23928,7 +23928,7 @@
     },
     "output": [
       {
-        "item": "item_2050184559",
+        "item": "cargo_2050184559",
         "qty": 1
       }
     ]
@@ -24012,7 +24012,7 @@
     },
     "output": [
       {
-        "item": "item_1167304009",
+        "item": "cargo_1167304009",
         "qty": 1
       }
     ]
@@ -24159,7 +24159,7 @@
     },
     "output": [
       {
-        "item": "item_1325900577",
+        "item": "cargo_1325900577",
         "qty": 1
       }
     ]
@@ -24232,7 +24232,7 @@
     },
     "output": [
       {
-        "item": "item_1678244395",
+        "item": "cargo_1678244395",
         "qty": 1
       }
     ]
@@ -24554,7 +24554,7 @@
     },
     "output": [
       {
-        "item": "item_1784593653",
+        "item": "cargo_1784593653",
         "qty": 1
       }
     ]
@@ -24599,7 +24599,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_1052901724",
+          "id": "cargo_1052901724",
           "qty": 1
         }
       ]
@@ -26225,7 +26225,7 @@
     },
     "output": [
       {
-        "item": "item_1834928292",
+        "item": "cargo_1834928292",
         "qty": 1
       }
     ]
@@ -26271,7 +26271,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_870566793",
+          "id": "cargo_870566793",
           "qty": 1
         }
       ]
@@ -26469,7 +26469,7 @@
     },
     "output": [
       {
-        "item": "item_2031494957",
+        "item": "cargo_2031494957",
         "qty": 1
       }
     ]
@@ -27027,7 +27027,7 @@
     },
     "output": [
       {
-        "item": "item_68464789",
+        "item": "cargo_68464789",
         "qty": 1
       }
     ]
@@ -27071,7 +27071,7 @@
     },
     "output": [
       {
-        "item": "item_1939907236",
+        "item": "cargo_1939907236",
         "qty": 1
       }
     ]
@@ -27498,7 +27498,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_76399881",
+          "id": "cargo_76399881",
           "qty": 1
         }
       ]
@@ -27750,7 +27750,7 @@
     },
     "output": [
       {
-        "item": "item_503195279",
+        "item": "cargo_503195279",
         "qty": 1
       }
     ]
@@ -27939,7 +27939,7 @@
     },
     "output": [
       {
-        "item": "item_1817314019",
+        "item": "cargo_1817314019",
         "qty": 1
       }
     ]
@@ -28379,7 +28379,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_2141814235",
+          "id": "cargo_2141814235",
           "qty": 1
         }
       ]
@@ -28644,7 +28644,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_7",
+          "id": "cargo_7",
           "qty": 1
         }
       ]
@@ -28763,7 +28763,7 @@
     },
     "output": [
       {
-        "item": "item_602596873",
+        "item": "cargo_602596873",
         "qty": 1
       }
     ]
@@ -29964,7 +29964,7 @@
     },
     "output": [
       {
-        "item": "item_1849328525",
+        "item": "cargo_1849328525",
         "qty": 1
       }
     ]
@@ -31033,7 +31033,7 @@
     },
     "output": [
       {
-        "item": "item_558591220",
+        "item": "cargo_558591220",
         "qty": 1
       }
     ]
@@ -31650,7 +31650,7 @@
     },
     "output": [
       {
-        "item": "item_995872483",
+        "item": "cargo_995872483",
         "qty": 1
       }
     ]
@@ -32061,7 +32061,7 @@
     },
     "output": [
       {
-        "item": "item_2036554187",
+        "item": "cargo_2036554187",
         "qty": 1
       }
     ]
@@ -32085,7 +32085,7 @@
     },
     "output": [
       {
-        "item": "item_631093405",
+        "item": "cargo_631093405",
         "qty": 1
       }
     ]
@@ -32274,7 +32274,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_58757068",
+          "id": "cargo_58757068",
           "qty": 1
         }
       ]
@@ -32557,7 +32557,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_1143621247",
+          "id": "cargo_1143621247",
           "qty": 1
         }
       ]
@@ -32929,7 +32929,7 @@
     },
     "output": [
       {
-        "item": "item_318494855",
+        "item": "cargo_318494855",
         "qty": 1
       }
     ]
@@ -33260,7 +33260,7 @@
     },
     "output": [
       {
-        "item": "item_542839177",
+        "item": "cargo_542839177",
         "qty": 1
       }
     ]
@@ -34276,7 +34276,7 @@
     },
     "output": [
       {
-        "item": "item_392822871",
+        "item": "cargo_392822871",
         "qty": 1
       }
     ]
@@ -36240,7 +36240,7 @@
     },
     "output": [
       {
-        "item": "item_1257581327",
+        "item": "cargo_1257581327",
         "qty": 1
       }
     ]
@@ -37175,7 +37175,7 @@
     },
     "output": [
       {
-        "item": "item_911456665",
+        "item": "cargo_911456665",
         "qty": 1
       }
     ]
@@ -37470,7 +37470,7 @@
     },
     "output": [
       {
-        "item": "item_1785339298",
+        "item": "cargo_1785339298",
         "qty": 1
       }
     ]
@@ -37898,7 +37898,7 @@
     },
     "output": [
       {
-        "item": "item_118221190",
+        "item": "cargo_118221190",
         "qty": 1
       }
     ]
@@ -38175,7 +38175,7 @@
     },
     "output": [
       {
-        "item": "item_1970868786",
+        "item": "cargo_1970868786",
         "qty": 1
       }
     ]
@@ -38196,7 +38196,7 @@
     },
     "output": [
       {
-        "item": "item_423112838",
+        "item": "cargo_423112838",
         "qty": 1
       }
     ]
@@ -38216,7 +38216,7 @@
     },
     "output": [
       {
-        "item": "item_649530050",
+        "item": "cargo_649530050",
         "qty": 1
       }
     ]
@@ -39157,7 +39157,7 @@
     },
     "output": [
       {
-        "item": "item_406649258",
+        "item": "cargo_406649258",
         "qty": 1
       }
     ]
@@ -39205,7 +39205,7 @@
     },
     "output": [
       {
-        "item": "item_928273751",
+        "item": "cargo_928273751",
         "qty": 1
       }
     ]
@@ -39388,7 +39388,7 @@
     },
     "output": [
       {
-        "item": "item_285041017",
+        "item": "cargo_285041017",
         "qty": 1
       }
     ]
@@ -39460,7 +39460,7 @@
     },
     "output": [
       {
-        "item": "item_1566064503",
+        "item": "cargo_1566064503",
         "qty": 1
       }
     ]
@@ -39710,7 +39710,7 @@
     },
     "output": [
       {
-        "item": "item_1199657444",
+        "item": "cargo_1199657444",
         "qty": 1
       }
     ]
@@ -40184,7 +40184,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_587697308",
+          "id": "cargo_587697308",
           "qty": 1
         }
       ]
@@ -40375,7 +40375,7 @@
     },
     "output": [
       {
-        "item": "item_1552106905",
+        "item": "cargo_1552106905",
         "qty": 1
       }
     ]
@@ -40998,7 +40998,7 @@
     },
     "output": [
       {
-        "item": "item_408485354",
+        "item": "cargo_408485354",
         "qty": 1
       }
     ]
@@ -41111,7 +41111,7 @@
     },
     "output": [
       {
-        "item": "item_1130442333",
+        "item": "cargo_1130442333",
         "qty": 1
       }
     ]
@@ -41420,7 +41420,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_962018090",
+          "id": "cargo_962018090",
           "qty": 1
         }
       ]
@@ -41733,7 +41733,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_442004724",
+          "id": "cargo_442004724",
           "qty": 1
         }
       ]
@@ -41789,7 +41789,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_343539652",
+          "id": "cargo_343539652",
           "qty": 1
         }
       ]
@@ -42191,7 +42191,7 @@
     },
     "output": [
       {
-        "item": "item_325062913",
+        "item": "cargo_325062913",
         "qty": 1
       }
     ]
@@ -42733,7 +42733,7 @@
     },
     "output": [
       {
-        "item": "item_700754089",
+        "item": "cargo_700754089",
         "qty": 1
       }
     ]
@@ -42827,7 +42827,7 @@
     },
     "output": [
       {
-        "item": "item_898540348",
+        "item": "cargo_898540348",
         "qty": 1
       }
     ]
@@ -43798,7 +43798,7 @@
     },
     "output": [
       {
-        "item": "item_563167126",
+        "item": "cargo_563167126",
         "qty": 1
       }
     ]
@@ -44180,7 +44180,7 @@
     },
     "output": [
       {
-        "item": "item_1717592399",
+        "item": "cargo_1717592399",
         "qty": 1
       }
     ]
@@ -44587,7 +44587,7 @@
     },
     "output": [
       {
-        "item": "item_1702598806",
+        "item": "cargo_1702598806",
         "qty": 1
       }
     ]
@@ -44708,7 +44708,7 @@
     },
     "output": [
       {
-        "item": "item_1355550411",
+        "item": "cargo_1355550411",
         "qty": 1
       }
     ]
@@ -44809,7 +44809,7 @@
     },
     "output": [
       {
-        "item": "item_589088166",
+        "item": "cargo_589088166",
         "qty": 1
       }
     ]
@@ -45023,7 +45023,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_826930059",
+          "id": "cargo_826930059",
           "qty": 1
         }
       ]
@@ -46312,7 +46312,7 @@
     },
     "output": [
       {
-        "item": "item_302152262",
+        "item": "cargo_302152262",
         "qty": 1
       }
     ]
@@ -46529,7 +46529,7 @@
     },
     "output": [
       {
-        "item": "item_1090747065",
+        "item": "cargo_1090747065",
         "qty": 1
       }
     ]
@@ -46542,7 +46542,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_954664564",
+          "id": "cargo_954664564",
           "qty": 1
         }
       ]
@@ -46724,7 +46724,7 @@
     },
     "output": [
       {
-        "item": "item_358427678",
+        "item": "cargo_358427678",
         "qty": 1
       }
     ]
@@ -47570,7 +47570,7 @@
     },
     "output": [
       {
-        "item": "item_1353316935",
+        "item": "cargo_1353316935",
         "qty": 1
       }
     ]
@@ -47623,7 +47623,7 @@
     },
     "output": [
       {
-        "item": "item_1600887285",
+        "item": "cargo_1600887285",
         "qty": 1
       }
     ]
@@ -47957,7 +47957,7 @@
     },
     "output": [
       {
-        "item": "item_2112363612",
+        "item": "cargo_2112363612",
         "qty": 1
       }
     ]
@@ -48121,7 +48121,7 @@
     },
     "output": [
       {
-        "item": "item_682008419",
+        "item": "cargo_682008419",
         "qty": 1
       }
     ]
@@ -48410,7 +48410,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_2139638761",
+          "id": "cargo_2139638761",
           "qty": 1
         }
       ]
@@ -48561,7 +48561,7 @@
     },
     "output": [
       {
-        "item": "item_888273394",
+        "item": "cargo_888273394",
         "qty": 1
       }
     ]
@@ -48886,7 +48886,7 @@
     },
     "output": [
       {
-        "item": "item_741862367",
+        "item": "cargo_741862367",
         "qty": 1
       }
     ]
@@ -49105,7 +49105,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_10",
+          "id": "cargo_10",
           "qty": 1
         }
       ]
@@ -49314,7 +49314,7 @@
     },
     "output": [
       {
-        "item": "item_341301575",
+        "item": "cargo_341301575",
         "qty": 1
       }
     ]
@@ -49338,7 +49338,7 @@
     },
     "output": [
       {
-        "item": "item_15195543",
+        "item": "cargo_15195543",
         "qty": 1
       }
     ]
@@ -49450,7 +49450,7 @@
     },
     "output": [
       {
-        "item": "item_95258393",
+        "item": "cargo_95258393",
         "qty": 1
       }
     ]
@@ -49720,7 +49720,7 @@
     },
     "output": [
       {
-        "item": "item_474946295",
+        "item": "cargo_474946295",
         "qty": 1
       }
     ]
@@ -49854,7 +49854,7 @@
     },
     "output": [
       {
-        "item": "item_1240047044",
+        "item": "cargo_1240047044",
         "qty": 1
       }
     ]
@@ -50210,7 +50210,7 @@
     },
     "output": [
       {
-        "item": "item_1563500083",
+        "item": "cargo_1563500083",
         "qty": 1
       }
     ]
@@ -50661,7 +50661,7 @@
     },
     "output": [
       {
-        "item": "item_1236479328",
+        "item": "cargo_1236479328",
         "qty": 1
       }
     ]
@@ -51171,7 +51171,7 @@
     },
     "output": [
       {
-        "item": "item_763674218",
+        "item": "cargo_763674218",
         "qty": 1
       }
     ]
@@ -52377,7 +52377,7 @@
     },
     "output": [
       {
-        "item": "item_737787118",
+        "item": "cargo_737787118",
         "qty": 1
       }
     ]
@@ -52726,7 +52726,7 @@
     },
     "output": [
       {
-        "item": "item_1044447676",
+        "item": "cargo_1044447676",
         "qty": 1
       }
     ]
@@ -53137,7 +53137,7 @@
     },
     "output": [
       {
-        "item": "item_660210536",
+        "item": "cargo_660210536",
         "qty": 1
       }
     ]
@@ -54796,7 +54796,7 @@
     },
     "output": [
       {
-        "item": "item_275722091",
+        "item": "cargo_275722091",
         "qty": 1
       }
     ]
@@ -55217,7 +55217,7 @@
     },
     "output": [
       {
-        "item": "item_1537744479",
+        "item": "cargo_1537744479",
         "qty": 1
       }
     ]
@@ -55295,7 +55295,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4003",
+          "id": "cargo_4003",
           "qty": 1
         }
       ]
@@ -55599,7 +55599,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_1558771097",
+          "id": "cargo_1558771097",
           "qty": 1
         }
       ]
@@ -56658,7 +56658,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4004",
+          "id": "cargo_4004",
           "qty": 1
         }
       ]
@@ -56698,7 +56698,7 @@
     },
     "output": [
       {
-        "item": "item_92008547",
+        "item": "cargo_92008547",
         "qty": 1
       }
     ]
@@ -57596,7 +57596,7 @@
     },
     "output": [
       {
-        "item": "item_2056394300",
+        "item": "cargo_2056394300",
         "qty": 1
       }
     ]
@@ -57798,7 +57798,7 @@
     },
     "output": [
       {
-        "item": "item_1650891842",
+        "item": "cargo_1650891842",
         "qty": 1
       }
     ]
@@ -57925,7 +57925,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4000",
+          "id": "cargo_4000",
           "qty": 1
         }
       ]
@@ -58896,7 +58896,7 @@
     },
     "output": [
       {
-        "item": "item_146616436",
+        "item": "cargo_146616436",
         "qty": 1
       }
     ]
@@ -60210,7 +60210,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4002",
+          "id": "cargo_4002",
           "qty": 1
         }
       ]
@@ -60281,7 +60281,7 @@
     },
     "output": [
       {
-        "item": "item_1960857664",
+        "item": "cargo_1960857664",
         "qty": 1
       }
     ]
@@ -60463,7 +60463,7 @@
     },
     "output": [
       {
-        "item": "item_483159161",
+        "item": "cargo_483159161",
         "qty": 1
       }
     ]
@@ -60751,7 +60751,7 @@
     },
     "output": [
       {
-        "item": "item_318715450",
+        "item": "cargo_318715450",
         "qty": 1
       }
     ]
@@ -61688,7 +61688,7 @@
     },
     "output": [
       {
-        "item": "item_2142991097",
+        "item": "cargo_2142991097",
         "qty": 1
       }
     ]
@@ -62164,7 +62164,7 @@
     },
     "output": [
       {
-        "item": "item_429970990",
+        "item": "cargo_429970990",
         "qty": 1
       }
     ]
@@ -62698,7 +62698,7 @@
     },
     "output": [
       {
-        "item": "item_683661636",
+        "item": "cargo_683661636",
         "qty": 1
       }
     ]
@@ -62874,7 +62874,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1885212129",
+          "id": "cargo_1885212129",
           "qty": 1
         }
       ]
@@ -63135,7 +63135,7 @@
     },
     "output": [
       {
-        "item": "item_1084839114",
+        "item": "cargo_1084839114",
         "qty": 1
       }
     ]
@@ -63845,7 +63845,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_1743603212",
+          "id": "cargo_1743603212",
           "qty": 1
         }
       ]
@@ -64182,7 +64182,7 @@
     },
     "output": [
       {
-        "item": "item_1141395882",
+        "item": "cargo_1141395882",
         "qty": 1
       }
     ]
@@ -64701,7 +64701,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_2063391815",
+          "id": "cargo_2063391815",
           "qty": 1
         }
       ]
@@ -65282,7 +65282,7 @@
     },
     "output": [
       {
-        "item": "item_1080157951",
+        "item": "cargo_1080157951",
         "qty": 1
       }
     ]
@@ -65547,7 +65547,7 @@
     },
     "output": [
       {
-        "item": "item_951128402",
+        "item": "cargo_951128402",
         "qty": 1
       }
     ]
@@ -65560,7 +65560,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_1440938837",
+          "id": "cargo_1440938837",
           "qty": 1
         }
       ]
@@ -65664,7 +65664,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_1170732802",
+          "id": "cargo_1170732802",
           "qty": 1
         }
       ]
@@ -65885,7 +65885,7 @@
     },
     "output": [
       {
-        "item": "item_2136010679",
+        "item": "cargo_2136010679",
         "qty": 1
       }
     ]
@@ -65945,7 +65945,7 @@
     },
     "output": [
       {
-        "item": "item_884292413",
+        "item": "cargo_884292413",
         "qty": 1
       }
     ]
@@ -66029,7 +66029,7 @@
     },
     "output": [
       {
-        "item": "item_240804709",
+        "item": "cargo_240804709",
         "qty": 1
       }
     ]
@@ -66049,7 +66049,7 @@
     },
     "output": [
       {
-        "item": "item_619763519",
+        "item": "cargo_619763519",
         "qty": 1
       }
     ]
@@ -66062,7 +66062,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_652981079",
+          "id": "cargo_652981079",
           "qty": 1
         }
       ]
@@ -66861,7 +66861,7 @@
     },
     "output": [
       {
-        "item": "item_897676087",
+        "item": "cargo_897676087",
         "qty": 1
       }
     ]
@@ -68094,7 +68094,7 @@
     },
     "output": [
       {
-        "item": "item_45282003",
+        "item": "cargo_45282003",
         "qty": 1
       }
     ]
@@ -68147,7 +68147,7 @@
     },
     "output": [
       {
-        "item": "item_1757815413",
+        "item": "cargo_1757815413",
         "qty": 1
       }
     ]
@@ -68534,7 +68534,7 @@
     },
     "output": [
       {
-        "item": "item_970827760",
+        "item": "cargo_970827760",
         "qty": 1
       }
     ]
@@ -68778,7 +68778,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_495585314",
+          "id": "cargo_495585314",
           "qty": 1
         }
       ]
@@ -69222,7 +69222,7 @@
     },
     "output": [
       {
-        "item": "item_900126092",
+        "item": "cargo_900126092",
         "qty": 1
       }
     ]
@@ -69307,7 +69307,7 @@
     },
     "output": [
       {
-        "item": "item_1499890756",
+        "item": "cargo_1499890756",
         "qty": 1
       }
     ]
@@ -69573,7 +69573,7 @@
     },
     "output": [
       {
-        "item": "item_1061473254",
+        "item": "cargo_1061473254",
         "qty": 1
       }
     ]
@@ -69658,7 +69658,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_826930059",
+          "id": "cargo_826930059",
           "qty": 1
         }
       ]
@@ -69686,7 +69686,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1872489539",
+          "id": "cargo_1872489539",
           "qty": 1
         }
       ]
@@ -69881,7 +69881,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_1632765422",
+          "id": "cargo_1632765422",
           "qty": 1
         }
       ]
@@ -70534,7 +70534,7 @@
     },
     "output": [
       {
-        "item": "item_401422893",
+        "item": "cargo_401422893",
         "qty": 1
       }
     ]
@@ -71098,7 +71098,7 @@
     },
     "output": [
       {
-        "item": "item_1585122058",
+        "item": "cargo_1585122058",
         "qty": 1
       }
     ]
@@ -71191,7 +71191,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1872489539",
+          "id": "cargo_1872489539",
           "qty": 1
         }
       ]
@@ -71582,7 +71582,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_1885212129",
+          "id": "cargo_1885212129",
           "qty": 1
         }
       ]
@@ -71843,7 +71843,7 @@
     },
     "output": [
       {
-        "item": "item_2090274245",
+        "item": "cargo_2090274245",
         "qty": 1
       }
     ]
@@ -72895,7 +72895,7 @@
     },
     "output": [
       {
-        "item": "item_1935556465",
+        "item": "cargo_1935556465",
         "qty": 1
       }
     ]
@@ -73573,7 +73573,7 @@
     },
     "output": [
       {
-        "item": "item_1734989829",
+        "item": "cargo_1734989829",
         "qty": 1
       }
     ]
@@ -73736,7 +73736,7 @@
       "tool": "axe",
       "materials": [
         {
-          "id": "item_827937528",
+          "id": "cargo_827937528",
           "qty": 1
         }
       ]
@@ -73893,7 +73893,7 @@
     },
     "output": [
       {
-        "item": "item_1144253843",
+        "item": "cargo_1144253843",
         "qty": 1
       }
     ]
@@ -74834,7 +74834,7 @@
       "tool": "bow",
       "materials": [
         {
-          "id": "item_1196702534",
+          "id": "cargo_1196702534",
           "qty": 1
         }
       ]
@@ -76795,7 +76795,7 @@
     },
     "output": [
       {
-        "item": "item_1863123674",
+        "item": "cargo_1863123674",
         "qty": 1
       }
     ]
@@ -77367,7 +77367,7 @@
     },
     "output": [
       {
-        "item": "item_1654222357",
+        "item": "cargo_1654222357",
         "qty": 1
       }
     ]
@@ -77602,7 +77602,7 @@
     },
     "output": [
       {
-        "item": "item_1853253398",
+        "item": "cargo_1853253398",
         "qty": 1
       }
     ]
@@ -77912,7 +77912,7 @@
     },
     "output": [
       {
-        "item": "item_667352556",
+        "item": "cargo_667352556",
         "qty": 1
       }
     ]
@@ -77932,7 +77932,7 @@
     },
     "output": [
       {
-        "item": "item_2205071",
+        "item": "cargo_2205071",
         "qty": 1
       }
     ]
@@ -78881,7 +78881,7 @@
     },
     "output": [
       {
-        "item": "item_734768563",
+        "item": "cargo_734768563",
         "qty": 1
       }
     ]
@@ -79027,7 +79027,7 @@
     },
     "output": [
       {
-        "item": "item_360403214",
+        "item": "cargo_360403214",
         "qty": 1
       }
     ]
@@ -79040,7 +79040,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_4005",
+          "id": "cargo_4005",
           "qty": 1
         }
       ]
@@ -79244,7 +79244,7 @@
       "tool": "pickaxe",
       "materials": [
         {
-          "id": "item_1173828253",
+          "id": "cargo_1173828253",
           "qty": 1
         }
       ]
@@ -80070,7 +80070,7 @@
       "tool": "machete",
       "materials": [
         {
-          "id": "item_1094309053",
+          "id": "cargo_1094309053",
           "qty": 1
         }
       ]
@@ -81936,7 +81936,7 @@
       "tool": "chisel",
       "materials": [
         {
-          "id": "item_1706418122",
+          "id": "cargo_1706418122",
           "qty": 1
         }
       ]
@@ -82044,7 +82044,7 @@
     },
     "output": [
       {
-        "item": "item_175169224",
+        "item": "cargo_175169224",
         "qty": 1
       }
     ]
@@ -82864,7 +82864,7 @@
     },
     "output": [
       {
-        "item": "item_1268700873",
+        "item": "cargo_1268700873",
         "qty": 1
       }
     ]
@@ -83328,7 +83328,7 @@
     },
     "output": [
       {
-        "item": "item_1641266654",
+        "item": "cargo_1641266654",
         "qty": 1
       }
     ]
@@ -83419,7 +83419,7 @@
     },
     "output": [
       {
-        "item": "item_1836028490",
+        "item": "cargo_1836028490",
         "qty": 1
       }
     ]
@@ -83787,7 +83787,7 @@
     },
     "output": [
       {
-        "item": "item_1948570022",
+        "item": "cargo_1948570022",
         "qty": 1
       }
     ]
@@ -87090,7 +87090,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_359813833",
+          "id": "cargo_359813833",
           "qty": 1
         }
       ]
@@ -87177,7 +87177,7 @@
     },
     "output": [
       {
-        "item": "item_1070869485",
+        "item": "cargo_1070869485",
         "qty": 1
       }
     ]
@@ -87417,7 +87417,7 @@
       "tool": "rod",
       "materials": [
         {
-          "id": "item_390639013",
+          "id": "cargo_390639013",
           "qty": 1
         }
       ]

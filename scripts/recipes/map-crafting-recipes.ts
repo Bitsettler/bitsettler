@@ -39,6 +39,42 @@ function getSourceDir(useSample: boolean, __dirname: string): string {
 }
 
 /**
+ * Get the correct item prefix based on item type
+ */
+function getItemPrefix(itemType: any): string {
+  // SpacetimeDB format: [variant_index, variant_data]
+  if (Array.isArray(itemType) && itemType.length >= 1) {
+    const variantIndex = itemType[0]
+    switch (variantIndex) {
+      case 0:
+        return 'item_' // Item variant
+      case 1:
+        return 'cargo_' // Cargo variant
+      default:
+        console.warn(`Unknown item type variant index: ${variantIndex}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Legacy format with tag property
+  if (typeof itemType === 'object' && itemType?.tag) {
+    switch (itemType.tag) {
+      case 'Item':
+        return 'item_'
+      case 'Cargo':
+        return 'cargo_'
+      default:
+        console.warn(`Unknown item type: ${itemType.tag}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Fallback for old format or missing type
+  console.warn(`Unknown item type format:`, itemType, `defaulting to item_`)
+  return 'item_'
+}
+
+/**
  * Load lookup tables by cross-referencing server data with converted data
  */
 function loadLookupTables(
@@ -219,9 +255,9 @@ function loadLookupTables(
  * Convert server recipe to frontend format
  */
 function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig): Recipe {
-  // Convert consumed items (materials) - use prefixed ID
-  const materials = serverRecipe.consumed_item_stacks.map(([itemId, qty]) => ({
-    id: `item_${itemId}`, // Add prefix to match the converted items
+  // Convert consumed items (materials) - use prefixed ID based on itemType
+  const materials = serverRecipe.consumed_item_stacks.map(([itemId, qty, itemTypeData, ,]) => ({
+    id: `${getItemPrefix(itemTypeData)}${itemId}`, // Use correct prefix based on itemType
     qty: qty || null
   }))
 
@@ -229,7 +265,7 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
   const output: Array<{ item: string; qty: number | number[] | null }> = []
 
   for (const tuple of serverRecipe.crafted_item_stacks) {
-    const [outputItemId, qty] = tuple
+    const [outputItemId, qty, itemTypeData] = tuple
 
     // Check if the server item has an item_list_id (is a loot table container)
     const serverItem = lookups.serverItemsLookup[outputItemId]
@@ -241,9 +277,9 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
       if (lootTable) {
         console.log(`🎲 Expanding loot table "${lootTable.name}" for crafting recipe ${serverRecipe.id}`)
         for (const [, itemStacks] of lootTable.possibilities) {
-          for (const [actualItemId, actualQty] of itemStacks) {
+          for (const [actualItemId, actualQty, actualItemTypeData] of itemStacks) {
             output.push({
-              item: `item_${actualItemId}`, // Add prefix to match the converted items
+              item: `${getItemPrefix(actualItemTypeData)}${actualItemId}`, // Use correct prefix based on itemType
               qty: actualQty || qty || null // Use actual quantity or fallback to recipe quantity
             })
           }
@@ -252,14 +288,14 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
         console.warn(`⚠️  Loot table ${serverItem.item_list_id} not found for item ${outputItemId}`)
         // Fallback to the original item
         output.push({
-          item: `item_${outputItemId}`, // Add prefix to match the converted items
+          item: `${getItemPrefix(itemTypeData)}${outputItemId}`, // Use correct prefix based on itemType
           qty: qty || null
         })
       }
     } else {
       // This is a direct item output
       output.push({
-        item: `item_${outputItemId}`, // Add prefix to match the converted items
+        item: `${getItemPrefix(itemTypeData)}${outputItemId}`, // Use correct prefix based on itemType
         qty: qty || null
       })
     }
