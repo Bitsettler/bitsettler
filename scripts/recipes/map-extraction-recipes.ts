@@ -385,9 +385,22 @@ function convertExtractionRecipe(serverRecipe: ServerExtractionRecipe, lookups: 
     tool = 'hands'
   }
 
+  // Create descriptive name by combining verb phrase with resource name
+  let recipeName = serverRecipe.verb_phrase
+  if (serverRecipe.resource_id) {
+    const resourceSlug = lookups.itemLookup[serverRecipe.resource_id]
+    if (resourceSlug) {
+      // Get the display name from the server data
+      const serverResource = lookups.serverItems[serverRecipe.resource_id]
+      if (serverResource) {
+        recipeName = `${serverRecipe.verb_phrase} ${serverResource.name}`
+      }
+    }
+  }
+
   return {
     id: serverRecipe.id,
-    name: serverRecipe.verb_phrase,
+    name: recipeName,
     requirements: {
       professions: profession,
       tool: tool,

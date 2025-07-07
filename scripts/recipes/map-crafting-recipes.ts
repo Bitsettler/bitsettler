@@ -12,6 +12,7 @@ interface RecipeMappingConfig {
   buildingLookup: Record<number, string>
   professionLookup: Record<number, string>
   itemListLookup: Record<number, ServerItemList>
+  serverItemsLookup: Record<number, ServerItem>
 }
 
 /**
@@ -50,12 +51,13 @@ function loadLookupTables(
   buildingLookup: Record<number, string>
   professionLookup: Record<number, string>
   itemListLookup: Record<number, ServerItemList>
+  serverItemsLookup: Record<number, ServerItem>
 } {
   try {
     // Load converted item data
-    const itemsPath = path.resolve(__dirname, '../../../src/data/items.json')
-    const cargoPath = path.resolve(__dirname, '../../../src/data/cargo.json')
-    const resourcesPath = path.resolve(__dirname, '../../../src/data/resources.json')
+    const itemsPath = path.resolve(__dirname, '../../src/data/items.json')
+    const cargoPath = path.resolve(__dirname, '../../src/data/cargo.json')
+    const resourcesPath = path.resolve(__dirname, '../../src/data/resources.json')
 
     const items = JSON.parse(fs.readFileSync(itemsPath, 'utf-8'))
     const cargo = JSON.parse(fs.readFileSync(cargoPath, 'utf-8'))
@@ -80,10 +82,22 @@ function loadLookupTables(
     const buildingLookup: Record<number, string> = {}
     const professionLookup: Record<number, string> = {}
     const itemListLookup: Record<number, ServerItemList> = {}
+    const serverItemsLookup: Record<number, ServerItem> = {}
 
     // Build item list lookup
     for (const itemList of serverItemLists) {
       itemListLookup[itemList.id] = itemList
+    }
+
+    // Build server items lookup
+    for (const serverItem of serverItems) {
+      serverItemsLookup[serverItem.id] = serverItem
+    }
+    for (const serverCargoItem of serverCargo) {
+      serverItemsLookup[serverCargoItem.id] = serverCargoItem
+    }
+    for (const serverResource of serverResources) {
+      serverItemsLookup[serverResource.id] = serverResource
     }
 
     // Build item lookup by matching names between server and converted data
@@ -184,7 +198,8 @@ function loadLookupTables(
       toolLookup,
       buildingLookup,
       professionLookup,
-      itemListLookup
+      itemListLookup,
+      serverItemsLookup
     }
   } catch (error) {
     console.error('Error loading lookup tables:', error)
@@ -194,7 +209,8 @@ function loadLookupTables(
       toolLookup: {},
       buildingLookup: {},
       professionLookup: {},
-      itemListLookup: {}
+      itemListLookup: {},
+      serverItemsLookup: {}
     }
   }
 }
@@ -214,18 +230,31 @@ function convertRecipe(serverRecipe: ServerRecipe, lookups: RecipeMappingConfig)
 
   for (const tuple of serverRecipe.crafted_item_stacks) {
     const [outputItemId, qty] = tuple
-    // Check if this is a recipe output (has item_list_id)
-    const outputItem = lookups.itemListLookup[outputItemId]
 
-    if (outputItem) {
-      // This is a recipe output, look up the actual items it produces
-      for (const [, itemStacks] of outputItem.possibilities) {
-        for (const [actualItemId, actualQty] of itemStacks) {
-          output.push({
-            item: `item_${actualItemId}`, // Add prefix to match the converted items
-            qty: actualQty || null
-          })
+    // Check if the server item has an item_list_id (is a loot table container)
+    const serverItem = lookups.serverItemsLookup[outputItemId]
+
+    if (serverItem?.item_list_id != null) {
+      // This item is a loot table container, expand it to show actual items
+      const lootTable = lookups.itemListLookup[serverItem.item_list_id]
+
+      if (lootTable) {
+        console.log(`🎲 Expanding loot table "${lootTable.name}" for crafting recipe ${serverRecipe.id}`)
+        for (const [, itemStacks] of lootTable.possibilities) {
+          for (const [actualItemId, actualQty] of itemStacks) {
+            output.push({
+              item: `item_${actualItemId}`, // Add prefix to match the converted items
+              qty: actualQty || qty || null // Use actual quantity or fallback to recipe quantity
+            })
+          }
         }
+      } else {
+        console.warn(`⚠️  Loot table ${serverItem.item_list_id} not found for item ${outputItemId}`)
+        // Fallback to the original item
+        output.push({
+          item: `item_${outputItemId}`, // Add prefix to match the converted items
+          qty: qty || null
+        })
       }
     } else {
       // This is a direct item output

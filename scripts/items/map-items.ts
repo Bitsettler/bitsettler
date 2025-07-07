@@ -64,12 +64,20 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
 }
 
 /**
- * Check if an item should be filtered out (recipes, etc.)
+ * Check if an item should be filtered out (recipes, loot tables, etc.)
  */
 function shouldFilterItem(serverItem: ServerItem): boolean {
-  // Only filter out items with "Output" suffix
-  // These are typically recipe outputs rather than actual items
-  return serverItem.name.includes('Output')
+  // Filter out items with "Output" suffix (recipe outputs)
+  if (serverItem.name.includes('Output')) {
+    return true
+  }
+
+  // Filter out items with item_list_id (loot table containers, not actual items)
+  if (serverItem.item_list_id != null && serverItem.item_list_id !== 0) {
+    return true
+  }
+
+  return false
 }
 
 /**

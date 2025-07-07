@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Gather",
+    "name": "Gather Sticks",
     "requirements": {
       "professions": "forestry",
       "tool": "hands",
@@ -22,7 +22,7 @@
   },
   {
     "id": 3,
-    "name": "Chop",
+    "name": "Chop Rotten Log",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -48,7 +48,7 @@
   },
   {
     "id": 4,
-    "name": "Chop",
+    "name": "Chop Rotten Stump",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -74,7 +74,7 @@
   },
   {
     "id": 5,
-    "name": "Chop",
+    "name": "Chop Maple Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -95,7 +95,7 @@
   },
   {
     "id": 6,
-    "name": "Chop",
+    "name": "Chop Pine Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -116,7 +116,7 @@
   },
   {
     "id": 7,
-    "name": "Chop",
+    "name": "Chop Spruce Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -137,7 +137,7 @@
   },
   {
     "id": 8,
-    "name": "Chop",
+    "name": "Chop Oak Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -158,7 +158,7 @@
   },
   {
     "id": 9,
-    "name": "Chop",
+    "name": "Chop Birch Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -179,7 +179,7 @@
   },
   {
     "id": 10,
-    "name": "Chop",
+    "name": "Chop Beech Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -200,7 +200,7 @@
   },
   {
     "id": 11,
-    "name": "Chop",
+    "name": "Chop Dead Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -236,7 +236,7 @@
   },
   {
     "id": 12,
-    "name": "Chop",
+    "name": "Chop Young Beech Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -272,7 +272,7 @@
   },
   {
     "id": 13,
-    "name": "Chop",
+    "name": "Chop Young Birch Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -308,7 +308,7 @@
   },
   {
     "id": 14,
-    "name": "Chop",
+    "name": "Chop Young Oak Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -344,7 +344,7 @@
   },
   {
     "id": 15,
-    "name": "Chop",
+    "name": "Chop Young Spruce Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -380,7 +380,7 @@
   },
   {
     "id": 16,
-    "name": "Chop",
+    "name": "Chop Young Pine Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -416,7 +416,7 @@
   },
   {
     "id": 17,
-    "name": "Chop",
+    "name": "Chop Young Maple Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -452,7 +452,7 @@
   },
   {
     "id": 18,
-    "name": "Chop",
+    "name": "Chop Dendro Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -493,7 +493,7 @@
   },
   {
     "id": 19,
-    "name": "Chop",
+    "name": "Chop Mature Beech Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -534,7 +534,7 @@
   },
   {
     "id": 20,
-    "name": "Chop",
+    "name": "Chop Mature Birch Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -575,7 +575,7 @@
   },
   {
     "id": 21,
-    "name": "Chop",
+    "name": "Chop Mature Oak Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -616,7 +616,7 @@
   },
   {
     "id": 22,
-    "name": "Chop",
+    "name": "Chop Large Stump",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -652,7 +652,7 @@
   },
   {
     "id": 23,
-    "name": "Chop",
+    "name": "Chop Ancient Oak Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -688,7 +688,7 @@
   },
   {
     "id": 24,
-    "name": "Chop",
+    "name": "Chop Gnarled Maple Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -724,7 +724,7 @@
   },
   {
     "id": 25,
-    "name": "Chop",
+    "name": "Chop Mature Maple Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -765,7 +765,7 @@
   },
   {
     "id": 26,
-    "name": "Chop",
+    "name": "Chop Mature Pine Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -806,7 +806,7 @@
   },
   {
     "id": 27,
-    "name": "Chop",
+    "name": "Chop Mature Spruce Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -847,7 +847,7 @@
   },
   {
     "id": 28,
-    "name": "Chop",
+    "name": "Chop Large Fallen Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -883,7 +883,7 @@
   },
   {
     "id": 29,
-    "name": "Chop",
+    "name": "Chop Large Tree Stump",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -919,7 +919,7 @@
   },
   {
     "id": 30,
-    "name": "Chop",
+    "name": "Chop Stunted Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -955,7 +955,7 @@
   },
   {
     "id": 31,
-    "name": "Chop",
+    "name": "Chop Dead Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -991,7 +991,7 @@
   },
   {
     "id": 32,
-    "name": "Chop",
+    "name": "Chop Ancient Pine Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -1032,7 +1032,7 @@
   },
   {
     "id": 33,
-    "name": "Chop",
+    "name": "Chop Mature Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -1073,7 +1073,7 @@
   },
   {
     "id": 34,
-    "name": "Chop",
+    "name": "Chop Ancient Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -1109,7 +1109,7 @@
   },
   {
     "id": 35,
-    "name": "Chop",
+    "name": "Chop Young Baobab Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": 36,
-    "name": "Chop",
+    "name": "Chop Ancient Baobab Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -1181,7 +1181,7 @@
   },
   {
     "id": 37,
-    "name": "Gather",
+    "name": "Gather Flint Pile",
     "requirements": {
       "professions": "mining",
       "tool": "hands",
@@ -1202,7 +1202,7 @@
   },
   {
     "id": 38,
-    "name": "Mine",
+    "name": "Mine Limestone Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1228,7 +1228,7 @@
   },
   {
     "id": 39,
-    "name": "Mine",
+    "name": "Mine Limestone Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1254,7 +1254,7 @@
   },
   {
     "id": 40,
-    "name": "Mine",
+    "name": "Mine Large Limestone Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1280,7 +1280,7 @@
   },
   {
     "id": 41,
-    "name": "Mine",
+    "name": "Mine Large Limestone Rock",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1306,7 +1306,7 @@
   },
   {
     "id": 42,
-    "name": "Mine",
+    "name": "Mine Large Limestone Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1332,7 +1332,7 @@
   },
   {
     "id": 43,
-    "name": "Mine",
+    "name": "Mine Limestone Rock Formation",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1358,7 +1358,7 @@
   },
   {
     "id": 44,
-    "name": "Mine",
+    "name": "Mine Shale Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1384,7 +1384,7 @@
   },
   {
     "id": 45,
-    "name": "Mine",
+    "name": "Mine Shale Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1410,7 +1410,7 @@
   },
   {
     "id": 46,
-    "name": "Mine",
+    "name": "Mine Sandstone Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1436,7 +1436,7 @@
   },
   {
     "id": 47,
-    "name": "Mine",
+    "name": "Mine Sandstone Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1462,7 +1462,7 @@
   },
   {
     "id": 48,
-    "name": "Mine",
+    "name": "Mine Granite Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1488,7 +1488,7 @@
   },
   {
     "id": 49,
-    "name": "Mine",
+    "name": "Mine Granite Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1514,7 +1514,7 @@
   },
   {
     "id": 50,
-    "name": "Mine",
+    "name": "Mine Basalt Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1540,7 +1540,7 @@
   },
   {
     "id": 51,
-    "name": "Mine",
+    "name": "Mine Basalt Stalagmite",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1566,7 +1566,7 @@
   },
   {
     "id": 52,
-    "name": "Mine",
+    "name": "Mine Diorite Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1592,7 +1592,7 @@
   },
   {
     "id": 53,
-    "name": "Mine",
+    "name": "Mine Diorite Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1618,7 +1618,7 @@
   },
   {
     "id": 54,
-    "name": "Mine",
+    "name": "Mine Marble Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1644,7 +1644,7 @@
   },
   {
     "id": 55,
-    "name": "Mine",
+    "name": "Mine Marble Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1670,7 +1670,7 @@
   },
   {
     "id": 56,
-    "name": "Mine",
+    "name": "Mine Ferralith Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1696,7 +1696,7 @@
   },
   {
     "id": 57,
-    "name": "Mine",
+    "name": "Mine Ferralith Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1722,7 +1722,7 @@
   },
   {
     "id": 58,
-    "name": "Mine",
+    "name": "Mine Rich Ferralith Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1748,7 +1748,7 @@
   },
   {
     "id": 59,
-    "name": "Mine",
+    "name": "Mine Pyrelite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1774,7 +1774,7 @@
   },
   {
     "id": 60,
-    "name": "Mine",
+    "name": "Mine Emarium Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1800,7 +1800,7 @@
   },
   {
     "id": 61,
-    "name": "Mine",
+    "name": "Mine Elenvar Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1826,7 +1826,7 @@
   },
   {
     "id": 62,
-    "name": "Mine",
+    "name": "Mine Luminite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1852,7 +1852,7 @@
   },
   {
     "id": 63,
-    "name": "Mine",
+    "name": "Mine Rathium Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -1878,7 +1878,7 @@
   },
   {
     "id": 64,
-    "name": "Dig",
+    "name": "Dig Mud Mound",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -1904,7 +1904,7 @@
   },
   {
     "id": 65,
-    "name": "Dig",
+    "name": "Dig Clay Mound",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -1930,7 +1930,7 @@
   },
   {
     "id": 66,
-    "name": "Dig",
+    "name": "Dig Earthenware Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -1956,7 +1956,7 @@
   },
   {
     "id": 67,
-    "name": "Dig",
+    "name": "Dig Fine Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -1982,7 +1982,7 @@
   },
   {
     "id": 68,
-    "name": "Dig",
+    "name": "Dig Kaolinite Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2008,7 +2008,7 @@
   },
   {
     "id": 69,
-    "name": "Dig",
+    "name": "Dig Bentonite Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2034,7 +2034,7 @@
   },
   {
     "id": 70,
-    "name": "Gather",
+    "name": "Gather Wild Grains",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2049,7 +2049,7 @@
   },
   {
     "id": 71,
-    "name": "Gather",
+    "name": "Gather Strawberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2075,7 +2075,7 @@
   },
   {
     "id": 72,
-    "name": "Gather",
+    "name": "Gather Button Mushrooms",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2096,7 +2096,7 @@
   },
   {
     "id": 73,
-    "name": "Gather",
+    "name": "Gather Blackberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2122,7 +2122,7 @@
   },
   {
     "id": 74,
-    "name": "Gather",
+    "name": "Gather Oyster Mushrooms",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2143,7 +2143,7 @@
   },
   {
     "id": 75,
-    "name": "Gather",
+    "name": "Gather Prickly Pear",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2169,7 +2169,7 @@
   },
   {
     "id": 76,
-    "name": "Gather",
+    "name": "Gather Juniper Berry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2195,7 +2195,7 @@
   },
   {
     "id": 77,
-    "name": "Gather",
+    "name": "Gather Chanterelles",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2216,7 +2216,7 @@
   },
   {
     "id": 78,
-    "name": "Gather",
+    "name": "Gather Honeyberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2242,7 +2242,7 @@
   },
   {
     "id": 79,
-    "name": "Gather",
+    "name": "Gather Morel Mushrooms",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2263,7 +2263,7 @@
   },
   {
     "id": 80,
-    "name": "Gather",
+    "name": "Gather Truffle Patch",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2284,7 +2284,7 @@
   },
   {
     "id": 81,
-    "name": "Gather",
+    "name": "Gather King Trumpet",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2305,7 +2305,7 @@
   },
   {
     "id": 82,
-    "name": "Gather",
+    "name": "Gather Cloudberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2331,7 +2331,7 @@
   },
   {
     "id": 83,
-    "name": "Gather",
+    "name": "Gather Ghost Mushroom",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2352,7 +2352,7 @@
   },
   {
     "id": 84,
-    "name": "Gather",
+    "name": "Gather Citriformis",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2373,7 +2373,7 @@
   },
   {
     "id": 85,
-    "name": "Gather",
+    "name": "Gather Dandelions",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2394,7 +2394,7 @@
   },
   {
     "id": 86,
-    "name": "Gather",
+    "name": "Gather Daisies",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2415,7 +2415,7 @@
   },
   {
     "id": 87,
-    "name": "Gather",
+    "name": "Gather Lavender",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2436,7 +2436,7 @@
   },
   {
     "id": 88,
-    "name": "Gather",
+    "name": "Gather Lavender Cluster",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2457,7 +2457,7 @@
   },
   {
     "id": 89,
-    "name": "Gather",
+    "name": "Gather Small Lavender Cluster",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2478,7 +2478,7 @@
   },
   {
     "id": 90,
-    "name": "Gather",
+    "name": "Gather Bluebell",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2499,7 +2499,7 @@
   },
   {
     "id": 91,
-    "name": "Gather",
+    "name": "Gather Aloe",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2520,7 +2520,7 @@
   },
   {
     "id": 92,
-    "name": "Gather",
+    "name": "Gather Peppermint",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2541,7 +2541,7 @@
   },
   {
     "id": 93,
-    "name": "Gather",
+    "name": "Gather Snowdrop Flowers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2562,7 +2562,7 @@
   },
   {
     "id": 94,
-    "name": "Gather",
+    "name": "Gather Marigold",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2583,7 +2583,7 @@
   },
   {
     "id": 95,
-    "name": "Gather",
+    "name": "Gather Thyme",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2604,7 +2604,7 @@
   },
   {
     "id": 96,
-    "name": "Gather",
+    "name": "Gather Morning Glory",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2625,7 +2625,7 @@
   },
   {
     "id": 97,
-    "name": "Gather",
+    "name": "Gather Desert Rose",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2646,7 +2646,7 @@
   },
   {
     "id": 98,
-    "name": "Gather",
+    "name": "Gather Rosemary",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2667,7 +2667,7 @@
   },
   {
     "id": 99,
-    "name": "Gather",
+    "name": "Gather Fireweed",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2688,7 +2688,7 @@
   },
   {
     "id": 100,
-    "name": "Gather",
+    "name": "Gather White Lily",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2709,7 +2709,7 @@
   },
   {
     "id": 101,
-    "name": "Gather",
+    "name": "Gather Ghost Thyme",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2730,7 +2730,7 @@
   },
   {
     "id": 102,
-    "name": "Gather",
+    "name": "Gather Golden Witlow",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2751,7 +2751,7 @@
   },
   {
     "id": 103,
-    "name": "Gather",
+    "name": "Gather King of the Alps",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2772,7 +2772,7 @@
   },
   {
     "id": 123,
-    "name": "Gather",
+    "name": "Gather Ferns",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2793,7 +2793,7 @@
   },
   {
     "id": 125,
-    "name": "Gather",
+    "name": "Gather Pine Weed",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2814,7 +2814,7 @@
   },
   {
     "id": 126,
-    "name": "Gather",
+    "name": "Gather Grassy Reeds",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2835,7 +2835,7 @@
   },
   {
     "id": 127,
-    "name": "Gather",
+    "name": "Gather Reindeer Lichen",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2856,7 +2856,7 @@
   },
   {
     "id": 128,
-    "name": "Gather",
+    "name": "Gather Ghost Succulent",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2877,7 +2877,7 @@
   },
   {
     "id": 129,
-    "name": "Gather",
+    "name": "Gather Bullrushes",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2898,7 +2898,7 @@
   },
   {
     "id": 130,
-    "name": "Gather",
+    "name": "Gather Spanish Moss",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2919,7 +2919,7 @@
   },
   {
     "id": 131,
-    "name": "Gather",
+    "name": "Gather Thorny Stump",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2940,7 +2940,7 @@
   },
   {
     "id": 132,
-    "name": "Gather",
+    "name": "Gather Brambles",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2961,7 +2961,7 @@
   },
   {
     "id": 133,
-    "name": "Gather",
+    "name": "Gather Heather",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -2982,7 +2982,7 @@
   },
   {
     "id": 134,
-    "name": "Gather",
+    "name": "Gather Large Brambles",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3003,7 +3003,7 @@
   },
   {
     "id": 135,
-    "name": "Gather",
+    "name": "Gather Arctic Grass",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3024,7 +3024,7 @@
   },
   {
     "id": 136,
-    "name": "Gather",
+    "name": "Gather Pink Lilies",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3045,7 +3045,7 @@
   },
   {
     "id": 137,
-    "name": "Gather",
+    "name": "Gather Ancient Thorns",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3066,7 +3066,7 @@
   },
   {
     "id": 138,
-    "name": "Gather",
+    "name": "Gather Rough Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3097,7 +3097,7 @@
   },
   {
     "id": 139,
-    "name": "Gather",
+    "name": "Gather Simple Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3128,7 +3128,7 @@
   },
   {
     "id": 140,
-    "name": "Gather",
+    "name": "Gather Neat Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3159,7 +3159,7 @@
   },
   {
     "id": 141,
-    "name": "Gather",
+    "name": "Gather Fine Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3190,7 +3190,7 @@
   },
   {
     "id": 142,
-    "name": "Gather",
+    "name": "Gather Exquisite Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3221,7 +3221,7 @@
   },
   {
     "id": 143,
-    "name": "Gather",
+    "name": "Gather Peerless Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -3252,7 +3252,7 @@
   },
   {
     "id": 144,
-    "name": "Mine",
+    "name": "Mine Gem Encrusted Stalagmite",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -3288,7 +3288,7 @@
   },
   {
     "id": 145,
-    "name": "Dig",
+    "name": "Dig Fossils",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3309,7 +3309,7 @@
   },
   {
     "id": 146,
-    "name": "Dig",
+    "name": "Dig Sandcovered Fossils",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3330,7 +3330,7 @@
   },
   {
     "id": 148,
-    "name": "Dig Up",
+    "name": "Dig Up Wild Starbulb Plant",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3345,7 +3345,7 @@
   },
   {
     "id": 150,
-    "name": "Chip",
+    "name": "Chip Salt Deposit",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -3438,7 +3438,7 @@
   },
   {
     "id": 100001,
-    "name": "Mine",
+    "name": "Mine Rubble",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -3453,7 +3453,7 @@
   },
   {
     "id": 100002,
-    "name": "Chop",
+    "name": "Chop Root",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -3468,7 +3468,7 @@
   },
   {
     "id": 100003,
-    "name": "Chop",
+    "name": "Chop Vines",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3483,7 +3483,7 @@
   },
   {
     "id": 100004,
-    "name": "Open",
+    "name": "Open Ancient Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3502,7 +3502,7 @@
   },
   {
     "id": 100009,
-    "name": "Open",
+    "name": "Open Complicated Ancient Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3521,7 +3521,7 @@
   },
   {
     "id": 100010,
-    "name": "Open",
+    "name": "Open Ancient Door ",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3536,7 +3536,7 @@
   },
   {
     "id": 100011,
-    "name": "Open",
+    "name": "Open Ancient Door   ",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3551,7 +3551,7 @@
   },
   {
     "id": 100012,
-    "name": "Mine",
+    "name": "Mine Large Rubble",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -3566,7 +3566,7 @@
   },
   {
     "id": 100013,
-    "name": "Open",
+    "name": "Open Ancient Brazier",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3585,7 +3585,7 @@
   },
   {
     "id": 100014,
-    "name": "Open",
+    "name": "Open Ancient Brazier ",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3604,7 +3604,7 @@
   },
   {
     "id": 100015,
-    "name": "Pickup",
+    "name": "Pickup Hexite Aurumite Axe",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3619,7 +3619,7 @@
   },
   {
     "id": 100016,
-    "name": "Mine",
+    "name": "Mine Collapsed Pillars",
     "requirements": {
       "professions": "masonry",
       "tool": "mallet",
@@ -3634,7 +3634,7 @@
   },
   {
     "id": 100017,
-    "name": "Open",
+    "name": "Open Wooden Brazier",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3653,7 +3653,7 @@
   },
   {
     "id": 100018,
-    "name": "Mine",
+    "name": "Mine Rubble T2",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -3668,7 +3668,7 @@
   },
   {
     "id": 100019,
-    "name": "Chop",
+    "name": "Chop Root T2",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -3683,7 +3683,7 @@
   },
   {
     "id": 100020,
-    "name": "Cut",
+    "name": "Cut Vines T2",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -3698,7 +3698,7 @@
   },
   {
     "id": 100021,
-    "name": "Open",
+    "name": "Open Wooden Brazier ",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3717,7 +3717,7 @@
   },
   {
     "id": 100022,
-    "name": "Mine",
+    "name": "Mine Collapsed Pillar",
     "requirements": {
       "professions": "masonry",
       "tool": "mallet",
@@ -3732,7 +3732,7 @@
   },
   {
     "id": 100023,
-    "name": "Read",
+    "name": "Read Ancient Adventurer's Letter",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3747,7 +3747,7 @@
   },
   {
     "id": 100024,
-    "name": "Read",
+    "name": "Read Ancient Trapsmith's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3762,7 +3762,7 @@
   },
   {
     "id": 100025,
-    "name": "Read",
+    "name": "Read Baffled Adventurer's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3777,7 +3777,7 @@
   },
   {
     "id": 100026,
-    "name": "Read",
+    "name": "Read Apprehensive Adventurer's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3792,7 +3792,7 @@
   },
   {
     "id": 100027,
-    "name": "Read",
+    "name": "Read Helpful Adventurer's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3807,7 +3807,7 @@
   },
   {
     "id": 100028,
-    "name": "Take",
+    "name": "Take Key Pedestal",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3822,7 +3822,7 @@
   },
   {
     "id": 100029,
-    "name": "Open",
+    "name": "Open Intricate Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3841,7 +3841,7 @@
   },
   {
     "id": 100030,
-    "name": "Read",
+    "name": "Read Ancient Adventurer's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3856,7 +3856,7 @@
   },
   {
     "id": 100031,
-    "name": "Open",
+    "name": "Open Ornate Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3875,7 +3875,7 @@
   },
   {
     "id": 100032,
-    "name": "Power",
+    "name": "Power Powered Door Contraption",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3894,7 +3894,7 @@
   },
   {
     "id": 100033,
-    "name": "Power",
+    "name": "Power Overloaded Door Contraption",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3913,7 +3913,7 @@
   },
   {
     "id": 100034,
-    "name": "Open",
+    "name": "Open Energy Source",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3928,7 +3928,7 @@
   },
   {
     "id": 100035,
-    "name": "Take",
+    "name": "Take Ornate Key Pedestal",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3943,7 +3943,7 @@
   },
   {
     "id": 100036,
-    "name": "Power",
+    "name": "Power Unpowered Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3962,7 +3962,7 @@
   },
   {
     "id": 100037,
-    "name": "Power",
+    "name": "Power Partially Powered Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3981,7 +3981,7 @@
   },
   {
     "id": 100038,
-    "name": "Take",
+    "name": "Take Advanced Key Pedestal",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -3996,7 +3996,7 @@
   },
   {
     "id": 100039,
-    "name": "Take",
+    "name": "Take Power Source",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4011,7 +4011,7 @@
   },
   {
     "id": 100040,
-    "name": "Repair",
+    "name": "Repair Broken Power Source",
     "requirements": {
       "professions": "masonry",
       "tool": "chisel",
@@ -4030,7 +4030,7 @@
   },
   {
     "id": 100041,
-    "name": "Destroy",
+    "name": "Destroy Collapsed Marble Pillars",
     "requirements": {
       "professions": "masonry",
       "tool": "chisel",
@@ -4045,7 +4045,7 @@
   },
   {
     "id": 100042,
-    "name": "Open",
+    "name": "Open Advanced Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4064,7 +4064,7 @@
   },
   {
     "id": 100043,
-    "name": "Take",
+    "name": "Take Left Power Core Pedestal",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4079,7 +4079,7 @@
   },
   {
     "id": 100044,
-    "name": "Open",
+    "name": "Open Runic Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4094,7 +4094,7 @@
   },
   {
     "id": 100045,
-    "name": "Open",
+    "name": "Open Runic Door ",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4109,7 +4109,7 @@
   },
   {
     "id": 100046,
-    "name": "Destroy",
+    "name": "Destroy Trap Rubble",
     "requirements": {
       "professions": "masonry",
       "tool": "chisel",
@@ -4124,7 +4124,7 @@
   },
   {
     "id": 100047,
-    "name": "Power",
+    "name": "Power Mysterious Contraption",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4143,7 +4143,7 @@
   },
   {
     "id": 100048,
-    "name": "Mine",
+    "name": "Mine Rubble T3",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -4158,7 +4158,7 @@
   },
   {
     "id": 100049,
-    "name": "Chop",
+    "name": "Chop Root T3",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4173,7 +4173,7 @@
   },
   {
     "id": 100050,
-    "name": "Cut",
+    "name": "Cut Vines T3",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -4188,7 +4188,7 @@
   },
   {
     "id": 100051,
-    "name": "Take",
+    "name": "Take Enadarite Stand",
     "requirements": {
       "professions": "scholar",
       "tool": "hands",
@@ -4203,7 +4203,7 @@
   },
   {
     "id": 100052,
-    "name": "Take",
+    "name": "Take Key Mold Pedestal",
     "requirements": {
       "professions": "scholar",
       "tool": "hands",
@@ -4218,7 +4218,7 @@
   },
   {
     "id": 100053,
-    "name": "Open",
+    "name": "Open Enadarite Door",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4237,7 +4237,7 @@
   },
   {
     "id": 100054,
-    "name": "Take",
+    "name": "Take Right Power Core Pedestal",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -4252,7 +4252,7 @@
   },
   {
     "id": 1000028,
-    "name": "Chop",
+    "name": "Chop Large Fallen Tree Stump",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4288,7 +4288,7 @@
   },
   {
     "id": 1000029,
-    "name": "Chop",
+    "name": "Chop Fallen Grove Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4324,7 +4324,7 @@
   },
   {
     "id": 1010000,
-    "name": "Chop",
+    "name": "Chop Planted Oak Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4345,7 +4345,7 @@
   },
   {
     "id": 1010001,
-    "name": "Chop",
+    "name": "Chop Planted Birch Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4366,7 +4366,7 @@
   },
   {
     "id": 1010002,
-    "name": "Chop",
+    "name": "Chop Planted Beech Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4387,7 +4387,7 @@
   },
   {
     "id": 1011000,
-    "name": "Chop",
+    "name": "Chop Planted Beech Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4423,7 +4423,7 @@
   },
   {
     "id": 1011001,
-    "name": "Chop",
+    "name": "Chop Planted Birch Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4459,7 +4459,7 @@
   },
   {
     "id": 1011002,
-    "name": "Chop",
+    "name": "Chop Planted Oak Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4495,7 +4495,7 @@
   },
   {
     "id": 1012000,
-    "name": "Chop",
+    "name": "Chop Fully Grown Beech Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4536,7 +4536,7 @@
   },
   {
     "id": 1012001,
-    "name": "Chop",
+    "name": "Chop Fully Grown Birch Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4577,7 +4577,7 @@
   },
   {
     "id": 1012002,
-    "name": "Chop",
+    "name": "Chop Fully Grown Oak Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4618,7 +4618,7 @@
   },
   {
     "id": 1095000,
-    "name": "Catch",
+    "name": "Catch Silken Hexmoths",
     "requirements": {
       "professions": "hunting",
       "tool": "hands",
@@ -4644,7 +4644,7 @@
   },
   {
     "id": 1110000,
-    "name": "Fish",
+    "name": "Fish Moonlit Crawdads",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4665,7 +4665,7 @@
   },
   {
     "id": 1110001,
-    "name": "Fish",
+    "name": "Fish School Of Breezy Fin Darters ",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4690,7 +4690,7 @@
   },
   {
     "id": 1110002,
-    "name": "Chum",
+    "name": "Chum School Of Oceancrest Marlins",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4709,7 +4709,7 @@
   },
   {
     "id": 1110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Oceancrest Marlins",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4730,7 +4730,7 @@
   },
   {
     "id": 1110004,
-    "name": "Net Fish",
+    "name": "Net Fish Seaside Clam",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4751,7 +4751,7 @@
   },
   {
     "id": 2018631,
-    "name": "Chop",
+    "name": "Chop Planted Dendro Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -4772,7 +4772,7 @@
   },
   {
     "id": 2050000,
-    "name": "Mine",
+    "name": "Mine Garden Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -4798,7 +4798,7 @@
   },
   {
     "id": 2050001,
-    "name": "Mine",
+    "name": "Mine Large Garden Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -4824,7 +4824,7 @@
   },
   {
     "id": 2050002,
-    "name": "Mine",
+    "name": "Mine Large Pyrelite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -4850,7 +4850,7 @@
   },
   {
     "id": 2050003,
-    "name": "Mine",
+    "name": "Mine Medium Pyrelite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -4876,7 +4876,7 @@
   },
   {
     "id": 2110000,
-    "name": "Fish",
+    "name": "Fish Driftwood Crayfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4897,7 +4897,7 @@
   },
   {
     "id": 2110001,
-    "name": "Fish",
+    "name": "Fish School Of Emberfin Shiners",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4922,7 +4922,7 @@
   },
   {
     "id": 2110002,
-    "name": "Chum",
+    "name": "Chum School Of Serpentfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4941,7 +4941,7 @@
   },
   {
     "id": 2110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Serpentfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4962,7 +4962,7 @@
   },
   {
     "id": 2110004,
-    "name": "Net Fish",
+    "name": "Net Fish Tough Shelled Mussel",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -4983,7 +4983,7 @@
   },
   {
     "id": 3010000,
-    "name": "Chop",
+    "name": "Chop Planted Maple Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5004,7 +5004,7 @@
   },
   {
     "id": 3010001,
-    "name": "Chop",
+    "name": "Chop Planted Pine Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5025,7 +5025,7 @@
   },
   {
     "id": 3010002,
-    "name": "Chop",
+    "name": "Chop Planted Spruce Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5046,7 +5046,7 @@
   },
   {
     "id": 3010003,
-    "name": "Chop",
+    "name": "Chop Planted Willow Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5067,7 +5067,7 @@
   },
   {
     "id": 3011000,
-    "name": "Chop",
+    "name": "Chop Planted Spruce Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5103,7 +5103,7 @@
   },
   {
     "id": 3011001,
-    "name": "Chop",
+    "name": "Chop Planted Pine Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5139,7 +5139,7 @@
   },
   {
     "id": 3011002,
-    "name": "Chop",
+    "name": "Chop Planted Maple Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5175,7 +5175,7 @@
   },
   {
     "id": 3011003,
-    "name": "Chop",
+    "name": "Chop Planted Willow Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5211,7 +5211,7 @@
   },
   {
     "id": 3012000,
-    "name": "Chop",
+    "name": "Chop Fully Grown Maple Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5252,7 +5252,7 @@
   },
   {
     "id": 3012001,
-    "name": "Chop",
+    "name": "Chop Fully Grown Pine Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5293,7 +5293,7 @@
   },
   {
     "id": 3012002,
-    "name": "Chop",
+    "name": "Chop Fully Grown Spruce Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5334,7 +5334,7 @@
   },
   {
     "id": 3012003,
-    "name": "Chop",
+    "name": "Chop Fully Grown Willow Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5375,7 +5375,7 @@
   },
   {
     "id": 3050000,
-    "name": "Mine",
+    "name": "Mine Medium Emarium Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5401,7 +5401,7 @@
   },
   {
     "id": 3050001,
-    "name": "Mine",
+    "name": "Mine Large Emarium Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5427,7 +5427,7 @@
   },
   {
     "id": 3110000,
-    "name": "Fish",
+    "name": "Fish Hunchback Prawns",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5448,7 +5448,7 @@
   },
   {
     "id": 3110001,
-    "name": "Fish",
+    "name": "Fish School Of Coralcrest Darter",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5473,7 +5473,7 @@
   },
   {
     "id": 3110002,
-    "name": "Chum",
+    "name": "Chum School Of Wavecrest Eels",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5492,7 +5492,7 @@
   },
   {
     "id": 3110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Wavecrest Eels",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5513,7 +5513,7 @@
   },
   {
     "id": 3110004,
-    "name": "Net Fish",
+    "name": "Net Fish Pearlback Snail",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5534,7 +5534,7 @@
   },
   {
     "id": 4010003,
-    "name": "Chop",
+    "name": "Chop Planted Cypress Sapling",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5555,7 +5555,7 @@
   },
   {
     "id": 4011003,
-    "name": "Chop",
+    "name": "Chop Planted Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5591,7 +5591,7 @@
   },
   {
     "id": 4012003,
-    "name": "Chop",
+    "name": "Chop Fully Grown Cypress Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -5632,7 +5632,7 @@
   },
   {
     "id": 4050000,
-    "name": "Mine",
+    "name": "Mine Garden Pillar",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5658,7 +5658,7 @@
   },
   {
     "id": 4050001,
-    "name": "Mine",
+    "name": "Mine Garden Formation",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5684,7 +5684,7 @@
   },
   {
     "id": 4050002,
-    "name": "Mine",
+    "name": "Mine Rocky Garden Pillar",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5710,7 +5710,7 @@
   },
   {
     "id": 4050003,
-    "name": "Mine",
+    "name": "Mine Rocky Garden Pillars",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5736,7 +5736,7 @@
   },
   {
     "id": 4050004,
-    "name": "Mine",
+    "name": "Mine Rocky Garden Formation",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5762,7 +5762,7 @@
   },
   {
     "id": 4050005,
-    "name": "Mine",
+    "name": "Mine Diorite Pillar",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5788,7 +5788,7 @@
   },
   {
     "id": 4050006,
-    "name": "Mine",
+    "name": "Mine Large Rocky Garden Pillars",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5814,7 +5814,7 @@
   },
   {
     "id": 4050007,
-    "name": "Mine",
+    "name": "Mine Large Rocky Garden Formations",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5840,7 +5840,7 @@
   },
   {
     "id": 4110000,
-    "name": "Fish",
+    "name": "Fish Pygmy Lobsters",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5861,7 +5861,7 @@
   },
   {
     "id": 4110001,
-    "name": "Fish",
+    "name": "Fish School Of Mossfin Chub",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5886,7 +5886,7 @@
   },
   {
     "id": 4110002,
-    "name": "Chum",
+    "name": "Chum School Of Seastorm Tuna",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5905,7 +5905,7 @@
   },
   {
     "id": 4110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Seastorm Tuna",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5926,7 +5926,7 @@
   },
   {
     "id": 4110004,
-    "name": "Net Fish",
+    "name": "Net Fish Crystal Shell Scallop",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -5947,7 +5947,7 @@
   },
   {
     "id": 5050000,
-    "name": "Mine",
+    "name": "Mine Garden Pillar Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5973,7 +5973,7 @@
   },
   {
     "id": 5050001,
-    "name": "Mine",
+    "name": "Mine Garden Formation Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -5999,7 +5999,7 @@
   },
   {
     "id": 5050002,
-    "name": "Mine",
+    "name": "Mine Diorite Pillar Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6025,7 +6025,7 @@
   },
   {
     "id": 5110000,
-    "name": "Fish",
+    "name": "Fish Golden Crawfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6046,7 +6046,7 @@
   },
   {
     "id": 5110001,
-    "name": "Fish",
+    "name": "Fish School Of Emberscale Sturgeon",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6071,7 +6071,7 @@
   },
   {
     "id": 5110002,
-    "name": "Chum",
+    "name": "Chum School Of Azure Sharks",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6090,7 +6090,7 @@
   },
   {
     "id": 5110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Azure Sharks",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6111,7 +6111,7 @@
   },
   {
     "id": 5110004,
-    "name": "Net Fish",
+    "name": "Net Fish Armored Reef Clam",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6132,7 +6132,7 @@
   },
   {
     "id": 6110000,
-    "name": "Fish",
+    "name": "Fish Sunrise Shrimp",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6153,7 +6153,7 @@
   },
   {
     "id": 6110001,
-    "name": "Fish",
+    "name": "Fish School Of Hexfin Perch",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6178,7 +6178,7 @@
   },
   {
     "id": 6110002,
-    "name": "Chum",
+    "name": "Chum School Of Abyssal Swordfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6197,7 +6197,7 @@
   },
   {
     "id": 6110003,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Abyssal Swordfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6218,7 +6218,7 @@
   },
   {
     "id": 6110004,
-    "name": "Net Fish",
+    "name": "Net Fish Abyssal Oyster",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6239,7 +6239,7 @@
   },
   {
     "id": 28073362,
-    "name": "Mine",
+    "name": "Mine Tier 7 Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6265,7 +6265,7 @@
   },
   {
     "id": 44747026,
-    "name": "Gather",
+    "name": "Gather Traveler's Fruit",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -6280,7 +6280,7 @@
   },
   {
     "id": 61701399,
-    "name": "Gather",
+    "name": "Gather Russala",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6301,7 +6301,7 @@
   },
   {
     "id": 72350648,
-    "name": "Gather",
+    "name": "Gather Pristine Mushroom",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6322,7 +6322,7 @@
   },
   {
     "id": 76713978,
-    "name": "Dig",
+    "name": "Dig Flawless Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6343,7 +6343,7 @@
   },
   {
     "id": 86745700,
-    "name": "Mine",
+    "name": "Mine Pyrelite Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6369,7 +6369,7 @@
   },
   {
     "id": 113858023,
-    "name": "Mine",
+    "name": "Mine Medium Rathium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6395,7 +6395,7 @@
   },
   {
     "id": 153129370,
-    "name": "Mine",
+    "name": "Mine Tier 8 Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6421,7 +6421,7 @@
   },
   {
     "id": 199949224,
-    "name": "Mine",
+    "name": "Mine Astralite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6447,7 +6447,7 @@
   },
   {
     "id": 215732709,
-    "name": "Gather",
+    "name": "Gather Jute",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6468,7 +6468,7 @@
   },
   {
     "id": 216686925,
-    "name": "Dig",
+    "name": "Dig Ornate Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6494,7 +6494,7 @@
   },
   {
     "id": 268632318,
-    "name": "Gather",
+    "name": "Gather Tier 9 Flower",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6515,7 +6515,7 @@
   },
   {
     "id": 302798978,
-    "name": "Gather",
+    "name": "Gather Ornate Berry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6541,7 +6541,7 @@
   },
   {
     "id": 304798021,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Flawless Ocean Fish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -6583,7 +6583,7 @@
   },
   {
     "id": 333428949,
-    "name": "Chop",
+    "name": "Chop Rosewood Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -6619,7 +6619,7 @@
   },
   {
     "id": 333503414,
-    "name": "Mine",
+    "name": "Mine Tier 8 Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6645,7 +6645,7 @@
   },
   {
     "id": 350808417,
-    "name": "Mine",
+    "name": "Mine Luminite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6671,7 +6671,7 @@
   },
   {
     "id": 377144201,
-    "name": "Gather",
+    "name": "Gather Tier 10 Fibers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6692,7 +6692,7 @@
   },
   {
     "id": 379818652,
-    "name": "Mine",
+    "name": "Mine Medium Astralite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6718,7 +6718,7 @@
   },
   {
     "id": 396814979,
-    "name": "Gather",
+    "name": "Gather Yellow Apricot Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6744,7 +6744,7 @@
   },
   {
     "id": 400447965,
-    "name": "Mine",
+    "name": "Mine Tier 10 Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6770,7 +6770,7 @@
   },
   {
     "id": 455815760,
-    "name": "Mine",
+    "name": "Mine Celestium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6796,7 +6796,7 @@
   },
   {
     "id": 463926431,
-    "name": "Mine",
+    "name": "Mine Medium Ferralith Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -6822,7 +6822,7 @@
   },
   {
     "id": 529872437,
-    "name": "Gather",
+    "name": "Gather Tier 7 Fibers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6843,7 +6843,7 @@
   },
   {
     "id": 552100844,
-    "name": "Gather",
+    "name": "Gather Tier 7 Flower",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6864,7 +6864,7 @@
   },
   {
     "id": 573778226,
-    "name": "Chop",
+    "name": "Chop Planted Dendro Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -6900,7 +6900,7 @@
   },
   {
     "id": 576232325,
-    "name": "Absorb",
+    "name": "Absorb Overwhelming Hexite Energy Font",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -6919,7 +6919,7 @@
   },
   {
     "id": 583358138,
-    "name": "Dig",
+    "name": "Dig Magnificient Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -6940,7 +6940,7 @@
   },
   {
     "id": 609137392,
-    "name": "Read",
+    "name": "Read Terrified Adventurer's Note",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -6955,7 +6955,7 @@
   },
   {
     "id": 616423819,
-    "name": "Chop",
+    "name": "Chop Tier 10 Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -6991,7 +6991,7 @@
   },
   {
     "id": 618164587,
-    "name": "Mine",
+    "name": "Mine Emarium Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7017,7 +7017,7 @@
   },
   {
     "id": 625806020,
-    "name": "Dig",
+    "name": "Dig Olivine Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7038,7 +7038,7 @@
   },
   {
     "id": 629658781,
-    "name": "Gather",
+    "name": "Gather Cranberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7064,7 +7064,7 @@
   },
   {
     "id": 636895886,
-    "name": "Gather",
+    "name": "Gather Pristine Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -7095,7 +7095,7 @@
   },
   {
     "id": 644407358,
-    "name": "Mine",
+    "name": "Mine Medium Umbracite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7121,7 +7121,7 @@
   },
   {
     "id": 653316482,
-    "name": "Gather",
+    "name": "Gather Daisy",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7142,7 +7142,7 @@
   },
   {
     "id": 653449777,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Tidebreaker Barracuda",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7163,7 +7163,7 @@
   },
   {
     "id": 657903749,
-    "name": "Destroy",
+    "name": "Destroy Jakyl Den",
     "requirements": {
       "professions": "any",
       "tool": "mallet",
@@ -7178,7 +7178,7 @@
   },
   {
     "id": 687466155,
-    "name": "Gather",
+    "name": "Gather Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7204,7 +7204,7 @@
   },
   {
     "id": 729673178,
-    "name": "Chop",
+    "name": "Chop Sapwood Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -7240,7 +7240,7 @@
   },
   {
     "id": 747261493,
-    "name": "Mine",
+    "name": "Mine Emarium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7266,7 +7266,7 @@
   },
   {
     "id": 747837548,
-    "name": "Fish",
+    "name": "Fish Misty Crustacean",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7287,7 +7287,7 @@
   },
   {
     "id": 771982743,
-    "name": "Gather",
+    "name": "Gather Tier 8 Flower",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7308,7 +7308,7 @@
   },
   {
     "id": 783360638,
-    "name": "Gather",
+    "name": "Gather Dewberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7334,7 +7334,7 @@
   },
   {
     "id": 795125398,
-    "name": "Dig",
+    "name": "Dig Ornate Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7355,7 +7355,7 @@
   },
   {
     "id": 809093509,
-    "name": "Chum",
+    "name": "Chum School Of Flawless Ocean Fish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7374,7 +7374,7 @@
   },
   {
     "id": 811427422,
-    "name": "Gather",
+    "name": "Gather Bamboo",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7395,7 +7395,7 @@
   },
   {
     "id": 830755920,
-    "name": "Dig",
+    "name": "Dig Pristine Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7421,7 +7421,7 @@
   },
   {
     "id": 854631002,
-    "name": "Chum",
+    "name": "Chum School Of Magnificient Ocean Fish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7440,7 +7440,7 @@
   },
   {
     "id": 867133238,
-    "name": "Mine",
+    "name": "Mine Umbracite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7466,7 +7466,7 @@
   },
   {
     "id": 867258717,
-    "name": "Mine",
+    "name": "Mine Tier 7 Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7492,7 +7492,7 @@
   },
   {
     "id": 885026581,
-    "name": "Dig",
+    "name": "Dig Coral Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7513,7 +7513,7 @@
   },
   {
     "id": 892592002,
-    "name": "Mine",
+    "name": "Mine Elenvar Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7539,7 +7539,7 @@
   },
   {
     "id": 898184037,
-    "name": "Gather",
+    "name": "Gather Black Fig Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7565,7 +7565,7 @@
   },
   {
     "id": 910384691,
-    "name": "Gather",
+    "name": "Gather Ornate Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -7596,7 +7596,7 @@
   },
   {
     "id": 914281297,
-    "name": "Gather",
+    "name": "Gather Pristine Berry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7622,7 +7622,7 @@
   },
   {
     "id": 929961662,
-    "name": "Mine",
+    "name": "Mine Umbracite Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7648,7 +7648,7 @@
   },
   {
     "id": 975522317,
-    "name": "Chop",
+    "name": "Chop Ficus Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -7684,7 +7684,7 @@
   },
   {
     "id": 982924690,
-    "name": "Gather",
+    "name": "Gather Mistberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7710,7 +7710,7 @@
   },
   {
     "id": 1012559172,
-    "name": "Mine",
+    "name": "Mine Ferralith Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7736,7 +7736,7 @@
   },
   {
     "id": 1028776331,
-    "name": "Gather",
+    "name": "Gather Flawless Mushroom",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7757,7 +7757,7 @@
   },
   {
     "id": 1049132649,
-    "name": "Chum",
+    "name": "Chum School Of Mysterious Anglerfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7776,7 +7776,7 @@
   },
   {
     "id": 1057686694,
-    "name": "Mine",
+    "name": "Mine Medium Luminite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7802,7 +7802,7 @@
   },
   {
     "id": 1081427584,
-    "name": "Chop",
+    "name": "Chop Windswept Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -7838,7 +7838,7 @@
   },
   {
     "id": 1099367840,
-    "name": "Fish",
+    "name": "Fish Sparkling Prawn",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7859,7 +7859,7 @@
   },
   {
     "id": 1114644287,
-    "name": "Chop",
+    "name": "Chop Wisteria Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -7895,7 +7895,7 @@
   },
   {
     "id": 1143894781,
-    "name": "Mine",
+    "name": "Mine Medium Pyrelite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -7921,7 +7921,7 @@
   },
   {
     "id": 1163901183,
-    "name": "Dig",
+    "name": "Dig Clay Termite Mound",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7947,7 +7947,7 @@
   },
   {
     "id": 1205481710,
-    "name": "Chum",
+    "name": "Chum School Of Tidebreaker Barracuda",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -7966,7 +7966,7 @@
   },
   {
     "id": 1232802582,
-    "name": "Gather",
+    "name": "Gather Seaweed",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -7987,7 +7987,7 @@
   },
   {
     "id": 1248150585,
-    "name": "Gather",
+    "name": "Gather Indigo Milk Cap",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8008,7 +8008,7 @@
   },
   {
     "id": 1250648291,
-    "name": "Mine",
+    "name": "Mine Aurumite Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8034,7 +8034,7 @@
   },
   {
     "id": 1267234481,
-    "name": "Chop",
+    "name": "Chop Fully Grown Dendro Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -8075,7 +8075,7 @@
   },
   {
     "id": 1270272982,
-    "name": "Mine",
+    "name": "Mine Elenvar Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8101,7 +8101,7 @@
   },
   {
     "id": 1282858906,
-    "name": "Mine",
+    "name": "Mine Astralite Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8127,7 +8127,7 @@
   },
   {
     "id": 1288166058,
-    "name": "Mine",
+    "name": "Mine Tier 10 Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8153,7 +8153,7 @@
   },
   {
     "id": 1341695047,
-    "name": "Gather",
+    "name": "Gather Palmetto",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8174,7 +8174,7 @@
   },
   {
     "id": 1344636817,
-    "name": "Gather",
+    "name": "Gather Tier 10 Flower",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8195,7 +8195,7 @@
   },
   {
     "id": 1346335742,
-    "name": "Mine",
+    "name": "Mine Rathium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8221,7 +8221,7 @@
   },
   {
     "id": 1347187799,
-    "name": "Mine",
+    "name": "Mine Tier 9 Outcrop",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8247,7 +8247,7 @@
   },
   {
     "id": 1357469578,
-    "name": "Dig",
+    "name": "Dig Crystalized Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8268,7 +8268,7 @@
   },
   {
     "id": 1384627091,
-    "name": "Mine",
+    "name": "Mine Medium Elenvar Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8294,7 +8294,7 @@
   },
   {
     "id": 1389008737,
-    "name": "Gather",
+    "name": "Gather Flawless Berry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8320,7 +8320,7 @@
   },
   {
     "id": 1391523281,
-    "name": "Absorb",
+    "name": "Absorb Strong Hexite Energy Font",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -8339,7 +8339,7 @@
   },
   {
     "id": 1421385357,
-    "name": "Gather",
+    "name": "Gather Magnificient Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -8370,7 +8370,7 @@
   },
   {
     "id": 1429800397,
-    "name": "Mine",
+    "name": "Mine Rathium Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8417,7 +8417,7 @@
   },
   {
     "id": 1468082989,
-    "name": "Mine",
+    "name": "Mine Medium Aurumite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8443,7 +8443,7 @@
   },
   {
     "id": 1482311916,
-    "name": "Gather",
+    "name": "Gather Flawless Hieroglyphs",
     "requirements": {
       "professions": "scholar",
       "tool": "quill",
@@ -8474,7 +8474,7 @@
   },
   {
     "id": 1498068948,
-    "name": "Fish",
+    "name": "Fish Magnificient Baitfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -8495,7 +8495,7 @@
   },
   {
     "id": 1534389193,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Mysterious Anglerfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -8516,7 +8516,7 @@
   },
   {
     "id": 1635796919,
-    "name": "Mine",
+    "name": "Mine Aurumite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8542,7 +8542,7 @@
   },
   {
     "id": 1643523237,
-    "name": "Dig",
+    "name": "Dig Garnet Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8563,7 +8563,7 @@
   },
   {
     "id": 1664207130,
-    "name": "Fish",
+    "name": "Fish School Of Rainbowscaled Tilapia",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -8588,7 +8588,7 @@
   },
   {
     "id": 1669221499,
-    "name": "Absorb",
+    "name": "Absorb Hexite Energy Font",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -8607,7 +8607,7 @@
   },
   {
     "id": 1686518947,
-    "name": "Dig",
+    "name": "Dig Rough Sand Pile",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8628,7 +8628,7 @@
   },
   {
     "id": 1689731010,
-    "name": "Absorb",
+    "name": "Absorb Powerful Hexite Energy Font",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -8668,7 +8668,7 @@
   },
   {
     "id": 1728862076,
-    "name": "Gather",
+    "name": "Gather Magnificient Berry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8694,7 +8694,7 @@
   },
   {
     "id": 1732423052,
-    "name": "Gather",
+    "name": "Gather Blueberry Bush",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8720,7 +8720,7 @@
   },
   {
     "id": 1738353862,
-    "name": "Mine",
+    "name": "Mine Aurumite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8746,7 +8746,7 @@
   },
   {
     "id": 1739885301,
-    "name": "Chop",
+    "name": "Chop Tier 7 Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -8782,7 +8782,7 @@
   },
   {
     "id": 1742764067,
-    "name": "Chop",
+    "name": "Chop Mature Sapwood Tree",
     "requirements": {
       "professions": "forestry",
       "tool": "axe",
@@ -8818,7 +8818,7 @@
   },
   {
     "id": 1774028752,
-    "name": "Mine",
+    "name": "Mine Luminite Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8844,7 +8844,7 @@
   },
   {
     "id": 1776847080,
-    "name": "Mine",
+    "name": "Mine Medium Celestium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -8870,7 +8870,7 @@
   },
   {
     "id": 1778168385,
-    "name": "Dig",
+    "name": "Dig Flawless Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8896,7 +8896,7 @@
   },
   {
     "id": 1798019273,
-    "name": "Gather",
+    "name": "Gather Enoki",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8917,7 +8917,7 @@
   },
   {
     "id": 1804248726,
-    "name": "Gather",
+    "name": "Gather Tier 9 Fibers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8938,7 +8938,7 @@
   },
   {
     "id": 1814132892,
-    "name": "Fish",
+    "name": "Fish Frenzied School Of Magnificient Ocean Fish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -8959,7 +8959,7 @@
   },
   {
     "id": 1828401949,
-    "name": "Gather",
+    "name": "Gather Ornate Mushroom",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -8980,7 +8980,7 @@
   },
   {
     "id": 1889474738,
-    "name": "Mine",
+    "name": "Mine Pyrelite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9006,7 +9006,7 @@
   },
   {
     "id": 1932296108,
-    "name": "Mine",
+    "name": "Mine Ferralith Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9032,7 +9032,7 @@
   },
   {
     "id": 1941847716,
-    "name": "Fish",
+    "name": "Fish Flawless Baitfish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -9053,7 +9053,7 @@
   },
   {
     "id": 1944938244,
-    "name": "Fish",
+    "name": "Fish School Of Magnificient Lake Fish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -9078,7 +9078,7 @@
   },
   {
     "id": 1959014177,
-    "name": "Fish",
+    "name": "Fish School Of Speedy Glowfin",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -9103,7 +9103,7 @@
   },
   {
     "id": 1964372810,
-    "name": "Mine",
+    "name": "Mine Umbracite Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9129,7 +9129,7 @@
   },
   {
     "id": 1975877319,
-    "name": "Mine",
+    "name": "Mine Tier 9 Boulder",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9155,7 +9155,7 @@
   },
   {
     "id": 1981602240,
-    "name": "Absorb",
+    "name": "Absorb Faint Hexite Energy Font",
     "requirements": {
       "professions": "any",
       "tool": "hands",
@@ -9174,7 +9174,7 @@
   },
   {
     "id": 2004377377,
-    "name": "Mine",
+    "name": "Mine Celestium Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9200,7 +9200,7 @@
   },
   {
     "id": 2020965244,
-    "name": "Mine",
+    "name": "Mine Celestium Outcrop Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9226,7 +9226,7 @@
   },
   {
     "id": 2027254142,
-    "name": "Mine",
+    "name": "Mine Astralite Vein",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9252,7 +9252,7 @@
   },
   {
     "id": 2029583735,
-    "name": "Gather",
+    "name": "Gather Magnificient Mushroom",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -9273,7 +9273,7 @@
   },
   {
     "id": 2031513682,
-    "name": "Dig",
+    "name": "Dig Desert Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -9294,7 +9294,7 @@
   },
   {
     "id": 2038499281,
-    "name": "Dig",
+    "name": "Dig Magnificient Clay",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -9320,7 +9320,7 @@
   },
   {
     "id": 2046456984,
-    "name": "Fish",
+    "name": "Fish School Of Flawless Lakefish",
     "requirements": {
       "professions": "fishing",
       "tool": "rod",
@@ -9345,7 +9345,7 @@
   },
   {
     "id": 2083012478,
-    "name": "Dig",
+    "name": "Dig Pristine Sand",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -9366,7 +9366,7 @@
   },
   {
     "id": 2084103997,
-    "name": "Mine",
+    "name": "Mine Medium Emarium Vein Interior",
     "requirements": {
       "professions": "mining",
       "tool": "pickaxe",
@@ -9392,7 +9392,7 @@
   },
   {
     "id": 2111640252,
-    "name": "Gather",
+    "name": "Gather Elephant Fibers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
@@ -9413,7 +9413,7 @@
   },
   {
     "id": 2132688746,
-    "name": "Gather",
+    "name": "Gather Tier 8 Fibers",
     "requirements": {
       "professions": "foraging",
       "tool": "machete",
