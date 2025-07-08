@@ -11,6 +11,7 @@ interface FrontendItem {
   rarity: string
   category: string
   description: string
+  icon_asset_name: string
 }
 
 interface ItemMappingConfig {
@@ -59,7 +60,8 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
     tier: serverItem.tier,
     rarity: mapRarity(serverItem.rarity),
     category,
-    description: serverItem.description || 'No description available'
+    description: serverItem.description || 'No description available',
+    icon_asset_name: serverItem.icon_asset_name || ''
   }
 }
 

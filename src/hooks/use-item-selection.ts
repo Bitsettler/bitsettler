@@ -9,6 +9,7 @@ export interface Item {
   rarity: string
   category: string
   description: string
+  icon_asset_name: string
 }
 
 interface UseItemSelectionProps {

@@ -6,7 +6,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AbyssalOyster"
   },
   {
     "id": "resource_207",
@@ -15,7 +16,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_203",
@@ -24,7 +26,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_93",
@@ -33,7 +36,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Aloe"
   },
   {
     "id": "resource_185",
@@ -42,7 +46,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_194",
@@ -51,7 +56,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_36",
@@ -60,7 +66,8 @@
     "tier": 7,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_163",
@@ -69,7 +76,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_171",
@@ -78,7 +86,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_172",
@@ -87,7 +96,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_34",
@@ -96,7 +106,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeAncient"
   },
   {
     "id": "resource_162",
@@ -105,7 +116,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_168",
@@ -114,7 +126,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_169",
@@ -123,7 +136,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_165",
@@ -132,7 +146,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_23",
@@ -141,7 +156,8 @@
     "tier": 6,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeAncient"
   },
   {
     "id": "resource_32",
@@ -150,7 +166,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeAncient"
   },
   {
     "id": "resource_164",
@@ -159,7 +176,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_139",
@@ -168,7 +186,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AncientThorns"
   },
   {
     "id": "resource_186",
@@ -177,7 +196,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_166",
@@ -186,7 +206,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_188",
@@ -195,7 +216,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_137",
@@ -204,7 +226,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/RedArcticGrass"
   },
   {
     "id": "resource_5110004",
@@ -213,7 +236,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/ArmoredReefClam"
   },
   {
     "id": "resource_370078223",
@@ -222,7 +246,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1526350171",
@@ -231,7 +256,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1606770008",
@@ -240,7 +266,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1747556974",
@@ -249,7 +276,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1357154092",
@@ -258,7 +286,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_2073862342",
@@ -267,7 +296,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_1689263994",
@@ -276,7 +306,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_139483458",
@@ -285,7 +316,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_2031243337",
@@ -294,7 +326,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_411376268",
@@ -303,7 +336,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_187",
@@ -312,7 +346,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_473828668",
@@ -321,7 +356,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Bamboo"
   },
   {
     "id": "resource_52",
@@ -330,7 +366,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT4"
   },
   {
     "id": "resource_53",
@@ -339,7 +376,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BasaltStalagmite"
   },
   {
     "id": "resource_10",
@@ -348,7 +386,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeSapling"
   },
   {
     "id": "resource_71",
@@ -357,7 +396,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT6"
   },
   {
     "id": "resource_9",
@@ -366,7 +406,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeSapling"
   },
   {
     "id": "resource_1954847232",
@@ -375,7 +416,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_75",
@@ -384,7 +426,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BushBlackberry"
   },
   {
     "id": "resource_92",
@@ -393,7 +436,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Bluebell"
   },
   {
     "id": "resource_715451185",
@@ -402,7 +446,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/JuniperBerryBush"
   },
   {
     "id": "resource_134",
@@ -411,7 +456,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Brambles"
   },
   {
     "id": "resource_174",
@@ -420,7 +466,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_205",
@@ -429,7 +476,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_131",
@@ -438,7 +486,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Bullrushes"
   },
   {
     "id": "resource_2",
@@ -447,7 +496,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Bush"
   },
   {
     "id": "resource_74",
@@ -456,7 +506,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT1"
   },
   {
     "id": "resource_20857160",
@@ -465,7 +516,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_2140754992",
@@ -474,7 +526,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_1332797261",
@@ -483,7 +536,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_1162923141",
@@ -492,7 +546,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_71559749",
@@ -501,7 +556,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_79",
@@ -510,7 +566,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT2"
   },
   {
     "id": "resource_86",
@@ -519,7 +576,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Citriformis"
   },
   {
     "id": "resource_67",
@@ -528,7 +586,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT2"
   },
   {
     "id": "resource_702104027",
@@ -537,7 +596,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BentoniteClay"
   },
   {
     "id": "resource_84",
@@ -546,7 +606,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CloudberryBush"
   },
   {
     "id": "resource_206",
@@ -555,7 +616,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_184",
@@ -564,7 +626,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_176",
@@ -573,7 +636,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_167",
@@ -582,7 +646,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_1691492474",
@@ -591,7 +656,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_368570220",
@@ -600,7 +666,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BushBlackberry"
   },
   {
     "id": "resource_4110004",
@@ -609,7 +676,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CrystalShellScallop"
   },
   {
     "id": "resource_1180909566",
@@ -618,7 +686,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_88",
@@ -627,7 +696,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WildDaisies"
   },
   {
     "id": "resource_2144918116",
@@ -636,7 +706,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Daisy"
   },
   {
     "id": "resource_87",
@@ -645,7 +716,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WildDandelion"
   },
   {
     "id": "resource_31",
@@ -654,7 +726,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeYoung"
   },
   {
     "id": "resource_11",
@@ -663,7 +736,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DeadTree"
   },
   {
     "id": "resource_18",
@@ -672,7 +746,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DendroTreeYoung"
   },
   {
     "id": "resource_501",
@@ -681,7 +756,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/DepletedResource"
   },
   {
     "id": "resource_500",
@@ -690,7 +766,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/DepletedResource"
   },
   {
     "id": "resource_99",
@@ -699,7 +776,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DesertRose"
   },
   {
     "id": "resource_999376882",
@@ -708,7 +786,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_1467799531",
@@ -717,7 +796,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_55",
@@ -726,7 +806,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DioriteBoulder"
   },
   {
     "id": "resource_54",
@@ -735,7 +816,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT5"
   },
   {
     "id": "resource_4050005",
@@ -744,7 +826,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DioritePillar"
   },
   {
     "id": "resource_5050002",
@@ -753,7 +836,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DioritePillarInterior"
   },
   {
     "id": "resource_2110000",
@@ -762,7 +846,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT2"
   },
   {
     "id": "resource_68",
@@ -771,7 +856,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT3"
   },
   {
     "id": "resource_782933576",
@@ -780,7 +866,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_1709170104",
@@ -789,7 +876,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_63",
@@ -798,7 +886,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_1077990023",
@@ -807,7 +896,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_806722041",
@@ -816,7 +906,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_1005142992",
@@ -825,7 +916,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ElephantEar"
   },
   {
     "id": "resource_198759779",
@@ -834,7 +926,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_1064484466",
@@ -843,7 +936,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_62",
@@ -852,7 +946,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_2072988001",
@@ -861,7 +956,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_2068688558",
@@ -870,7 +966,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_220",
@@ -879,7 +976,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/KeyPillarEmpty"
   },
   {
     "id": "resource_221",
@@ -888,7 +986,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/KeyPillarEmpty"
   },
   {
     "id": "resource_191",
@@ -897,7 +996,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_209",
@@ -906,7 +1006,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_222",
@@ -915,7 +1016,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_218",
@@ -924,7 +1026,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_201",
@@ -933,7 +1036,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_2089197796",
@@ -942,7 +1046,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT10"
   },
   {
     "id": "resource_144",
@@ -951,7 +1056,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/ExquisiteHieroglyphs"
   },
   {
     "id": "resource_322711580",
@@ -960,7 +1066,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/HeartPowerSource"
   },
   {
     "id": "resource_1000029",
@@ -969,7 +1076,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_125",
@@ -978,7 +1086,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Ferns"
   },
   {
     "id": "resource_59",
@@ -987,7 +1096,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_218270468",
@@ -996,7 +1106,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_474230316",
@@ -1005,7 +1116,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_58",
@@ -1014,7 +1126,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_1962517199",
@@ -1023,7 +1136,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_1917744937",
@@ -1032,7 +1146,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_1101060328",
@@ -1041,7 +1156,8 @@
     "tier": 8,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_69",
@@ -1050,7 +1166,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT4"
   },
   {
     "id": "resource_143",
@@ -1059,7 +1176,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FineHieroglyphs"
   },
   {
     "id": "resource_101",
@@ -1068,7 +1186,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Fireweed"
   },
   {
     "id": "resource_1283711960",
@@ -1077,7 +1196,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT6"
   },
   {
     "id": "resource_2110330714",
@@ -1086,7 +1206,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_1023127595",
@@ -1095,7 +1216,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT10"
   },
   {
     "id": "resource_93152192",
@@ -1104,7 +1226,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PeerlessHieroglyphs"
   },
   {
     "id": "resource_1637125903",
@@ -1113,7 +1236,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT10"
   },
   {
     "id": "resource_1333270269",
@@ -1122,7 +1246,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_38",
@@ -1131,7 +1256,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Flint"
   },
   {
     "id": "resource_153",
@@ -1140,7 +1266,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Fossils"
   },
   {
     "id": "resource_6110003",
@@ -1149,7 +1276,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_5110003",
@@ -1158,7 +1286,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAzureSharks"
   },
   {
     "id": "resource_1006230316",
@@ -1167,7 +1296,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_1141184831",
@@ -1176,7 +1306,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_509854054",
@@ -1185,7 +1316,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_1110003",
@@ -1194,7 +1326,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfOceancrestMarlins"
   },
   {
     "id": "resource_4110003",
@@ -1203,7 +1336,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfSeastormTuna"
   },
   {
     "id": "resource_2110003",
@@ -1212,7 +1346,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfSerpentFish"
   },
   {
     "id": "resource_826362353",
@@ -1221,7 +1356,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_3110003",
@@ -1230,7 +1366,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/FrenziedSchoolOfWavecrestEel"
   },
   {
     "id": "resource_1012009",
@@ -1239,7 +1376,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeMature"
   },
   {
     "id": "resource_1012008",
@@ -1248,7 +1386,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeMature"
   },
   {
     "id": "resource_4012011",
@@ -1257,7 +1396,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeMature"
   },
   {
     "id": "resource_2012008",
@@ -1266,7 +1406,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DendroTreeMature"
   },
   {
     "id": "resource_3012008",
@@ -1275,7 +1416,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeMature"
   },
   {
     "id": "resource_1012010",
@@ -1284,7 +1426,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeMature"
   },
   {
     "id": "resource_3012009",
@@ -1293,7 +1436,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeMature"
   },
   {
     "id": "resource_3012010",
@@ -1302,7 +1446,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeMature"
   },
   {
     "id": "resource_3012011",
@@ -1311,7 +1456,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WillowTreeMature"
   },
   {
     "id": "resource_2050000",
@@ -1320,7 +1466,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/RockyGardenBoulderA"
   },
   {
     "id": "resource_4050001",
@@ -1329,7 +1476,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenFormation"
   },
   {
     "id": "resource_5050001",
@@ -1338,7 +1486,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenFormationInterior"
   },
   {
     "id": "resource_4050000",
@@ -1347,7 +1496,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenPillarA"
   },
   {
     "id": "resource_5050000",
@@ -1356,7 +1506,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenPillarInterior"
   },
   {
     "id": "resource_541862086",
@@ -1365,7 +1516,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_152",
@@ -1374,7 +1526,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/GemEncrustedStalagmite"
   },
   {
     "id": "resource_85",
@@ -1383,7 +1536,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT8"
   },
   {
     "id": "resource_130",
@@ -1392,7 +1546,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GhostSucculent"
   },
   {
     "id": "resource_103",
@@ -1401,7 +1556,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GhostThyme"
   },
   {
     "id": "resource_2140000",
@@ -1410,7 +1566,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GiantGroundselPlant"
   },
   {
     "id": "resource_939701809",
@@ -1419,7 +1576,8 @@
     "tier": 9,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_24",
@@ -1428,7 +1586,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeGnarled"
   },
   {
     "id": "resource_5110000",
@@ -1437,7 +1596,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT5"
   },
   {
     "id": "resource_104",
@@ -1446,7 +1606,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GoldenWitlow"
   },
   {
     "id": "resource_50",
@@ -1455,7 +1616,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GraniteBoulder"
   },
   {
     "id": "resource_51",
@@ -1464,7 +1626,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT3"
   },
   {
     "id": "resource_128",
@@ -1473,7 +1636,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GrassyReeds"
   },
   {
     "id": "resource_135",
@@ -1482,7 +1646,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Heather"
   },
   {
     "id": "resource_189",
@@ -1491,7 +1656,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_175",
@@ -1500,7 +1666,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_746946997",
@@ -1509,7 +1676,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/HeartPowerSource"
   },
   {
     "id": "resource_80",
@@ -1518,7 +1686,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/HoneyberryBush"
   },
   {
     "id": "resource_3110000",
@@ -1527,7 +1696,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT3"
   },
   {
     "id": "resource_532077242",
@@ -1536,7 +1706,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT4"
   },
   {
     "id": "resource_192",
@@ -1545,7 +1716,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_2145270439",
@@ -1554,7 +1726,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_78",
@@ -1563,7 +1736,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/JuniperBerryBush"
   },
   {
     "id": "resource_1917261269",
@@ -1572,7 +1746,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Jute"
   },
   {
     "id": "resource_70",
@@ -1581,7 +1756,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT5"
   },
   {
     "id": "resource_219",
@@ -1590,7 +1766,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_190",
@@ -1599,7 +1776,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_105",
@@ -1608,7 +1786,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/KingOfTheAlps"
   },
   {
     "id": "resource_83",
@@ -1617,7 +1796,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT9"
   },
   {
     "id": "resource_136",
@@ -1626,7 +1806,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LargeBrambles"
   },
   {
     "id": "resource_3020002",
@@ -1635,7 +1816,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_28",
@@ -1644,7 +1826,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_1000028",
@@ -1653,7 +1836,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_2050001",
@@ -1662,7 +1846,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LargeGardenBoulderA"
   },
   {
     "id": "resource_44",
@@ -1671,7 +1856,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LimestoneBoulder"
   },
   {
     "id": "resource_42",
@@ -1680,7 +1866,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/LargeLimestoneRock1"
   },
   {
     "id": "resource_43",
@@ -1689,7 +1876,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/LargeLimestoneRock2"
   },
   {
     "id": "resource_2020002",
@@ -1698,7 +1886,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_4050007",
@@ -1707,7 +1896,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LargeGardenFormation"
   },
   {
     "id": "resource_4050006",
@@ -1716,7 +1906,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LargeRockyGardenPillars"
   },
   {
     "id": "resource_170",
@@ -1725,7 +1916,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_22",
@@ -1734,7 +1926,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_29",
@@ -1743,7 +1936,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_89",
@@ -1752,7 +1946,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Wildflowers"
   },
   {
     "id": "resource_90",
@@ -1761,7 +1956,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/LargeLavender"
   },
   {
     "id": "resource_223",
@@ -1770,7 +1966,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_40",
@@ -1779,7 +1976,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LimestoneBoulder"
   },
   {
     "id": "resource_41",
@@ -1788,7 +1986,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LimestoneOutcrop"
   },
   {
     "id": "resource_45",
@@ -1797,7 +1996,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/LimestoneBoulder"
   },
   {
     "id": "resource_173",
@@ -1806,7 +2006,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_177",
@@ -1815,7 +2016,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_182",
@@ -1824,7 +2026,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_642972236",
@@ -1833,7 +2036,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_49710228",
@@ -1842,7 +2046,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_64",
@@ -1851,7 +2056,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_887736443",
@@ -1860,7 +2066,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_1365934955",
@@ -1869,7 +2076,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_756579517",
@@ -1878,7 +2086,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT6"
   },
   {
     "id": "resource_963451338",
@@ -1887,7 +2096,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_1526038154",
@@ -1896,7 +2106,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT9"
   },
   {
     "id": "resource_331687458",
@@ -1905,7 +2116,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PeerlessHieroglyphs"
   },
   {
     "id": "resource_1742959882",
@@ -1914,7 +2126,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT9"
   },
   {
     "id": "resource_562432497",
@@ -1923,7 +2136,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_5",
@@ -1932,7 +2146,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeSapling"
   },
   {
     "id": "resource_57",
@@ -1941,7 +2156,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MarbleBoulder"
   },
   {
     "id": "resource_56",
@@ -1950,7 +2166,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT6"
   },
   {
     "id": "resource_96",
@@ -1959,7 +2176,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Marigold"
   },
   {
     "id": "resource_19",
@@ -1968,7 +2186,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeMature"
   },
   {
     "id": "resource_20",
@@ -1977,7 +2196,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeMature"
   },
   {
     "id": "resource_33",
@@ -1986,7 +2206,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeMature"
   },
   {
     "id": "resource_25",
@@ -1995,7 +2216,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeMature"
   },
   {
     "id": "resource_21",
@@ -2004,7 +2226,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeMature"
   },
   {
     "id": "resource_26",
@@ -2013,7 +2236,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeMature"
   },
   {
     "id": "resource_1821415333",
@@ -2022,7 +2246,8 @@
     "tier": 9,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_27",
@@ -2031,7 +2256,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeMature"
   },
   {
     "id": "resource_1452484871",
@@ -2040,7 +2266,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1444297495",
@@ -2049,7 +2276,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT10"
   },
   {
     "id": "resource_1800013378",
@@ -2058,7 +2286,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_1171246287",
@@ -2067,7 +2296,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT7"
   },
   {
     "id": "resource_2025189123",
@@ -2076,7 +2306,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_650019671",
@@ -2085,7 +2316,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT8"
   },
   {
     "id": "resource_2066552867",
@@ -2094,7 +2326,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_205387239",
@@ -2103,7 +2336,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT4"
   },
   {
     "id": "resource_3020001",
@@ -2112,7 +2346,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_379219978",
@@ -2121,7 +2356,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_986344159",
@@ -2130,7 +2366,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT3"
   },
   {
     "id": "resource_1020001",
@@ -2139,7 +2376,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_1565420196",
@@ -2148,7 +2386,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_152428426",
@@ -2157,7 +2396,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_549538391",
@@ -2166,7 +2406,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_1126774401",
@@ -2175,7 +2416,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT5"
   },
   {
     "id": "resource_2020001",
@@ -2184,7 +2426,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_699727318",
@@ -2193,7 +2436,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_1842369948",
@@ -2202,7 +2446,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_773149133",
@@ -2211,7 +2456,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_750444302",
@@ -2220,7 +2466,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_1384946093",
@@ -2229,7 +2476,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_749656892",
@@ -2238,7 +2486,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_875245395",
@@ -2247,7 +2496,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_1262898141",
@@ -2256,7 +2506,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT6"
   },
   {
     "id": "resource_1110000",
@@ -2265,7 +2516,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT1"
   },
   {
     "id": "resource_81",
@@ -2274,7 +2526,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT6"
   },
   {
     "id": "resource_98",
@@ -2283,7 +2536,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MorningGlory"
   },
   {
     "id": "resource_66",
@@ -2292,7 +2546,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT1"
   },
   {
     "id": "resource_213",
@@ -2301,7 +2556,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_142",
@@ -2310,7 +2566,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/NeatHieroglyphs"
   },
   {
     "id": "resource_8",
@@ -2319,7 +2576,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeSapling"
   },
   {
     "id": "resource_464034838",
@@ -2328,7 +2586,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_193",
@@ -2337,7 +2596,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_582591086",
@@ -2346,7 +2606,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_834195042",
@@ -2355,7 +2616,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT7"
   },
   {
     "id": "resource_200",
@@ -2364,7 +2626,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_2124845482",
@@ -2373,7 +2636,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PeerlessHieroglyphs"
   },
   {
     "id": "resource_202",
@@ -2382,7 +2646,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_586543849",
@@ -2391,7 +2656,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT7"
   },
   {
     "id": "resource_1332535555",
@@ -2400,7 +2666,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_199",
@@ -2409,7 +2676,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/LeverDoorContraptionState2"
   },
   {
     "id": "resource_1731709368",
@@ -2418,7 +2686,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/HeartPowerSource"
   },
   {
     "id": "resource_76",
@@ -2427,7 +2696,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OysterMushrooms"
   },
   {
     "id": "resource_762731569",
@@ -2436,7 +2706,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Palmetto"
   },
   {
     "id": "resource_196",
@@ -2445,7 +2716,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/PartiallyPoweredDoor"
   },
   {
     "id": "resource_3110004",
@@ -2454,7 +2726,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PearlbackSnail"
   },
   {
     "id": "resource_145",
@@ -2463,7 +2736,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PeerlessHieroglyphs"
   },
   {
     "id": "resource_94",
@@ -2472,7 +2746,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WildPeppermint"
   },
   {
     "id": "resource_6",
@@ -2481,7 +2756,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeSapling"
   },
   {
     "id": "resource_127",
@@ -2490,7 +2766,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineWeed"
   },
   {
     "id": "resource_138",
@@ -2499,7 +2776,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PinkLilies"
   },
   {
     "id": "resource_1010009",
@@ -2508,7 +2786,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeSapling"
   },
   {
     "id": "resource_1011009",
@@ -2517,7 +2796,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeYoung"
   },
   {
     "id": "resource_1010008",
@@ -2526,7 +2806,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeSapling"
   },
   {
     "id": "resource_1011008",
@@ -2535,7 +2816,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeYoung"
   },
   {
     "id": "resource_4010011",
@@ -2544,7 +2826,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeSapling"
   },
   {
     "id": "resource_4011011",
@@ -2553,7 +2836,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/CypressTreeYoung"
   },
   {
     "id": "resource_2010008",
@@ -2562,7 +2846,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DendroTreeSapling"
   },
   {
     "id": "resource_2011008",
@@ -2571,7 +2856,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/DendroTreeYoung"
   },
   {
     "id": "resource_3010008",
@@ -2580,7 +2866,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeSapling"
   },
   {
     "id": "resource_3011008",
@@ -2589,7 +2876,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeYoung"
   },
   {
     "id": "resource_1010010",
@@ -2598,7 +2886,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeSapling"
   },
   {
     "id": "resource_1011010",
@@ -2607,7 +2896,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeYoung"
   },
   {
     "id": "resource_3010009",
@@ -2616,7 +2906,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeSapling"
   },
   {
     "id": "resource_3011009",
@@ -2625,7 +2916,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeYoung"
   },
   {
     "id": "resource_3010010",
@@ -2634,7 +2926,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeSapling"
   },
   {
     "id": "resource_3011010",
@@ -2643,7 +2936,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeYoung"
   },
   {
     "id": "resource_3010011",
@@ -2652,7 +2946,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WillowTreeSapling"
   },
   {
     "id": "resource_3011011",
@@ -2661,7 +2956,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WillowTreeYoung"
   },
   {
     "id": "resource_204",
@@ -2670,7 +2966,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_214",
@@ -2679,7 +2976,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_195",
@@ -2688,7 +2986,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/PoweredDoor"
   },
   {
     "id": "resource_198",
@@ -2697,7 +2996,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/LeverDoorContraptionState1"
   },
   {
     "id": "resource_932989637",
@@ -2706,7 +3006,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/HeartPowerSource"
   },
   {
     "id": "resource_77",
@@ -2715,7 +3016,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PricklyPear"
   },
   {
     "id": "resource_1592739620",
@@ -2724,7 +3026,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_505488132",
@@ -2733,7 +3036,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/ClayT8"
   },
   {
     "id": "resource_1567694896",
@@ -2742,7 +3046,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PeerlessHieroglyphs"
   },
   {
     "id": "resource_1657885116",
@@ -2751,7 +3056,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT8"
   },
   {
     "id": "resource_457752715",
@@ -2760,7 +3066,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_4110000",
@@ -2769,7 +3076,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT4"
   },
   {
     "id": "resource_1045808810",
@@ -2778,7 +3086,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_1828992183",
@@ -2787,7 +3096,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_61",
@@ -2796,7 +3106,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_1619369727",
@@ -2805,7 +3116,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_134935169",
@@ -2814,7 +3126,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT2"
   },
   {
     "id": "resource_916586661",
@@ -2823,7 +3136,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_1318826480",
@@ -2832,7 +3146,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_65",
@@ -2841,7 +3156,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_2027405944",
@@ -2850,7 +3166,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_246146358",
@@ -2859,7 +3176,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT6"
   },
   {
     "id": "resource_129",
@@ -2868,7 +3186,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/ReindeerLichen"
   },
   {
     "id": "resource_60",
@@ -2877,7 +3196,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT1"
   },
   {
     "id": "resource_208",
@@ -2886,7 +3206,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/EnergySource"
   },
   {
     "id": "resource_4050004",
@@ -2895,7 +3216,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenPillarD"
   },
   {
     "id": "resource_4050002",
@@ -2904,7 +3226,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenPillarB"
   },
   {
     "id": "resource_4050003",
@@ -2913,7 +3236,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GardenPillarC"
   },
   {
     "id": "resource_160",
@@ -2922,7 +3246,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_180",
@@ -2931,7 +3256,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_216",
@@ -2940,7 +3266,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_100",
@@ -2949,7 +3276,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Rosemary"
   },
   {
     "id": "resource_1566846336",
@@ -2958,7 +3286,8 @@
     "tier": 4,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_3",
@@ -2967,7 +3296,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/RottenLog"
   },
   {
     "id": "resource_4",
@@ -2976,7 +3306,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/RottenStump"
   },
   {
     "id": "resource_140",
@@ -2985,7 +3316,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/RoughHieroglyphs"
   },
   {
     "id": "resource_204021372",
@@ -2994,7 +3326,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MudMound"
   },
   {
     "id": "resource_161",
@@ -3003,7 +3336,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_181",
@@ -3012,7 +3346,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_217",
@@ -3021,7 +3356,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_210",
@@ -3030,7 +3366,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_212",
@@ -3039,7 +3376,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_1072537375",
@@ -3048,7 +3386,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT3"
   },
   {
     "id": "resource_158",
@@ -3057,7 +3396,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SaltDeposit"
   },
   {
     "id": "resource_154",
@@ -3066,7 +3406,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SandcoveredFossils"
   },
   {
     "id": "resource_48",
@@ -3075,7 +3416,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SandstoneBoulder"
   },
   {
     "id": "resource_49",
@@ -3084,7 +3426,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT2"
   },
   {
     "id": "resource_1574437474",
@@ -3093,7 +3436,8 @@
     "tier": 9,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_6110002",
@@ -3102,7 +3446,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_5110002",
@@ -3111,7 +3456,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAzureSharks"
   },
   {
     "id": "resource_1110001",
@@ -3120,7 +3466,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfBreezyFinDarters"
   },
   {
     "id": "resource_3110001",
@@ -3129,7 +3476,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfCoralcrestDarter"
   },
   {
     "id": "resource_2110001",
@@ -3138,7 +3486,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfEmberfinShiners"
   },
   {
     "id": "resource_5110001",
@@ -3147,7 +3496,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfEmberscaleSturgeon"
   },
   {
     "id": "resource_374159821",
@@ -3156,7 +3506,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfHexfinPerch"
   },
   {
     "id": "resource_424796674",
@@ -3165,7 +3516,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_6110001",
@@ -3174,7 +3526,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfHexfinPerch"
   },
   {
     "id": "resource_1157887989",
@@ -3183,7 +3536,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfHexfinPerch"
   },
   {
     "id": "resource_1812221896",
@@ -3192,7 +3546,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_4110001",
@@ -3201,7 +3556,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfMossfinChub"
   },
   {
     "id": "resource_2390533",
@@ -3210,7 +3566,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_1110002",
@@ -3219,7 +3576,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfOceancrestMarlins"
   },
   {
     "id": "resource_722506673",
@@ -3228,7 +3586,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfHexfinPerch"
   },
   {
     "id": "resource_4110002",
@@ -3237,7 +3596,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfSeastormTuna"
   },
   {
     "id": "resource_2110002",
@@ -3246,7 +3606,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfSerpentFish"
   },
   {
     "id": "resource_904022325",
@@ -3255,7 +3616,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfHexfinPerch"
   },
   {
     "id": "resource_5045122",
@@ -3264,7 +3626,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfAbyssalSwordfish"
   },
   {
     "id": "resource_3110002",
@@ -3273,7 +3636,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfWavecrestEel"
   },
   {
     "id": "resource_1110004",
@@ -3282,7 +3646,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SeasideClam"
   },
   {
     "id": "resource_1458811602",
@@ -3291,7 +3656,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Seaweed"
   },
   {
     "id": "resource_46",
@@ -3300,7 +3666,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/ShaleBoulder"
   },
   {
     "id": "resource_47",
@@ -3309,7 +3676,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT2"
   },
   {
     "id": "resource_1090000",
@@ -3318,7 +3686,8 @@
     "tier": 1,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SilkenHexmoths"
   },
   {
     "id": "resource_141",
@@ -3327,7 +3696,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SimpleHieroglyphs"
   },
   {
     "id": "resource_91",
@@ -3336,7 +3706,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/MediumLavender"
   },
   {
     "id": "resource_95",
@@ -3345,7 +3716,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SnowdropFlowers"
   },
   {
     "id": "resource_132",
@@ -3354,7 +3726,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpanishMoss"
   },
   {
     "id": "resource_1558728865",
@@ -3363,7 +3736,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT6"
   },
   {
     "id": "resource_7",
@@ -3372,7 +3746,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeSapling"
   },
   {
     "id": "resource_1",
@@ -3381,7 +3756,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Sticks"
   },
   {
     "id": "resource_73",
@@ -3390,7 +3766,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BushStrawberry"
   },
   {
     "id": "resource_789563787",
@@ -3399,7 +3776,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/HeartPowerSource"
   },
   {
     "id": "resource_30",
@@ -3408,7 +3786,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WillowTreeMature"
   },
   {
     "id": "resource_6110000",
@@ -3417,7 +3796,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SchoolOfShrimpT6"
   },
   {
     "id": "resource_1673056013",
@@ -3426,7 +3806,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_763946195",
@@ -3435,7 +3816,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Bush"
   },
   {
     "id": "resource_133",
@@ -3444,7 +3826,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/FlaxLog"
   },
   {
     "id": "resource_97",
@@ -3453,7 +3836,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/Thyme"
   },
   {
     "id": "resource_70663203",
@@ -3462,7 +3846,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MarbleBoulder"
   },
   {
     "id": "resource_1489491467",
@@ -3471,7 +3856,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AncientThorns"
   },
   {
     "id": "resource_1986100626",
@@ -3480,7 +3866,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/KingOfTheAlps"
   },
   {
     "id": "resource_1996631377",
@@ -3489,7 +3876,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT10"
   },
   {
     "id": "resource_1159270109",
@@ -3498,7 +3886,8 @@
     "tier": 10,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_1440062914",
@@ -3507,7 +3896,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MarbleBoulder"
   },
   {
     "id": "resource_1981854097",
@@ -3516,7 +3906,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AncientThorns"
   },
   {
     "id": "resource_723013812",
@@ -3525,7 +3916,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/KingOfTheAlps"
   },
   {
     "id": "resource_2104975743",
@@ -3534,7 +3926,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT7"
   },
   {
     "id": "resource_387666932",
@@ -3543,7 +3936,8 @@
     "tier": 7,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_479638263",
@@ -3552,7 +3946,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MarbleBoulder"
   },
   {
     "id": "resource_1125409070",
@@ -3561,7 +3956,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AncientThorns"
   },
   {
     "id": "resource_1264935363",
@@ -3570,7 +3966,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/KingOfTheAlps"
   },
   {
     "id": "resource_1423928615",
@@ -3579,7 +3976,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT8"
   },
   {
     "id": "resource_1902966974",
@@ -3588,7 +3986,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MarbleBoulder"
   },
   {
     "id": "resource_189403270",
@@ -3597,7 +3996,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/AncientThorns"
   },
   {
     "id": "resource_284200468",
@@ -3606,7 +4006,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/KingOfTheAlps"
   },
   {
     "id": "resource_1113640469",
@@ -3615,7 +4016,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OutcropT9"
   },
   {
     "id": "resource_2110004",
@@ -3624,7 +4026,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/ToughShelledMussel"
   },
   {
     "id": "resource_211",
@@ -3633,7 +4036,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_182331452",
@@ -3642,7 +4046,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/TravelersFruit"
   },
   {
     "id": "resource_1283632905",
@@ -3651,7 +4056,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PricklyPear"
   },
   {
     "id": "resource_1303955933",
@@ -3660,7 +4066,8 @@
     "tier": 1,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_1435874592",
@@ -3669,7 +4076,8 @@
     "tier": 1,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_82",
@@ -3678,7 +4086,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/MushroomT5"
   },
   {
     "id": "resource_814703516",
@@ -3687,7 +4096,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_1241355606",
@@ -3696,7 +4106,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_1386735112",
@@ -3705,7 +4116,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_64125498",
@@ -3714,7 +4126,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_20400246",
@@ -3723,7 +4136,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/OreVeinT9"
   },
   {
     "id": "resource_197",
@@ -3732,7 +4146,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/UnpoweredDoor"
   },
   {
     "id": "resource_159",
@@ -3741,7 +4156,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_179",
@@ -3750,7 +4166,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_215",
@@ -3759,7 +4176,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_102",
@@ -3768,7 +4186,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WhiteLily"
   },
   {
     "id": "resource_72",
@@ -3777,7 +4196,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WildGrains"
   },
   {
     "id": "resource_156",
@@ -3786,7 +4206,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/WildOnion"
   },
   {
     "id": "resource_1908426535",
@@ -3795,7 +4216,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": ""
   },
   {
     "id": "resource_939382648",
@@ -3804,7 +4226,8 @@
     "tier": 10,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeAncient"
   },
   {
     "id": "resource_178",
@@ -3813,7 +4236,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_183",
@@ -3822,7 +4246,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "Resources/SchoolOfMuckfin"
   },
   {
     "id": "resource_1579330042",
@@ -3831,7 +4256,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MistberryBush"
   },
   {
     "id": "resource_35",
@@ -3840,7 +4266,8 @@
     "tier": 7,
     "rarity": "rare",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BaobabTreeYoung"
   },
   {
     "id": "resource_12",
@@ -3849,7 +4276,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BeechTreeYoung"
   },
   {
     "id": "resource_13",
@@ -3858,7 +4286,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/BirchTreeYoung"
   },
   {
     "id": "resource_17",
@@ -3867,7 +4296,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/MapleTreeYoung"
   },
   {
     "id": "resource_14",
@@ -3876,7 +4306,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/OakTreeYoung"
   },
   {
     "id": "resource_16",
@@ -3885,7 +4316,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/PineTreeYoung"
   },
   {
     "id": "resource_15",
@@ -3894,6 +4326,7 @@
     "tier": 3,
     "rarity": "common",
     "category": "resource",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Other/SpruceTreeYoung"
   }
 ]

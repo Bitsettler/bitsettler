@@ -7,7 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
-import { memo, useCallback, useEffect } from 'react'
+import Image from 'next/image'
+import { memo, useCallback } from 'react'
 
 // Import data
 import cargo from '@/data/cargo.json'
@@ -25,20 +26,67 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow()
 
   const handleToggleDone = useCallback(() => {
-    const updatedNodes = getNodes().map((node) => {
-      if (node.id === id) {
+    const currentNodes = getNodes()
+    const currentEdges = getEdges()
+    const currentNode = currentNodes.find((node) => node.id === id)
+
+    if (!currentNode) return
+
+    const newIsDone = !currentNode.data.isDone
+
+    // Function to recursively find and mark all child nodes as done
+    const markChildrenAsDone = (nodeId: string, nodesToUpdate: Set<string>) => {
+      // Find all edges where this node is the target (meaning find all materials that feed into this node)
+      const childEdges = currentEdges.filter((edge) => edge.target === nodeId)
+
+      childEdges.forEach((edge) => {
+        const childNodeId = edge.source
+        nodesToUpdate.add(childNodeId)
+        // Recursively mark children of children as done
+        markChildrenAsDone(childNodeId, nodesToUpdate)
+      })
+    }
+
+    // Function to recursively find and mark all parent nodes as not done
+    const markParentsAsNotDone = (nodeId: string, nodesToUpdate: Set<string>) => {
+      // Find all edges where this node is the source (meaning find all items that depend on this node)
+      const parentEdges = currentEdges.filter((edge) => edge.source === nodeId)
+
+      parentEdges.forEach((edge) => {
+        const parentNodeId = edge.target
+        nodesToUpdate.add(parentNodeId)
+        // Recursively mark parents of parents as not done
+        markParentsAsNotDone(parentNodeId, nodesToUpdate)
+      })
+    }
+
+    // Collect all nodes that need to be updated
+    const nodesToUpdate = new Set<string>([id])
+
+    if (newIsDone) {
+      // When marking as done, cascade to all children (dependencies)
+      markChildrenAsDone(id, nodesToUpdate)
+    } else {
+      // When marking as not done, cascade to all parents (dependents)
+      markParentsAsNotDone(id, nodesToUpdate)
+    }
+
+    // Update all affected nodes
+    const updatedNodes = currentNodes.map((node) => {
+      if (nodesToUpdate.has(node.id)) {
         return {
           ...node,
           data: {
             ...node.data,
-            isDone: !node.data.isDone
+            isDone: newIsDone
           }
         }
       }
       return node
     })
+
     setNodes(updatedNodes)
-  }, [id, getNodes, setNodes])
+  }, [id, getNodes, getEdges, setNodes])
 
   const handleRecipeSelect = useCallback(
     (recipeId: string) => {
@@ -111,6 +159,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         // Get the current node's quantity to calculate child quantities
         const currentNode = filteredNodes.find((node) => node.id === id)
         const parentQuantity = (currentNode?.data?.quantity as number) || 1
+        const parentIsDone = currentNode?.data?.isDone || false
 
         // Calculate how many times we need to run this recipe
         const outputItem = recipe.output.find((output) => output.item === currentNode?.data?.itemId)
@@ -143,7 +192,11 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               ...existingNode,
               data: {
                 ...existingNode.data,
-                quantity: newTotalQuantity
+                quantity: newTotalQuantity,
+                // If parent is done, mark existing node as done too
+                isDone: parentIsDone || existingNode.data.isDone,
+                // Ensure icon_asset_name is set if it's missing
+                icon_asset_name: existingNode.data.icon_asset_name || 'GeneratedIcons/Items/Unknown'
               }
             }
           } else {
@@ -160,7 +213,8 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 recipes: materialRecipes,
                 selectedRecipe: null,
                 itemId: material.id,
-                isDone: false
+                isDone: parentIsDone, // Inherit parent's done status
+                icon_asset_name: materialData?.icon_asset_name || 'GeneratedIcons/Items/Unknown'
               },
               position: { x: 0, y: 0 }
             }
@@ -189,13 +243,6 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
     },
     [id, getNodes, getEdges, setNodes, setEdges]
   )
-
-  // Auto-select recipe if there's only one available
-  useEffect(() => {
-    if (itemData.recipes && itemData.recipes.length === 1 && !itemData.selectedRecipe) {
-      handleRecipeSelect(itemData.recipes[0].id.toString())
-    }
-  }, [itemData.recipes, itemData.selectedRecipe, handleRecipeSelect])
 
   const handleMouseEnter = useCallback(() => {
     const updatedNodes = getNodes().map((node) => {
@@ -255,23 +302,30 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         </div>
       )}
       <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Checkbox
-              checked={itemData.isDone}
-              onCheckedChange={handleToggleDone}
-              className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
+        <div className="flex items-center gap-2">
+          <Checkbox
+            checked={itemData.isDone}
+            onCheckedChange={handleToggleDone}
+            className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
+          />
+          <CardTitle className={`text-sm font-semibold ${itemData.isDone ? 'text-green-700 line-through' : ''}`}>
+            {itemData.label}
+          </CardTitle>
+        </div>
+        {itemData.quantity && (
+          <div className="mt-1 flex items-center gap-2">
+            <Image
+              src={`/assets/${itemData.icon_asset_name}.webp`}
+              alt={itemData.label}
+              width={48}
+              height={48}
+              className="rounded"
             />
-            <CardTitle className={`text-sm font-semibold ${itemData.isDone ? 'text-green-700 line-through' : ''}`}>
-              {itemData.label}
-            </CardTitle>
-          </div>
-          {itemData.quantity && (
             <Badge variant="secondary" className="text-xs">
               Qty: {Math.round(itemData.quantity)}
             </Badge>
-          )}
-        </div>
+          </div>
+        )}
       </CardHeader>
 
       <CardContent className="pt-0">

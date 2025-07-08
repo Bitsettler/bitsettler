@@ -31,3 +31,13 @@ export const getTierColor = (tier: number) => {
       return 'bg-gray-100 text-gray-800 border-gray-300'
   }
 }
+
+// Function to get item icon path from the icon_asset_name
+export const getItemIconPath = (iconAssetName: string): string => {
+  if (!iconAssetName) {
+    return '/assets/Unknown.webp'
+  }
+
+  // The icon_asset_name already contains the path relative to assets folder
+  return `/assets/${iconAssetName}.webp`
+}

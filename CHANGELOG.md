@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0]
+
+### Added
+
+- **Game Icon Integration**: Comprehensive Bitcraft game asset library integration
+  - Added 1,500+ game icons covering items, cargo, cosmetics, buildings, tools, and more
+  - Icons now display for all calculator item nodes (48x48 pixels)
+  - Fallback system using `Unknown.webp` for missing assets
+  - Complete icon coverage for all game categories (Items, Cargo, Resources, Cosmetics, Buildings, etc.)
+
+### Improved
+
+- **Visual User Experience**: Enhanced calculator interface with game-authentic visuals
+  - Quantity display moved below item title for better layout and readability
+  - Icons positioned next to quantity badges using flex layout
+  - Visual consistency with game assets throughout the calculator interface
+  - Improved parent-child completion logic in recipe trees
+
+### Changed
+
+- **Data Structure Enhancement**: Updated TypeScript interfaces to support icon assets
+  - Added `icon_asset_name` property to `Item` and `ItemData` interfaces
+  - Updated all node creation logic to include icon asset information
+  - Enhanced data flow for proper icon asset name propagation
+
 ## [1.5.2]
 
 ### Fixed
