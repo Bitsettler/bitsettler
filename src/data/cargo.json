@@ -6,7 +6,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_203",
@@ -15,7 +16,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_68464789",
@@ -24,7 +26,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_159122533",
@@ -33,7 +36,8 @@
     "tier": -1,
     "rarity": "rare",
     "category": "cargo",
-    "description": "An animal body that could be processed for monster parts"
+    "description": "An animal body that could be processed for monster parts",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/GrassBird"
   },
   {
     "id": "cargo_9",
@@ -42,7 +46,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/SwampBird"
   },
   {
     "id": "cargo_60000",
@@ -51,7 +56,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of precious ore. Harvest it to get some ore pieces."
+    "description": "A chunk of precious ore. Harvest it to get some ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Cargo/PyreliteOreChunk"
   },
   {
     "id": "cargo_1811266661",
@@ -60,7 +66,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1678244395",
@@ -69,7 +76,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_1052901724",
@@ -78,7 +86,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/AstraliteOreChunk"
   },
   {
     "id": "cargo_60001",
@@ -87,7 +96,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of precious ore. Harvest it to get some ore pieces."
+    "description": "A chunk of precious ore. Harvest it to get some ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Cargo/PyreliteOreChunk"
   },
   {
     "id": "cargo_1219367849",
@@ -96,7 +106,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1130442333",
@@ -105,7 +116,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_1954280449",
@@ -114,7 +126,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/AurumiteOreChunk"
   },
   {
     "id": "cargo_6004",
@@ -123,7 +136,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_1566064503",
@@ -132,7 +146,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_501736939",
@@ -141,7 +156,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A near bottomless sack filled to the brim with hex coins. Worth 10,000 Hex Coins. Can be used to fuel a claim with 7,500 supplies."
+    "description": "A near bottomless sack filled to the brim with hex coins. Worth 10,000 Hex Coins. Can be used to fuel a claim with 7,500 supplies.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_1654222357",
@@ -150,7 +166,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1734989829",
@@ -159,7 +176,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_76399881",
@@ -168,7 +186,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/CelestiumOreChunk"
   },
   {
     "id": "cargo_10006",
@@ -177,7 +196,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A boat in a box."
+    "description": "A boat in a box.",
+    "icon_asset_name": "Items/TinOreChunk"
   },
   {
     "id": "cargo_1084839114",
@@ -186,7 +206,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_1196702534",
@@ -195,7 +216,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird"
   },
   {
     "id": "cargo_10",
@@ -204,7 +226,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/DesertBird"
   },
   {
     "id": "cargo_7",
@@ -213,7 +236,8 @@
     "tier": 8,
     "rarity": "uncommon",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/BoarElder"
   },
   {
     "id": "cargo_341301575",
@@ -222,7 +246,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_450006",
@@ -231,7 +256,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ElenvarIngotPackage"
   },
   {
     "id": "cargo_3003",
@@ -240,7 +266,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/ElenvarOreChunk"
   },
   {
     "id": "cargo_15195543",
@@ -249,7 +276,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_350006",
@@ -258,7 +286,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/FerralithIngotPackage"
   },
   {
     "id": "cargo_3002",
@@ -267,7 +296,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/EmariumOreChunk"
   },
   {
     "id": "cargo_1849328525",
@@ -276,7 +306,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_204",
@@ -285,7 +316,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_1650891842",
@@ -294,7 +326,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2404",
@@ -303,7 +336,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_550002",
@@ -312,7 +346,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7004",
@@ -321,7 +356,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1050000",
@@ -330,7 +366,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1050001",
@@ -339,7 +376,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4004",
@@ -348,7 +386,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_550005",
@@ -357,7 +396,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_741862367",
@@ -366,7 +406,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1632765422",
@@ -375,7 +416,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_550004",
@@ -384,7 +426,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_2005",
@@ -393,7 +436,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1204",
@@ -402,7 +446,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_1004",
@@ -411,7 +456,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_550000",
@@ -420,7 +466,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_560001",
@@ -429,7 +476,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_70002",
@@ -438,7 +486,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "cargo",
-    "description": "This energy could be used to power a mechanism somewhere in this ruin."
+    "description": "This energy could be used to power a mechanism somewhere in this ruin.",
+    "icon_asset_name": "Items/HexiteCrystal"
   },
   {
     "id": "cargo_983297878",
@@ -447,7 +496,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A fair sized sack filled to the brim with hex coins. Worth 500 Hex Coins. Can be used to fuel a claim with 375 supplies."
+    "description": "A fair sized sack filled to the brim with hex coins. Worth 500 Hex Coins. Can be used to fuel a claim with 375 supplies.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_3",
@@ -456,7 +506,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/DeerFemale"
   },
   {
     "id": "cargo_5",
@@ -465,7 +516,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/BoarFemale"
   },
   {
     "id": "cargo_970827760",
@@ -474,7 +526,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_150006",
@@ -483,7 +536,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PyreliteIngotPackage"
   },
   {
     "id": "cargo_3000",
@@ -492,7 +546,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/FerralithOreChunk"
   },
   {
     "id": "cargo_734768563",
@@ -501,7 +556,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2403",
@@ -510,7 +566,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_450002",
@@ -519,7 +576,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7003",
@@ -528,7 +586,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1040000",
@@ -537,7 +596,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1040001",
@@ -546,7 +606,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4003",
@@ -555,7 +616,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_450005",
@@ -564,7 +626,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1784593653",
@@ -573,7 +636,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_442004724",
@@ -582,7 +646,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_450004",
@@ -591,7 +656,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_2004",
@@ -600,7 +666,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1203",
@@ -609,7 +676,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_1003",
@@ -618,7 +686,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_450000",
@@ -627,7 +696,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_460001",
@@ -636,7 +706,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_10005",
@@ -645,7 +716,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A boat made for a fisherman. Allows you to fish faster."
+    "description": "A boat made for a fisherman. Allows you to fish faster.",
+    "icon_asset_name": "Items/FishersBoat"
   },
   {
     "id": "cargo_206",
@@ -654,7 +726,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_1600887285",
@@ -663,7 +736,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_631093405",
@@ -672,7 +746,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_474946295",
@@ -681,7 +756,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_1836028490",
@@ -690,7 +766,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_962018090",
@@ -699,7 +776,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_275722091",
@@ -708,7 +786,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1935556465",
@@ -717,7 +796,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1237816866",
@@ -726,7 +806,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_587697308",
@@ -735,7 +816,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_1141395882",
@@ -744,7 +826,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_1817314019",
@@ -753,7 +836,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_1170732802",
@@ -762,7 +846,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1585122058",
@@ -771,7 +856,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be sawed into boards or used in construction."
+    "description": "Can be sawed into boards or used in construction.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_1885212129",
@@ -780,7 +866,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_1256199066",
@@ -789,7 +876,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_858083216",
@@ -798,7 +886,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_2001",
@@ -807,7 +896,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "No description available"
+    "description": "No description available",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_2000000",
@@ -816,7 +906,8 @@
     "tier": -1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A container full of crushed energized hexite crystals; A very valuable commodity. Could be used to power structures or contraptions operating on hexite power."
+    "description": "A container full of crushed energized hexite crystals; A very valuable commodity. Could be used to power structures or contraptions operating on hexite power.",
+    "icon_asset_name": "GeneratedIcons/Cargo/HexiteCapsule"
   },
   {
     "id": "cargo_202",
@@ -825,7 +916,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_502961868",
@@ -834,7 +926,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for monster parts"
+    "description": "An animal body that could be processed for monster parts",
+    "icon_asset_name": "Cargo/Animals/Cargo_Jakly"
   },
   {
     "id": "cargo_2141814235",
@@ -843,7 +936,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird"
   },
   {
     "id": "cargo_1955158156",
@@ -852,7 +946,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A fair sized sack filled to the brim with hex coins. Worth 1,000 Hex Coins. Can be used to fuel a claim with 750 supplies."
+    "description": "A fair sized sack filled to the brim with hex coins. Worth 1,000 Hex Coins. Can be used to fuel a claim with 750 supplies.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_1080157951",
@@ -861,7 +956,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_550006",
@@ -870,7 +966,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LiriumIngotPackage"
   },
   {
     "id": "cargo_3004",
@@ -879,7 +976,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LuminiteOreChunk"
   },
   {
     "id": "cargo_358427678",
@@ -888,7 +986,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_888273394",
@@ -897,7 +996,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_2136010679",
@@ -906,7 +1006,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_392822871",
@@ -915,7 +1016,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1706418122",
@@ -924,7 +1026,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_995872483",
@@ -933,7 +1036,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_898540348",
@@ -942,7 +1046,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_390639013",
@@ -951,7 +1056,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_343539652",
@@ -960,7 +1066,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_951128402",
@@ -969,7 +1076,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_682008419",
@@ -978,7 +1086,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_1173828253",
@@ -987,7 +1096,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1473504323",
@@ -996,7 +1106,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be sawed into boards or used in construction."
+    "description": "Can be sawed into boards or used in construction.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_827937528",
@@ -1005,7 +1116,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_589088166",
@@ -1014,7 +1126,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_900126092",
@@ -1023,7 +1136,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_4",
@@ -1032,7 +1146,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/DeerMale"
   },
   {
     "id": "cargo_6",
@@ -1041,7 +1156,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/BoarMale"
   },
   {
     "id": "cargo_205",
@@ -1050,7 +1166,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_495585314",
@@ -1059,7 +1176,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_2090274245",
@@ -1068,7 +1186,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_2",
@@ -1077,7 +1196,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/Goat"
   },
   {
     "id": "cargo_6000",
@@ -1086,7 +1206,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_240804709",
@@ -1095,7 +1216,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_302152262",
@@ -1104,7 +1226,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_423112838",
@@ -1113,7 +1236,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_1791508890",
@@ -1122,7 +1246,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_608138386",
@@ -1131,7 +1256,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_2139638761",
@@ -1140,7 +1266,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_1545224886",
@@ -1149,7 +1276,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_897676087",
@@ -1158,7 +1286,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1743603212",
@@ -1167,7 +1296,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_2036554187",
@@ -1176,7 +1306,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_45282003",
@@ -1185,7 +1316,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_1143621247",
@@ -1194,7 +1326,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_884292413",
@@ -1203,7 +1336,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be sawed into boards or used in construction."
+    "description": "Can be sawed into boards or used in construction.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_1872489539",
@@ -1212,7 +1346,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_1757815413",
@@ -1221,7 +1356,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_763674218",
@@ -1230,7 +1366,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_70001",
@@ -1239,7 +1376,8 @@
     "tier": -1,
     "rarity": "common",
     "category": "cargo",
-    "description": "This energy is overwhelming you. You can barely move. Place it in a nearby receptacle!"
+    "description": "This energy is overwhelming you. You can barely move. Place it in a nearby receptacle!",
+    "icon_asset_name": "Items/HexiteCrystal"
   },
   {
     "id": "cargo_2112363612",
@@ -1248,7 +1386,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2405",
@@ -1257,7 +1396,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_650002",
@@ -1266,7 +1406,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7005",
@@ -1275,7 +1416,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1060000",
@@ -1284,7 +1426,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1060001",
@@ -1293,7 +1436,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4005",
@@ -1302,7 +1446,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_650005",
@@ -1311,7 +1456,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1863123674",
@@ -1320,7 +1466,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1440938837",
@@ -1329,7 +1476,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_650004",
@@ -1338,7 +1486,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_2006",
@@ -1347,7 +1496,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1205",
@@ -1356,7 +1506,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_1005",
@@ -1365,7 +1516,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_650000",
@@ -1374,7 +1526,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_660001",
@@ -1383,7 +1536,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_141869841",
@@ -1392,7 +1546,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison"
   },
   {
     "id": "cargo_660210536",
@@ -1401,7 +1556,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_360403214",
@@ -1410,7 +1566,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_215164936",
@@ -1419,7 +1576,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_503195279",
@@ -1428,7 +1586,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1209662673",
@@ -1437,7 +1596,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_2063391815",
@@ -1446,7 +1606,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_542839177",
@@ -1455,7 +1616,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_715636845",
@@ -1464,7 +1626,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1558771097",
@@ -1473,7 +1636,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_619763519",
@@ -1482,7 +1646,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_1853253398",
@@ -1491,7 +1656,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_58757068",
@@ -1500,7 +1666,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1948570022",
@@ -1509,7 +1676,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be sawed into boards or used in construction."
+    "description": "Can be sawed into boards or used in construction.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_826930059",
@@ -1518,7 +1686,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_1499890756",
@@ -1527,7 +1696,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_2142991097",
@@ -1536,7 +1706,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_318494855",
@@ -1545,7 +1716,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of stone carvings"
+    "description": "A package of stone carvings",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/StoneCarving"
   },
   {
     "id": "cargo_1044447676",
@@ -1554,7 +1726,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_250006",
@@ -1563,7 +1736,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/AurumiteIngotPackage"
   },
   {
     "id": "cargo_3001",
@@ -1572,7 +1746,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PyreliteOreChunk"
   },
   {
     "id": "cargo_8",
@@ -1581,7 +1756,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/DeerMale"
   },
   {
     "id": "cargo_1989901185",
@@ -1590,7 +1766,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_650006",
@@ -1599,7 +1776,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LuminiteIngotPackage"
   },
   {
     "id": "cargo_3005",
@@ -1608,7 +1786,8 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/RathiumOreChunk"
   },
   {
     "id": "cargo_1537744479",
@@ -1617,7 +1796,8 @@
     "tier": 10,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_2031494957",
@@ -1626,7 +1806,8 @@
     "tier": 7,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_1149474387",
@@ -1635,7 +1816,8 @@
     "tier": 8,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_1970868786",
@@ -1644,7 +1826,8 @@
     "tier": 4,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ElenvarIngotPackage"
   },
   {
     "id": "cargo_737787118",
@@ -1653,7 +1836,8 @@
     "tier": 3,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/FerralithIngotPackage"
   },
   {
     "id": "cargo_1355550411",
@@ -1662,7 +1846,8 @@
     "tier": 5,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_430760414",
@@ -1671,7 +1856,8 @@
     "tier": 5,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_401422893",
@@ -1680,7 +1866,8 @@
     "tier": 5,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1061473254",
@@ -1689,7 +1876,8 @@
     "tier": 5,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1939907236",
@@ -1698,7 +1886,8 @@
     "tier": 1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PyreliteIngotPackage"
   },
   {
     "id": "cargo_1257581327",
@@ -1707,7 +1896,8 @@
     "tier": 4,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_175169224",
@@ -1716,7 +1906,8 @@
     "tier": 4,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_558591220",
@@ -1725,7 +1916,8 @@
     "tier": 4,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_2205071",
@@ -1734,7 +1926,8 @@
     "tier": 4,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1353316935",
@@ -1743,7 +1936,8 @@
     "tier": 10,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_1199657444",
@@ -1752,7 +1946,8 @@
     "tier": 10,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_911456665",
@@ -1761,7 +1956,8 @@
     "tier": 10,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_95258393",
@@ -1770,7 +1966,8 @@
     "tier": 10,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1702598806",
@@ -1779,7 +1976,8 @@
     "tier": 5,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LiriumIngotPackage"
   },
   {
     "id": "cargo_1240047044",
@@ -1788,7 +1986,8 @@
     "tier": 9,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_1325900577",
@@ -1797,7 +1996,8 @@
     "tier": 9,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_1834928292",
@@ -1806,7 +2006,8 @@
     "tier": 9,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_667352556",
@@ -1815,7 +2016,8 @@
     "tier": 9,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1874690022",
@@ -1824,7 +2026,8 @@
     "tier": 7,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_285041017",
@@ -1833,7 +2036,8 @@
     "tier": 7,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_2056394300",
@@ -1842,7 +2046,8 @@
     "tier": 7,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_649530050",
@@ -1851,7 +2056,8 @@
     "tier": 7,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1960857664",
@@ -1860,7 +2066,8 @@
     "tier": 6,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2050184559",
@@ -1869,7 +2076,8 @@
     "tier": 6,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_173938045",
@@ -1878,7 +2086,8 @@
     "tier": 6,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_563167126",
@@ -1887,7 +2096,8 @@
     "tier": 6,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_928273751",
@@ -1896,7 +2106,8 @@
     "tier": 8,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_92008547",
@@ -1905,7 +2116,8 @@
     "tier": 8,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_1641266654",
@@ -1914,7 +2126,8 @@
     "tier": 8,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1268700873",
@@ -1923,7 +2136,8 @@
     "tier": 8,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_146616436",
@@ -1932,7 +2146,8 @@
     "tier": 2,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/AurumiteIngotPackage"
   },
   {
     "id": "cargo_318715450",
@@ -1941,7 +2156,8 @@
     "tier": 6,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LuminiteIngotPackage"
   },
   {
     "id": "cargo_325062913",
@@ -1950,7 +2166,8 @@
     "tier": 1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_406649258",
@@ -1959,7 +2176,8 @@
     "tier": 1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Cloth Bricks"
+    "description": "A package of Cloth Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_483159161",
@@ -1968,7 +2186,8 @@
     "tier": 1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1563500083",
@@ -1977,7 +2196,8 @@
     "tier": 1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_602596873",
@@ -1986,7 +2206,8 @@
     "tier": 2,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_1717592399",
@@ -1995,7 +2216,8 @@
     "tier": 2,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_1645099428",
@@ -2004,7 +2226,8 @@
     "tier": 2,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1144253843",
@@ -2013,7 +2236,8 @@
     "tier": 2,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1076106303",
@@ -2022,7 +2246,8 @@
     "tier": 3,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Bricks"
+    "description": "A package of Refined Bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_1785339298",
@@ -2031,7 +2256,8 @@
     "tier": 3,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Cloth"
+    "description": "A package of Refined Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_408485354",
@@ -2040,7 +2266,8 @@
     "tier": 3,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Leather"
+    "description": "A package of Refined Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1236479328",
@@ -2049,7 +2276,8 @@
     "tier": 3,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Wood Planks"
+    "description": "A package of Refined Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/PlankPackage"
   },
   {
     "id": "cargo_1070869485",
@@ -2058,7 +2286,8 @@
     "tier": 9,
     "rarity": "epic",
     "category": "cargo",
-    "description": "A package of Refined Metal Ingots"
+    "description": "A package of Refined Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_400",
@@ -2067,7 +2296,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A trusty mount."
+    "description": "A trusty mount.",
+    "icon_asset_name": "NPCs/DeerMale"
   },
   {
     "id": "cargo_683661636",
@@ -2076,7 +2306,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2400",
@@ -2085,7 +2316,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_100",
@@ -2094,7 +2326,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_150002",
@@ -2103,7 +2336,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7000",
@@ -2112,7 +2346,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1010000",
@@ -2121,7 +2356,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1010001",
@@ -2130,7 +2366,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4000",
@@ -2139,7 +2376,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_101",
@@ -2148,7 +2386,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_150005",
@@ -2157,7 +2396,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1552106905",
@@ -2166,7 +2406,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_652981079",
@@ -2175,7 +2416,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_200",
@@ -2184,7 +2426,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_150003",
@@ -2193,7 +2436,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_201",
@@ -2202,7 +2446,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin."
+    "description": "A cargo pack that Brico would craft into a vehicle for you. Find him at a ruin.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_2000",
@@ -2211,7 +2456,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1200",
@@ -2220,7 +2466,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_150000",
@@ -2229,7 +2476,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_160001",
@@ -2238,7 +2486,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_1000",
@@ -2247,7 +2496,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_1",
@@ -2256,7 +2506,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/GrassBird"
   },
   {
     "id": "cargo_6003",
@@ -2265,7 +2516,8 @@
     "tier": 4,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_6001",
@@ -2274,7 +2526,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_429970990",
@@ -2283,7 +2536,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2401",
@@ -2292,7 +2546,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_250002",
@@ -2301,7 +2556,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7001",
@@ -2310,7 +2566,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1020000",
@@ -2319,7 +2576,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1020001",
@@ -2328,7 +2586,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4001",
@@ -2337,7 +2596,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_250005",
@@ -2346,7 +2606,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1297204491",
@@ -2355,7 +2616,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_192409188",
@@ -2364,7 +2626,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_250004",
@@ -2373,7 +2636,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_2002",
@@ -2382,7 +2646,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1201",
@@ -2391,7 +2656,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_250000",
@@ -2400,7 +2666,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_260001",
@@ -2409,7 +2676,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_1001",
@@ -2418,7 +2686,8 @@
     "tier": 2,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_1290464936",
@@ -2427,7 +2696,8 @@
     "tier": 1,
     "rarity": "common",
     "category": "cargo",
-    "description": "A small sack filled to the brim with hex coins. Worth 100 Hex Coins. Can be used to fuel a claim with 75 supplies."
+    "description": "A small sack filled to the brim with hex coins. Worth 100 Hex Coins. Can be used to fuel a claim with 75 supplies.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_118221190",
@@ -2436,7 +2706,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of bricks"
+    "description": "A package of bricks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/BrickPackage"
   },
   {
     "id": "cargo_2402",
@@ -2445,7 +2716,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures."
+    "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
     "id": "cargo_350002",
@@ -2454,7 +2726,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/ClothPackage"
   },
   {
     "id": "cargo_7002",
@@ -2463,7 +2736,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Cloth"
+    "description": "A package of Cloth",
+    "icon_asset_name": "GeneratedIcons/Cargo/Tarp"
   },
   {
     "id": "cargo_1030000",
@@ -2472,7 +2746,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this."
+    "description": "A package made from ancient cloth and various skilled materials. The twins would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/TwinsPack"
   },
   {
     "id": "cargo_1030001",
@@ -2481,7 +2756,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this."
+    "description": "A package made from ancient nails and various skilled materials. Brico would be interested in this.",
+    "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
     "id": "cargo_4002",
@@ -2490,7 +2766,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!"
+    "description": "A geode with gems sticking out of it. Might give you some precious gems if you're lucky!",
+    "icon_asset_name": "GeneratedIcons/Cargo/Geode"
   },
   {
     "id": "cargo_350005",
@@ -2499,7 +2776,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Leather"
+    "description": "A package of Leather",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LeatherPackage"
   },
   {
     "id": "cargo_1090747065",
@@ -2508,7 +2786,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1094309053",
@@ -2517,7 +2796,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation."
+    "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_350004",
@@ -2526,7 +2806,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Rocks"
+    "description": "A package of Rocks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/RockPackage"
   },
   {
     "id": "cargo_2003",
@@ -2535,7 +2816,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in construction or refined into a block."
+    "description": "Can be used in construction or refined into a block.",
+    "icon_asset_name": "GeneratedIcons/Cargo/StoneChunk"
   },
   {
     "id": "cargo_1202",
@@ -2544,7 +2826,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings and material packs."
+    "description": "Can be used in the construction of buildings and material packs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Timber"
   },
   {
     "id": "cargo_350000",
@@ -2553,7 +2836,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Logs"
+    "description": "A package of Wood Logs",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/LogPackage"
   },
   {
     "id": "cargo_360001",
@@ -2562,7 +2846,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Wood Planks"
+    "description": "A package of Wood Planks",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/UntreatedPlankPackage"
   },
   {
     "id": "cargo_1002",
@@ -2571,7 +2856,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be processed into timber or cut into logs."
+    "description": "Can be processed into timber or cut into logs.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Trunk"
   },
   {
     "id": "cargo_359813833",
@@ -2580,7 +2866,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_296932208",
@@ -2589,7 +2876,8 @@
     "tier": 10,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/SwampBird"
   },
   {
     "id": "cargo_1074356657",
@@ -2598,7 +2886,8 @@
     "tier": 7,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/SwampBird"
   },
   {
     "id": "cargo_1331734964",
@@ -2607,7 +2896,8 @@
     "tier": 8,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/SwampBird"
   },
   {
     "id": "cargo_1504489682",
@@ -2616,7 +2906,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/SwampBird"
   },
   {
     "id": "cargo_870566793",
@@ -2625,7 +2916,8 @@
     "tier": 5,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison"
   },
   {
     "id": "cargo_1167304009",
@@ -2634,7 +2926,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "Can be used in the construction of buildings."
+    "description": "Can be used in the construction of buildings.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_700754089",
@@ -2643,7 +2936,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A package of Metal Ingots"
+    "description": "A package of Metal Ingots",
+    "icon_asset_name": "GeneratedIcons/Cargo/Package/IngotPackage"
   },
   {
     "id": "cargo_954664564",
@@ -2652,7 +2946,8 @@
     "tier": 9,
     "rarity": "common",
     "category": "cargo",
-    "description": "A chunk of ore. Could be processed into ore pieces."
+    "description": "A chunk of ore. Could be processed into ore pieces.",
+    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/UmbraciteOreChunk"
   },
   {
     "id": "cargo_14878832",
@@ -2661,7 +2956,8 @@
     "tier": -1,
     "rarity": "epic",
     "category": "cargo",
-    "description": "An animal body that could be processed for monster parts"
+    "description": "An animal body that could be processed for monster parts",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/GrassBird"
   },
   {
     "id": "cargo_6002",
@@ -2670,7 +2966,8 @@
     "tier": 3,
     "rarity": "common",
     "category": "cargo",
-    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales."
+    "description": "A huge ocean fish. Could be processed into filets, fish oil or scales.",
+    "icon_asset_name": "GeneratedIcons/Cargo/LargeFish"
   },
   {
     "id": "cargo_11",
@@ -2679,6 +2976,7 @@
     "tier": 6,
     "rarity": "common",
     "category": "cargo",
-    "description": "An animal body that could be processed for meat and hides."
+    "description": "An animal body that could be processed for meat and hides.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Animals/MountainGoat"
   }
 ]

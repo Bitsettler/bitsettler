@@ -24,4 +24,5 @@ export interface ItemData {
   selectedRecipe?: Recipe | null
   itemId?: string
   isDone?: boolean
+  icon_asset_name?: string
 }
