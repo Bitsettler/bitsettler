@@ -26,7 +26,6 @@ export const useItemSelection = ({ items, recipes, initialQuantity = 1 }: UseIte
   const handleItemSelect = useCallback(
     (itemId: string) => {
       const item = items.find((item) => item.id === itemId)
-      console.log({ item })
 
       if (!item) return
 
