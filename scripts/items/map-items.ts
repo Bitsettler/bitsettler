@@ -47,6 +47,16 @@ function toSlug(name: string): string {
 }
 
 /**
+ * Clean up malformed icon asset paths
+ */
+function cleanIconAssetPath(iconAssetName: string): string {
+  if (!iconAssetName) return ''
+
+  // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
+  return iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+}
+
+/**
  * Convert server item to frontend format
  */
 function convertItem(serverItem: ServerItem, category: string): FrontendItem {
@@ -61,7 +71,7 @@ function convertItem(serverItem: ServerItem, category: string): FrontendItem {
     rarity: mapRarity(serverItem.rarity),
     category,
     description: serverItem.description || 'No description available',
-    icon_asset_name: serverItem.icon_asset_name || ''
+    icon_asset_name: cleanIconAssetPath(serverItem.icon_asset_name || '')
   }
 }
 
