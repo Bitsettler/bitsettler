@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { BuildingState as __BuildingState } from "./building_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { BuildingState as __BuildingState } from './building_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace BuildingStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __BuildingState };
-  export type Delete = { tag: "Delete", value: __BuildingState };
+  export type Insert = { tag: 'Insert'; value: __BuildingState }
+  export type Delete = { tag: 'Delete'; value: __BuildingState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace BuildingStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __BuildingState): BuildingStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __BuildingState): BuildingStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __BuildingState): BuildingStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __BuildingState): BuildingStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __BuildingState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __BuildingState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __BuildingState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __BuildingState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingStateOp): void {
-      BuildingStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingStateOp {
-      return BuildingStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `BuildingStateOp`.
-export type BuildingStateOp = BuildingStateOp.Insert | BuildingStateOp.Delete;
+export type BuildingStateOp = BuildingStateOp.Insert | BuildingStateOp.Delete
 
-export default BuildingStateOp;
-
+export default BuildingStateOp

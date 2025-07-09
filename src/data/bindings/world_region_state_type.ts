@@ -6,72 +6,44 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type WorldRegionState = {
-  id: number,
-  regionMinChunkX: number,
-  regionMinChunkZ: number,
-  regionWidthChunks: number,
-  regionHeightChunks: number,
-  regionIndex: number,
-  regionCount: number,
-  regionCountSqrt: number,
-};
+  id: number
+  regionMinChunkX: number
+  regionMinChunkZ: number
+  regionWidthChunks: number
+  regionHeightChunks: number
+  regionIndex: number
+  regionCount: number
+  regionCountSqrt: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldRegionState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createU8Type()),
-      new ProductTypeElement("regionMinChunkX", AlgebraicType.createU16Type()),
-      new ProductTypeElement("regionMinChunkZ", AlgebraicType.createU16Type()),
-      new ProductTypeElement("regionWidthChunks", AlgebraicType.createU16Type()),
-      new ProductTypeElement("regionHeightChunks", AlgebraicType.createU16Type()),
-      new ProductTypeElement("regionIndex", AlgebraicType.createU8Type()),
-      new ProductTypeElement("regionCount", AlgebraicType.createU8Type()),
-      new ProductTypeElement("regionCountSqrt", AlgebraicType.createU8Type()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createU8Type()),
+      new ProductTypeElement('regionMinChunkX', AlgebraicType.createU16Type()),
+      new ProductTypeElement('regionMinChunkZ', AlgebraicType.createU16Type()),
+      new ProductTypeElement('regionWidthChunks', AlgebraicType.createU16Type()),
+      new ProductTypeElement('regionHeightChunks', AlgebraicType.createU16Type()),
+      new ProductTypeElement('regionIndex', AlgebraicType.createU8Type()),
+      new ProductTypeElement('regionCount', AlgebraicType.createU8Type()),
+      new ProductTypeElement('regionCountSqrt', AlgebraicType.createU8Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldRegionState): void {
-    WorldRegionState.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldRegionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldRegionState {
-    return WorldRegionState.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldRegionState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

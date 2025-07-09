@@ -6,44 +6,19 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace EnemyStatus {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Inactive = { tag: "Inactive" };
-  export type Idle = { tag: "Idle" };
-  export type ReturningToIdle = { tag: "ReturningToIdle" };
-  export type Evasive = { tag: "Evasive" };
-  export type Investigating = { tag: "Investigating" };
-  export type Fighting = { tag: "Fighting" };
-  export type Retreating = { tag: "Retreating" };
+  export type Inactive = { tag: 'Inactive' }
+  export type Idle = { tag: 'Idle' }
+  export type ReturningToIdle = { tag: 'ReturningToIdle' }
+  export type Evasive = { tag: 'Evasive' }
+  export type Investigating = { tag: 'Investigating' }
+  export type Fighting = { tag: 'Fighting' }
+  export type Retreating = { tag: 'Retreating' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -51,38 +26,43 @@ export namespace EnemyStatus {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Inactive = { tag: "Inactive" };
-  export const Idle = { tag: "Idle" };
-  export const ReturningToIdle = { tag: "ReturningToIdle" };
-  export const Evasive = { tag: "Evasive" };
-  export const Investigating = { tag: "Investigating" };
-  export const Fighting = { tag: "Fighting" };
-  export const Retreating = { tag: "Retreating" };
+  export const Inactive = { tag: 'Inactive' }
+  export const Idle = { tag: 'Idle' }
+  export const ReturningToIdle = { tag: 'ReturningToIdle' }
+  export const Evasive = { tag: 'Evasive' }
+  export const Investigating = { tag: 'Investigating' }
+  export const Fighting = { tag: 'Fighting' }
+  export const Retreating = { tag: 'Retreating' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Inactive", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Idle", AlgebraicType.createProductType([])),
-      new SumTypeVariant("ReturningToIdle", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Evasive", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Investigating", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Fighting", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Retreating", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Inactive', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Idle', AlgebraicType.createProductType([])),
+      new SumTypeVariant('ReturningToIdle', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Evasive', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Investigating', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Fighting', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Retreating', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnemyStatus): void {
-      EnemyStatus.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnemyStatus.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemyStatus {
-      return EnemyStatus.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnemyStatus.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `EnemyStatus`.
-export type EnemyStatus = EnemyStatus.Inactive | EnemyStatus.Idle | EnemyStatus.ReturningToIdle | EnemyStatus.Evasive | EnemyStatus.Investigating | EnemyStatus.Fighting | EnemyStatus.Retreating;
+export type EnemyStatus =
+  | EnemyStatus.Inactive
+  | EnemyStatus.Idle
+  | EnemyStatus.ReturningToIdle
+  | EnemyStatus.Evasive
+  | EnemyStatus.Investigating
+  | EnemyStatus.Fighting
+  | EnemyStatus.Retreating
 
-export default EnemyStatus;
-
+export default EnemyStatus

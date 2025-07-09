@@ -6,63 +6,35 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from "./offset_coordinates_small_message_type";
-import { EnemyType as __EnemyType } from "./enemy_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { EnemyType as __EnemyType } from './enemy_type_type'
+import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type CheatCompendiumEnemyPlaceRequest = {
-  coordinates: __OffsetCoordinatesSmallMessage,
-  enemyType: __EnemyType,
-};
+  coordinates: __OffsetCoordinatesSmallMessage
+  enemyType: __EnemyType
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatCompendiumEnemyPlaceRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("coordinates", __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("enemyType", __EnemyType.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('coordinates', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatCompendiumEnemyPlaceRequest): void {
-    CheatCompendiumEnemyPlaceRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatCompendiumEnemyPlaceRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatCompendiumEnemyPlaceRequest {
-    return CheatCompendiumEnemyPlaceRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatCompendiumEnemyPlaceRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -8,68 +8,47 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type OnDurabilityZeroTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  playerEntityId: bigint,
-  brokenItemId: number,
-  convertInto: number,
-  stillEquipped: boolean,
-  addedToInventory: boolean,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  playerEntityId: bigint
+  brokenItemId: number
+  convertInto: number
+  stillEquipped: boolean
+  addedToInventory: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace OnDurabilityZeroTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("playerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("brokenItemId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("convertInto", AlgebraicType.createI32Type()),
-      new ProductTypeElement("stillEquipped", AlgebraicType.createBoolType()),
-      new ProductTypeElement("addedToInventory", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('brokenItemId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('convertInto', AlgebraicType.createI32Type()),
+      new ProductTypeElement('stillEquipped', AlgebraicType.createBoolType()),
+      new ProductTypeElement('addedToInventory', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: OnDurabilityZeroTimer): void {
-    OnDurabilityZeroTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    OnDurabilityZeroTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): OnDurabilityZeroTimer {
-    return OnDurabilityZeroTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return OnDurabilityZeroTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,36 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { IdentityRole } from "./identity_role_type";
-import { Role as __Role } from "./role_type";
+import { Identity, TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { IdentityRole } from './identity_role_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `identity_role`.
@@ -48,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.identityRole.on_insert(...)`.
  */
 export class IdentityRoleTableHandle {
-  tableCache: TableCache<IdentityRole>;
+  tableCache: TableCache<IdentityRole>
 
   constructor(tableCache: TableCache<IdentityRole>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<IdentityRole> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `identity` unique index on the table `identity_role`,
@@ -78,33 +52,34 @@ export class IdentityRoleTableHandle {
     find: (col_val: Identity): IdentityRole | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.identity, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: IdentityRole) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: IdentityRole) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: IdentityRole) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: IdentityRole) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: IdentityRole, newRow: IdentityRole) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: IdentityRole, newRow: IdentityRole) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

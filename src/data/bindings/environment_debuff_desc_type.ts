@@ -6,72 +6,44 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EnvironmentResistanceType as __EnvironmentResistanceType } from "./environment_resistance_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { EnvironmentResistanceType as __EnvironmentResistanceType } from './environment_resistance_type_type'
 
 export type EnvironmentDebuffDesc = {
-  buffId: number,
-  resistanceType: __EnvironmentResistanceType,
-  resistanceLevel: number,
-  groundDamage: number,
-  waterDamage: number,
-  resistanceUnmetText: string,
-  resistanceMetText: string,
-};
+  buffId: number
+  resistanceType: __EnvironmentResistanceType
+  resistanceLevel: number
+  groundDamage: number
+  waterDamage: number
+  resistanceUnmetText: string
+  resistanceMetText: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EnvironmentDebuffDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("buffId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("resistanceType", __EnvironmentResistanceType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("resistanceLevel", AlgebraicType.createI32Type()),
-      new ProductTypeElement("groundDamage", AlgebraicType.createI32Type()),
-      new ProductTypeElement("waterDamage", AlgebraicType.createI32Type()),
-      new ProductTypeElement("resistanceUnmetText", AlgebraicType.createStringType()),
-      new ProductTypeElement("resistanceMetText", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('buffId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('resistanceType', __EnvironmentResistanceType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('resistanceLevel', AlgebraicType.createI32Type()),
+      new ProductTypeElement('groundDamage', AlgebraicType.createI32Type()),
+      new ProductTypeElement('waterDamage', AlgebraicType.createI32Type()),
+      new ProductTypeElement('resistanceUnmetText', AlgebraicType.createStringType()),
+      new ProductTypeElement('resistanceMetText', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnvironmentDebuffDesc): void {
-    EnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnvironmentDebuffDesc {
-    return EnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CheatTeleportFloatRequest as __CheatTeleportFloatRequest } from "./cheat_teleport_float_request_type";
+import { CheatTeleportFloatRequest as __CheatTeleportFloatRequest } from './cheat_teleport_float_request_type'
 
 export type CheatTeleportFloat = {
-  request: __CheatTeleportFloatRequest,
-};
+  request: __CheatTeleportFloatRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatTeleportFloat {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __CheatTeleportFloatRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __CheatTeleportFloatRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatTeleportFloat): void {
-    CheatTeleportFloat.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatTeleportFloat.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatTeleportFloat {
-    return CheatTeleportFloat.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatTeleportFloat.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

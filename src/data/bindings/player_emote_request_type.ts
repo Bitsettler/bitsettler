@@ -6,62 +6,37 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from "./offset_coordinates_small_message_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type PlayerEmoteRequest = {
-  emoteId: number,
-  face: __OffsetCoordinatesSmallMessage | undefined,
-};
+  emoteId: number
+  face: __OffsetCoordinatesSmallMessage | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerEmoteRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("emoteId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("face", AlgebraicType.createOptionType(__OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('emoteId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'face',
+        AlgebraicType.createOptionType(__OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerEmoteRequest): void {
-    PlayerEmoteRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerEmoteRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerEmoteRequest {
-    return PlayerEmoteRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerEmoteRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

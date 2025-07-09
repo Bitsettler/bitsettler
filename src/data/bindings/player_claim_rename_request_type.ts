@@ -6,60 +6,32 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerClaimRenameRequest = {
-  claimEntityId: bigint,
-  claimName: string,
-};
+  claimEntityId: bigint
+  claimName: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerClaimRenameRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("claimEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("claimName", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('claimName', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerClaimRenameRequest): void {
-    PlayerClaimRenameRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerClaimRenameRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerClaimRenameRequest {
-    return PlayerClaimRenameRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerClaimRenameRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

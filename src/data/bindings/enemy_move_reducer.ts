@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EnemyMoveRequest as __EnemyMoveRequest } from "./enemy_move_request_type";
+import { EnemyMoveRequest as __EnemyMoveRequest } from './enemy_move_request_type'
 
 export type EnemyMove = {
-  request: __EnemyMoveRequest,
-};
+  request: __EnemyMoveRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EnemyMove {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __EnemyMoveRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __EnemyMoveRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnemyMove): void {
-    EnemyMove.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnemyMove.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemyMove {
-    return EnemyMove.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnemyMove.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

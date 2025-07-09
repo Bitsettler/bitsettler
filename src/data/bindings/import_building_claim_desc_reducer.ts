@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { BuildingClaimDesc as __BuildingClaimDesc } from "./building_claim_desc_type";
+import { BuildingClaimDesc as __BuildingClaimDesc } from './building_claim_desc_type'
 
 export type ImportBuildingClaimDesc = {
-  records: __BuildingClaimDesc[],
-};
+  records: __BuildingClaimDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportBuildingClaimDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__BuildingClaimDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__BuildingClaimDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportBuildingClaimDesc): void {
-    ImportBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportBuildingClaimDesc {
-    return ImportBuildingClaimDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportBuildingClaimDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

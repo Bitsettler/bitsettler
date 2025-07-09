@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { WorldRegionNameState as __WorldRegionNameState } from "./world_region_name_state_type";
+import { WorldRegionNameState as __WorldRegionNameState } from './world_region_name_state_type'
 
 export type ImportWorldRegionNameState = {
-  records: __WorldRegionNameState[],
-};
+  records: __WorldRegionNameState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportWorldRegionNameState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__WorldRegionNameState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__WorldRegionNameState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportWorldRegionNameState): void {
-    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportWorldRegionNameState {
-    return ImportWorldRegionNameState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportWorldRegionNameState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

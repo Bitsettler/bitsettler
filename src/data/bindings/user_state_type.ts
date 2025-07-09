@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type UserState = {
-  identity: Identity,
-  entityId: bigint,
-  canSignIn: boolean,
-};
+  identity: Identity
+  entityId: bigint
+  canSignIn: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace UserState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("identity", AlgebraicType.createIdentityType()),
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("canSignIn", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('identity', AlgebraicType.createIdentityType()),
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('canSignIn', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: UserState): void {
-    UserState.getTypeScriptAlgebraicType().serialize(writer, value);
+    UserState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): UserState {
-    return UserState.getTypeScriptAlgebraicType().deserialize(reader);
+    return UserState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

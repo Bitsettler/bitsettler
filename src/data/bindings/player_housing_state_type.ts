@@ -8,70 +8,48 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerHousingState = {
-  entityId: bigint,
-  entranceBuildingEntityId: bigint,
-  networkEntityId: bigint,
-  exitPortalEntityId: bigint,
-  rank: number,
-  lockedUntil: Timestamp,
-  isEmpty: boolean,
-  regionIndex: number,
-};
+  entityId: bigint
+  entranceBuildingEntityId: bigint
+  networkEntityId: bigint
+  exitPortalEntityId: bigint
+  rank: number
+  lockedUntil: Timestamp
+  isEmpty: boolean
+  regionIndex: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerHousingState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("entranceBuildingEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("networkEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("exitPortalEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("rank", AlgebraicType.createI32Type()),
-      new ProductTypeElement("lockedUntil", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("isEmpty", AlgebraicType.createBoolType()),
-      new ProductTypeElement("regionIndex", AlgebraicType.createU8Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('entranceBuildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('networkEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('exitPortalEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('rank', AlgebraicType.createI32Type()),
+      new ProductTypeElement('lockedUntil', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('isEmpty', AlgebraicType.createBoolType()),
+      new ProductTypeElement('regionIndex', AlgebraicType.createU8Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerHousingState): void {
-    PlayerHousingState.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerHousingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerHousingState {
-    return PlayerHousingState.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerHousingState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,87 +6,65 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { InputItemStack as __InputItemStack } from "./input_item_stack_type";
-import { ExperienceStackF32 as __ExperienceStackF32 } from "./experience_stack_f_32_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
+import { InputItemStack as __InputItemStack } from './input_item_stack_type'
 
 export type PillarShapingDesc = {
-  id: number,
-  name: string,
-  consumedItemStacks: __InputItemStack[],
-  inputCargoId: number,
-  inputCargoDiscoveryScore: number,
-  experiencePerProgress: __ExperienceStackF32[],
-  discoveryTriggers: number[],
-  requiredKnowledges: number[],
-  fullDiscoveryScore: number,
-  duration: number,
-  prefabAddress: string,
-  tier: number,
-  iconAddress: string,
-  description: string,
-};
+  id: number
+  name: string
+  consumedItemStacks: __InputItemStack[]
+  inputCargoId: number
+  inputCargoDiscoveryScore: number
+  experiencePerProgress: __ExperienceStackF32[]
+  discoveryTriggers: number[]
+  requiredKnowledges: number[]
+  fullDiscoveryScore: number
+  duration: number
+  prefabAddress: string
+  tier: number
+  iconAddress: string
+  description: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PillarShapingDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("consumedItemStacks", AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("inputCargoId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("inputCargoDiscoveryScore", AlgebraicType.createI32Type()),
-      new ProductTypeElement("experiencePerProgress", AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("discoveryTriggers", AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement("requiredKnowledges", AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement("fullDiscoveryScore", AlgebraicType.createI32Type()),
-      new ProductTypeElement("duration", AlgebraicType.createF32Type()),
-      new ProductTypeElement("prefabAddress", AlgebraicType.createStringType()),
-      new ProductTypeElement("tier", AlgebraicType.createI32Type()),
-      new ProductTypeElement("iconAddress", AlgebraicType.createStringType()),
-      new ProductTypeElement("description", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('name', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'consumedItemStacks',
+        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement('inputCargoId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('inputCargoDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'experiencePerProgress',
+        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement('fullDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement('duration', AlgebraicType.createF32Type()),
+      new ProductTypeElement('prefabAddress', AlgebraicType.createStringType()),
+      new ProductTypeElement('tier', AlgebraicType.createI32Type()),
+      new ProductTypeElement('iconAddress', AlgebraicType.createStringType()),
+      new ProductTypeElement('description', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PillarShapingDesc): void {
-    PillarShapingDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    PillarShapingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PillarShapingDesc {
-    return PillarShapingDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return PillarShapingDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

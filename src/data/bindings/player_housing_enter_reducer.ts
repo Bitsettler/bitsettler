@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerHousingEnterRequest as __PlayerHousingEnterRequest } from "./player_housing_enter_request_type";
+import { PlayerHousingEnterRequest as __PlayerHousingEnterRequest } from './player_housing_enter_request_type'
 
 export type PlayerHousingEnter = {
-  request: __PlayerHousingEnterRequest,
-};
+  request: __PlayerHousingEnterRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerHousingEnter {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerHousingEnterRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerHousingEnterRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerHousingEnter): void {
-    PlayerHousingEnter.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerHousingEnter.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerHousingEnter {
-    return PlayerHousingEnter.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerHousingEnter.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

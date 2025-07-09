@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { LootChestState as __LootChestState } from "./loot_chest_state_type";
+import { LootChestState as __LootChestState } from './loot_chest_state_type'
 
 export type ImportLootChestState = {
-  records: __LootChestState[],
-};
+  records: __LootChestState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportLootChestState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__LootChestState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__LootChestState.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportLootChestState): void {
-    ImportLootChestState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportLootChestState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportLootChestState {
-    return ImportLootChestState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportLootChestState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

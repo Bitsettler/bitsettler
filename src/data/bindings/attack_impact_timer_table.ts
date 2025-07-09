@@ -6,36 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { AttackImpactTimer } from "./attack_impact_timer_type";
-import { EntityType as __EntityType } from "./entity_type_type";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { AttackImpactTimer } from './attack_impact_timer_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `attack_impact_timer`.
@@ -48,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.attackImpactTimer.on_insert(...)`.
  */
 export class AttackImpactTimerTableHandle {
-  tableCache: TableCache<AttackImpactTimer>;
+  tableCache: TableCache<AttackImpactTimer>
 
   constructor(tableCache: TableCache<AttackImpactTimer>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<AttackImpactTimer> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `scheduledId` unique index on the table `attack_impact_timer`,
@@ -78,33 +52,34 @@ export class AttackImpactTimerTableHandle {
     find: (col_val: bigint): AttackImpactTimer | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.scheduledId, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: AttackImpactTimer, newRow: AttackImpactTimer) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: AttackImpactTimer, newRow: AttackImpactTimer) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

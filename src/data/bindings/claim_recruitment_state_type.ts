@@ -6,68 +6,40 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type ClaimRecruitmentState = {
-  entityId: bigint,
-  claimEntityId: bigint,
-  remainingStock: number,
-  requiredSkillId: number,
-  requiredSkillLevel: number,
-  requiredApproval: boolean,
-};
+  entityId: bigint
+  claimEntityId: bigint
+  remainingStock: number
+  requiredSkillId: number
+  requiredSkillLevel: number
+  requiredApproval: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimRecruitmentState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("claimEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("remainingStock", AlgebraicType.createI32Type()),
-      new ProductTypeElement("requiredSkillId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("requiredSkillLevel", AlgebraicType.createI32Type()),
-      new ProductTypeElement("requiredApproval", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('remainingStock', AlgebraicType.createI32Type()),
+      new ProductTypeElement('requiredSkillId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('requiredSkillLevel', AlgebraicType.createI32Type()),
+      new ProductTypeElement('requiredApproval', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimRecruitmentState): void {
-    ClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimRecruitmentState {
-    return ClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

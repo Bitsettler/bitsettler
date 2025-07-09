@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ReservedNameDesc as __ReservedNameDesc } from "./reserved_name_desc_type";
+import { ReservedNameDesc as __ReservedNameDesc } from './reserved_name_desc_type'
 
 export type ImportReservedNameDesc = {
-  records: __ReservedNameDesc[],
-};
+  records: __ReservedNameDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportReservedNameDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__ReservedNameDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__ReservedNameDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportReservedNameDesc): void {
-    ImportReservedNameDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportReservedNameDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportReservedNameDesc {
-    return ImportReservedNameDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportReservedNameDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

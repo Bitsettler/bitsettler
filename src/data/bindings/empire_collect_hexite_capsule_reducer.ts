@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EmpireCollectHexiteCapsuleRequest as __EmpireCollectHexiteCapsuleRequest } from "./empire_collect_hexite_capsule_request_type";
+import { EmpireCollectHexiteCapsuleRequest as __EmpireCollectHexiteCapsuleRequest } from './empire_collect_hexite_capsule_request_type'
 
 export type EmpireCollectHexiteCapsule = {
-  request: __EmpireCollectHexiteCapsuleRequest,
-};
+  request: __EmpireCollectHexiteCapsuleRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EmpireCollectHexiteCapsule {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __EmpireCollectHexiteCapsuleRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __EmpireCollectHexiteCapsuleRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpireCollectHexiteCapsule): void {
-    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireCollectHexiteCapsule {
-    return EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

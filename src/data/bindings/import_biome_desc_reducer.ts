@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { BiomeDesc as __BiomeDesc } from "./biome_desc_type";
+import { BiomeDesc as __BiomeDesc } from './biome_desc_type'
 
 export type ImportBiomeDesc = {
-  records: __BiomeDesc[],
-};
+  records: __BiomeDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportBiomeDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__BiomeDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__BiomeDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportBiomeDesc): void {
-    ImportBiomeDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportBiomeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportBiomeDesc {
-    return ImportBiomeDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportBiomeDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

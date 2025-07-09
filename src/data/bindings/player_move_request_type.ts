@@ -6,70 +6,48 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from "./offset_coordinates_float_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerMoveRequest = {
-  timestamp: bigint,
-  destination: __OffsetCoordinatesFloat | undefined,
-  origin: __OffsetCoordinatesFloat | undefined,
-  duration: number,
-  moveType: number,
-  running: boolean,
-};
+  timestamp: bigint
+  destination: __OffsetCoordinatesFloat | undefined
+  origin: __OffsetCoordinatesFloat | undefined
+  duration: number
+  moveType: number
+  running: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerMoveRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timestamp", AlgebraicType.createU64Type()),
-      new ProductTypeElement("destination", AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("origin", AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("duration", AlgebraicType.createF32Type()),
-      new ProductTypeElement("moveType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("running", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('timestamp', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'destination',
+        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'origin',
+        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement('duration', AlgebraicType.createF32Type()),
+      new ProductTypeElement('moveType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('running', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerMoveRequest): void {
-    PlayerMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerMoveRequest {
-    return PlayerMoveRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerMoveRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

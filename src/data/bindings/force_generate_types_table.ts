@@ -6,42 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ForceGenerateTypes } from "./force_generate_types_type";
-import { HexDirection as __HexDirection } from "./hex_direction_type";
-import { FloatHexTileMessage as __FloatHexTileMessage } from "./float_hex_tile_message_type";
-import { ChunkCoordinatesMessage as __ChunkCoordinatesMessage } from "./chunk_coordinates_message_type";
-import { ClaimPermission as __ClaimPermission } from "./claim_permission_type";
-import { LargeHexTileMessage as __LargeHexTileMessage } from "./large_hex_tile_message_type";
-import { TerrainCell as __TerrainCell } from "./terrain_cell_type";
-import { ItemConversionLocationContext as __ItemConversionLocationContext } from "./item_conversion_location_context_type";
+import { TableCache } from '@clockworklabs/spacetimedb-sdk'
+import { ForceGenerateTypes } from './force_generate_types_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `force_generate_types`.
@@ -54,33 +22,33 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.forceGenerateTypes.on_insert(...)`.
  */
 export class ForceGenerateTypesTableHandle {
-  tableCache: TableCache<ForceGenerateTypes>;
+  tableCache: TableCache<ForceGenerateTypes>
 
   constructor(tableCache: TableCache<ForceGenerateTypes>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<ForceGenerateTypes> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
 
   onInsert = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 }

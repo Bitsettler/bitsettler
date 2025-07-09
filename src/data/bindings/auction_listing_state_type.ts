@@ -8,72 +8,50 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type AuctionListingState = {
-  entityId: bigint,
-  ownerEntityId: bigint,
-  claimEntityId: bigint,
-  itemId: number,
-  itemType: number,
-  priceThreshold: number,
-  quantity: number,
-  timestamp: Timestamp,
-  storedCoins: number,
-};
+  entityId: bigint
+  ownerEntityId: bigint
+  claimEntityId: bigint
+  itemId: number
+  itemType: number
+  priceThreshold: number
+  quantity: number
+  timestamp: Timestamp
+  storedCoins: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace AuctionListingState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("ownerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("claimEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("itemId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("itemType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("priceThreshold", AlgebraicType.createI32Type()),
-      new ProductTypeElement("quantity", AlgebraicType.createI32Type()),
-      new ProductTypeElement("timestamp", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("storedCoins", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('itemType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('priceThreshold', AlgebraicType.createI32Type()),
+      new ProductTypeElement('quantity', AlgebraicType.createI32Type()),
+      new ProductTypeElement('timestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('storedCoins', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: AuctionListingState): void {
-    AuctionListingState.getTypeScriptAlgebraicType().serialize(writer, value);
+    AuctionListingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AuctionListingState {
-    return AuctionListingState.getTypeScriptAlgebraicType().deserialize(reader);
+    return AuctionListingState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,64 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { FootprintType as __FootprintType } from "./footprint_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { FootprintType as __FootprintType } from './footprint_type_type'
 
 export type FootprintTile = {
-  x: number,
-  z: number,
-  footprintType: __FootprintType,
-};
+  x: number
+  z: number
+  footprintType: __FootprintType
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace FootprintTile {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("x", AlgebraicType.createI32Type()),
-      new ProductTypeElement("z", AlgebraicType.createI32Type()),
-      new ProductTypeElement("footprintType", __FootprintType.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('x', AlgebraicType.createI32Type()),
+      new ProductTypeElement('z', AlgebraicType.createI32Type()),
+      new ProductTypeElement('footprintType', __FootprintType.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: FootprintTile): void {
-    FootprintTile.getTypeScriptAlgebraicType().serialize(writer, value);
+    FootprintTile.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): FootprintTile {
-    return FootprintTile.getTypeScriptAlgebraicType().deserialize(reader);
+    return FootprintTile.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ClaimType as __ClaimType } from "./claim_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ClaimType as __ClaimType } from './claim_type_type'
 
 export type BuildingClaimDesc = {
-  buildingId: number,
-  claimType: __ClaimType,
-  radius: number,
-  tier: number,
-};
+  buildingId: number
+  claimType: __ClaimType
+  radius: number
+  tier: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace BuildingClaimDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("buildingId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("claimType", __ClaimType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("radius", AlgebraicType.createI32Type()),
-      new ProductTypeElement("tier", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('claimType', __ClaimType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('radius', AlgebraicType.createI32Type()),
+      new ProductTypeElement('tier', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingClaimDesc): void {
-    BuildingClaimDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingClaimDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingClaimDesc {
-    return BuildingClaimDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingClaimDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

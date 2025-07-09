@@ -8,66 +8,47 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type DuelState = {
-  entityId: bigint,
-  initiatorEntityId: bigint,
-  acceptorEntityId: bigint,
-  victor: bigint | undefined,
-  playerEntityIds: bigint[],
-  outOfRangeTimestamps: (Timestamp | undefined)[],
-};
+  entityId: bigint
+  initiatorEntityId: bigint
+  acceptorEntityId: bigint
+  victor: bigint | undefined
+  playerEntityIds: bigint[]
+  outOfRangeTimestamps: (Timestamp | undefined)[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace DuelState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("initiatorEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("acceptorEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("victor", AlgebraicType.createOptionType(AlgebraicType.createU64Type())),
-      new ProductTypeElement("playerEntityIds", AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
-      new ProductTypeElement("outOfRangeTimestamps", AlgebraicType.createArrayType(AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('initiatorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('acceptorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('victor', AlgebraicType.createOptionType(AlgebraicType.createU64Type())),
+      new ProductTypeElement('playerEntityIds', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
+      new ProductTypeElement(
+        'outOfRangeTimestamps',
+        AlgebraicType.createArrayType(AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: DuelState): void {
-    DuelState.getTypeScriptAlgebraicType().serialize(writer, value);
+    DuelState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DuelState {
-    return DuelState.getTypeScriptAlgebraicType().deserialize(reader);
+    return DuelState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,43 +6,18 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace EntityType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type None = { tag: "None" };
-  export type Player = { tag: "Player" };
-  export type Enemy = { tag: "Enemy" };
-  export type Building = { tag: "Building" };
-  export type Npc = { tag: "Npc" };
-  export type Resource = { tag: "Resource" };
+  export type None = { tag: 'None' }
+  export type Player = { tag: 'Player' }
+  export type Enemy = { tag: 'Enemy' }
+  export type Building = { tag: 'Building' }
+  export type Npc = { tag: 'Npc' }
+  export type Resource = { tag: 'Resource' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -50,36 +25,40 @@ export namespace EntityType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const None = { tag: "None" };
-  export const Player = { tag: "Player" };
-  export const Enemy = { tag: "Enemy" };
-  export const Building = { tag: "Building" };
-  export const Npc = { tag: "Npc" };
-  export const Resource = { tag: "Resource" };
+  export const None = { tag: 'None' }
+  export const Player = { tag: 'Player' }
+  export const Enemy = { tag: 'Enemy' }
+  export const Building = { tag: 'Building' }
+  export const Npc = { tag: 'Npc' }
+  export const Resource = { tag: 'Resource' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("None", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Player", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Enemy", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Building", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Npc", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Resource", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('None', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Player', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Enemy', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Building', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Npc', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Resource', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EntityType): void {
-      EntityType.getTypeScriptAlgebraicType().serialize(writer, value);
+    EntityType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EntityType {
-      return EntityType.getTypeScriptAlgebraicType().deserialize(reader);
+    return EntityType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `EntityType`.
-export type EntityType = EntityType.None | EntityType.Player | EntityType.Enemy | EntityType.Building | EntityType.Npc | EntityType.Resource;
+export type EntityType =
+  | EntityType.None
+  | EntityType.Player
+  | EntityType.Enemy
+  | EntityType.Building
+  | EntityType.Npc
+  | EntityType.Resource
 
-export default EntityType;
-
+export default EntityType

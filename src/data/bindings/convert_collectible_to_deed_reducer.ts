@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerConvertCollectibleToDeedRequest as __PlayerConvertCollectibleToDeedRequest } from "./player_convert_collectible_to_deed_request_type";
+import { PlayerConvertCollectibleToDeedRequest as __PlayerConvertCollectibleToDeedRequest } from './player_convert_collectible_to_deed_request_type'
 
 export type ConvertCollectibleToDeed = {
-  request: __PlayerConvertCollectibleToDeedRequest,
-};
+  request: __PlayerConvertCollectibleToDeedRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ConvertCollectibleToDeed {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ConvertCollectibleToDeed): void {
-    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(writer, value);
+    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ConvertCollectibleToDeed {
-    return ConvertCollectibleToDeed.getTypeScriptAlgebraicType().deserialize(reader);
+    return ConvertCollectibleToDeed.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

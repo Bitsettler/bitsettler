@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { RegionSignInParameters as __RegionSignInParameters } from "./region_sign_in_parameters_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { RegionSignInParameters as __RegionSignInParameters } from './region_sign_in_parameters_type'
 
 // A namespace for generated variants and helper functions.
 export namespace RegionSignInParametersOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __RegionSignInParameters };
-  export type Delete = { tag: "Delete", value: __RegionSignInParameters };
+  export type Insert = { tag: 'Insert'; value: __RegionSignInParameters }
+  export type Delete = { tag: 'Delete'; value: __RegionSignInParameters }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace RegionSignInParametersOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: "Insert", value });
-  export const Delete = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: "Delete", value });
+  export const Insert = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __RegionSignInParameters.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __RegionSignInParameters.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __RegionSignInParameters.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __RegionSignInParameters.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: RegionSignInParametersOp): void {
-      RegionSignInParametersOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    RegionSignInParametersOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RegionSignInParametersOp {
-      return RegionSignInParametersOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return RegionSignInParametersOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `RegionSignInParametersOp`.
-export type RegionSignInParametersOp = RegionSignInParametersOp.Insert | RegionSignInParametersOp.Delete;
+export type RegionSignInParametersOp = RegionSignInParametersOp.Insert | RegionSignInParametersOp.Delete
 
-export default RegionSignInParametersOp;
-
+export default RegionSignInParametersOp

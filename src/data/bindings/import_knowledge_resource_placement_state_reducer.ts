@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { KnowledgeResourcePlacementState as __KnowledgeResourcePlacementState } from "./knowledge_resource_placement_state_type";
+import { KnowledgeResourcePlacementState as __KnowledgeResourcePlacementState } from './knowledge_resource_placement_state_type'
 
 export type ImportKnowledgeResourcePlacementState = {
-  records: __KnowledgeResourcePlacementState[],
-};
+  records: __KnowledgeResourcePlacementState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportKnowledgeResourcePlacementState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__KnowledgeResourcePlacementState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__KnowledgeResourcePlacementState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportKnowledgeResourcePlacementState): void {
-    ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportKnowledgeResourcePlacementState {
-    return ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

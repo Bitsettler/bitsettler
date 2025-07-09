@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { Role as __Role } from "./role_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { Role as __Role } from './role_type'
 
 export type IdentityRole = {
-  identity: Identity,
-  role: __Role,
-};
+  identity: Identity
+  role: __Role
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace IdentityRole {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("identity", AlgebraicType.createIdentityType()),
-      new ProductTypeElement("role", __Role.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('identity', AlgebraicType.createIdentityType()),
+      new ProductTypeElement('role', __Role.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: IdentityRole): void {
-    IdentityRole.getTypeScriptAlgebraicType().serialize(writer, value);
+    IdentityRole.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): IdentityRole {
-    return IdentityRole.getTypeScriptAlgebraicType().deserialize(reader);
+    return IdentityRole.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

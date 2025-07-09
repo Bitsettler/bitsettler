@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EntityAttackRequest as __EntityAttackRequest } from "./entity_attack_request_type";
+import { EntityAttackRequest as __EntityAttackRequest } from './entity_attack_request_type'
 
 export type AttackStart = {
-  request: __EntityAttackRequest,
-};
+  request: __EntityAttackRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace AttackStart {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __EntityAttackRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __EntityAttackRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: AttackStart): void {
-    AttackStart.getTypeScriptAlgebraicType().serialize(writer, value);
+    AttackStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AttackStart {
-    return AttackStart.getTypeScriptAlgebraicType().deserialize(reader);
+    return AttackStart.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

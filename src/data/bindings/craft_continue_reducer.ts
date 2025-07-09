@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerCraftContinueRequest as __PlayerCraftContinueRequest } from "./player_craft_continue_request_type";
+import { PlayerCraftContinueRequest as __PlayerCraftContinueRequest } from './player_craft_continue_request_type'
 
 export type CraftContinue = {
-  request: __PlayerCraftContinueRequest,
-};
+  request: __PlayerCraftContinueRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CraftContinue {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerCraftContinueRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerCraftContinueRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CraftContinue): void {
-    CraftContinue.getTypeScriptAlgebraicType().serialize(writer, value);
+    CraftContinue.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CraftContinue {
-    return CraftContinue.getTypeScriptAlgebraicType().deserialize(reader);
+    return CraftContinue.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

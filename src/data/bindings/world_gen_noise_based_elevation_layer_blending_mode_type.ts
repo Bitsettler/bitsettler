@@ -6,39 +6,14 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace WorldGenNoiseBasedElevationLayerBlendingMode {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Add = { tag: "Add" };
-  export type Override = { tag: "Override" };
+  export type Add = { tag: 'Add' }
+  export type Override = { tag: 'Override' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -46,28 +21,28 @@ export namespace WorldGenNoiseBasedElevationLayerBlendingMode {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Add = { tag: "Add" };
-  export const Override = { tag: "Override" };
+  export const Add = { tag: 'Add' }
+  export const Override = { tag: 'Override' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Add", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Override", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Add', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Override', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenNoiseBasedElevationLayerBlendingMode): void {
-      WorldGenNoiseBasedElevationLayerBlendingMode.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenNoiseBasedElevationLayerBlendingMode.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenNoiseBasedElevationLayerBlendingMode {
-      return WorldGenNoiseBasedElevationLayerBlendingMode.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenNoiseBasedElevationLayerBlendingMode.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `WorldGenNoiseBasedElevationLayerBlendingMode`.
-export type WorldGenNoiseBasedElevationLayerBlendingMode = WorldGenNoiseBasedElevationLayerBlendingMode.Add | WorldGenNoiseBasedElevationLayerBlendingMode.Override;
+export type WorldGenNoiseBasedElevationLayerBlendingMode =
+  | WorldGenNoiseBasedElevationLayerBlendingMode.Add
+  | WorldGenNoiseBasedElevationLayerBlendingMode.Override
 
-export default WorldGenNoiseBasedElevationLayerBlendingMode;
-
+export default WorldGenNoiseBasedElevationLayerBlendingMode

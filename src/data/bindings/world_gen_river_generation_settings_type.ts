@@ -6,71 +6,46 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from "./world_gen_animation_curve_type";
-import { WorldGenRiverPathfindingCosts as __WorldGenRiverPathfindingCosts } from "./world_gen_river_pathfinding_costs_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
+import { WorldGenRiverPathfindingCosts as __WorldGenRiverPathfindingCosts } from './world_gen_river_pathfinding_costs_type'
 
 export type WorldGenRiverGenerationSettings = {
-  radius: number,
-  depthCurve: __WorldGenAnimationCurve,
-  erosion: number,
-  minLakeCircumference: number,
-  pathfindingNodeLimit: number,
-  pathfindingCosts: __WorldGenRiverPathfindingCosts[],
-};
+  radius: number
+  depthCurve: __WorldGenAnimationCurve
+  erosion: number
+  minLakeCircumference: number
+  pathfindingNodeLimit: number
+  pathfindingCosts: __WorldGenRiverPathfindingCosts[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldGenRiverGenerationSettings {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("radius", AlgebraicType.createI32Type()),
-      new ProductTypeElement("depthCurve", __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("erosion", AlgebraicType.createF32Type()),
-      new ProductTypeElement("minLakeCircumference", AlgebraicType.createI32Type()),
-      new ProductTypeElement("pathfindingNodeLimit", AlgebraicType.createI32Type()),
-      new ProductTypeElement("pathfindingCosts", AlgebraicType.createArrayType(__WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('radius', AlgebraicType.createI32Type()),
+      new ProductTypeElement('depthCurve', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('erosion', AlgebraicType.createF32Type()),
+      new ProductTypeElement('minLakeCircumference', AlgebraicType.createI32Type()),
+      new ProductTypeElement('pathfindingNodeLimit', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'pathfindingCosts',
+        AlgebraicType.createArrayType(__WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenRiverGenerationSettings): void {
-    WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenRiverGenerationSettings {
-    return WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

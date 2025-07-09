@@ -6,64 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from "./offset_coordinates_small_message_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type DeployableDeployRequest = {
-  vaultIndex: number,
-  coord: __OffsetCoordinatesSmallMessage,
-  direction: number,
-};
+  vaultIndex: number
+  coord: __OffsetCoordinatesSmallMessage
+  direction: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace DeployableDeployRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("vaultIndex", AlgebraicType.createI32Type()),
-      new ProductTypeElement("coord", __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("direction", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('vaultIndex', AlgebraicType.createI32Type()),
+      new ProductTypeElement('coord', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('direction', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: DeployableDeployRequest): void {
-    DeployableDeployRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    DeployableDeployRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DeployableDeployRequest {
-    return DeployableDeployRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return DeployableDeployRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

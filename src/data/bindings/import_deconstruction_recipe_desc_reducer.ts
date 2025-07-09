@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { DeconstructionRecipeDesc as __DeconstructionRecipeDesc } from "./deconstruction_recipe_desc_type";
+import { DeconstructionRecipeDesc as __DeconstructionRecipeDesc } from './deconstruction_recipe_desc_type'
 
 export type ImportDeconstructionRecipeDesc = {
-  records: __DeconstructionRecipeDesc[],
-};
+  records: __DeconstructionRecipeDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportDeconstructionRecipeDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__DeconstructionRecipeDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__DeconstructionRecipeDesc.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportDeconstructionRecipeDesc): void {
-    ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportDeconstructionRecipeDesc {
-    return ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ClaimSetPurchaseSupplyThresholdRequest as __ClaimSetPurchaseSupplyThresholdRequest } from "./claim_set_purchase_supply_threshold_request_type";
+import { ClaimSetPurchaseSupplyThresholdRequest as __ClaimSetPurchaseSupplyThresholdRequest } from './claim_set_purchase_supply_threshold_request_type'
 
 export type ClaimSetPurchaseSupplyThreshold = {
-  request: __ClaimSetPurchaseSupplyThresholdRequest,
-};
+  request: __ClaimSetPurchaseSupplyThresholdRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimSetPurchaseSupplyThreshold {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __ClaimSetPurchaseSupplyThresholdRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __ClaimSetPurchaseSupplyThresholdRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimSetPurchaseSupplyThreshold): void {
-    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimSetPurchaseSupplyThreshold {
-    return ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

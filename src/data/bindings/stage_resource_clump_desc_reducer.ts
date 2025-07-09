@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ResourceClumpDesc as __ResourceClumpDesc } from "./resource_clump_desc_type";
+import { ResourceClumpDesc as __ResourceClumpDesc } from './resource_clump_desc_type'
 
 export type StageResourceClumpDesc = {
-  records: __ResourceClumpDesc[],
-};
+  records: __ResourceClumpDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StageResourceClumpDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__ResourceClumpDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__ResourceClumpDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StageResourceClumpDesc): void {
-    StageResourceClumpDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    StageResourceClumpDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StageResourceClumpDesc {
-    return StageResourceClumpDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return StageResourceClumpDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

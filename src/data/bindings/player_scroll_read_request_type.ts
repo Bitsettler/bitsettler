@@ -6,58 +6,28 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerScrollReadRequest = {
-  pocketIndex: number,
-};
+  pocketIndex: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerScrollReadRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([
-      new ProductTypeElement("pocketIndex", AlgebraicType.createI32Type()),
-    ]);
+    return AlgebraicType.createProductType([new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type())])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerScrollReadRequest): void {
-    PlayerScrollReadRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerScrollReadRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerScrollReadRequest {
-    return PlayerScrollReadRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerScrollReadRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

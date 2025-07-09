@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { UserAuthenticationState as __UserAuthenticationState } from "./user_authentication_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { UserAuthenticationState as __UserAuthenticationState } from './user_authentication_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace UserAuthenticationStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __UserAuthenticationState };
-  export type Delete = { tag: "Delete", value: __UserAuthenticationState };
+  export type Insert = { tag: 'Insert'; value: __UserAuthenticationState }
+  export type Delete = { tag: 'Delete'; value: __UserAuthenticationState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace UserAuthenticationStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __UserAuthenticationState): UserAuthenticationStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __UserAuthenticationState): UserAuthenticationStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __UserAuthenticationState): UserAuthenticationStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __UserAuthenticationState): UserAuthenticationStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __UserAuthenticationState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __UserAuthenticationState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __UserAuthenticationState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __UserAuthenticationState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: UserAuthenticationStateOp): void {
-      UserAuthenticationStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    UserAuthenticationStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): UserAuthenticationStateOp {
-      return UserAuthenticationStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return UserAuthenticationStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `UserAuthenticationStateOp`.
-export type UserAuthenticationStateOp = UserAuthenticationStateOp.Insert | UserAuthenticationStateOp.Delete;
+export type UserAuthenticationStateOp = UserAuthenticationStateOp.Insert | UserAuthenticationStateOp.Delete
 
-export default UserAuthenticationStateOp;
-
+export default UserAuthenticationStateOp

@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PassiveCraftTimer as __PassiveCraftTimer } from "./passive_craft_timer_type";
+import { PassiveCraftTimer as __PassiveCraftTimer } from './passive_craft_timer_type'
 
 export type PassiveCraftProcess = {
-  timer: __PassiveCraftTimer,
-};
+  timer: __PassiveCraftTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PassiveCraftProcess {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __PassiveCraftTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __PassiveCraftTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PassiveCraftProcess): void {
-    PassiveCraftProcess.getTypeScriptAlgebraicType().serialize(writer, value);
+    PassiveCraftProcess.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PassiveCraftProcess {
-    return PassiveCraftProcess.getTypeScriptAlgebraicType().deserialize(reader);
+    return PassiveCraftProcess.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

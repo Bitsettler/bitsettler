@@ -8,60 +8,39 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type PassiveCraftTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  craftEntityId: bigint,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  craftEntityId: bigint
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PassiveCraftTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("craftEntityId", AlgebraicType.createU64Type()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('craftEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PassiveCraftTimer): void {
-    PassiveCraftTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    PassiveCraftTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PassiveCraftTimer {
-    return PassiveCraftTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return PassiveCraftTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

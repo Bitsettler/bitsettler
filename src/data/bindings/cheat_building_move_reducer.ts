@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerBuildingMoveRequest as __PlayerBuildingMoveRequest } from "./player_building_move_request_type";
+import { PlayerBuildingMoveRequest as __PlayerBuildingMoveRequest } from './player_building_move_request_type'
 
 export type CheatBuildingMove = {
-  request: __PlayerBuildingMoveRequest,
-};
+  request: __PlayerBuildingMoveRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatBuildingMove {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerBuildingMoveRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerBuildingMoveRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatBuildingMove): void {
-    CheatBuildingMove.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatBuildingMove.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatBuildingMove {
-    return CheatBuildingMove.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatBuildingMove.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

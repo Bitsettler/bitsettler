@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerClimbRequest as __PlayerClimbRequest } from "./player_climb_request_type";
+import { PlayerClimbRequest as __PlayerClimbRequest } from './player_climb_request_type'
 
 export type PlayerClimb = {
-  request: __PlayerClimbRequest,
-};
+  request: __PlayerClimbRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerClimb {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerClimbRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerClimbRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerClimb): void {
-    PlayerClimb.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerClimb.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerClimb {
-    return PlayerClimb.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerClimb.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { KnowledgeState as __KnowledgeState } from "./knowledge_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { KnowledgeState as __KnowledgeState } from './knowledge_state_type'
 
 export type KnowledgeEntityEntry = {
-  entityId: bigint,
-  state: __KnowledgeState,
-};
+  entityId: bigint
+  state: __KnowledgeState
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace KnowledgeEntityEntry {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("state", __KnowledgeState.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('state', __KnowledgeState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: KnowledgeEntityEntry): void {
-    KnowledgeEntityEntry.getTypeScriptAlgebraicType().serialize(writer, value);
+    KnowledgeEntityEntry.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeEntityEntry {
-    return KnowledgeEntityEntry.getTypeScriptAlgebraicType().deserialize(reader);
+    return KnowledgeEntityEntry.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

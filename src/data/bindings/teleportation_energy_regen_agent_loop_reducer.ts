@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { TeleportationEnergyRegenLoopTimer as __TeleportationEnergyRegenLoopTimer } from "./teleportation_energy_regen_loop_timer_type";
+import { TeleportationEnergyRegenLoopTimer as __TeleportationEnergyRegenLoopTimer } from './teleportation_energy_regen_loop_timer_type'
 
 export type TeleportationEnergyRegenAgentLoop = {
-  timer: __TeleportationEnergyRegenLoopTimer,
-};
+  timer: __TeleportationEnergyRegenLoopTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace TeleportationEnergyRegenAgentLoop {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: TeleportationEnergyRegenAgentLoop): void {
-    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value);
+    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TeleportationEnergyRegenAgentLoop {
-    return TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().deserialize(reader);
+    return TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

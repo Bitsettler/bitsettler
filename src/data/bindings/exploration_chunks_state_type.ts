@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type ExplorationChunksState = {
-  entityId: bigint,
-  bitmap: bigint[],
-  exploredChunksCount: number,
-};
+  entityId: bigint
+  bitmap: bigint[]
+  exploredChunksCount: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ExplorationChunksState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("bitmap", AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
-      new ProductTypeElement("exploredChunksCount", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('bitmap', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
+      new ProductTypeElement('exploredChunksCount', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ExplorationChunksState): void {
-    ExplorationChunksState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ExplorationChunksState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ExplorationChunksState {
-    return ExplorationChunksState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ExplorationChunksState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

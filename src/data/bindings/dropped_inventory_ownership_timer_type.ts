@@ -8,62 +8,41 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type DroppedInventoryOwnershipTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  entityId: bigint,
-  startedAt: Timestamp,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  entityId: bigint
+  startedAt: Timestamp
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace DroppedInventoryOwnershipTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("startedAt", AlgebraicType.createTimestampType()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('startedAt', AlgebraicType.createTimestampType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: DroppedInventoryOwnershipTimer): void {
-    DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DroppedInventoryOwnershipTimer {
-    return DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

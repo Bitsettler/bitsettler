@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { StaticDataUpload as __StaticDataUpload } from "./static_data_upload_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { StaticDataUpload as __StaticDataUpload } from './static_data_upload_type'
 
 export type StagedStaticData = {
-  version: number,
-  staticData: __StaticDataUpload,
-};
+  version: number
+  staticData: __StaticDataUpload
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StagedStaticData {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("version", AlgebraicType.createU32Type()),
-      new ProductTypeElement("staticData", __StaticDataUpload.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('version', AlgebraicType.createU32Type()),
+      new ProductTypeElement('staticData', __StaticDataUpload.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StagedStaticData): void {
-    StagedStaticData.getTypeScriptAlgebraicType().serialize(writer, value);
+    StagedStaticData.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StagedStaticData {
-    return StagedStaticData.getTypeScriptAlgebraicType().deserialize(reader);
+    return StagedStaticData.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

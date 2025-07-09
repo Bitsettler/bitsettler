@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type ToolRequirement = {
-  toolType: number,
-  level: number,
-  power: number,
-};
+  toolType: number
+  level: number
+  power: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ToolRequirement {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("toolType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("level", AlgebraicType.createI32Type()),
-      new ProductTypeElement("power", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('toolType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('level', AlgebraicType.createI32Type()),
+      new ProductTypeElement('power', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ToolRequirement): void {
-    ToolRequirement.getTypeScriptAlgebraicType().serialize(writer, value);
+    ToolRequirement.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ToolRequirement {
-    return ToolRequirement.getTypeScriptAlgebraicType().deserialize(reader);
+    return ToolRequirement.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

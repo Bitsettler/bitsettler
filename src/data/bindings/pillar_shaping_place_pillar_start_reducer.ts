@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerPillarShapingPlaceRequest as __PlayerPillarShapingPlaceRequest } from "./player_pillar_shaping_place_request_type";
+import { PlayerPillarShapingPlaceRequest as __PlayerPillarShapingPlaceRequest } from './player_pillar_shaping_place_request_type'
 
 export type PillarShapingPlacePillarStart = {
-  request: __PlayerPillarShapingPlaceRequest,
-};
+  request: __PlayerPillarShapingPlaceRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PillarShapingPlacePillarStart {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PillarShapingPlacePillarStart): void {
-    PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().serialize(writer, value);
+    PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PillarShapingPlacePillarStart {
-    return PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().deserialize(reader);
+    return PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

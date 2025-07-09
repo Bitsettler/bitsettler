@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ClaimState as __ClaimState } from "./claim_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { ClaimState as __ClaimState } from './claim_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace ClaimStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __ClaimState };
-  export type Delete = { tag: "Delete", value: __ClaimState };
+  export type Insert = { tag: 'Insert'; value: __ClaimState }
+  export type Delete = { tag: 'Delete'; value: __ClaimState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace ClaimStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __ClaimState): ClaimStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __ClaimState): ClaimStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __ClaimState): ClaimStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __ClaimState): ClaimStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __ClaimState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __ClaimState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __ClaimState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __ClaimState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimStateOp): void {
-      ClaimStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimStateOp {
-      return ClaimStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `ClaimStateOp`.
-export type ClaimStateOp = ClaimStateOp.Insert | ClaimStateOp.Delete;
+export type ClaimStateOp = ClaimStateOp.Insert | ClaimStateOp.Delete
 
-export default ClaimStateOp;
-
+export default ClaimStateOp

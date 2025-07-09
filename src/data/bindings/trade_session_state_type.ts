@@ -8,73 +8,57 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { TradeSessionStatus as __TradeSessionStatus } from "./trade_session_status_type";
-import { TradePocket as __TradePocket } from "./trade_pocket_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { TradePocket as __TradePocket } from './trade_pocket_type'
+import { TradeSessionStatus as __TradeSessionStatus } from './trade_session_status_type'
 
 export type TradeSessionState = {
-  entityId: bigint,
-  status: __TradeSessionStatus,
-  initiatorEntityId: bigint,
-  acceptorEntityId: bigint,
-  initiatorOffer: __TradePocket[],
-  acceptorOffer: __TradePocket[],
-  updatedAt: Timestamp,
-  resolutionMessage: string,
-};
+  entityId: bigint
+  status: __TradeSessionStatus
+  initiatorEntityId: bigint
+  acceptorEntityId: bigint
+  initiatorOffer: __TradePocket[]
+  acceptorOffer: __TradePocket[]
+  updatedAt: Timestamp
+  resolutionMessage: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace TradeSessionState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("status", __TradeSessionStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("initiatorEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("acceptorEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("initiatorOffer", AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("acceptorOffer", AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("updatedAt", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("resolutionMessage", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('status', __TradeSessionStatus.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('initiatorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('acceptorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'initiatorOffer',
+        AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'acceptorOffer',
+        AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement('updatedAt', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('resolutionMessage', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: TradeSessionState): void {
-    TradeSessionState.getTypeScriptAlgebraicType().serialize(writer, value);
+    TradeSessionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TradeSessionState {
-    return TradeSessionState.getTypeScriptAlgebraicType().deserialize(reader);
+    return TradeSessionState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

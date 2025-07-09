@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { PlayerHousingState as __PlayerHousingState } from "./player_housing_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { PlayerHousingState as __PlayerHousingState } from './player_housing_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace PlayerHousingStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __PlayerHousingState };
-  export type Delete = { tag: "Delete", value: __PlayerHousingState };
+  export type Insert = { tag: 'Insert'; value: __PlayerHousingState }
+  export type Delete = { tag: 'Delete'; value: __PlayerHousingState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace PlayerHousingStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __PlayerHousingState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __PlayerHousingState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __PlayerHousingState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __PlayerHousingState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerHousingStateOp): void {
-      PlayerHousingStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerHousingStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerHousingStateOp {
-      return PlayerHousingStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerHousingStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `PlayerHousingStateOp`.
-export type PlayerHousingStateOp = PlayerHousingStateOp.Insert | PlayerHousingStateOp.Delete;
+export type PlayerHousingStateOp = PlayerHousingStateOp.Insert | PlayerHousingStateOp.Delete
 
-export default PlayerHousingStateOp;
-
+export default PlayerHousingStateOp

@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { WorldGenVector2Int as __WorldGenVector2Int } from "./world_gen_vector_2_int_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { WorldGenVector2Int as __WorldGenVector2Int } from './world_gen_vector_2_int_type'
 
 export type WorldGenRiverPathfindingCosts = {
-  elevationDifferenceRange: __WorldGenVector2Int,
-  pathfindingCosts: number,
-};
+  elevationDifferenceRange: __WorldGenVector2Int
+  pathfindingCosts: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldGenRiverPathfindingCosts {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("elevationDifferenceRange", __WorldGenVector2Int.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("pathfindingCosts", AlgebraicType.createF32Type()),
-    ]);
+      new ProductTypeElement('elevationDifferenceRange', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('pathfindingCosts', AlgebraicType.createF32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenRiverPathfindingCosts): void {
-    WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenRiverPathfindingCosts {
-    return WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

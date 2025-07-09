@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { PocketKey as __PocketKey } from "./pocket_key_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { PocketKey as __PocketKey } from './pocket_key_type'
 
 export type PlayerEquipmentRemoveRequest = {
-  slot: number,
-  toPocket: __PocketKey | undefined,
-};
+  slot: number
+  toPocket: __PocketKey | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerEquipmentRemoveRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("slot", AlgebraicType.createI32Type()),
-      new ProductTypeElement("toPocket", AlgebraicType.createOptionType(__PocketKey.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('slot', AlgebraicType.createI32Type()),
+      new ProductTypeElement('toPocket', AlgebraicType.createOptionType(__PocketKey.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerEquipmentRemoveRequest): void {
-    PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerEquipmentRemoveRequest {
-    return PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

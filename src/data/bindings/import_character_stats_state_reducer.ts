@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CharacterStatsState as __CharacterStatsState } from "./character_stats_state_type";
+import { CharacterStatsState as __CharacterStatsState } from './character_stats_state_type'
 
 export type ImportCharacterStatsState = {
-  records: __CharacterStatsState[],
-};
+  records: __CharacterStatsState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportCharacterStatsState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__CharacterStatsState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__CharacterStatsState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportCharacterStatsState): void {
-    ImportCharacterStatsState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportCharacterStatsState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportCharacterStatsState {
-    return ImportCharacterStatsState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportCharacterStatsState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

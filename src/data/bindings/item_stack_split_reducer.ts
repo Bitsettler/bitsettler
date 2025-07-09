@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerItemStackSplitRequest as __PlayerItemStackSplitRequest } from "./player_item_stack_split_request_type";
+import { PlayerItemStackSplitRequest as __PlayerItemStackSplitRequest } from './player_item_stack_split_request_type'
 
 export type ItemStackSplit = {
-  request: __PlayerItemStackSplitRequest,
-};
+  request: __PlayerItemStackSplitRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ItemStackSplit {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerItemStackSplitRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerItemStackSplitRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ItemStackSplit): void {
-    ItemStackSplit.getTypeScriptAlgebraicType().serialize(writer, value);
+    ItemStackSplit.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ItemStackSplit {
-    return ItemStackSplit.getTypeScriptAlgebraicType().deserialize(reader);
+    return ItemStackSplit.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

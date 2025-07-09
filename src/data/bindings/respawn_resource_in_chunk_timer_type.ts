@@ -8,66 +8,45 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { SmallHexTileMessage as __SmallHexTileMessage } from "./small_hex_tile_message_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_message_type'
 
 export type RespawnResourceInChunkTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  chunkIndex: bigint,
-  resourceClumpId: number,
-  coord: __SmallHexTileMessage,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  chunkIndex: bigint
+  resourceClumpId: number
+  coord: __SmallHexTileMessage
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace RespawnResourceInChunkTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("chunkIndex", AlgebraicType.createU64Type()),
-      new ProductTypeElement("resourceClumpId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("coord", __SmallHexTileMessage.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
+      new ProductTypeElement('resourceClumpId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('coord', __SmallHexTileMessage.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: RespawnResourceInChunkTimer): void {
-    RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RespawnResourceInChunkTimer {
-    return RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

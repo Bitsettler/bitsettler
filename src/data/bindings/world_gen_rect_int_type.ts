@@ -6,64 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type WorldGenRectInt = {
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-};
+  x: number
+  y: number
+  width: number
+  height: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldGenRectInt {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("x", AlgebraicType.createI32Type()),
-      new ProductTypeElement("y", AlgebraicType.createI32Type()),
-      new ProductTypeElement("width", AlgebraicType.createI32Type()),
-      new ProductTypeElement("height", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('x', AlgebraicType.createI32Type()),
+      new ProductTypeElement('y', AlgebraicType.createI32Type()),
+      new ProductTypeElement('width', AlgebraicType.createI32Type()),
+      new ProductTypeElement('height', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenRectInt): void {
-    WorldGenRectInt.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenRectInt.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenRectInt {
-    return WorldGenRectInt.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenRectInt.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

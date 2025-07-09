@@ -6,43 +6,18 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace SurfaceType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Ground = { tag: "Ground" };
-  export type Lake = { tag: "Lake" };
-  export type River = { tag: "River" };
-  export type Ocean = { tag: "Ocean" };
-  export type OceanBiome = { tag: "OceanBiome" };
-  export type Swamp = { tag: "Swamp" };
+  export type Ground = { tag: 'Ground' }
+  export type Lake = { tag: 'Lake' }
+  export type River = { tag: 'River' }
+  export type Ocean = { tag: 'Ocean' }
+  export type OceanBiome = { tag: 'OceanBiome' }
+  export type Swamp = { tag: 'Swamp' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -50,36 +25,40 @@ export namespace SurfaceType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Ground = { tag: "Ground" };
-  export const Lake = { tag: "Lake" };
-  export const River = { tag: "River" };
-  export const Ocean = { tag: "Ocean" };
-  export const OceanBiome = { tag: "OceanBiome" };
-  export const Swamp = { tag: "Swamp" };
+  export const Ground = { tag: 'Ground' }
+  export const Lake = { tag: 'Lake' }
+  export const River = { tag: 'River' }
+  export const Ocean = { tag: 'Ocean' }
+  export const OceanBiome = { tag: 'OceanBiome' }
+  export const Swamp = { tag: 'Swamp' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Ground", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Lake", AlgebraicType.createProductType([])),
-      new SumTypeVariant("River", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Ocean", AlgebraicType.createProductType([])),
-      new SumTypeVariant("OceanBiome", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Swamp", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Ground', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Lake', AlgebraicType.createProductType([])),
+      new SumTypeVariant('River', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Ocean', AlgebraicType.createProductType([])),
+      new SumTypeVariant('OceanBiome', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Swamp', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: SurfaceType): void {
-      SurfaceType.getTypeScriptAlgebraicType().serialize(writer, value);
+    SurfaceType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): SurfaceType {
-      return SurfaceType.getTypeScriptAlgebraicType().deserialize(reader);
+    return SurfaceType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `SurfaceType`.
-export type SurfaceType = SurfaceType.Ground | SurfaceType.Lake | SurfaceType.River | SurfaceType.Ocean | SurfaceType.OceanBiome | SurfaceType.Swamp;
+export type SurfaceType =
+  | SurfaceType.Ground
+  | SurfaceType.Lake
+  | SurfaceType.River
+  | SurfaceType.Ocean
+  | SurfaceType.OceanBiome
+  | SurfaceType.Swamp
 
-export default SurfaceType;
-
+export default SurfaceType

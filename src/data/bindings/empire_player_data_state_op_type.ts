@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EmpirePlayerDataState as __EmpirePlayerDataState } from "./empire_player_data_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { EmpirePlayerDataState as __EmpirePlayerDataState } from './empire_player_data_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace EmpirePlayerDataStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __EmpirePlayerDataState };
-  export type Delete = { tag: "Delete", value: __EmpirePlayerDataState };
+  export type Insert = { tag: 'Insert'; value: __EmpirePlayerDataState }
+  export type Delete = { tag: 'Delete'; value: __EmpirePlayerDataState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace EmpirePlayerDataStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __EmpirePlayerDataState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __EmpirePlayerDataState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __EmpirePlayerDataState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __EmpirePlayerDataState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpirePlayerDataStateOp): void {
-      EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpirePlayerDataStateOp {
-      return EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `EmpirePlayerDataStateOp`.
-export type EmpirePlayerDataStateOp = EmpirePlayerDataStateOp.Insert | EmpirePlayerDataStateOp.Delete;
+export type EmpirePlayerDataStateOp = EmpirePlayerDataStateOp.Insert | EmpirePlayerDataStateOp.Delete
 
-export default EmpirePlayerDataStateOp;
-
+export default EmpirePlayerDataStateOp

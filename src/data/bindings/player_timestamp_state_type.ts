@@ -8,58 +8,36 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerTimestampState = {
-  entityId: bigint,
-  timestamp: Timestamp,
-};
+  entityId: bigint
+  timestamp: Timestamp
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerTimestampState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("timestamp", AlgebraicType.createTimestampType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('timestamp', AlgebraicType.createTimestampType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerTimestampState): void {
-    PlayerTimestampState.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerTimestampState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerTimestampState {
-    return PlayerTimestampState.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerTimestampState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

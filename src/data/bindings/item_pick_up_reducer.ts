@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerDroppedInventoryPickUpRequest as __PlayerDroppedInventoryPickUpRequest } from "./player_dropped_inventory_pick_up_request_type";
+import { PlayerDroppedInventoryPickUpRequest as __PlayerDroppedInventoryPickUpRequest } from './player_dropped_inventory_pick_up_request_type'
 
 export type ItemPickUp = {
-  request: __PlayerDroppedInventoryPickUpRequest,
-};
+  request: __PlayerDroppedInventoryPickUpRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ItemPickUp {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ItemPickUp): void {
-    ItemPickUp.getTypeScriptAlgebraicType().serialize(writer, value);
+    ItemPickUp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ItemPickUp {
-    return ItemPickUp.getTypeScriptAlgebraicType().deserialize(reader);
+    return ItemPickUp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

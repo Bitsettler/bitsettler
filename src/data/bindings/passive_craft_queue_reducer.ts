@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerPassiveCraftQueueRequest as __PlayerPassiveCraftQueueRequest } from "./player_passive_craft_queue_request_type";
+import { PlayerPassiveCraftQueueRequest as __PlayerPassiveCraftQueueRequest } from './player_passive_craft_queue_request_type'
 
 export type PassiveCraftQueue = {
-  request: __PlayerPassiveCraftQueueRequest,
-};
+  request: __PlayerPassiveCraftQueueRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PassiveCraftQueue {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerPassiveCraftQueueRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerPassiveCraftQueueRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PassiveCraftQueue): void {
-    PassiveCraftQueue.getTypeScriptAlgebraicType().serialize(writer, value);
+    PassiveCraftQueue.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PassiveCraftQueue {
-    return PassiveCraftQueue.getTypeScriptAlgebraicType().deserialize(reader);
+    return PassiveCraftQueue.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

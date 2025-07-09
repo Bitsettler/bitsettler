@@ -6,62 +6,37 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { WorldGenResourceDefinition as __WorldGenResourceDefinition } from "./world_gen_resource_definition_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { WorldGenResourceDefinition as __WorldGenResourceDefinition } from './world_gen_resource_definition_type'
 
 export type WorldGenResourcesMapDefinition = {
-  seed: number,
-  resources: __WorldGenResourceDefinition[],
-};
+  seed: number
+  resources: __WorldGenResourceDefinition[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldGenResourcesMapDefinition {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("seed", AlgebraicType.createI32Type()),
-      new ProductTypeElement("resources", AlgebraicType.createArrayType(__WorldGenResourceDefinition.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('seed', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'resources',
+        AlgebraicType.createArrayType(__WorldGenResourceDefinition.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenResourcesMapDefinition): void {
-    WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenResourcesMapDefinition {
-    return WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

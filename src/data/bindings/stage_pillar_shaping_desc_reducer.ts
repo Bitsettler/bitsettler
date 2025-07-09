@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PillarShapingDesc as __PillarShapingDesc } from "./pillar_shaping_desc_type";
+import { PillarShapingDesc as __PillarShapingDesc } from './pillar_shaping_desc_type'
 
 export type StagePillarShapingDesc = {
-  records: __PillarShapingDesc[],
-};
+  records: __PillarShapingDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StagePillarShapingDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__PillarShapingDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__PillarShapingDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StagePillarShapingDesc): void {
-    StagePillarShapingDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    StagePillarShapingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StagePillarShapingDesc {
-    return StagePillarShapingDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return StagePillarShapingDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CheatSetDebugAiStateRequest as __CheatSetDebugAiStateRequest } from "./cheat_set_debug_ai_state_request_type";
+import { CheatSetDebugAiStateRequest as __CheatSetDebugAiStateRequest } from './cheat_set_debug_ai_state_request_type'
 
 export type CheatSetAiDebugState = {
-  request: __CheatSetDebugAiStateRequest,
-};
+  request: __CheatSetDebugAiStateRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatSetAiDebugState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatSetAiDebugState): void {
-    CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatSetAiDebugState {
-    return CheatSetAiDebugState.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatSetAiDebugState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

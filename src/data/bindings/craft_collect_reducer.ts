@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerCraftCollectRequest as __PlayerCraftCollectRequest } from "./player_craft_collect_request_type";
+import { PlayerCraftCollectRequest as __PlayerCraftCollectRequest } from './player_craft_collect_request_type'
 
 export type CraftCollect = {
-  request: __PlayerCraftCollectRequest,
-};
+  request: __PlayerCraftCollectRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CraftCollect {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerCraftCollectRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerCraftCollectRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CraftCollect): void {
-    CraftCollect.getTypeScriptAlgebraicType().serialize(writer, value);
+    CraftCollect.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CraftCollect {
-    return CraftCollect.getTypeScriptAlgebraicType().deserialize(reader);
+    return CraftCollect.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

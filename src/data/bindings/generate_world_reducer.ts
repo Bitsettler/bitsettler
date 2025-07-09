@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { WorldGenWorldDefinition as __WorldGenWorldDefinition } from "./world_gen_world_definition_type";
+import { WorldGenWorldDefinition as __WorldGenWorldDefinition } from './world_gen_world_definition_type'
 
 export type GenerateWorld = {
-  worldDefinition: __WorldGenWorldDefinition,
-};
+  worldDefinition: __WorldGenWorldDefinition
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace GenerateWorld {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("worldDefinition", __WorldGenWorldDefinition.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('worldDefinition', __WorldGenWorldDefinition.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: GenerateWorld): void {
-    GenerateWorld.getTypeScriptAlgebraicType().serialize(writer, value);
+    GenerateWorld.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): GenerateWorld {
-    return GenerateWorld.getTypeScriptAlgebraicType().deserialize(reader);
+    return GenerateWorld.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

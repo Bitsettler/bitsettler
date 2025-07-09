@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ClaimPurchaseSuppliesFromPlayerRequest as __ClaimPurchaseSuppliesFromPlayerRequest } from "./claim_purchase_supplies_from_player_request_type";
+import { ClaimPurchaseSuppliesFromPlayerRequest as __ClaimPurchaseSuppliesFromPlayerRequest } from './claim_purchase_supplies_from_player_request_type'
 
 export type ClaimPurchaseSuppliesFromPlayer = {
-  request: __ClaimPurchaseSuppliesFromPlayerRequest,
-};
+  request: __ClaimPurchaseSuppliesFromPlayerRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimPurchaseSuppliesFromPlayer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __ClaimPurchaseSuppliesFromPlayerRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __ClaimPurchaseSuppliesFromPlayerRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimPurchaseSuppliesFromPlayer): void {
-    ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimPurchaseSuppliesFromPlayer {
-    return ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

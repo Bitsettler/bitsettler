@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ResourcesRegenLoopTimer as __ResourcesRegenLoopTimer } from "./resources_regen_loop_timer_type";
+import { ResourcesRegenLoopTimer as __ResourcesRegenLoopTimer } from './resources_regen_loop_timer_type'
 
 export type ResourcesRegen = {
-  timer: __ResourcesRegenLoopTimer,
-};
+  timer: __ResourcesRegenLoopTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ResourcesRegen {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __ResourcesRegenLoopTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __ResourcesRegenLoopTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ResourcesRegen): void {
-    ResourcesRegen.getTypeScriptAlgebraicType().serialize(writer, value);
+    ResourcesRegen.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ResourcesRegen {
-    return ResourcesRegen.getTypeScriptAlgebraicType().deserialize(reader);
+    return ResourcesRegen.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,40 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ResourcePlacementRecipeDesc } from "./resource_placement_recipe_desc_type";
-import { LevelRequirement as __LevelRequirement } from "./level_requirement_type";
-import { ToolRequirement as __ToolRequirement } from "./tool_requirement_type";
-import { InputItemStack as __InputItemStack } from "./input_item_stack_type";
-import { ExperienceStackF32 as __ExperienceStackF32 } from "./experience_stack_f_32_type";
-import { Biome as __Biome } from "./biome_type";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { ResourcePlacementRecipeDesc } from './resource_placement_recipe_desc_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `resource_placement_recipe_desc`.
@@ -52,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.resourcePlacementRecipeDesc.on_insert(...)`.
  */
 export class ResourcePlacementRecipeDescTableHandle {
-  tableCache: TableCache<ResourcePlacementRecipeDesc>;
+  tableCache: TableCache<ResourcePlacementRecipeDesc>
 
   constructor(tableCache: TableCache<ResourcePlacementRecipeDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<ResourcePlacementRecipeDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `id` unique index on the table `resource_placement_recipe_desc`,
@@ -82,33 +52,38 @@ export class ResourcePlacementRecipeDescTableHandle {
     find: (col_val: number): ResourcePlacementRecipeDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.id, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ResourcePlacementRecipeDesc, newRow: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ResourcePlacementRecipeDesc, newRow: ResourcePlacementRecipeDesc) => void
+  ) => {
+    return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ResourcePlacementRecipeDesc, newRow: ResourcePlacementRecipeDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ResourcePlacementRecipeDesc, newRow: ResourcePlacementRecipeDesc) => void
+  ) => {
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

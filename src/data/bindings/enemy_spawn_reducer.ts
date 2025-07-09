@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EnemySpawnRequest as __EnemySpawnRequest } from "./enemy_spawn_request_type";
+import { EnemySpawnRequest as __EnemySpawnRequest } from './enemy_spawn_request_type'
 
 export type EnemySpawn = {
-  request: __EnemySpawnRequest,
-};
+  request: __EnemySpawnRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EnemySpawn {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __EnemySpawnRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __EnemySpawnRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnemySpawn): void {
-    EnemySpawn.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnemySpawn.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemySpawn {
-    return EnemySpawn.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnemySpawn.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

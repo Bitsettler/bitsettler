@@ -6,62 +6,37 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from "./offset_coordinates_float_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type CheatTeleportFloatRequest = {
-  playerEntityId: bigint,
-  destination: __OffsetCoordinatesFloat | undefined,
-};
+  playerEntityId: bigint
+  destination: __OffsetCoordinatesFloat | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatTeleportFloatRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("playerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("destination", AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'destination',
+        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatTeleportFloatRequest): void {
-    CheatTeleportFloatRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatTeleportFloatRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatTeleportFloatRequest {
-    return CheatTeleportFloatRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatTeleportFloatRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

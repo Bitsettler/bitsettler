@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type CheatExperienceGrantRequest = {
-  ownerEntityId: bigint,
-  skillId: number,
-  amount: number,
-};
+  ownerEntityId: bigint
+  skillId: number
+  amount: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatExperienceGrantRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("ownerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("skillId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("amount", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('skillId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('amount', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatExperienceGrantRequest): void {
-    CheatExperienceGrantRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatExperienceGrantRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatExperienceGrantRequest {
-    return CheatExperienceGrantRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatExperienceGrantRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

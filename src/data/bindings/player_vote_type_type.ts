@@ -6,38 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PlayerVoteType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Duel = { tag: "Duel" };
+  export type Duel = { tag: 'Duel' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -45,26 +20,22 @@ export namespace PlayerVoteType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Duel = { tag: "Duel" };
+  export const Duel = { tag: 'Duel' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createSumType([
-      new SumTypeVariant("Duel", AlgebraicType.createProductType([])),
-    ]);
+    return AlgebraicType.createSumType([new SumTypeVariant('Duel', AlgebraicType.createProductType([]))])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerVoteType): void {
-      PlayerVoteType.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerVoteType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerVoteType {
-      return PlayerVoteType.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerVoteType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `PlayerVoteType`.
-export type PlayerVoteType = PlayerVoteType.Duel;
+export type PlayerVoteType = PlayerVoteType.Duel
 
-export default PlayerVoteType;
-
+export default PlayerVoteType

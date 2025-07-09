@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type CommonRng = {
-  seed: number,
-  x: bigint,
-  y: bigint,
-};
+  seed: number
+  x: bigint
+  y: bigint
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CommonRng {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("seed", AlgebraicType.createI32Type()),
-      new ProductTypeElement("x", AlgebraicType.createU64Type()),
-      new ProductTypeElement("y", AlgebraicType.createU64Type()),
-    ]);
+      new ProductTypeElement('seed', AlgebraicType.createI32Type()),
+      new ProductTypeElement('x', AlgebraicType.createU64Type()),
+      new ProductTypeElement('y', AlgebraicType.createU64Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CommonRng): void {
-    CommonRng.getTypeScriptAlgebraicType().serialize(writer, value);
+    CommonRng.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CommonRng {
-    return CommonRng.getTypeScriptAlgebraicType().deserialize(reader);
+    return CommonRng.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

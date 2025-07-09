@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerCraftInitiateRequest as __PlayerCraftInitiateRequest } from "./player_craft_initiate_request_type";
+import { PlayerCraftInitiateRequest as __PlayerCraftInitiateRequest } from './player_craft_initiate_request_type'
 
 export type CraftInitiateStart = {
-  request: __PlayerCraftInitiateRequest,
-};
+  request: __PlayerCraftInitiateRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CraftInitiateStart {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerCraftInitiateRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerCraftInitiateRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CraftInitiateStart): void {
-    CraftInitiateStart.getTypeScriptAlgebraicType().serialize(writer, value);
+    CraftInitiateStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CraftInitiateStart {
-    return CraftInitiateStart.getTypeScriptAlgebraicType().deserialize(reader);
+    return CraftInitiateStart.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

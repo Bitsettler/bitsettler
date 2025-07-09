@@ -8,62 +8,40 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type ExtractOutcomeState = {
-  entityId: bigint,
-  targetEntityId: bigint,
-  lastTimestamp: Timestamp,
-  damage: number,
-};
+  entityId: bigint
+  targetEntityId: bigint
+  lastTimestamp: Timestamp
+  damage: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ExtractOutcomeState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("targetEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("lastTimestamp", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("damage", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('lastTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('damage', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ExtractOutcomeState): void {
-    ExtractOutcomeState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ExtractOutcomeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ExtractOutcomeState {
-    return ExtractOutcomeState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ExtractOutcomeState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

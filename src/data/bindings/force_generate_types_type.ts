@@ -6,78 +6,53 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { HexDirection as __HexDirection } from "./hex_direction_type";
-import { FloatHexTileMessage as __FloatHexTileMessage } from "./float_hex_tile_message_type";
-import { ChunkCoordinatesMessage as __ChunkCoordinatesMessage } from "./chunk_coordinates_message_type";
-import { ClaimPermission as __ClaimPermission } from "./claim_permission_type";
-import { LargeHexTileMessage as __LargeHexTileMessage } from "./large_hex_tile_message_type";
-import { TerrainCell as __TerrainCell } from "./terrain_cell_type";
-import { ItemConversionLocationContext as __ItemConversionLocationContext } from "./item_conversion_location_context_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ChunkCoordinatesMessage as __ChunkCoordinatesMessage } from './chunk_coordinates_message_type'
+import { ClaimPermission as __ClaimPermission } from './claim_permission_type'
+import { FloatHexTileMessage as __FloatHexTileMessage } from './float_hex_tile_message_type'
+import { HexDirection as __HexDirection } from './hex_direction_type'
+import { ItemConversionLocationContext as __ItemConversionLocationContext } from './item_conversion_location_context_type'
+import { LargeHexTileMessage as __LargeHexTileMessage } from './large_hex_tile_message_type'
+import { TerrainCell as __TerrainCell } from './terrain_cell_type'
 
 export type ForceGenerateTypes = {
-  hexDirection: __HexDirection,
-  floatHexTile: __FloatHexTileMessage,
-  chunkCoordinatesMessage: __ChunkCoordinatesMessage,
-  claimPermission: __ClaimPermission,
-  largeHexTileMessage: __LargeHexTileMessage,
-  terrainCell: __TerrainCell,
-  itemConversionLocatinContext: __ItemConversionLocationContext,
-};
+  hexDirection: __HexDirection
+  floatHexTile: __FloatHexTileMessage
+  chunkCoordinatesMessage: __ChunkCoordinatesMessage
+  claimPermission: __ClaimPermission
+  largeHexTileMessage: __LargeHexTileMessage
+  terrainCell: __TerrainCell
+  itemConversionLocatinContext: __ItemConversionLocationContext
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ForceGenerateTypes {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("hexDirection", __HexDirection.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("floatHexTile", __FloatHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("chunkCoordinatesMessage", __ChunkCoordinatesMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("claimPermission", __ClaimPermission.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("largeHexTileMessage", __LargeHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("terrainCell", __TerrainCell.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("itemConversionLocatinContext", __ItemConversionLocationContext.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('hexDirection', __HexDirection.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('floatHexTile', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('chunkCoordinatesMessage', __ChunkCoordinatesMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('claimPermission', __ClaimPermission.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('largeHexTileMessage', __LargeHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('terrainCell', __TerrainCell.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'itemConversionLocatinContext',
+        __ItemConversionLocationContext.getTypeScriptAlgebraicType()
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ForceGenerateTypes): void {
-    ForceGenerateTypes.getTypeScriptAlgebraicType().serialize(writer, value);
+    ForceGenerateTypes.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ForceGenerateTypes {
-    return ForceGenerateTypes.getTypeScriptAlgebraicType().deserialize(reader);
+    return ForceGenerateTypes.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

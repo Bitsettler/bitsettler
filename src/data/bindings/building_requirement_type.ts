@@ -6,60 +6,32 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type BuildingRequirement = {
-  buildingType: number,
-  tier: number,
-};
+  buildingType: number
+  tier: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace BuildingRequirement {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("buildingType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("tier", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('buildingType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('tier', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingRequirement): void {
-    BuildingRequirement.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingRequirement.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingRequirement {
-    return BuildingRequirement.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingRequirement.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

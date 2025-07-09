@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EmpireChunkState as __EmpireChunkState } from "./empire_chunk_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import { EmpireChunkState as __EmpireChunkState } from './empire_chunk_state_type'
 
 // A namespace for generated variants and helper functions.
 export namespace EmpireChunkStateOp {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Insert = { tag: "Insert", value: __EmpireChunkState };
-  export type Delete = { tag: "Delete", value: __EmpireChunkState };
+  export type Insert = { tag: 'Insert'; value: __EmpireChunkState }
+  export type Delete = { tag: 'Delete'; value: __EmpireChunkState }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,28 +23,26 @@ export namespace EmpireChunkStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: "Insert", value });
-  export const Delete = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: "Delete", value });
+  export const Insert = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: 'Insert', value })
+  export const Delete = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Insert", __EmpireChunkState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant("Delete", __EmpireChunkState.getTypeScriptAlgebraicType()),
-    ]);
+      new SumTypeVariant('Insert', __EmpireChunkState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant('Delete', __EmpireChunkState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpireChunkStateOp): void {
-      EmpireChunkStateOp.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpireChunkStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireChunkStateOp {
-      return EmpireChunkStateOp.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpireChunkStateOp.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `EmpireChunkStateOp`.
-export type EmpireChunkStateOp = EmpireChunkStateOp.Insert | EmpireChunkStateOp.Delete;
+export type EmpireChunkStateOp = EmpireChunkStateOp.Insert | EmpireChunkStateOp.Delete
 
-export default EmpireChunkStateOp;
-
+export default EmpireChunkStateOp

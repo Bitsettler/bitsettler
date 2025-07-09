@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { DayNightLoopTimer as __DayNightLoopTimer } from "./day_night_loop_timer_type";
+import { DayNightLoopTimer as __DayNightLoopTimer } from './day_night_loop_timer_type'
 
 export type DayNightAgentLoop = {
-  timer: __DayNightLoopTimer,
-};
+  timer: __DayNightLoopTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace DayNightAgentLoop {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __DayNightLoopTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __DayNightLoopTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: DayNightAgentLoop): void {
-    DayNightAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value);
+    DayNightAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DayNightAgentLoop {
-    return DayNightAgentLoop.getTypeScriptAlgebraicType().deserialize(reader);
+    return DayNightAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

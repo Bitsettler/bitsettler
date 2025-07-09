@@ -6,72 +6,44 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type KnowledgeScrollDesc = {
-  itemId: number,
-  scrollType: number,
-  secondaryKnowledgeId: number,
-  knownByDefault: boolean,
-  autoCollect: boolean,
-  title: string,
-  tag: string,
-  content: string,
-};
+  itemId: number
+  scrollType: number
+  secondaryKnowledgeId: number
+  knownByDefault: boolean
+  autoCollect: boolean
+  title: string
+  tag: string
+  content: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace KnowledgeScrollDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("itemId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("scrollType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("secondaryKnowledgeId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("knownByDefault", AlgebraicType.createBoolType()),
-      new ProductTypeElement("autoCollect", AlgebraicType.createBoolType()),
-      new ProductTypeElement("title", AlgebraicType.createStringType()),
-      new ProductTypeElement("tag", AlgebraicType.createStringType()),
-      new ProductTypeElement("content", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('scrollType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('knownByDefault', AlgebraicType.createBoolType()),
+      new ProductTypeElement('autoCollect', AlgebraicType.createBoolType()),
+      new ProductTypeElement('title', AlgebraicType.createStringType()),
+      new ProductTypeElement('tag', AlgebraicType.createStringType()),
+      new ProductTypeElement('content', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: KnowledgeScrollDesc): void {
-    KnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    KnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeScrollDesc {
-    return KnowledgeScrollDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return KnowledgeScrollDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-
