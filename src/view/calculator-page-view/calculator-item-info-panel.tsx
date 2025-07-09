@@ -48,6 +48,7 @@ export function CalculatorItemInfoPanel({
     <Card className="flex h-full w-full flex-col overflow-hidden">
       <div className="flex min-h-0 flex-1 flex-col gap-y-8">
         <CardHeader className="flex-shrink-0">
+          {process.env.NEXT_PUBLIC_DEBUG === 'true' && <span className="text-xs text-red-500">{selectedItem.id}</span>}
           <CardTitle className="mb-2">{selectedItem.name}</CardTitle>
           <div className="flex flex-wrap gap-1">
             <Badge variant="outline" className={`text-xs ${getTierColor(selectedItem.tier)}`}>

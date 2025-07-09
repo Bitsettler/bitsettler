@@ -28,7 +28,7 @@ interface GameData {
 
 interface FlowVisualizeViewProps {
   gameData: GameData
-  initialItemId?: string
+  initialItemId: string
   initialQuantity?: number
 }
 
@@ -64,6 +64,7 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
   const handleItemSelectWithNodes = useCallback(
     (itemId: string) => {
       const result = handleItemSelect(itemId)
+
       if (!result) return
 
       const { item, itemRecipes } = result
@@ -95,7 +96,10 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
         if (depth > 2) return { nodes: [], edges: [] }
 
         const nodeRecipes = node.data.recipes as Recipe[] | undefined
-        if (!nodeRecipes || nodeRecipes.length !== 1) return { nodes: [], edges: [] }
+        if (!nodeRecipes || nodeRecipes.length !== 1) {
+          // If no recipes or multiple recipes, return the node without expansion
+          return { nodes: [node], edges: [] }
+        }
 
         const recipe = nodeRecipes[0]
         const updatedNode = {
@@ -173,6 +177,7 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
 
       // Start expansion from the main item
       const expansion = expandNodeRecipes(itemNode, 1)
+
       finalNodes = expansion.nodes
       finalEdges = expansion.edges
 
