@@ -67,7 +67,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1678244395",
@@ -87,7 +87,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/AstraliteOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/AstraliteOreChunk"
   },
   {
     "id": "cargo_60001",
@@ -107,7 +107,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1130442333",
@@ -127,7 +127,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/AurumiteOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/AurumiteOreChunk"
   },
   {
     "id": "cargo_6004",
@@ -167,7 +167,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_1734989829",
@@ -187,7 +187,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/CelestiumOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/CelestiumOreChunk"
   },
   {
     "id": "cargo_10006",
@@ -217,7 +217,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "An animal body that could be processed for meat and hides.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird"
+    "icon_asset_name": "GeneratedIcons/Other/Animals/Terrorbird"
   },
   {
     "id": "cargo_10",
@@ -247,7 +247,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_450006",
@@ -267,7 +267,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/ElenvarOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/ElenvarOreChunk"
   },
   {
     "id": "cargo_15195543",
@@ -277,7 +277,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_350006",
@@ -297,7 +297,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/EmariumOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/EmariumOreChunk"
   },
   {
     "id": "cargo_1849328525",
@@ -407,7 +407,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1632765422",
@@ -417,7 +417,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_550004",
@@ -527,7 +527,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_150006",
@@ -547,7 +547,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/FerralithOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/FerralithOreChunk"
   },
   {
     "id": "cargo_734768563",
@@ -637,7 +637,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_442004724",
@@ -647,7 +647,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_450004",
@@ -797,7 +797,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1237816866",
@@ -817,7 +817,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_1141395882",
@@ -937,7 +937,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "An animal body that could be processed for meat and hides.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird"
+    "icon_asset_name": "GeneratedIcons/Other/Animals/Terrorbird"
   },
   {
     "id": "cargo_1955158156",
@@ -957,7 +957,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_550006",
@@ -977,7 +977,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LuminiteOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/LuminiteOreChunk"
   },
   {
     "id": "cargo_358427678",
@@ -1047,7 +1047,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_390639013",
@@ -1067,7 +1067,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_951128402",
@@ -1287,7 +1287,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1743603212",
@@ -1297,7 +1297,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_2036554187",
@@ -1467,7 +1467,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1440938837",
@@ -1477,7 +1477,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_650004",
@@ -1547,7 +1547,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "An animal body that could be processed for meat and hides.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison"
+    "icon_asset_name": "GeneratedIcons/Other/Animals/Bison"
   },
   {
     "id": "cargo_660210536",
@@ -1627,7 +1627,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1558771097",
@@ -1637,7 +1637,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_619763519",
@@ -1727,7 +1727,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_250006",
@@ -1747,7 +1747,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PyreliteOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/PyreliteOreChunk"
   },
   {
     "id": "cargo_8",
@@ -1767,7 +1767,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_650006",
@@ -1787,7 +1787,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/RathiumOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/RathiumOreChunk"
   },
   {
     "id": "cargo_1537744479",
@@ -2407,7 +2407,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_652981079",
@@ -2417,7 +2417,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_200",
@@ -2617,7 +2617,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_192409188",
@@ -2627,7 +2627,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_250004",
@@ -2787,7 +2787,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings and material packs.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/LeatherSheeting"
+    "icon_asset_name": "GeneratedIcons/Cargo/LeatherSheeting"
   },
   {
     "id": "cargo_1094309053",
@@ -2797,7 +2797,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Massive plant roots that could be processed into plant fibers at a forager's workstation.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/PlantRoots"
+    "icon_asset_name": "GeneratedIcons/Cargo/PlantRoots"
   },
   {
     "id": "cargo_350004",
@@ -2917,7 +2917,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "An animal body that could be processed for meat and hides.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison"
+    "icon_asset_name": "GeneratedIcons/Other/Animals/Bison"
   },
   {
     "id": "cargo_1167304009",
@@ -2927,7 +2927,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "Can be used in the construction of buildings.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/MetalFrame"
+    "icon_asset_name": "GeneratedIcons/Cargo/MetalFrame"
   },
   {
     "id": "cargo_700754089",
@@ -2947,7 +2947,7 @@
     "rarity": "common",
     "category": "cargo",
     "description": "A chunk of ore. Could be processed into ore pieces.",
-    "icon_asset_name": "GeneratedIcons/Other/GeneratedIcons/Cargo/UmbraciteOreChunk"
+    "icon_asset_name": "GeneratedIcons/Cargo/UmbraciteOreChunk"
   },
   {
     "id": "cargo_14878832",

@@ -315,7 +315,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         {itemData.quantity && (
           <div className="mt-1 flex items-center gap-2">
             <Image
-              src={`/assets/${itemData.icon_asset_name}.webp`}
+              src={`/assets/${itemData.icon_asset_name || 'GeneratedIcons/Items/Unknown'}.webp`}
               alt={itemData.label}
               width={48}
               height={48}

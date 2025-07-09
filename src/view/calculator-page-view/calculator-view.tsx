@@ -93,7 +93,7 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
 
       // Auto-expand first 2 depths for single-recipe items
       const expandNodeRecipes = (node: Node, depth: number): { nodes: Node[]; edges: Edge[] } => {
-        if (depth > 2) return { nodes: [], edges: [] }
+        if (depth > 1) return { nodes: [], edges: [] }
 
         const nodeRecipes = node.data.recipes as Recipe[] | undefined
         if (!nodeRecipes || nodeRecipes.length !== 1) {
@@ -162,7 +162,7 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
           })
 
           // Recursively expand if this material has single recipe and we haven't hit depth limit
-          if (depth < 2) {
+          if (depth < 1) {
             const childExpansion = expandNodeRecipes(materialNode, depth + 1)
             materialNodes.push(...childExpansion.nodes)
             materialEdges.push(...childExpansion.edges)
