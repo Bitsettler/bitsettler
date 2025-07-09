@@ -417,7 +417,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_503",
@@ -427,7 +427,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_509",
@@ -437,7 +437,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150090",
@@ -627,7 +627,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_505",
@@ -637,7 +637,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1080003",
@@ -667,7 +667,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_64000",
@@ -707,7 +707,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Read this to learn all about cheating",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1010007",
@@ -3737,7 +3737,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_559040757",
@@ -3747,7 +3747,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1142832553",
@@ -4307,7 +4307,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A schematic for how to make a key to open doors in ancient ruins.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_42",
@@ -6857,7 +6857,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2024150418",
@@ -6867,7 +6867,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2116624789",
@@ -6877,7 +6877,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_620432214",
@@ -6887,7 +6887,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2111853277",
@@ -6897,7 +6897,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_900515998",
@@ -6907,7 +6907,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1772961736",
@@ -6917,7 +6917,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_814390994",
@@ -6927,7 +6927,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2135367777",
@@ -6937,7 +6937,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1697423661",
@@ -6947,7 +6947,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1432169927",
@@ -6957,7 +6957,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_460699260",
@@ -6967,7 +6967,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1411345788",
@@ -6977,7 +6977,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1495184321",
@@ -6987,7 +6987,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_636074769",
@@ -6997,7 +6997,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1447133477",
@@ -7007,7 +7007,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_100",
@@ -7017,7 +7017,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Weird... you shouldn't have this.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_72162559",
@@ -7027,7 +7027,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_310903418",
@@ -7037,7 +7037,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_413161826",
@@ -7047,7 +7047,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_200191640",
@@ -7057,7 +7057,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1648916601",
@@ -7067,7 +7067,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1559053568",
@@ -7077,7 +7077,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2020442639",
@@ -7087,7 +7087,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_50608705",
@@ -7097,7 +7097,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_393062194",
@@ -7107,7 +7107,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1863733456",
@@ -7157,7 +7157,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_207257682",
@@ -7167,7 +7167,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_413872281",
@@ -7177,7 +7177,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_517886121",
@@ -7187,7 +7187,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_99",
@@ -7197,7 +7197,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Weird... you shouldn't have this.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_479135484",
@@ -7207,7 +7207,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_711060053",
@@ -7217,7 +7217,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1508261820",
@@ -7227,7 +7227,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_70774567",
@@ -7237,7 +7237,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2104397305",
@@ -7247,7 +7247,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_422370665",
@@ -7257,7 +7257,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_514626480",
@@ -7267,7 +7267,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_168453660",
@@ -7277,7 +7277,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_294999751",
@@ -7287,7 +7287,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1258659186",
@@ -7307,7 +7307,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1978793059",
@@ -7317,7 +7317,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1017920380",
@@ -7327,7 +7327,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1367197991",
@@ -7337,7 +7337,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_47963846",
@@ -7347,7 +7347,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_964757887",
@@ -7357,7 +7357,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1853574967",
@@ -7367,7 +7367,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1636103728",
@@ -7377,7 +7377,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_445488297",
@@ -7387,7 +7387,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1283102386",
@@ -7397,7 +7397,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_504956910",
@@ -7407,7 +7407,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_420722386",
@@ -7417,7 +7417,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_132",
@@ -7437,7 +7437,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Blonde hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1537267704",
@@ -7447,7 +7447,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Blue hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_126",
@@ -7457,7 +7457,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Dark brown hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_125",
@@ -7467,7 +7467,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Dark, almost black hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1934679826",
@@ -7477,7 +7477,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Green hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_123",
@@ -7487,7 +7487,7 @@
     "rarity": "mythic",
     "category": "item",
     "description": "Glowing strands of hexite infused hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_555197904",
@@ -7497,7 +7497,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Orange hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_889337473",
@@ -7507,7 +7507,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Pink hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1199909640",
@@ -7517,7 +7517,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Purple hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1010996042",
@@ -7527,7 +7527,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Red hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_124",
@@ -7537,7 +7537,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "Snow white hair",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_103",
@@ -7547,7 +7547,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A hairstyle with a tall mohawk and shaped stripes on the sides.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_101",
@@ -7557,7 +7557,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A hairstyle with bangs and a high ponytail",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_104",
@@ -7567,7 +7567,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A longer hairstyle swept with one side shaved",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_102",
@@ -7577,7 +7577,7 @@
     "rarity": "legendary",
     "category": "item",
     "description": "A hairstyle from the trailer",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_259426368",
@@ -7607,7 +7607,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1000896515",
@@ -7617,7 +7617,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_363095402",
@@ -7627,7 +7627,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1122846156",
@@ -7637,7 +7637,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_911410621",
@@ -7647,7 +7647,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1514180905",
@@ -7657,7 +7657,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_81429358",
@@ -7667,7 +7667,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_717773127",
@@ -7677,7 +7677,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2124868209",
@@ -7687,7 +7687,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1266489720",
@@ -7697,7 +7697,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1239828151",
@@ -7707,7 +7707,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1906826053",
@@ -7717,7 +7717,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1479036555",
@@ -7727,7 +7727,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1052560618",
@@ -7737,7 +7737,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1600135528",
@@ -7747,7 +7747,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1162680358",
@@ -7757,7 +7757,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1635165368",
@@ -7767,7 +7767,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2029139426",
@@ -7777,7 +7777,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1557960292",
@@ -7787,7 +7787,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2142443002",
@@ -7797,7 +7797,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1075863431",
@@ -7807,7 +7807,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_204364387",
@@ -7817,7 +7817,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1997275115",
@@ -7827,7 +7827,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_202336959",
@@ -7837,7 +7837,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1503286108",
@@ -7847,7 +7847,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1709056753",
@@ -7857,7 +7857,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_287726152",
@@ -7867,7 +7867,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1955730160",
@@ -7877,7 +7877,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_571136247",
@@ -7887,7 +7887,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_113",
@@ -7897,7 +7897,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A armored mask giving the appearance of a bug",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_109",
@@ -7907,7 +7907,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with curling horns",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_112",
@@ -7917,7 +7917,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A mask with drooping ear-like extrusions",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_106",
@@ -7927,7 +7927,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A mask with designed to give a cat-like appearance",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_108",
@@ -7937,7 +7937,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A mask with four extruding spikes",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_105",
@@ -7947,7 +7947,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A mask with pointed ear-like extrusions",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_107",
@@ -7957,7 +7957,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A mask with two rounded horns on the top of your head",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_110",
@@ -7967,7 +7967,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A mask with curling horns pieced with gold rings",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_111",
@@ -7977,7 +7977,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A mask with with a single spike in the middle of your forehead",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_114",
@@ -7987,7 +7987,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A mask with a pattern of a simple arch",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_115",
@@ -7997,7 +7997,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A mask with a pattern of a simple arch",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_120",
@@ -8007,7 +8007,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with a pattern of a glowing arrow",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_118",
@@ -8017,7 +8017,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with a pattern of a flower",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_116",
@@ -8027,7 +8027,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A mask with a pattern covered in runic lines",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_117",
@@ -8037,7 +8037,7 @@
     "rarity": "epic",
     "category": "item",
     "description": "A mask with a pattern covered in runic lines",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_119",
@@ -8047,7 +8047,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with a pattern of a glowing rising sun",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_121",
@@ -8057,7 +8057,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with a pattern of glowing waves",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_122",
@@ -8067,7 +8067,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A mask with a pattern of glowing waves",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_453171119",
@@ -8207,7 +8207,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_764177275",
@@ -8217,7 +8217,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1120204366",
@@ -8227,7 +8227,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1933861240",
@@ -8237,7 +8237,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_130",
@@ -8257,7 +8257,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_181929064",
@@ -8267,7 +8267,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2074279496",
@@ -8277,7 +8277,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1271364907",
@@ -8287,7 +8287,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_830248587",
@@ -8297,7 +8297,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_670826329",
@@ -8307,7 +8307,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1064981359",
@@ -8317,7 +8317,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_994291356",
@@ -8327,7 +8327,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_629599826",
@@ -8337,7 +8337,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1448045505",
@@ -8347,7 +8347,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_898603864",
@@ -8357,7 +8357,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_678604400",
@@ -8367,7 +8367,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1694444289",
@@ -8377,7 +8377,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_431256921",
@@ -8387,7 +8387,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1258960813",
@@ -8397,7 +8397,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1455381746",
@@ -8407,7 +8407,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1717184418",
@@ -8417,7 +8417,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_267639993",
@@ -8427,7 +8427,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1636393959",
@@ -8437,7 +8437,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_68880272",
@@ -8447,7 +8447,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_500338475",
@@ -8507,7 +8507,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1531809628",
@@ -8517,7 +8517,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1906022164",
@@ -8527,7 +8527,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1801312513",
@@ -8537,7 +8537,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_630139150",
@@ -8547,7 +8547,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_366935041",
@@ -8557,7 +8557,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1555762676",
@@ -8567,7 +8567,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1176380689",
@@ -8577,7 +8577,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_978058801",
@@ -8587,7 +8587,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1593759943",
@@ -8597,7 +8597,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1279130379",
@@ -8607,7 +8607,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_100426475",
@@ -8617,7 +8617,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Test deed description",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_716191639",
@@ -8627,7 +8627,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_915223534",
@@ -8637,7 +8637,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_563491002",
@@ -8647,7 +8647,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2034753298",
@@ -8657,7 +8657,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1938205258",
@@ -8667,7 +8667,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_663071170",
@@ -8677,7 +8677,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_948766076",
@@ -8687,7 +8687,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1193442949",
@@ -8697,7 +8697,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1453129584",
@@ -8707,7 +8707,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1379005360",
@@ -8717,7 +8717,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_200135323",
@@ -8727,7 +8727,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1609530122",
@@ -8737,7 +8737,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_728704541",
@@ -8747,7 +8747,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_674011241",
@@ -8757,7 +8757,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1152051808",
@@ -8767,7 +8767,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_289610683",
@@ -8777,7 +8777,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_134858107",
@@ -8787,7 +8787,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1895679137",
@@ -8797,7 +8797,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1518632342",
@@ -8807,7 +8807,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_227964665",
@@ -8817,7 +8817,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1693693111",
@@ -8827,7 +8827,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1871728631",
@@ -8837,7 +8837,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2111320251",
@@ -8847,7 +8847,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1878100825",
@@ -8857,7 +8857,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2107333339",
@@ -8867,7 +8867,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_112730927",
@@ -8877,7 +8877,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2117007596",
@@ -8887,7 +8887,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2130527014",
@@ -8897,7 +8897,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1365271781",
@@ -8907,7 +8907,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_196785944",
@@ -8917,7 +8917,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1069458004",
@@ -8927,7 +8927,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1764737039",
@@ -8937,7 +8937,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_312332257",
@@ -8947,7 +8947,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1820525295",
@@ -8957,7 +8957,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_438443081",
@@ -8967,7 +8967,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_80827832",
@@ -8977,7 +8977,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_436749381",
@@ -8987,7 +8987,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_881688838",
@@ -8997,7 +8997,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1275669165",
@@ -9007,7 +9007,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_774124643",
@@ -9017,7 +9017,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1683661714",
@@ -9027,7 +9027,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1086344292",
@@ -9037,7 +9037,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_443776811",
@@ -9047,7 +9047,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_699339158",
@@ -9057,7 +9057,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1920600466",
@@ -9067,7 +9067,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1936957629",
@@ -9077,7 +9077,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1857486284",
@@ -9087,7 +9087,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1804859902",
@@ -9097,7 +9097,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2032385498",
@@ -9107,7 +9107,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2046579508",
@@ -9117,7 +9117,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1854438379",
@@ -9127,7 +9127,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_954353788",
@@ -9137,7 +9137,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1319984056",
@@ -9147,7 +9147,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_742692061",
@@ -9157,7 +9157,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_756657156",
@@ -9167,7 +9167,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1216365425",
@@ -9177,7 +9177,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_700541173",
@@ -9187,7 +9187,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_575502830",
@@ -9197,7 +9197,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_83461776",
@@ -9207,7 +9207,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_131",
@@ -9227,7 +9227,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_424080511",
@@ -9237,7 +9237,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1783646430",
@@ -9247,7 +9247,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_413653001",
@@ -9257,7 +9257,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1077640817",
@@ -9267,7 +9267,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_367604785",
@@ -9277,7 +9277,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1644725611",
@@ -9287,7 +9287,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_455359628",
@@ -9297,7 +9297,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_571407278",
@@ -9307,7 +9307,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1852924005",
@@ -9317,7 +9317,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1745678458",
@@ -9327,7 +9327,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1032502599",
@@ -9337,7 +9337,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1858010536",
@@ -9347,7 +9347,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_616578184",
@@ -9357,7 +9357,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_349530101",
@@ -9387,7 +9387,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_590750423",
@@ -9397,7 +9397,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1019742717",
@@ -9407,7 +9407,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_646561130",
@@ -9417,7 +9417,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_129",
@@ -9437,7 +9437,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1992186330",
@@ -9447,7 +9447,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1468515063",
@@ -9457,7 +9457,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_721687650",
@@ -9467,7 +9467,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_506005594",
@@ -9477,7 +9477,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1408572825",
@@ -9487,7 +9487,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1915636306",
@@ -9497,7 +9497,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_190771871",
@@ -9507,7 +9507,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1031572827",
@@ -9517,7 +9517,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_13338385",
@@ -9567,7 +9567,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_123460",
@@ -11607,7 +11607,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_11006",
@@ -17197,7 +17197,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_420864423",
@@ -17547,7 +17547,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1",
@@ -17877,7 +17877,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A schematic for how to make a more advanced bow.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150104",
@@ -18487,7 +18487,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150032",
@@ -18647,7 +18647,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150081",
@@ -25907,7 +25907,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_31460175",
@@ -25917,7 +25917,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1858106060",
@@ -25927,7 +25927,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_727775369",
@@ -25937,7 +25937,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_719011047",
@@ -25947,7 +25947,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_270523026",
@@ -25957,7 +25957,7 @@
     "rarity": "common",
     "category": "item",
     "description": "Player Housing Deed",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150010",
@@ -29867,7 +29867,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2740310",
@@ -29877,7 +29877,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1286007669",
@@ -29887,7 +29887,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1198741888",
@@ -29897,7 +29897,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_219457527",
@@ -29907,7 +29907,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1139897722",
@@ -29917,7 +29917,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1704129999",
@@ -29927,7 +29927,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Ambrosial Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_44801999",
@@ -29937,7 +29937,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1885677267",
@@ -29947,7 +29947,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_857417839",
@@ -29957,7 +29957,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_955775761",
@@ -29967,7 +29967,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_794525978",
@@ -29977,7 +29977,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1293010336",
@@ -29987,7 +29987,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_92486652",
@@ -29997,7 +29997,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Ambrosial Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_376045459",
@@ -30007,7 +30007,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_944777132",
@@ -30017,7 +30017,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1809758016",
@@ -30027,7 +30027,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1786452490",
@@ -30037,7 +30037,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_867696056",
@@ -30047,7 +30047,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_182708488",
@@ -30057,7 +30057,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_337301546",
@@ -30067,7 +30067,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Fine Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1072381732",
@@ -30077,7 +30077,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2108828526",
@@ -30087,7 +30087,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1104238712",
@@ -30097,7 +30097,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1090627677",
@@ -30107,7 +30107,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_670405997",
@@ -30117,7 +30117,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_646142864",
@@ -30127,7 +30127,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_718622912",
@@ -30137,7 +30137,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Fine Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2119040625",
@@ -30147,7 +30147,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1892873651",
@@ -30157,7 +30157,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_381329756",
@@ -30167,7 +30167,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_220583662",
@@ -30177,7 +30177,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1715279253",
@@ -30187,7 +30187,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_504312650",
@@ -30197,7 +30197,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1568467365",
@@ -30207,7 +30207,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Plain Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_847396174",
@@ -30217,7 +30217,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1148302651",
@@ -30227,7 +30227,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1349784258",
@@ -30237,7 +30237,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2004474025",
@@ -30247,7 +30247,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1928031113",
@@ -30257,7 +30257,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1907255116",
@@ -30267,7 +30267,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1171267034",
@@ -30277,7 +30277,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Plain Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_757829506",
@@ -30287,7 +30287,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_396391911",
@@ -30297,7 +30297,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_669708486",
@@ -30307,7 +30307,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1051117658",
@@ -30317,7 +30317,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1325917888",
@@ -30327,7 +30327,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1528604544",
@@ -30337,7 +30337,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1006938683",
@@ -30347,7 +30347,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Savory Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_69061011",
@@ -30357,7 +30357,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_496090325",
@@ -30367,7 +30367,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1846376931",
@@ -30377,7 +30377,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1325672813",
@@ -30387,7 +30387,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_910381130",
@@ -30397,7 +30397,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1464454040",
@@ -30407,7 +30407,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2127669203",
@@ -30417,7 +30417,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Savory Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1901080288",
@@ -30427,7 +30427,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_685426050",
@@ -30437,7 +30437,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1122554047",
@@ -30447,7 +30447,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_835236558",
@@ -30457,7 +30457,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1100895472",
@@ -30467,7 +30467,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1066821523",
@@ -30477,7 +30477,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1006583295",
@@ -30487,7 +30487,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Succulent Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1895424082",
@@ -30497,7 +30497,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_850076528",
@@ -30507,7 +30507,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1349028513",
@@ -30517,7 +30517,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1369637069",
@@ -30527,7 +30527,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1860667848",
@@ -30537,7 +30537,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1339403927",
@@ -30547,7 +30547,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2086642350",
@@ -30557,7 +30557,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Succulent Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1764864914",
@@ -30567,7 +30567,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_427007007",
@@ -30577,7 +30577,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2023712452",
@@ -30587,7 +30587,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1889455083",
@@ -30597,7 +30597,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_349655005",
@@ -30607,7 +30607,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_297906833",
@@ -30617,7 +30617,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1633495699",
@@ -30627,7 +30627,7 @@
     "rarity": "rare",
     "category": "item",
     "description": "A recipe to learn Zesty Deluxe Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_762220261",
@@ -30637,7 +30637,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Fish and Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_418255243",
@@ -30647,7 +30647,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Ground Meat and Mashed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_363276500",
@@ -30657,7 +30657,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Meat Sandwich",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2140942334",
@@ -30667,7 +30667,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Mushroom Stuffed Bulbs",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_843715936",
@@ -30677,7 +30677,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Ocean Fish Sticks",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1870350813",
@@ -30687,7 +30687,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Raw Berry Pie",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1790766849",
@@ -30697,7 +30697,7 @@
     "rarity": "uncommon",
     "category": "item",
     "description": "A recipe to learn Zesty Raw Bulb Roll",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_41",
@@ -31227,7 +31227,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_608622566",
@@ -32067,7 +32067,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1794622985",
@@ -32497,7 +32497,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1030786738",
@@ -34037,7 +34037,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A schematic for how to make a stone brazier.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150068",
@@ -35417,7 +35417,7 @@
     "rarity": "common",
     "category": "item",
     "description": "A piece of parchment with some writing on it.",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_2046149078",
@@ -35427,7 +35427,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1671558372",
@@ -35437,7 +35437,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1509252047",
@@ -35707,7 +35707,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1382535079",
@@ -37837,7 +37837,7 @@
     "rarity": "common",
     "category": "item",
     "description": "No description available",
-    "icon_asset_name": "Items/AncientDeed"
+    "icon_asset_name": "Unknown"
   },
   {
     "id": "item_1150054",

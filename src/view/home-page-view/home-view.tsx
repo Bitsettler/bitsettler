@@ -6,6 +6,8 @@ interface Item {
   name: string
   slug: string
   category: string
+  tier: number
+  icon_asset_name: string
 }
 
 interface HomeViewProps {

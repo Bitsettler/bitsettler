@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import type { Item } from '@/hooks/use-item-selection'
+import { Link } from '@/i18n/navigation'
 import { Recipe } from '@/lib/types'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
@@ -51,9 +52,11 @@ export function CalculatorItemInfoPanel({
           {process.env.NEXT_PUBLIC_DEBUG === 'true' && <span className="text-xs text-red-500">{selectedItem.id}</span>}
           <CardTitle className="mb-2">{selectedItem.name}</CardTitle>
           <div className="flex flex-wrap gap-1">
-            <Badge variant="outline" className={`text-xs ${getTierColor(selectedItem.tier)}`}>
-              Tier {selectedItem.tier || 'Unknown'}
-            </Badge>
+            {selectedItem.tier !== -1 && (
+              <Badge variant="outline" className={`text-xs ${getTierColor(selectedItem.tier)}`}>
+                Tier {selectedItem.tier || 'Unknown'}
+              </Badge>
+            )}
             <Badge variant="outline" className={`text-xs ${getRarityColor(selectedItem.rarity)}`}>
               {selectedItem.rarity || 'Unknown'}
             </Badge>
@@ -78,7 +81,6 @@ export function CalculatorItemInfoPanel({
                 />
                 <span className="text-muted-foreground text-sm">{t('calculator.itemsToCraft')}</span>
               </div>
-              <div className="text-muted-foreground text-xs">Minimum: 1 (one complete recipe execution)</div>
             </div>
           </div>
 
@@ -88,28 +90,61 @@ export function CalculatorItemInfoPanel({
             <ScrollArea className="h-full">
               <div className="space-y-2 pr-4">
                 {usedInRecipes.length > 0 ? (
-                  usedInRecipes.map((recipe, index) => (
-                    <div key={index} className="bg-muted rounded p-2 text-sm">
-                      <div className="font-medium">{resolveRecipeName(recipe, items)}</div>
-                      <div className="text-muted-foreground text-xs">
-                        {t('calculator.produces')}:{' '}
-                        {recipe.output.map((output, i) => {
-                          const outputItem = items.find((item) => item.id === output.item)
-                          return (
-                            <span key={i}>
-                              {output.qty
-                                ? Array.isArray(output.qty)
-                                  ? `${output.qty[0]}-${output.qty[1]}`
-                                  : output.qty
-                                : '?'}
-                              x {outputItem?.name || `Item ${output.item}`}
-                              {i < recipe.output.length - 1 ? ', ' : ''}
-                            </span>
-                          )
-                        })}
+                  usedInRecipes.map((recipe, index) => {
+                    // Get the first output item to create the link
+                    const firstOutput = recipe.output[0]
+                    const outputItem = items.find((item) => item.id === firstOutput?.item)
+
+                    return (
+                      <div key={index}>
+                        {outputItem ? (
+                          <Link href={`/calculator/${outputItem.slug}`}>
+                            <div className="bg-muted hover:bg-accent/50 hover:text-accent-foreground cursor-pointer rounded p-2 text-sm transition-colors">
+                              <div className="font-medium">{resolveRecipeName(recipe, items)}</div>
+                              <div className="text-muted-foreground text-xs">
+                                {t('calculator.produces')}:{' '}
+                                {recipe.output.map((output, i) => {
+                                  const outputItem = items.find((item) => item.id === output.item)
+                                  return (
+                                    <span key={i}>
+                                      {output.qty
+                                        ? Array.isArray(output.qty)
+                                          ? `${output.qty[0]}-${output.qty[1]}`
+                                          : output.qty
+                                        : '?'}
+                                      x {outputItem?.name || `Item ${output.item}`}
+                                      {i < recipe.output.length - 1 ? ', ' : ''}
+                                    </span>
+                                  )
+                                })}
+                              </div>
+                            </div>
+                          </Link>
+                        ) : (
+                          <div className="bg-muted rounded p-2 text-sm">
+                            <div className="font-medium">{resolveRecipeName(recipe, items)}</div>
+                            <div className="text-muted-foreground text-xs">
+                              {t('calculator.produces')}:{' '}
+                              {recipe.output.map((output, i) => {
+                                const outputItem = items.find((item) => item.id === output.item)
+                                return (
+                                  <span key={i}>
+                                    {output.qty
+                                      ? Array.isArray(output.qty)
+                                        ? `${output.qty[0]}-${output.qty[1]}`
+                                        : output.qty
+                                      : '?'}
+                                    x {outputItem?.name || `Item ${output.item}`}
+                                    {i < recipe.output.length - 1 ? ', ' : ''}
+                                  </span>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))
+                    )
+                  })
                 ) : (
                   <p className="text-muted-foreground text-sm">{t('calculator.noRecipes')}</p>
                 )}

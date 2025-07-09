@@ -9,11 +9,14 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
 
-interface ComboboxOption {
+export interface ComboboxOption {
   value: string
   label: string
   keywords?: string
   id: string
+  tier?: number
+  category?: string
+  icon_asset_name?: string
 }
 
 interface ComboboxProps {
@@ -26,6 +29,7 @@ interface ComboboxProps {
   className?: string
   triggerClassName?: string
   inputClassName?: string
+  renderOption?: (option: ComboboxOption) => React.ReactNode
 }
 
 export function Combobox({
@@ -37,7 +41,8 @@ export function Combobox({
   emptyText = 'No items found.',
   className,
   triggerClassName,
-  inputClassName
+  inputClassName,
+  renderOption
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false)
   const [searchValue, setSearchValue] = React.useState('')
@@ -61,7 +66,7 @@ export function Combobox({
   const virtualizer = useVirtualizer({
     count: filteredOptions.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 36, // Approximate height of each CommandItem
+    estimateSize: () => (renderOption ? 56 : 36), // Approximate height of each CommandItem (taller for custom rendering)
     overscan: 5 // Number of items to render outside the visible area
   })
 
@@ -83,9 +88,10 @@ export function Combobox({
   }, [open, virtualizer])
 
   // Calculate total height - ensure it's at least the height of visible items
+  const itemHeight = renderOption ? 56 : 36
   const totalHeight = Math.max(
     virtualizer.getTotalSize(),
-    Math.min(filteredOptions.length * 36, 300) // Max 300px height
+    Math.min(filteredOptions.length * itemHeight, 300) // Max 300px height
   )
 
   return (
@@ -101,7 +107,7 @@ export function Combobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full p-0" align="start" style={{ width: 'var(--radix-popover-trigger-width)' }}>
+      <PopoverContent className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0" align="start">
         <Command shouldFilter={false}>
           <CommandInput
             placeholder={searchPlaceholder}
@@ -137,10 +143,24 @@ export function Combobox({
                           setSearchValue('') // Clear search when item is selected
                         }}
                       >
-                        {option.label}
-                        <Check
-                          className={cn('ml-auto h-4 w-4', value === option.value ? 'opacity-100' : 'opacity-0')}
-                        />
+                        {renderOption ? (
+                          <div className="flex w-full items-center justify-between">
+                            {renderOption(option)}
+                            <Check
+                              className={cn(
+                                'ml-2 h-4 w-4 flex-shrink-0',
+                                value === option.value ? 'opacity-100' : 'opacity-0'
+                              )}
+                            />
+                          </div>
+                        ) : (
+                          <>
+                            {option.label}
+                            <Check
+                              className={cn('ml-auto h-4 w-4', value === option.value ? 'opacity-100' : 'opacity-0')}
+                            />
+                          </>
+                        )}
                       </CommandItem>
                     )
                   })}

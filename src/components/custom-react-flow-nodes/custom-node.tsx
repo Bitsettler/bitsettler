@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
+import { getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
@@ -303,11 +303,13 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       )}
       <CardHeader className="pb-2">
         <div className="flex items-center gap-2">
-          <Checkbox
-            checked={itemData.isDone}
-            onCheckedChange={handleToggleDone}
-            className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
-          />
+          {itemData.category !== 'resource' && (
+            <Checkbox
+              checked={itemData.isDone}
+              onCheckedChange={handleToggleDone}
+              className="data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
+            />
+          )}
           <CardTitle className={`text-sm font-semibold ${itemData.isDone ? 'text-green-700 line-through' : ''}`}>
             {itemData.label}
           </CardTitle>
@@ -321,27 +323,28 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               height={48}
               className="rounded"
             />
-            <Badge variant="secondary" className="text-xs">
-              Qty: {Math.round(itemData.quantity)}
-            </Badge>
+            {itemData.category !== 'resource' && (
+              <Badge variant="secondary" className="text-xs">
+                Qty: {Math.round(itemData.quantity)}
+              </Badge>
+            )}
           </div>
         )}
       </CardHeader>
 
       <CardContent className="pt-0">
         <div className="mb-2 flex flex-wrap gap-1">
-          <Badge variant="outline" className={`text-xs ${getTierColor(itemData.tier)}`}>
-            Tier {itemData.tier}
-          </Badge>
-          <Badge variant="outline" className={`text-xs ${getRarityColor(itemData.rarity)}`}>
-            {itemData.rarity}
-          </Badge>
+          {itemData.tier !== -1 && (
+            <Badge variant="outline" className={`text-xs ${getTierColor(itemData.tier)}`}>
+              Tier {itemData.tier}
+            </Badge>
+          )}
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {itemData.category}
           </Badge>
         </div>
 
-        {itemData.recipes && itemData.recipes.length > 0 && (
+        {itemData.category !== 'resource' && itemData.recipes && itemData.recipes.length > 0 && (
           <div className="mt-2">
             {itemData.recipes.length === 1 ? (
               <div className="mb-1 text-xs font-medium">Recipe:</div>
@@ -366,11 +369,11 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           </div>
         )}
 
-        {(!itemData.recipes || itemData.recipes.length === 0) && (
+        {itemData.category !== 'resource' && (!itemData.recipes || itemData.recipes.length === 0) && (
           <div className="text-muted-foreground mt-2 text-xs">No recipes available for this item</div>
         )}
 
-        {itemData.selectedRecipe && (
+        {itemData.category !== 'resource' && itemData.selectedRecipe && (
           <div className="bg-muted/50 mt-2 rounded p-2 text-xs">
             <div className="mb-1 font-medium">Recipe requirement:</div>
             <div>Profession: {itemData.selectedRecipe.requirements.professions}</div>

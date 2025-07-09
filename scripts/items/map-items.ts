@@ -53,7 +53,14 @@ function cleanIconAssetPath(iconAssetName: string): string {
   if (!iconAssetName) return ''
 
   // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
-  return iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+
+  // Handle missing deed icon - the AncientDeed.webp file doesn't exist
+  if (cleanPath === 'Items/AncientDeed') {
+    cleanPath = 'Unknown'
+  }
+
+  return cleanPath
 }
 
 /**
