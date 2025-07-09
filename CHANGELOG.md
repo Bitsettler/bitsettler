@@ -5,6 +5,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0]
+
+### Added
+
+- **Clickable Recipe Navigation**: Recipe names in item info panel are now clickable links
+  - Click any recipe in the "Usage" section to navigate to that recipe's output item
+  - Maintains locale-aware routing using next-intl Link component
+  - Enhanced hover styling with consistent accent colors throughout the application
+
+### Improved
+
+- **Search User Experience**: Enhanced search interface with better visibility
+  - Increased item icons from 24px to 32px for improved readability
+  - Fixed search dropdown width issues to prevent truncation of long item names
+  - Auto-sizing combobox popover that adapts to content width
+
+- **Icon Path Data Quality**: Fixed malformed icon asset paths in game data
+  - Cleaned up duplicated "GeneratedIcons/Other/GeneratedIcons" path prefixes
+  - Added fallback handling for missing deed icons (AncientDeed.webp doesn't exist)
+  - All deed items now use proper fallback Unknown.webp icon
+
+- **UI Consistency and Polish**: Streamlined interface elements for better user experience
+  - Hidden tier badges for items with tier -1 (items that don't have tiers like deeds)
+  - Removed rarity badges from flow nodes for cleaner visual presentation
+  - Applied consistent hover styling using `hover:bg-accent/50 hover:text-accent-foreground`
+
+### Fixed
+
+- **Image Loading Issues**: Resolved 404 errors for missing item icons
+  - Fixed deed items that were pointing to non-existent AncientDeed.webp file
+  - Corrected malformed paths that prevented proper image loading
+  - Regenerated all item data files (items.json, cargo.json, resources.json) with cleaned paths
+
+### Technical
+
+- **Data Processing Enhancement**: Updated item mapping scripts with improved error handling
+  - Added `cleanIconAssetPath` function to detect and fix common path issues
+  - Enhanced data generation pipeline to prevent future path corruption
+  - Automated cleanup of icon asset references during data conversion
+
 ## [1.6.0]
 
 ### Added
