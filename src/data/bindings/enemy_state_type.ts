@@ -8,69 +8,47 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EnemyType as __EnemyType } from "./enemy_type_type";
-import { EnemyStatus as __EnemyStatus } from "./enemy_status_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { EnemyStatus as __EnemyStatus } from './enemy_status_type'
+import { EnemyType as __EnemyType } from './enemy_type_type'
 
 export type EnemyState = {
-  entityId: bigint,
-  herdEntityId: bigint,
-  direction: number,
-  status: __EnemyStatus,
-  lastRangedAttackTimestamp: Timestamp,
-  enemyType: __EnemyType,
-};
+  entityId: bigint
+  herdEntityId: bigint
+  direction: number
+  status: __EnemyStatus
+  lastRangedAttackTimestamp: Timestamp
+  enemyType: __EnemyType
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EnemyState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("herdEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("direction", AlgebraicType.createI32Type()),
-      new ProductTypeElement("status", __EnemyStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("lastRangedAttackTimestamp", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("enemyType", __EnemyType.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('herdEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('direction', AlgebraicType.createI32Type()),
+      new ProductTypeElement('status', __EnemyStatus.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('lastRangedAttackTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnemyState): void {
-    EnemyState.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnemyState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemyState {
-    return EnemyState.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnemyState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type LocationState = {
-  entityId: bigint,
-  chunkIndex: bigint,
-  x: number,
-  z: number,
-  dimension: number,
-};
+  entityId: bigint
+  chunkIndex: bigint
+  x: number
+  z: number
+  dimension: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace LocationState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("chunkIndex", AlgebraicType.createU64Type()),
-      new ProductTypeElement("x", AlgebraicType.createI32Type()),
-      new ProductTypeElement("z", AlgebraicType.createI32Type()),
-      new ProductTypeElement("dimension", AlgebraicType.createU32Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
+      new ProductTypeElement('x', AlgebraicType.createI32Type()),
+      new ProductTypeElement('z', AlgebraicType.createI32Type()),
+      new ProductTypeElement('dimension', AlgebraicType.createU32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: LocationState): void {
-    LocationState.getTypeScriptAlgebraicType().serialize(writer, value);
+    LocationState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): LocationState {
-    return LocationState.getTypeScriptAlgebraicType().deserialize(reader);
+    return LocationState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

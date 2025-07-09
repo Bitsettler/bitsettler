@@ -6,41 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EquipmentDesc } from "./equipment_desc_type";
-import { CsvStatEntry as __CsvStatEntry } from "./csv_stat_entry_type";
-import { LevelRequirement as __LevelRequirement } from "./level_requirement_type";
-import { EquipmentSlotType as __EquipmentSlotType } from "./equipment_slot_type_type";
-import { EquipmentVisualType as __EquipmentVisualType } from "./equipment_visual_type_type";
-import { ClothingVisual as __ClothingVisual } from "./clothing_visual_type";
-import { HandEquipmentVisual as __HandEquipmentVisual } from "./hand_equipment_visual_type";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { EquipmentDesc } from './equipment_desc_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `equipment_desc`.
@@ -53,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.equipmentDesc.on_insert(...)`.
  */
 export class EquipmentDescTableHandle {
-  tableCache: TableCache<EquipmentDesc>;
+  tableCache: TableCache<EquipmentDesc>
 
   constructor(tableCache: TableCache<EquipmentDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<EquipmentDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `itemId` unique index on the table `equipment_desc`,
@@ -83,33 +52,34 @@ export class EquipmentDescTableHandle {
     find: (col_val: number): EquipmentDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.itemId, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: EquipmentDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: EquipmentDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: EquipmentDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: EquipmentDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: EquipmentDesc, newRow: EquipmentDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: EquipmentDesc, newRow: EquipmentDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

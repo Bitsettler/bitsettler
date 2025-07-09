@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerPortalEnterRequest as __PlayerPortalEnterRequest } from "./player_portal_enter_request_type";
+import { PlayerPortalEnterRequest as __PlayerPortalEnterRequest } from './player_portal_enter_request_type'
 
 export type PortalEnter = {
-  request: __PlayerPortalEnterRequest,
-};
+  request: __PlayerPortalEnterRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PortalEnter {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerPortalEnterRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerPortalEnterRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PortalEnter): void {
-    PortalEnter.getTypeScriptAlgebraicType().serialize(writer, value);
+    PortalEnter.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PortalEnter {
-    return PortalEnter.getTypeScriptAlgebraicType().deserialize(reader);
+    return PortalEnter.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

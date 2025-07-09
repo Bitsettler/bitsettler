@@ -8,70 +8,48 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { PassiveCraftStatus as __PassiveCraftStatus } from "./passive_craft_status_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { PassiveCraftStatus as __PassiveCraftStatus } from './passive_craft_status_type'
 
 export type PassiveCraftState = {
-  entityId: bigint,
-  ownerEntityId: bigint,
-  recipeId: number,
-  buildingEntityId: bigint,
-  timestamp: Timestamp,
-  status: __PassiveCraftStatus,
-  slot: number | undefined,
-};
+  entityId: bigint
+  ownerEntityId: bigint
+  recipeId: number
+  buildingEntityId: bigint
+  timestamp: Timestamp
+  status: __PassiveCraftStatus
+  slot: number | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PassiveCraftState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("ownerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("recipeId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("buildingEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("timestamp", AlgebraicType.createTimestampType()),
-      new ProductTypeElement("status", __PassiveCraftStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("slot", AlgebraicType.createOptionType(AlgebraicType.createU32Type())),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('recipeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('timestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement('status', __PassiveCraftStatus.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('slot', AlgebraicType.createOptionType(AlgebraicType.createU32Type()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PassiveCraftState): void {
-    PassiveCraftState.getTypeScriptAlgebraicType().serialize(writer, value);
+    PassiveCraftState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PassiveCraftState {
-    return PassiveCraftState.getTypeScriptAlgebraicType().deserialize(reader);
+    return PassiveCraftState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

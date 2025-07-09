@@ -6,63 +6,35 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from "./offset_coordinates_small_message_type";
-import { KnowledgeState as __KnowledgeState } from "./knowledge_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { KnowledgeState as __KnowledgeState } from './knowledge_state_type'
+import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type KnowledgeLocationEntry = {
-  location: __OffsetCoordinatesSmallMessage,
-  state: __KnowledgeState,
-};
+  location: __OffsetCoordinatesSmallMessage
+  state: __KnowledgeState
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace KnowledgeLocationEntry {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("location", __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("state", __KnowledgeState.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('state', __KnowledgeState.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: KnowledgeLocationEntry): void {
-    KnowledgeLocationEntry.getTypeScriptAlgebraicType().serialize(writer, value);
+    KnowledgeLocationEntry.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeLocationEntry {
-    return KnowledgeLocationEntry.getTypeScriptAlgebraicType().deserialize(reader);
+    return KnowledgeLocationEntry.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

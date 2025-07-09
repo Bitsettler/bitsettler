@@ -6,86 +6,58 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { Rarity as __Rarity } from "./rarity_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { Rarity as __Rarity } from './rarity_type'
 
 export type ItemDesc = {
-  id: number,
-  name: string,
-  description: string,
-  volume: number,
-  durability: number,
-  convertToOnDurabilityZero: number,
-  secondaryKnowledgeId: number,
-  modelAssetName: string,
-  iconAssetName: string,
-  tier: number,
-  tag: string,
-  rarity: __Rarity,
-  compendiumEntry: boolean,
-  itemListId: number,
-};
+  id: number
+  name: string
+  description: string
+  volume: number
+  durability: number
+  convertToOnDurabilityZero: number
+  secondaryKnowledgeId: number
+  modelAssetName: string
+  iconAssetName: string
+  tier: number
+  tag: string
+  rarity: __Rarity
+  compendiumEntry: boolean
+  itemListId: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ItemDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("description", AlgebraicType.createStringType()),
-      new ProductTypeElement("volume", AlgebraicType.createI32Type()),
-      new ProductTypeElement("durability", AlgebraicType.createI32Type()),
-      new ProductTypeElement("convertToOnDurabilityZero", AlgebraicType.createI32Type()),
-      new ProductTypeElement("secondaryKnowledgeId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("modelAssetName", AlgebraicType.createStringType()),
-      new ProductTypeElement("iconAssetName", AlgebraicType.createStringType()),
-      new ProductTypeElement("tier", AlgebraicType.createI32Type()),
-      new ProductTypeElement("tag", AlgebraicType.createStringType()),
-      new ProductTypeElement("rarity", __Rarity.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("compendiumEntry", AlgebraicType.createBoolType()),
-      new ProductTypeElement("itemListId", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('name', AlgebraicType.createStringType()),
+      new ProductTypeElement('description', AlgebraicType.createStringType()),
+      new ProductTypeElement('volume', AlgebraicType.createI32Type()),
+      new ProductTypeElement('durability', AlgebraicType.createI32Type()),
+      new ProductTypeElement('convertToOnDurabilityZero', AlgebraicType.createI32Type()),
+      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement('tier', AlgebraicType.createI32Type()),
+      new ProductTypeElement('tag', AlgebraicType.createStringType()),
+      new ProductTypeElement('rarity', __Rarity.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('compendiumEntry', AlgebraicType.createBoolType()),
+      new ProductTypeElement('itemListId', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ItemDesc): void {
-    ItemDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ItemDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ItemDesc {
-    return ItemDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ItemDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

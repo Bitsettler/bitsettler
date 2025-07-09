@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type PermissionState = {
-  entityId: bigint,
-  ordainedEntityId: bigint,
-  allowedEntityId: bigint,
-  group: number,
-  rank: number,
-};
+  entityId: bigint
+  ordainedEntityId: bigint
+  allowedEntityId: bigint
+  group: number
+  rank: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PermissionState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("ordainedEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("allowedEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("group", AlgebraicType.createI32Type()),
-      new ProductTypeElement("rank", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('ordainedEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('allowedEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('group', AlgebraicType.createI32Type()),
+      new ProductTypeElement('rank', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PermissionState): void {
-    PermissionState.getTypeScriptAlgebraicType().serialize(writer, value);
+    PermissionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PermissionState {
-    return PermissionState.getTypeScriptAlgebraicType().deserialize(reader);
+    return PermissionState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

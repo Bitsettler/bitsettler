@@ -6,43 +6,18 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace DeployableType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Cart = { tag: "Cart" };
-  export type Mount = { tag: "Mount" };
-  export type Stall = { tag: "Stall" };
-  export type Cache = { tag: "Cache" };
-  export type Boat = { tag: "Boat" };
-  export type SiegeEngine = { tag: "SiegeEngine" };
+  export type Cart = { tag: 'Cart' }
+  export type Mount = { tag: 'Mount' }
+  export type Stall = { tag: 'Stall' }
+  export type Cache = { tag: 'Cache' }
+  export type Boat = { tag: 'Boat' }
+  export type SiegeEngine = { tag: 'SiegeEngine' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -50,36 +25,40 @@ export namespace DeployableType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Cart = { tag: "Cart" };
-  export const Mount = { tag: "Mount" };
-  export const Stall = { tag: "Stall" };
-  export const Cache = { tag: "Cache" };
-  export const Boat = { tag: "Boat" };
-  export const SiegeEngine = { tag: "SiegeEngine" };
+  export const Cart = { tag: 'Cart' }
+  export const Mount = { tag: 'Mount' }
+  export const Stall = { tag: 'Stall' }
+  export const Cache = { tag: 'Cache' }
+  export const Boat = { tag: 'Boat' }
+  export const SiegeEngine = { tag: 'SiegeEngine' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Cart", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Mount", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Stall", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Cache", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Boat", AlgebraicType.createProductType([])),
-      new SumTypeVariant("SiegeEngine", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Cart', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Mount', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Stall', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Cache', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Boat', AlgebraicType.createProductType([])),
+      new SumTypeVariant('SiegeEngine', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: DeployableType): void {
-      DeployableType.getTypeScriptAlgebraicType().serialize(writer, value);
+    DeployableType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DeployableType {
-      return DeployableType.getTypeScriptAlgebraicType().deserialize(reader);
+    return DeployableType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `DeployableType`.
-export type DeployableType = DeployableType.Cart | DeployableType.Mount | DeployableType.Stall | DeployableType.Cache | DeployableType.Boat | DeployableType.SiegeEngine;
+export type DeployableType =
+  | DeployableType.Cart
+  | DeployableType.Mount
+  | DeployableType.Stall
+  | DeployableType.Cache
+  | DeployableType.Boat
+  | DeployableType.SiegeEngine
 
-export default DeployableType;
-
+export default DeployableType

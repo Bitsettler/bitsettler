@@ -6,68 +6,40 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { DimensionType as __DimensionType } from "./dimension_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { DimensionType as __DimensionType } from './dimension_type_type'
 
 export type InteriorNetworkDesc = {
-  buildingId: number,
-  dimensionType: __DimensionType,
-  triggerCollapseTime: number,
-  respawnTime: number,
-  childInteriorInstances: number[],
-};
+  buildingId: number
+  dimensionType: __DimensionType
+  triggerCollapseTime: number
+  respawnTime: number
+  childInteriorInstances: number[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace InteriorNetworkDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("buildingId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("dimensionType", __DimensionType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("triggerCollapseTime", AlgebraicType.createU32Type()),
-      new ProductTypeElement("respawnTime", AlgebraicType.createU32Type()),
-      new ProductTypeElement("childInteriorInstances", AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-    ]);
+      new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('dimensionType', __DimensionType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('triggerCollapseTime', AlgebraicType.createU32Type()),
+      new ProductTypeElement('respawnTime', AlgebraicType.createU32Type()),
+      new ProductTypeElement('childInteriorInstances', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: InteriorNetworkDesc): void {
-    InteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    InteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): InteriorNetworkDesc {
-    return InteriorNetworkDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return InteriorNetworkDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

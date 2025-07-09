@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerTeleportWaystoneRequest as __PlayerTeleportWaystoneRequest } from "./player_teleport_waystone_request_type";
+import { PlayerTeleportWaystoneRequest as __PlayerTeleportWaystoneRequest } from './player_teleport_waystone_request_type'
 
 export type PlayerTeleportWaystoneStart = {
-  request: __PlayerTeleportWaystoneRequest,
-};
+  request: __PlayerTeleportWaystoneRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerTeleportWaystoneStart {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerTeleportWaystoneStart): void {
-    PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerTeleportWaystoneStart {
-    return PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

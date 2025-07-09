@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CheatCompendiumItemPlaceRequest as __CheatCompendiumItemPlaceRequest } from "./cheat_compendium_item_place_request_type";
+import { CheatCompendiumItemPlaceRequest as __CheatCompendiumItemPlaceRequest } from './cheat_compendium_item_place_request_type'
 
 export type CheatCompendiumPlaceResource = {
-  request: __CheatCompendiumItemPlaceRequest,
-};
+  request: __CheatCompendiumItemPlaceRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatCompendiumPlaceResource {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __CheatCompendiumItemPlaceRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __CheatCompendiumItemPlaceRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatCompendiumPlaceResource): void {
-    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatCompendiumPlaceResource {
-    return CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,68 +6,40 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type BuildingPortalDesc = {
-  id: number,
-  name: string,
-  buildingId: number,
-  allowDeployables: boolean,
-  posX: number,
-  posZ: number,
-};
+  id: number
+  name: string
+  buildingId: number
+  allowDeployables: boolean
+  posX: number
+  posZ: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace BuildingPortalDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("buildingId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("allowDeployables", AlgebraicType.createBoolType()),
-      new ProductTypeElement("posX", AlgebraicType.createI32Type()),
-      new ProductTypeElement("posZ", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('name', AlgebraicType.createStringType()),
+      new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('allowDeployables', AlgebraicType.createBoolType()),
+      new ProductTypeElement('posX', AlgebraicType.createI32Type()),
+      new ProductTypeElement('posZ', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingPortalDesc): void {
-    BuildingPortalDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingPortalDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingPortalDesc {
-    return BuildingPortalDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingPortalDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

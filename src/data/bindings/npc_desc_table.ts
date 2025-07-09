@@ -6,34 +6,9 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { NpcDesc } from "./npc_desc_type";
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { type EventContext } from '.'
+import { NpcDesc } from './npc_desc_type'
 
 /**
  * Table handle for the table `npc_desc`.
@@ -46,18 +21,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.npcDesc.on_insert(...)`.
  */
 export class NpcDescTableHandle {
-  tableCache: TableCache<NpcDesc>;
+  tableCache: TableCache<NpcDesc>
 
   constructor(tableCache: TableCache<NpcDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<NpcDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `npcType` unique index on the table `npc_desc`,
@@ -76,33 +51,34 @@ export class NpcDescTableHandle {
     find: (col_val: number): NpcDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.npcType, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: NpcDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: NpcDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: NpcDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: NpcDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: NpcDesc, newRow: NpcDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: NpcDesc, newRow: NpcDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

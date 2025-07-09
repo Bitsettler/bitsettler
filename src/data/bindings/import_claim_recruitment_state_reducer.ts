@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ClaimRecruitmentState as __ClaimRecruitmentState } from "./claim_recruitment_state_type";
+import { ClaimRecruitmentState as __ClaimRecruitmentState } from './claim_recruitment_state_type'
 
 export type ImportClaimRecruitmentState = {
-  records: __ClaimRecruitmentState[],
-};
+  records: __ClaimRecruitmentState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportClaimRecruitmentState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__ClaimRecruitmentState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__ClaimRecruitmentState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportClaimRecruitmentState): void {
-    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportClaimRecruitmentState {
-    return ImportClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

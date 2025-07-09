@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace MovementType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type None = { tag: "None" };
-  export type Ground = { tag: "Ground" };
-  export type Water = { tag: "Water" };
-  export type Amphibious = { tag: "Amphibious" };
+  export type None = { tag: 'None' }
+  export type Ground = { tag: 'Ground' }
+  export type Water = { tag: 'Water' }
+  export type Amphibious = { tag: 'Amphibious' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,32 +23,30 @@ export namespace MovementType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const None = { tag: "None" };
-  export const Ground = { tag: "Ground" };
-  export const Water = { tag: "Water" };
-  export const Amphibious = { tag: "Amphibious" };
+  export const None = { tag: 'None' }
+  export const Ground = { tag: 'Ground' }
+  export const Water = { tag: 'Water' }
+  export const Amphibious = { tag: 'Amphibious' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("None", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Ground", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Water", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Amphibious", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('None', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Ground', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Water', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Amphibious', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: MovementType): void {
-      MovementType.getTypeScriptAlgebraicType().serialize(writer, value);
+    MovementType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): MovementType {
-      return MovementType.getTypeScriptAlgebraicType().deserialize(reader);
+    return MovementType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `MovementType`.
-export type MovementType = MovementType.None | MovementType.Ground | MovementType.Water | MovementType.Amphibious;
+export type MovementType = MovementType.None | MovementType.Ground | MovementType.Water | MovementType.Amphibious
 
-export default MovementType;
-
+export default MovementType

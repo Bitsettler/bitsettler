@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerClaimTakeOwnershipRequest as __PlayerClaimTakeOwnershipRequest } from "./player_claim_take_ownership_request_type";
+import { PlayerClaimTakeOwnershipRequest as __PlayerClaimTakeOwnershipRequest } from './player_claim_take_ownership_request_type'
 
 export type ClaimTakeOwnership = {
-  request: __PlayerClaimTakeOwnershipRequest,
-};
+  request: __PlayerClaimTakeOwnershipRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimTakeOwnership {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerClaimTakeOwnershipRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerClaimTakeOwnershipRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimTakeOwnership): void {
-    ClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimTakeOwnership {
-    return ClaimTakeOwnership.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimTakeOwnership.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

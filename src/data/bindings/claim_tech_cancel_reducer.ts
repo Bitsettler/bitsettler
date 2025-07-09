@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerClaimTechCancelRequest as __PlayerClaimTechCancelRequest } from "./player_claim_tech_cancel_request_type";
+import { PlayerClaimTechCancelRequest as __PlayerClaimTechCancelRequest } from './player_claim_tech_cancel_request_type'
 
 export type ClaimTechCancel = {
-  request: __PlayerClaimTechCancelRequest,
-};
+  request: __PlayerClaimTechCancelRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimTechCancel {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerClaimTechCancelRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerClaimTechCancelRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimTechCancel): void {
-    ClaimTechCancel.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimTechCancel.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimTechCancel {
-    return ClaimTechCancel.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimTechCancel.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

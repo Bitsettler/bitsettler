@@ -6,38 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { TravelerTaskDesc } from "./traveler_task_desc_type";
-import { ItemStack as __ItemStack } from "./item_stack_type";
-import { ExperienceStackF32 as __ExperienceStackF32 } from "./experience_stack_f_32_type";
-import { CappedLevelRequirement as __CappedLevelRequirement } from "./capped_level_requirement_type";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { TravelerTaskDesc } from './traveler_task_desc_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `traveler_task_desc`.
@@ -50,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.travelerTaskDesc.on_insert(...)`.
  */
 export class TravelerTaskDescTableHandle {
-  tableCache: TableCache<TravelerTaskDesc>;
+  tableCache: TableCache<TravelerTaskDesc>
 
   constructor(tableCache: TableCache<TravelerTaskDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<TravelerTaskDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `id` unique index on the table `traveler_task_desc`,
@@ -80,33 +52,34 @@ export class TravelerTaskDescTableHandle {
     find: (col_val: number): TravelerTaskDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.id, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: TravelerTaskDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: TravelerTaskDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: TravelerTaskDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: TravelerTaskDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: TravelerTaskDesc, newRow: TravelerTaskDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: TravelerTaskDesc, newRow: TravelerTaskDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

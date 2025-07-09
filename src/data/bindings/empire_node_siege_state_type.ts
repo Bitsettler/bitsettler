@@ -8,66 +8,44 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireNodeSiegeState = {
-  entityId: bigint,
-  buildingEntityId: bigint,
-  empireEntityId: bigint,
-  energy: number,
-  active: boolean,
-  startTimestamp: Timestamp | undefined,
-};
+  entityId: bigint
+  buildingEntityId: bigint
+  empireEntityId: bigint
+  energy: number
+  active: boolean
+  startTimestamp: Timestamp | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EmpireNodeSiegeState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("buildingEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("empireEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("energy", AlgebraicType.createI32Type()),
-      new ProductTypeElement("active", AlgebraicType.createBoolType()),
-      new ProductTypeElement("startTimestamp", AlgebraicType.createOptionType(AlgebraicType.createTimestampType())),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('empireEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('energy', AlgebraicType.createI32Type()),
+      new ProductTypeElement('active', AlgebraicType.createBoolType()),
+      new ProductTypeElement('startTimestamp', AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpireNodeSiegeState): void {
-    EmpireNodeSiegeState.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpireNodeSiegeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireNodeSiegeState {
-    return EmpireNodeSiegeState.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpireNodeSiegeState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

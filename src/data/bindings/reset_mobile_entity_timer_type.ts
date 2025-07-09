@@ -8,67 +8,52 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from "./offset_coordinates_float_type";
-import { MoveValidationStrikeCounterState as __MoveValidationStrikeCounterState } from "./move_validation_strike_counter_state_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { MoveValidationStrikeCounterState as __MoveValidationStrikeCounterState } from './move_validation_strike_counter_state_type'
+import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type ResetMobileEntityTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  ownerEntityId: bigint,
-  position: __OffsetCoordinatesFloat | undefined,
-  strikeCounterToUpdate: __MoveValidationStrikeCounterState | undefined,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  ownerEntityId: bigint
+  position: __OffsetCoordinatesFloat | undefined
+  strikeCounterToUpdate: __MoveValidationStrikeCounterState | undefined
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ResetMobileEntityTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("ownerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("position", AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("strikeCounterToUpdate", AlgebraicType.createOptionType(__MoveValidationStrikeCounterState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'position',
+        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'strikeCounterToUpdate',
+        AlgebraicType.createOptionType(__MoveValidationStrikeCounterState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ResetMobileEntityTimer): void {
-    ResetMobileEntityTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    ResetMobileEntityTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ResetMobileEntityTimer {
-    return ResetMobileEntityTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return ResetMobileEntityTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

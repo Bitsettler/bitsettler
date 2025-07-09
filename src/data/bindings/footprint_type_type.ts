@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace FootprintType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Hitbox = { tag: "Hitbox" };
-  export type Walkable = { tag: "Walkable" };
-  export type Perimeter = { tag: "Perimeter" };
-  export type WalkableResource = { tag: "WalkableResource" };
+  export type Hitbox = { tag: 'Hitbox' }
+  export type Walkable = { tag: 'Walkable' }
+  export type Perimeter = { tag: 'Perimeter' }
+  export type WalkableResource = { tag: 'WalkableResource' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,32 +23,34 @@ export namespace FootprintType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Hitbox = { tag: "Hitbox" };
-  export const Walkable = { tag: "Walkable" };
-  export const Perimeter = { tag: "Perimeter" };
-  export const WalkableResource = { tag: "WalkableResource" };
+  export const Hitbox = { tag: 'Hitbox' }
+  export const Walkable = { tag: 'Walkable' }
+  export const Perimeter = { tag: 'Perimeter' }
+  export const WalkableResource = { tag: 'WalkableResource' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Hitbox", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Walkable", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Perimeter", AlgebraicType.createProductType([])),
-      new SumTypeVariant("WalkableResource", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Hitbox', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Walkable', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Perimeter', AlgebraicType.createProductType([])),
+      new SumTypeVariant('WalkableResource', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: FootprintType): void {
-      FootprintType.getTypeScriptAlgebraicType().serialize(writer, value);
+    FootprintType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): FootprintType {
-      return FootprintType.getTypeScriptAlgebraicType().deserialize(reader);
+    return FootprintType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `FootprintType`.
-export type FootprintType = FootprintType.Hitbox | FootprintType.Walkable | FootprintType.Perimeter | FootprintType.WalkableResource;
+export type FootprintType =
+  | FootprintType.Hitbox
+  | FootprintType.Walkable
+  | FootprintType.Perimeter
+  | FootprintType.WalkableResource
 
-export default FootprintType;
-
+export default FootprintType

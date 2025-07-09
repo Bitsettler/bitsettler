@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { RentTerminateRequest as __RentTerminateRequest } from "./rent_terminate_request_type";
+import { RentTerminateRequest as __RentTerminateRequest } from './rent_terminate_request_type'
 
 export type RentTerminate = {
-  request: __RentTerminateRequest,
-};
+  request: __RentTerminateRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace RentTerminate {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __RentTerminateRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __RentTerminateRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: RentTerminate): void {
-    RentTerminate.getTypeScriptAlgebraicType().serialize(writer, value);
+    RentTerminate.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RentTerminate {
-    return RentTerminate.getTypeScriptAlgebraicType().deserialize(reader);
+    return RentTerminate.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

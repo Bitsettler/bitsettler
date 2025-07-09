@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { ClaimTechUnlockTimer as __ClaimTechUnlockTimer } from "./claim_tech_unlock_timer_type";
+import { ClaimTechUnlockTimer as __ClaimTechUnlockTimer } from './claim_tech_unlock_timer_type'
 
 export type ClaimTechUnlockTech = {
-  timer: __ClaimTechUnlockTimer,
-};
+  timer: __ClaimTechUnlockTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClaimTechUnlockTech {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __ClaimTechUnlockTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __ClaimTechUnlockTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimTechUnlockTech): void {
-    ClaimTechUnlockTech.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimTechUnlockTech.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimTechUnlockTech {
-    return ClaimTechUnlockTech.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimTechUnlockTech.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

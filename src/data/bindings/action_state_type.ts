@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ActionCooldown as __ActionCooldown } from "./action_cooldown_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ActionCooldown as __ActionCooldown } from './action_cooldown_type'
 
 export type ActionState = {
-  entityId: bigint,
-  ownerEntityId: bigint,
-  actionId: number,
-  cooldown: __ActionCooldown,
-};
+  entityId: bigint
+  ownerEntityId: bigint
+  actionId: number
+  cooldown: __ActionCooldown
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ActionState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("ownerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("actionId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("cooldown", __ActionCooldown.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('actionId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('cooldown', __ActionCooldown.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ActionState): void {
-    ActionState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ActionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ActionState {
-    return ActionState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ActionState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

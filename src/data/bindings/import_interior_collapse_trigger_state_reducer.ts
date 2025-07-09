@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { InteriorCollapseTriggerState as __InteriorCollapseTriggerState } from "./interior_collapse_trigger_state_type";
+import { InteriorCollapseTriggerState as __InteriorCollapseTriggerState } from './interior_collapse_trigger_state_type'
 
 export type ImportInteriorCollapseTriggerState = {
-  records: __InteriorCollapseTriggerState[],
-};
+  records: __InteriorCollapseTriggerState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportInteriorCollapseTriggerState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__InteriorCollapseTriggerState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__InteriorCollapseTriggerState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportInteriorCollapseTriggerState): void {
-    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportInteriorCollapseTriggerState {
-    return ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,69 +6,41 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from "./world_gen_animation_curve_type";
-import { WorldGenVector2 as __WorldGenVector2 } from "./world_gen_vector_2_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
+import { WorldGenVector2 as __WorldGenVector2 } from './world_gen_vector_2_type'
 
 export type WorldGenMountain = {
-  center: __WorldGenVector2,
-  radius: number,
-  height: number,
-  peakOffset: __WorldGenVector2,
-  shape: __WorldGenAnimationCurve,
-};
+  center: __WorldGenVector2
+  radius: number
+  height: number
+  peakOffset: __WorldGenVector2
+  shape: __WorldGenAnimationCurve
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace WorldGenMountain {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("center", __WorldGenVector2.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("radius", AlgebraicType.createF32Type()),
-      new ProductTypeElement("height", AlgebraicType.createI32Type()),
-      new ProductTypeElement("peakOffset", __WorldGenVector2.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("shape", __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('center', __WorldGenVector2.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('radius', AlgebraicType.createF32Type()),
+      new ProductTypeElement('height', AlgebraicType.createI32Type()),
+      new ProductTypeElement('peakOffset', __WorldGenVector2.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('shape', __WorldGenAnimationCurve.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: WorldGenMountain): void {
-    WorldGenMountain.getTypeScriptAlgebraicType().serialize(writer, value);
+    WorldGenMountain.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenMountain {
-    return WorldGenMountain.getTypeScriptAlgebraicType().deserialize(reader);
+    return WorldGenMountain.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

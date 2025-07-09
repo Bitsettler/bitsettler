@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { TravelerTaskDesc as __TravelerTaskDesc } from "./traveler_task_desc_type";
+import { TravelerTaskDesc as __TravelerTaskDesc } from './traveler_task_desc_type'
 
 export type StageTravelerTaskDesc = {
-  records: __TravelerTaskDesc[],
-};
+  records: __TravelerTaskDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StageTravelerTaskDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__TravelerTaskDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__TravelerTaskDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StageTravelerTaskDesc): void {
-    StageTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    StageTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StageTravelerTaskDesc {
-    return StageTravelerTaskDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return StageTravelerTaskDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

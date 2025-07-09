@@ -6,55 +6,27 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
 
-export type PlayerCancelRegionTransfer = {};
+export type PlayerCancelRegionTransfer = {}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerCancelRegionTransfer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([
-    ]);
+    return AlgebraicType.createProductType([])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerCancelRegionTransfer): void {
-    PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerCancelRegionTransfer {
-    return PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

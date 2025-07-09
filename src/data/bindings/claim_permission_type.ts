@@ -6,40 +6,15 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ClaimPermission {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Inventory = { tag: "Inventory" };
-  export type Build = { tag: "Build" };
-  export type Usage = { tag: "Usage" };
+  export type Inventory = { tag: 'Inventory' }
+  export type Build = { tag: 'Build' }
+  export type Usage = { tag: 'Usage' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -47,30 +22,28 @@ export namespace ClaimPermission {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Inventory = { tag: "Inventory" };
-  export const Build = { tag: "Build" };
-  export const Usage = { tag: "Usage" };
+  export const Inventory = { tag: 'Inventory' }
+  export const Build = { tag: 'Build' }
+  export const Usage = { tag: 'Usage' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Inventory", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Build", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Usage", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Inventory', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Build', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Usage', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClaimPermission): void {
-      ClaimPermission.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClaimPermission.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimPermission {
-      return ClaimPermission.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClaimPermission.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `ClaimPermission`.
-export type ClaimPermission = ClaimPermission.Inventory | ClaimPermission.Build | ClaimPermission.Usage;
+export type ClaimPermission = ClaimPermission.Inventory | ClaimPermission.Build | ClaimPermission.Usage
 
-export default ClaimPermission;
-
+export default ClaimPermission

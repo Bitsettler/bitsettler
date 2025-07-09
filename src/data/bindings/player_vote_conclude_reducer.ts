@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerVoteConcludeTimer as __PlayerVoteConcludeTimer } from "./player_vote_conclude_timer_type";
+import { PlayerVoteConcludeTimer as __PlayerVoteConcludeTimer } from './player_vote_conclude_timer_type'
 
 export type PlayerVoteConclude = {
-  timer: __PlayerVoteConcludeTimer,
-};
+  timer: __PlayerVoteConcludeTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerVoteConclude {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __PlayerVoteConcludeTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __PlayerVoteConcludeTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerVoteConclude): void {
-    PlayerVoteConclude.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerVoteConclude.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerVoteConclude {
-    return PlayerVoteConclude.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerVoteConclude.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,44 +6,19 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace InteriorSpawnType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Undefined = { tag: "Undefined" };
-  export type Traveler = { tag: "Traveler" };
-  export type Chest = { tag: "Chest" };
-  export type Building = { tag: "Building" };
-  export type Resource = { tag: "Resource" };
-  export type Enemy = { tag: "Enemy" };
-  export type Paving = { tag: "Paving" };
+  export type Undefined = { tag: 'Undefined' }
+  export type Traveler = { tag: 'Traveler' }
+  export type Chest = { tag: 'Chest' }
+  export type Building = { tag: 'Building' }
+  export type Resource = { tag: 'Resource' }
+  export type Enemy = { tag: 'Enemy' }
+  export type Paving = { tag: 'Paving' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -51,38 +26,43 @@ export namespace InteriorSpawnType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Undefined = { tag: "Undefined" };
-  export const Traveler = { tag: "Traveler" };
-  export const Chest = { tag: "Chest" };
-  export const Building = { tag: "Building" };
-  export const Resource = { tag: "Resource" };
-  export const Enemy = { tag: "Enemy" };
-  export const Paving = { tag: "Paving" };
+  export const Undefined = { tag: 'Undefined' }
+  export const Traveler = { tag: 'Traveler' }
+  export const Chest = { tag: 'Chest' }
+  export const Building = { tag: 'Building' }
+  export const Resource = { tag: 'Resource' }
+  export const Enemy = { tag: 'Enemy' }
+  export const Paving = { tag: 'Paving' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Undefined", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Traveler", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Chest", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Building", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Resource", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Enemy", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Paving", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Undefined', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Traveler', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Chest', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Building', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Resource', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Enemy', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Paving', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: InteriorSpawnType): void {
-      InteriorSpawnType.getTypeScriptAlgebraicType().serialize(writer, value);
+    InteriorSpawnType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): InteriorSpawnType {
-      return InteriorSpawnType.getTypeScriptAlgebraicType().deserialize(reader);
+    return InteriorSpawnType.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `InteriorSpawnType`.
-export type InteriorSpawnType = InteriorSpawnType.Undefined | InteriorSpawnType.Traveler | InteriorSpawnType.Chest | InteriorSpawnType.Building | InteriorSpawnType.Resource | InteriorSpawnType.Enemy | InteriorSpawnType.Paving;
+export type InteriorSpawnType =
+  | InteriorSpawnType.Undefined
+  | InteriorSpawnType.Traveler
+  | InteriorSpawnType.Chest
+  | InteriorSpawnType.Building
+  | InteriorSpawnType.Resource
+  | InteriorSpawnType.Enemy
+  | InteriorSpawnType.Paving
 
-export default InteriorSpawnType;
-
+export default InteriorSpawnType

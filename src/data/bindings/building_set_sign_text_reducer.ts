@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { BuildingSetSignTextRequest as __BuildingSetSignTextRequest } from "./building_set_sign_text_request_type";
+import { BuildingSetSignTextRequest as __BuildingSetSignTextRequest } from './building_set_sign_text_request_type'
 
 export type BuildingSetSignText = {
-  request: __BuildingSetSignTextRequest,
-};
+  request: __BuildingSetSignTextRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace BuildingSetSignText {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __BuildingSetSignTextRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __BuildingSetSignTextRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingSetSignText): void {
-    BuildingSetSignText.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingSetSignText.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingSetSignText {
-    return BuildingSetSignText.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingSetSignText.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

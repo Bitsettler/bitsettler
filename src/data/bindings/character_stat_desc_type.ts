@@ -6,70 +6,42 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type CharacterStatDesc = {
-  statType: number,
-  name: string,
-  value: number,
-  minValue: number,
-  maxValue: number,
-  suffix: string,
-  desc: string,
-};
+  statType: number
+  name: string
+  value: number
+  minValue: number
+  maxValue: number
+  suffix: string
+  desc: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CharacterStatDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("statType", AlgebraicType.createI32Type()),
-      new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("value", AlgebraicType.createF32Type()),
-      new ProductTypeElement("minValue", AlgebraicType.createF32Type()),
-      new ProductTypeElement("maxValue", AlgebraicType.createF32Type()),
-      new ProductTypeElement("suffix", AlgebraicType.createStringType()),
-      new ProductTypeElement("desc", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('statType', AlgebraicType.createI32Type()),
+      new ProductTypeElement('name', AlgebraicType.createStringType()),
+      new ProductTypeElement('value', AlgebraicType.createF32Type()),
+      new ProductTypeElement('minValue', AlgebraicType.createF32Type()),
+      new ProductTypeElement('maxValue', AlgebraicType.createF32Type()),
+      new ProductTypeElement('suffix', AlgebraicType.createStringType()),
+      new ProductTypeElement('desc', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CharacterStatDesc): void {
-    CharacterStatDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    CharacterStatDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CharacterStatDesc {
-    return CharacterStatDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return CharacterStatDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,55 +6,27 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
 
-export type AdminDespawnOverworldEnemies = {};
+export type AdminDespawnOverworldEnemies = {}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace AdminDespawnOverworldEnemies {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([
-    ]);
+    return AlgebraicType.createProductType([])
   }
 
   export function serialize(writer: BinaryWriter, value: AdminDespawnOverworldEnemies): void {
-    AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().serialize(writer, value);
+    AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AdminDespawnOverworldEnemies {
-    return AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().deserialize(reader);
+    return AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

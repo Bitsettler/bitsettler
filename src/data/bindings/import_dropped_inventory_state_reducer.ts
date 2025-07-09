@@ -6,60 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { DroppedInventoryState as __DroppedInventoryState } from "./dropped_inventory_state_type";
+import { DroppedInventoryState as __DroppedInventoryState } from './dropped_inventory_state_type'
 
 export type ImportDroppedInventoryState = {
-  records: __DroppedInventoryState[],
-};
+  records: __DroppedInventoryState[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportDroppedInventoryState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__DroppedInventoryState.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__DroppedInventoryState.getTypeScriptAlgebraicType())
+      )
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportDroppedInventoryState): void {
-    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportDroppedInventoryState {
-    return ImportDroppedInventoryState.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportDroppedInventoryState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

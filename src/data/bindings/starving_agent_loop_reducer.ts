@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { StarvingLoopTimer as __StarvingLoopTimer } from "./starving_loop_timer_type";
+import { StarvingLoopTimer as __StarvingLoopTimer } from './starving_loop_timer_type'
 
 export type StarvingAgentLoop = {
-  timer: __StarvingLoopTimer,
-};
+  timer: __StarvingLoopTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StarvingAgentLoop {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __StarvingLoopTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __StarvingLoopTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StarvingAgentLoop): void {
-    StarvingAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value);
+    StarvingAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StarvingAgentLoop {
-    return StarvingAgentLoop.getTypeScriptAlgebraicType().deserialize(reader);
+    return StarvingAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

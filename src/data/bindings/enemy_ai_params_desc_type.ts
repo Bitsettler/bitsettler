@@ -6,81 +6,53 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EnemyType as __EnemyType } from "./enemy_type_type";
-import { Biome as __Biome } from "./biome_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { Biome as __Biome } from './biome_type'
+import { EnemyType as __EnemyType } from './enemy_type_type'
 
 export type EnemyAiParamsDesc = {
-  id: number,
-  enemyType: __EnemyType,
-  biome: __Biome,
-  avgHerdSize: number,
-  varHerdSize: number,
-  herdsPerChunk: number,
-  roamingDistance: number,
-  spawnEagerness: number,
-  timeOfDayStart: number,
-  timeOfDayEnd: number,
-  spawnFrequencyMinutes: number,
-};
+  id: number
+  enemyType: __EnemyType
+  biome: __Biome
+  avgHerdSize: number
+  varHerdSize: number
+  herdsPerChunk: number
+  roamingDistance: number
+  spawnEagerness: number
+  timeOfDayStart: number
+  timeOfDayEnd: number
+  spawnFrequencyMinutes: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EnemyAiParamsDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("enemyType", __EnemyType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("biome", __Biome.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("avgHerdSize", AlgebraicType.createI32Type()),
-      new ProductTypeElement("varHerdSize", AlgebraicType.createF32Type()),
-      new ProductTypeElement("herdsPerChunk", AlgebraicType.createF32Type()),
-      new ProductTypeElement("roamingDistance", AlgebraicType.createI32Type()),
-      new ProductTypeElement("spawnEagerness", AlgebraicType.createF32Type()),
-      new ProductTypeElement("timeOfDayStart", AlgebraicType.createF32Type()),
-      new ProductTypeElement("timeOfDayEnd", AlgebraicType.createF32Type()),
-      new ProductTypeElement("spawnFrequencyMinutes", AlgebraicType.createF32Type()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('biome', __Biome.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('avgHerdSize', AlgebraicType.createI32Type()),
+      new ProductTypeElement('varHerdSize', AlgebraicType.createF32Type()),
+      new ProductTypeElement('herdsPerChunk', AlgebraicType.createF32Type()),
+      new ProductTypeElement('roamingDistance', AlgebraicType.createI32Type()),
+      new ProductTypeElement('spawnEagerness', AlgebraicType.createF32Type()),
+      new ProductTypeElement('timeOfDayStart', AlgebraicType.createF32Type()),
+      new ProductTypeElement('timeOfDayEnd', AlgebraicType.createF32Type()),
+      new ProductTypeElement('spawnFrequencyMinutes', AlgebraicType.createF32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EnemyAiParamsDesc): void {
-    EnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    EnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemyAiParamsDesc {
-    return EnemyAiParamsDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return EnemyAiParamsDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

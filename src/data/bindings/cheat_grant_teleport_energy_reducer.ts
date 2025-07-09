@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
 export type CheatGrantTeleportEnergy = {
-  playerEntityId: bigint,
-  amount: number,
-};
+  playerEntityId: bigint
+  amount: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatGrantTeleportEnergy {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("playerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("amount", AlgebraicType.createF32Type()),
-    ]);
+      new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('amount', AlgebraicType.createF32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatGrantTeleportEnergy): void {
-    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatGrantTeleportEnergy {
-    return CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

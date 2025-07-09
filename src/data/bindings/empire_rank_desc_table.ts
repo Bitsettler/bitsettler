@@ -6,34 +6,9 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EmpireRankDesc } from "./empire_rank_desc_type";
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { type EventContext } from '.'
+import { EmpireRankDesc } from './empire_rank_desc_type'
 
 /**
  * Table handle for the table `empire_rank_desc`.
@@ -46,18 +21,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.empireRankDesc.on_insert(...)`.
  */
 export class EmpireRankDescTableHandle {
-  tableCache: TableCache<EmpireRankDesc>;
+  tableCache: TableCache<EmpireRankDesc>
 
   constructor(tableCache: TableCache<EmpireRankDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<EmpireRankDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `rank` unique index on the table `empire_rank_desc`,
@@ -76,33 +51,34 @@ export class EmpireRankDescTableHandle {
     find: (col_val: number): EmpireRankDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.rank, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: EmpireRankDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: EmpireRankDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: EmpireRankDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: EmpireRankDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: EmpireRankDesc, newRow: EmpireRankDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (cb: (ctx: EventContext, onRow: EmpireRankDesc, newRow: EmpireRankDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

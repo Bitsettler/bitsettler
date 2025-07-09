@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EmpireAddSiegeSuppliesRequest as __EmpireAddSiegeSuppliesRequest } from "./empire_add_siege_supplies_request_type";
+import { EmpireAddSiegeSuppliesRequest as __EmpireAddSiegeSuppliesRequest } from './empire_add_siege_supplies_request_type'
 
 export type EmpireAddSiegeSupplies = {
-  request: __EmpireAddSiegeSuppliesRequest,
-};
+  request: __EmpireAddSiegeSuppliesRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EmpireAddSiegeSupplies {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpireAddSiegeSupplies): void {
-    EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireAddSiegeSupplies {
-    return EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

@@ -6,68 +6,40 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ItemType as __ItemType } from "./item_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ItemType as __ItemType } from './item_type_type'
 
 export type InputItemStack = {
-  itemId: number,
-  quantity: number,
-  itemType: __ItemType,
-  discoveryScore: number,
-  consumptionChance: number,
-};
+  itemId: number
+  quantity: number
+  itemType: __ItemType
+  discoveryScore: number
+  consumptionChance: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace InputItemStack {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("itemId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("quantity", AlgebraicType.createI32Type()),
-      new ProductTypeElement("itemType", __ItemType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("discoveryScore", AlgebraicType.createI32Type()),
-      new ProductTypeElement("consumptionChance", AlgebraicType.createF32Type()),
-    ]);
+      new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('quantity', AlgebraicType.createI32Type()),
+      new ProductTypeElement('itemType', __ItemType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('discoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement('consumptionChance', AlgebraicType.createF32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: InputItemStack): void {
-    InputItemStack.getTypeScriptAlgebraicType().serialize(writer, value);
+    InputItemStack.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): InputItemStack {
-    return InputItemStack.getTypeScriptAlgebraicType().deserialize(reader);
+    return InputItemStack.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

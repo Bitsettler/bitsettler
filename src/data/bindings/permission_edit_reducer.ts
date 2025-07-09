@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerPermissionEditRequest as __PlayerPermissionEditRequest } from "./player_permission_edit_request_type";
+import { PlayerPermissionEditRequest as __PlayerPermissionEditRequest } from './player_permission_edit_request_type'
 
 export type PermissionEdit = {
-  request: __PlayerPermissionEditRequest,
-};
+  request: __PlayerPermissionEditRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PermissionEdit {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerPermissionEditRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerPermissionEditRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PermissionEdit): void {
-    PermissionEdit.getTypeScriptAlgebraicType().serialize(writer, value);
+    PermissionEdit.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PermissionEdit {
-    return PermissionEdit.getTypeScriptAlgebraicType().deserialize(reader);
+    return PermissionEdit.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

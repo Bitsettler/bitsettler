@@ -6,72 +6,45 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminRestorePlayerState = {
-  username: string,
-  restorePosition: boolean,
-  forceSignout: boolean,
-  restoreAllDeployablesPositions: boolean,
-  storeDeployables: boolean,
-  clearCargo: boolean,
-  clearItems: boolean,
-  clearToolbelt: boolean,
-};
+  username: string
+  restorePosition: boolean
+  forceSignout: boolean
+  restoreAllDeployablesPositions: boolean
+  storeDeployables: boolean
+  clearCargo: boolean
+  clearItems: boolean
+  clearToolbelt: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace AdminRestorePlayerState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("username", AlgebraicType.createStringType()),
-      new ProductTypeElement("restorePosition", AlgebraicType.createBoolType()),
-      new ProductTypeElement("forceSignout", AlgebraicType.createBoolType()),
-      new ProductTypeElement("restoreAllDeployablesPositions", AlgebraicType.createBoolType()),
-      new ProductTypeElement("storeDeployables", AlgebraicType.createBoolType()),
-      new ProductTypeElement("clearCargo", AlgebraicType.createBoolType()),
-      new ProductTypeElement("clearItems", AlgebraicType.createBoolType()),
-      new ProductTypeElement("clearToolbelt", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('username', AlgebraicType.createStringType()),
+      new ProductTypeElement('restorePosition', AlgebraicType.createBoolType()),
+      new ProductTypeElement('forceSignout', AlgebraicType.createBoolType()),
+      new ProductTypeElement('restoreAllDeployablesPositions', AlgebraicType.createBoolType()),
+      new ProductTypeElement('storeDeployables', AlgebraicType.createBoolType()),
+      new ProductTypeElement('clearCargo', AlgebraicType.createBoolType()),
+      new ProductTypeElement('clearItems', AlgebraicType.createBoolType()),
+      new ProductTypeElement('clearToolbelt', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: AdminRestorePlayerState): void {
-    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(writer, value);
+    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AdminRestorePlayerState {
-    return AdminRestorePlayerState.getTypeScriptAlgebraicType().deserialize(reader);
+    return AdminRestorePlayerState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

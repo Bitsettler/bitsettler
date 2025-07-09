@@ -8,67 +8,46 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from "./offset_coordinates_float_type";
-import { ServerTeleportReason as __ServerTeleportReason } from "./server_teleport_reason_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
+import { ServerTeleportReason as __ServerTeleportReason } from './server_teleport_reason_type'
 
 export type TeleportPlayerTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  location: __OffsetCoordinatesFloat,
-  playerEntityId: bigint,
-  reason: __ServerTeleportReason,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  location: __OffsetCoordinatesFloat
+  playerEntityId: bigint
+  reason: __ServerTeleportReason
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace TeleportPlayerTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("location", __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("playerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("reason", __ServerTeleportReason.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('location', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('reason', __ServerTeleportReason.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: TeleportPlayerTimer): void {
-    TeleportPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    TeleportPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TeleportPlayerTimer {
-    return TeleportPlayerTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return TeleportPlayerTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

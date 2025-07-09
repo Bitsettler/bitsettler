@@ -6,64 +6,36 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type ResourceGrowthRecipeDesc = {
-  id: number,
-  resourceId: number,
-  time: number[],
-  grownResourceId: number,
-};
+  id: number
+  resourceId: number
+  time: number[]
+  grownResourceId: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ResourceGrowthRecipeDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("resourceId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("time", AlgebraicType.createArrayType(AlgebraicType.createF32Type())),
-      new ProductTypeElement("grownResourceId", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('resourceId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('time', AlgebraicType.createArrayType(AlgebraicType.createF32Type())),
+      new ProductTypeElement('grownResourceId', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ResourceGrowthRecipeDesc): void {
-    ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ResourceGrowthRecipeDesc {
-    return ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

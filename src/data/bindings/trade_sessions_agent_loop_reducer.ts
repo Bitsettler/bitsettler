@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { TradeSessionLoopTimer as __TradeSessionLoopTimer } from "./trade_session_loop_timer_type";
+import { TradeSessionLoopTimer as __TradeSessionLoopTimer } from './trade_session_loop_timer_type'
 
 export type TradeSessionsAgentLoop = {
-  timer: __TradeSessionLoopTimer,
-};
+  timer: __TradeSessionLoopTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace TradeSessionsAgentLoop {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __TradeSessionLoopTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __TradeSessionLoopTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: TradeSessionsAgentLoop): void {
-    TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value);
+    TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TradeSessionsAgentLoop {
-    return TradeSessionsAgentLoop.getTypeScriptAlgebraicType().deserialize(reader);
+    return TradeSessionsAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

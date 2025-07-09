@@ -8,70 +8,49 @@
 // @ts-nocheck
 import {
   AlgebraicType,
-  AlgebraicValue,
   BinaryReader,
   BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
   ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
   TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { FloatHexTileMessage as __FloatHexTileMessage } from "./float_hex_tile_message_type";
+  Timestamp
+} from '@clockworklabs/spacetimedb-sdk'
+import { FloatHexTileMessage as __FloatHexTileMessage } from './float_hex_tile_message_type'
 
 export type TransferPlayerTimer = {
-  scheduledId: bigint,
-  scheduledAt: { tag: "Interval", value: TimeDuration } | { tag: "Time", value: Timestamp },
-  entityId: bigint,
-  destination: __FloatHexTileMessage,
-  newRegionIndex: number,
-  withVehicle: boolean,
-  teleportEnergyCost: number,
-};
+  scheduledId: bigint
+  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  entityId: bigint
+  destination: __FloatHexTileMessage
+  newRegionIndex: number
+  withVehicle: boolean
+  teleportEnergyCost: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace TransferPlayerTimer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("scheduledId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("scheduledAt", AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("destination", __FloatHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("newRegionIndex", AlgebraicType.createU8Type()),
-      new ProductTypeElement("withVehicle", AlgebraicType.createBoolType()),
-      new ProductTypeElement("teleportEnergyCost", AlgebraicType.createF32Type()),
-    ]);
+      new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('destination', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('newRegionIndex', AlgebraicType.createU8Type()),
+      new ProductTypeElement('withVehicle', AlgebraicType.createBoolType()),
+      new ProductTypeElement('teleportEnergyCost', AlgebraicType.createF32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: TransferPlayerTimer): void {
-    TransferPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value);
+    TransferPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TransferPlayerTimer {
-    return TransferPlayerTimer.getTypeScriptAlgebraicType().deserialize(reader);
+    return TransferPlayerTimer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,42 +6,10 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { TheGreatPlaceHolderTable } from "./the_great_place_holder_table_type";
-import { ChatChannel as __ChatChannel } from "./chat_channel_type";
-import { SurfaceType as __SurfaceType } from "./surface_type_type";
-import { Permission as __Permission } from "./permission_type";
-import { SkillType as __SkillType } from "./skill_type_type";
-import { BuffCategory as __BuffCategory } from "./buff_category_type";
-import { ProgressiveActionStatus as __ProgressiveActionStatus } from "./progressive_action_status_type";
-import { PermissionGroup as __PermissionGroup } from "./permission_group_type";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { TheGreatPlaceHolderTable } from './the_great_place_holder_table_type'
 
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { type EventContext } from '.'
 
 /**
  * Table handle for the table `the_great_placeholder_table`.
@@ -54,18 +22,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.theGreatPlaceholderTable.on_insert(...)`.
  */
 export class TheGreatPlaceholderTableTableHandle {
-  tableCache: TableCache<TheGreatPlaceHolderTable>;
+  tableCache: TableCache<TheGreatPlaceHolderTable>
 
   constructor(tableCache: TableCache<TheGreatPlaceHolderTable>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<TheGreatPlaceHolderTable> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `placeholderId` unique index on the table `the_great_placeholder_table`,
@@ -84,33 +52,36 @@ export class TheGreatPlaceholderTableTableHandle {
     find: (col_val: bigint): TheGreatPlaceHolderTable | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.placeholderId, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (cb: (ctx: EventContext, oldRow: TheGreatPlaceHolderTable, newRow: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.onUpdate(cb);
+    return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TheGreatPlaceHolderTable, newRow: TheGreatPlaceHolderTable) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: TheGreatPlaceHolderTable, newRow: TheGreatPlaceHolderTable) => void
+  ) => {
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

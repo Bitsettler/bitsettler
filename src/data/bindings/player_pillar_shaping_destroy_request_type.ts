@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from "./offset_coordinates_large_message_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type'
 
 export type PlayerPillarShapingDestroyRequest = {
-  coordinates: __OffsetCoordinatesLargeMessage,
-  timestamp: bigint,
-};
+  coordinates: __OffsetCoordinatesLargeMessage
+  timestamp: bigint
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerPillarShapingDestroyRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("coordinates", __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("timestamp", AlgebraicType.createU64Type()),
-    ]);
+      new ProductTypeElement('coordinates', __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('timestamp', AlgebraicType.createU64Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerPillarShapingDestroyRequest): void {
-    PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerPillarShapingDestroyRequest {
-    return PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CollectStatsTimer as __CollectStatsTimer } from "./collect_stats_timer_type";
+import { CollectStatsTimer as __CollectStatsTimer } from './collect_stats_timer_type'
 
 export type CollectStatsReducer = {
-  timer: __CollectStatsTimer,
-};
+  timer: __CollectStatsTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CollectStatsReducer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __CollectStatsTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __CollectStatsTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CollectStatsReducer): void {
-    CollectStatsReducer.getTypeScriptAlgebraicType().serialize(writer, value);
+    CollectStatsReducer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CollectStatsReducer {
-    return CollectStatsReducer.getTypeScriptAlgebraicType().deserialize(reader);
+    return CollectStatsReducer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

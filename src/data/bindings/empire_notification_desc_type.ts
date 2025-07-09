@@ -6,68 +6,40 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { EmpireNotificationType as __EmpireNotificationType } from "./empire_notification_type_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { EmpireNotificationType as __EmpireNotificationType } from './empire_notification_type_type'
 
 export type EmpireNotificationDesc = {
-  id: number,
-  notificationType: __EmpireNotificationType,
-  priority: number,
-  showOnLogin: boolean,
-  text: string,
-};
+  id: number
+  notificationType: __EmpireNotificationType
+  priority: number
+  showOnLogin: boolean
+  text: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EmpireNotificationDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createI32Type()),
-      new ProductTypeElement("notificationType", __EmpireNotificationType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("priority", AlgebraicType.createI32Type()),
-      new ProductTypeElement("showOnLogin", AlgebraicType.createBoolType()),
-      new ProductTypeElement("text", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('id', AlgebraicType.createI32Type()),
+      new ProductTypeElement('notificationType', __EmpireNotificationType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('priority', AlgebraicType.createI32Type()),
+      new ProductTypeElement('showOnLogin', AlgebraicType.createBoolType()),
+      new ProductTypeElement('text', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EmpireNotificationDesc): void {
-    EmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    EmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireNotificationDesc {
-    return EmpireNotificationDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return EmpireNotificationDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

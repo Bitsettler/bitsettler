@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { EndGracePeriodTimer as __EndGracePeriodTimer } from "./end_grace_period_timer_type";
+import { EndGracePeriodTimer as __EndGracePeriodTimer } from './end_grace_period_timer_type'
 
 export type EndGracePeriod = {
-  timer: __EndGracePeriodTimer,
-};
+  timer: __EndGracePeriodTimer
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace EndGracePeriod {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("timer", __EndGracePeriodTimer.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('timer', __EndGracePeriodTimer.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: EndGracePeriod): void {
-    EndGracePeriod.getTypeScriptAlgebraicType().serialize(writer, value);
+    EndGracePeriod.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EndGracePeriod {
-    return EndGracePeriod.getTypeScriptAlgebraicType().deserialize(reader);
+    return EndGracePeriod.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

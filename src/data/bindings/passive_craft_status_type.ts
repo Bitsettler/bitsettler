@@ -6,40 +6,15 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PassiveCraftStatus {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Queued = { tag: "Queued" };
-  export type Processing = { tag: "Processing" };
-  export type Complete = { tag: "Complete" };
+  export type Queued = { tag: 'Queued' }
+  export type Processing = { tag: 'Processing' }
+  export type Complete = { tag: 'Complete' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -47,30 +22,28 @@ export namespace PassiveCraftStatus {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Queued = { tag: "Queued" };
-  export const Processing = { tag: "Processing" };
-  export const Complete = { tag: "Complete" };
+  export const Queued = { tag: 'Queued' }
+  export const Processing = { tag: 'Processing' }
+  export const Complete = { tag: 'Complete' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("Queued", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Processing", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Complete", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('Queued', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Processing', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Complete', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PassiveCraftStatus): void {
-      PassiveCraftStatus.getTypeScriptAlgebraicType().serialize(writer, value);
+    PassiveCraftStatus.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PassiveCraftStatus {
-      return PassiveCraftStatus.getTypeScriptAlgebraicType().deserialize(reader);
+    return PassiveCraftStatus.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `PassiveCraftStatus`.
-export type PassiveCraftStatus = PassiveCraftStatus.Queued | PassiveCraftStatus.Processing | PassiveCraftStatus.Complete;
+export type PassiveCraftStatus = PassiveCraftStatus.Queued | PassiveCraftStatus.Processing | PassiveCraftStatus.Complete
 
-export default PassiveCraftStatus;
-
+export default PassiveCraftStatus

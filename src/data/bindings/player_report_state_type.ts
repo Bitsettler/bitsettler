@@ -6,78 +6,59 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ChatMessageState as __ChatMessageState } from "./chat_message_state_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ChatMessageState as __ChatMessageState } from './chat_message_state_type'
 
 export type PlayerReportState = {
-  entityId: bigint,
-  reporterEntityId: bigint,
-  reportedPlayerEntityId: bigint,
-  reportedPlayerUsername: string,
-  reportType: string,
-  reportMessage: string,
-  reportedChatMessage: __ChatMessageState | undefined,
-  chatChannelContext: __ChatMessageState[] | undefined,
-  chatUserContext: __ChatMessageState[] | undefined,
-  actioned: boolean,
-};
+  entityId: bigint
+  reporterEntityId: bigint
+  reportedPlayerEntityId: bigint
+  reportedPlayerUsername: string
+  reportType: string
+  reportMessage: string
+  reportedChatMessage: __ChatMessageState | undefined
+  chatChannelContext: __ChatMessageState[] | undefined
+  chatUserContext: __ChatMessageState[] | undefined
+  actioned: boolean
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerReportState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("reporterEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("reportedPlayerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("reportedPlayerUsername", AlgebraicType.createStringType()),
-      new ProductTypeElement("reportType", AlgebraicType.createStringType()),
-      new ProductTypeElement("reportMessage", AlgebraicType.createStringType()),
-      new ProductTypeElement("reportedChatMessage", AlgebraicType.createOptionType(__ChatMessageState.getTypeScriptAlgebraicType())),
-      new ProductTypeElement("chatChannelContext", AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))),
-      new ProductTypeElement("chatUserContext", AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))),
-      new ProductTypeElement("actioned", AlgebraicType.createBoolType()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('reporterEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('reportedPlayerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('reportedPlayerUsername', AlgebraicType.createStringType()),
+      new ProductTypeElement('reportType', AlgebraicType.createStringType()),
+      new ProductTypeElement('reportMessage', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'reportedChatMessage',
+        AlgebraicType.createOptionType(__ChatMessageState.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'chatChannelContext',
+        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))
+      ),
+      new ProductTypeElement(
+        'chatUserContext',
+        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))
+      ),
+      new ProductTypeElement('actioned', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerReportState): void {
-    PlayerReportState.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerReportState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerReportState {
-    return PlayerReportState.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerReportState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

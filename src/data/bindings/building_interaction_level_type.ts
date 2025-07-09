@@ -6,41 +6,16 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace BuildingInteractionLevel {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type None = { tag: "None" };
-  export type Claim = { tag: "Claim" };
-  export type Empire = { tag: "Empire" };
-  export type All = { tag: "All" };
+  export type None = { tag: 'None' }
+  export type Claim = { tag: 'Claim' }
+  export type Empire = { tag: 'Empire' }
+  export type All = { tag: 'All' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -48,32 +23,34 @@ export namespace BuildingInteractionLevel {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const None = { tag: "None" };
-  export const Claim = { tag: "Claim" };
-  export const Empire = { tag: "Empire" };
-  export const All = { tag: "All" };
+  export const None = { tag: 'None' }
+  export const Claim = { tag: 'Claim' }
+  export const Empire = { tag: 'Empire' }
+  export const All = { tag: 'All' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant("None", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Claim", AlgebraicType.createProductType([])),
-      new SumTypeVariant("Empire", AlgebraicType.createProductType([])),
-      new SumTypeVariant("All", AlgebraicType.createProductType([])),
-    ]);
+      new SumTypeVariant('None', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Claim', AlgebraicType.createProductType([])),
+      new SumTypeVariant('Empire', AlgebraicType.createProductType([])),
+      new SumTypeVariant('All', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingInteractionLevel): void {
-      BuildingInteractionLevel.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingInteractionLevel.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingInteractionLevel {
-      return BuildingInteractionLevel.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingInteractionLevel.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
 
 // The tagged union or sum type for the algebraic type `BuildingInteractionLevel`.
-export type BuildingInteractionLevel = BuildingInteractionLevel.None | BuildingInteractionLevel.Claim | BuildingInteractionLevel.Empire | BuildingInteractionLevel.All;
+export type BuildingInteractionLevel =
+  | BuildingInteractionLevel.None
+  | BuildingInteractionLevel.Claim
+  | BuildingInteractionLevel.Empire
+  | BuildingInteractionLevel.All
 
-export default BuildingInteractionLevel;
-
+export default BuildingInteractionLevel

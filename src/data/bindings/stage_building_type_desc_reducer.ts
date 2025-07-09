@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { BuildingTypeDesc as __BuildingTypeDesc } from "./building_type_desc_type";
+import { BuildingTypeDesc as __BuildingTypeDesc } from './building_type_desc_type'
 
 export type StageBuildingTypeDesc = {
-  records: __BuildingTypeDesc[],
-};
+  records: __BuildingTypeDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace StageBuildingTypeDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__BuildingTypeDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__BuildingTypeDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: StageBuildingTypeDesc): void {
-    StageBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    StageBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): StageBuildingTypeDesc {
-    return StageBuildingTypeDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return StageBuildingTypeDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

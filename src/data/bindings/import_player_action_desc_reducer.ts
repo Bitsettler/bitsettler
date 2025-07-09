@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerActionDesc as __PlayerActionDesc } from "./player_action_desc_type";
+import { PlayerActionDesc as __PlayerActionDesc } from './player_action_desc_type'
 
 export type ImportPlayerActionDesc = {
-  records: __PlayerActionDesc[],
-};
+  records: __PlayerActionDesc[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ImportPlayerActionDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("records", AlgebraicType.createArrayType(__PlayerActionDesc.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('records', AlgebraicType.createArrayType(__PlayerActionDesc.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ImportPlayerActionDesc): void {
-    ImportPlayerActionDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ImportPlayerActionDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportPlayerActionDesc {
-    return ImportPlayerActionDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ImportPlayerActionDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

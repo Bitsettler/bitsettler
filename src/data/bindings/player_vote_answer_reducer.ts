@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { PlayerVoteAnswerRequest as __PlayerVoteAnswerRequest } from "./player_vote_answer_request_type";
+import { PlayerVoteAnswerRequest as __PlayerVoteAnswerRequest } from './player_vote_answer_request_type'
 
 export type PlayerVoteAnswer = {
-  request: __PlayerVoteAnswerRequest,
-};
+  request: __PlayerVoteAnswerRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerVoteAnswer {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __PlayerVoteAnswerRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __PlayerVoteAnswerRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerVoteAnswer): void {
-    PlayerVoteAnswer.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerVoteAnswer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerVoteAnswer {
-    return PlayerVoteAnswer.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerVoteAnswer.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-

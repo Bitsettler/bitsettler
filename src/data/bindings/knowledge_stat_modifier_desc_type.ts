@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { CsvStatEntry as __CsvStatEntry } from "./csv_stat_entry_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 
 export type KnowledgeStatModifierDesc = {
-  secondaryKnowledgeId: number,
-  stats: __CsvStatEntry[],
-};
+  secondaryKnowledgeId: number
+  stats: __CsvStatEntry[]
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace KnowledgeStatModifierDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("secondaryKnowledgeId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("stats", AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType())),
-    ]);
+      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('stats', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType()))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: KnowledgeStatModifierDesc): void {
-    KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeStatModifierDesc {
-    return KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

@@ -6,34 +6,9 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { SingleResourceToClumpDesc } from "./single_resource_to_clump_desc_type";
-import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".";
+import { TableCache, deepEqual } from '@clockworklabs/spacetimedb-sdk'
+import { type EventContext } from '.'
+import { SingleResourceToClumpDesc } from './single_resource_to_clump_desc_type'
 
 /**
  * Table handle for the table `single_resource_to_clump_desc`.
@@ -46,18 +21,18 @@ import { type EventContext, type Reducer, RemoteReducers, RemoteTables } from ".
  * like `ctx.db.singleResourceToClumpDesc.on_insert(...)`.
  */
 export class SingleResourceToClumpDescTableHandle {
-  tableCache: TableCache<SingleResourceToClumpDesc>;
+  tableCache: TableCache<SingleResourceToClumpDesc>
 
   constructor(tableCache: TableCache<SingleResourceToClumpDesc>) {
-    this.tableCache = tableCache;
+    this.tableCache = tableCache
   }
 
   count(): number {
-    return this.tableCache.count();
+    return this.tableCache.count()
   }
 
   iter(): Iterable<SingleResourceToClumpDesc> {
-    return this.tableCache.iter();
+    return this.tableCache.iter()
   }
   /**
    * Access to the `resourceId` unique index on the table `single_resource_to_clump_desc`,
@@ -76,11 +51,11 @@ export class SingleResourceToClumpDescTableHandle {
     find: (col_val: number): SingleResourceToClumpDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.resourceId, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
   /**
    * Access to the `clumpId` unique index on the table `single_resource_to_clump_desc`,
    * which allows point queries on the field of the same name
@@ -98,33 +73,38 @@ export class SingleResourceToClumpDescTableHandle {
     find: (col_val: number): SingleResourceToClumpDesc | undefined => {
       for (let row of this.tableCache.iter()) {
         if (deepEqual(row.clumpId, col_val)) {
-          return row;
+          return row
         }
       }
-    },
-  };
+    }
+  }
 
   onInsert = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.onInsert(cb);
+    return this.tableCache.onInsert(cb)
   }
 
   removeOnInsert = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.removeOnInsert(cb);
+    return this.tableCache.removeOnInsert(cb)
   }
 
   onDelete = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.onDelete(cb);
+    return this.tableCache.onDelete(cb)
   }
 
   removeOnDelete = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.removeOnDelete(cb);
+    return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.onUpdate(cb);
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void
+  ) => {
+    return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void) => {
-    return this.tableCache.removeOnUpdate(cb);
-  }}
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void
+  ) => {
+    return this.tableCache.removeOnUpdate(cb)
+  }
+}

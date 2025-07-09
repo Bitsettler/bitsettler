@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { ClothingMask as __ClothingMask } from "./clothing_mask_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { ClothingMask as __ClothingMask } from './clothing_mask_type'
 
 export type ClothingDesc = {
-  itemId: number,
-  mask: __ClothingMask,
-};
+  itemId: number
+  mask: __ClothingMask
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ClothingDesc {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("itemId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("mask", __ClothingMask.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('mask', __ClothingMask.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ClothingDesc): void {
-    ClothingDesc.getTypeScriptAlgebraicType().serialize(writer, value);
+    ClothingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClothingDesc {
-    return ClothingDesc.getTypeScriptAlgebraicType().deserialize(reader);
+    return ClothingDesc.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

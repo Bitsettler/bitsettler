@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type BuildingState = {
-  entityId: bigint,
-  claimEntityId: bigint,
-  directionIndex: number,
-  buildingDescriptionId: number,
-  constructedByPlayerEntityId: bigint,
-};
+  entityId: bigint
+  claimEntityId: bigint
+  directionIndex: number
+  buildingDescriptionId: number
+  constructedByPlayerEntityId: bigint
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace BuildingState {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("entityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("claimEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("directionIndex", AlgebraicType.createI32Type()),
-      new ProductTypeElement("buildingDescriptionId", AlgebraicType.createI32Type()),
-      new ProductTypeElement("constructedByPlayerEntityId", AlgebraicType.createU64Type()),
-    ]);
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('directionIndex', AlgebraicType.createI32Type()),
+      new ProductTypeElement('buildingDescriptionId', AlgebraicType.createI32Type()),
+      new ProductTypeElement('constructedByPlayerEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: BuildingState): void {
-    BuildingState.getTypeScriptAlgebraicType().serialize(writer, value);
+    BuildingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingState {
-    return BuildingState.getTypeScriptAlgebraicType().deserialize(reader);
+    return BuildingState.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

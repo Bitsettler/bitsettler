@@ -6,62 +6,34 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 export type ReportPlayerMessage = {
-  playerEntityId: bigint,
-  reportType: string,
-  message: string,
-};
+  playerEntityId: bigint
+  reportType: string
+  message: string
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace ReportPlayerMessage {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("playerEntityId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("reportType", AlgebraicType.createStringType()),
-      new ProductTypeElement("message", AlgebraicType.createStringType()),
-    ]);
+      new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement('reportType', AlgebraicType.createStringType()),
+      new ProductTypeElement('message', AlgebraicType.createStringType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: ReportPlayerMessage): void {
-    ReportPlayerMessage.getTypeScriptAlgebraicType().serialize(writer, value);
+    ReportPlayerMessage.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ReportPlayerMessage {
-    return ReportPlayerMessage.getTypeScriptAlgebraicType().deserialize(reader);
+    return ReportPlayerMessage.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

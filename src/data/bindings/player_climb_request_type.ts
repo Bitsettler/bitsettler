@@ -6,66 +6,38 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
-import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from "./offset_coordinates_float_type";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerClimbRequest = {
-  destination: __OffsetCoordinatesFloat,
-  origin: __OffsetCoordinatesFloat,
-  timestamp: bigint,
-  climbType: number,
-};
+  destination: __OffsetCoordinatesFloat
+  origin: __OffsetCoordinatesFloat
+  timestamp: bigint
+  climbType: number
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace PlayerClimbRequest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("destination", __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("origin", __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement("timestamp", AlgebraicType.createU64Type()),
-      new ProductTypeElement("climbType", AlgebraicType.createI32Type()),
-    ]);
+      new ProductTypeElement('destination', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('origin', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement('timestamp', AlgebraicType.createU64Type()),
+      new ProductTypeElement('climbType', AlgebraicType.createI32Type())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerClimbRequest): void {
-    PlayerClimbRequest.getTypeScriptAlgebraicType().serialize(writer, value);
+    PlayerClimbRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerClimbRequest {
-    return PlayerClimbRequest.getTypeScriptAlgebraicType().deserialize(reader);
+    return PlayerClimbRequest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
-

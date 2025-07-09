@@ -6,60 +6,33 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import {
-  AlgebraicType,
-  AlgebraicValue,
-  BinaryReader,
-  BinaryWriter,
-  ConnectionId,
-  DbConnectionBuilder,
-  DbConnectionImpl,
-  Identity,
-  ProductType,
-  ProductTypeElement,
-  SubscriptionBuilderImpl,
-  SumType,
-  SumTypeVariant,
-  TableCache,
-  TimeDuration,
-  Timestamp,
-  deepEqual,
-  type CallReducerFlags,
-  type DbContext,
-  type ErrorContextInterface,
-  type Event,
-  type EventContextInterface,
-  type ReducerEventContextInterface,
-  type SubscriptionEventContextInterface,
-} from "@clockworklabs/spacetimedb-sdk";
+import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
 
-import { CheatSpawnLootChestRequest as __CheatSpawnLootChestRequest } from "./cheat_spawn_loot_chest_request_type";
+import { CheatSpawnLootChestRequest as __CheatSpawnLootChestRequest } from './cheat_spawn_loot_chest_request_type'
 
 export type CheatSpawnLootChest = {
-  request: __CheatSpawnLootChestRequest,
-};
+  request: __CheatSpawnLootChestRequest
+}
 
 /**
  * A namespace for generated helper functions.
  */
 export namespace CheatSpawnLootChest {
   /**
-  * A function which returns this type represented as an AlgebraicType.
-  * This function is derived from the AlgebraicType used to generate this type.
-  */
+   * A function which returns this type represented as an AlgebraicType.
+   * This function is derived from the AlgebraicType used to generate this type.
+   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("request", __CheatSpawnLootChestRequest.getTypeScriptAlgebraicType()),
-    ]);
+      new ProductTypeElement('request', __CheatSpawnLootChestRequest.getTypeScriptAlgebraicType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: CheatSpawnLootChest): void {
-    CheatSpawnLootChest.getTypeScriptAlgebraicType().serialize(writer, value);
+    CheatSpawnLootChest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CheatSpawnLootChest {
-    return CheatSpawnLootChest.getTypeScriptAlgebraicType().deserialize(reader);
+    return CheatSpawnLootChest.getTypeScriptAlgebraicType().deserialize(reader)
   }
-
 }
-
