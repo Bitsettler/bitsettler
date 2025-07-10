@@ -340,6 +340,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
+    "id": "cargo_338529773",
+    "name": "Exquisite Chemical Supply Pack",
+    "slug": "exquisite-chemical-supply-pack",
+    "tier": 5,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_550002",
     "name": "Exquisite Cloth Package",
     "slug": "exquisite-cloth-package",
@@ -570,6 +580,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
+    "id": "cargo_1026230335",
+    "name": "Fine Chemical Supply Pack",
+    "slug": "fine-chemical-supply-pack",
+    "tier": 4,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_450002",
     "name": "Fine Cloth Package",
     "slug": "fine-cloth-package",
@@ -750,6 +770,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
+    "id": "cargo_1412406838",
+    "name": "Flawless Chemical Supply Pack",
+    "slug": "flawless-chemical-supply-pack",
+    "tier": 10,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_474946295",
     "name": "Flawless Cloth Package",
     "slug": "flawless-cloth-package",
@@ -920,6 +950,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
+    "id": "cargo_2146702618",
+    "name": "Infused Chemical Supply Pack",
+    "slug": "infused-chemical-supply-pack",
+    "tier": 3,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_502961868",
     "name": "Jakyl",
     "slug": "jakyl",
@@ -998,6 +1038,16 @@
     "category": "cargo",
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
+  },
+  {
+    "id": "cargo_1090785594",
+    "name": "Magnificient Chemical Supply Pack",
+    "slug": "magnificient-chemical-supply-pack",
+    "tier": 9,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_2136010679",
@@ -1230,6 +1280,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
+    "id": "cargo_1546723412",
+    "name": "Ornate Chemical Supply Pack",
+    "slug": "ornate-chemical-supply-pack",
+    "tier": 7,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_423112838",
     "name": "Ornate Cloth Package",
     "slug": "ornate-cloth-package",
@@ -1400,6 +1460,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
   },
   {
+    "id": "cargo_53658000",
+    "name": "Peerless Chemical Supply Pack",
+    "slug": "peerless-chemical-supply-pack",
+    "tier": 6,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_650002",
     "name": "Peerless Cloth Package",
     "slug": "peerless-cloth-package",
@@ -1568,6 +1638,16 @@
     "category": "cargo",
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
+  },
+  {
+    "id": "cargo_960407828",
+    "name": "Pristine Chemical Supply Pack",
+    "slug": "pristine-chemical-supply-pack",
+    "tier": 8,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_215164936",
@@ -2330,6 +2410,16 @@
     "icon_asset_name": "GeneratedIcons/Cargo/TravelerPacks/BricoPack"
   },
   {
+    "id": "cargo_583106011",
+    "name": "Rough Chemical Supply Pack",
+    "slug": "rough-chemical-supply-pack",
+    "tier": 1,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
+  },
+  {
     "id": "cargo_150002",
     "name": "Rough Cloth Package",
     "slug": "rough-cloth-package",
@@ -2548,6 +2638,16 @@
     "category": "cargo",
     "description": "Bricks stuck together with potter's mix. Useful for construction more advanced structures.",
     "icon_asset_name": "GeneratedIcons/Cargo/StoneBlock"
+  },
+  {
+    "id": "cargo_1496962595",
+    "name": "Simple Chemical Supply Pack",
+    "slug": "simple-chemical-supply-pack",
+    "tier": 2,
+    "rarity": "common",
+    "category": "cargo",
+    "description": "A package of chemical supplies made by a scholar. Can be used to provide supplies to a claim totem.",
+    "icon_asset_name": "GeneratedIcons/Cargo/Supplies/SupplyPack"
   },
   {
     "id": "cargo_250002",
@@ -2913,7 +3013,7 @@
     "id": "cargo_870566793",
     "name": "Tundra Ox",
     "slug": "tundra-ox",
-    "tier": 5,
+    "tier": 9,
     "rarity": "common",
     "category": "cargo",
     "description": "An animal body that could be processed for meat and hides.",

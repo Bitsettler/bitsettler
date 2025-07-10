@@ -41,8 +41,10 @@ import { AdminCollapseRuins } from './admin_collapse_ruins_reducer.ts'
 import { AdminCompleteAllPassiveCrafts } from './admin_complete_all_passive_crafts_reducer.ts'
 import { AdminCountInventoryItems } from './admin_count_inventory_items_reducer.ts'
 import { AdminDeleteAllItemsOfType } from './admin_delete_all_items_of_type_reducer.ts'
+import { AdminDeleteChatMessage } from './admin_delete_chat_message_reducer.ts'
 import { AdminDespawnOverworldEnemies } from './admin_despawn_overworld_enemies_reducer.ts'
 import { AdminGrantCollectibles } from './admin_grant_collectibles_reducer.ts'
+import { AdminModifyChatMessage } from './admin_modify_chat_message_reducer.ts'
 import { AdminRenameBuildingCoord } from './admin_rename_building_coord_reducer.ts'
 import { AdminRenameBuildingEntity } from './admin_rename_building_entity_reducer.ts'
 import { AdminRenameBuilding } from './admin_rename_building_reducer.ts'
@@ -598,585 +600,585 @@ import { TradeSwapPockets } from './trade_swap_pockets_reducer.ts'
 import { TransferPlayerDelayed } from './transfer_player_delayed_reducer.ts'
 import { TravelerTaskAgentLoop } from './traveler_task_agent_loop_reducer.ts'
 import { UpdateScheduledTimersFromStaticData } from './update_scheduled_timers_from_static_data_reducer.ts'
-export {
-  AchievementClaim,
-  AcquireKnowledgeFromEntities,
-  AdminAlpha3CompleteOnboarding,
-  AdminAlpha3ResetOnboardingToFifthTempleQuest,
-  AdminAlpha3ResetOnboardingToFirstExpandQuest,
-  AdminAlpha3ResetOnboardingToFirstTempleQuest,
-  AdminAlpha3ResetOnboardingToFourthExpandQuest,
-  AdminAlpha3ResetOnboardingToFourthTempleQuest,
-  AdminAlpha3ResetOnboardingToSecondExpandQuest,
-  AdminAlpha3ResetOnboardingToSecondTempleQuest,
-  AdminAlpha3ResetOnboardingToThirdExpandQuest,
-  AdminAlpha3ResetOnboardingToThirdTempleQuest,
-  AdminBroadcastMsgRegion,
-  AdminClearAllResources,
-  AdminClearChunkResources,
-  AdminCollapseRuin,
-  AdminCollapseRuins,
-  AdminCompleteAllPassiveCrafts,
-  AdminCountInventoryItems,
-  AdminDeleteAllItemsOfType,
-  AdminDespawnOverworldEnemies,
-  AdminGrantCollectibles,
-  AdminRenameBuilding,
-  AdminRenameBuildingCoord,
-  AdminRenameBuildingEntity,
-  AdminRenameClaim,
-  AdminRenameClaimEntity,
-  AdminRenameDeployable,
-  AdminRenameDeployableEntity,
-  AdminResetAllHerdLocations,
-  AdminResetHerdLocations,
-  AdminResetOnboardingCompletely,
-  AdminRestoreAllCollapsedRuins,
-  AdminRestorePlayerState,
-  AdminRestorePlayerStateScheduled,
-  AdminSetSignText,
-  AdminSetSignTextCoord,
-  AdminSetSignTextEntity,
-  AdminSignOut,
-  AdminSignOutAllRegion,
-  AdminSignOutString,
-  AdminUpdateLightSourceStates,
-  Attack,
-  AttackImpact,
-  AttackScheduled,
-  AttackStart,
-  AutoLogoutLoop,
-  BarterStallOrderAccept,
-  BarterStallOrderCreate,
-  BarterStallOrderDelete,
-  BarterStallSetMarketModeEnabled,
-  BlueprintPlace,
-  BuildingDecayAgentLoop,
-  BuildingDeconstruct,
-  BuildingDeconstructStart,
-  BuildingDespawn,
-  BuildingMove,
-  BuildingRepair,
-  BuildingRepairStart,
-  BuildingSetNickname,
-  BuildingSetSignText,
-  ChatPostMessage,
-  CheatBuildingMove,
-  CheatBuildingPlace,
-  CheatCargoGrant,
-  CheatClaimTakeOwnership,
-  CheatClaimTotemAddSupplies,
-  CheatClaimTotemCompleteCurrentResearch,
-  CheatClaimTotemResearchAll,
-  CheatClearBuffsAndDebuffs,
-  CheatCompendiumPlaceEnemy,
-  CheatCompendiumPlaceResource,
-  CheatDeleteItem,
-  CheatDeployableStore,
-  CheatDiscoverMap,
-  CheatExperienceGrant,
-  CheatGrantKnowledge,
-  CheatGrantTeleportEnergy,
-  CheatItemStackGrant,
-  CheatItemStackGrantAndEquip,
-  CheatKill,
-  CheatPavingAddTile,
-  CheatPavingDestroy,
-  CheatPillarShapingAddPillar,
-  CheatPillarShapingDestroy,
-  CheatProjectSiteAddAllMaterials,
-  CheatRemoveEntityBuilding,
-  CheatRemoveEntityEnemy,
-  CheatRemoveEntityResource,
-  CheatSetAiDebugState,
-  CheatSpawnLootChest,
-  CheatTeleportFloat,
-  CheatTerraform,
-  CheatToggleActiveCollectible,
-  CheatWarp,
-  ClaimAddMember,
-  ClaimAddRecruitment,
-  ClaimAddTile,
-  ClaimApplyForRecruitment,
-  ClaimLeave,
-  ClaimPurchaseSuppliesFromPlayer,
-  ClaimRemoveMember,
-  ClaimRemoveRecruitment,
-  ClaimRemoveTile,
-  ClaimRename,
-  ClaimResupply,
-  ClaimResupplyStart,
-  ClaimSetMemberPermissions,
-  ClaimSetPurchaseSupplyPrice,
-  ClaimSetPurchaseSupplyThreshold,
-  ClaimTakeOwnership,
-  ClaimTechCancel,
-  ClaimTechLearn,
-  ClaimTechUnlockTech,
-  ClaimTransferOwnership,
-  ClaimWithdrawFromTreasury,
-  ClearStagedStaticData,
-  ClosedListingCollect,
-  CollectibleActivate,
-  CollectStatsReducer,
-  CommitStagedStaticData,
-  CompleteOnboardingQuest,
-  CompleteOnboardingState,
-  ConvertCollectibleToDeed,
-  ConvertDeedToCollectible,
-  CraftCancel,
-  CraftCollect,
-  CraftCollectAll,
-  CraftContinue,
-  CraftContinueStart,
-  CraftInitiate,
-  CraftInitiateStart,
-  CurrentVersion,
-  DayNightAgentLoop,
-  DeleteAllNpcs,
-  DeployableDeploy,
-  DeployableDeployStart,
-  DeployableDismount,
-  DeployableDismountScheduled,
-  DeployableMount,
-  DeployableMove,
-  DeployableMoveOffClaim,
-  DeployableStore,
-  DeployableStoreStart,
-  DestroyDimensionNetwork,
-  DevDeleteWorld,
-  DiscoverEntities,
-  DroppedInventoryDespawn,
-  DroppedInventoryLoseOwnership,
-  DuelAgentTimerLoop,
-  DuelDespawn,
-  Eat,
-  Emote,
-  EmoteStart,
-  EmpireAddSiegeSupplies,
-  EmpireClaimJoin,
-  EmpireCollectHexiteCapsule,
-  EmpireDeploySiegeEngine,
-  EmpireDeploySiegeEngineStart,
-  EmpireQueueSupplies,
-  EmpireResupplyNode,
-  EmpireResupplyNodeStart,
-  EmpireSiegeDepletedWatchtower,
-  EndGracePeriod,
-  EnemyClearAggro,
-  EnemyDespawn,
-  EnemyDespawnFromMobMonitor,
-  EnemyDespawnFromMobMonitorBatch,
-  EnemyMove,
-  EnemyMoveBatch,
-  EnemyRegenAgentLoop,
-  EnemySetHealth,
-  EnemySetHealthBatch,
-  EnemySpawn,
-  EnemySpawnBatch,
-  EnemySpawnLoot,
-  EnvironmentDebuffAgentLoop,
-  EquipmentAdd,
-  EquipmentRemove,
-  Extract,
-  ExtractStart,
-  ForceStartAgents,
-  GenerateDevIsland,
-  GenerateFlatWorld,
-  GenerateWorld,
-  GrowthAgentLoop,
-  HideDeployable,
-  IdentityConnected,
-  IdentityDisconnected,
-  ImportAchievementDesc,
-  ImportActiveBuffState,
-  ImportAdminBroadcast,
-  ImportAlertDesc,
-  ImportAlertState,
-  ImportAttackOutcomeState,
-  ImportBiomeDesc,
-  ImportBuffDesc,
-  ImportBuffTypeDesc,
-  ImportBuildingClaimDesc,
-  ImportBuildingDesc,
-  ImportBuildingPortalDesc,
-  ImportBuildingRepairsDesc,
-  ImportBuildingSpawnDesc,
-  ImportBuildingState,
-  ImportBuildingTypeDesc,
-  ImportCargoDesc,
-  ImportCharacterStatDesc,
-  ImportCharacterStatsState,
-  ImportChatMessageState,
-  ImportChestRarityDesc,
-  ImportClaimLocalState,
-  ImportClaimRecruitmentState,
-  ImportClaimState,
-  ImportClaimTechDesc,
-  ImportClaimTechState,
-  ImportClaimTileCost,
-  ImportClaimTileState,
-  ImportClimbRequirementDesc,
-  ImportClothingDesc,
-  ImportCollectibleDesc,
-  ImportCombatActionDesc,
-  ImportCombatState,
-  ImportConfig,
-  ImportConstructionRecipeDesc,
-  ImportCraftingRecipeDesc,
-  ImportDeconstructionRecipeDesc,
-  ImportDeployableDesc,
-  ImportDeployableState,
-  ImportDimensionDescriptionState,
-  ImportDimensionNetworkDescriptionState,
-  ImportDistantVisibleEntityDesc,
-  ImportDroppedInventoryState,
-  ImportElevatorDesc,
-  ImportEmoteDesc,
-  ImportEmpireColorsDesc,
-  ImportEmpireIconDesc,
-  ImportEmpireNotificationDesc,
-  ImportEmpireRankDesc,
-  ImportEmpireSuppliesDesc,
-  ImportEmpireTerritoryDesc,
-  ImportEnemyAiParamsDesc,
-  ImportEnemyDesc,
-  ImportEnemyState,
-  ImportEnvironmentDebuffDesc,
-  ImportEquipmentDesc,
-  ImportEquipmentState,
-  ImportExperienceState,
-  ImportExplorationChunksState,
-  ImportExtractionRecipeDesc,
-  ImportFoodDesc,
-  ImportFootprintTileState,
-  ImportGateDesc,
-  ImportGlobals,
-  ImportGrowthState,
-  ImportHealthState,
-  ImportHerdCache,
-  ImportHexiteExchangeEntryDesc,
-  ImportIdentityRole,
-  ImportInteriorCollapseTriggerState,
-  ImportInteriorEnvironmentDesc,
-  ImportInteriorInstanceDesc,
-  ImportInteriorNetworkDesc,
-  ImportInteriorPortalConnectionsDesc,
-  ImportInteriorShapeDesc,
-  ImportInteriorSpawnDesc,
-  ImportInventoryState,
-  ImportItemConversionRecipeDesc,
-  ImportItemDesc,
-  ImportItemListDesc,
-  ImportKnowledgeAchievementState,
-  ImportKnowledgeBattleActionState,
-  ImportKnowledgeBuildingState,
-  ImportKnowledgeCargoState,
-  ImportKnowledgeConstructionState,
-  ImportKnowledgeCraftState,
-  ImportKnowledgeDeployableState,
-  ImportKnowledgeEnemyState,
-  ImportKnowledgeExtractState,
-  ImportKnowledgeItemState,
-  ImportKnowledgeLoreState,
-  ImportKnowledgeNpcState,
-  ImportKnowledgePavingState,
-  ImportKnowledgePillarShapingState,
-  ImportKnowledgeResourcePlacementState,
-  ImportKnowledgeResourceState,
-  ImportKnowledgeRuinsState,
-  ImportKnowledgeScrollDesc,
-  ImportKnowledgeScrollTypeDesc,
-  ImportKnowledgeSecondaryState,
-  ImportKnowledgeStatModifierDesc,
-  ImportKnowledgeVaultState,
-  ImportLocationCache,
-  ImportLocationState,
-  ImportLootChestDesc,
-  ImportLootChestState,
-  ImportLootRarityDesc,
-  ImportLootTableDesc,
-  ImportMobileEntityState,
-  ImportMountingState,
-  ImportNpcDesc,
-  ImportNpcState,
-  ImportOnboardingRewardDesc,
-  ImportOnboardingState,
-  ImportParametersDesc,
-  ImportPathfindingDesc,
-  ImportPavedTileState,
-  ImportPavingTileDesc,
-  ImportPillarShapingDesc,
-  ImportPlayerActionDesc,
-  ImportPlayerActionState,
-  ImportPlayerHousingDesc,
-  ImportPlayerPrefsState,
-  ImportPlayerState,
-  ImportPortalState,
-  ImportPrivateParametersDesc,
-  ImportProgressiveActionState,
-  ImportProjectSiteState,
-  ImportRentState,
-  ImportReservedNameDesc,
-  ImportResourceClumpDesc,
-  ImportResourceCount,
-  ImportResourceDesc,
-  ImportResourceGrowthRecipeDesc,
-  ImportResourcePlacementRecipeDesc,
-  ImportResourcesLog,
-  ImportResourceState,
-  ImportSatiationState,
-  ImportSecondaryKnowledgeDesc,
-  ImportServerIdentity,
-  ImportSignedInPlayerState,
-  ImportSkillDesc,
-  ImportStaminaState,
-  ImportTargetableState,
-  ImportTargetingMatrixDesc,
-  ImportTargetState,
-  ImportTeleportItemDesc,
-  ImportTerraformRecipeDesc,
-  ImportTerrainChunkState,
-  ImportToolDesc,
-  ImportToolTypeDesc,
-  ImportTradeOrderState,
-  ImportTradeSessionState,
-  ImportTravelerTaskDesc,
-  ImportTravelerTradeOrderDesc,
-  ImportUserModerationState,
-  ImportUserState,
-  ImportVaultState,
-  ImportWallDesc,
-  ImportWeaponDesc,
-  ImportWeaponTypeDesc,
-  ImportWorldRegionNameState,
-  ImportWorldRegionState,
-  InsertResourcesLog,
-  InsertTerrainChunk,
-  InteriorSetCollapsed,
-  InteriorSetCollapsedScheduled,
-  InventoryCreatePersonal,
-  InventorySort,
-  ItemConvert,
-  ItemConvertStart,
-  ItemDrop,
-  ItemPickUp,
-  ItemStackMove,
-  ItemStackMoveAll,
-  ItemStackSplit,
-  ItemUse,
-  ItemUseStart,
-  LoadConfig,
-  LogClaimMemberLeaderboard,
-  LogClaimTierLeaderboard,
-  LootChestDespawn,
-  LootChestSpawn,
-  NpcAiAgentLoop,
-  OnDurabilityZero,
-  OnInterModuleMessageProcessed,
-  OrderCancel,
-  OrderCollect,
-  OrderEditBuyOrder,
-  OrderEditSellOrder,
-  OrderPostBuyOrder,
-  OrderPostSellOrder,
-  PassiveCraftCancel,
-  PassiveCraftCollect,
-  PassiveCraftCollectAll,
-  PassiveCraftProcess,
-  PassiveCraftQueue,
-  PausePlayTimer,
-  PavingDestroyTile,
-  PavingDestroyTileStart,
-  PavingPlaceTile,
-  PavingPlaceTileStart,
-  PermissionEdit,
-  PillarShapingDestroy,
-  PillarShapingDestroyStart,
-  PillarShapingPlacePillar,
-  PillarShapingPlacePillarStart,
-  PlayerActionCancel,
-  PlayerCancelRegionTransfer,
-  PlayerClearActionState,
-  PlayerClimb,
-  PlayerClimbStart,
-  PlayerCompleteTask,
-  PlayerDeathStart,
-  PlayerDismissAlert,
-  PlayerDuelInitiate,
-  PlayerElevatorArrive,
-  PlayerHousingChangeEntrance,
-  PlayerHousingEnter,
-  PlayerHousingEvictPlayer,
-  PlayerHousingEvictPlayerComplete,
-  PlayerHousingIncomeAgentLoop,
-  PlayerHousingRequestAccess,
-  PlayerHousingUpdate,
-  PlayerMove,
-  PlayerNotificationEventReducer,
-  PlayerQueueJoin,
-  PlayerQueueLeave,
-  PlayerRegenAgentLoop,
-  PlayerRegionCrossover,
-  PlayerRegionTransferEventReducer,
-  PlayerRespawn,
-  PlayerSetDefaultDeployable,
-  PlayerSetNameOutcomeEventReducer,
-  PlayerTeleportHome,
-  PlayerTeleportHomeStart,
-  PlayerTeleportWaystone,
-  PlayerTeleportWaystoneStart,
-  PlayerUseElevator,
-  PlayerVoteAnswer,
-  PlayerVoteConclude,
-  PocketSwapContents,
-  PortalEnter,
-  ProcessInterModuleMessage,
-  ProjectSiteAddMaterials,
-  ProjectSiteAdvanceProject,
-  ProjectSiteAdvanceProjectStart,
-  ProjectSiteCancel,
-  ProjectSitePlace,
-  RegionPopuplationAgentLoop,
-  RentAddListing,
-  RentAddTenant,
-  RentCollectEvictionFee,
-  RentCollectorAgentLoop,
-  RentDepositCoins,
-  RentEvict,
-  RentEvictTerm,
-  RentPurchase,
-  RentRemoveTenant,
-  RentSetDailyRate,
-  RentTerminate,
-  RentUnlist,
-  ReportChatMessage,
-  ReportPlayer,
-  ResetChunkIndex,
-  ResetChunkIndexWithDimension,
-  ResetMobileEntityPosition,
-  ResetOnboarding,
-  ResourceSpawnScheduled,
-  ResourcesRegen,
-  RespawnInteriorNpcs,
-  RespawnResourceInChunk,
-  RetrieveLostItem,
-  ScrollRead,
-  SearchForClosestBuilding,
-  SearchForClosestBuildingType,
-  ServerTeleportPlayer,
-  SetHome,
-  SignIn,
-  SignOut,
-  Sleep,
-  StageAchievementDesc,
-  StageAlertDesc,
-  StageBiomeDesc,
-  StageBuffDesc,
-  StageBuffTypeDesc,
-  StageBuildingClaimDesc,
-  StageBuildingDesc,
-  StageBuildingPortalDesc,
-  StageBuildingRepairsDesc,
-  StageBuildingSpawnDesc,
-  StageBuildingTypeDesc,
-  StageCargoDesc,
-  StageCharacterStatDesc,
-  StageChestRarityDesc,
-  StageClaimTechDesc,
-  StageClaimTileCost,
-  StageClimbRequirementDesc,
-  StageClothingDesc,
-  StageCollectibleDesc,
-  StageCombatActionDesc,
-  StageConstructionRecipeDesc,
-  StageCraftingRecipeDesc,
-  StageDeconstructionRecipeDesc,
-  StageDeployableDesc,
-  StageDistantVisibleEntityDesc,
-  StageElevatorDesc,
-  StageEmoteDesc,
-  StageEmpireColorsDesc,
-  StageEmpireIconDesc,
-  StageEmpireNotificationDesc,
-  StageEmpireRankDesc,
-  StageEmpireSuppliesDesc,
-  StageEmpireTerritoryDesc,
-  StageEnemyAiParamsDesc,
-  StageEnemyDesc,
-  StageEnvironmentDebuffDesc,
-  StageEquipmentDesc,
-  StageExtractionRecipeDesc,
-  StageFoodDesc,
-  StageGateDesc,
-  StageHexiteExchangeEntryDesc,
-  StageInteriorEnvironmentDesc,
-  StageInteriorInstanceDesc,
-  StageInteriorNetworkDesc,
-  StageInteriorPortalConnectionsDesc,
-  StageInteriorShapeDesc,
-  StageInteriorSpawnDesc,
-  StageItemConversionRecipeDesc,
-  StageItemDesc,
-  StageItemListDesc,
-  StageKnowledgeScrollDesc,
-  StageKnowledgeScrollTypeDesc,
-  StageKnowledgeStatModifierDesc,
-  StageLootChestDesc,
-  StageLootRarityDesc,
-  StageLootTableDesc,
-  StageNpcDesc,
-  StageOnboardingRewardDesc,
-  StageParametersDesc,
-  StagePathfindingDesc,
-  StagePavingTileDesc,
-  StagePillarShapingDesc,
-  StagePlayerActionDesc,
-  StagePlayerHousingDesc,
-  StagePrivateParametersDesc,
-  StageReservedNameDesc,
-  StageResourceClumpDesc,
-  StageResourceDesc,
-  StageResourceGrowthRecipeDesc,
-  StageResourcePlacementRecipeDesc,
-  StageSecondaryKnowledgeDesc,
-  StageSkillDesc,
-  StageTargetingMatrixDesc,
-  StageTeleportItemDesc,
-  StageTerraformRecipeDesc,
-  StageToolDesc,
-  StageToolTypeDesc,
-  StageTravelerTaskDesc,
-  StageTravelerTradeOrderDesc,
-  StageWallDesc,
-  StageWeaponDesc,
-  StageWeaponTypeDesc,
-  StartAgents,
-  StartGeneratingWorld,
-  StartOnboardingQuest,
-  StarvingAgentLoop,
-  StopAgents,
-  SynchronizeTime,
-  TargetUpdate,
-  TeleportationEnergyRegenAgentLoop,
-  Terraform,
-  TerraformCancel,
-  TerraformSetFinalTarget,
-  TerraformStart,
-  TradeAccept,
-  TradeAcceptSession,
-  TradeAddItem,
-  TradeCancelServer,
-  TradeDecline,
-  TradeDeclineSession,
-  TradeInitiateSession,
-  TradeRemoveItem,
-  TradeSessionsAgentLoop,
-  TradeSwapPockets,
-  TransferPlayerDelayed,
-  TravelerTaskAgentLoop,
-  UpdateScheduledTimersFromStaticData
-}
+export { AchievementClaim }
+export { AcquireKnowledgeFromEntities }
+export { AdminAlpha3CompleteOnboarding }
+export { AdminAlpha3ResetOnboardingToFifthTempleQuest }
+export { AdminAlpha3ResetOnboardingToFirstExpandQuest }
+export { AdminAlpha3ResetOnboardingToFirstTempleQuest }
+export { AdminAlpha3ResetOnboardingToFourthExpandQuest }
+export { AdminAlpha3ResetOnboardingToFourthTempleQuest }
+export { AdminAlpha3ResetOnboardingToSecondExpandQuest }
+export { AdminAlpha3ResetOnboardingToSecondTempleQuest }
+export { AdminAlpha3ResetOnboardingToThirdExpandQuest }
+export { AdminAlpha3ResetOnboardingToThirdTempleQuest }
+export { AdminBroadcastMsgRegion }
+export { AdminClearAllResources }
+export { AdminClearChunkResources }
+export { AdminCollapseRuin }
+export { AdminCollapseRuins }
+export { AdminCompleteAllPassiveCrafts }
+export { AdminCountInventoryItems }
+export { AdminDeleteAllItemsOfType }
+export { AdminDeleteChatMessage }
+export { AdminDespawnOverworldEnemies }
+export { AdminGrantCollectibles }
+export { AdminModifyChatMessage }
+export { AdminRenameBuilding }
+export { AdminRenameBuildingCoord }
+export { AdminRenameBuildingEntity }
+export { AdminRenameClaim }
+export { AdminRenameClaimEntity }
+export { AdminRenameDeployable }
+export { AdminRenameDeployableEntity }
+export { AdminResetAllHerdLocations }
+export { AdminResetHerdLocations }
+export { AdminResetOnboardingCompletely }
+export { AdminRestoreAllCollapsedRuins }
+export { AdminRestorePlayerState }
+export { AdminRestorePlayerStateScheduled }
+export { AdminSetSignText }
+export { AdminSetSignTextCoord }
+export { AdminSetSignTextEntity }
+export { AdminSignOut }
+export { AdminSignOutAllRegion }
+export { AdminSignOutString }
+export { AdminUpdateLightSourceStates }
+export { Attack }
+export { AttackImpact }
+export { AttackScheduled }
+export { AttackStart }
+export { AutoLogoutLoop }
+export { BarterStallOrderAccept }
+export { BarterStallOrderCreate }
+export { BarterStallOrderDelete }
+export { BarterStallSetMarketModeEnabled }
+export { BlueprintPlace }
+export { BuildingDecayAgentLoop }
+export { BuildingDeconstruct }
+export { BuildingDeconstructStart }
+export { BuildingDespawn }
+export { BuildingMove }
+export { BuildingRepair }
+export { BuildingRepairStart }
+export { BuildingSetNickname }
+export { BuildingSetSignText }
+export { ChatPostMessage }
+export { CheatBuildingMove }
+export { CheatBuildingPlace }
+export { CheatCargoGrant }
+export { CheatClaimTakeOwnership }
+export { CheatClaimTotemAddSupplies }
+export { CheatClaimTotemCompleteCurrentResearch }
+export { CheatClaimTotemResearchAll }
+export { CheatClearBuffsAndDebuffs }
+export { CheatCompendiumPlaceEnemy }
+export { CheatCompendiumPlaceResource }
+export { CheatDeleteItem }
+export { CheatDeployableStore }
+export { CheatDiscoverMap }
+export { CheatExperienceGrant }
+export { CheatGrantKnowledge }
+export { CheatGrantTeleportEnergy }
+export { CheatItemStackGrant }
+export { CheatItemStackGrantAndEquip }
+export { CheatKill }
+export { CheatPavingAddTile }
+export { CheatPavingDestroy }
+export { CheatPillarShapingAddPillar }
+export { CheatPillarShapingDestroy }
+export { CheatProjectSiteAddAllMaterials }
+export { CheatRemoveEntityBuilding }
+export { CheatRemoveEntityEnemy }
+export { CheatRemoveEntityResource }
+export { CheatSetAiDebugState }
+export { CheatSpawnLootChest }
+export { CheatTeleportFloat }
+export { CheatTerraform }
+export { CheatToggleActiveCollectible }
+export { CheatWarp }
+export { ClaimAddMember }
+export { ClaimAddRecruitment }
+export { ClaimAddTile }
+export { ClaimApplyForRecruitment }
+export { ClaimLeave }
+export { ClaimPurchaseSuppliesFromPlayer }
+export { ClaimRemoveMember }
+export { ClaimRemoveRecruitment }
+export { ClaimRemoveTile }
+export { ClaimRename }
+export { ClaimResupply }
+export { ClaimResupplyStart }
+export { ClaimSetMemberPermissions }
+export { ClaimSetPurchaseSupplyPrice }
+export { ClaimSetPurchaseSupplyThreshold }
+export { ClaimTakeOwnership }
+export { ClaimTechCancel }
+export { ClaimTechLearn }
+export { ClaimTechUnlockTech }
+export { ClaimTransferOwnership }
+export { ClaimWithdrawFromTreasury }
+export { ClearStagedStaticData }
+export { ClosedListingCollect }
+export { CollectStatsReducer }
+export { CollectibleActivate }
+export { CommitStagedStaticData }
+export { CompleteOnboardingQuest }
+export { CompleteOnboardingState }
+export { ConvertCollectibleToDeed }
+export { ConvertDeedToCollectible }
+export { CraftCancel }
+export { CraftCollect }
+export { CraftCollectAll }
+export { CraftContinue }
+export { CraftContinueStart }
+export { CraftInitiate }
+export { CraftInitiateStart }
+export { CurrentVersion }
+export { DayNightAgentLoop }
+export { DeleteAllNpcs }
+export { DeployableDeploy }
+export { DeployableDeployStart }
+export { DeployableDismount }
+export { DeployableDismountScheduled }
+export { DeployableMount }
+export { DeployableMove }
+export { DeployableMoveOffClaim }
+export { DeployableStore }
+export { DeployableStoreStart }
+export { DestroyDimensionNetwork }
+export { DevDeleteWorld }
+export { DiscoverEntities }
+export { DroppedInventoryDespawn }
+export { DroppedInventoryLoseOwnership }
+export { DuelAgentTimerLoop }
+export { DuelDespawn }
+export { Eat }
+export { Emote }
+export { EmoteStart }
+export { EmpireAddSiegeSupplies }
+export { EmpireClaimJoin }
+export { EmpireCollectHexiteCapsule }
+export { EmpireDeploySiegeEngine }
+export { EmpireDeploySiegeEngineStart }
+export { EmpireQueueSupplies }
+export { EmpireResupplyNode }
+export { EmpireResupplyNodeStart }
+export { EmpireSiegeDepletedWatchtower }
+export { EndGracePeriod }
+export { EnemyClearAggro }
+export { EnemyDespawn }
+export { EnemyDespawnFromMobMonitor }
+export { EnemyDespawnFromMobMonitorBatch }
+export { EnemyMove }
+export { EnemyMoveBatch }
+export { EnemyRegenAgentLoop }
+export { EnemySetHealth }
+export { EnemySetHealthBatch }
+export { EnemySpawn }
+export { EnemySpawnBatch }
+export { EnemySpawnLoot }
+export { EnvironmentDebuffAgentLoop }
+export { EquipmentAdd }
+export { EquipmentRemove }
+export { Extract }
+export { ExtractStart }
+export { ForceStartAgents }
+export { GenerateDevIsland }
+export { GenerateFlatWorld }
+export { GenerateWorld }
+export { GrowthAgentLoop }
+export { HideDeployable }
+export { IdentityConnected }
+export { IdentityDisconnected }
+export { ImportAchievementDesc }
+export { ImportActiveBuffState }
+export { ImportAdminBroadcast }
+export { ImportAlertDesc }
+export { ImportAlertState }
+export { ImportAttackOutcomeState }
+export { ImportBiomeDesc }
+export { ImportBuffDesc }
+export { ImportBuffTypeDesc }
+export { ImportBuildingClaimDesc }
+export { ImportBuildingDesc }
+export { ImportBuildingPortalDesc }
+export { ImportBuildingRepairsDesc }
+export { ImportBuildingSpawnDesc }
+export { ImportBuildingState }
+export { ImportBuildingTypeDesc }
+export { ImportCargoDesc }
+export { ImportCharacterStatDesc }
+export { ImportCharacterStatsState }
+export { ImportChatMessageState }
+export { ImportChestRarityDesc }
+export { ImportClaimLocalState }
+export { ImportClaimRecruitmentState }
+export { ImportClaimState }
+export { ImportClaimTechDesc }
+export { ImportClaimTechState }
+export { ImportClaimTileCost }
+export { ImportClaimTileState }
+export { ImportClimbRequirementDesc }
+export { ImportClothingDesc }
+export { ImportCollectibleDesc }
+export { ImportCombatActionDesc }
+export { ImportCombatState }
+export { ImportConfig }
+export { ImportConstructionRecipeDesc }
+export { ImportCraftingRecipeDesc }
+export { ImportDeconstructionRecipeDesc }
+export { ImportDeployableDesc }
+export { ImportDeployableState }
+export { ImportDimensionDescriptionState }
+export { ImportDimensionNetworkDescriptionState }
+export { ImportDistantVisibleEntityDesc }
+export { ImportDroppedInventoryState }
+export { ImportElevatorDesc }
+export { ImportEmoteDesc }
+export { ImportEmpireColorsDesc }
+export { ImportEmpireIconDesc }
+export { ImportEmpireNotificationDesc }
+export { ImportEmpireRankDesc }
+export { ImportEmpireSuppliesDesc }
+export { ImportEmpireTerritoryDesc }
+export { ImportEnemyAiParamsDesc }
+export { ImportEnemyDesc }
+export { ImportEnemyState }
+export { ImportEnvironmentDebuffDesc }
+export { ImportEquipmentDesc }
+export { ImportEquipmentState }
+export { ImportExperienceState }
+export { ImportExplorationChunksState }
+export { ImportExtractionRecipeDesc }
+export { ImportFoodDesc }
+export { ImportFootprintTileState }
+export { ImportGateDesc }
+export { ImportGlobals }
+export { ImportGrowthState }
+export { ImportHealthState }
+export { ImportHerdCache }
+export { ImportHexiteExchangeEntryDesc }
+export { ImportIdentityRole }
+export { ImportInteriorCollapseTriggerState }
+export { ImportInteriorEnvironmentDesc }
+export { ImportInteriorInstanceDesc }
+export { ImportInteriorNetworkDesc }
+export { ImportInteriorPortalConnectionsDesc }
+export { ImportInteriorShapeDesc }
+export { ImportInteriorSpawnDesc }
+export { ImportInventoryState }
+export { ImportItemConversionRecipeDesc }
+export { ImportItemDesc }
+export { ImportItemListDesc }
+export { ImportKnowledgeAchievementState }
+export { ImportKnowledgeBattleActionState }
+export { ImportKnowledgeBuildingState }
+export { ImportKnowledgeCargoState }
+export { ImportKnowledgeConstructionState }
+export { ImportKnowledgeCraftState }
+export { ImportKnowledgeDeployableState }
+export { ImportKnowledgeEnemyState }
+export { ImportKnowledgeExtractState }
+export { ImportKnowledgeItemState }
+export { ImportKnowledgeLoreState }
+export { ImportKnowledgeNpcState }
+export { ImportKnowledgePavingState }
+export { ImportKnowledgePillarShapingState }
+export { ImportKnowledgeResourcePlacementState }
+export { ImportKnowledgeResourceState }
+export { ImportKnowledgeRuinsState }
+export { ImportKnowledgeScrollDesc }
+export { ImportKnowledgeScrollTypeDesc }
+export { ImportKnowledgeSecondaryState }
+export { ImportKnowledgeStatModifierDesc }
+export { ImportKnowledgeVaultState }
+export { ImportLocationCache }
+export { ImportLocationState }
+export { ImportLootChestDesc }
+export { ImportLootChestState }
+export { ImportLootRarityDesc }
+export { ImportLootTableDesc }
+export { ImportMobileEntityState }
+export { ImportMountingState }
+export { ImportNpcDesc }
+export { ImportNpcState }
+export { ImportOnboardingRewardDesc }
+export { ImportOnboardingState }
+export { ImportParametersDesc }
+export { ImportPathfindingDesc }
+export { ImportPavedTileState }
+export { ImportPavingTileDesc }
+export { ImportPillarShapingDesc }
+export { ImportPlayerActionDesc }
+export { ImportPlayerActionState }
+export { ImportPlayerHousingDesc }
+export { ImportPlayerPrefsState }
+export { ImportPlayerState }
+export { ImportPortalState }
+export { ImportPrivateParametersDesc }
+export { ImportProgressiveActionState }
+export { ImportProjectSiteState }
+export { ImportRentState }
+export { ImportReservedNameDesc }
+export { ImportResourceClumpDesc }
+export { ImportResourceCount }
+export { ImportResourceDesc }
+export { ImportResourceGrowthRecipeDesc }
+export { ImportResourcePlacementRecipeDesc }
+export { ImportResourceState }
+export { ImportResourcesLog }
+export { ImportSatiationState }
+export { ImportSecondaryKnowledgeDesc }
+export { ImportServerIdentity }
+export { ImportSignedInPlayerState }
+export { ImportSkillDesc }
+export { ImportStaminaState }
+export { ImportTargetState }
+export { ImportTargetableState }
+export { ImportTargetingMatrixDesc }
+export { ImportTeleportItemDesc }
+export { ImportTerraformRecipeDesc }
+export { ImportTerrainChunkState }
+export { ImportToolDesc }
+export { ImportToolTypeDesc }
+export { ImportTradeOrderState }
+export { ImportTradeSessionState }
+export { ImportTravelerTaskDesc }
+export { ImportTravelerTradeOrderDesc }
+export { ImportUserModerationState }
+export { ImportUserState }
+export { ImportVaultState }
+export { ImportWallDesc }
+export { ImportWeaponDesc }
+export { ImportWeaponTypeDesc }
+export { ImportWorldRegionNameState }
+export { ImportWorldRegionState }
+export { InsertResourcesLog }
+export { InsertTerrainChunk }
+export { InteriorSetCollapsed }
+export { InteriorSetCollapsedScheduled }
+export { InventoryCreatePersonal }
+export { InventorySort }
+export { ItemConvert }
+export { ItemConvertStart }
+export { ItemDrop }
+export { ItemPickUp }
+export { ItemStackMove }
+export { ItemStackMoveAll }
+export { ItemStackSplit }
+export { ItemUse }
+export { ItemUseStart }
+export { LoadConfig }
+export { LogClaimMemberLeaderboard }
+export { LogClaimTierLeaderboard }
+export { LootChestDespawn }
+export { LootChestSpawn }
+export { NpcAiAgentLoop }
+export { OnDurabilityZero }
+export { OnInterModuleMessageProcessed }
+export { OrderCancel }
+export { OrderCollect }
+export { OrderEditBuyOrder }
+export { OrderEditSellOrder }
+export { OrderPostBuyOrder }
+export { OrderPostSellOrder }
+export { PassiveCraftCancel }
+export { PassiveCraftCollect }
+export { PassiveCraftCollectAll }
+export { PassiveCraftProcess }
+export { PassiveCraftQueue }
+export { PausePlayTimer }
+export { PavingDestroyTile }
+export { PavingDestroyTileStart }
+export { PavingPlaceTile }
+export { PavingPlaceTileStart }
+export { PermissionEdit }
+export { PillarShapingDestroy }
+export { PillarShapingDestroyStart }
+export { PillarShapingPlacePillar }
+export { PillarShapingPlacePillarStart }
+export { PlayerActionCancel }
+export { PlayerCancelRegionTransfer }
+export { PlayerClearActionState }
+export { PlayerClimb }
+export { PlayerClimbStart }
+export { PlayerCompleteTask }
+export { PlayerDeathStart }
+export { PlayerDismissAlert }
+export { PlayerDuelInitiate }
+export { PlayerElevatorArrive }
+export { PlayerHousingChangeEntrance }
+export { PlayerHousingEnter }
+export { PlayerHousingEvictPlayer }
+export { PlayerHousingEvictPlayerComplete }
+export { PlayerHousingIncomeAgentLoop }
+export { PlayerHousingRequestAccess }
+export { PlayerHousingUpdate }
+export { PlayerMove }
+export { PlayerNotificationEventReducer }
+export { PlayerQueueJoin }
+export { PlayerQueueLeave }
+export { PlayerRegenAgentLoop }
+export { PlayerRegionCrossover }
+export { PlayerRegionTransferEventReducer }
+export { PlayerRespawn }
+export { PlayerSetDefaultDeployable }
+export { PlayerSetNameOutcomeEventReducer }
+export { PlayerTeleportHome }
+export { PlayerTeleportHomeStart }
+export { PlayerTeleportWaystone }
+export { PlayerTeleportWaystoneStart }
+export { PlayerUseElevator }
+export { PlayerVoteAnswer }
+export { PlayerVoteConclude }
+export { PocketSwapContents }
+export { PortalEnter }
+export { ProcessInterModuleMessage }
+export { ProjectSiteAddMaterials }
+export { ProjectSiteAdvanceProject }
+export { ProjectSiteAdvanceProjectStart }
+export { ProjectSiteCancel }
+export { ProjectSitePlace }
+export { RegionPopuplationAgentLoop }
+export { RentAddListing }
+export { RentAddTenant }
+export { RentCollectEvictionFee }
+export { RentCollectorAgentLoop }
+export { RentDepositCoins }
+export { RentEvict }
+export { RentEvictTerm }
+export { RentPurchase }
+export { RentRemoveTenant }
+export { RentSetDailyRate }
+export { RentTerminate }
+export { RentUnlist }
+export { ReportChatMessage }
+export { ReportPlayer }
+export { ResetChunkIndex }
+export { ResetChunkIndexWithDimension }
+export { ResetMobileEntityPosition }
+export { ResetOnboarding }
+export { ResourceSpawnScheduled }
+export { ResourcesRegen }
+export { RespawnInteriorNpcs }
+export { RespawnResourceInChunk }
+export { RetrieveLostItem }
+export { ScrollRead }
+export { SearchForClosestBuilding }
+export { SearchForClosestBuildingType }
+export { ServerTeleportPlayer }
+export { SetHome }
+export { SignIn }
+export { SignOut }
+export { Sleep }
+export { StageAchievementDesc }
+export { StageAlertDesc }
+export { StageBiomeDesc }
+export { StageBuffDesc }
+export { StageBuffTypeDesc }
+export { StageBuildingClaimDesc }
+export { StageBuildingDesc }
+export { StageBuildingPortalDesc }
+export { StageBuildingRepairsDesc }
+export { StageBuildingSpawnDesc }
+export { StageBuildingTypeDesc }
+export { StageCargoDesc }
+export { StageCharacterStatDesc }
+export { StageChestRarityDesc }
+export { StageClaimTechDesc }
+export { StageClaimTileCost }
+export { StageClimbRequirementDesc }
+export { StageClothingDesc }
+export { StageCollectibleDesc }
+export { StageCombatActionDesc }
+export { StageConstructionRecipeDesc }
+export { StageCraftingRecipeDesc }
+export { StageDeconstructionRecipeDesc }
+export { StageDeployableDesc }
+export { StageDistantVisibleEntityDesc }
+export { StageElevatorDesc }
+export { StageEmoteDesc }
+export { StageEmpireColorsDesc }
+export { StageEmpireIconDesc }
+export { StageEmpireNotificationDesc }
+export { StageEmpireRankDesc }
+export { StageEmpireSuppliesDesc }
+export { StageEmpireTerritoryDesc }
+export { StageEnemyAiParamsDesc }
+export { StageEnemyDesc }
+export { StageEnvironmentDebuffDesc }
+export { StageEquipmentDesc }
+export { StageExtractionRecipeDesc }
+export { StageFoodDesc }
+export { StageGateDesc }
+export { StageHexiteExchangeEntryDesc }
+export { StageInteriorEnvironmentDesc }
+export { StageInteriorInstanceDesc }
+export { StageInteriorNetworkDesc }
+export { StageInteriorPortalConnectionsDesc }
+export { StageInteriorShapeDesc }
+export { StageInteriorSpawnDesc }
+export { StageItemConversionRecipeDesc }
+export { StageItemDesc }
+export { StageItemListDesc }
+export { StageKnowledgeScrollDesc }
+export { StageKnowledgeScrollTypeDesc }
+export { StageKnowledgeStatModifierDesc }
+export { StageLootChestDesc }
+export { StageLootRarityDesc }
+export { StageLootTableDesc }
+export { StageNpcDesc }
+export { StageOnboardingRewardDesc }
+export { StageParametersDesc }
+export { StagePathfindingDesc }
+export { StagePavingTileDesc }
+export { StagePillarShapingDesc }
+export { StagePlayerActionDesc }
+export { StagePlayerHousingDesc }
+export { StagePrivateParametersDesc }
+export { StageReservedNameDesc }
+export { StageResourceClumpDesc }
+export { StageResourceDesc }
+export { StageResourceGrowthRecipeDesc }
+export { StageResourcePlacementRecipeDesc }
+export { StageSecondaryKnowledgeDesc }
+export { StageSkillDesc }
+export { StageTargetingMatrixDesc }
+export { StageTeleportItemDesc }
+export { StageTerraformRecipeDesc }
+export { StageToolDesc }
+export { StageToolTypeDesc }
+export { StageTravelerTaskDesc }
+export { StageTravelerTradeOrderDesc }
+export { StageWallDesc }
+export { StageWeaponDesc }
+export { StageWeaponTypeDesc }
+export { StartAgents }
+export { StartGeneratingWorld }
+export { StartOnboardingQuest }
+export { StarvingAgentLoop }
+export { StopAgents }
+export { SynchronizeTime }
+export { TargetUpdate }
+export { TeleportationEnergyRegenAgentLoop }
+export { Terraform }
+export { TerraformCancel }
+export { TerraformSetFinalTarget }
+export { TerraformStart }
+export { TradeAccept }
+export { TradeAcceptSession }
+export { TradeAddItem }
+export { TradeCancelServer }
+export { TradeDecline }
+export { TradeDeclineSession }
+export { TradeInitiateSession }
+export { TradeRemoveItem }
+export { TradeSessionsAgentLoop }
+export { TradeSwapPockets }
+export { TransferPlayerDelayed }
+export { TravelerTaskAgentLoop }
+export { UpdateScheduledTimersFromStaticData }
 
 // Import and reexport all table handle types
 import { AIDebugStateTableHandle } from './a_i_debug_state_table.ts'
@@ -1459,288 +1461,286 @@ import { WeaponDescTableHandle } from './weapon_desc_table.ts'
 import { WeaponTypeDescTableHandle } from './weapon_type_desc_table.ts'
 import { WorldRegionNameStateTableHandle } from './world_region_name_state_table.ts'
 import { WorldRegionStateTableHandle } from './world_region_state_table.ts'
-export {
-  AchievementDescTableHandle,
-  ActionStateTableHandle,
-  ActiveBuffStateTableHandle,
-  AdminBroadcastTableHandle,
-  AdminClearResourceTimerTableHandle,
-  AdminRestorePlayerStateTimerTableHandle,
-  AIDebugStateTableHandle,
-  AlertDescTableHandle,
-  AlertStateTableHandle,
-  AttachedHerdsStateTableHandle,
-  AttackImpactTimerTableHandle,
-  AttackOutcomeStateTableHandle,
-  AttackTimerTableHandle,
-  AutoClaimStateTableHandle,
-  AutoLogoutLoopTimerTableHandle,
-  BarterStallStateTableHandle,
-  BiomeDescTableHandle,
-  BlockedIdentityTableHandle,
-  BuffDescTableHandle,
-  BuffTypeDescTableHandle,
-  BuildingClaimDescTableHandle,
-  BuildingDecayLoopTimerTableHandle,
-  BuildingDescTableHandle,
-  BuildingDespawnTimerTableHandle,
-  BuildingFunctionTypeMappingDescTableHandle,
-  BuildingNicknameStateTableHandle,
-  BuildingPortalDescTableHandle,
-  BuildingRepairsDescTableHandle,
-  BuildingSpawnDescTableHandle,
-  BuildingStateTableHandle,
-  BuildingTypeDescTableHandle,
-  BuyOrderStateTableHandle,
-  CargoDescTableHandle,
-  CharacterStatDescTableHandle,
-  CharacterStatsStateTableHandle,
-  ChatMessageStateTableHandle,
-  ChestRarityDescTableHandle,
-  ClaimLocalStateTableHandle,
-  ClaimMemberStateTableHandle,
-  ClaimRecruitmentStateTableHandle,
-  ClaimStateTableHandle,
-  ClaimTechDescTableHandle,
-  ClaimTechStateTableHandle,
-  ClaimTechUnlockTimerTableHandle,
-  ClaimTileCostTableHandle,
-  ClaimTileStateTableHandle,
-  ClimbRequirementDescTableHandle,
-  ClosedListingStateTableHandle,
-  ClothingDescTableHandle,
-  CollectibleDescTableHandle,
-  CollectStatsTimerTableHandle,
-  CombatActionDescTableHandle,
-  CombatStateTableHandle,
-  ConfigTableHandle,
-  ConstructionRecipeDescTableHandle,
-  CraftingRecipeDescTableHandle,
-  DayNightLoopTimerTableHandle,
-  DeconstructionRecipeDescTableHandle,
-  DeployableCollectibleStateTableHandle,
-  DeployableDescTableHandle,
-  DeployableDismountTimerTableHandle,
-  DeployableStateTableHandle,
-  DestroyDimensionNetworkTimerTableHandle,
-  DimensionDescriptionStateTableHandle,
-  DimensionNetworkStateTableHandle,
-  DistantVisibleEntityDescTableHandle,
-  DistantVisibleEntityTableHandle,
-  DroppedInventoryDespawnTimerTableHandle,
-  DroppedInventoryOwnershipTimerTableHandle,
-  DroppedInventoryStateTableHandle,
-  DuelAgentTimerTableHandle,
-  DuelDespawnTimerTableHandle,
-  DuelStateTableHandle,
-  ElevatorDescTableHandle,
-  EmoteDescTableHandle,
-  EmpireChunkStateTableHandle,
-  EmpireColorDescTableHandle,
-  EmpireExpansionStateTableHandle,
-  EmpireIconDescTableHandle,
-  EmpireNodeSiegeStateTableHandle,
-  EmpireNodeStateTableHandle,
-  EmpireNotificationDescTableHandle,
-  EmpirePlayerDataStateTableHandle,
-  EmpireRankDescTableHandle,
-  EmpireRankStateTableHandle,
-  EmpireSettlementStateTableHandle,
-  EmpireStateTableHandle,
-  EmpireSuppliesDescTableHandle,
-  EmpireTerritoryDescTableHandle,
-  EndGracePeriodTimerTableHandle,
-  EnemyAiParamsDescTableHandle,
-  EnemyDescTableHandle,
-  EnemyDespawnTimerTableHandle,
-  EnemyMobMonitorStateTableHandle,
-  EnemyRegenLoopTimerTableHandle,
-  EnemyStateTableHandle,
-  EnvironmentDebuffDescTableHandle,
-  EnvironmentDebuffLoopTimerTableHandle,
-  EquipmentDescTableHandle,
-  EquipmentStateTableHandle,
-  ExperienceStateTableHandle,
-  ExplorationChunksStateTableHandle,
-  ExtractionRecipeDescTableHandle,
-  ExtractOutcomeStateTableHandle,
-  FoodDescTableHandle,
-  FootprintTileStateTableHandle,
-  ForceGenerateTypesTableHandle,
-  GateDescTableHandle,
-  GlobalSearchStateTableHandle,
-  GlobalsTableHandle,
-  GrowthLoopTimerTableHandle,
-  GrowthStateTableHandle,
-  HealthStateTableHandle,
-  HerdStateTableHandle,
-  HexiteExchangeEntryDescTableHandle,
-  HideDeployableTimerTableHandle,
-  IdentityRoleTableHandle,
-  InteriorCollapseTriggerStateTableHandle,
-  InteriorEnvironmentDescTableHandle,
-  InteriorInstanceDescTableHandle,
-  InteriorNetworkDescTableHandle,
-  InteriorPortalConnectionsDescTableHandle,
-  InteriorSetCollapsedTimerTableHandle,
-  InteriorShapeDescTableHandle,
-  InteriorSpawnDescTableHandle,
-  InterModuleMessageCounterTableHandle,
-  InterModuleMessageTableHandle,
-  InterModuleResponseMessageCounterTableHandle,
-  InventoryStateTableHandle,
-  ItemConversionRecipeDescTableHandle,
-  ItemDescTableHandle,
-  ItemListDescTableHandle,
-  KnowledgeAchievementStateTableHandle,
-  KnowledgeBattleActionStateTableHandle,
-  KnowledgeBuildingStateTableHandle,
-  KnowledgeCargoStateTableHandle,
-  KnowledgeClaimStateTableHandle,
-  KnowledgeConstructionStateTableHandle,
-  KnowledgeCraftStateTableHandle,
-  KnowledgeDeployableStateTableHandle,
-  KnowledgeEnemyStateTableHandle,
-  KnowledgeExtractStateTableHandle,
-  KnowledgeItemStateTableHandle,
-  KnowledgeLoreStateTableHandle,
-  KnowledgeNpcStateTableHandle,
-  KnowledgePavingStateTableHandle,
-  KnowledgePillarShapingStateTableHandle,
-  KnowledgeResourcePlacementStateTableHandle,
-  KnowledgeResourceStateTableHandle,
-  KnowledgeRuinsStateTableHandle,
-  KnowledgeScrollDescTableHandle,
-  KnowledgeScrollTypeDescTableHandle,
-  KnowledgeSecondaryStateTableHandle,
-  KnowledgeStatModifierDescTableHandle,
-  KnowledgeVaultStateTableHandle,
-  LightSourceStateTableHandle,
-  LocationCacheTableHandle,
-  LocationStateTableHandle,
-  LootChestDescTableHandle,
-  LootChestDespawnTimerTableHandle,
-  LootChestSpawnTimerTableHandle,
-  LootChestStateTableHandle,
-  LootRarityDescTableHandle,
-  LootTableDescTableHandle,
-  LostItemsStateTableHandle,
-  MobileEntityStateTableHandle,
-  MountingStateTableHandle,
-  MoveValidationStrikeCounterStateTableHandle,
-  NpcAiLoopTimerTableHandle,
-  NpcDescTableHandle,
-  NpcStateTableHandle,
-  OnboardingRewardDescTableHandle,
-  OnboardingStateTableHandle,
-  OnDurabilityZeroTimerTableHandle,
-  ParametersDescTableHandle,
-  ParametersPlayerMoveDescTableHandle,
-  PassiveCraftStateTableHandle,
-  PassiveCraftTimerTableHandle,
-  PathfindingDescTableHandle,
-  PavedTileStateTableHandle,
-  PavingTileDescTableHandle,
-  PermissionStateTableHandle,
-  PillarShapingDescTableHandle,
-  PillarShapingStateTableHandle,
-  PlayerActionDescTableHandle,
-  PlayerActionStateTableHandle,
-  PlayerDeathTimerTableHandle,
-  PlayerHousingDescTableHandle,
-  PlayerHousingEvictPlayerTimerTableHandle,
-  PlayerHousingIncomeLoopTimerTableHandle,
-  PlayerHousingStateTableHandle,
-  PlayerLowercaseUsernameStateTableHandle,
-  PlayerNoteStateTableHandle,
-  PlayerNotificationEventTableHandle,
-  PlayerPrefsStateTableHandle,
-  PlayerQueueStateTableHandle,
-  PlayerRegenLoopTimerTableHandle,
-  PlayerRegionTransferEventTableHandle,
-  PlayerReportStateTableHandle,
-  PlayerReportStateTimestampTableHandle,
-  PlayerSetNameOutcomeEventTableHandle,
-  PlayerStateTableHandle,
-  PlayerTimestampStateTableHandle,
-  PlayerUseElevatorTimerTableHandle,
-  PlayerUsernameStateTableHandle,
-  PlayerVoteConcludeTimerTableHandle,
-  PlayerVoteStateTableHandle,
-  PortalStateTableHandle,
-  PrivateParametersDescTableHandle,
-  ProgressiveActionStateTableHandle,
-  ProjectSiteStateTableHandle,
-  RegionConnectionInfoTableHandle,
-  RegionPopulationInfoTableHandle,
-  RegionPopuplationLoopTimerTableHandle,
-  RegionSignInParametersTableHandle,
-  RentCollectorLoopTimerTableHandle,
-  RentEvictTimerTableHandle,
-  RentStateTableHandle,
-  ReservedNameDescTableHandle,
-  ResetChunkIndexTimerTableHandle,
-  ResetMobileEntityTimerTableHandle,
-  ResourceClumpDescTableHandle,
-  ResourceCountTableHandle,
-  ResourceDescTableHandle,
-  ResourceGrowthRecipeDescTableHandle,
-  ResourceHealthStateTableHandle,
-  ResourcePlacementRecipeDescTableHandle,
-  ResourcesLogTableHandle,
-  ResourceSpawnTimerTableHandle,
-  ResourcesRegenLoopTimerTableHandle,
-  ResourceStateTableHandle,
-  RespawnResourceInChunkTimerTableHandle,
-  RezSickLongTermStateTableHandle,
-  SatiationStateTableHandle,
-  SecondaryKnowledgeDescTableHandle,
-  SellOrderStateTableHandle,
-  ServerIdentityTableHandle,
-  SignedInPlayerStateTableHandle,
-  SingleResourceClumpInfoTableHandle,
-  SingleResourceToClumpDescTableHandle,
-  SkillDescTableHandle,
-  StagedStaticDataTableHandle,
-  StaminaStateTableHandle,
-  StarvingLoopTimerTableHandle,
-  StarvingPlayerStateTableHandle,
-  TargetableStateTableHandle,
-  TargetingMatrixDescTableHandle,
-  TargetStateTableHandle,
-  TeleportationEnergyRegenLoopTimerTableHandle,
-  TeleportationEnergyStateTableHandle,
-  TeleportItemDescTableHandle,
-  TeleportPlayerTimerTableHandle,
-  TerraformProgressStateTableHandle,
-  TerraformRecipeDescTableHandle,
-  TerrainChunkStateTableHandle,
-  TheGreatPlaceholderTableTableHandle,
-  ThreatStateTableHandle,
-  ToolbarStateTableHandle,
-  ToolDescTableHandle,
-  ToolTypeDescTableHandle,
-  TradeOrderStateTableHandle,
-  TradeSessionLoopTimerTableHandle,
-  TradeSessionStateTableHandle,
-  TransferPlayerTimerTableHandle,
-  TravelerTaskDescTableHandle,
-  TravelerTaskLoopTimerTableHandle,
-  TravelerTaskStateTableHandle,
-  TravelerTradeOrderDescTableHandle,
-  UnclaimedCollectiblesStateTableHandle,
-  UnclaimedShardsStateTableHandle,
-  UserAuthenticationStateTableHandle,
-  UserModerationStateTableHandle,
-  UserPreviousRegionStateTableHandle,
-  UserStateTableHandle,
-  VaultStateTableHandle,
-  WallDescTableHandle,
-  WeaponDescTableHandle,
-  WeaponTypeDescTableHandle,
-  WorldRegionNameStateTableHandle,
-  WorldRegionStateTableHandle
-}
+export { AIDebugStateTableHandle }
+export { AchievementDescTableHandle }
+export { ActionStateTableHandle }
+export { ActiveBuffStateTableHandle }
+export { AdminBroadcastTableHandle }
+export { AdminClearResourceTimerTableHandle }
+export { AdminRestorePlayerStateTimerTableHandle }
+export { AlertDescTableHandle }
+export { AlertStateTableHandle }
+export { AttachedHerdsStateTableHandle }
+export { AttackImpactTimerTableHandle }
+export { AttackOutcomeStateTableHandle }
+export { AttackTimerTableHandle }
+export { AutoClaimStateTableHandle }
+export { AutoLogoutLoopTimerTableHandle }
+export { BarterStallStateTableHandle }
+export { BiomeDescTableHandle }
+export { BlockedIdentityTableHandle }
+export { BuffDescTableHandle }
+export { BuffTypeDescTableHandle }
+export { BuildingClaimDescTableHandle }
+export { BuildingDecayLoopTimerTableHandle }
+export { BuildingDescTableHandle }
+export { BuildingDespawnTimerTableHandle }
+export { BuildingFunctionTypeMappingDescTableHandle }
+export { BuildingNicknameStateTableHandle }
+export { BuildingPortalDescTableHandle }
+export { BuildingRepairsDescTableHandle }
+export { BuildingSpawnDescTableHandle }
+export { BuildingStateTableHandle }
+export { BuildingTypeDescTableHandle }
+export { BuyOrderStateTableHandle }
+export { CargoDescTableHandle }
+export { CharacterStatDescTableHandle }
+export { CharacterStatsStateTableHandle }
+export { ChatMessageStateTableHandle }
+export { ChestRarityDescTableHandle }
+export { ClaimLocalStateTableHandle }
+export { ClaimMemberStateTableHandle }
+export { ClaimRecruitmentStateTableHandle }
+export { ClaimStateTableHandle }
+export { ClaimTechDescTableHandle }
+export { ClaimTechStateTableHandle }
+export { ClaimTechUnlockTimerTableHandle }
+export { ClaimTileCostTableHandle }
+export { ClaimTileStateTableHandle }
+export { ClimbRequirementDescTableHandle }
+export { ClosedListingStateTableHandle }
+export { ClothingDescTableHandle }
+export { CollectStatsTimerTableHandle }
+export { CollectibleDescTableHandle }
+export { CombatActionDescTableHandle }
+export { CombatStateTableHandle }
+export { ConfigTableHandle }
+export { ConstructionRecipeDescTableHandle }
+export { CraftingRecipeDescTableHandle }
+export { DayNightLoopTimerTableHandle }
+export { DeconstructionRecipeDescTableHandle }
+export { DeployableCollectibleStateTableHandle }
+export { DeployableDescTableHandle }
+export { DeployableDismountTimerTableHandle }
+export { DeployableStateTableHandle }
+export { DestroyDimensionNetworkTimerTableHandle }
+export { DimensionDescriptionStateTableHandle }
+export { DimensionNetworkStateTableHandle }
+export { DistantVisibleEntityTableHandle }
+export { DistantVisibleEntityDescTableHandle }
+export { DroppedInventoryDespawnTimerTableHandle }
+export { DroppedInventoryOwnershipTimerTableHandle }
+export { DroppedInventoryStateTableHandle }
+export { DuelAgentTimerTableHandle }
+export { DuelDespawnTimerTableHandle }
+export { DuelStateTableHandle }
+export { ElevatorDescTableHandle }
+export { EmoteDescTableHandle }
+export { EmpireChunkStateTableHandle }
+export { EmpireColorDescTableHandle }
+export { EmpireExpansionStateTableHandle }
+export { EmpireIconDescTableHandle }
+export { EmpireNodeSiegeStateTableHandle }
+export { EmpireNodeStateTableHandle }
+export { EmpireNotificationDescTableHandle }
+export { EmpirePlayerDataStateTableHandle }
+export { EmpireRankDescTableHandle }
+export { EmpireRankStateTableHandle }
+export { EmpireSettlementStateTableHandle }
+export { EmpireStateTableHandle }
+export { EmpireSuppliesDescTableHandle }
+export { EmpireTerritoryDescTableHandle }
+export { EndGracePeriodTimerTableHandle }
+export { EnemyAiParamsDescTableHandle }
+export { EnemyDescTableHandle }
+export { EnemyDespawnTimerTableHandle }
+export { EnemyMobMonitorStateTableHandle }
+export { EnemyRegenLoopTimerTableHandle }
+export { EnemyStateTableHandle }
+export { EnvironmentDebuffDescTableHandle }
+export { EnvironmentDebuffLoopTimerTableHandle }
+export { EquipmentDescTableHandle }
+export { EquipmentStateTableHandle }
+export { ExperienceStateTableHandle }
+export { ExplorationChunksStateTableHandle }
+export { ExtractOutcomeStateTableHandle }
+export { ExtractionRecipeDescTableHandle }
+export { FoodDescTableHandle }
+export { FootprintTileStateTableHandle }
+export { ForceGenerateTypesTableHandle }
+export { GateDescTableHandle }
+export { GlobalSearchStateTableHandle }
+export { GlobalsTableHandle }
+export { GrowthLoopTimerTableHandle }
+export { GrowthStateTableHandle }
+export { HealthStateTableHandle }
+export { HerdStateTableHandle }
+export { HexiteExchangeEntryDescTableHandle }
+export { HideDeployableTimerTableHandle }
+export { IdentityRoleTableHandle }
+export { InterModuleMessageTableHandle }
+export { InterModuleMessageCounterTableHandle }
+export { InterModuleResponseMessageCounterTableHandle }
+export { InteriorCollapseTriggerStateTableHandle }
+export { InteriorEnvironmentDescTableHandle }
+export { InteriorInstanceDescTableHandle }
+export { InteriorNetworkDescTableHandle }
+export { InteriorPortalConnectionsDescTableHandle }
+export { InteriorSetCollapsedTimerTableHandle }
+export { InteriorShapeDescTableHandle }
+export { InteriorSpawnDescTableHandle }
+export { InventoryStateTableHandle }
+export { ItemConversionRecipeDescTableHandle }
+export { ItemDescTableHandle }
+export { ItemListDescTableHandle }
+export { KnowledgeAchievementStateTableHandle }
+export { KnowledgeBattleActionStateTableHandle }
+export { KnowledgeBuildingStateTableHandle }
+export { KnowledgeCargoStateTableHandle }
+export { KnowledgeClaimStateTableHandle }
+export { KnowledgeConstructionStateTableHandle }
+export { KnowledgeCraftStateTableHandle }
+export { KnowledgeDeployableStateTableHandle }
+export { KnowledgeEnemyStateTableHandle }
+export { KnowledgeExtractStateTableHandle }
+export { KnowledgeItemStateTableHandle }
+export { KnowledgeLoreStateTableHandle }
+export { KnowledgeNpcStateTableHandle }
+export { KnowledgePavingStateTableHandle }
+export { KnowledgePillarShapingStateTableHandle }
+export { KnowledgeResourcePlacementStateTableHandle }
+export { KnowledgeResourceStateTableHandle }
+export { KnowledgeRuinsStateTableHandle }
+export { KnowledgeScrollDescTableHandle }
+export { KnowledgeScrollTypeDescTableHandle }
+export { KnowledgeSecondaryStateTableHandle }
+export { KnowledgeStatModifierDescTableHandle }
+export { KnowledgeVaultStateTableHandle }
+export { LightSourceStateTableHandle }
+export { LocationCacheTableHandle }
+export { LocationStateTableHandle }
+export { LootChestDescTableHandle }
+export { LootChestDespawnTimerTableHandle }
+export { LootChestSpawnTimerTableHandle }
+export { LootChestStateTableHandle }
+export { LootRarityDescTableHandle }
+export { LootTableDescTableHandle }
+export { LostItemsStateTableHandle }
+export { MobileEntityStateTableHandle }
+export { MountingStateTableHandle }
+export { MoveValidationStrikeCounterStateTableHandle }
+export { NpcAiLoopTimerTableHandle }
+export { NpcDescTableHandle }
+export { NpcStateTableHandle }
+export { OnDurabilityZeroTimerTableHandle }
+export { OnboardingRewardDescTableHandle }
+export { OnboardingStateTableHandle }
+export { ParametersDescTableHandle }
+export { ParametersPlayerMoveDescTableHandle }
+export { PassiveCraftStateTableHandle }
+export { PassiveCraftTimerTableHandle }
+export { PathfindingDescTableHandle }
+export { PavedTileStateTableHandle }
+export { PavingTileDescTableHandle }
+export { PermissionStateTableHandle }
+export { PillarShapingDescTableHandle }
+export { PillarShapingStateTableHandle }
+export { PlayerActionDescTableHandle }
+export { PlayerActionStateTableHandle }
+export { PlayerDeathTimerTableHandle }
+export { PlayerHousingDescTableHandle }
+export { PlayerHousingEvictPlayerTimerTableHandle }
+export { PlayerHousingIncomeLoopTimerTableHandle }
+export { PlayerHousingStateTableHandle }
+export { PlayerLowercaseUsernameStateTableHandle }
+export { PlayerNoteStateTableHandle }
+export { PlayerNotificationEventTableHandle }
+export { PlayerPrefsStateTableHandle }
+export { PlayerQueueStateTableHandle }
+export { PlayerRegenLoopTimerTableHandle }
+export { PlayerRegionTransferEventTableHandle }
+export { PlayerReportStateTableHandle }
+export { PlayerReportStateTimestampTableHandle }
+export { PlayerSetNameOutcomeEventTableHandle }
+export { PlayerStateTableHandle }
+export { PlayerTimestampStateTableHandle }
+export { PlayerUseElevatorTimerTableHandle }
+export { PlayerUsernameStateTableHandle }
+export { PlayerVoteConcludeTimerTableHandle }
+export { PlayerVoteStateTableHandle }
+export { PortalStateTableHandle }
+export { PrivateParametersDescTableHandle }
+export { ProgressiveActionStateTableHandle }
+export { ProjectSiteStateTableHandle }
+export { RegionConnectionInfoTableHandle }
+export { RegionPopulationInfoTableHandle }
+export { RegionPopuplationLoopTimerTableHandle }
+export { RegionSignInParametersTableHandle }
+export { RentCollectorLoopTimerTableHandle }
+export { RentEvictTimerTableHandle }
+export { RentStateTableHandle }
+export { ReservedNameDescTableHandle }
+export { ResetChunkIndexTimerTableHandle }
+export { ResetMobileEntityTimerTableHandle }
+export { ResourceClumpDescTableHandle }
+export { ResourceCountTableHandle }
+export { ResourceDescTableHandle }
+export { ResourceGrowthRecipeDescTableHandle }
+export { ResourceHealthStateTableHandle }
+export { ResourcePlacementRecipeDescTableHandle }
+export { ResourceSpawnTimerTableHandle }
+export { ResourceStateTableHandle }
+export { ResourcesLogTableHandle }
+export { ResourcesRegenLoopTimerTableHandle }
+export { RespawnResourceInChunkTimerTableHandle }
+export { RezSickLongTermStateTableHandle }
+export { SatiationStateTableHandle }
+export { SecondaryKnowledgeDescTableHandle }
+export { SellOrderStateTableHandle }
+export { ServerIdentityTableHandle }
+export { SignedInPlayerStateTableHandle }
+export { SingleResourceClumpInfoTableHandle }
+export { SingleResourceToClumpDescTableHandle }
+export { SkillDescTableHandle }
+export { StagedStaticDataTableHandle }
+export { StaminaStateTableHandle }
+export { StarvingLoopTimerTableHandle }
+export { StarvingPlayerStateTableHandle }
+export { TargetStateTableHandle }
+export { TargetableStateTableHandle }
+export { TargetingMatrixDescTableHandle }
+export { TeleportItemDescTableHandle }
+export { TeleportPlayerTimerTableHandle }
+export { TeleportationEnergyRegenLoopTimerTableHandle }
+export { TeleportationEnergyStateTableHandle }
+export { TerraformProgressStateTableHandle }
+export { TerraformRecipeDescTableHandle }
+export { TerrainChunkStateTableHandle }
+export { TheGreatPlaceholderTableTableHandle }
+export { ThreatStateTableHandle }
+export { ToolDescTableHandle }
+export { ToolTypeDescTableHandle }
+export { ToolbarStateTableHandle }
+export { TradeOrderStateTableHandle }
+export { TradeSessionLoopTimerTableHandle }
+export { TradeSessionStateTableHandle }
+export { TransferPlayerTimerTableHandle }
+export { TravelerTaskDescTableHandle }
+export { TravelerTaskLoopTimerTableHandle }
+export { TravelerTaskStateTableHandle }
+export { TravelerTradeOrderDescTableHandle }
+export { UnclaimedCollectiblesStateTableHandle }
+export { UnclaimedShardsStateTableHandle }
+export { UserAuthenticationStateTableHandle }
+export { UserModerationStateTableHandle }
+export { UserPreviousRegionStateTableHandle }
+export { UserStateTableHandle }
+export { VaultStateTableHandle }
+export { WallDescTableHandle }
+export { WeaponDescTableHandle }
+export { WeaponTypeDescTableHandle }
+export { WorldRegionNameStateTableHandle }
+export { WorldRegionStateTableHandle }
 
 // Import and reexport all types
 import { AchievementDesc } from './achievement_desc_type.ts'
@@ -2334,600 +2334,598 @@ import { WorldGenWorldDefinition } from './world_gen_world_definition_type.ts'
 import { WorldGenWorldMapDefinition } from './world_gen_world_map_definition_type.ts'
 import { WorldRegionNameState } from './world_region_name_state_type.ts'
 import { WorldRegionState } from './world_region_state_type.ts'
-export {
-  AchievementDesc,
-  ActionCooldown,
-  ActionState,
-  ActiveBuff,
-  ActiveBuffState,
-  AdminBroadcast,
-  AdminBroadcastMessageMsg,
-  AdminClearResourceTimer,
-  AdminRestorePlayerStateTimer,
-  AiDebugState,
-  AlertDesc,
-  AlertState,
-  AlertType,
-  AttachedHerdsState,
-  AttackImpactTimer,
-  AttackOutcomeState,
-  AttackTimer,
-  AuctionListingState,
-  AutoClaimState,
-  AutoLogoutLoopTimer,
-  BarterStallSetMarketModeEnabledRequest,
-  BarterStallState,
-  Biome,
-  BiomeDesc,
-  BlockedIdentity,
-  BlockedIdentityOp,
-  BuffCategory,
-  BuffDesc,
-  BuffEffect,
-  BuffTypeDesc,
-  BuildingCategory,
-  BuildingClaimDesc,
-  BuildingDecayLoopTimer,
-  BuildingDesc,
-  BuildingDespawnTimer,
-  BuildingFunction,
-  BuildingFunctionTypeMappingDesc,
-  BuildingInteractionLevel,
-  BuildingNicknameState,
-  BuildingNicknameStateOp,
-  BuildingPortalDesc,
-  BuildingRepairsDesc,
-  BuildingRequirement,
-  BuildingSetSignTextRequest,
-  BuildingSpawnDesc,
-  BuildingSpawnType,
-  BuildingState,
-  BuildingStateOp,
-  BuildingTypeDesc,
-  CappedLevelRequirement,
-  CargoDesc,
-  CharacterStatDesc,
-  CharacterStatsState,
-  CharacterStatType,
-  ChatChannel,
-  ChatMessageState,
-  CheatCargoGrantRequest,
-  CheatCompendiumEnemyPlaceRequest,
-  CheatCompendiumItemPlaceRequest,
-  CheatDiscoverMapRequest,
-  CheatExperienceGrantRequest,
-  CheatGrantKnowledgeRequest,
-  CheatSetDebugAiStateRequest,
-  CheatSpawnLootChestRequest,
-  CheatTeleportFloatRequest,
-  CheatToggleActiveCollectibleRequest,
-  CheatWarpRequest,
-  ChestLootRarity,
-  ChestRarityDesc,
-  ChunkCoordinatesMessage,
-  ClaimCreateEmpireSettlementMsg,
-  ClaimLocalState,
-  ClaimMemberState,
-  ClaimMemberStateOp,
-  ClaimPermission,
-  ClaimPurchaseSuppliesFromPlayerRequest,
-  ClaimRecruitmentState,
-  ClaimResupplyRequest,
-  ClaimSetPurchaseSupplyPriceRequest,
-  ClaimSetPurchaseSupplyThresholdRequest,
-  ClaimState,
-  ClaimStateOp,
-  ClaimTechDesc,
-  ClaimTechState,
-  ClaimTechUnlockTimer,
-  ClaimTileCost,
-  ClaimTileState,
-  ClaimType,
-  ClimbRequirementDesc,
-  ClosedListingState,
-  ClothingDesc,
-  ClothingMask,
-  ClothingVisual,
-  CollectibleDesc,
-  CollectibleType,
-  CollectStatsTimer,
-  CombatActionDesc,
-  CombatState,
-  CommonRng,
-  Config,
-  ConstructionRecipeDesc,
-  CraftingRecipeDesc,
-  CsvStatEntry,
-  DayNightLoopTimer,
-  DeconstructionRecipeDesc,
-  DeleteEmpireMsg,
-  DeployableCollectibleState,
-  DeployableDeployRequest,
-  DeployableDesc,
-  DeployableDismountTimer,
-  DeployableState,
-  DeployableStoreRequest,
-  DeployableType,
-  DestroyDimensionNetworkTimer,
-  DimensionDescriptionState,
-  DimensionNetworkState,
-  DimensionType,
-  DistantVisibleEntity,
-  DistantVisibleEntityDesc,
-  DroppedInventoryDespawnTimer,
-  DroppedInventoryOwnershipTimer,
-  DroppedInventoryState,
-  DuelAgentTimer,
-  DuelDespawnTimer,
-  DuelState,
-  ElevatorDesc,
-  EmoteDesc,
-  EmpireAddSiegeSuppliesRequest,
-  EmpireChunkState,
-  EmpireChunkStateOp,
-  EmpireClaimJoinMsg,
-  EmpireCollectHexiteCapsuleMsg,
-  EmpireCollectHexiteCapsuleRequest,
-  EmpireColorDesc,
-  EmpireCreateBuildingMsg,
-  EmpireExpansionState,
-  EmpireExpansionStateOp,
-  EmpireIconDesc,
-  EmpireNodeSiegeState,
-  EmpireNodeSiegeStateOp,
-  EmpireNodeState,
-  EmpireNodeStateOp,
-  EmpireNotificationDesc,
-  EmpireNotificationType,
-  EmpirePlayerDataState,
-  EmpirePlayerDataStateOp,
-  EmpireQueueSuppliesMsg,
-  EmpireQueueSuppliesRequest,
-  EmpireRankDesc,
-  EmpireRankState,
-  EmpireRankStateOp,
-  EmpireRemoveCrownMsg,
-  EmpireResupplyNodeMsg,
-  EmpireResupplyNodeRequest,
-  EmpireSettlementState,
-  EmpireSettlementStateOp,
-  EmpireSiegeAddSuppliesMsg,
-  EmpireStartSiegeMsg,
-  EmpireStartSiegeRequest,
-  EmpireState,
-  EmpireStateOp,
-  EmpireSuppliesDesc,
-  EmpireTerritoryDesc,
-  EmpireUpdateEmperorCrownMsg,
-  EndGracePeriodTimer,
-  EnemyAiParamsDesc,
-  EnemyClearAggroRequest,
-  EnemyDesc,
-  EnemyDespawnTimer,
-  EnemyMobMonitorState,
-  EnemyMoveRequest,
-  EnemyRegenLoopTimer,
-  EnemySetHealthRequest,
-  EnemySpawnLootRequest,
-  EnemySpawnRequest,
-  EnemyState,
-  EnemyStatus,
-  EnemyType,
-  EntityAttackRequest,
-  EntityType,
-  EnvironmentDebuffDesc,
-  EnvironmentDebuffLoopTimer,
-  EnvironmentResistanceType,
-  EquipmentDesc,
-  EquipmentSlot,
-  EquipmentSlotType,
-  EquipmentState,
-  EquipmentVisualType,
-  ExperienceStack,
-  ExperienceStackF32,
-  ExperienceState,
-  ExplorationChunksState,
-  ExtractionRecipeDesc,
-  ExtractOutcomeState,
-  FloatHexTileMessage,
-  FoodDesc,
-  FootprintTile,
-  FootprintTileState,
-  FootprintType,
-  ForceGenerateTypes,
-  GateDesc,
-  GlobalDeleteEmpireBuildingMsg,
-  Globals,
-  GlobalSearchState,
-  GracePeriodType,
-  GrantHubItemMsg,
-  GrowthLoopTimer,
-  GrowthState,
-  HandEquipmentVisual,
-  HealthState,
-  HerdState,
-  HexDirection,
-  HexiteExchangeEntryDesc,
-  HideDeployableTimer,
-  HubItemType,
-  IdentityRole,
-  IdentityRoleOp,
-  InputItemStack,
-  InteriorCollapseTriggerState,
-  InteriorEnvironmentDesc,
-  InteriorInstanceDesc,
-  InteriorNetworkDesc,
-  InteriorPortalConnectionsDesc,
-  InteriorSetCollapsedTimer,
-  InteriorShapeDesc,
-  InteriorSpawnDesc,
-  InteriorSpawnType,
-  InterModuleMessage,
-  InterModuleMessageCounter,
-  InterModuleResponseMessageCounter,
-  InterModuleTableUpdates,
-  InventoryState,
-  ItemConversionLocationContext,
-  ItemConversionRecipeDesc,
-  ItemDesc,
-  ItemListDesc,
-  ItemListPossibility,
-  ItemStack,
-  ItemType,
-  KnowledgeAchievementState,
-  KnowledgeBattleActionState,
-  KnowledgeBuildingState,
-  KnowledgeCargoState,
-  KnowledgeClaimState,
-  KnowledgeConstructionState,
-  KnowledgeCraftState,
-  KnowledgeDeployableState,
-  KnowledgeEnemyState,
-  KnowledgeEntityEntry,
-  KnowledgeEntry,
-  KnowledgeExtractState,
-  KnowledgeItemState,
-  KnowledgeLocationEntry,
-  KnowledgeLoreState,
-  KnowledgeNpcState,
-  KnowledgePavingState,
-  KnowledgePillarShapingState,
-  KnowledgeResourcePlacementState,
-  KnowledgeResourceState,
-  KnowledgeRuinsState,
-  KnowledgeScrollDesc,
-  KnowledgeScrollTypeDesc,
-  KnowledgeSecondaryState,
-  KnowledgeState,
-  KnowledgeStatModifierDesc,
-  KnowledgeVaultState,
-  LargeHexTileMessage,
-  LevelRequirement,
-  LightSourceState,
-  LocationCache,
-  LocationState,
-  LocationStateOp,
-  LootChestDesc,
-  LootChestDespawnTimer,
-  LootChestSpawnTimer,
-  LootChestState,
-  LootRarityDesc,
-  LootTableDesc,
-  LostItemsState,
-  MessageContents,
-  MobileEntityState,
-  MountingState,
-  MovementSpeed,
-  MovementType,
-  MoveValidationParamsDesc,
-  MoveValidationStrikeCounterState,
-  NotificationSeverity,
-  NpcAiLoopTimer,
-  NpcDesc,
-  NpcState,
-  NpcType,
-  OffsetCoordinatesFloat,
-  OffsetCoordinatesLargeMessage,
-  OffsetCoordinatesSmallMessage,
-  OnboardingRewardDesc,
-  OnboardingState,
-  OnClaimMembersChangedMsg,
-  OnDeployableRecoveredMsg,
-  OnDurabilityZeroTimer,
-  OnEmpireBuildingDeletedMsg,
-  OnlineTimestamp,
-  OnPlayerJoinedEmpireMsg,
-  OnPlayerLeftEmpireMsg,
-  OnPlayerNameSetMsg,
-  OnRegionPlayerCreatedMsg,
-  ParametersDesc,
-  ParametersPlayerMoveDesc,
-  PassiveCraftState,
-  PassiveCraftStatus,
-  PassiveCraftTimer,
-  PathfindingDesc,
-  PathfindingTraversalOption,
-  PavedTileState,
-  PavingTileDesc,
-  Permission,
-  PermissionGroup,
-  PermissionState,
-  PillarShapingDesc,
-  PillarShapingState,
-  PlayerAchievementClaimRequest,
-  PlayerAcquireKnowledgeFromEntitiesRequest,
-  PlayerActionDesc,
-  PlayerActionLayer,
-  PlayerActionResult,
-  PlayerActionState,
-  PlayerActionType,
-  PlayerBarterStallOrderAccept,
-  PlayerBarterStallOrderCreateRequest,
-  PlayerBarterStallOrderDeleteRequest,
-  PlayerBuildingDeconstructRequest,
-  PlayerBuildingMoveRequest,
-  PlayerBuildingRepairRequest,
-  PlayerBuildingSetNicknameRequest,
-  PlayerChatPostMessageRequest,
-  PlayerClaimAddMemberRequest,
-  PlayerClaimAddRecruitmentRequest,
-  PlayerClaimAddTileRequest,
-  PlayerClaimApplyForRecruitmentRequest,
-  PlayerClaimLeaveRequest,
-  PlayerClaimRemoveMemberRequest,
-  PlayerClaimRemoveRecruitmentRequest,
-  PlayerClaimRemoveTileRequest,
-  PlayerClaimRenameRequest,
-  PlayerClaimSetMemberPermissionsRequest,
-  PlayerClaimTakeOwnershipRequest,
-  PlayerClaimTechCancelRequest,
-  PlayerClaimTechLearnRequest,
-  PlayerClaimTransferOwnershipRequest,
-  PlayerClaimWithdrawFromTreasuryRequest,
-  PlayerClimbRequest,
-  PlayerClosedListingCollectRequest,
-  PlayerCollectibleActivateRequest,
-  PlayerCompleteTaskRequest,
-  PlayerConvertCollectibleToDeedRequest,
-  PlayerConvertDeedToCollectibleRequest,
-  PlayerCraftCancelRequest,
-  PlayerCraftCollectAllRequest,
-  PlayerCraftCollectRequest,
-  PlayerCraftContinueRequest,
-  PlayerCraftInitiateRequest,
-  PlayerCreateMsg,
-  PlayerDeathTimer,
-  PlayerDeployableDismountRequest,
-  PlayerDeployableMountRequest,
-  PlayerDeployableMoveRequest,
-  PlayerDiscoverEntitiesRequest,
-  PlayerDismissAlertRequest,
-  PlayerDroppedInventoryPickUpRequest,
-  PlayerEatRequest,
-  PlayerEditOrderRequest,
-  PlayerEmoteRequest,
-  PlayerEquipmentAddRequest,
-  PlayerEquipmentRemoveRequest,
-  PlayerExtractRequest,
-  PlayerHousingDesc,
-  PlayerHousingEnterRequest,
-  PlayerHousingEvictPlayerRequest,
-  PlayerHousingEvictPlayerTimer,
-  PlayerHousingIncomeLoopTimer,
-  PlayerHousingRequestAccessRequest,
-  PlayerHousingState,
-  PlayerHousingStateOp,
-  PlayerItemConvertRequest,
-  PlayerItemDropRequest,
-  PlayerItemStackMoveAllRequest,
-  PlayerItemStackMoveRequest,
-  PlayerItemStackSplitRequest,
-  PlayerItemUseRequest,
-  PlayerLowercaseUsernameState,
-  PlayerMoveRequest,
-  PlayerNoteState,
-  PlayerNotificationEvent,
-  PlayerOrderCancelRequest,
-  PlayerOrderCollectRequest,
-  PlayerPassiveCraftQueueRequest,
-  PlayerPausePlayTimerRequest,
-  PlayerPavingDestroyTileRequest,
-  PlayerPavingPlaceTileRequest,
-  PlayerPermissionEditRequest,
-  PlayerPillarShapingDestroyRequest,
-  PlayerPillarShapingPlaceRequest,
-  PlayerPocketSwapContentsRequest,
-  PlayerPortalEnterRequest,
-  PlayerPostOrderRequest,
-  PlayerPrefsState,
-  PlayerProjectSiteAddMaterialsRequest,
-  PlayerProjectSiteAdvanceProjectRequest,
-  PlayerProjectSiteCancelRequest,
-  PlayerProjectSitePlaceRequest,
-  PlayerQueueState,
-  PlayerRegenLoopTimer,
-  PlayerRegionTransferEvent,
-  PlayerReportState,
-  PlayerReportStateOp,
-  PlayerReportStateTimestamp,
-  PlayerRetrieveLostItemRequest,
-  PlayerScrollReadRequest,
-  PlayerSetDefaultDeployableRequest,
-  PlayerSetHomeRequest,
-  PlayerSetNameOutcomeEvent,
-  PlayerSignInRequest,
-  PlayerSkipQueueMsg,
-  PlayerSleepRequest,
-  PlayerState,
-  PlayerTeleportHomeRequest,
-  PlayerTeleportWaystoneRequest,
-  PlayerTerraformCancelRequest,
-  PlayerTerraformRequest,
-  PlayerTerraformSetFinalTargetRequest,
-  PlayerTimestampState,
-  PlayerTradeAcceptRequest,
-  PlayerTradeAcceptSessionRequest,
-  PlayerTradeAddItemRequest,
-  PlayerTradeDeclineRequest,
-  PlayerTradeDeclineSessionRequest,
-  PlayerTradeInitiateSessionRequest,
-  PlayerTradeRemoveItemRequest,
-  PlayerTradeSwapPocketsRequest,
-  PlayerUseElevatorTimer,
-  PlayerUsernameState,
-  PlayerVoteAnswer,
-  PlayerVoteAnswerRequest,
-  PlayerVoteConcludeTimer,
-  PlayerVoteState,
-  PlayerVoteType,
-  Pocket,
-  PocketKey,
-  PortalState,
-  PrivateParametersDesc,
-  ProbabilisticItemStack,
-  ProgressiveActionState,
-  ProgressiveActionStatus,
-  ProjectSiteState,
-  Rarity,
-  RecoverDeployableMsg,
-  RegionConnectionInfo,
-  RegionConnectionInfoOp,
-  RegionDestroySiegeEngineMsg,
-  RegionPopulationInfo,
-  RegionPopulationInfoOp,
-  RegionPopulationLoopTimer,
-  RegionSignInParameters,
-  RegionSignInParametersOp,
-  RentAddListingRequest,
-  RentAddTenantRequest,
-  RentCollectorLoopTimer,
-  RentDepositCoinsRequest,
-  RentEvictRequest,
-  RentEvictTimer,
-  RentPurchaseRequest,
-  RentRemoveTenantRequest,
-  RentSetDailyRateRequest,
-  RentState,
-  RentTerminateRequest,
-  RentUnlistRequest,
-  ReportPlayerChatMessage,
-  ReportPlayerMessage,
-  ReservedNameDesc,
-  ResetChunkIndexTimer,
-  ResetMobileEntityTimer,
-  ResourceClumpDesc,
-  ResourceClumpInfo,
-  ResourceCount,
-  ResourceDesc,
-  ResourceGrowthRecipeDesc,
-  ResourceHealthState,
-  ResourceInfo,
-  ResourcePlacementRecipeDesc,
-  ResourcesLog,
-  ResourceSpawnTimer,
-  ResourcesRegenLoopTimer,
-  ResourceState,
-  RespawnResourceInChunkTimer,
-  RezSickLongTermState,
-  Role,
-  RuinsEntityValuePair,
-  SatiationState,
-  SecondaryKnowledgeDesc,
-  ServerIdentity,
-  ServerTeleportReason,
-  SignedInPlayerState,
-  SignPlayerOutMsg,
-  SingleResourceClumpInfo,
-  SingleResourceToClumpDesc,
-  SkillCategory,
-  SkillDesc,
-  SkillType,
-  SmallHexTileMessage,
-  SpawnInfo,
-  StagedStaticData,
-  StaminaState,
-  StarvingLoopTimer,
-  StarvingPlayerState,
-  StaticDataUpload,
-  SurfaceType,
-  TargetableState,
-  TargetingMatrixDesc,
-  TargetState,
-  TargetUpdateRequest,
-  TeleportationEnergyRegenLoopTimer,
-  TeleportationEnergyState,
-  TeleportItemDesc,
-  TeleportLocation,
-  TeleportLocationType,
-  TeleportPlayerTimer,
-  TerraformProgressState,
-  TerraformRecipeDesc,
-  TerrainCell,
-  TerrainChunkState,
-  TheGreatPlaceHolderTable,
-  ThreatState,
-  ToolbarState,
-  ToolDesc,
-  ToolRequirement,
-  ToolTypeDesc,
-  TradeOrderState,
-  TradePocket,
-  TradeSessionLoopTimer,
-  TradeSessionState,
-  TradeSessionStatus,
-  TransferPlayerHousingMsg,
-  TransferPlayerMsg,
-  TransferPlayerTimer,
-  TravelerTaskDesc,
-  TravelerTaskLoopTimer,
-  TravelerTaskState,
-  TravelerTradeOrderDesc,
-  TraversalSettings,
-  UnclaimedCollectiblesState,
-  UnclaimedShardsState,
-  UserAuthenticationState,
-  UserAuthenticationStateOp,
-  UserModerationPolicy,
-  UserModerationState,
-  UserModerationStateOp,
-  UserPreviousRegionState,
-  UserState,
-  UserStateOp,
-  UserUpdateRegionMsg,
-  VaultCollectible,
-  VaultState,
-  VfxAttachmentPoint,
-  WallDesc,
-  WeaponDesc,
-  WeaponTypeDesc,
-  WorldGenAnimationCurve,
-  WorldGenAnimationCurveKeyframe,
-  WorldGenBiomeDefinition,
-  WorldGenBiomesMapDefinition,
-  WorldGenBuildingDetails,
-  WorldGenBuildingsMapDefinition,
-  WorldGenGeneratedBuilding,
-  WorldGenGeneratedResourceDeposit,
-  WorldGenLandShapeDefinition,
-  WorldGenMountain,
-  WorldGenMountainsMapDefinition,
-  WorldGenNoiseBasedElevationLayer,
-  WorldGenNoiseBasedElevationLayerBlendingMode,
-  WorldGenNoiseSpecs,
-  WorldGenRectInt,
-  WorldGenResourceBiome,
-  WorldGenResourceDefinition,
-  WorldGenResourceDetails,
-  WorldGenResourcesMapDefinition,
-  WorldGenRiverGenerationSettings,
-  WorldGenRiverPathfindingCosts,
-  WorldGenVector2,
-  WorldGenVector2Int,
-  WorldGenWorldDefinition,
-  WorldGenWorldMapDefinition,
-  WorldRegionNameState,
-  WorldRegionState
-}
+export { AiDebugState }
+export { AchievementDesc }
+export { ActionCooldown }
+export { ActionState }
+export { ActiveBuff }
+export { ActiveBuffState }
+export { AdminBroadcast }
+export { AdminBroadcastMessageMsg }
+export { AdminClearResourceTimer }
+export { AdminRestorePlayerStateTimer }
+export { AlertDesc }
+export { AlertState }
+export { AlertType }
+export { AttachedHerdsState }
+export { AttackImpactTimer }
+export { AttackOutcomeState }
+export { AttackTimer }
+export { AuctionListingState }
+export { AutoClaimState }
+export { AutoLogoutLoopTimer }
+export { BarterStallSetMarketModeEnabledRequest }
+export { BarterStallState }
+export { Biome }
+export { BiomeDesc }
+export { BlockedIdentity }
+export { BlockedIdentityOp }
+export { BuffCategory }
+export { BuffDesc }
+export { BuffEffect }
+export { BuffTypeDesc }
+export { BuildingCategory }
+export { BuildingClaimDesc }
+export { BuildingDecayLoopTimer }
+export { BuildingDesc }
+export { BuildingDespawnTimer }
+export { BuildingFunction }
+export { BuildingFunctionTypeMappingDesc }
+export { BuildingInteractionLevel }
+export { BuildingNicknameState }
+export { BuildingNicknameStateOp }
+export { BuildingPortalDesc }
+export { BuildingRepairsDesc }
+export { BuildingRequirement }
+export { BuildingSetSignTextRequest }
+export { BuildingSpawnDesc }
+export { BuildingSpawnType }
+export { BuildingState }
+export { BuildingStateOp }
+export { BuildingTypeDesc }
+export { CappedLevelRequirement }
+export { CargoDesc }
+export { CharacterStatDesc }
+export { CharacterStatType }
+export { CharacterStatsState }
+export { ChatChannel }
+export { ChatMessageState }
+export { CheatCargoGrantRequest }
+export { CheatCompendiumEnemyPlaceRequest }
+export { CheatCompendiumItemPlaceRequest }
+export { CheatDiscoverMapRequest }
+export { CheatExperienceGrantRequest }
+export { CheatGrantKnowledgeRequest }
+export { CheatSetDebugAiStateRequest }
+export { CheatSpawnLootChestRequest }
+export { CheatTeleportFloatRequest }
+export { CheatToggleActiveCollectibleRequest }
+export { CheatWarpRequest }
+export { ChestLootRarity }
+export { ChestRarityDesc }
+export { ChunkCoordinatesMessage }
+export { ClaimCreateEmpireSettlementMsg }
+export { ClaimLocalState }
+export { ClaimMemberState }
+export { ClaimMemberStateOp }
+export { ClaimPermission }
+export { ClaimPurchaseSuppliesFromPlayerRequest }
+export { ClaimRecruitmentState }
+export { ClaimResupplyRequest }
+export { ClaimSetPurchaseSupplyPriceRequest }
+export { ClaimSetPurchaseSupplyThresholdRequest }
+export { ClaimState }
+export { ClaimStateOp }
+export { ClaimTechDesc }
+export { ClaimTechState }
+export { ClaimTechUnlockTimer }
+export { ClaimTileCost }
+export { ClaimTileState }
+export { ClaimType }
+export { ClimbRequirementDesc }
+export { ClosedListingState }
+export { ClothingDesc }
+export { ClothingMask }
+export { ClothingVisual }
+export { CollectStatsTimer }
+export { CollectibleDesc }
+export { CollectibleType }
+export { CombatActionDesc }
+export { CombatState }
+export { CommonRng }
+export { Config }
+export { ConstructionRecipeDesc }
+export { CraftingRecipeDesc }
+export { CsvStatEntry }
+export { DayNightLoopTimer }
+export { DeconstructionRecipeDesc }
+export { DeleteEmpireMsg }
+export { DeployableCollectibleState }
+export { DeployableDeployRequest }
+export { DeployableDesc }
+export { DeployableDismountTimer }
+export { DeployableState }
+export { DeployableStoreRequest }
+export { DeployableType }
+export { DestroyDimensionNetworkTimer }
+export { DimensionDescriptionState }
+export { DimensionNetworkState }
+export { DimensionType }
+export { DistantVisibleEntity }
+export { DistantVisibleEntityDesc }
+export { DroppedInventoryDespawnTimer }
+export { DroppedInventoryOwnershipTimer }
+export { DroppedInventoryState }
+export { DuelAgentTimer }
+export { DuelDespawnTimer }
+export { DuelState }
+export { ElevatorDesc }
+export { EmoteDesc }
+export { EmpireAddSiegeSuppliesRequest }
+export { EmpireChunkState }
+export { EmpireChunkStateOp }
+export { EmpireClaimJoinMsg }
+export { EmpireCollectHexiteCapsuleMsg }
+export { EmpireCollectHexiteCapsuleRequest }
+export { EmpireColorDesc }
+export { EmpireCreateBuildingMsg }
+export { EmpireExpansionState }
+export { EmpireExpansionStateOp }
+export { EmpireIconDesc }
+export { EmpireNodeSiegeState }
+export { EmpireNodeSiegeStateOp }
+export { EmpireNodeState }
+export { EmpireNodeStateOp }
+export { EmpireNotificationDesc }
+export { EmpireNotificationType }
+export { EmpirePlayerDataState }
+export { EmpirePlayerDataStateOp }
+export { EmpireQueueSuppliesMsg }
+export { EmpireQueueSuppliesRequest }
+export { EmpireRankDesc }
+export { EmpireRankState }
+export { EmpireRankStateOp }
+export { EmpireRemoveCrownMsg }
+export { EmpireResupplyNodeMsg }
+export { EmpireResupplyNodeRequest }
+export { EmpireSettlementState }
+export { EmpireSettlementStateOp }
+export { EmpireSiegeAddSuppliesMsg }
+export { EmpireStartSiegeMsg }
+export { EmpireStartSiegeRequest }
+export { EmpireState }
+export { EmpireStateOp }
+export { EmpireSuppliesDesc }
+export { EmpireTerritoryDesc }
+export { EmpireUpdateEmperorCrownMsg }
+export { EndGracePeriodTimer }
+export { EnemyAiParamsDesc }
+export { EnemyClearAggroRequest }
+export { EnemyDesc }
+export { EnemyDespawnTimer }
+export { EnemyMobMonitorState }
+export { EnemyMoveRequest }
+export { EnemyRegenLoopTimer }
+export { EnemySetHealthRequest }
+export { EnemySpawnLootRequest }
+export { EnemySpawnRequest }
+export { EnemyState }
+export { EnemyStatus }
+export { EnemyType }
+export { EntityAttackRequest }
+export { EntityType }
+export { EnvironmentDebuffDesc }
+export { EnvironmentDebuffLoopTimer }
+export { EnvironmentResistanceType }
+export { EquipmentDesc }
+export { EquipmentSlot }
+export { EquipmentSlotType }
+export { EquipmentState }
+export { EquipmentVisualType }
+export { ExperienceStack }
+export { ExperienceStackF32 }
+export { ExperienceState }
+export { ExplorationChunksState }
+export { ExtractOutcomeState }
+export { ExtractionRecipeDesc }
+export { FloatHexTileMessage }
+export { FoodDesc }
+export { FootprintTile }
+export { FootprintTileState }
+export { FootprintType }
+export { ForceGenerateTypes }
+export { GateDesc }
+export { GlobalDeleteEmpireBuildingMsg }
+export { GlobalSearchState }
+export { Globals }
+export { GracePeriodType }
+export { GrantHubItemMsg }
+export { GrowthLoopTimer }
+export { GrowthState }
+export { HandEquipmentVisual }
+export { HealthState }
+export { HerdState }
+export { HexDirection }
+export { HexiteExchangeEntryDesc }
+export { HideDeployableTimer }
+export { HubItemType }
+export { IdentityRole }
+export { IdentityRoleOp }
+export { InputItemStack }
+export { InterModuleMessage }
+export { InterModuleMessageCounter }
+export { InterModuleResponseMessageCounter }
+export { InterModuleTableUpdates }
+export { InteriorCollapseTriggerState }
+export { InteriorEnvironmentDesc }
+export { InteriorInstanceDesc }
+export { InteriorNetworkDesc }
+export { InteriorPortalConnectionsDesc }
+export { InteriorSetCollapsedTimer }
+export { InteriorShapeDesc }
+export { InteriorSpawnDesc }
+export { InteriorSpawnType }
+export { InventoryState }
+export { ItemConversionLocationContext }
+export { ItemConversionRecipeDesc }
+export { ItemDesc }
+export { ItemListDesc }
+export { ItemListPossibility }
+export { ItemStack }
+export { ItemType }
+export { KnowledgeAchievementState }
+export { KnowledgeBattleActionState }
+export { KnowledgeBuildingState }
+export { KnowledgeCargoState }
+export { KnowledgeClaimState }
+export { KnowledgeConstructionState }
+export { KnowledgeCraftState }
+export { KnowledgeDeployableState }
+export { KnowledgeEnemyState }
+export { KnowledgeEntityEntry }
+export { KnowledgeEntry }
+export { KnowledgeExtractState }
+export { KnowledgeItemState }
+export { KnowledgeLocationEntry }
+export { KnowledgeLoreState }
+export { KnowledgeNpcState }
+export { KnowledgePavingState }
+export { KnowledgePillarShapingState }
+export { KnowledgeResourcePlacementState }
+export { KnowledgeResourceState }
+export { KnowledgeRuinsState }
+export { KnowledgeScrollDesc }
+export { KnowledgeScrollTypeDesc }
+export { KnowledgeSecondaryState }
+export { KnowledgeStatModifierDesc }
+export { KnowledgeState }
+export { KnowledgeVaultState }
+export { LargeHexTileMessage }
+export { LevelRequirement }
+export { LightSourceState }
+export { LocationCache }
+export { LocationState }
+export { LocationStateOp }
+export { LootChestDesc }
+export { LootChestDespawnTimer }
+export { LootChestSpawnTimer }
+export { LootChestState }
+export { LootRarityDesc }
+export { LootTableDesc }
+export { LostItemsState }
+export { MessageContents }
+export { MobileEntityState }
+export { MountingState }
+export { MoveValidationParamsDesc }
+export { MoveValidationStrikeCounterState }
+export { MovementSpeed }
+export { MovementType }
+export { NotificationSeverity }
+export { NpcAiLoopTimer }
+export { NpcDesc }
+export { NpcState }
+export { NpcType }
+export { OffsetCoordinatesFloat }
+export { OffsetCoordinatesLargeMessage }
+export { OffsetCoordinatesSmallMessage }
+export { OnClaimMembersChangedMsg }
+export { OnDeployableRecoveredMsg }
+export { OnDurabilityZeroTimer }
+export { OnEmpireBuildingDeletedMsg }
+export { OnPlayerJoinedEmpireMsg }
+export { OnPlayerLeftEmpireMsg }
+export { OnPlayerNameSetMsg }
+export { OnRegionPlayerCreatedMsg }
+export { OnboardingRewardDesc }
+export { OnboardingState }
+export { OnlineTimestamp }
+export { ParametersDesc }
+export { ParametersPlayerMoveDesc }
+export { PassiveCraftState }
+export { PassiveCraftStatus }
+export { PassiveCraftTimer }
+export { PathfindingDesc }
+export { PathfindingTraversalOption }
+export { PavedTileState }
+export { PavingTileDesc }
+export { Permission }
+export { PermissionGroup }
+export { PermissionState }
+export { PillarShapingDesc }
+export { PillarShapingState }
+export { PlayerAchievementClaimRequest }
+export { PlayerAcquireKnowledgeFromEntitiesRequest }
+export { PlayerActionDesc }
+export { PlayerActionLayer }
+export { PlayerActionResult }
+export { PlayerActionState }
+export { PlayerActionType }
+export { PlayerBarterStallOrderAccept }
+export { PlayerBarterStallOrderCreateRequest }
+export { PlayerBarterStallOrderDeleteRequest }
+export { PlayerBuildingDeconstructRequest }
+export { PlayerBuildingMoveRequest }
+export { PlayerBuildingRepairRequest }
+export { PlayerBuildingSetNicknameRequest }
+export { PlayerChatPostMessageRequest }
+export { PlayerClaimAddMemberRequest }
+export { PlayerClaimAddRecruitmentRequest }
+export { PlayerClaimAddTileRequest }
+export { PlayerClaimApplyForRecruitmentRequest }
+export { PlayerClaimLeaveRequest }
+export { PlayerClaimRemoveMemberRequest }
+export { PlayerClaimRemoveRecruitmentRequest }
+export { PlayerClaimRemoveTileRequest }
+export { PlayerClaimRenameRequest }
+export { PlayerClaimSetMemberPermissionsRequest }
+export { PlayerClaimTakeOwnershipRequest }
+export { PlayerClaimTechCancelRequest }
+export { PlayerClaimTechLearnRequest }
+export { PlayerClaimTransferOwnershipRequest }
+export { PlayerClaimWithdrawFromTreasuryRequest }
+export { PlayerClimbRequest }
+export { PlayerClosedListingCollectRequest }
+export { PlayerCollectibleActivateRequest }
+export { PlayerCompleteTaskRequest }
+export { PlayerConvertCollectibleToDeedRequest }
+export { PlayerConvertDeedToCollectibleRequest }
+export { PlayerCraftCancelRequest }
+export { PlayerCraftCollectAllRequest }
+export { PlayerCraftCollectRequest }
+export { PlayerCraftContinueRequest }
+export { PlayerCraftInitiateRequest }
+export { PlayerCreateMsg }
+export { PlayerDeathTimer }
+export { PlayerDeployableDismountRequest }
+export { PlayerDeployableMountRequest }
+export { PlayerDeployableMoveRequest }
+export { PlayerDiscoverEntitiesRequest }
+export { PlayerDismissAlertRequest }
+export { PlayerDroppedInventoryPickUpRequest }
+export { PlayerEatRequest }
+export { PlayerEditOrderRequest }
+export { PlayerEmoteRequest }
+export { PlayerEquipmentAddRequest }
+export { PlayerEquipmentRemoveRequest }
+export { PlayerExtractRequest }
+export { PlayerHousingDesc }
+export { PlayerHousingEnterRequest }
+export { PlayerHousingEvictPlayerRequest }
+export { PlayerHousingEvictPlayerTimer }
+export { PlayerHousingIncomeLoopTimer }
+export { PlayerHousingRequestAccessRequest }
+export { PlayerHousingState }
+export { PlayerHousingStateOp }
+export { PlayerItemConvertRequest }
+export { PlayerItemDropRequest }
+export { PlayerItemStackMoveAllRequest }
+export { PlayerItemStackMoveRequest }
+export { PlayerItemStackSplitRequest }
+export { PlayerItemUseRequest }
+export { PlayerLowercaseUsernameState }
+export { PlayerMoveRequest }
+export { PlayerNoteState }
+export { PlayerNotificationEvent }
+export { PlayerOrderCancelRequest }
+export { PlayerOrderCollectRequest }
+export { PlayerPassiveCraftQueueRequest }
+export { PlayerPausePlayTimerRequest }
+export { PlayerPavingDestroyTileRequest }
+export { PlayerPavingPlaceTileRequest }
+export { PlayerPermissionEditRequest }
+export { PlayerPillarShapingDestroyRequest }
+export { PlayerPillarShapingPlaceRequest }
+export { PlayerPocketSwapContentsRequest }
+export { PlayerPortalEnterRequest }
+export { PlayerPostOrderRequest }
+export { PlayerPrefsState }
+export { PlayerProjectSiteAddMaterialsRequest }
+export { PlayerProjectSiteAdvanceProjectRequest }
+export { PlayerProjectSiteCancelRequest }
+export { PlayerProjectSitePlaceRequest }
+export { PlayerQueueState }
+export { PlayerRegenLoopTimer }
+export { PlayerRegionTransferEvent }
+export { PlayerReportState }
+export { PlayerReportStateOp }
+export { PlayerReportStateTimestamp }
+export { PlayerRetrieveLostItemRequest }
+export { PlayerScrollReadRequest }
+export { PlayerSetDefaultDeployableRequest }
+export { PlayerSetHomeRequest }
+export { PlayerSetNameOutcomeEvent }
+export { PlayerSignInRequest }
+export { PlayerSkipQueueMsg }
+export { PlayerSleepRequest }
+export { PlayerState }
+export { PlayerTeleportHomeRequest }
+export { PlayerTeleportWaystoneRequest }
+export { PlayerTerraformCancelRequest }
+export { PlayerTerraformRequest }
+export { PlayerTerraformSetFinalTargetRequest }
+export { PlayerTimestampState }
+export { PlayerTradeAcceptRequest }
+export { PlayerTradeAcceptSessionRequest }
+export { PlayerTradeAddItemRequest }
+export { PlayerTradeDeclineRequest }
+export { PlayerTradeDeclineSessionRequest }
+export { PlayerTradeInitiateSessionRequest }
+export { PlayerTradeRemoveItemRequest }
+export { PlayerTradeSwapPocketsRequest }
+export { PlayerUseElevatorTimer }
+export { PlayerUsernameState }
+export { PlayerVoteAnswer }
+export { PlayerVoteAnswerRequest }
+export { PlayerVoteConcludeTimer }
+export { PlayerVoteState }
+export { PlayerVoteType }
+export { Pocket }
+export { PocketKey }
+export { PortalState }
+export { PrivateParametersDesc }
+export { ProbabilisticItemStack }
+export { ProgressiveActionState }
+export { ProgressiveActionStatus }
+export { ProjectSiteState }
+export { Rarity }
+export { RecoverDeployableMsg }
+export { RegionConnectionInfo }
+export { RegionConnectionInfoOp }
+export { RegionDestroySiegeEngineMsg }
+export { RegionPopulationInfo }
+export { RegionPopulationInfoOp }
+export { RegionPopulationLoopTimer }
+export { RegionSignInParameters }
+export { RegionSignInParametersOp }
+export { RentAddListingRequest }
+export { RentAddTenantRequest }
+export { RentCollectorLoopTimer }
+export { RentDepositCoinsRequest }
+export { RentEvictRequest }
+export { RentEvictTimer }
+export { RentPurchaseRequest }
+export { RentRemoveTenantRequest }
+export { RentSetDailyRateRequest }
+export { RentState }
+export { RentTerminateRequest }
+export { RentUnlistRequest }
+export { ReportPlayerChatMessage }
+export { ReportPlayerMessage }
+export { ReservedNameDesc }
+export { ResetChunkIndexTimer }
+export { ResetMobileEntityTimer }
+export { ResourceClumpDesc }
+export { ResourceClumpInfo }
+export { ResourceCount }
+export { ResourceDesc }
+export { ResourceGrowthRecipeDesc }
+export { ResourceHealthState }
+export { ResourceInfo }
+export { ResourcePlacementRecipeDesc }
+export { ResourceSpawnTimer }
+export { ResourceState }
+export { ResourcesLog }
+export { ResourcesRegenLoopTimer }
+export { RespawnResourceInChunkTimer }
+export { RezSickLongTermState }
+export { Role }
+export { RuinsEntityValuePair }
+export { SatiationState }
+export { SecondaryKnowledgeDesc }
+export { ServerIdentity }
+export { ServerTeleportReason }
+export { SignPlayerOutMsg }
+export { SignedInPlayerState }
+export { SingleResourceClumpInfo }
+export { SingleResourceToClumpDesc }
+export { SkillCategory }
+export { SkillDesc }
+export { SkillType }
+export { SmallHexTileMessage }
+export { SpawnInfo }
+export { StagedStaticData }
+export { StaminaState }
+export { StarvingLoopTimer }
+export { StarvingPlayerState }
+export { StaticDataUpload }
+export { SurfaceType }
+export { TargetState }
+export { TargetUpdateRequest }
+export { TargetableState }
+export { TargetingMatrixDesc }
+export { TeleportItemDesc }
+export { TeleportLocation }
+export { TeleportLocationType }
+export { TeleportPlayerTimer }
+export { TeleportationEnergyRegenLoopTimer }
+export { TeleportationEnergyState }
+export { TerraformProgressState }
+export { TerraformRecipeDesc }
+export { TerrainCell }
+export { TerrainChunkState }
+export { TheGreatPlaceHolderTable }
+export { ThreatState }
+export { ToolDesc }
+export { ToolRequirement }
+export { ToolTypeDesc }
+export { ToolbarState }
+export { TradeOrderState }
+export { TradePocket }
+export { TradeSessionLoopTimer }
+export { TradeSessionState }
+export { TradeSessionStatus }
+export { TransferPlayerHousingMsg }
+export { TransferPlayerMsg }
+export { TransferPlayerTimer }
+export { TravelerTaskDesc }
+export { TravelerTaskLoopTimer }
+export { TravelerTaskState }
+export { TravelerTradeOrderDesc }
+export { TraversalSettings }
+export { UnclaimedCollectiblesState }
+export { UnclaimedShardsState }
+export { UserAuthenticationState }
+export { UserAuthenticationStateOp }
+export { UserModerationPolicy }
+export { UserModerationState }
+export { UserModerationStateOp }
+export { UserPreviousRegionState }
+export { UserState }
+export { UserStateOp }
+export { UserUpdateRegionMsg }
+export { VaultCollectible }
+export { VaultState }
+export { VfxAttachmentPoint }
+export { WallDesc }
+export { WeaponDesc }
+export { WeaponTypeDesc }
+export { WorldGenAnimationCurve }
+export { WorldGenAnimationCurveKeyframe }
+export { WorldGenBiomeDefinition }
+export { WorldGenBiomesMapDefinition }
+export { WorldGenBuildingDetails }
+export { WorldGenBuildingsMapDefinition }
+export { WorldGenGeneratedBuilding }
+export { WorldGenGeneratedResourceDeposit }
+export { WorldGenLandShapeDefinition }
+export { WorldGenMountain }
+export { WorldGenMountainsMapDefinition }
+export { WorldGenNoiseBasedElevationLayer }
+export { WorldGenNoiseBasedElevationLayerBlendingMode }
+export { WorldGenNoiseSpecs }
+export { WorldGenRectInt }
+export { WorldGenResourceBiome }
+export { WorldGenResourceDefinition }
+export { WorldGenResourceDetails }
+export { WorldGenResourcesMapDefinition }
+export { WorldGenRiverGenerationSettings }
+export { WorldGenRiverPathfindingCosts }
+export { WorldGenVector2 }
+export { WorldGenVector2Int }
+export { WorldGenWorldDefinition }
+export { WorldGenWorldMapDefinition }
+export { WorldRegionNameState }
+export { WorldRegionState }
 
 const REMOTE_MODULE = {
   tables: {
@@ -5528,6 +5526,10 @@ const REMOTE_MODULE = {
       reducerName: 'admin_delete_all_items_of_type',
       argsType: AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType()
     },
+    admin_delete_chat_message: {
+      reducerName: 'admin_delete_chat_message',
+      argsType: AdminDeleteChatMessage.getTypeScriptAlgebraicType()
+    },
     admin_despawn_overworld_enemies: {
       reducerName: 'admin_despawn_overworld_enemies',
       argsType: AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType()
@@ -5535,6 +5537,10 @@ const REMOTE_MODULE = {
     admin_grant_collectibles: {
       reducerName: 'admin_grant_collectibles',
       argsType: AdminGrantCollectibles.getTypeScriptAlgebraicType()
+    },
+    admin_modify_chat_message: {
+      reducerName: 'admin_modify_chat_message',
+      argsType: AdminModifyChatMessage.getTypeScriptAlgebraicType()
     },
     admin_rename_building: {
       reducerName: 'admin_rename_building',
@@ -7807,8 +7813,10 @@ export type Reducer =
   | { name: 'AdminCompleteAllPassiveCrafts'; args: AdminCompleteAllPassiveCrafts }
   | { name: 'AdminCountInventoryItems'; args: AdminCountInventoryItems }
   | { name: 'AdminDeleteAllItemsOfType'; args: AdminDeleteAllItemsOfType }
+  | { name: 'AdminDeleteChatMessage'; args: AdminDeleteChatMessage }
   | { name: 'AdminDespawnOverworldEnemies'; args: AdminDespawnOverworldEnemies }
   | { name: 'AdminGrantCollectibles'; args: AdminGrantCollectibles }
+  | { name: 'AdminModifyChatMessage'; args: AdminModifyChatMessage }
   | { name: 'AdminRenameBuilding'; args: AdminRenameBuilding }
   | { name: 'AdminRenameBuildingCoord'; args: AdminRenameBuildingCoord }
   | { name: 'AdminRenameBuildingEntity'; args: AdminRenameBuildingEntity }
@@ -8767,6 +8775,26 @@ export class RemoteReducers {
     this.connection.offReducer('admin_delete_all_items_of_type', callback)
   }
 
+  adminDeleteChatMessage(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminDeleteChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_delete_chat_message',
+      __argsBuffer,
+      this.setCallReducerFlags.adminDeleteChatMessageFlags
+    )
+  }
+
+  onAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_delete_chat_message', callback)
+  }
+
+  removeOnAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_delete_chat_message', callback)
+  }
+
   adminDespawnOverworldEnemies() {
     this.connection.callReducer(
       'admin_despawn_overworld_enemies',
@@ -8803,6 +8831,28 @@ export class RemoteReducers {
     callback: (ctx: ReducerEventContext, identity: string, collectibles: number[]) => void
   ) {
     this.connection.offReducer('admin_grant_collectibles', callback)
+  }
+
+  adminModifyChatMessage(entityId: bigint, newMessageText: string) {
+    const __args = { entityId, newMessageText }
+    let __writer = new BinaryWriter(1024)
+    AdminModifyChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_modify_chat_message',
+      __argsBuffer,
+      this.setCallReducerFlags.adminModifyChatMessageFlags
+    )
+  }
+
+  onAdminModifyChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void) {
+    this.connection.onReducer('admin_modify_chat_message', callback)
+  }
+
+  removeOnAdminModifyChatMessage(
+    callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void
+  ) {
+    this.connection.offReducer('admin_modify_chat_message', callback)
   }
 
   adminRenameBuilding(buildingName: string, newName: string) {
@@ -19390,6 +19440,11 @@ export class SetReducerFlags {
     this.adminDeleteAllItemsOfTypeFlags = flags
   }
 
+  adminDeleteChatMessageFlags: CallReducerFlags = 'FullUpdate'
+  adminDeleteChatMessage(flags: CallReducerFlags) {
+    this.adminDeleteChatMessageFlags = flags
+  }
+
   adminDespawnOverworldEnemiesFlags: CallReducerFlags = 'FullUpdate'
   adminDespawnOverworldEnemies(flags: CallReducerFlags) {
     this.adminDespawnOverworldEnemiesFlags = flags
@@ -19398,6 +19453,11 @@ export class SetReducerFlags {
   adminGrantCollectiblesFlags: CallReducerFlags = 'FullUpdate'
   adminGrantCollectibles(flags: CallReducerFlags) {
     this.adminGrantCollectiblesFlags = flags
+  }
+
+  adminModifyChatMessageFlags: CallReducerFlags = 'FullUpdate'
+  adminModifyChatMessage(flags: CallReducerFlags) {
+    this.adminModifyChatMessageFlags = flags
   }
 
   adminRenameBuildingFlags: CallReducerFlags = 'FullUpdate'

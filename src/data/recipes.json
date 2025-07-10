@@ -1407,7 +1407,7 @@
     "output": [
       {
         "item": "item_1080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1080002",
@@ -1415,7 +1415,7 @@
       },
       {
         "item": "item_1080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1080002",
@@ -3787,7 +3787,7 @@
     "output": [
       {
         "item": "item_2080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_2080002",
@@ -3795,7 +3795,7 @@
       },
       {
         "item": "item_2080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_2080002",
@@ -6115,7 +6115,7 @@
     "output": [
       {
         "item": "item_3080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_3080002",
@@ -6123,7 +6123,7 @@
       },
       {
         "item": "item_3080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_3080002",
@@ -6151,7 +6151,7 @@
     "output": [
       {
         "item": "item_3080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_3080002",
@@ -6159,7 +6159,7 @@
       },
       {
         "item": "item_3080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_3080002",
@@ -6187,7 +6187,7 @@
     "output": [
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -6195,7 +6195,7 @@
       },
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -6223,7 +6223,7 @@
     "output": [
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -6231,7 +6231,7 @@
       },
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -8484,7 +8484,7 @@
     "output": [
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -8492,7 +8492,7 @@
       },
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -8520,7 +8520,7 @@
     "output": [
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -8528,7 +8528,7 @@
       },
       {
         "item": "item_4080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_4080002",
@@ -10740,7 +10740,7 @@
     "output": [
       {
         "item": "item_5080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_5080002",
@@ -10748,7 +10748,7 @@
       },
       {
         "item": "item_5080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_5080002",
@@ -12920,7 +12920,7 @@
     "output": [
       {
         "item": "item_6080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_6080002",
@@ -12928,7 +12928,7 @@
       },
       {
         "item": "item_6080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_6080002",
@@ -14784,6 +14784,26 @@
     "output": [
       {
         "item": "item_1239191446",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 6386277,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_98643046",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_1026230335",
         "qty": 1
       }
     ]
@@ -17031,6 +17051,26 @@
     "output": [
       {
         "item": "item_265779280",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 77388739,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_389773215",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_53658000",
         "qty": 1
       }
     ]
@@ -21824,6 +21864,26 @@
     ]
   },
   {
+    "id": 215158732,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_5080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_5100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 216331515,
     "name": "Craft {0}",
     "requirements": {
@@ -23827,6 +23887,26 @@
     "output": [
       {
         "item": "item_4100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 264570569,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1100001",
         "qty": 1
       }
     ]
@@ -26279,7 +26359,7 @@
     "output": [
       {
         "item": "item_44066242",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1623412821",
@@ -26287,7 +26367,7 @@
       },
       {
         "item": "item_44066242",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1623412821",
@@ -28387,7 +28467,7 @@
     "output": [
       {
         "item": "item_1440340964",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_671494642",
@@ -28395,7 +28475,7 @@
       },
       {
         "item": "item_1440340964",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_671494642",
@@ -28652,7 +28732,7 @@
     "output": [
       {
         "item": "item_485174554",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1197392727",
@@ -28660,7 +28740,7 @@
       },
       {
         "item": "item_485174554",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_1197392727",
@@ -30748,6 +30828,26 @@
     ]
   },
   {
+    "id": 479906132,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1573699181",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_583106011",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 480748630,
     "name": "Craft {0}",
     "requirements": {
@@ -32091,6 +32191,26 @@
     ]
   },
   {
+    "id": 510265443,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_283591176",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_1496962595",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 511902860,
     "name": "Grow {0}",
     "requirements": {
@@ -32673,6 +32793,26 @@
       {
         "item": "item_1823166650",
         "qty": 3
+      }
+    ]
+  },
+  {
+    "id": 523002838,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_3110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_3100001",
+        "qty": 1
       }
     ]
   },
@@ -34225,6 +34365,26 @@
     ]
   },
   {
+    "id": 563094859,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_4080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_4100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 563451837,
     "name": "Mix {0}",
     "requirements": {
@@ -34683,6 +34843,26 @@
       },
       {
         "item": "item_512370694",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 582282370,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_6110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_6100001",
         "qty": 1
       }
     ]
@@ -35515,6 +35695,26 @@
       },
       {
         "item": "item_1665387210",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 610190826,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1359102754",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_960407828",
         "qty": 1
       }
     ]
@@ -36917,6 +37117,26 @@
       {
         "item": "item_1595786521",
         "qty": 5
+      }
+    ]
+  },
+  {
+    "id": 644521066,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1056358610",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1895003720",
+        "qty": 1
       }
     ]
   },
@@ -41555,6 +41775,26 @@
     "output": [
       {
         "item": "item_117902929",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 799502376,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1569513170",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_1546723412",
         "qty": 1
       }
     ]
@@ -46555,6 +46795,46 @@
     ]
   },
   {
+    "id": 955826501,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_3080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_3100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 958376387,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_671494642",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_18012337",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 958530433,
     "name": "Cook {0}",
     "requirements": {
@@ -47747,6 +48027,26 @@
       },
       {
         "item": "item_1058724625",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 983338660,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_391105297",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_1412406838",
         "qty": 1
       }
     ]
@@ -49113,7 +49413,7 @@
     "output": [
       {
         "item": "item_5080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_5080002",
@@ -49121,7 +49421,7 @@
       },
       {
         "item": "item_5080001",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_5080002",
@@ -56262,6 +56562,26 @@
     ]
   },
   {
+    "id": 1248018421,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_2110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_2100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1248106030,
     "name": "Craft {0}",
     "requirements": {
@@ -58624,6 +58944,26 @@
     ]
   },
   {
+    "id": 1309033235,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1030159712",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_338529773",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1310882798,
     "name": "Craft {0}",
     "requirements": {
@@ -59680,6 +60020,46 @@
     ]
   },
   {
+    "id": 1341786121,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1623412821",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1329815128",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 1342641734,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_580465059",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_52170614",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1343200708,
     "name": "Craft {0}",
     "requirements": {
@@ -60504,6 +60884,26 @@
       },
       {
         "item": "item_1300041455",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 1371678850,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_61508445",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1329815128",
         "qty": 1
       }
     ]
@@ -64390,6 +64790,26 @@
     ]
   },
   {
+    "id": 1480334512,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1527038072",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_1090785594",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1480502500,
     "name": "Cut {0}",
     "requirements": {
@@ -66687,6 +67107,26 @@
       },
       {
         "item": "item_1043496108",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 1539566063,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1912257356",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_52170614",
         "qty": 1
       }
     ]
@@ -70279,6 +70719,26 @@
     ]
   },
   {
+    "id": 1651656303,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_6080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_6100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1652477992,
     "name": "Craft {0}",
     "requirements": {
@@ -72384,6 +72844,26 @@
     ]
   },
   {
+    "id": 1713438895,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1197392727",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1895003720",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1714438067,
     "name": "Craft {0}",
     "requirements": {
@@ -72581,6 +73061,26 @@
       },
       {
         "item": "item_695348739",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 1719340844,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_2080002",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_2100001",
         "qty": 1
       }
     ]
@@ -74842,7 +75342,7 @@
     "output": [
       {
         "item": "item_646035689",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_580465059",
@@ -74850,7 +75350,7 @@
       },
       {
         "item": "item_646035689",
-        "qty": 2
+        "qty": 3
       },
       {
         "item": "item_580465059",
@@ -78252,6 +78752,26 @@
     ]
   },
   {
+    "id": 1880999804,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_5110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_5100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1882123664,
     "name": "Craft {0}",
     "requirements": {
@@ -79747,6 +80267,26 @@
       },
       {
         "item": "item_1768585646",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 1918837268,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_4110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_4100001",
         "qty": 1
       }
     ]
@@ -82585,6 +83125,26 @@
     ]
   },
   {
+    "id": 1992652569,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1110021",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_1100001",
+        "qty": 1
+      }
+    ]
+  },
+  {
     "id": 1992955945,
     "name": "Cook {0}",
     "requirements": {
@@ -84084,6 +84644,26 @@
       },
       {
         "item": "item_745640067",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 2039104338,
+    "name": "Pack {0}",
+    "requirements": {
+      "professions": "scholar",
+      "tool": "quill",
+      "materials": [
+        {
+          "id": "item_1020188259",
+          "qty": 10
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "cargo_2146702618",
         "qty": 1
       }
     ]
@@ -85895,6 +86475,26 @@
     "output": [
       {
         "item": "item_1258567852",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": 2102897543,
+    "name": "Make {0}",
+    "requirements": {
+      "professions": "farming",
+      "tool": "hoe",
+      "materials": [
+        {
+          "id": "item_1509252047",
+          "qty": 1
+        }
+      ]
+    },
+    "output": [
+      {
+        "item": "item_18012337",
         "qty": 1
       }
     ]

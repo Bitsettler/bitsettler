@@ -6836,7 +6836,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A cart that can transport items and cargo.\n\nSpeed: 15\nItem Slots: 20\nItem Slot Depth: 1x\nCargo Slots: 3\nCargo Slot Depth: 10x",
+    "description": "A cart that can transport items and cargo.",
     "icon_asset_name": "GeneratedIcons/Items/Cart"
   },
   {
@@ -6846,7 +6846,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A wagon that can transport large amounts of cargo.\n\nSpeed: 12\nItem Slots: 20\nItem Slot Depth: 1x\nCargo Slots: 10\nCargo Slot Depth: 10x",
+    "description": "A wagon that can transport large amounts of cargo.",
     "icon_asset_name": "GeneratedIcons/Items/LargeCart"
   },
   {
@@ -7116,7 +7116,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A large boat that could transport a lot of cargo and aswell as a few passengers. Travels faster in the ocean. Slower on rivers and in the swamp.\n\nItem Slots: 30\nItem Slot Depth: 1x\nCargo Slots: 10\nCargo Slot Depth: 10x",
+    "description": "A large boat that could transport a lot of cargo and aswell as a few passengers. Travels faster in the ocean. Slower on rivers and in the swamp.",
     "icon_asset_name": "GeneratedIcons/Items/CargoShip"
   },
   {
@@ -7126,7 +7126,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A cart that can transport items and cargo.\n\nSpeed: 13\nItem Slots: 12\nItem Slot Depth: 1x\nCargo Slots: 1\nCargo Slot Depth: 10x",
+    "description": "A cart that can transport items and cargo.",
     "icon_asset_name": "GeneratedIcons/Items/Cart"
   },
   {
@@ -7146,7 +7146,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A quick boat that could transport cargo and aswell as a few passengers. Travels a moderate speed on both the ocean and on rivers. Slower in swamps.\n\nItem Slots: 30\nItem Slot Depth: 1x\nCargo Slots: 6\nCargo Slot Depth: 10x",
+    "description": "A quick boat that could transport cargo and aswell as a few passengers. Travels a moderate speed on both the ocean and on rivers. Slower in swamps.",
     "icon_asset_name": "GeneratedIcons/Items/Clipper"
   },
   {
@@ -7586,7 +7586,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A cart that can transport items and cargo.\n\nSpeed: 14\nItem Slots: 16\nItem Slot Depth: 1x\nCargo Slots: 2\nCargo Slot Depth: 10x",
+    "description": "A cart that can transport items and cargo.",
     "icon_asset_name": "GeneratedIcons/Items/Cart"
   },
   {
@@ -7596,7 +7596,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A wagon that can transport large amounts of cargo.\n\nSpeed: 11\nItem Slots: 16\nItem Slot Depth: 1x\nCargo Slots: 8\nCargo Slot Depth: 10x",
+    "description": "A wagon that can transport large amounts of cargo.",
     "icon_asset_name": "GeneratedIcons/Items/LargeCart"
   },
   {
@@ -8246,7 +8246,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A small raft that could transport another player and a small amount of cargo. Purchased from Svim.\n\nItem Slots: 6\nItem Slot Depth: 1x\nCargo Slots: 1\nCargo Slot Depth: 10x",
+    "description": "A small raft that could transport another player and a small amount of cargo. Purchased from Svim.",
     "icon_asset_name": "GeneratedIcons/Items/Raft"
   },
   {
@@ -8466,7 +8466,7 @@
     "tier": -1,
     "rarity": "common",
     "category": "item",
-    "description": "An extremely fast mount that excels at crossing large, flat areas.\n\nSpeed: 31\nItem Slots: 0\nCargo Slots: 0",
+    "description": "An extremely fast mount that excels at crossing large, flat areas.",
     "icon_asset_name": "GeneratedIcons/Other/Animals/Terrorbird"
   },
   {
@@ -8476,7 +8476,7 @@
     "tier": -1,
     "rarity": "common",
     "category": "item",
-    "description": "A deer that can be riden for faster traversal.\n\nSpeed: 25\nItem Slots: 0\nCargo Slots: 1\nCargo Slot Depth: 3x",
+    "description": "A deer that can be riden for faster traversal.",
     "icon_asset_name": "GeneratedIcons/Other/Animals/DeerMale"
   },
   {
@@ -8486,7 +8486,7 @@
     "tier": -1,
     "rarity": "common",
     "category": "item",
-    "description": "A goat that can be riden for faster traversal.\n\nSpeed: 22\nItem Slots: 0\nCargo Slots: 2\nCargo Slot Depth: 3x",
+    "description": "A goat that can be riden for faster traversal.",
     "icon_asset_name": "GeneratedIcons/Other/Animals/Goat"
   },
   {
@@ -8496,7 +8496,7 @@
     "tier": -1,
     "rarity": "common",
     "category": "item",
-    "description": "An Ox which excels at carrying large quantities of items and medium quantities of cargo. \n\nSpeed: 18\nItem Slots: 20\nItem Slot Depth: 10x\nCargo Slots: 6\nCargo Slot Depth: 3x",
+    "description": "An Ox which excels at carrying large quantities of items and medium quantities of cargo.",
     "icon_asset_name": "GeneratedIcons/Other/Animals/Bison"
   },
   {
@@ -9216,7 +9216,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A quick boat that could transport cargo and aswell as a few passengers. Particularly fast on rivers. Slower on the ocean and in the swamp.\n\nItem Slots: 24\nItem Slot Depth: 1x\nCargo Slots: 4\nCargo Slot Depth: 10x",
+    "description": "A quick boat that could transport cargo and aswell as a few passengers. Particularly fast on rivers. Slower on the ocean and in the swamp.",
     "icon_asset_name": "GeneratedIcons/Items/Skiff"
   },
   {
@@ -9426,7 +9426,7 @@
     "tier": 1,
     "rarity": "common",
     "category": "item",
-    "description": "A wagon that can transport large amounts of cargo.\n\nSpeed: 10\nItem Slots: 12\nItem Slot Depth: 1x\nCargo Slots: 6\nCargo Slot Depth: 10x",
+    "description": "A wagon that can transport large amounts of cargo.",
     "icon_asset_name": "GeneratedIcons/Items/LargeCart"
   },
   {
@@ -35734,7 +35734,7 @@
     "name": "Traveler's Fruit",
     "slug": "traveler-s-fruit",
     "tier": -1,
-    "rarity": "common",
+    "rarity": "mythic",
     "category": "item",
     "description": "This fruit is teeming with energy. Restores 20 teleportation energy.",
     "icon_asset_name": "GeneratedIcons/Items/TravelersFruit"
