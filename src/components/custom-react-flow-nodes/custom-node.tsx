@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { getTierColor } from '@/lib/utils/item-utils'
+import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
@@ -339,6 +339,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               Tier {itemData.tier}
             </Badge>
           )}
+          <Badge variant="outline" className={`text-xs ${getRarityColor(itemData.rarity || 'common')}`}>
+            {itemData.rarity || 'Common'}
+          </Badge>
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {itemData.category}
           </Badge>

@@ -17,10 +17,11 @@
     "menu": "Menu"
   },
   "header": {
-    "title": "Bitcraft.Guide",
-    "subtitle": "Unofficial Crafting Calculator & Wiki",
+    "title": "Welcome to Bitcraft.Guide!",
+    "subtitle": "We are the unofficial BitCraft Online encyclopaedia, written and maintained by the players.",
     "navigation": {
       "calculator": "Calculator",
+      "compendium": "Compendium",
       "wiki": "Wiki",
       "projects": "Projects",
       "about": "About",
@@ -81,6 +82,30 @@
   "languageSwitcher": {
     "switchLanguage": "Switch language",
     "switchLanguageSr": "Switch language"
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "mainPage": "Main page",
+    "aboutUs": "About us",
+    "randomPage": "Random page",
+    "contactUs": "Contact us",
+    "donate": "Donate",
+    "recentChanges": "Recent Changes",
+    "changelog": "Changelog",
+    "recentChangesDescription": "Game updates, dev blogs, and more coming soon!",
+    "guides": "Guides",
+    "guidesComingSoon": "Coming soon! 🚀",
+    "community": "Community",
+    "bitcraftGuideDiscord": "Discord",
+    "bitcraftGuideGithub": "GitHub",
+    "bitcraftGuideTwitter": "Twitter",
+    "tools": "Tools",
+    "calculator": "Calculator",
+    "projects": "Projects",
+    "comingSoon": "Soon"
+  },
+  "search": {
+    "globalPlaceholder": "Search the guide..."
   },
   "toast": {
     "quantityAdjusted": "Quantity adjusted to minimum of {minQuantity}. This recipe produces {minQuantity} items per craft.",

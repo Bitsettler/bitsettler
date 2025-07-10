@@ -1,5 +1,7 @@
+import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { Sidebar } from '@/components/sidebar'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
@@ -60,11 +62,14 @@ export default async function LocaleLayout({
       <body className={`${geistSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+            <Header />
+            <Container className="grid grid-cols-12">
+              <div className="col-span-2">
+                <Sidebar />
+              </div>
+              <main className="col-span-10 overflow-hidden">{children}</main>
+            </Container>
+            <Footer />
             <Analytics />
             <Toaster />
           </NextIntlClientProvider>

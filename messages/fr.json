@@ -17,10 +17,11 @@
     "menu": "Menu"
   },
   "header": {
-    "title": "Bitcraft.Guide",
-    "subtitle": "Calculateur de Crafting & Wiki Non Officiel",
+    "title": "Bienvenue sur Bitcraft.Guide !",
+    "subtitle": "Nous sommes l'encyclopédie non officielle de BitCraft Online, écrite et maintenue par les joueurs.",
     "navigation": {
       "calculator": "Calculateur",
+      "compendium": "Compendium",
       "wiki": "Wiki",
       "projects": "Projets",
       "about": "À propos",
@@ -81,6 +82,30 @@
   "languageSwitcher": {
     "switchLanguage": "Changer de langue",
     "switchLanguageSr": "Changer de langue"
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "mainPage": "Page principale",
+    "aboutUs": "À propos de nous",
+    "randomPage": "Page aléatoire",
+    "contactUs": "Nous contacter",
+    "donate": "Faire un don",
+    "recentChanges": "Changements récents",
+    "changelog": "Journal des modifications",
+    "recentChangesDescription": "Mises à jour du jeu, blogs des développeurs et plus à venir !",
+    "guides": "Guides",
+    "guidesComingSoon": "Bientôt disponible ! 🚀",
+    "community": "Communauté",
+    "bitcraftGuideDiscord": "Discord",
+    "bitcraftGuideGithub": "GitHub",
+    "bitcraftGuideTwitter": "Twitter",
+    "tools": "Outils",
+    "calculator": "Calculateur",
+    "projects": "Projets",
+    "comingSoon": "Bientôt"
+  },
+  "search": {
+    "globalPlaceholder": "Rechercher dans le guide..."
   },
   "toast": {
     "quantityAdjusted": "Quantité ajustée au minimum de {minQuantity}. Cette recette produit {minQuantity} objets par craft.",

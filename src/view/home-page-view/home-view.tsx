@@ -1,4 +1,3 @@
-import { Container } from '@/components/container'
 import { HeroSection } from './hero-section'
 
 interface Item {
@@ -7,6 +6,7 @@ interface Item {
   slug: string
   category: string
   tier: number
+  rarity: string
   icon_asset_name: string
 }
 
@@ -16,8 +16,8 @@ interface HomeViewProps {
 
 export function HomeView({ items }: HomeViewProps) {
   return (
-    <Container className="flex min-h-[calc(100vh-4rem)] flex-col items-center py-40">
+    <div className="flex min-h-[calc(100vh-141px)] flex-col items-center justify-center p-8">
       <HeroSection items={items} />
-    </Container>
+    </div>
   )
 }

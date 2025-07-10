@@ -1,58 +1,82 @@
 'use client'
 
 import { Container } from '@/components/container'
-import { Button } from '@/components/ui/button'
-import { DiscordLogoIcon, GithubLogoIcon, TreeViewIcon } from '@phosphor-icons/react'
-import { useTranslations } from 'next-intl'
-// import { MainNav } from "@/components/main-nav";
-// import { MobileNav } from "@/components/mobile-nav";
-import { ThemeSwitcher } from '@/components/theme-switcher'
-// import { Search } from "@/components/search";
 import { LanguageSwitcher } from '@/components/language-switcher'
-import { Separator } from '@/components/ui/separator'
+import { ThemeSwitcher } from '@/components/theme-switcher'
+import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { SITE_CONFIG } from '@/config/site-config'
+import cargoDescData from '@/data/global/cargo_desc.json'
+import itemDescData from '@/data/global/item_desc.json'
+import resourceDescData from '@/data/global/resource_desc.json'
 import { Link } from '@/i18n/navigation'
+import { convertToCompendiumEntity } from '@/lib/spacetime-db'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 
 export function Header() {
   const t = useTranslations()
+  const router = useRouter()
+
+  // Load and convert server data using spacetime-db utilities
+  const items = (itemDescData as any[])
+    .filter((item) => item.compendium_entry)
+    .map((item) => convertToCompendiumEntity(item, 'item'))
+  const cargo = (cargoDescData as any[])
+    .filter((cargo) => cargo.compendium_entry)
+    .map((cargo) => convertToCompendiumEntity(cargo, 'cargo'))
+  const resources = (resourceDescData as any[])
+    .filter((resource) => resource.compendium_entry)
+    .map((resource) => convertToCompendiumEntity(resource, 'resource'))
+  const allEntities = [...items, ...cargo, ...resources]
+
+  // Build combobox options
+  const searchOptions: ComboboxOption[] = allEntities.map((entity) => ({
+    value: (entity as any).slug || entity.name || String(entity.id),
+    label: entity.name,
+    keywords: `${entity.name} ${entity.tag || ''} ${entity.rarity ? entity.rarity : ''}`,
+    id: String(entity.id),
+    tier: entity.tier,
+    rarity: entity.rarity ? (Array.isArray(entity.rarity) ? entity.rarity[0] : entity.rarity) : undefined,
+    category: entity.tag,
+    icon_asset_name: (entity as any).iconAssetName || (entity as any).icon_asset_name || ''
+  }))
+
+  const handleSearchSelect = (slug: string) => {
+    if (!slug) return
+    // Try to find the entity and route to its page (customize as needed)
+    const found = allEntities.find((e) => (e as any).slug === slug || e.name === slug || String(e.id) === slug)
+    if (found) {
+      if (found.entityType === 'item') {
+        router.push(`/compendium/${found.tag?.toLowerCase().replace(/\s+/g, '-') || 'item'}`)
+      } else if (found.entityType === 'cargo') {
+        router.push(`/compendium/${found.tag?.toLowerCase().replace(/\s+/g, '-') || 'cargo'}`)
+      } else if (found.entityType === 'resource') {
+        router.push(`/compendium/${found.tag?.toLowerCase().replace(/\s+/g, '-') || 'resource'}`)
+      }
+    }
+  }
 
   return (
     <header className="bg-background border-border sticky top-0 z-50 w-full border-b">
-      <Container className="flex h-14 items-center gap-2">
-        {/* <MobileNav className="flex lg:hidden" /> */}
-        <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="icon" className="hidden size-8 lg:flex">
-            <Link href="/">
-              <TreeViewIcon className="size-7" />
-              <span className="sr-only">{t('header.title')}</span>
-            </Link>
-          </Button>
-          <Link href="/" className="hidden text-xl font-bold lg:block">
-            {t('header.title')}
+      <Container className="grid h-14 grid-cols-12 items-center gap-2">
+        <div className="col-span-2 flex items-center gap-2">
+          <Link href="/" className="text-xl font-bold">
+            {SITE_CONFIG.name}
           </Link>
         </div>
-        {/* <MainNav className="hidden lg:flex" /> */}
-        <div className="flex items-center">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/changelog">{t('header.navigation.changelog')}</Link>
-          </Button>
+        {/* Search combobox aligned with main content, hidden on mobile */}
+        <div className="col-span-8">
+          <Combobox
+            options={searchOptions}
+            value=""
+            onValueChange={handleSearchSelect}
+            placeholder={t('search.globalPlaceholder')}
+            searchPlaceholder={t('search.globalPlaceholder')}
+            emptyText={t('calculator.noItemsFound')}
+            className="w-sm"
+          />
         </div>
-        <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
-          {/* <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-            <Search />
-          </div>
-          <Separator orientation="vertical" className="h-6 block" /> */}
-          <Button asChild variant="ghost" size="icon" className="size-8" title={t('header.discord')}>
-            <a href={SITE_CONFIG.links.discord} target="_blank" rel="noopener noreferrer">
-              <DiscordLogoIcon className="size-5" />
-            </a>
-          </Button>
-          <Button asChild variant="ghost" size="icon" className="size-8" title={t('header.github')}>
-            <a href={SITE_CONFIG.links.github} target="_blank" rel="noopener noreferrer">
-              <GithubLogoIcon className="size-5" />
-            </a>
-          </Button>
-          <Separator orientation="vertical" className="h-6" />
+        <div className="col-span-2 flex items-center justify-end gap-2">
           <LanguageSwitcher />
           <ThemeSwitcher />
         </div>

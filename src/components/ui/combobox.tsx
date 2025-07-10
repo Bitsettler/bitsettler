@@ -15,6 +15,7 @@ export interface ComboboxOption {
   keywords?: string
   id: string
   tier?: number
+  rarity?: string
   category?: string
   icon_asset_name?: string
 }

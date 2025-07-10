@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
-import { getTierColor } from '@/lib/utils/item-utils'
+import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -13,6 +13,7 @@ interface Item {
   slug: string
   category: string
   tier: number
+  rarity: string
   icon_asset_name: string
 }
 
@@ -28,10 +29,11 @@ export function HeroSection({ items }: HeroSectionProps) {
   const itemOptions = items.map((item) => ({
     value: item.slug,
     label: item.name,
-    keywords: `${item.name} ${item.slug} ${item.category}`,
+    keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
     id: item.id,
     tier: item.tier,
     category: item.category,
+    rarity: item.rarity,
     icon_asset_name: item.icon_asset_name
   }))
 
@@ -52,6 +54,9 @@ export function HeroSection({ items }: HeroSectionProps) {
               Tier {option.tier}
             </Badge>
           )}
+          <Badge variant="outline" className={`text-xs ${getRarityColor(option.rarity || 'common')}`}>
+            {option.rarity || 'Common'}
+          </Badge>
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {option.category}
           </Badge>

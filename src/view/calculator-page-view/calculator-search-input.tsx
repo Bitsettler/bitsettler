@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import type { Item } from '@/hooks/use-item-selection'
-import { getTierColor } from '@/lib/utils/item-utils'
+import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -21,10 +21,11 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
   const itemOptions = items.map((item) => ({
     value: item.slug,
     label: item.name,
-    keywords: `${item.name} ${item.slug} ${item.category}`,
+    keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
     id: item.id,
     tier: item.tier,
     category: item.category,
+    rarity: item.rarity,
     icon_asset_name: item.icon_asset_name
   }))
 
@@ -45,6 +46,9 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
               Tier {option.tier}
             </Badge>
           )}
+          <Badge variant="outline" className={`text-xs ${getRarityColor(option.rarity || 'common')}`}>
+            {option.rarity || 'Common'}
+          </Badge>
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {option.category}
           </Badge>
