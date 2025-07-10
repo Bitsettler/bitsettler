@@ -1,14 +1,15 @@
 'use client'
 
 import { LanguageSwitcher } from '@/components/language-switcher'
-import { Logo } from '@/components/logo'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
+import { SidebarTrigger } from '@/components/ui/sidebar'
+import { SITE_CONFIG } from '@/config/site-config'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
+import { Link } from '@/i18n/navigation'
 import { convertToCompendiumEntity } from '@/lib/spacetime-db'
-import { SidebarTrigger } from '@/src/components/ui/sidebar'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 
@@ -59,7 +60,9 @@ export function Header() {
     <header className="bg-background border-border sticky top-0 z-50 w-full border-b">
       <div className="flex h-14 items-center gap-4 px-4">
         <SidebarTrigger />
-        <Logo />
+        <Link href="/" className="text-xl font-bold">
+          {SITE_CONFIG.name}
+        </Link>
         <div className="flex-1">
           <Combobox
             options={searchOptions}

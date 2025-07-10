@@ -1,11 +1,25 @@
-import { Container } from '@/components/container'
+import { AppSidebar } from '@/components/app-sidebar'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
-import { Sidebar } from '@/components/sidebar'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
+import { SITE_CONFIG } from '@/config/site-config'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { geistSans } from '@/styles/typography'
+import {
+  BookOpen,
+  Calculator,
+  DiscordLogo,
+  Envelope,
+  GithubLogo,
+  Hammer,
+  Heart,
+  House,
+  Info,
+  Shuffle,
+  TwitterLogo
+} from '@phosphor-icons/react/dist/ssr'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
@@ -57,19 +71,73 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages()
 
+  // Sidebar navigation content migrated from previous Sidebar component
+  const sidebarNavigation = [
+    {
+      translationLabel: 'sidebar.navigation',
+      children: [
+        { translationKey: 'sidebar.mainPage', href: '/', icon: House },
+        { translationKey: 'sidebar.aboutUs', href: '/about', icon: Info },
+        { translationKey: 'sidebar.randomPage', href: '/random', icon: Shuffle },
+        { translationKey: 'sidebar.contactUs', href: '/contact', icon: Envelope },
+        { translationKey: 'sidebar.donate', href: '/donate', icon: Heart }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.recentChanges',
+      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpen }],
+      description: 'sidebar.recentChangesDescription'
+    },
+    {
+      translationLabel: 'sidebar.guides',
+      children: [],
+      description: 'sidebar.guidesComingSoon'
+    },
+    {
+      translationLabel: 'sidebar.tools',
+      children: [
+        { translationKey: 'sidebar.calculator', href: '/calculator', icon: Calculator },
+        { translationKey: 'sidebar.projects', href: '/projects', icon: Hammer, comingSoon: true }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.community',
+      children: [
+        {
+          translationKey: 'sidebar.bitcraftGuideDiscord',
+          href: SITE_CONFIG.links.discord,
+          icon: DiscordLogo,
+          external: true
+        },
+        {
+          translationKey: 'sidebar.bitcraftGuideGithub',
+          href: SITE_CONFIG.links.github,
+          icon: GithubLogo,
+          external: true
+        },
+        {
+          translationKey: 'sidebar.bitcraftGuideTwitter',
+          href: SITE_CONFIG.links.twitter,
+          icon: TwitterLogo,
+          external: true
+        }
+      ]
+    }
+  ]
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
-            <Header />
-            <Container className="grid grid-cols-12">
-              <div className="col-span-2">
-                <Sidebar />
-              </div>
-              <main className="col-span-10 overflow-hidden">{children}</main>
-            </Container>
-            <Footer />
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+              </SidebarInset>
+            </SidebarProvider>
             <Analytics />
             <Toaster />
           </NextIntlClientProvider>
