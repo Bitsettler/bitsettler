@@ -27,7 +27,7 @@ function FlowCanvasInner({
   showBackground = true
 }: FlowCanvasProps) {
   return (
-    <Card className="h-full">
+    <Card className="bg-background h-full py-0">
       <CardContent className="h-full p-0">
         <ReactFlow
           nodes={nodes}
