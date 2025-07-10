@@ -355,7 +355,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               <div className="mb-1 text-xs font-medium">Select Recipe ({itemData.recipes.length} available):</div>
             )}
             <Select value={itemData.selectedRecipe?.id?.toString() || ''} onValueChange={handleRecipeSelect}>
-              <SelectTrigger className="h-8 text-xs">
+              <SelectTrigger className="h-8 w-full max-w-md text-xs">
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
               <SelectContent className="max-w-80">
