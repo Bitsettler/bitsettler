@@ -8,17 +8,17 @@ import { SITE_CONFIG } from '@/config/site-config'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { geistSans } from '@/styles/typography'
 import {
-  BookOpen,
-  Calculator,
-  DiscordLogo,
-  Envelope,
-  GithubLogo,
-  Hammer,
-  Heart,
-  House,
-  Info,
-  Shuffle,
-  TwitterLogo
+  BookOpenIcon,
+  CalculatorIcon,
+  DiscordLogoIcon,
+  EnvelopeIcon,
+  GithubLogoIcon,
+  HammerIcon,
+  HeartIcon,
+  HouseIcon,
+  InfoIcon,
+  ShuffleIcon,
+  TwitterLogoIcon
 } from '@phosphor-icons/react/dist/ssr'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
@@ -76,16 +76,16 @@ export default async function LocaleLayout({
     {
       translationLabel: 'sidebar.navigation',
       children: [
-        { translationKey: 'sidebar.mainPage', href: '/', icon: House },
-        { translationKey: 'sidebar.aboutUs', href: '/about', icon: Info },
-        { translationKey: 'sidebar.randomPage', href: '/random', icon: Shuffle },
-        { translationKey: 'sidebar.contactUs', href: '/contact', icon: Envelope },
-        { translationKey: 'sidebar.donate', href: '/donate', icon: Heart }
+        { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
+        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
+        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon },
+        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon },
+        { translationKey: 'sidebar.donate', href: '/donate', icon: HeartIcon }
       ]
     },
     {
       translationLabel: 'sidebar.recentChanges',
-      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpen }],
+      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
       description: 'sidebar.recentChangesDescription'
     },
     {
@@ -96,8 +96,8 @@ export default async function LocaleLayout({
     {
       translationLabel: 'sidebar.tools',
       children: [
-        { translationKey: 'sidebar.calculator', href: '/calculator', icon: Calculator },
-        { translationKey: 'sidebar.projects', href: '/projects', icon: Hammer, comingSoon: true }
+        { translationKey: 'sidebar.calculator', href: '/calculator', icon: CalculatorIcon },
+        { translationKey: 'sidebar.projects', href: '/projects', icon: HammerIcon, comingSoon: true }
       ]
     },
     {
@@ -106,19 +106,19 @@ export default async function LocaleLayout({
         {
           translationKey: 'sidebar.bitcraftGuideDiscord',
           href: SITE_CONFIG.links.discord,
-          icon: DiscordLogo,
+          icon: DiscordLogoIcon,
           external: true
         },
         {
           translationKey: 'sidebar.bitcraftGuideGithub',
           href: SITE_CONFIG.links.github,
-          icon: GithubLogo,
+          icon: GithubLogoIcon,
           external: true
         },
         {
           translationKey: 'sidebar.bitcraftGuideTwitter',
           href: SITE_CONFIG.links.twitter,
-          icon: TwitterLogo,
+          icon: TwitterLogoIcon,
           external: true
         }
       ]
@@ -132,9 +132,9 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <SidebarProvider>
               <AppSidebar />
-              <SidebarInset>
+              <SidebarInset className="flex min-h-screen flex-col">
                 <Header />
-                <main>{children}</main>
+                <main className="flex-1">{children}</main>
                 <Footer />
               </SidebarInset>
             </SidebarProvider>

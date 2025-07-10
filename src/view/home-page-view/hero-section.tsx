@@ -72,10 +72,12 @@ export function HeroSection({ items }: HeroSectionProps) {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="mb-6 text-center text-6xl font-bold">{t('header.title')}</h1>
-      <p className="text-muted-foreground mb-8 text-center text-xl">{t('header.subtitle')}</p>
-      <div className="w-full max-w-xl">
+    <div className="space-y-6">
+      <div className="space-y-4">
+        <h1 className="text-6xl font-bold">{t('header.title')}</h1>
+        <p className="text-muted-foreground text-xl">{t('header.subtitle')}</p>
+      </div>
+      <div className="max-w-xl">
         <Combobox
           options={itemOptions}
           value=""

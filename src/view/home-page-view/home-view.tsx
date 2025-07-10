@@ -1,4 +1,8 @@
+import { Container } from '@/components/container'
 import { HeroSection } from './hero-section'
+import { ItemsSection } from './items-section'
+import { NewsSection } from './news-section'
+import { ProfessionsSection } from './professions-section'
 
 interface Item {
   id: string
@@ -12,12 +16,34 @@ interface Item {
 
 interface HomeViewProps {
   items: Item[]
+  cargo?: any[]
+  resources?: any[]
 }
 
-export function HomeView({ items }: HomeViewProps) {
+export function HomeView({ items, cargo = [], resources = [] }: HomeViewProps) {
   return (
-    <div className="flex min-h-[calc(100vh-141px)] flex-col items-center justify-center p-8">
-      <HeroSection items={items} />
-    </div>
+    <Container>
+      <div className="space-y-16 py-8">
+        {/* Hero Section */}
+        <section>
+          <HeroSection items={items} />
+        </section>
+
+        {/* Latest Bitcraft News */}
+        <section>
+          <NewsSection />
+        </section>
+
+        {/* Items & Equipment Section */}
+        <section>
+          <ItemsSection items={items} cargo={cargo} resources={resources} />
+        </section>
+
+        {/* Professions Section */}
+        <section>
+          <ProfessionsSection />
+        </section>
+      </div>
+    </Container>
   )
 }

@@ -1,6 +1,17 @@
 // Type definitions
 export type { BaseEntity, CompendiumEntity, EntityType } from './types'
 
+// Profession utilities
+export {
+  getAllProfessions,
+  getProfessionById,
+  getProfessionBySlug,
+  getProfessionStats,
+  getProfessionsByCategory,
+  getProfessionsByType
+} from './professions'
+export type { Profession } from './professions'
+
 // Rarity utilities
 export { convertRarityArrayToString, convertRarityToString, getRarityColor, getRarityDisplayName } from './rarity'
 

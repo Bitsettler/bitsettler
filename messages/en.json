@@ -35,6 +35,13 @@
     "discord": "Discord Server",
     "github": "GitHub Repository"
   },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home",
+    "browseCompendium": "Browse Compendium",
+    "helpText": "Need help? Check out our:"
+  },
   "calculator": {
     "title": "Crafting Calculator",
     "selectItem": "Select Item to Craft",

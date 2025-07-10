@@ -4,7 +4,5 @@ import resources from '@/data/resources.json'
 import { HomeView } from '@/view/home-page-view/home-view'
 
 export default function Home() {
-  const allItems = [...items, ...cargo, ...resources]
-
-  return <HomeView items={allItems} />
+  return <HomeView items={items} cargo={cargo} resources={resources} />
 }

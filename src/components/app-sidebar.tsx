@@ -1,13 +1,13 @@
-import * as React from "react"
-import { ChevronRight } from "lucide-react"
+'use client'
 
-import { SearchForm } from "@/components/search-form"
-import { VersionSwitcher } from "@/components/version-switcher"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Link, usePathname } from '@/i18n/navigation'
+import { ChevronRight } from 'lucide-react'
+import * as React from 'react'
+
+import { SearchForm } from '@/components/search-form'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import {
   Sidebar,
   SidebarContent,
@@ -16,193 +16,169 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
-} from "@/components/ui/sidebar"
+  SidebarRail
+} from '@/components/ui/sidebar'
+import { SITE_CONFIG } from '@/config/site-config'
+import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
+import { Logo } from './logo'
 
-// This is sample data.
+// Import Phosphor icons
+import {
+  BookOpenIcon,
+  CalculatorIcon,
+  DiscordLogoIcon,
+  EnvelopeIcon,
+  GithubLogoIcon,
+  HammerIcon,
+  HeartIcon,
+  HouseIcon,
+  InfoIcon,
+  ShuffleIcon,
+  TwitterLogoIcon
+} from '@phosphor-icons/react'
+
+// Navigation data with icons and descriptions
 const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
+  versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
   navMain: [
     {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
+      translationLabel: 'sidebar.navigation',
+      children: [
+        { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
+        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
+        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon },
+        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon },
+        { translationKey: 'sidebar.donate', href: '/donate', icon: HeartIcon }
+      ]
     },
     {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
+      translationLabel: 'sidebar.recentChanges',
+      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
+      description: 'sidebar.recentChangesDescription'
     },
     {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
+      translationLabel: 'sidebar.guides',
+      children: [],
+      description: 'sidebar.guidesComingSoon'
     },
     {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
+      translationLabel: 'sidebar.tools',
+      children: [
+        { translationKey: 'sidebar.calculator', href: '/calculator', icon: CalculatorIcon },
+        { translationKey: 'sidebar.projects', href: '/projects', icon: HammerIcon, comingSoon: true }
+      ]
     },
     {
-      title: "Community",
-      url: "#",
-      items: [
+      translationLabel: 'sidebar.community',
+      children: [
         {
-          title: "Contribution Guide",
-          url: "#",
+          translationKey: 'sidebar.bitcraftGuideDiscord',
+          href: SITE_CONFIG.links.discord,
+          icon: DiscordLogoIcon,
+          external: true
         },
-      ],
-    },
-  ],
+        {
+          translationKey: 'sidebar.bitcraftGuideGithub',
+          href: SITE_CONFIG.links.github,
+          icon: GithubLogoIcon,
+          external: true
+        },
+        {
+          translationKey: 'sidebar.bitcraftGuideTwitter',
+          href: SITE_CONFIG.links.twitter,
+          icon: TwitterLogoIcon,
+          external: true
+        }
+      ]
+    }
+  ]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
+  const t = useTranslations()
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || pathname === '/en' || pathname === '/fr' || pathname === '/es'
+    }
+    return pathname.includes(href)
+  }
+
+  const renderNavigationItem = (item: any) => {
+    const Icon = item.icon
+    return (
+      <SidebarMenuItem key={item.href}>
+        <Button
+          variant={isActive(item.href) ? 'secondary' : 'ghost'}
+          size="sm"
+          className={cn('h-8 w-full justify-start text-sm font-normal', isActive(item.href) && 'bg-accent')}
+          asChild={!item.comingSoon}
+          disabled={item.comingSoon}
+        >
+          {item.comingSoon ? (
+            <div className="flex w-full items-center">
+              {Icon && <Icon className="mr-2 h-4 w-4" />}
+              {t(item.translationKey)}
+              <Badge variant="secondary" className="ml-auto text-xs">
+                {t('sidebar.comingSoon')}
+              </Badge>
+            </div>
+          ) : item.external ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
+              {Icon && <Icon className="mr-2 h-4 w-4" />}
+              {t(item.translationKey)}
+            </a>
+          ) : (
+            <Link href={item.href} className="flex items-center">
+              {Icon && <Icon className="mr-2 h-4 w-4" />}
+              {t(item.translationKey)}
+            </Link>
+          )}
+        </Button>
+      </SidebarMenuItem>
+    )
+  }
+
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
-        />
+      <SidebarHeader className="space-y-2">
+        <Logo />
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {/* We create a collapsible SidebarGroup for each parent. */}
-        {data.navMain.map((item) => (
-          <Collapsible
-            key={item.title}
-            title={item.title}
-            defaultOpen
-            className="group/collapsible"
-          >
+        {data.navMain.map((section) => (
+          <Collapsible key={section.translationLabel} defaultOpen className="group/collapsible">
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
                 className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
               >
                 <CollapsibleTrigger>
-                  {item.title}{" "}
+                  {t(section.translationLabel)}{' '}
                   <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
-              <CollapsibleContent>
+              <CollapsibleContent className="ml-2">
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {item.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild isActive={item.isActive}>
-                          <a href={item.url}>{item.title}</a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
+                    {section.children.length > 0 ? (
+                      section.children.map(renderNavigationItem)
+                    ) : (
+                      <div className="px-2 py-1">
+                        <div className="text-muted-foreground text-xs">
+                          {section.description && t(section.description)}
+                        </div>
+                      </div>
+                    )}
                   </SidebarMenu>
+                  {section.description && section.children.length > 0 && (
+                    <div className="px-2 py-1">
+                      <div className="text-muted-foreground text-xs">{t(section.description)}</div>
+                    </div>
+                  )}
                 </SidebarGroupContent>
               </CollapsibleContent>
             </SidebarGroup>
