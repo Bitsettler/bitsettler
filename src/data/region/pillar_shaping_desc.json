@@ -33,14 +33,12 @@
       ]
     ],
     "discovery_triggers": [],
-    "required_knowledges": [
-      12345
-    ],
+    "required_knowledges": [],
     "full_discovery_score": 1,
     "duration": 3,
     "prefab_address": "HexTileTemplates/dirtScaffolding",
     "tier": 1,
-    "icon_address": "Items/Stick",
+    "icon_address": "Pillars/Scaffolding",
     "description": "Alter the terrain to be a pillar of dirt framed with wood."
   },
   {
@@ -49,7 +47,17 @@
     "consumed_item_stacks": [
       [
         894623392,
-        20,
+        10,
+        [
+          0,
+          []
+        ],
+        1,
+        1
+      ],
+      [
+        1030001,
+        10,
         [
           0,
           []
@@ -67,14 +75,12 @@
       ]
     ],
     "discovery_triggers": [],
-    "required_knowledges": [
-      12345
-    ],
+    "required_knowledges": [],
     "full_discovery_score": 1,
     "duration": 3,
     "prefab_address": "HexTileTemplates/cobblestone",
     "tier": 1,
-    "icon_address": "Items/Stick",
+    "icon_address": "Pillars/Cobblestone",
     "description": "Alter the terrain to be a pillar of cobblestone."
   },
   {
