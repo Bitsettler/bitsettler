@@ -18,7 +18,7 @@ export function getServerIconPath(iconAssetName: string): string {
 /**
  * Check if an asset exists (placeholder for future implementation)
  */
-export function assetExists(iconAssetName: string): boolean {
+export function assetExists(): boolean {
   // TODO: Implement asset existence checking
   return true
 }

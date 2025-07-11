@@ -68,7 +68,7 @@ export function Header() {
           <SidebarTrigger />
           <Breadcrumb>
             <BreadcrumbList>
-              {breadcrumbs.map((breadcrumb, index) => (
+              {breadcrumbs.map((breadcrumb) => (
                 <Fragment key={breadcrumb.href}>
                   <BreadcrumbItem>
                     {breadcrumb.isLast ? (

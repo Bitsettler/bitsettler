@@ -24,7 +24,7 @@ import { usePathname } from 'next/navigation'
 interface NavigationItem {
   translationKey: string
   href: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   external?: boolean
   comingSoon?: boolean
 }

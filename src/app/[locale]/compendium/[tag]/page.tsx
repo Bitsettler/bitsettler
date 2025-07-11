@@ -2,13 +2,20 @@ import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
+import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
-import { convertRarityArrayToString, getRarityColor, getTierColor } from '@/lib/spacetime-db'
+import { getRarityColor, getTierColor } from '@/lib/spacetime-db'
+import { convertRarityToString } from '@/lib/spacetime-db/rarity'
+import { camelCaseDeep } from '@/lib/utils/case-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
+type CompendiumEntity = ItemDesc | CargoDesc | ResourceDesc
 
 interface PageProps {
   params: {
@@ -22,18 +29,18 @@ export default function CompendiumCategoryPage({ params }: PageProps) {
   // Convert slug back to tag name
   const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 
-  // Cast JSON data to handle snake_case vs camelCase
-  const itemData = itemDescData as unknown as any[]
-  const cargoData = cargoDescData as unknown as any[]
-  const resourceData = resourceDescData as unknown as any[]
+  // Convert snake_case JSON to camelCase and type properly
+  const itemData = camelCaseDeep<ItemDesc[]>(itemDescData)
+  const cargoData = camelCaseDeep<CargoDesc[]>(cargoDescData)
+  const resourceData = camelCaseDeep<ResourceDesc[]>(resourceDescData)
 
   // Filter entries by tag
-  const items = itemData.filter((item) => item.compendium_entry && item.tag === tagName)
-  const cargo = cargoData.filter((cargo) => cargo.compendium_entry && cargo.tag === tagName)
-  const resources = resourceData.filter((resource) => resource.compendium_entry && resource.tag === tagName)
+  const items = itemData.filter((item) => item.compendiumEntry && item.tag === tagName)
+  const cargo = cargoData.filter((cargo) => cargo.tag === tagName)
+  const resources = resourceData.filter((resource) => resource.compendiumEntry && resource.tag === tagName)
 
   // Combine all entities
-  const allEntities = [...items, ...cargo, ...resources]
+  const allEntities: CompendiumEntity[] = [...items, ...cargo, ...resources]
 
   // If no entities found, return 404
   if (allEntities.length === 0) {
@@ -83,18 +90,18 @@ export default function CompendiumCategoryPage({ params }: PageProps) {
                 </thead>
                 <tbody>
                   {allEntities.map((entity) => {
-                    const rarityString = convertRarityArrayToString(entity.rarity)
+                    const rarityString = convertRarityToString(entity.rarity)
                     return (
                       <tr key={entity.id} className="hover:bg-accent/50 border-b">
                         <td className="p-2">
                           <div className="relative h-8 w-8">
                             <Image
                               src={
-                                entity.icon_asset_name
+                                entity.iconAssetName
                                   ? `/assets/${
-                                      entity.icon_asset_name.startsWith('GeneratedIcons/')
-                                        ? entity.icon_asset_name
-                                        : `GeneratedIcons/${entity.icon_asset_name}`
+                                      entity.iconAssetName.startsWith('GeneratedIcons/')
+                                        ? entity.iconAssetName
+                                        : `GeneratedIcons/${entity.iconAssetName}`
                                     }.webp`
                                   : '/assets/Unknown.webp'
                               }

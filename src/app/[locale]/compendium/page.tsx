@@ -4,13 +4,21 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
+import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import Link from 'next/link'
 
+// Transform the JSON data to match the type structure
+type ItemDescWithSnakeCase = Omit<ItemDesc, 'compendiumEntry'> & { compendium_entry: boolean }
+type CargoDescWithSnakeCase = Omit<CargoDesc, 'compendiumEntry'> & { compendium_entry: boolean }
+type ResourceDescWithSnakeCase = Omit<ResourceDesc, 'compendiumEntry'> & { compendium_entry: boolean }
+
 export default function CompendiumPage() {
-  // Cast JSON data to unknown first to handle snake_case vs camelCase mismatch
-  const itemData = itemDescData as unknown as any[]
-  const cargoData = cargoDescData as unknown as any[]
-  const resourceData = resourceDescData as unknown as any[]
+  // Cast JSON data to handle snake_case vs camelCase mismatch
+  const itemData = itemDescData as unknown as ItemDescWithSnakeCase[]
+  const cargoData = cargoDescData as unknown as CargoDescWithSnakeCase[]
+  const resourceData = resourceDescData as unknown as ResourceDescWithSnakeCase[]
 
   // Filter only compendium entries
   const items = itemData.filter((item) => item.compendium_entry)

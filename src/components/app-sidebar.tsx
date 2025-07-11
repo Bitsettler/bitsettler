@@ -24,6 +24,15 @@ import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { Logo } from './logo'
 
+// Type definitions for navigation items
+type NavigationItem = {
+  translationKey: string
+  href: string
+  icon: React.ComponentType<{ className?: string }>
+  external?: boolean
+  comingSoon?: boolean
+}
+
 // Import Phosphor icons
 import {
   BookOpenIcon,
@@ -107,7 +116,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return pathname.includes(href)
   }
 
-  const renderNavigationItem = (item: any) => {
+  const renderNavigationItem = (item: NavigationItem) => {
     const Icon = item.icon
     return (
       <SidebarMenuItem key={item.href}>
@@ -145,7 +154,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader className="space-y-2">
-        <Logo />
+        <div className="flex h-10 items-center">
+          <Logo />
+        </div>
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">

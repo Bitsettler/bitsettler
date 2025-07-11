@@ -4,22 +4,8 @@ import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
-import { SITE_CONFIG } from '@/config/site-config'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { geistSans } from '@/styles/typography'
-import {
-  BookOpenIcon,
-  CalculatorIcon,
-  DiscordLogoIcon,
-  EnvelopeIcon,
-  GithubLogoIcon,
-  HammerIcon,
-  HeartIcon,
-  HouseIcon,
-  InfoIcon,
-  ShuffleIcon,
-  TwitterLogoIcon
-} from '@phosphor-icons/react/dist/ssr'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
@@ -71,59 +57,6 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages()
 
-  // Sidebar navigation content migrated from previous Sidebar component
-  const sidebarNavigation = [
-    {
-      translationLabel: 'sidebar.navigation',
-      children: [
-        { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
-        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
-        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon },
-        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon },
-        { translationKey: 'sidebar.donate', href: '/donate', icon: HeartIcon }
-      ]
-    },
-    {
-      translationLabel: 'sidebar.recentChanges',
-      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
-      description: 'sidebar.recentChangesDescription'
-    },
-    {
-      translationLabel: 'sidebar.guides',
-      children: [],
-      description: 'sidebar.guidesComingSoon'
-    },
-    {
-      translationLabel: 'sidebar.tools',
-      children: [
-        { translationKey: 'sidebar.calculator', href: '/calculator', icon: CalculatorIcon },
-        { translationKey: 'sidebar.projects', href: '/projects', icon: HammerIcon, comingSoon: true }
-      ]
-    },
-    {
-      translationLabel: 'sidebar.community',
-      children: [
-        {
-          translationKey: 'sidebar.bitcraftGuideDiscord',
-          href: SITE_CONFIG.links.discord,
-          icon: DiscordLogoIcon,
-          external: true
-        },
-        {
-          translationKey: 'sidebar.bitcraftGuideGithub',
-          href: SITE_CONFIG.links.github,
-          icon: GithubLogoIcon,
-          external: true
-        },
-        {
-          translationKey: 'sidebar.bitcraftGuideTwitter',
-          href: SITE_CONFIG.links.twitter,
-          icon: TwitterLogoIcon,
-          external: true
-        }
-      ]
-    }
-  ]
 
   return (
     <html lang={locale} suppressHydrationWarning>

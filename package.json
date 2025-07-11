@@ -13,7 +13,8 @@
     "map-crafting-recipes": "npx ts-node scripts/recipes/map-crafting-recipes.ts",
     "map-extraction-recipes": "npx ts-node scripts/recipes/map-extraction-recipes.ts",
     "generate-bindings": "npx ts-node scripts/generate-bindings.ts",
-    "generate-game-data": "npx ts-node scripts/generate-game-data.ts"
+    "generate-game-data": "npx ts-node scripts/generate-game-data.ts",
+    "get-unique-item-tags": "npx ts-node scripts/tags/get-unique-item-tags.ts"
   },
   "dependencies": {
     "@clockworklabs/spacetimedb-sdk": "^1.2.1",

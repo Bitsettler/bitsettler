@@ -1,4 +1,6 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import rawCargo from '@/data/global/cargo_desc.json'
+import { camelCaseDeep } from '../utils/case-utils'
 import type { CompendiumEntity } from './types'
 
 /**
@@ -53,7 +55,7 @@ export function getCargoStatsByCategory(cargo: CargoDesc[]): Record<string, numb
 /**
  * Check if cargo is transportable
  */
-export function isTransportable(cargo: CargoDesc): boolean {
+export function isTransportable(): boolean {
   // All cargo is transportable by definition
   return true
 }
@@ -78,10 +80,18 @@ export function getCargoVolumeDistribution(cargo: CargoDesc[]): Record<number, n
   const distribution: Record<number, number> = {}
 
   cargo.forEach((item) => {
-    // Assuming volume field exists - would need to check actual data structure
-    const volume = (item as any).volume || 0
+    const volume = item.volume || 0
     distribution[volume] = (distribution[volume] || 0) + 1
   })
 
   return distribution
+}
+
+/**
+ * Return all cargo entries from the global cargo description dataset.
+ * The raw JSON uses snake_case keys, so we convert them to camelCase to
+ * align with the generated CargoDesc binding type.
+ */
+export function getAllCargo(): CargoDesc[] {
+  return camelCaseDeep<CargoDesc[]>(rawCargo)
 }

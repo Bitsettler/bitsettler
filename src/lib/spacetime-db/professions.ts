@@ -2,6 +2,18 @@ import type SkillCategory from '@/data/bindings/skill_category_type'
 import type { SkillDesc } from '@/data/bindings/skill_desc_type'
 import skillDescData from '@/data/global/skill_desc.json'
 
+// Raw skill data interface from JSON
+interface RawSkillData {
+  id: number
+  skill_type: number
+  name: string
+  description: string
+  icon_asset_name: string
+  title: string
+  skill_category: [number, Record<string, unknown>]
+  max_level: number
+}
+
 // Extended profession interface that adds UI-specific properties to SkillDesc
 export interface Profession extends Omit<SkillDesc, 'skillCategory'> {
   skillCategory: SkillCategory
@@ -86,7 +98,7 @@ function createSlug(name: string): string {
 }
 
 // Convert skill category array format to SkillCategory type
-function convertSkillCategory(skillCategory: [number, any]): SkillCategory {
+function convertSkillCategory(skillCategory: [number, Record<string, unknown>]): SkillCategory {
   const categoryType = skillCategory[0]
   switch (categoryType) {
     case 0:
@@ -101,7 +113,7 @@ function convertSkillCategory(skillCategory: [number, any]): SkillCategory {
 }
 
 // Convert raw skill data to SkillDesc format and then to Profession
-function convertSkillToProfession(skill: any): Profession {
+function convertSkillToProfession(skill: RawSkillData): Profession {
   // First convert to SkillDesc format (matching the generated type)
   const skillDesc: SkillDesc = {
     id: skill.id,
@@ -126,8 +138,8 @@ function convertSkillToProfession(skill: any): Profession {
 
 // Get all professions from skill data (excluding ANY skill)
 export function getAllProfessions(): Profession[] {
-  return skillDescData
-    .filter((skill: any) => skill.name !== 'ANY') // Exclude the ANY skill
+  return (skillDescData as RawSkillData[])
+    .filter((skill) => skill.name !== 'ANY') // Exclude the ANY skill
     .map(convertSkillToProfession)
 }
 

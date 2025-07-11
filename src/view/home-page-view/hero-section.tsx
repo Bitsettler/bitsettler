@@ -17,7 +17,7 @@ interface Item {
   icon_asset_name: string
 }
 
-interface HeroSectionProps {
+export interface HeroSectionProps {
   items: Item[]
 }
 
