@@ -87,6 +87,17 @@ export const tagCollections = {
     ] as const,
     href: '/compendium/consumables', // Future consumables collection page
     name: 'Consumables'
+  },
+
+  // Collectibles collection - deeds, writs, and special collectible items
+  collectibles: {
+    tags: [
+      ItemTag.Deed,
+      ItemTag.DeployableDeed,
+      ItemTag.Writ
+    ] as const,
+    href: '/compendium/collectibles',
+    name: 'Collectibles'
   }
 } as const
 

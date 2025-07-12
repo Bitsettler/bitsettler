@@ -44,6 +44,14 @@ export function cleanIconAssetName(iconAssetName: string): string {
     cleanPath = 'Unknown'
   }
 
+  // Handle specific cosmetic item path fixes
+  if (cleanPath === 'Items/LeatherBonnet') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapBonnet'
+  }
+  
+  if (cleanPath === 'Items/LeatherGloves') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves'
+  }
 
   return cleanPath
 }

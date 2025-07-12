@@ -6,6 +6,7 @@ import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
 import { findTagCollection, tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
+import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
 import { EquipmentIndividualTagPageView } from '@/views/equipment-views/equipment-individual-tag-page-view'
 import { TagPageView } from '@/views/tag-page-view/tag-page-view'
 import { ToolsIndividualTagPageView } from '@/views/tools-views/tools-individual-tag-page-view'
@@ -52,6 +53,9 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Check if this tag is a tools tag
   const isToolsTag = tagCollections.tools.tags.some((tag) => tag === tagName)
 
+  // Check if this tag is a collectibles tag
+  const isCollectiblesTag = tagCollections.collectibles.tags.some((tag) => tag === tagName)
+
   // Find which collection this tag belongs to for smart navigation
   const parentCollection = findTagCollection(tagName)
 
@@ -70,6 +74,17 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   if (isToolsTag && items.length > 0) {
     return (
       <ToolsIndividualTagPageView
+        tagName={tagName}
+        backLink={parentCollection?.href || '/compendium'}
+        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      />
+    )
+  }
+
+  // Handle collectibles tags with the new component
+  if (isCollectiblesTag && items.length > 0) {
+    return (
+      <CollectiblesIndividualTagPageView
         tagName={tagName}
         backLink={parentCollection?.href || '/compendium'}
         backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}

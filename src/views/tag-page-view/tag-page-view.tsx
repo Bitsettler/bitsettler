@@ -146,6 +146,7 @@ export function TagPageView({
   const defaultRenders = {
     icon: (item: BaseItem) => (
       <div className="relative h-10 w-10">
+        {/* <span>{getServerIconPath(cleanIconAssetName(item.iconAssetName))}</span> */}
         <Image
           src={getServerIconPath(cleanIconAssetName(item.iconAssetName))}
           alt={item.name}
