@@ -1,7 +1,7 @@
 import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
-import { ToolsView } from '@/views/tools-index-page-view/tools-view'
+import { ToolsView } from '@/views/tools-views/tools-index-page-view'
 
 export default function ToolsPage() {
   // Define tool categories based on tag collections

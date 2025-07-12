@@ -1,7 +1,7 @@
-import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
-import { EquipmentView } from '@/views/equipment-index-page-view/equipment-view'
+import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view'
 
 export default function EquipmentPage() {
   // Define equipment categories
