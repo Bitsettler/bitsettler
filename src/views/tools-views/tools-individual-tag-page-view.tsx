@@ -67,35 +67,12 @@ export function ToolsIndividualTagPageView({
         }
       : { min: 0, max: 0 }
 
-  const statisticsCards = [
-    {
-      label: 'Total Tools',
-      value: totalTools
-    },
-    {
-      label: 'Level Range',
-      value:
-        Object.keys(levelDistribution).length > 0
-          ? `${Math.min(...Object.keys(levelDistribution).map(Number))} - ${Math.max(...Object.keys(levelDistribution).map(Number))}`
-          : '0'
-    },
-    {
-      label: 'Power Range',
-      value: totalTools > 0 ? `${powerRange.min} - ${powerRange.max}` : '0'
-    },
-    {
-      label: 'Tool Type',
-      value: toolsForThisTag[0]?.toolTypeName || 'Unknown'
-    }
-  ]
-
   return (
     <TagPageView
       title={tagName}
       subtitle={`${totalTools} tools in this category`}
       backLink={backLink}
       backLinkText={backLinkText}
-      statisticsCards={statisticsCards}
       itemGroups={itemGroups}
     />
   )

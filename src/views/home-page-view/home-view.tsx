@@ -3,7 +3,6 @@ import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import rawResources from '@/data/global/resource_desc.json'
 import { convertRarityToString, createSlug } from '@/lib/spacetime-db'
 import { getAllCargo } from '@/lib/spacetime-db/items/cargo'
-import { getAllCollectibles } from '@/lib/spacetime-db/items/collectibles'
 import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { getAllItems, getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
@@ -28,8 +27,6 @@ export function HomeView() {
 
   const weapons = getItemsByTags(tagCollections.weapons.tags)
   const tools = getItemsByTags(tagCollections.tools.tags)
-
-  const collectibles = getAllCollectibles()
 
   const consumables = getItemsByTags(tagCollections.consumables.tags)
 
@@ -56,7 +53,7 @@ export function HomeView() {
 
         {/* Equipment Section */}
         <section>
-          <EquipmentSection weapons={weapons} tools={tools} collectibles={collectibles} />
+          <EquipmentSection weapons={weapons} tools={tools} />
         </section>
 
         {/* Items & Resources Section */}

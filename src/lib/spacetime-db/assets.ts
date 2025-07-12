@@ -37,7 +37,8 @@ export function cleanIconAssetName(iconAssetName: string): string {
   if (!iconAssetName) return ''
 
   // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
-  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons/Other/', 'GeneratedIcons/Other/')
+  cleanPath = cleanPath.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
 
   // Handle missing deed icon - the AncientDeed.webp file doesn't exist
   if (cleanPath === 'Items/AncientDeed') {
@@ -51,6 +52,29 @@ export function cleanIconAssetName(iconAssetName: string): string {
   
   if (cleanPath === 'Items/LeatherGloves') {
     cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves'
+  }
+
+  // Fix hair color filename mismatches (data references vs actual filenames)
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Orange') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/Ginger'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Blonde') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/LightBrown'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Red') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/Ginger'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Blue') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/Hexite'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Purple') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/DarkGray'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Green') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/Ginger'
+  }
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/HailColor/Pink') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/HailColor/LightBrown'
   }
 
   return cleanPath

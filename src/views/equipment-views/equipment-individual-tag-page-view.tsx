@@ -90,32 +90,12 @@ export function EquipmentIndividualTagPageView({
     tierDistribution[equipment.item.tier] = (tierDistribution[equipment.item.tier] || 0) + 1
   })
 
-  const statisticsCards = [
-    {
-      label: 'Total Equipment',
-      value: totalEquipment
-    },
-    {
-      label: 'Equipment Slots',
-      value: slotCount
-    },
-    {
-      label: 'Tier Range',
-      value: Object.keys(tierDistribution).length
-    },
-    {
-      label: 'Min - Max Tier',
-      value: `T${Math.min(...Object.keys(tierDistribution).map(Number))} - T${Math.max(...Object.keys(tierDistribution).map(Number))}`
-    }
-  ]
-
   return (
     <TagPageView
       title={tagName}
       subtitle={`${totalEquipment} equipment items in this category`}
       backLink={backLink}
       backLinkText={backLinkText}
-      statisticsCards={statisticsCards}
       itemGroups={itemGroups}
     />
   )

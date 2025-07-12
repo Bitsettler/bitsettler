@@ -43,10 +43,6 @@ export interface TagPageViewProps {
   subtitle: string
   backLink?: string
   backLinkText?: string
-  statisticsCards?: Array<{
-    label: string
-    value: string | number
-  }>
   itemGroups: ItemGroup[]
 }
 
@@ -55,7 +51,6 @@ export function TagPageView({
   subtitle,
   backLink = '/compendium',
   backLinkText = '← Back to Compendium',
-  statisticsCards,
   itemGroups
 }: TagPageViewProps) {
   // Sorting state for each group
@@ -190,20 +185,6 @@ export function TagPageView({
             <p className="text-muted-foreground">{subtitle}</p>
           </div>
         </div>
-
-        {/* Statistics Overview */}
-        {statisticsCards && statisticsCards.length > 0 && (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {statisticsCards.map((stat, index) => (
-              <Card key={index}>
-                <CardContent className="pt-6">
-                  <div className="text-2xl font-bold">{stat.value}</div>
-                  <p className="text-muted-foreground text-xs">{stat.label}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
 
         {/* Item Groups */}
         <div className="space-y-6">

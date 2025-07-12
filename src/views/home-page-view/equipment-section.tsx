@@ -51,6 +51,11 @@ export function EquipmentSection({ weapons, tools, collectibles }: EquipmentSect
     return total + getItemsByTags([tag]).length
   }, 0)
 
+  // Calculate collectibles count using the same method as the collectibles index page
+  const collectiblesCount = tagCollections.collectibles.tags.reduce((total, tag) => {
+    return total + getItemsByTags([tag]).length
+  }, 0)
+
   const equipmentCategories: ItemCategory[] = [
     {
       id: 'weapon',
@@ -81,7 +86,7 @@ export function EquipmentSection({ weapons, tools, collectibles }: EquipmentSect
       name: 'Collectibles',
       description: 'Deeds, writs, and other special items',
       icon: '📜',
-      count: collectibles.length,
+      count: collectiblesCount,
       href: '/compendium/collectibles'
     }
   ]
