@@ -115,12 +115,18 @@ export function sortEntitiesByRarity(entities: CompendiumEntity[]): CompendiumEn
  * Get entity tier color classes
  */
 export function getTierColor(tier: number): string {
-  if (tier === -1) return 'bg-gray-100 text-gray-800 border-gray-300'
-  if (tier <= 2) return 'bg-green-100 text-green-800 border-green-300'
-  if (tier <= 4) return 'bg-blue-100 text-blue-800 border-blue-300'
-  if (tier <= 6) return 'bg-purple-100 text-purple-800 border-purple-300'
-  if (tier <= 8) return 'bg-orange-100 text-orange-800 border-orange-300'
-  return 'bg-red-100 text-red-800 border-red-300'
+  if (tier === -1) return 'bg-gray-100 text-gray-800 border-gray-300' // #74787e grey
+  if (tier === 1) return 'bg-gray-100 text-gray-800 border-gray-300' // #5b4e52 dark grey
+  if (tier === 2) return 'bg-orange-100 text-orange-800 border-orange-300' // #c97958 brown
+  if (tier === 3) return 'bg-lime-100 text-lime-800 border-lime-300' // #b4fe79 lime green
+  if (tier === 4) return 'bg-sky-100 text-sky-800 border-sky-300' // #61c4ee skyblue
+  if (tier === 5) return 'bg-purple-100 text-purple-800 border-purple-300' // #6c57ff purple
+  if (tier === 6) return 'bg-red-100 text-red-800 border-red-300' // #cf1a32 red
+  if (tier === 7) return 'bg-yellow-100 text-yellow-800 border-yellow-300' // #eeda4a yellow
+  if (tier === 8) return 'bg-cyan-100 text-cyan-800 border-cyan-300' // #96ffe0 neon blue
+  if (tier === 9) return 'bg-gray-800 text-gray-100 border-gray-300' // #42474e black
+  if (tier === 10) return 'bg-gray-50 text-cyan-800 border-cyan-200' // #f4feff very pale cyan, almost white
+  return 'bg-gray-100 text-gray-800 border-gray-300' // fallback for other tiers
 }
 
 /**

@@ -1,13 +1,10 @@
-import { Container } from '@/components/container'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import Link from 'next/link'
+import { CompendiumIndexPageView } from '@/views/compendium-index-page-view/compendium-index-page-view'
 
 // Transform the JSON data to match the type structure
 type ItemDescWithSnakeCase = Omit<ItemDesc, 'compendiumEntry'> & { compendium_entry: boolean }
@@ -38,89 +35,61 @@ export default function CompendiumPage() {
     total: items.length + cargo.length + resources.length
   }
 
-  const createSlug = (name: string) => {
-    return name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '')
-  }
+  // Prepare data for the view component
+  const specialCollections = [
+    {
+      href: '/compendium/weapon',
+      icon: '⚔️',
+      title: 'Weapons',
+      description: 'All weapon types'
+    },
+    {
+      href: '/compendium/equipment',
+      icon: '🛡️',
+      title: 'Equipment',
+      description: 'All equipment slots'
+    },
+    {
+      href: '/compendium/tools',
+      icon: '🔨',
+      title: 'Tools',
+      description: 'All profession tools'
+    }
+  ]
+
+  const sections = [
+    {
+      title: 'Items',
+      totalCount: stats.items,
+      categories: itemCategories.map(category => ({
+        tag: category,
+        count: items.filter(item => item.tag === category).length
+      }))
+    },
+    {
+      title: 'Cargo',
+      totalCount: stats.cargo,
+      categories: cargoCategories.map(category => ({
+        tag: category,
+        count: cargo.filter(item => item.tag === category).length
+      }))
+    },
+    {
+      title: 'Resources',
+      totalCount: stats.resources,
+      categories: resourceCategories.map(category => ({
+        tag: category,
+        count: resources.filter(item => item.tag === category).length
+      }))
+    }
+  ]
 
   return (
-    <Container>
-      <div className="space-y-8 py-8">
-        <div className="space-y-4 text-center">
-          <h1 className="text-4xl font-bold">Bitcraft Compendium</h1>
-          <p className="text-muted-foreground text-lg">
-            Explore all items, cargo, and resources in the world of Bitcraft
-          </p>
-        </div>
-
-        {/* Items Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Items ({stats.items})</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-              {itemCategories.map((category) => {
-                const count = items.filter((item) => item.tag === category).length
-                return (
-                  <Link key={category} href={`/compendium/${createSlug(category)}`} className="block">
-                    <Badge variant="outline" className="hover:bg-accent w-full justify-between p-2">
-                      <span>{category}</span>
-                      <span>{count}</span>
-                    </Badge>
-                  </Link>
-                )
-              })}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Cargo Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Cargo ({stats.cargo})</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-              {cargoCategories.map((category) => {
-                const count = cargo.filter((item) => item.tag === category).length
-                return (
-                  <Link key={category} href={`/compendium/${createSlug(category)}`} className="block">
-                    <Badge variant="outline" className="hover:bg-accent w-full justify-between p-2">
-                      <span>{category}</span>
-                      <span>{count}</span>
-                    </Badge>
-                  </Link>
-                )
-              })}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Resources Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Resources ({stats.resources})</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
-              {resourceCategories.map((category) => {
-                const count = resources.filter((item) => item.tag === category).length
-                return (
-                  <Link key={category} href={`/compendium/${createSlug(category)}`} className="block">
-                    <Badge variant="outline" className="hover:bg-accent w-full justify-between p-2">
-                      <span>{category}</span>
-                      <span>{count}</span>
-                    </Badge>
-                  </Link>
-                )
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </Container>
+    <CompendiumIndexPageView
+      title="Bitcraft Compendium"
+      subtitle="Explore all items, cargo, and resources in the world of Bitcraft"
+      specialCollections={specialCollections}
+      sections={sections}
+    />
   )
 }

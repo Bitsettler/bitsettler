@@ -10,13 +10,13 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 
 // Mapping of path segments to translation keys
 const pathTranslationMap: Record<string, string> = {
+  compendium: 'sidebar.compendium',
   calculator: 'sidebar.calculator',
   changelog: 'sidebar.changelog',
   about: 'sidebar.aboutUs',
   contact: 'sidebar.contactUs',
   donate: 'sidebar.donate',
   random: 'sidebar.randomPage',
-  compendium: 'sidebar.compendium',
   dashboard: 'sidebar.dashboard',
   projects: 'sidebar.projects'
 }

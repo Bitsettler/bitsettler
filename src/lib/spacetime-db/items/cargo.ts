@@ -1,7 +1,7 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import rawCargo from '@/data/global/cargo_desc.json'
-import { camelCaseDeep } from '../utils/case-utils'
-import type { CompendiumEntity } from './types'
+import { camelCaseDeep } from '../../utils/case-utils'
+import type { CompendiumEntity } from '../types'
 
 /**
  * Filter entities to only include cargo

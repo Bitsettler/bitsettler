@@ -4,7 +4,7 @@ import items from '@/data/items.json'
 import craftingRecipes from '@/data/recipes.json'
 import resources from '@/data/resources.json'
 import { Recipe } from '@/lib/types'
-import { FlowVisualizeView } from '@/view/calculator-page-view/calculator-view'
+import { FlowVisualizeView } from '@/views/calculator-page-view/calculator-view'
 import { notFound } from 'next/navigation'
 
 interface PageProps {

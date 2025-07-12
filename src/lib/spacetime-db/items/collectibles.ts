@@ -1,6 +1,6 @@
 import rawCollectibles from '@/data/global/collectible_desc.json'
 import rawItems from '@/data/global/item_desc.json'
-import { camelCaseDeep } from '../utils/case-utils'
+import { camelCaseDeep } from '../../utils/case-utils'
 
 import type { CollectibleDesc } from '@/data/bindings/collectible_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'

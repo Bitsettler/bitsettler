@@ -1,13 +1,12 @@
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CollectibleDesc } from '@/data/bindings'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link } from '@/i18n/navigation'
+import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 
 interface EquipmentSectionProps {
   weapons: ItemDesc[]
-  armor: ItemDesc[]
-  clothing: ItemDesc[]
   tools: ItemDesc[]
   collectibles: CollectibleDesc[]
 }
@@ -18,7 +17,6 @@ interface ItemCategory {
   description: string
   icon: string
   count: number
-  color: string
   href: string
 }
 
@@ -37,9 +35,6 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
                 <p className="text-muted-foreground text-sm">{category.count} items</p>
               </div>
             </div>
-            <Badge variant="outline" className={category.color}>
-              Browse
-            </Badge>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
@@ -50,7 +45,12 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
   )
 }
 
-export function EquipmentSection({ weapons, armor, clothing, tools, collectibles }: EquipmentSectionProps) {
+export function EquipmentSection({ weapons, tools, collectibles }: EquipmentSectionProps) {
+  // Calculate equipment count from all equipment categories
+  const equipmentCount = tagCollections.equipment.tags.reduce((total, tag) => {
+    return total + getItemsByTags([tag]).length
+  }, 0)
+
   const equipmentCategories: ItemCategory[] = [
     {
       id: 'weapon',
@@ -58,35 +58,15 @@ export function EquipmentSection({ weapons, armor, clothing, tools, collectibles
       description: 'Weapons to gear up your character',
       icon: '⚔️',
       count: weapons.length,
-      color: 'bg-red-100 border-red-200 text-red-800',
-      href: '/compendium/weapons'
+      href: '/compendium/weapon'
     },
     {
-      id: 'metal-armor',
-      name: 'Metal Armor',
-      description: 'Sturdy metal armor offering high protection',
+      id: 'equipment',
+      name: 'Equipment',
+      description: 'Armor, clothings, jewelry and more',
       icon: '🛡️',
-      count: armor.length,
-      color: 'bg-red-100 border-red-200 text-red-800',
-      href: '/compendium/metal-armor'
-    },
-    {
-      id: 'leather-clothing',
-      name: 'Leather Clothing',
-      description: 'Stylish leather clothing for stealth and comfort',
-      icon: '👕',
-      count: clothing.length,
-      color: 'bg-red-100 border-red-200 text-red-800',
-      href: '/compendium/leather-clothing'
-    },
-    {
-      id: 'cloth-clothing',
-      name: 'Cloth Clothing',
-      description: 'Cloth clothing for style and comfort',
-      icon: '👗',
-      count: clothing.length,
-      color: 'bg-red-100 border-red-200 text-red-800',
-      href: '/compendium/cloth-clothing'
+      count: equipmentCount,
+      href: '/compendium/equipment'
     },
     {
       id: 'tools',
@@ -94,7 +74,6 @@ export function EquipmentSection({ weapons, armor, clothing, tools, collectibles
       description: 'Essential tools for crafting, gathering, and building',
       icon: '🔨',
       count: tools.length,
-      color: 'bg-blue-100 border-blue-200 text-blue-800',
       href: '/compendium/tools'
     },
     {
@@ -103,7 +82,6 @@ export function EquipmentSection({ weapons, armor, clothing, tools, collectibles
       description: 'Deeds, writs, and other special items',
       icon: '📜',
       count: collectibles.length,
-      color: 'bg-gray-100 border-gray-200 text-gray-800',
       href: '/compendium/collectibles'
     }
   ]

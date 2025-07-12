@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
@@ -18,7 +17,6 @@ interface ItemCategory {
   description: string
   icon: string
   count: number
-  color: string
   href: string
 }
 
@@ -37,9 +35,6 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
                 <p className="text-muted-foreground text-sm">{category.count} items</p>
               </div>
             </div>
-            <Badge variant="outline" className={category.color}>
-              Browse
-            </Badge>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
@@ -58,7 +53,6 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Food, potions, and other items that provide temporary benefits when consumed',
       icon: '🍖',
       count: consumables.length,
-      color: 'bg-green-100 border-green-200 text-green-800',
       href: '/consumables'
     },
     {
@@ -67,7 +61,6 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Packaged goods, animals, and bulk items for trading and transportation',
       icon: '📦',
       count: cargo.length,
-      color: 'bg-purple-100 border-purple-200 text-purple-800',
       href: '/cargo'
     },
     {
@@ -76,7 +69,6 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Raw materials, ores, plants, and other natural resources for crafting',
       icon: '🌿',
       count: resources.length,
-      color: 'bg-emerald-100 border-emerald-200 text-emerald-800',
       href: '/resources'
     },
     {
@@ -85,7 +77,6 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Browse the full item compendium',
       icon: '📋',
       count: totalItems,
-      color: 'bg-gray-100 border-gray-200 text-gray-800',
       href: '/compendium'
     }
   ]

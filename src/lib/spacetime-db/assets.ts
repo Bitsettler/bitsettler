@@ -36,10 +36,14 @@ export function getFallbackIconPath(): string {
 export function cleanIconAssetName(iconAssetName: string): string {
   if (!iconAssetName) return ''
 
-  // Remove redundant GeneratedIcons prefix
-  if (iconAssetName.startsWith('GeneratedIcons/Other/GeneratedIcons/')) {
-    return iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons/', 'GeneratedIcons/')
+  // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
+  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+
+  // Handle missing deed icon - the AncientDeed.webp file doesn't exist
+  if (cleanPath === 'Items/AncientDeed') {
+    cleanPath = 'Unknown'
   }
 
-  return iconAssetName
+
+  return cleanPath
 }

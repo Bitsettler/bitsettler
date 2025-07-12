@@ -2,15 +2,14 @@ import { Container } from '@/components/container'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import rawResources from '@/data/global/resource_desc.json'
 import { convertRarityToString, createSlug } from '@/lib/spacetime-db'
-import { getAllCargo } from '@/lib/spacetime-db/cargo'
-import { getAllCollectibles } from '@/lib/spacetime-db/collectibles'
-import { ItemTag } from '@/lib/spacetime-db/constants/item-tags'
-import { getAllItems, getItemsByTags } from '@/lib/spacetime-db/items'
+import { getAllCargo } from '@/lib/spacetime-db/items/cargo'
+import { getAllCollectibles } from '@/lib/spacetime-db/items/collectibles'
+import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { getAllItems, getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { EquipmentSection } from './equipment-section'
 import { HeroSection, HeroSectionProps } from './hero-section'
 import { ItemsSection } from './items-section'
-import { NewsSection } from './news-section'
 import { ProfessionsSection } from './professions-section'
 
 export function HomeView() {
@@ -27,48 +26,12 @@ export function HomeView() {
     }
   })
 
-  const weapons = getItemsByTags([ItemTag.Weapon])
-  const armor = getItemsByTags([ItemTag.MetalArmor])
-  const clothing = getItemsByTags([ItemTag.LeatherClothing, ItemTag.ClothClothing])
-  const tools = getItemsByTags([
-    ItemTag.BlacksmithTool,
-    ItemTag.CarpenterTool,
-    ItemTag.FarmerTool,
-    ItemTag.FisherTool,
-    ItemTag.ForagerTool,
-    ItemTag.ForesterTool,
-    ItemTag.HunterTool,
-    ItemTag.LeatherworkerTool,
-    ItemTag.MasonTool,
-    ItemTag.MinerTool,
-    ItemTag.ScholarTool,
-    ItemTag.TailorTool
-  ])
+  const weapons = getItemsByTags(tagCollections.weapons.tags)
+  const tools = getItemsByTags(tagCollections.tools.tags)
 
   const collectibles = getAllCollectibles()
 
-  // Consumables tags list (mirrors getConsumables logic)
-  const consumableTags = [
-    'Basic Food',
-    'Bandage',
-    'Bait',
-    'Berry',
-    'Chum',
-    'Citric Berry',
-    'Crafting Speed Elixir',
-    'Healing Potion',
-    'Meal',
-    'Mushroom',
-    'Raw Meal',
-    'Recipe',
-    'Stamina Potion',
-    'Sugar',
-    'Tea',
-    'Vegetable',
-    'Wonder Fruit'
-  ] as ItemTag[]
-
-  const consumables = getItemsByTags(consumableTags)
+  const consumables = getItemsByTags(tagCollections.consumables.tags)
 
   // Others = everything not in consumables/cargo/resources (using ids)
   const cargoData = getAllCargo()
@@ -93,13 +56,7 @@ export function HomeView() {
 
         {/* Equipment Section */}
         <section>
-          <EquipmentSection
-            weapons={weapons}
-            armor={armor}
-            clothing={clothing}
-            tools={tools}
-            collectibles={collectibles}
-          />
+          <EquipmentSection weapons={weapons} tools={tools} collectibles={collectibles} />
         </section>
 
         {/* Items & Resources Section */}
@@ -113,9 +70,9 @@ export function HomeView() {
         </section>
 
         {/* Latest Bitcraft News */}
-        <section>
-          <NewsSection />
-        </section>
+        {/* <section> */}
+        {/*   <NewsSection /> */}
+        {/* </section> */}
       </div>
     </Container>
   )

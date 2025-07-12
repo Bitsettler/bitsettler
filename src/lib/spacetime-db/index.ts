@@ -44,20 +44,6 @@ export {
   sortEntitiesByTier
 } from './entities'
 
-// Item-specific utilities
-export {
-  filterArmor,
-  filterClothing,
-  filterConsumables,
-  filterMaterials,
-  filterToItems,
-  filterTools,
-  filterWeapons,
-  getItemStatsByCategory,
-  getItemTierDistribution,
-  isCraftable
-} from './items'
-
 // Cargo-specific utilities
 export {
   filterAnimals,
@@ -69,7 +55,7 @@ export {
   getCargoTierDistribution,
   getCargoVolumeDistribution,
   isTransportable
-} from './cargo'
+} from './items/cargo'
 
 // Resource-specific utilities
 export {
