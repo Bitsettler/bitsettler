@@ -1,5 +1,7 @@
 import type { EquipmentDesc } from '@/data/bindings/equipment_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
+import type { EquipmentSlotType } from '@/data/bindings/equipment_slot_type_type'
+import type { CharacterStatType } from '@/data/bindings/character_stat_type_type'
 import equipmentDescData from '@/data/global/equipment_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
@@ -125,10 +127,21 @@ export function getSlotTypeName(slotIndex: number): string {
 }
 
 /**
- * Decode slots from raw equipment data
+ * Decode slots from equipment slot types
  */
-export function decodeEquipmentSlots(rawSlots: [number, unknown][]): string[] {
-  return rawSlots.map(([slotIndex]) => getSlotTypeName(slotIndex))
+export function decodeEquipmentSlots(slots: unknown[]): string[] {
+  return slots.map((slot) => {
+    // Handle both the proper typed format and the raw JSON format
+    if (typeof slot === 'object' && slot && 'tag' in slot) {
+      return (slot as EquipmentSlotType).tag
+    } else if (Array.isArray(slot) && slot.length > 0) {
+      // Array format from JSON: [index, data]
+      const slotIndex = slot[0] as number
+      return getSlotTypeName(slotIndex)
+    } else {
+      return 'Unknown'
+    }
+  })
 }
 
 /**
@@ -139,17 +152,36 @@ export function getCharacterStatName(statIndex: number): string {
 }
 
 /**
- * Decode equipment stats from raw JSON format
+ * Decode equipment stats from CSV stat entries
  */
 export function decodeEquipmentStats(
-  rawStats: [unknown, number, boolean][]
+  stats: unknown[]
 ): { name: string; value: number; isPct: boolean; displayValue: string }[] {
-  return rawStats.map(([statType, value, isPct]) => {
-    // Extract stat index from algebraic type format [index, data]
-    const statIndex = Array.isArray(statType) ? statType[0] : statType
-    const statName = getCharacterStatName(statIndex as number)
+  return stats.map((stat: unknown) => {
+    // Type guard to ensure stat is an object with expected properties
+    if (typeof stat !== 'object' || stat === null) {
+      return { name: 'Unknown', value: 0, isPct: false, displayValue: '0' }
+    }
+    
+    const statObj = stat as Record<string, unknown>
+    
+    // Handle both the proper typed format and the raw JSON format
+    let statName: string
+    if (typeof statObj.id === 'object' && statObj.id && 'tag' in statObj.id) {
+      // Proper typed format
+      statName = formatStatName((statObj.id as CharacterStatType).tag)
+    } else if (Array.isArray(statObj.id) && statObj.id.length > 0) {
+      // Array format from JSON: [index, data]
+      const statIndex = statObj.id[0] as number
+      statName = getCharacterStatName(statIndex)
+    } else {
+      // Fallback for unknown format
+      statName = 'Unknown'
+    }
 
     // Format display value - multiply by 100 for percentage values
+    const value = typeof statObj.value === 'number' ? statObj.value : 0
+    const isPct = typeof statObj.isPct === 'boolean' ? statObj.isPct : false
     const displayValue = isPct ? `${(value * 100).toFixed(1)}%` : value.toString()
 
     return {
@@ -225,18 +257,16 @@ export async function getEquipmentWithStats(): Promise<EquipmentWithItem[]> {
   const results: EquipmentWithItem[] = []
 
   for (const item of equipmentItems) {
-    const rawData = equipmentDesc.find((data) => data.itemId === item.id)
-    if (rawData) {
-      // Decode slots from algebraic format [index, data]
-      const slotNames = decodeEquipmentSlots(
-        Array.isArray(rawData.slots) ? (rawData.slots as unknown as [number, unknown][]) : []
-      )
+    const equipData = equipmentDesc.find((data) => data.itemId === item.id)
+    if (equipData) {
+      // Decode slots - handle both typed and raw JSON formats
+      const slotNames = decodeEquipmentSlots(equipData.slots as unknown[])
 
-      // Decode stats from algebraic format
-      const decodedStats = decodeEquipmentStats(rawData.stats as unknown as [unknown, number, boolean][])
+      // Decode stats - handle both typed and raw JSON formats  
+      const decodedStats = decodeEquipmentStats(equipData.stats as unknown[])
 
       results.push({
-        ...rawData,
+        ...equipData,
         item,
         slotNames,
         decodedStats
