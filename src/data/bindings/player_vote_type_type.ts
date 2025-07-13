@@ -12,7 +12,8 @@ export namespace PlayerVoteType {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type Duel = { tag: 'Duel' }
+  export type JoinEmpire = { tag: 'JoinEmpire' }
+  export type SubmitEmpire = { tag: 'SubmitEmpire' }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -20,10 +21,14 @@ export namespace PlayerVoteType {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Duel = { tag: 'Duel' }
+  export const JoinEmpire = { tag: 'JoinEmpire' }
+  export const SubmitEmpire = { tag: 'SubmitEmpire' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createSumType([new SumTypeVariant('Duel', AlgebraicType.createProductType([]))])
+    return AlgebraicType.createSumType([
+      new SumTypeVariant('JoinEmpire', AlgebraicType.createProductType([])),
+      new SumTypeVariant('SubmitEmpire', AlgebraicType.createProductType([]))
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerVoteType): void {
@@ -36,6 +41,6 @@ export namespace PlayerVoteType {
 }
 
 // The tagged union or sum type for the algebraic type `PlayerVoteType`.
-export type PlayerVoteType = PlayerVoteType.Duel
+export type PlayerVoteType = PlayerVoteType.JoinEmpire | PlayerVoteType.SubmitEmpire
 
 export default PlayerVoteType

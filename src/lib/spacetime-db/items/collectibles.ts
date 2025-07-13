@@ -32,15 +32,15 @@ export function getAllCollectibles(): CollectibleDesc[] {
 export function getCollectibleIconPath(item: { id: number; iconAssetName?: string }): string {
   // Convert datasets to camelCase to match binding types
   const collectibles = camelCaseDeep<CollectibleDesc[]>(rawCollectibles)
-  
+
   // Find collectible that references this item as its deed
   const collectible = collectibles.find((col) => col.itemDeedId === item.id)
-  
+
   if (collectible && collectible.iconAssetName) {
     // Use the collectible's icon asset name (which has the correct cosmetic paths)
     return getServerIconPath(cleanIconAssetName(collectible.iconAssetName))
   }
-  
+
   // Fall back to the item's own icon asset name with standard processing
   return getServerIconPath(cleanIconAssetName(item.iconAssetName || ''))
 }

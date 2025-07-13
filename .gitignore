@@ -49,3 +49,5 @@ data/sample
 # binary data from BitCraft
 /bins/
 manifest.txt
+
+**/*/test/

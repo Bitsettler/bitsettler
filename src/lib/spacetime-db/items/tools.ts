@@ -19,11 +19,9 @@ export interface ToolWithDetails extends ToolDesc {
 export function getToolItems(): ItemDesc[] {
   const itemData = camelCaseDeep<ItemDesc[]>(itemDescData)
   const toolStats = getToolStats()
-  const toolItemIds = new Set(toolStats.map(stat => stat.itemId))
-  
-  return itemData.filter((item) => 
-    item.compendiumEntry && toolItemIds.has(item.id)
-  )
+  const toolItemIds = new Set(toolStats.map((stat) => stat.itemId))
+
+  return itemData.filter((item) => item.compendiumEntry && toolItemIds.has(item.id))
 }
 
 /**
@@ -47,18 +45,18 @@ export function getToolsWithDetails(): ToolWithDetails[] {
   const toolItems = getToolItems()
   const toolStats = getToolStats()
   const toolTypes = getToolTypes()
-  
+
   // Create lookup maps for efficiency
-  const toolStatsMap = new Map(toolStats.map(stat => [stat.itemId, stat]))
-  const toolTypesMap = new Map(toolTypes.map(type => [type.id, type]))
-  
+  const toolStatsMap = new Map(toolStats.map((stat) => [stat.itemId, stat]))
+  const toolTypesMap = new Map(toolTypes.map((type) => [type.id, type]))
+
   const results: ToolWithDetails[] = []
-  
+
   for (const item of toolItems) {
     const toolStat = toolStatsMap.get(item.id)
     if (toolStat) {
       const toolType = toolTypesMap.get(toolStat.toolType)
-      
+
       results.push({
         ...toolStat,
         item,
@@ -67,7 +65,7 @@ export function getToolsWithDetails(): ToolWithDetails[] {
       })
     }
   }
-  
+
   return results
 }
 
@@ -76,9 +74,9 @@ export function getToolsWithDetails(): ToolWithDetails[] {
  */
 export function getToolsGroupedByType(): Record<string, ToolWithDetails[]> {
   const tools = getToolsWithDetails()
-  
+
   const grouped: Record<string, ToolWithDetails[]> = {}
-  
+
   for (const tool of tools) {
     const typeName = tool.toolTypeName
     if (!grouped[typeName]) {
@@ -86,7 +84,7 @@ export function getToolsGroupedByType(): Record<string, ToolWithDetails[]> {
     }
     grouped[typeName].push(tool)
   }
-  
+
   // Sort each group by level (ascending) then by tier (ascending)
   for (const toolType in grouped) {
     grouped[toolType].sort((a, b) => {
@@ -98,7 +96,7 @@ export function getToolsGroupedByType(): Record<string, ToolWithDetails[]> {
       return a.item.tier - b.item.tier
     })
   }
-  
+
   return grouped
 }
 
@@ -108,19 +106,21 @@ export function getToolsGroupedByType(): Record<string, ToolWithDetails[]> {
 export function getToolStatistics() {
   const toolsByType = getToolsGroupedByType()
   const totalTools = Object.values(toolsByType).reduce((total, tools) => total + tools.length, 0)
-  
+
   // Calculate level distribution
   const levelDistribution: Record<number, number> = {}
-  Object.values(toolsByType).flat().forEach(tool => {
-    levelDistribution[tool.level] = (levelDistribution[tool.level] || 0) + 1
-  })
-  
+  Object.values(toolsByType)
+    .flat()
+    .forEach((tool) => {
+      levelDistribution[tool.level] = (levelDistribution[tool.level] || 0) + 1
+    })
+
   // Calculate power range
   const allTools = Object.values(toolsByType).flat()
-  const powers = allTools.map(tool => tool.power)
+  const powers = allTools.map((tool) => tool.power)
   const minPower = Math.min(...powers)
   const maxPower = Math.max(...powers)
-  
+
   return {
     total: totalTools,
     types: Object.keys(toolsByType).length,
@@ -136,8 +136,8 @@ export function getToolStatistics() {
       type,
       count: tools.length,
       levelRange: {
-        min: Math.min(...tools.map(t => t.level)),
-        max: Math.max(...tools.map(t => t.level))
+        min: Math.min(...tools.map((t) => t.level)),
+        max: Math.max(...tools.map((t) => t.level))
       }
     }))
   }

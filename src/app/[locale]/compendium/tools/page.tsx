@@ -1,9 +1,9 @@
-import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { getToolStatistics } from '@/lib/spacetime-db-live/tools'
 import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { ToolsView } from '@/views/tools-views/tools-index-page-view'
 
-export default function ToolsPage() {
+export default async function ToolsPage() {
   // Define tool categories based on tag collections
   const toolCategories = [
     // Forestry Tools
@@ -132,10 +132,9 @@ export default function ToolsPage() {
     }
   })
 
-  // Calculate total tools using tagCollections to ensure consistency
-  const totalTools = tagCollections.tools.tags.reduce((total, tag) => {
-    return total + getItemsByTags([tag]).length
-  }, 0)
+  // Get live tool statistics
+  const toolStats = await getToolStatistics()
+  const totalTools = toolStats.total
 
   return (
     <ToolsView

@@ -35,11 +35,11 @@ function createSlug(name: string): string {
     .replace(/(^-|-$)/g, '')
 }
 
-export function CompendiumIndexPageView({ 
-  title, 
-  subtitle, 
-  specialCollections, 
-  sections 
+export function CompendiumIndexPageView({
+  title,
+  subtitle,
+  specialCollections,
+  sections
 }: CompendiumIndexPageViewProps) {
   return (
     <Container>
@@ -60,7 +60,9 @@ export function CompendiumIndexPageView({
                 {specialCollections.map((collection) => (
                   <Link key={collection.href} href={collection.href} className="block">
                     <Badge variant="secondary" className="hover:bg-accent w-full justify-between p-3">
-                      <span>{collection.icon} {collection.title}</span>
+                      <span>
+                        {collection.icon} {collection.title}
+                      </span>
                       <span>{collection.description}</span>
                     </Badge>
                   </Link>
@@ -74,16 +76,14 @@ export function CompendiumIndexPageView({
         {sections.map((section) => (
           <Card key={section.title}>
             <CardHeader>
-              <CardTitle>{section.title} ({section.totalCount})</CardTitle>
+              <CardTitle>
+                {section.title} ({section.totalCount})
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                 {section.categories.map((category) => (
-                  <Link 
-                    key={category.tag} 
-                    href={`/compendium/${createSlug(category.tag)}`} 
-                    className="block"
-                  >
+                  <Link key={category.tag} href={`/compendium/${createSlug(category.tag)}`} className="block">
                     <Badge variant="outline" className="hover:bg-accent w-full justify-between p-2">
                       <span>{category.tag}</span>
                       <span>{category.count}</span>

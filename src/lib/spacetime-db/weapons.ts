@@ -60,9 +60,9 @@ export function getWeaponTypeName(weaponTypeId: number): string {
 export function getWeaponsWithStats(): WeaponWithItem[] {
   const weaponItems = getWeaponItems()
   const weaponStats = getWeaponStats()
-  
+
   const results: WeaponWithItem[] = []
-  
+
   for (const item of weaponItems) {
     const stats = weaponStats.find((stat) => stat.itemId === item.id)
     if (stats) {
@@ -74,7 +74,7 @@ export function getWeaponsWithStats(): WeaponWithItem[] {
       })
     }
   }
-  
+
   return results
 }
 
@@ -83,21 +83,21 @@ export function getWeaponsWithStats(): WeaponWithItem[] {
  */
 export function getWeaponsGroupedByType(): Record<string, WeaponWithItem[]> {
   const weapons = getWeaponsWithStats()
-  
+
   const grouped: Record<string, WeaponWithItem[]> = {}
-  
+
   for (const weapon of weapons) {
     if (!grouped[weapon.weaponTypeName]) {
       grouped[weapon.weaponTypeName] = []
     }
     grouped[weapon.weaponTypeName].push(weapon)
   }
-  
+
   // Sort each group by tier
   for (const weaponType in grouped) {
     grouped[weaponType].sort((a, b) => a.tier - b.tier)
   }
-  
+
   return grouped
 }
 
@@ -107,16 +107,16 @@ export function getWeaponsGroupedByType(): Record<string, WeaponWithItem[]> {
 export function getWeaponStatistics() {
   const weapons = getWeaponsWithStats()
   const weaponTypes = getWeaponTypes()
-  
+
   const totalWeapons = weapons.length
   const weaponsByType = getWeaponsGroupedByType()
   const typeCount = Object.keys(weaponsByType).length
-  
+
   const tierDistribution: Record<number, number> = {}
   weapons.forEach((weapon) => {
     tierDistribution[weapon.tier] = (tierDistribution[weapon.tier] || 0) + 1
   })
-  
+
   return {
     total: totalWeapons,
     types: typeCount,

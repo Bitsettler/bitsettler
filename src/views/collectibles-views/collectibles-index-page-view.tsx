@@ -35,7 +35,13 @@ export function CollectiblesView({ title, subtitle, collectibleCategories }: Col
     {} as Record<string, CollectibleCategory[]>
   )
 
-  const CategorySection = ({ sectionTitle, categories }: { sectionTitle: string; categories: CollectibleCategory[] }) => (
+  const CategorySection = ({
+    sectionTitle,
+    categories
+  }: {
+    sectionTitle: string
+    categories: CollectibleCategory[]
+  }) => (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
         <h2 className="text-xl font-semibold">{sectionTitle}</h2>
@@ -102,16 +108,14 @@ export function CollectiblesView({ title, subtitle, collectibleCategories }: Col
           </Card>
           <Card>
             <CardContent className="pt-6">
-              <div className="text-2xl font-bold">
-                {Object.keys(categoriesBySection).length}
-              </div>
+              <div className="text-2xl font-bold">{Object.keys(categoriesBySection).length}</div>
               <p className="text-muted-foreground text-xs">Sections</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold">
-                {collectibleCategories.filter(cat => cat.category === 'Property & Ownership').length}
+                {collectibleCategories.filter((cat) => cat.category === 'Property & Ownership').length}
               </div>
               <p className="text-muted-foreground text-xs">Property Types</p>
             </CardContent>

@@ -1,29 +1,27 @@
-import { formatStatName, getEquipmentWithStats } from '@/lib/spacetime-db/items/equipments'
+import { formatStatName, type EquipmentWithStats } from '@/lib/spacetime-db-live/equipments'
 import { TagPageView } from '@/views/tag-page-view/tag-page-view'
 
 interface EquipmentIndividualTagPageViewProps {
   tagName: string
+  equipment: EquipmentWithStats[]
   backLink?: string
   backLinkText?: string
 }
 
 export function EquipmentIndividualTagPageView({
   tagName,
+  equipment,
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: EquipmentIndividualTagPageViewProps) {
-  // Handle equipment tags with slot organization
-  const equipmentWithStats = getEquipmentWithStats()
-  const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
-
   // Group by slot
-  const equipmentBySlot: Record<string, typeof equipmentForThisTag> = {}
-  equipmentForThisTag.forEach((equipment) => {
-    equipment.slotNames.forEach((slotName) => {
+  const equipmentBySlot: Record<string, EquipmentWithStats[]> = {}
+  equipment.forEach((item) => {
+    item.slotNames.forEach((slotName) => {
       if (!equipmentBySlot[slotName]) {
         equipmentBySlot[slotName] = []
       }
-      equipmentBySlot[slotName].push(equipment)
+      equipmentBySlot[slotName].push(item)
     })
   })
 
@@ -83,11 +81,7 @@ export function EquipmentIndividualTagPageView({
   })
 
   // Equipment statistics
-  const totalEquipment = equipmentForThisTag.length
-  const tierDistribution: Record<number, number> = {}
-  equipmentForThisTag.forEach((equipment) => {
-    tierDistribution[equipment.item.tier] = (tierDistribution[equipment.item.tier] || 0) + 1
-  })
+  const totalEquipment = equipment.length
 
   return (
     <TagPageView

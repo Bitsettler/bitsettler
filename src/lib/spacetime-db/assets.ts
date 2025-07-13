@@ -49,7 +49,7 @@ export function cleanIconAssetName(iconAssetName: string): string {
   if (cleanPath === 'Items/LeatherBonnet') {
     cleanPath = 'GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapBonnet'
   }
-  
+
   if (cleanPath === 'Items/LeatherGloves') {
     cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves'
   }

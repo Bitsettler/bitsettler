@@ -6,6 +6,7 @@ import { getAllCargo } from '@/lib/spacetime-db/items/cargo'
 import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { getAllItems, getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
+import { BuildingsSection } from './buildings-section'
 import { EquipmentSection } from './equipment-section'
 import { HeroSection, HeroSectionProps } from './hero-section'
 import { ItemsSection } from './items-section'
@@ -54,6 +55,11 @@ export function HomeView() {
         {/* Equipment Section */}
         <section>
           <EquipmentSection weapons={weapons} tools={tools} />
+        </section>
+
+        {/* Buildings & Structures Section */}
+        <section>
+          <BuildingsSection />
         </section>
 
         {/* Items & Resources Section */}

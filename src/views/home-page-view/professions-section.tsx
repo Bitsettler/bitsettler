@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
 import { getAllProfessions, getProfessionsByType, type Profession } from '@/lib/spacetime-db'
@@ -25,9 +24,6 @@ function ProfessionCard({ profession }: { profession: Profession }) {
                 <p className="text-muted-foreground text-sm">{profession.title}</p>
               </div>
             </div>
-            <Badge variant="outline" className={profession.color}>
-              {profession.skillCategory.tag}
-            </Badge>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">

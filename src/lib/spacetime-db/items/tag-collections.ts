@@ -37,9 +37,7 @@ export const tagCollections = {
 
   // Weapons collection
   weapons: {
-    tags: [
-      ItemTag.Weapon
-    ] as const,
+    tags: [ItemTag.Weapon] as const,
     href: '/compendium/weapon',
     name: 'Weapons'
   },
@@ -91,11 +89,7 @@ export const tagCollections = {
 
   // Collectibles collection - deeds, writs, and special collectible items
   collectibles: {
-    tags: [
-      ItemTag.Deed,
-      ItemTag.DeployableDeed,
-      ItemTag.Writ
-    ] as const,
+    tags: [ItemTag.Deed, ItemTag.DeployableDeed] as const,
     href: '/compendium/collectibles',
     name: 'Collectibles'
   }
@@ -106,7 +100,7 @@ export const tagCollections = {
  */
 export function findTagCollection(tag: string): TagCollection | null {
   for (const collection of Object.values(tagCollections)) {
-    if (collection.tags.some(collectionTag => collectionTag === tag)) {
+    if (collection.tags.some((collectionTag) => collectionTag === tag)) {
       return collection
     }
   }

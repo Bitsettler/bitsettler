@@ -1,8 +1,9 @@
+import { getCollectibleStatistics } from '@/lib/spacetime-db-live/collectibles'
 import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { CollectiblesView } from '@/views/collectibles-views/collectibles-index-page-view'
 
-export default function CollectiblesPage() {
+export default async function CollectiblesPage() {
   // Define collectible categories based on tags
   const collectibleCategories = [
     // Property Deeds
@@ -24,16 +25,6 @@ export default function CollectiblesPage() {
       tag: ItemTag.DeployableDeed,
       category: 'Property & Ownership',
       href: '/compendium/deployable-deed'
-    },
-    // Writs & Documents
-    {
-      id: 'writ',
-      name: 'Writs & Documents',
-      description: 'Official documents, permits, and administrative papers',
-      icon: '📋',
-      tag: ItemTag.Writ,
-      category: 'Documents & Permits',
-      href: '/compendium/writ'
     }
   ]
 
@@ -46,11 +37,9 @@ export default function CollectiblesPage() {
     }
   })
 
-  // Calculate total collectibles using the defined tags
-  const collectibleTags = [ItemTag.Deed, ItemTag.DeployableDeed, ItemTag.Writ]
-  const totalCollectibles = collectibleTags.reduce((total, tag) => {
-    return total + getItemsByTags([tag]).length
-  }, 0)
+  // Get live collectible statistics
+  const collectibleStats = await getCollectibleStatistics()
+  const totalCollectibles = collectibleStats.total
 
   return (
     <CollectiblesView
@@ -60,4 +49,3 @@ export default function CollectiblesPage() {
     />
   )
 }
-

@@ -1,9 +1,9 @@
-import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { getEquipmentStatistics } from '@/lib/spacetime-db-live/equipments'
 import { ItemTag } from '@/lib/spacetime-db/items/tags'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view'
 
-export default function EquipmentPage() {
+export default async function EquipmentPage() {
   // Define equipment categories
   const equipmentCategories = [
     // Armor & Clothing Section
@@ -73,10 +73,9 @@ export default function EquipmentPage() {
     }
   })
 
-  // Calculate total items using tagCollections to ensure consistency with other components
-  const totalEquipment = tagCollections.equipment.tags.reduce((total, tag) => {
-    return total + getItemsByTags([tag]).length
-  }, 0)
+  // Get live equipment statistics
+  const equipmentStats = await getEquipmentStatistics()
+  const totalEquipment = equipmentStats.total
 
   return (
     <EquipmentView

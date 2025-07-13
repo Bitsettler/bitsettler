@@ -4,6 +4,9 @@ import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
+import { getCollectiblesWithItems } from '@/lib/spacetime-db-live/collectibles'
+import { getEquipmentWithStats } from '@/lib/spacetime-db-live/equipments'
+import { getToolsWithItems } from '@/lib/spacetime-db-live/tools'
 import { findTagCollection, tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
@@ -59,37 +62,86 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Find which collection this tag belongs to for smart navigation
   const parentCollection = findTagCollection(tagName)
 
-  // Handle equipment tags with the new component
+  // Handle equipment tags with the live component
   if (isEquipmentTag && items.length > 0) {
-    return (
-      <EquipmentIndividualTagPageView
-        tagName={tagName}
-        backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-      />
-    )
+    try {
+      const equipmentWithStats = await getEquipmentWithStats()
+      const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
+
+      return (
+        <EquipmentIndividualTagPageView
+          tagName={tagName}
+          equipment={equipmentForThisTag}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    } catch (error) {
+      console.warn('Failed to fetch live equipment data during build, using static fallback:', error)
+      // Fallback to empty data for build time
+      return (
+        <EquipmentIndividualTagPageView
+          tagName={tagName}
+          equipment={[]}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    }
   }
 
   // Handle tools tags with the new component
   if (isToolsTag && items.length > 0) {
-    return (
-      <ToolsIndividualTagPageView
-        tagName={tagName}
-        backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-      />
-    )
+    try {
+      const toolsWithItems = await getToolsWithItems()
+      const toolsForThisTag = toolsWithItems.filter((tool) => tool.item.tag === tagName)
+
+      return (
+        <ToolsIndividualTagPageView
+          tagName={tagName}
+          tools={toolsForThisTag}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    } catch (error) {
+      console.warn('Failed to fetch live tools data during build, using static fallback:', error)
+      return (
+        <ToolsIndividualTagPageView
+          tagName={tagName}
+          tools={[]}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    }
   }
 
   // Handle collectibles tags with the new component
   if (isCollectiblesTag && items.length > 0) {
-    return (
-      <CollectiblesIndividualTagPageView
-        tagName={tagName}
-        backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-      />
-    )
+    try {
+      const collectiblesWithItems = await getCollectiblesWithItems()
+      const collectiblesForThisTag = collectiblesWithItems.filter((collectible) => collectible.item.tag === tagName)
+
+      return (
+        <CollectiblesIndividualTagPageView
+          tagName={tagName}
+          collectibles={collectiblesForThisTag}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    } catch (error) {
+      console.warn('Failed to fetch live collectibles data during build, using static fallback:', error)
+      return (
+        <CollectiblesIndividualTagPageView
+          tagName={tagName}
+          collectibles={[]}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    }
   }
 
   // Handle non-equipment/tools tags (regular items, cargo, resources)

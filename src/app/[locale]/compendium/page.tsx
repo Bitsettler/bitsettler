@@ -1,9 +1,9 @@
+import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
+import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
-import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import { CompendiumIndexPageView } from '@/views/compendium-index-page-view/compendium-index-page-view'
 
 // Transform the JSON data to match the type structure
@@ -61,25 +61,25 @@ export default function CompendiumPage() {
     {
       title: 'Items',
       totalCount: stats.items,
-      categories: itemCategories.map(category => ({
+      categories: itemCategories.map((category) => ({
         tag: category,
-        count: items.filter(item => item.tag === category).length
+        count: items.filter((item) => item.tag === category).length
       }))
     },
     {
       title: 'Cargo',
       totalCount: stats.cargo,
-      categories: cargoCategories.map(category => ({
+      categories: cargoCategories.map((category) => ({
         tag: category,
-        count: cargo.filter(item => item.tag === category).length
+        count: cargo.filter((item) => item.tag === category).length
       }))
     },
     {
       title: 'Resources',
       totalCount: stats.resources,
-      categories: resourceCategories.map(category => ({
+      categories: resourceCategories.map((category) => ({
         tag: category,
-        count: resources.filter(item => item.tag === category).length
+        count: resources.filter((item) => item.tag === category).length
       }))
     }
   ]

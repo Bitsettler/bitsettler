@@ -1,23 +1,21 @@
-import { getToolsWithDetails } from '@/lib/spacetime-db/items/tools'
+import type { ToolWithItem } from '@/lib/spacetime-db-live/tools'
 import { TagPageView } from '@/views/tag-page-view/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {
   tagName: string
+  tools: ToolWithItem[]
   backLink?: string
   backLinkText?: string
 }
 
 export function ToolsIndividualTagPageView({
   tagName,
+  tools,
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: ToolsIndividualTagPageViewProps) {
-  // Handle tools tags with enriched data
-  const toolsWithDetails = getToolsWithDetails()
-  const toolsForThisTag = toolsWithDetails.filter((tool) => tool.item.tag === tagName)
-
   // Deduplicate by tier (keep only one tool per tier)
-  const deduplicatedTools = toolsForThisTag.reduce(
+  const deduplicatedTools = tools.reduce(
     (acc, tool) => {
       const key = `${tool.item.name}_T${tool.item.tier}`
       if (!acc[key]) {
@@ -25,7 +23,7 @@ export function ToolsIndividualTagPageView({
       }
       return acc
     },
-    {} as Record<string, (typeof toolsForThisTag)[0]>
+    {} as Record<string, ToolWithItem>
   )
 
   const toolsList = Object.values(deduplicatedTools)
@@ -53,11 +51,7 @@ export function ToolsIndividualTagPageView({
   ]
 
   // Tools statistics
-  const totalTools = toolsForThisTag.length
-  const levelDistribution: Record<number, number> = {}
-  toolsForThisTag.forEach((tool) => {
-    levelDistribution[tool.level] = (levelDistribution[tool.level] || 0) + 1
-  })
+  const totalTools = tools.length
 
   return (
     <TagPageView
