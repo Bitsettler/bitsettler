@@ -1,4 +1,5 @@
 import type { BuildingDesc } from '@/data/bindings/building_desc_type'
+import type { BuildingFunction } from '@/data/bindings/building_function_type'
 import type { BuildingFunctionTypeMappingDesc } from '@/data/bindings/building_function_type_mapping_desc_type'
 import type { BuildingTypeDesc } from '@/data/bindings/building_type_desc_type'
 import type { ConstructionRecipeDesc } from '@/data/bindings/construction_recipe_desc_type'
@@ -57,14 +58,20 @@ export interface BuildingWithConstructionInfo extends BuildingDesc {
   writItems?: ItemDesc[]
   buildingType?: BuildingTypeDesc
   category?: string
-  formattedFunctions?: string
+  formattedFunctions: string
+  parsedFunctions: BuildingFunction[]
+  isWilderness: boolean
+  isDestructible: boolean
+  hasMaintenanceCost: boolean
+  totalSlots: number
 }
 
 // Alias for consistency with other modules
 export type BuildingWithItem = BuildingWithConstructionInfo
 
-// Helper function to format building functions based on available data
-// SpacetimeDB BuildingFunction array format: [functionType, level, craftingSlots, storageSlots, cargoSlots, refiningSlots, refiningCargoSlots, itemSlotSize, cargoSlotSize, tradeOrders, allowedItemIdPerSlot, buffIds, concurrentCraftsPerPlayer, terraform, housingSlots, housingIncome]
+/**
+ * Format building functions using proper BuildingFunction types
+ */
 function formatBuildingFunctions(functions: unknown[]): string {
   if (!functions || functions.length === 0) {
     return 'None'
@@ -73,82 +80,149 @@ function formatBuildingFunctions(functions: unknown[]): string {
   const functionDescriptions: string[] = []
 
   for (const func of functions) {
-    // Ensure func is an array before destructuring
-    if (!Array.isArray(func)) continue
-
-    // Parse the array format into named fields
-    const [
-      functionType, // 0
-      // 1 - level (unused)
-      ,
-      craftingSlots, // 2
-      storageSlots, // 3
-      cargoSlots, // 4
-      refiningSlots, // 5
-      // 6 - refiningCargoSlots (unused)
-      // 7 - itemSlotSize (unused)
-      // 8 - cargoSlotSize (unused)
-      ,
-      ,
-      ,
-      tradeOrders, // 9
-      // 10 - allowedItemIdPerSlot (unused)
-      // 11 - buffIds (unused)
-      // 12 - concurrentCraftsPerPlayer (unused)
-      ,
-      ,
-      ,
-      terraform, // 13
-      housingSlots // 14
-      // 15 - housingIncome (unused)
-    ] = func
-
-    const descriptions: string[] = []
-
-    // Check for crafting functionality
-    if (craftingSlots > 0) {
-      descriptions.push(`Crafting (${craftingSlots} slots)`)
+    // Handle both proper typed format and raw JSON array format
+    let buildingFunc: BuildingFunction | null = null
+    
+    if (typeof func === 'object' && func !== null && !Array.isArray(func)) {
+      // Proper typed format
+      buildingFunc = func as BuildingFunction
+    } else if (Array.isArray(func) && func.length >= 16) {
+      // Raw JSON array format: [functionType, level, craftingSlots, storageSlots, cargoSlots, refiningSlots, refiningCargoSlots, itemSlotSize, cargoSlotSize, tradeOrders, allowedItemIdPerSlot, buffIds, concurrentCraftsPerPlayer, terraform, housingSlots, housingIncome]
+      buildingFunc = {
+        functionType: func[0] as number,
+        level: func[1] as number,
+        craftingSlots: func[2] as number,
+        storageSlots: func[3] as number,
+        cargoSlots: func[4] as number,
+        refiningSlots: func[5] as number,
+        refiningCargoSlots: func[6] as number,
+        itemSlotSize: func[7] as number,
+        cargoSlotSize: func[8] as number,
+        tradeOrders: func[9] as number,
+        allowedItemIdPerSlot: func[10] as number[],
+        buffIds: func[11] as number[],
+        concurrentCraftsPerPlayer: func[12] as number,
+        terraform: func[13] as boolean,
+        housingSlots: func[14] as number,
+        housingIncome: func[15] as number
+      }
     }
-
-    // Check for storage functionality
-    if (storageSlots > 0) {
-      descriptions.push(`Storage (${storageSlots} slots)`)
+    
+    if (!buildingFunc) continue
+    
+    const descriptions = formatSingleBuildingFunction(buildingFunc)
+    if (descriptions.length > 0) {
+      functionDescriptions.push(descriptions.join(', '))
     }
+  }
+  
+  return functionDescriptions.length > 0 ? functionDescriptions.join(' | ') : 'None'
+}
 
-    // Check for cargo functionality
-    if (cargoSlots > 0) {
-      descriptions.push(`Cargo (${cargoSlots} slots)`)
-    }
+/**
+ * Format a single building function with proper type safety
+ */
+function formatSingleBuildingFunction(func: BuildingFunction): string[] {
+  const descriptions: string[] = []
+  
+  // Check for crafting functionality
+  if (func.craftingSlots > 0) {
+    descriptions.push(`Crafting (${func.craftingSlots} slots)`)
+  }
+  
+  // Check for storage functionality
+  if (func.storageSlots > 0) {
+    descriptions.push(`Storage (${func.storageSlots} slots)`)
+  }
+  
+  // Check for cargo functionality
+  if (func.cargoSlots > 0) {
+    descriptions.push(`Cargo (${func.cargoSlots} slots)`)
+  }
+  
+  // Check for refining functionality
+  if (func.refiningSlots > 0) {
+    descriptions.push(`Refining (${func.refiningSlots} slots)`)
+  }
+  
+  // Check for housing functionality
+  if (func.housingSlots > 0) {
+    descriptions.push(`Housing (${func.housingSlots} slots)`)
+  }
+  
+  // Check for trade functionality
+  if (func.tradeOrders > 0) {
+    descriptions.push(`Trading (${func.tradeOrders} orders)`)
+  }
+  
+  // Check for terraforming
+  if (func.terraform) {
+    descriptions.push('Terraforming')
+  }
+  
+  // If no specific functions found, use function type name
+  if (descriptions.length === 0) {
+    const functionTypeName = BUILDING_FUNCTION_TYPE_MAPPING[func.functionType] || 'General'
+    descriptions.push(functionTypeName)
+  }
+  
+  return descriptions
+}
 
-    // Check for refining functionality
-    if (refiningSlots > 0) {
-      descriptions.push(`Refining (${refiningSlots} slots)`)
-    }
-
-    // Check for housing functionality
-    if (housingSlots > 0) {
-      descriptions.push(`Housing (${housingSlots} slots)`)
-    }
-
-    // Check for trade functionality
-    if (tradeOrders > 0) {
-      descriptions.push(`Trading (${tradeOrders} orders)`)
-    }
-
-    // Check for terraforming
-    if (terraform) {
-      descriptions.push('Terraforming')
-    }
-
-    // If no specific functions found, use function type ID
-    if (descriptions.length === 0) {
-      descriptions.push(`Function Type ${functionType}`)
-    }
-
-    functionDescriptions.push(descriptions.join(', '))
+/**
+ * Parse building functions from unknown format to BuildingFunction array
+ */
+function parseBuildingFunctions(functions: unknown[]): BuildingFunction[] {
+  if (!functions || functions.length === 0) {
+    return []
   }
 
-  return functionDescriptions.join(' | ')
+  const parsedFunctions: BuildingFunction[] = []
+
+  for (const func of functions) {
+    let buildingFunc: BuildingFunction | null = null
+    
+    if (typeof func === 'object' && func !== null && !Array.isArray(func)) {
+      // Proper typed format
+      buildingFunc = func as BuildingFunction
+    } else if (Array.isArray(func) && func.length >= 16) {
+      // Raw JSON array format
+      buildingFunc = {
+        functionType: func[0] as number,
+        level: func[1] as number,
+        craftingSlots: func[2] as number,
+        storageSlots: func[3] as number,
+        cargoSlots: func[4] as number,
+        refiningSlots: func[5] as number,
+        refiningCargoSlots: func[6] as number,
+        itemSlotSize: func[7] as number,
+        cargoSlotSize: func[8] as number,
+        tradeOrders: func[9] as number,
+        allowedItemIdPerSlot: func[10] as number[],
+        buffIds: func[11] as number[],
+        concurrentCraftsPerPlayer: func[12] as number,
+        terraform: func[13] as boolean,
+        housingSlots: func[14] as number,
+        housingIncome: func[15] as number
+      }
+    }
+    
+    if (buildingFunc) {
+      parsedFunctions.push(buildingFunc)
+    }
+  }
+
+  return parsedFunctions
+}
+
+/**
+ * Calculate total slots for a building across all functions
+ */
+function calculateTotalSlots(functions: BuildingFunction[]): number {
+  return functions.reduce((total, func) => {
+    return total + func.craftingSlots + func.storageSlots + func.cargoSlots + 
+           func.refiningSlots + func.housingSlots
+  }, 0)
 }
 
 /**
@@ -254,8 +328,15 @@ export async function getBuildingsWithConstructionInfo(): Promise<BuildingWithCo
     const categoryIndex = Array.isArray(buildingType?.category) ? buildingType.category[0] : undefined
     const category = typeof categoryIndex === 'number' ? BUILDING_CATEGORY_MAPPING[categoryIndex] : undefined
 
-    // Format building functions
+    // Parse and format building functions with proper typing
+    const parsedFunctions = parseBuildingFunctions(building.functions || [])
     const formattedFunctions = formatBuildingFunctions(building.functions || [])
+    
+    // Calculate computed properties
+    const totalSlots = calculateTotalSlots(parsedFunctions)
+    const isWilderness = building.wilderness
+    const isDestructible = !building.notDeconstructible
+    const hasMaintenanceCost = building.maintenance > 0
 
     results.push({
       ...building,
@@ -264,7 +345,12 @@ export async function getBuildingsWithConstructionInfo(): Promise<BuildingWithCo
       writItems: writItems.length > 0 ? writItems : undefined,
       buildingType,
       category,
-      formattedFunctions
+      formattedFunctions,
+      parsedFunctions,
+      isWilderness,
+      isDestructible,
+      hasMaintenanceCost,
+      totalSlots
     })
   }
 
@@ -295,6 +381,63 @@ export async function getBuildingsGroupedByCategory(): Promise<Record<string, Bu
   }
 
   return grouped
+}
+
+/**
+ * Get buildings grouped by wilderness vs settlement
+ */
+export async function getBuildingsGroupedByLocation(): Promise<Record<string, BuildingWithConstructionInfo[]>> {
+  const buildings = await getBuildingsWithConstructionInfo()
+
+  const grouped: Record<string, BuildingWithConstructionInfo[]> = {
+    'Wilderness Buildings': [],
+    'Settlement Buildings': []
+  }
+
+  for (const building of buildings) {
+    const locationName = building.isWilderness ? 'Wilderness Buildings' : 'Settlement Buildings'
+    grouped[locationName].push(building)
+  }
+
+  // Sort each group by category, then by name
+  for (const location in grouped) {
+    grouped[location].sort((a, b) => {
+      // First sort by category
+      if (a.category !== b.category) {
+        return (a.category || 'Uncategorized').localeCompare(b.category || 'Uncategorized')
+      }
+      // Then sort by name
+      return a.name.localeCompare(b.name)
+    })
+  }
+
+  return grouped
+}
+
+/**
+ * Get buildings that can be deconstructed
+ */
+export async function getDestructibleBuildings(): Promise<BuildingWithConstructionInfo[]> {
+  const buildings = await getBuildingsWithConstructionInfo()
+  return buildings.filter(building => building.isDestructible)
+}
+
+/**
+ * Get buildings with maintenance costs
+ */
+export async function getBuildingsWithMaintenance(): Promise<BuildingWithConstructionInfo[]> {
+  const buildings = await getBuildingsWithConstructionInfo()
+  return buildings.filter(building => building.hasMaintenanceCost)
+}
+
+/**
+ * Get buildings by function type with proper typing
+ */
+export async function getBuildingsByFunctionType(functionType: number): Promise<BuildingWithConstructionInfo[]> {
+  const buildings = await getBuildingsWithConstructionInfo()
+  return buildings.filter(building => 
+    building.parsedFunctions.some(func => func.functionType === functionType)
+  )
 }
 
 /**
@@ -357,39 +500,84 @@ export async function getWritsGroupedByTag(): Promise<Record<string, ItemDesc[]>
 }
 
 /**
- * Get building statistics overview
+ * Get building statistics overview with enhanced analysis
  */
 export async function getBuildingStatistics() {
   const buildings = await getBuildingsWithConstructionInfo()
   const writs = await getWritItems()
   const constructionRecipes = await getConstructionRecipes()
   const buildingsByCategory = await getBuildingsGroupedByCategory()
+  const buildingsByLocation = await getBuildingsGroupedByLocation()
 
   const totalBuildings = buildings.length
   const totalWrits = writs.length
   const totalConstructionRecipes = constructionRecipes.length
   const categoryCount = Object.keys(buildingsByCategory).length
 
+  // Calculate category distribution
   const buildingCategoryDistribution: Record<string, number> = {}
   buildings.forEach((building) => {
     const categoryName = building.category || 'Uncategorized'
     buildingCategoryDistribution[categoryName] = (buildingCategoryDistribution[categoryName] || 0) + 1
   })
 
+  // Calculate writ tier distribution
   const writTierDistribution: Record<number, number> = {}
   writs.forEach((writ) => {
     writTierDistribution[writ.tier] = (writTierDistribution[writ.tier] || 0) + 1
   })
+
+  // Calculate building characteristics
+  const wildernessBuildings = buildings.filter(b => b.isWilderness).length
+  const settlementBuildings = buildings.filter(b => !b.isWilderness).length
+  const destructibleBuildings = buildings.filter(b => b.isDestructible).length
+  const buildingsWithMaintenance = buildings.filter(b => b.hasMaintenanceCost).length
+
+  // Calculate slot statistics
+  const totalSlots = buildings.reduce((sum, b) => sum + b.totalSlots, 0)
+  const avgSlotsPerBuilding = buildings.length > 0 ? Math.round(totalSlots / buildings.length) : 0
+  const maxSlots = Math.max(...buildings.map(b => b.totalSlots))
+
+  // Calculate function type distribution
+  const functionTypeDistribution: Record<string, number> = {}
+  buildings.forEach((building) => {
+    building.parsedFunctions.forEach((func) => {
+      const functionTypeName = BUILDING_FUNCTION_TYPE_MAPPING[func.functionType] || 'General'
+      functionTypeDistribution[functionTypeName] = (functionTypeDistribution[functionTypeName] || 0) + 1
+    })
+  })
+
+  // Calculate maintenance statistics
+  const maintenanceCosts = buildings
+    .filter(b => b.hasMaintenanceCost)
+    .map(b => b.maintenance)
+  const avgMaintenance = maintenanceCosts.length > 0 
+    ? Math.round((maintenanceCosts.reduce((sum, cost) => sum + cost, 0) / maintenanceCosts.length) * 100) / 100
+    : 0
 
   return {
     totalBuildings,
     totalWrits,
     totalConstructionRecipes,
     categories: categoryCount,
+    wildernessBuildings,
+    settlementBuildings,
+    destructibleBuildings,
+    buildingsWithMaintenance,
+    totalSlots,
+    avgSlotsPerBuilding,
+    maxSlots,
+    avgMaintenance,
     buildingCategoryDistribution,
     writTierDistribution,
+    functionTypeDistribution,
     buildingsByCategory: Object.entries(buildingsByCategory).map(([category, buildings]) => ({
       category,
+      count: buildings.length,
+      avgSlots: buildings.length > 0 ? Math.round(buildings.reduce((sum, b) => sum + b.totalSlots, 0) / buildings.length) : 0
+    })),
+    buildingsByLocation: Object.entries(buildingsByLocation).map(([location, buildings]) => ({
+      location,
       count: buildings.length
     }))
   }
