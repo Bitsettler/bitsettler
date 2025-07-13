@@ -1,5 +1,4 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CollectibleDesc } from '@/data/bindings'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link } from '@/i18n/navigation'
 import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
@@ -8,7 +7,6 @@ import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 interface EquipmentSectionProps {
   weapons: ItemDesc[]
   tools: ItemDesc[]
-  collectibles: CollectibleDesc[]
 }
 
 interface ItemCategory {
@@ -45,7 +43,7 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
   )
 }
 
-export function EquipmentSection({ weapons, tools, collectibles }: EquipmentSectionProps) {
+export function EquipmentSection({ weapons, tools }: EquipmentSectionProps) {
   // Calculate equipment count from all equipment categories
   const equipmentCount = tagCollections.equipment.tags.reduce((total, tag) => {
     return total + getItemsByTags([tag]).length

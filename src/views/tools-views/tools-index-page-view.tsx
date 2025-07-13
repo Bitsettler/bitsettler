@@ -78,34 +78,6 @@ export function ToolsView({ title, subtitle, toolCategories }: ToolsViewProps) {
           </div>
         </div>
 
-        {/* Statistics Overview */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-2xl font-bold">{toolCategories.length}</div>
-              <p className="text-muted-foreground text-xs">Tool Types</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-2xl font-bold">{toolCategories.reduce((sum, cat) => sum + cat.count, 0)}</div>
-              <p className="text-muted-foreground text-xs">Total Tools</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-2xl font-bold">{gatheringTools.length}</div>
-              <p className="text-muted-foreground text-xs">Gathering Types</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-2xl font-bold">{craftingTools.length}</div>
-              <p className="text-muted-foreground text-xs">Crafting Types</p>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Tool Categories */}
         <div className="space-y-8">
           <CategorySection sectionTitle="Gathering Tools" categories={gatheringTools} />

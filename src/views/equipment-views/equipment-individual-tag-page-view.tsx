@@ -84,7 +84,6 @@ export function EquipmentIndividualTagPageView({
 
   // Equipment statistics
   const totalEquipment = equipmentForThisTag.length
-  const slotCount = Object.keys(equipmentBySlot).length
   const tierDistribution: Record<number, number> = {}
   equipmentForThisTag.forEach((equipment) => {
     tierDistribution[equipment.item.tier] = (tierDistribution[equipment.item.tier] || 0) + 1

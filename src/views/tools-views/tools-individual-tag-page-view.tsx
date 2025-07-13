@@ -59,14 +59,6 @@ export function ToolsIndividualTagPageView({
     levelDistribution[tool.level] = (levelDistribution[tool.level] || 0) + 1
   })
 
-  const powerRange =
-    toolsForThisTag.length > 0
-      ? {
-          min: Math.min(...toolsForThisTag.map((t) => t.power)),
-          max: Math.max(...toolsForThisTag.map((t) => t.power))
-        }
-      : { min: 0, max: 0 }
-
   return (
     <TagPageView
       title={tagName}

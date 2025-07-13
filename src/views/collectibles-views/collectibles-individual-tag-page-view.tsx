@@ -67,7 +67,7 @@ export function CollectiblesIndividualTagPageView({
   const totalCollectibles = deedItemsForThisTag.length
   const rarityDistribution: Record<string, number> = {}
   deedItemsForThisTag.forEach((item) => {
-    const rarity = item.rarity || 'common'
+    const rarity = item.rarity?.toString() || 'common'
     rarityDistribution[rarity] = (rarityDistribution[rarity] || 0) + 1
   })
 

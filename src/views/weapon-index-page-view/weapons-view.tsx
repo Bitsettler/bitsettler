@@ -16,14 +16,10 @@ import { useMemo, useState } from 'react'
 interface WeaponsViewProps {
   title: string
   subtitle: string
-  statisticsCards: Array<{
-    label: string
-    value: string | number
-  }>
   weaponsByType: Record<string, WeaponWithItem[]>
 }
 
-export function WeaponsView({ title, subtitle, statisticsCards, weaponsByType }: WeaponsViewProps) {
+export function WeaponsView({ title, subtitle, weaponsByType }: WeaponsViewProps) {
   // Sorting state for each weapon type
   const [sortStates, setSortStates] = useState<Record<string, { key: string; direction: 'asc' | 'desc' } | null>>({})
 
@@ -131,18 +127,6 @@ export function WeaponsView({ title, subtitle, statisticsCards, weaponsByType }:
             <h1 className="text-3xl font-bold">{title}</h1>
             <p className="text-muted-foreground">{subtitle}</p>
           </div>
-        </div>
-
-        {/* Statistics Overview */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {statisticsCards.map((stat, index) => (
-            <Card key={index}>
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <p className="text-muted-foreground text-xs">{stat.label}</p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
 
         {/* Weapons by Type */}

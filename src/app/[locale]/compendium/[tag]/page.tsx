@@ -106,29 +106,12 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
     }
   ]
 
-  // Regular statistics cards
-  const statisticsCards = [
-    {
-      label: `Total ${entityType}`,
-      value: allEntities.length
-    },
-    {
-      label: 'Category',
-      value: tagName
-    },
-    {
-      label: 'Type',
-      value: entityType
-    }
-  ]
-
   return (
     <TagPageView
       title={tagName}
       subtitle={`${allEntities.length} ${entityType.toLowerCase()} in this category`}
       backLink={parentCollection?.href || '/compendium'}
       backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-      statisticsCards={statisticsCards}
       itemGroups={itemGroups}
     />
   )
