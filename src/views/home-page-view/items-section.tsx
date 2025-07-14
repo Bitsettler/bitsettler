@@ -53,7 +53,7 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Food, potions, and other items that provide temporary benefits when consumed',
       icon: '🍖',
       count: consumables.length,
-      href: '/consumables'
+      href: '/compendium/consumables'
     },
     {
       id: 'cargo',
