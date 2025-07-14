@@ -61,7 +61,7 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Packaged goods, animals, and bulk items for trading and transportation',
       icon: '📦',
       count: cargo.length,
-      href: '/cargo'
+      href: '/compendium/cargo'
     },
     {
       id: 'resources',
@@ -69,7 +69,7 @@ export function ItemsSection({ consumables, cargo, resources, totalItems }: Item
       description: 'Raw materials, ores, plants, and other natural resources for crafting',
       icon: '🌿',
       count: resources.length,
-      href: '/resources'
+      href: '/compendium/resources'
     },
     {
       id: 'all',

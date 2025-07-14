@@ -1,21 +1,20 @@
-import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
-import resourceDescData from '@/data/global/resource_desc.json'
 import { getCollectiblesWithItems } from '@/lib/spacetime-db-live/collectibles'
+import { getConsumablesWithStats } from '@/lib/spacetime-db-live/consumables'
 import { getEquipmentWithStats } from '@/lib/spacetime-db-live/equipments'
 import { getToolsWithItems } from '@/lib/spacetime-db-live/tools'
 import { findTagCollection, tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
+import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
 import { EquipmentIndividualTagPageView } from '@/views/equipment-views/equipment-individual-tag-page-view'
 import { TagPageView } from '@/views/tag-page-view/tag-page-view'
 import { ToolsIndividualTagPageView } from '@/views/tools-views/tools-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
-type CompendiumEntity = ItemDesc | CargoDesc | ResourceDesc
+type CompendiumEntity = ItemDesc | ResourceDesc
 
 interface PageProps {
   params: Promise<{
@@ -31,16 +30,17 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
 
   // Convert snake_case JSON to camelCase and type properly
   const itemData = camelCaseDeep<ItemDesc[]>(itemDescData)
-  const cargoData = camelCaseDeep<CargoDesc[]>(cargoDescData)
-  const resourceData = camelCaseDeep<ResourceDesc[]>(resourceDescData)
+  // const resourceData = camelCaseDeep<ResourceDesc[]>(resourceDescData)
 
   // Filter entries by tag
   const items = itemData.filter((item) => item.compendiumEntry && item.tag === tagName)
-  const cargo = cargoData.filter((cargo) => cargo.tag === tagName)
-  const resources = resourceData.filter((resource) => resource.compendiumEntry && resource.tag === tagName)
+  // const resources = resourceData.filter((resource) => resource.compendiumEntry && resource.tag === tagName)
 
   // Combine all entities
-  const allEntities: CompendiumEntity[] = [...items, ...cargo, ...resources]
+  const allEntities: CompendiumEntity[] = [
+    ...items
+    // ...resources
+  ]
 
   // If no entities found, return 404
   if (allEntities.length === 0) {
@@ -48,7 +48,7 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   }
 
   // Determine entity type
-  const entityType = items.length > 0 ? 'Items' : cargo.length > 0 ? 'Cargo' : 'Resources'
+  const entityType = items.length > 0 ? 'Items' : 'Resources'
 
   // Check if this tag is an equipment tag
   const isEquipmentTag = tagCollections.equipment.tags.some((tag) => tag === tagName)
@@ -58,6 +58,9 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
 
   // Check if this tag is a collectibles tag
   const isCollectiblesTag = tagCollections.collectibles.tags.some((tag) => tag === tagName)
+
+  // Check if this tag is a consumables tag
+  const isConsumablesTag = tagCollections.consumables.tags.some((tag) => tag === tagName)
 
   // Find which collection this tag belongs to for smart navigation
   const parentCollection = findTagCollection(tagName)
@@ -144,7 +147,35 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
     }
   }
 
-  // Handle non-equipment/tools tags (regular items, cargo, resources)
+  // Handle consumables tags with the new component
+  if (isConsumablesTag && items.length > 0) {
+    try {
+      const consumablesWithStats = await getConsumablesWithStats()
+      const consumablesForThisTag = consumablesWithStats.filter((consumable) => consumable.tag === tagName)
+
+      return (
+        <ConsumableIndividualTagPageView
+          tagName={tagName}
+          consumables={consumablesForThisTag}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    } catch (error) {
+      console.warn('Failed to fetch live consumables data during build, using static fallback:', error)
+      return (
+        <ConsumableIndividualTagPageView
+          tagName={tagName}
+          consumables={[]}
+          backLink={parentCollection?.href || '/compendium'}
+          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        />
+      )
+    }
+  }
+
+
+  // Handle non-equipment/tools tags (regular items, resources)
   const itemGroups = [
     {
       name: `${tagName}`,
