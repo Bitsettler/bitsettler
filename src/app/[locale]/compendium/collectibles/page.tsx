@@ -1,32 +1,23 @@
 import { getCollectibleStatistics } from '@/lib/spacetime-db-live/collectibles'
-import { ItemTag } from '@/lib/spacetime-db/items/tags'
+import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { getItemsByTags } from '@/lib/spacetime-db/items/utils'
 import { CollectiblesView } from '@/views/collectibles-views/collectibles-index-page-view'
 
 export default async function CollectiblesPage() {
-  // Define collectible categories based on tags
-  const collectibleCategories = [
-    // Property Deeds
-    {
-      id: 'deed',
-      name: 'Property Deeds',
-      description: 'Legal documents for claiming and owning cosmetic items, pets, and other stationary structures',
-      icon: '📜',
-      tag: ItemTag.Deed,
-      category: 'Property & Ownership',
-      href: '/compendium/deed'
-    },
-    // Deployable Deeds
-    {
-      id: 'deployable-deed',
-      name: 'Deployable Deeds',
-      description: 'Deeds for portable structures and deployable items like vehicles and mounts',
-      icon: '🏗️',
-      tag: ItemTag.DeployableDeed,
-      category: 'Property & Ownership',
-      href: '/compendium/deployable-deed'
+  // Get collectible categories from centralized metadata
+  const collectibleCollection = tagCollections.collectibles
+  const collectibleCategories = collectibleCollection.tags.map((tag) => {
+    const categoryMeta = collectibleCollection.categories[tag]
+    return {
+      id: categoryMeta.id,
+      name: categoryMeta.name,
+      description: categoryMeta.description,
+      icon: categoryMeta.icon,
+      tag,
+      category: categoryMeta.section,
+      href: categoryMeta.href
     }
-  ]
+  })
 
   // Get item counts for each category
   const categoriesWithCounts = collectibleCategories.map((category) => {
