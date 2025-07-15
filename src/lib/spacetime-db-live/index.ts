@@ -1,6 +1,35 @@
 import { ItemDesc } from '@/data/bindings'
 import { WebSocket } from 'ws'
 
+// Re-export utilities for consolidated access
+export { convertRarityToString, getRarityColor, getRarityDisplayName, convertRarityArrayToString } from './rarity'
+export { getServerIconPath, assetExists, getFallbackIconPath, cleanIconAssetName } from './assets'
+export { getTierColor, createSlug } from './entities'
+export { getItemsByTags, getAllItems, getAllCargo } from './utils'
+export { 
+  getAllProfessions, 
+  getProfessionById, 
+  getProfessionBySlug, 
+  getProfessionStats, 
+  getProfessionsByCategory, 
+  getProfessionsByType,
+  type Profession 
+} from './professions'
+export { tagCollections, findTagCollection, getEquipmentTags, getWeaponTags, type TagCollection, type TagCategory } from './item-tag-collections'
+export { 
+  getWeaponItems, 
+  getWeaponStats, 
+  getWeaponTypes, 
+  getWeaponTypeName, 
+  getWeaponTypeById, 
+  isHuntingWeaponType, 
+  getWeaponsWithStats, 
+  getWeaponsGroupedByType, 
+  getWeaponsGroupedByCategory, 
+  getWeaponStatistics,
+  type WeaponWithItem 
+} from './weapons'
+
 const uri = '{scheme}://{host}/v1/database/{module}/{endpoint}'
 const proto = 'v1.json.spacetimedb'
 

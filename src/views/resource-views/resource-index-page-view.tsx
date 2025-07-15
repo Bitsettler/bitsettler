@@ -96,22 +96,24 @@ export function ResourceIndexPageView({ title, subtitle, resourceCategories }: R
         </div>
 
         {/* Resource Categories by Section */}
-        {Object.entries(categoriesBySection).map(([sectionName, categories]) => (
-          <div key={sectionName} className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold">{sectionName}</h2>
-              <p className="text-muted-foreground">
-                {categories.length} categor{categories.length !== 1 ? 'ies' : 'y'} with{' '}
-                {categories.reduce((total, cat) => total + cat.count, 0)} total items
-              </p>
+        {Object.entries(categoriesBySection)
+          .filter(([, categories]) => categories.length > 0) // Only show sections with categories
+          .map(([sectionName, categories]) => (
+            <div key={sectionName} className="space-y-6">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-semibold">{sectionName}</h2>
+                <p className="text-muted-foreground">
+                  {categories.length} categor{categories.length !== 1 ? 'ies' : 'y'} with{' '}
+                  {categories.reduce((total, cat) => total + cat.count, 0)} total items
+                </p>
+              </div>
+              <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {categories.map((category) => (
+                  <ResourceCategoryCard key={category.id} category={category} />
+                ))}
+              </div>
             </div>
-            <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map((category) => (
-                <ResourceCategoryCard key={category.id} category={category} />
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
 
         {/* Empty State */}
         {resourceCategories.length === 0 && (

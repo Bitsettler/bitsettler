@@ -1,5 +1,5 @@
-import { getResourceStatistics, getResourcesGroupedByTag } from '@/lib/spacetime-db-live/resources'
-import { resourceCollections } from '@/lib/spacetime-db-live/resource-tag-collections'
+import { getResourceStatistics, getResourcesGroupedByTag } from '@/lib/spacetime-db-live/resources/resources'
+import { resourceCollections } from '@/lib/spacetime-db-live/resources/resource-tag-collections'
 import { ResourceIndexPageView } from '@/views/resource-views/resource-index-page-view'
 
 export default async function ResourcesPage() {
@@ -9,23 +9,25 @@ export default async function ResourcesPage() {
   // Get actual resource counts by tag
   const resourcesByTag = await getResourcesGroupedByTag()
   
-  const resourceCategories = resourceCollection.tags.map((tag) => {
-    const categoryMeta = resourceCollection.categories[tag]
-    const resourceItems = resourcesByTag[tag] || []
-    
-    return {
-      id: categoryMeta.id,
-      name: categoryMeta.name,
-      description: categoryMeta.description,
-      icon: categoryMeta.icon,
-      tag,
-      category: categoryMeta.section,
-      href: categoryMeta.href,
-      count: resourceItems.length,
-      primaryBiomes: categoryMeta.primaryBiomes,
-      resourceCategory: categoryMeta.category
-    }
-  })
+  const resourceCategories = resourceCollection.tags
+    .map((tag) => {
+      const categoryMeta = resourceCollection.categories[tag]
+      const resourceItems = resourcesByTag[tag] || []
+      
+      return {
+        id: categoryMeta.id,
+        name: categoryMeta.name,
+        description: categoryMeta.description,
+        icon: categoryMeta.icon,
+        tag,
+        category: categoryMeta.section,
+        href: categoryMeta.href,
+        count: resourceItems.length,
+        primaryBiomes: categoryMeta.primaryBiomes,
+        resourceCategory: categoryMeta.category
+      }
+    })
+    .filter((category) => category.count > 0) // Only show categories with items
 
   // Get live resource statistics
   const resourceStats = await getResourceStatistics()

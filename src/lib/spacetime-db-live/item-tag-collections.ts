@@ -3,7 +3,7 @@
  * This file defines logical groupings of tags and their corresponding collection pages.
  */
 
-import { ItemTag } from './tags'
+import { ItemTag } from './item-tags'
 
 /**
  * Category metadata for individual tags within a collection

@@ -4,8 +4,8 @@ import itemDescData from '@/data/global/item_desc.json'
 import { getCollectiblesWithItems } from '@/lib/spacetime-db-live/collectibles'
 import { getConsumablesWithStats } from '@/lib/spacetime-db-live/consumables'
 import { getEquipmentWithStats } from '@/lib/spacetime-db-live/equipments'
+import { findTagCollection, tagCollections } from '@/lib/spacetime-db-live/item-tag-collections'
 import { getToolsWithItems } from '@/lib/spacetime-db-live/tools'
-import { findTagCollection, tagCollections } from '@/lib/spacetime-db/items/tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
 import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
@@ -173,7 +173,6 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
       )
     }
   }
-
 
   // Handle non-equipment/tools tags (regular items, resources)
   const itemGroups = [

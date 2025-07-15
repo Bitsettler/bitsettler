@@ -1,4 +1,4 @@
-import { type ResourceWithStats } from '@/lib/spacetime-db-live/resources'
+import { type ResourceWithStats } from '@/lib/spacetime-db-live/resources/resources'
 import { TagPageView } from '@/views/tag-page-view/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {
@@ -14,71 +14,71 @@ export function ResourceIndividualTagPageView({
   backLink = '/compendium/resources',
   backLinkText = '← Back to Resources'
 }: ResourceIndividualTagPageViewProps) {
-  // Group by biome for better organization
-  const resourcesByBiome: Record<string, ResourceWithStats[]> = {}
+  // Group by tier for better organization
+  const resourcesByTier: Record<number, ResourceWithStats[]> = {}
   resources.forEach((item) => {
-    const primaryBiome = item.primaryBiome || 'Unknown'
-    if (!resourcesByBiome[primaryBiome]) {
-      resourcesByBiome[primaryBiome] = []
+    const tier = item.tier
+    if (!resourcesByTier[tier]) {
+      resourcesByTier[tier] = []
     }
-    resourcesByBiome[primaryBiome].push(item)
+    resourcesByTier[tier].push(item)
   })
 
-  // Create item groups for each biome
-  const itemGroups = Object.entries(resourcesByBiome).map(([biomeName, resourceItems]) => {
-    // Create base columns
-    const baseColumns = [
-      { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
-      { key: 'name', label: 'Name', sortable: true },
-      { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-      { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
-      { key: 'maxHealth', label: 'Health', sortable: true, className: 'text-center' }
-    ]
+  // Create item groups for each tier
+  const itemGroups = Object.entries(resourcesByTier)
+    .sort(([a], [b]) => parseInt(a) - parseInt(b)) // Sort by tier number
+    .map(([tierString, resourceItems]) => {
+      const tier = parseInt(tierString)
+      
+      // Collect all unique biomes for this tier
+      const tierBiomes = new Set<string>()
+      resourceItems.forEach(item => {
+        item.availableBiomes.forEach(biome => {
+          if (biome !== 'Unknown') {
+            tierBiomes.add(biome)
+          }
+        })
+      })
+      
+      const biomesArray = Array.from(tierBiomes).sort()
+      const biomesText = biomesArray.length > 0 ? biomesArray.join(', ') : 'Unknown'
 
-    // Add resource-specific columns
-    const resourceColumns = [
-      { key: 'healthCategory', label: 'Durability', sortable: true, className: 'text-center' },
-      { key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' },
-      { key: 'availableBiomes', label: 'Biomes', sortable: false, className: 'text-center' }
-    ]
+      // Create base columns (removed Biomes column since it's now in the section header)
+      const baseColumns = [
+        { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
+        { key: 'name', label: 'Name', sortable: true },
+        { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
+        { key: 'maxHealth', label: 'Health', sortable: true, className: 'text-center' }
+      ]
 
-    // Add conditional columns based on resource properties
-    const hasRespawningItems = resourceItems.some((item) => !item.isRespawning)
-    const respawningColumn = hasRespawningItems
-      ? [{ key: 'isRespawning', label: 'Respawns', sortable: true, className: 'text-center' }]
-      : []
+      // Add resource-specific columns
+      const resourceColumns = [
+        { key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' }
+      ]
 
+      // Add conditional columns based on resource properties
+      const hasRespawningItems = resourceItems.some((item) => !item.isRespawning)
+      const respawningColumn = hasRespawningItems
+        ? [{ key: 'isRespawning', label: 'Respawns', sortable: true, className: 'text-center' }]
+        : []
 
-    // Create enriched items with proper rarity fallback and formatted data
-    const enrichedItems = resourceItems.map((resourceItem) => ({
-      ...resourceItem,
-      rarity: resourceItem.rarity || { tag: 'Common' },
-      // Format boolean values for display
-      isRespawning: resourceItem.isRespawning ? 'Yes' : 'No',
-      isHarvestable: resourceItem.isHarvestable ? 'Yes' : 'No',
-      isNaturallyOccurring: resourceItem.isNaturallyOccurring ? 'Yes' : 'No',
-      // Format biomes list for display
-      availableBiomes:
-        resourceItem.availableBiomes.length > 0
-          ? resourceItem.availableBiomes.slice(0, 2).join(', ') +
-            (resourceItem.availableBiomes.length > 2 ? ` +${resourceItem.availableBiomes.length - 2}` : '')
-          : 'Unknown'
-    }))
+      // Create enriched items with proper rarity fallback and formatted data
+      const enrichedItems = resourceItems.map((resourceItem) => ({
+        ...resourceItem,
+        rarity: resourceItem.rarity || { tag: 'Common' },
+        // Format boolean values for display
+        isRespawning: resourceItem.isRespawning ? 'Yes' : 'No',
+        isHarvestable: resourceItem.isHarvestable ? 'Yes' : 'No',
+        isNaturallyOccurring: resourceItem.isNaturallyOccurring ? 'Yes' : 'No'
+      }))
 
-    return {
-      name: biomeName === 'Unknown' ? 'Unknown Biome' : `${biomeName} Biome`,
-      items: enrichedItems,
-      columns: [...baseColumns, ...resourceColumns, ...respawningColumn]
-    }
-  })
-
-  // Sort groups by biome name
-  itemGroups.sort((a, b) => {
-    // Put "Unknown Biome" last
-    if (a.name === 'Unknown Biome') return 1
-    if (b.name === 'Unknown Biome') return -1
-    return a.name.localeCompare(b.name)
-  })
+      return {
+        name: `Tier ${tier} ${tagName}`,
+        subtitle: biomesArray.length > 0 ? `Found in: ${biomesText}` : 'Biome: Unknown',
+        items: enrichedItems,
+        columns: [...baseColumns, ...resourceColumns, ...respawningColumn]
+      }
+    })
 
   // Resource statistics
   const totalResources = resources.length

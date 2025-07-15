@@ -1,6 +1,6 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import itemDescData from '@/data/global/item_desc.json'
-import { tagCollections } from '@/lib/spacetime-db/items/tag-collections'
+import { tagCollections } from '@/lib/spacetime-db-live/item-tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 
 // Combined consumable data with computed properties
@@ -29,24 +29,24 @@ function getConsumableData() {
 function getConsumableCategory(tag: string): string {
   const categoryMapping: Record<string, string> = {
     'Basic Food': 'Food & Nutrition',
-    'Meal': 'Food & Nutrition',
+    Meal: 'Food & Nutrition',
     'Raw Meal': 'Food & Nutrition',
-    'Berry': 'Food & Nutrition',
+    Berry: 'Food & Nutrition',
     'Citric Berry': 'Food & Nutrition',
-    'Mushroom': 'Food & Nutrition',
-    'Sugar': 'Food & Nutrition',
-    'Tea': 'Food & Nutrition',
-    'Vegetable': 'Food & Nutrition',
+    Mushroom: 'Food & Nutrition',
+    Sugar: 'Food & Nutrition',
+    Tea: 'Food & Nutrition',
+    Vegetable: 'Food & Nutrition',
     'Wonder Fruit': 'Food & Nutrition',
     'Healing Potion': 'Potions & Medicine',
     'Stamina Potion': 'Potions & Medicine',
     'Crafting Speed Elixir': 'Potions & Medicine',
-    'Bandage': 'Potions & Medicine',
-    'Bait': 'Fishing Supplies',
-    'Chum': 'Fishing Supplies',
-    'Recipe': 'Crafting & Recipes'
+    Bandage: 'Potions & Medicine',
+    Bait: 'Fishing Supplies',
+    Chum: 'Fishing Supplies',
+    Recipe: 'Crafting & Recipes'
   }
-  
+
   return categoryMapping[tag] || 'Other Consumables'
 }
 
@@ -56,17 +56,17 @@ function getConsumableCategory(tag: string): string {
 function getNutritionValue(tag: string): string {
   const nutritionMapping: Record<string, string> = {
     'Basic Food': 'Low',
-    'Meal': 'High',
+    Meal: 'High',
     'Raw Meal': 'Medium',
-    'Berry': 'Low',
+    Berry: 'Low',
     'Citric Berry': 'Medium',
-    'Mushroom': 'Low',
-    'Sugar': 'Low',
-    'Tea': 'Low',
-    'Vegetable': 'Medium',
+    Mushroom: 'Low',
+    Sugar: 'Low',
+    Tea: 'Low',
+    Vegetable: 'Medium',
     'Wonder Fruit': 'High'
   }
-  
+
   return nutritionMapping[tag] || 'None'
 }
 
@@ -76,24 +76,24 @@ function getNutritionValue(tag: string): string {
 function getEffectType(tag: string): string {
   const effectMapping: Record<string, string> = {
     'Basic Food': 'Satiation',
-    'Meal': 'Satiation',
+    Meal: 'Satiation',
     'Raw Meal': 'Satiation',
-    'Berry': 'Satiation',
+    Berry: 'Satiation',
     'Citric Berry': 'Satiation',
-    'Mushroom': 'Satiation',
-    'Sugar': 'Satiation',
-    'Tea': 'Satiation + Buffs',
-    'Vegetable': 'Satiation',
+    Mushroom: 'Satiation',
+    Sugar: 'Satiation',
+    Tea: 'Satiation + Buffs',
+    Vegetable: 'Satiation',
     'Wonder Fruit': 'Satiation + Special',
     'Healing Potion': 'Health Restoration',
     'Stamina Potion': 'Stamina Restoration',
     'Crafting Speed Elixir': 'Crafting Boost',
-    'Bandage': 'Health Restoration',
-    'Bait': 'Fishing Enhancement',
-    'Chum': 'Fishing Enhancement',
-    'Recipe': 'Knowledge'
+    Bandage: 'Health Restoration',
+    Bait: 'Fishing Enhancement',
+    Chum: 'Fishing Enhancement',
+    Recipe: 'Knowledge'
   }
-  
+
   return effectMapping[tag] || 'Unknown'
 }
 
@@ -102,8 +102,16 @@ function getEffectType(tag: string): string {
  */
 function isFoodType(tag: string): boolean {
   const foodTags = [
-    'Basic Food', 'Meal', 'Raw Meal', 'Berry', 'Citric Berry',
-    'Mushroom', 'Sugar', 'Tea', 'Vegetable', 'Wonder Fruit'
+    'Basic Food',
+    'Meal',
+    'Raw Meal',
+    'Berry',
+    'Citric Berry',
+    'Mushroom',
+    'Sugar',
+    'Tea',
+    'Vegetable',
+    'Wonder Fruit'
   ]
   return foodTags.includes(tag)
 }
@@ -112,9 +120,7 @@ function isFoodType(tag: string): boolean {
  * Check if item is potion-related
  */
 function isPotionType(tag: string): boolean {
-  const potionTags = [
-    'Healing Potion', 'Stamina Potion', 'Crafting Speed Elixir', 'Bandage'
-  ]
+  const potionTags = ['Healing Potion', 'Stamina Potion', 'Crafting Speed Elixir', 'Bandage']
   return potionTags.includes(tag)
 }
 
@@ -140,9 +146,10 @@ function isCraftingResourceType(tag: string): boolean {
 export async function getConsumableItems(): Promise<ItemDesc[]> {
   const { itemDesc } = getConsumableData()
   const consumableTags = new Set(tagCollections.consumables.tags)
-  
-  return itemDesc.filter((item) => 
-    item.compendiumEntry && consumableTags.has(item.tag as unknown as typeof tagCollections.consumables.tags[0])
+
+  return itemDesc.filter(
+    (item) =>
+      item.compendiumEntry && consumableTags.has(item.tag as unknown as (typeof tagCollections.consumables.tags)[0])
   )
 }
 
@@ -152,9 +159,10 @@ export async function getConsumableItems(): Promise<ItemDesc[]> {
 export async function getConsumablesWithStats(): Promise<ConsumableWithItem[]> {
   const { itemDesc } = getConsumableData()
   const consumableTags = new Set(tagCollections.consumables.tags)
-  
-  const consumableItems = itemDesc.filter((item) => 
-    item.compendiumEntry && consumableTags.has(item.tag as unknown as typeof tagCollections.consumables.tags[0])
+
+  const consumableItems = itemDesc.filter(
+    (item) =>
+      item.compendiumEntry && consumableTags.has(item.tag as unknown as (typeof tagCollections.consumables.tags)[0])
   )
 
   const results: ConsumableWithItem[] = []
@@ -353,29 +361,28 @@ export async function getConsumableStatistics() {
   // Calculate category distribution
   const categoryDistribution: Record<string, number> = {}
   consumables.forEach((consumable) => {
-    categoryDistribution[consumable.consumableCategory] = 
-      (categoryDistribution[consumable.consumableCategory] || 0) + 1
+    categoryDistribution[consumable.consumableCategory] = (categoryDistribution[consumable.consumableCategory] || 0) + 1
   })
 
   // Calculate effect distribution
   const effectDistribution: Record<string, number> = {}
   consumables.forEach((consumable) => {
-    effectDistribution[consumable.effectType] = 
-      (effectDistribution[consumable.effectType] || 0) + 1
+    effectDistribution[consumable.effectType] = (effectDistribution[consumable.effectType] || 0) + 1
   })
 
   // Calculate type counts
-  const foodCount = consumables.filter(c => c.isFood).length
-  const potionCount = consumables.filter(c => c.isPotion).length
-  const baitCount = consumables.filter(c => c.isBait).length
-  const craftingResourceCount = consumables.filter(c => c.isCraftingResource).length
+  const foodCount = consumables.filter((c) => c.isFood).length
+  const potionCount = consumables.filter((c) => c.isPotion).length
+  const baitCount = consumables.filter((c) => c.isBait).length
+  const craftingResourceCount = consumables.filter((c) => c.isCraftingResource).length
 
   // Calculate nutrition distribution (only for food items)
   const nutritionDistribution: Record<string, number> = {}
-  consumables.filter(c => c.isFood).forEach((consumable) => {
-    nutritionDistribution[consumable.nutritionValue] = 
-      (nutritionDistribution[consumable.nutritionValue] || 0) + 1
-  })
+  consumables
+    .filter((c) => c.isFood)
+    .forEach((consumable) => {
+      nutritionDistribution[consumable.nutritionValue] = (nutritionDistribution[consumable.nutritionValue] || 0) + 1
+    })
 
   return {
     total: totalConsumables,
@@ -399,8 +406,10 @@ export async function getConsumableStatistics() {
     consumablesByCategory: Object.entries(consumablesByCategory).map(([category, consumableList]) => ({
       category,
       count: consumableList.length,
-      avgTier: consumableList.length > 0 ? 
-        Math.round(consumableList.reduce((sum, c) => sum + c.tier, 0) / consumableList.length) : 0
+      avgTier:
+        consumableList.length > 0
+          ? Math.round(consumableList.reduce((sum, c) => sum + c.tier, 0) / consumableList.length)
+          : 0
     })),
     consumablesByEffect: Object.entries(consumablesByEffect).map(([effect, consumableList]) => ({
       effect,
@@ -412,3 +421,4 @@ export async function getConsumableStatistics() {
     }))
   }
 }
+

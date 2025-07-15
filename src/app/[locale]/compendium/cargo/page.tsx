@@ -1,5 +1,5 @@
-import { getCargoStatistics, getCargoGroupedByTag } from '@/lib/spacetime-db-live/cargo'
-import { cargoCollections } from '@/lib/spacetime-db-live/cargo-tag-collections'
+import { getCargoStatistics, getCargoGroupedByTag } from '@/lib/spacetime-db-live/cargo/cargo'
+import { cargoCollections } from '@/lib/spacetime-db-live/cargo/cargo-tag-collections'
 import { CargoView } from '@/views/cargo-views/cargo-index-page-view'
 
 export default async function CargoPage() {
