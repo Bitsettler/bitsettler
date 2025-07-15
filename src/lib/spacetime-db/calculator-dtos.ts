@@ -40,18 +40,58 @@ export interface CalculatorGameData {
 }
 
 /**
+ * Clean up malformed icon asset paths (from scripts/items/map-items.ts)
+ */
+function cleanIconAssetPath(iconAssetName: string): string {
+  if (!iconAssetName) return 'Unknown'
+
+  // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
+  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+
+  // Handle missing deed icon - the AncientDeed.webp file doesn't exist
+  if (cleanPath === 'Items/AncientDeed') {
+    cleanPath = 'Unknown'
+  }
+
+  return cleanPath
+}
+
+/**
+ * Check if an item should be filtered out (recipes, loot tables, etc.)
+ * (from scripts/items/map-items.ts)
+ */
+function shouldFilterItem(item: ItemDesc | CargoDesc | ResourceDesc): boolean {
+  // Filter out items with "Output" suffix (recipe outputs)
+  if (item.name.includes('Output')) {
+    return true
+  }
+
+  // Filter out items with item_list_id (loot table containers, not actual items)
+  if ('itemListId' in item && item.itemListId != null && item.itemListId !== 0) {
+    return true
+  }
+
+  // Only include items marked for compendium entry
+  if ('compendiumEntry' in item && !item.compendiumEntry) {
+    return true
+  }
+
+  return false
+}
+
+/**
  * Map ItemDesc to CalculatorItem
  */
 export function mapItemToCalculatorItem(item: ItemDesc): CalculatorItem {
   return {
-    id: item.id.toString(),
+    id: `item_${item.id}`,
     name: item.name,
     slug: createSlug(item.name),
     tier: item.tier,
     rarity: convertRarityToString(item.rarity),
     category: 'items',
-    description: item.description,
-    icon_asset_name: item.iconAssetName || 'Unknown'
+    description: item.description || 'No description available',
+    icon_asset_name: cleanIconAssetPath(item.iconAssetName || '')
   }
 }
 
@@ -60,14 +100,14 @@ export function mapItemToCalculatorItem(item: ItemDesc): CalculatorItem {
  */
 export function mapCargoToCalculatorItem(cargo: CargoDesc): CalculatorItem {
   return {
-    id: cargo.id.toString(),
+    id: `cargo_${cargo.id}`,
     name: cargo.name,
     slug: createSlug(cargo.name),
     tier: cargo.tier,
     rarity: convertRarityToString(cargo.rarity),
     category: 'cargo',
-    description: cargo.description,
-    icon_asset_name: cargo.iconAssetName || 'Unknown'
+    description: cargo.description || 'No description available',
+    icon_asset_name: cleanIconAssetPath(cargo.iconAssetName || '')
   }
 }
 
@@ -76,34 +116,109 @@ export function mapCargoToCalculatorItem(cargo: CargoDesc): CalculatorItem {
  */
 export function mapResourceToCalculatorItem(resource: ResourceDesc): CalculatorItem {
   return {
-    id: resource.id.toString(),
+    id: `resource_${resource.id}`,
     name: resource.name,
     slug: createSlug(resource.name),
     tier: resource.tier,
     rarity: convertRarityToString(resource.rarity),
     category: 'resources',
-    description: resource.description,
-    icon_asset_name: resource.iconAssetName || 'Unknown'
+    description: resource.description || 'No description available',
+    icon_asset_name: cleanIconAssetPath(resource.iconAssetName || '')
   }
+}
+
+/**
+ * Get the correct item prefix based on item type (from scripts/recipes/map-extraction-recipes.ts)
+ */
+function getItemPrefix(itemType: unknown): string {
+  // SpacetimeDB format: [variant_index, variant_data]
+  if (Array.isArray(itemType) && itemType.length >= 1) {
+    const variantIndex = itemType[0]
+    switch (variantIndex) {
+      case 0:
+        return 'item_' // Item variant
+      case 1:
+        return 'cargo_' // Cargo variant
+      default:
+        console.warn(`Unknown item type variant index: ${variantIndex}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Legacy format with tag property
+  if (typeof itemType === 'object' && itemType && 'tag' in itemType) {
+    const tag = (itemType as { tag: string }).tag
+    switch (tag) {
+      case 'Item':
+        return 'item_'
+      case 'Cargo':
+        return 'cargo_'
+      default:
+        console.warn(`Unknown item type: ${tag}, defaulting to item_`)
+        return 'item_'
+    }
+  }
+
+  // Fallback for old format or missing type
+  console.warn(`Unknown item type format:`, itemType, `defaulting to item_`)
+  return 'item_'
+}
+
+/**
+ * Create a unified lookup for all entities by prefixed ID
+ */
+function createUnifiedLookup(
+  items: ItemDesc[], 
+  cargo: CargoDesc[], 
+  resources: ResourceDesc[]
+): Map<string, CalculatorItem> {
+  const lookup = new Map<string, CalculatorItem>()
+  
+  // Add items
+  for (const item of items) {
+    if (!shouldFilterItem(item)) {
+      const calculatorItem = mapItemToCalculatorItem(item)
+      lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
+    }
+  }
+  
+  // Add cargo
+  for (const cargoItem of cargo) {
+    if (!shouldFilterItem(cargoItem)) {
+      const calculatorItem = mapCargoToCalculatorItem(cargoItem)
+      lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
+    }
+  }
+  
+  // Add resources
+  for (const resource of resources) {
+    if (!shouldFilterItem(resource)) {
+      const calculatorItem = mapResourceToCalculatorItem(resource)
+      lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
+    }
+  }
+  
+  return lookup
 }
 
 /**
  * Map CraftingRecipeDesc to CalculatorRecipe
  */
 export function mapCraftingRecipeToCalculatorRecipe(
-  recipe: CraftingRecipeDesc,
-  allItems: Map<number, CalculatorItem>
+  recipe: CraftingRecipeDesc
 ): CalculatorRecipe {
   // Extract materials from consumedItemStacks
   const materials: Array<{ id: string; qty: number | null }> = []
   
   if (Array.isArray(recipe.consumedItemStacks)) {
     for (const stack of recipe.consumedItemStacks) {
-      if (Array.isArray(stack) && stack.length >= 2) {
-        const [itemId, quantity] = stack
+      if (Array.isArray(stack) && stack.length >= 4) {
+        const [itemId, quantity, itemType] = stack
         if (typeof itemId === 'number' && typeof quantity === 'number') {
+          // Use the correct prefix based on itemType
+          const prefix = getItemPrefix(itemType)
           materials.push({
-            id: itemId.toString(),
+            id: `${prefix}${itemId}`,
             qty: quantity
           })
         }
@@ -116,16 +231,15 @@ export function mapCraftingRecipeToCalculatorRecipe(
   
   if (Array.isArray(recipe.craftedItemStacks)) {
     for (const stack of recipe.craftedItemStacks) {
-      if (Array.isArray(stack) && stack.length >= 2) {
-        const [itemId, quantity] = stack
+      if (Array.isArray(stack) && stack.length >= 4) {
+        const [itemId, quantity, itemType] = stack
         if (typeof itemId === 'number' && typeof quantity === 'number') {
-          const item = allItems.get(itemId)
-          if (item) {
-            output.push({
-              item: item.id, // Use item.id to maintain compatibility with existing hooks
-              qty: quantity
-            })
-          }
+          // Use the correct prefix based on itemType
+          const prefix = getItemPrefix(itemType)
+          output.push({
+            item: `${prefix}${itemId}`,
+            qty: quantity
+          })
         }
       }
     }
@@ -146,15 +260,31 @@ export function mapCraftingRecipeToCalculatorRecipe(
  */
 export function mapExtractionRecipeToCalculatorRecipe(
   recipe: ExtractionRecipeDesc,
-  allItems: Map<number, CalculatorItem>,
-  allResources: Map<number, CalculatorItem>
+  unifiedLookup: Map<string, CalculatorItem>
 ): CalculatorRecipe {
   // For extraction recipes, the resource being extracted is the "material"
   const materials: Array<{ id: string; qty: number | null }> = []
   
-  if (recipe.resourceId && allResources.has(recipe.resourceId)) {
+  // Add consumed items (materials used in extraction)
+  if (Array.isArray(recipe.consumedItemStacks)) {
+    for (const stack of recipe.consumedItemStacks) {
+      if (Array.isArray(stack) && stack.length >= 4) {
+        const [itemId, quantity, itemType] = stack
+        if (typeof itemId === 'number' && typeof quantity === 'number') {
+          const prefix = getItemPrefix(itemType)
+          materials.push({
+            id: `${prefix}${itemId}`,
+            qty: quantity
+          })
+        }
+      }
+    }
+  }
+
+  // Add the resource being extracted as a material
+  if (recipe.resourceId) {
     materials.push({
-      id: recipe.resourceId.toString(),
+      id: `resource_${recipe.resourceId}`,
       qty: null // Resources don't have specific quantities needed
     })
   }
@@ -168,19 +298,17 @@ export function mapExtractionRecipeToCalculatorRecipe(
         const [stackData, probability] = stackEntry
         
         if (Array.isArray(stackData) && stackData.length >= 2) {
-          const [, itemData] = stackData
-          if (Array.isArray(itemData) && itemData.length >= 2) {
-            const [itemId, quantity] = itemData
+          const [, itemInfo] = stackData
+          if (Array.isArray(itemInfo) && itemInfo.length >= 3) {
+            const [itemId, quantity, itemType] = itemInfo
             
             if (typeof itemId === 'number' && typeof quantity === 'number') {
-              const item = allItems.get(itemId)
-              if (item) {
-                output.push({
-                  item: item.id, // Use item.id to maintain compatibility with existing hooks
-                  qty: quantity,
-                  probability: typeof probability === 'number' ? probability : undefined
-                })
-              }
+              const prefix = getItemPrefix(itemType)
+              output.push({
+                item: `${prefix}${itemId}`,
+                qty: quantity,
+                probability: typeof probability === 'number' ? probability : undefined
+              })
             }
           }
         }
@@ -189,8 +317,8 @@ export function mapExtractionRecipeToCalculatorRecipe(
   }
 
   // Generate a meaningful name for the extraction recipe
-  const resourceName = allResources.get(recipe.resourceId)?.name || 'Unknown Resource'
-  const recipeName = `Extract from ${resourceName}`
+  const resourceName = unifiedLookup.get(`resource_${recipe.resourceId}`)?.name || 'Unknown Resource'
+  const recipeName = recipe.verbPhrase ? `${recipe.verbPhrase} ${resourceName}` : `Extract from ${resourceName}`
 
   return {
     id: recipe.id,
@@ -212,53 +340,43 @@ export function transformToCalculatorData(
   craftingRecipes: CraftingRecipeDesc[],
   extractionRecipes: ExtractionRecipeDesc[]
 ): CalculatorGameData {
-  // Create maps for efficient lookup
-  const allItemsMap = new Map<number, CalculatorItem>()
-  const allResourcesMap = new Map<number, CalculatorItem>()
+  // Create unified lookup for all entities
+  const unifiedLookup = createUnifiedLookup(items, cargo, resources)
   
-  // Transform and map items
-  const calculatorItems: CalculatorItem[] = []
-  
-  // Add items
-  for (const item of items) {
-    const calculatorItem = mapItemToCalculatorItem(item)
-    calculatorItems.push(calculatorItem)
-    allItemsMap.set(item.id, calculatorItem)
-  }
-  
-  // Add cargo
-  for (const cargoItem of cargo) {
-    const calculatorItem = mapCargoToCalculatorItem(cargoItem)
-    calculatorItems.push(calculatorItem)
-    allItemsMap.set(cargoItem.id, calculatorItem)
-  }
-  
-  // Add resources
-  for (const resource of resources) {
-    const calculatorItem = mapResourceToCalculatorItem(resource)
-    calculatorItems.push(calculatorItem)
-    allItemsMap.set(resource.id, calculatorItem)
-    allResourcesMap.set(resource.id, calculatorItem)
-  }
+  // Transform items to calculator format
+  const calculatorItems: CalculatorItem[] = Array.from(unifiedLookup.values())
   
   // Transform recipes
   const calculatorRecipes: CalculatorRecipe[] = []
   
   // Add crafting recipes
   for (const recipe of craftingRecipes) {
-    const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(recipe, allItemsMap)
-    if (calculatorRecipe.output.length > 0) { // Only include recipes with valid outputs
-      calculatorRecipes.push(calculatorRecipe)
+    try {
+      const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(recipe)
+      if (calculatorRecipe.output.length > 0) { // Only include recipes with valid outputs
+        calculatorRecipes.push(calculatorRecipe)
+        
+      }
+    } catch (error) {
+      console.warn(`Error processing crafting recipe ${recipe.id}:`, error)
     }
   }
   
   // Add extraction recipes
   for (const recipe of extractionRecipes) {
-    const calculatorRecipe = mapExtractionRecipeToCalculatorRecipe(recipe, allItemsMap, allResourcesMap)
-    if (calculatorRecipe.output.length > 0) { // Only include recipes with valid outputs
-      calculatorRecipes.push(calculatorRecipe)
+    try {
+      const calculatorRecipe = mapExtractionRecipeToCalculatorRecipe(recipe, unifiedLookup)
+      if (calculatorRecipe.output.length > 0) { // Only include recipes with valid outputs
+        calculatorRecipes.push(calculatorRecipe)
+      }
+    } catch (error) {
+      console.warn(`Error processing extraction recipe ${recipe.id}:`, error)
     }
   }
+  
+  console.log(`Transformed ${calculatorItems.length} items and ${calculatorRecipes.length} recipes (${craftingRecipes.length} crafting, ${extractionRecipes.length} extraction)`)
+  
+  console.log(`Transformed ${calculatorItems.length} items and ${calculatorRecipes.length} recipes`)
   
   return {
     items: calculatorItems,

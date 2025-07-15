@@ -10,7 +10,6 @@ import { updateNodeQuantities } from '@/lib/utils/recipe-utils'
 import type { Edge, Node } from '@xyflow/react'
 import { ReactFlowProvider, useEdgesState, useNodesState } from '@xyflow/react'
 import { useCallback, useEffect } from 'react'
-import { GameDataProvider } from '@/contexts/game-data-context'
 
 interface FlowVisualizeViewProps {
   gameData: CalculatorGameData
@@ -215,10 +214,8 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
 
 export function FlowVisualizeView({ gameData, initialItemId, initialQuantity }: FlowVisualizeViewProps) {
   return (
-    <GameDataProvider gameData={gameData}>
-      <ReactFlowProvider>
-        <View gameData={gameData} initialItemId={initialItemId} initialQuantity={initialQuantity} />
-      </ReactFlowProvider>
-    </GameDataProvider>
+    <ReactFlowProvider>
+      <View gameData={gameData} initialItemId={initialItemId} initialQuantity={initialQuantity} />
+    </ReactFlowProvider>
   )
 }

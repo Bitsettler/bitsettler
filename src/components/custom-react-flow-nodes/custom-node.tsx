@@ -11,7 +11,21 @@ import Image from 'next/image'
 import { memo, useCallback } from 'react'
 
 import { useGameData } from '@/contexts/game-data-context'
-import { ItemData, Recipe } from './types'
+import type { CalculatorRecipe } from '@/lib/spacetime-db/calculator-dtos'
+
+interface ItemData {
+  label: string
+  tier: number
+  rarity: string
+  category: string
+  quantity?: number
+  recipes?: CalculatorRecipe[]
+  selectedRecipe?: CalculatorRecipe | null
+  itemId?: string
+  isDone?: boolean
+  isHovered?: boolean
+  icon_asset_name?: string
+}
 
 export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data
@@ -87,7 +101,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       // Use game data from context
       const allItems = items
 
-      const recipe = recipes.find((r: any) => r.id.toString() === recipeId)
+      const recipe = recipes.find((r) => r.id.toString() === recipeId)
       if (!recipe) return
 
       // Update the current node with selected recipe
@@ -152,28 +166,29 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
       if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
         // Get the current node's quantity to calculate child quantities
         const currentNode = filteredNodes.find((node) => node.id === id)
-        const parentQuantity = (currentNode?.data?.quantity as number) || 1
-        const parentIsDone = (currentNode?.data as any)?.isDone || false
+        const currentData = currentNode?.data as unknown as ItemData
+        const parentQuantity = currentData?.quantity || 1
+        const parentIsDone = currentData?.isDone || false
 
         // Calculate how many times we need to run this recipe
-        const outputItem = recipe.output.find((output: any) => output.item === (currentNode?.data as any)?.itemId)
+        const outputItem = recipe.output.find((output) => output.item === currentData?.itemId)
         const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
         const recipeRuns = Math.ceil(parentQuantity / outputQty)
 
         // Create material nodes with quantity aggregation
-        const materialNodes = recipe.requirements.materials.map((material: { id: string; qty: number | null }) => {
+        const materialNodes = recipe.requirements.materials.map((material) => {
           const materialId = material.id
           const materialData = allItems.find((item) => item.id === materialId)
 
           // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r: any) =>
-            r.output.some((output: any) => output.item === material.id)
+          const materialRecipes = recipes.filter((r) =>
+            r.output.some((output) => output.item === material.id)
           )
 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number = 0
           if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
-            calculatedQuantity = (material.qty as number) * recipeRuns
+            calculatedQuantity = material.qty * recipeRuns
           }
 
           // Check if a node for this material already exists
@@ -181,7 +196,8 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
 
           if (existingNode) {
             // Node exists, update its quantity by adding the new requirement
-            const existingQuantity = (existingNode.data as unknown as { quantity?: number }).quantity || 0
+            const existingData = existingNode.data as unknown as ItemData
+            const existingQuantity = existingData.quantity || 0
             const newTotalQuantity = existingQuantity + calculatedQuantity
 
             return {
@@ -190,9 +206,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 ...existingNode.data,
                 quantity: newTotalQuantity,
                 // If parent is done, mark existing node as done too
-                isDone: parentIsDone || (existingNode.data as any).isDone,
+                isDone: parentIsDone || existingData.isDone,
                 // Ensure icon_asset_name is set if it's missing
-                icon_asset_name: (existingNode.data as any).icon_asset_name || 'Unknown'
+                icon_asset_name: existingData.icon_asset_name || 'Unknown'
               }
             }
           } else {
@@ -218,7 +234,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         })
 
         // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map((material: any) => {
+        const materialEdges = recipe.requirements.materials.map((material) => {
           const materialId = material.id
           return {
             id: `${id}-${materialId}`,
@@ -355,7 +371,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 <SelectValue placeholder="Choose recipe..." />
               </SelectTrigger>
               <SelectContent className="max-w-80">
-                {itemData.recipes.map((recipe: Recipe) => {
+                {itemData.recipes.map((recipe) => {
                   return (
                     <SelectItem key={recipe.id} value={recipe.id.toString()}>
                       <div className="truncate">{resolveRecipeName(recipe, items) || `Recipe #${recipe.id}`}</div>
