@@ -4,11 +4,13 @@ import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_ty
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
+import type { ItemListDesc } from '@/data/bindings/item_list_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import craftingRecipeDescData from '@/data/global/crafting_recipe_desc.json'
 import extractionRecipeDescData from '@/data/global/extraction_recipe_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
+import itemListDescData from '@/data/global/item_list_desc.json'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { shouldFilterItem, createUnifiedLookup } from './shared/calculator-utils'
 import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
@@ -26,7 +28,8 @@ function getGameData() {
     extractionRecipeDesc: camelCaseDeep<ExtractionRecipeDesc[]>(extractionRecipeDescData),
     itemDesc: camelCaseDeep<ItemDesc[]>(itemDescData),
     cargoDesc: camelCaseDeep<CargoDesc[]>(cargoDescData),
-    resourceDesc: camelCaseDeep<ResourceDesc[]>(resourceDescData)
+    resourceDesc: camelCaseDeep<ResourceDesc[]>(resourceDescData),
+    itemListDesc: camelCaseDeep<ItemListDesc[]>(itemListDescData)
   }
 }
 
@@ -50,7 +53,7 @@ export async function getAllGameItems(): Promise<{
  * Get calculator-ready game data from spacetime-db
  */
 export async function getCalculatorGameData(): Promise<CalculatorGameData> {
-  const { itemDesc, cargoDesc, resourceDesc, craftingRecipeDesc, extractionRecipeDesc } = getGameData()
+  const { itemDesc, cargoDesc, resourceDesc, craftingRecipeDesc, extractionRecipeDesc, itemListDesc } = getGameData()
 
   // Filter items for compendium entries
   const filteredItems = itemDesc.filter((item) => item.compendiumEntry)
@@ -76,7 +79,7 @@ export async function getCalculatorGameData(): Promise<CalculatorGameData> {
   )
   
   // Transform recipes using module-specific functions
-  const calculatorCraftingRecipes = transformCraftingRecipesToCalculator(craftingRecipeDesc)
+  const calculatorCraftingRecipes = transformCraftingRecipesToCalculator(craftingRecipeDesc, itemListDesc, itemDesc)
   const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(extractionRecipeDesc, unifiedLookup)
   const allCalculatorRecipes = [...calculatorCraftingRecipes, ...calculatorExtractionRecipes]
   

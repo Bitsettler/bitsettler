@@ -1,13 +1,69 @@
 import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_type'
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
+import type { ItemListDesc } from '@/data/bindings/item_list_desc_type'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { getItemPrefix } from '../shared/calculator-utils'
 import type { CalculatorItem, CalculatorRecipe } from '../calculator-dtos'
+
+/**
+ * Resolve an item that might have an item_list_id to its actual outputs
+ */
+function resolveItemOutput(itemId: number, quantity: number, itemType: unknown, itemLists: ItemListDesc[], allItems: ItemDesc[]): Array<{ item: string; qty: number }> {
+  const prefix = getItemPrefix(itemType)
+  
+  // Find the item to check if it has an itemListId
+  const item = allItems.find(i => i.id === itemId)
+  
+  if (item && item.itemListId && item.itemListId !== 0) {
+    // Find the corresponding item list
+    const itemList = itemLists.find(list => list.id === item.itemListId)
+    
+    if (itemList && itemList.possibilities && itemList.possibilities.length > 0) {
+      console.log(`🔍 Resolving item ${itemId} (${item.name}) using item list ${item.itemListId}`)
+      
+      const resolvedOutputs: Array<{ item: string; qty: number }> = []
+      
+      for (const possibility of itemList.possibilities) {
+        if (Array.isArray(possibility) && possibility.length >= 2) {
+          // Array format: [probability, items]
+          const [, items] = possibility
+          
+          if (Array.isArray(items)) {
+            for (const itemStack of items) {
+              if (Array.isArray(itemStack) && itemStack.length >= 3) {
+                // Array format: [itemId, quantity, itemType, durability]
+                const [outputItemId, outputQuantity, outputItemType] = itemStack
+                if (typeof outputItemId === 'number' && typeof outputQuantity === 'number') {
+                  const outputPrefix = getItemPrefix(outputItemType)
+                  resolvedOutputs.push({
+                    item: `${outputPrefix}${outputItemId}`,
+                    qty: outputQuantity * quantity // Scale by original quantity
+                  })
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      if (resolvedOutputs.length > 0) {
+        console.log(`✅ Resolved ${itemId} to:`, resolvedOutputs)
+        return resolvedOutputs
+      }
+    }
+  }
+  
+  // Fallback to default output
+  return [{ item: `${prefix}${itemId}`, qty: quantity }]
+}
 
 /**
  * Map CraftingRecipeDesc to CalculatorRecipe
  */
 export function mapCraftingRecipeToCalculatorRecipe(
-  recipe: CraftingRecipeDesc
+  recipe: CraftingRecipeDesc,
+  itemLists: ItemListDesc[] = [],
+  allItems: ItemDesc[] = []
 ): CalculatorRecipe {
   // Extract materials from consumedItemStacks
   const materials: Array<{ id: string; qty: number | null }> = []
@@ -37,11 +93,14 @@ export function mapCraftingRecipeToCalculatorRecipe(
       if (Array.isArray(stack) && stack.length >= 3) {
         const [itemId, quantity, itemType] = stack
         if (typeof itemId === 'number' && typeof quantity === 'number') {
-          const prefix = getItemPrefix(itemType)
-          output.push({
-            item: `${prefix}${itemId}`,
-            qty: quantity
-          })
+          // Resolve potential item list outputs
+          const resolvedOutputs = resolveItemOutput(itemId, quantity, itemType, itemLists, allItems)
+          for (const resolvedOutput of resolvedOutputs) {
+            output.push({
+              item: resolvedOutput.item,
+              qty: resolvedOutput.qty
+            })
+          }
         }
       }
     }
@@ -136,13 +195,15 @@ export function mapExtractionRecipeToCalculatorRecipe(
  * Transform crafting recipes to calculator format
  */
 export function transformCraftingRecipesToCalculator(
-  recipes: CraftingRecipeDesc[]
+  recipes: CraftingRecipeDesc[],
+  itemLists: ItemListDesc[] = [],
+  allItems: ItemDesc[] = []
 ): CalculatorRecipe[] {
   const calculatorRecipes: CalculatorRecipe[] = []
   
   for (const recipe of recipes) {
     try {
-      const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(recipe)
+      const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(recipe, itemLists, allItems)
       if (calculatorRecipe.output.length > 0) { // Only include recipes with valid outputs
         calculatorRecipes.push(calculatorRecipe)
       }
