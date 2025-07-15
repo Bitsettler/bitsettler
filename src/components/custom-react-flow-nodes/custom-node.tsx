@@ -33,6 +33,8 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
   const gameData = useGameData()
   const { items, recipes } = gameData
 
+  console.log({ itemData, recipes })
+
   const handleToggleDone = useCallback(() => {
     const currentNodes = getNodes()
     const currentEdges = getEdges()
@@ -181,9 +183,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           const materialData = allItems.find((item) => item.id === materialId)
 
           // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r) =>
-            r.output.some((output) => output.item === material.id)
-          )
+          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number = 0
