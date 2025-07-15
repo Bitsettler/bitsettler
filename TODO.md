@@ -125,7 +125,9 @@ src/lib/spacetime-db/
 ### **Code Quality**
 
 - [x] Remove duplicate console.log statements in `calculator-dtos.ts:379`
-- [ ] Add comprehensive error handling for recipe parsing
+- [x] Fix extraction recipe parsing for complex nested array structures
+- [x] Fix item type prefix generation for cargo items in extraction recipes
+- [x] Add comprehensive error handling for recipe parsing
 - [ ] Implement proper TypeScript strict mode compliance
 - [ ] Add unit tests for calculator transformation functions
 
@@ -137,6 +139,8 @@ src/lib/spacetime-db/
 
 ### **Fixes**
 
+- [x] Fix cargo_1000 (Rough Wood Trunk) extraction recipe display
+- [x] Fix extraction recipe output parsing to handle SpacetimeDB array format
 - [ ] Resource icons are not displaying in the calculator
 - [ ] Update resource assets with unityassetripper
 
