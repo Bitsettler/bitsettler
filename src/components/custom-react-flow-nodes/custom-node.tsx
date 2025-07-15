@@ -10,20 +10,14 @@ import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
 import { memo, useCallback } from 'react'
 
-// Import data
-import cargo from '@/data/cargo.json'
-import extractionRecipes from '@/data/extraction-recipes.json'
-import items from '@/data/items.json'
-import craftingRecipes from '@/data/recipes.json'
-import resources from '@/data/resources.json'
 import { ItemData, Recipe } from './types'
-
-// Merge crafting and extraction recipes
-const recipes = [...craftingRecipes, ...extractionRecipes] as Recipe[]
+import { useGameData } from '@/contexts/game-data-context'
 
 export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data
   const { setNodes, setEdges, getNodes, getEdges } = useReactFlow()
+  const gameData = useGameData()
+  const { items, recipes } = gameData
 
   const handleToggleDone = useCallback(() => {
     const currentNodes = getNodes()
@@ -90,10 +84,10 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
 
   const handleRecipeSelect = useCallback(
     (recipeId: string) => {
-      // Use imported data
-      const allItems = [...items, ...cargo, ...resources]
+      // Use game data from context
+      const allItems = items
 
-      const recipe = recipes.find((r) => r.id.toString() === recipeId)
+      const recipe = recipes.find((r: any) => r.id.toString() === recipeId)
       if (!recipe) return
 
       // Update the current node with selected recipe
@@ -159,10 +153,10 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         // Get the current node's quantity to calculate child quantities
         const currentNode = filteredNodes.find((node) => node.id === id)
         const parentQuantity = (currentNode?.data?.quantity as number) || 1
-        const parentIsDone = currentNode?.data?.isDone || false
+        const parentIsDone = (currentNode?.data as any)?.isDone || false
 
         // Calculate how many times we need to run this recipe
-        const outputItem = recipe.output.find((output) => output.item === currentNode?.data?.itemId)
+        const outputItem = recipe.output.find((output: any) => output.item === (currentNode?.data as any)?.itemId)
         const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
         const recipeRuns = Math.ceil(parentQuantity / outputQty)
 
@@ -172,7 +166,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           const materialData = allItems.find((item) => item.id === materialId)
 
           // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
+          const materialRecipes = recipes.filter((r: any) => r.output.some((output: any) => output.item === material.id))
 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number = 0
@@ -194,9 +188,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 ...existingNode.data,
                 quantity: newTotalQuantity,
                 // If parent is done, mark existing node as done too
-                isDone: parentIsDone || existingNode.data.isDone,
+                isDone: parentIsDone || (existingNode.data as any).isDone,
                 // Ensure icon_asset_name is set if it's missing
-                icon_asset_name: existingNode.data.icon_asset_name || 'GeneratedIcons/Items/Unknown'
+                icon_asset_name: (existingNode.data as any).icon_asset_name || 'Unknown'
               }
             }
           } else {
@@ -222,7 +216,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         })
 
         // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map((material) => {
+        const materialEdges = recipe.requirements.materials.map((material: any) => {
           const materialId = material.id
           return {
             id: `${id}-${materialId}`,
@@ -241,7 +235,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         setEdges([...filteredEdges])
       }
     },
-    [id, getNodes, getEdges, setNodes, setEdges]
+    [id, getNodes, getEdges, setNodes, setEdges, items, recipes]
   )
 
   const handleMouseEnter = useCallback(() => {
@@ -360,10 +354,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               </SelectTrigger>
               <SelectContent className="max-w-80">
                 {itemData.recipes.map((recipe: Recipe) => {
-                  const allItems = [...items, ...cargo, ...resources]
                   return (
                     <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                      <div className="truncate">{resolveRecipeName(recipe, allItems) || `Recipe #${recipe.id}`}</div>
+                      <div className="truncate">{resolveRecipeName(recipe, items) || `Recipe #${recipe.id}`}</div>
                     </SelectItem>
                   )
                 })}
@@ -376,14 +369,14 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           <div className="text-muted-foreground mt-2 text-xs">No recipes available for this item</div>
         )}
 
-        {itemData.category !== 'resource' && itemData.selectedRecipe && (
+        {/* {itemData.category !== 'resource' && itemData.selectedRecipe && (
           <div className="bg-muted/50 mt-2 rounded p-2 text-xs">
             <div className="mb-1 font-medium">Recipe requirement:</div>
             <div>Profession: {itemData.selectedRecipe.requirements.professions}</div>
             <div>Building: {itemData.selectedRecipe.requirements.building}</div>
             <div>Tool: {itemData.selectedRecipe.requirements.tool}</div>
           </div>
-        )}
+        )} */}
       </CardContent>
 
       <Handle type="source" position={Position.Right} className="h-3 w-3" />
