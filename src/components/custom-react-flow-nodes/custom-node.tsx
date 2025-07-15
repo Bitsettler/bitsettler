@@ -10,8 +10,8 @@ import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
 import { memo, useCallback } from 'react'
 
-import { ItemData, Recipe } from './types'
 import { useGameData } from '@/contexts/game-data-context'
+import { ItemData, Recipe } from './types'
 
 export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) => {
   const itemData = data
@@ -166,7 +166,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           const materialData = allItems.find((item) => item.id === materialId)
 
           // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r: any) => r.output.some((output: any) => output.item === material.id))
+          const materialRecipes = recipes.filter((r: any) =>
+            r.output.some((output: any) => output.item === material.id)
+          )
 
           // Calculate the total quantity needed for this material
           let calculatedQuantity: number = 0
