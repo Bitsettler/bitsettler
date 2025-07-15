@@ -7,7 +7,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
-import { getRarityColor, getTierColor, cleanIconAssetName, getServerIconPath, convertRarityToString } from '@/lib/spacetime-db-live'
+import {
+  cleanIconAssetName,
+  convertRarityToString,
+  getRarityColor,
+  getServerIconPath,
+  getTierColor
+} from '@/lib/spacetime-db'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
@@ -194,9 +200,7 @@ export function TagPageView({
                   <div>
                     <div>{group.name}</div>
                     {group.subtitle && (
-                      <div className="text-sm font-normal text-muted-foreground mt-1">
-                        {group.subtitle}
-                      </div>
+                      <div className="text-muted-foreground mt-1 text-sm font-normal">{group.subtitle}</div>
                     )}
                   </div>
                   <Badge variant="secondary">{group.items.length} items</Badge>

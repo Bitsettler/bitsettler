@@ -1,5 +1,5 @@
-import { type CargoWithStats } from '@/lib/spacetime-db-live/cargo/cargo'
-import { TagPageView } from '@/views/tag-page-view/tag-page-view'
+import { type CargoWithStats } from '@/lib/spacetime-db/cargo/cargo'
+import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface CargoIndividualTagPageViewProps {
   tagName: string
@@ -42,10 +42,10 @@ export function CargoIndividualTagPageView({
     ]
 
     // Add conditional columns based on cargo properties
-    const hasTransportableItems = cargoItems.some(item => !item.isTransportable)
-    const transportableColumn = hasTransportableItems ? [
-      { key: 'isTransportable', label: 'Transportable', sortable: true, className: 'text-center' }
-    ] : []
+    const hasTransportableItems = cargoItems.some((item) => !item.isTransportable)
+    const transportableColumn = hasTransportableItems
+      ? [{ key: 'isTransportable', label: 'Transportable', sortable: true, className: 'text-center' }]
+      : []
 
     // Create enriched items with proper rarity fallback
     const enrichedItems = cargoItems.map((cargoItem) => ({
@@ -72,10 +72,10 @@ export function CargoIndividualTagPageView({
 
   // Cargo statistics
   const totalCargo = cargo.length
-  const transportableCount = cargo.filter(c => c.isTransportable).length
-  const animalCount = cargo.filter(c => c.isAnimal).length
-  const materialCount = cargo.filter(c => c.isMaterial).length
-  const vehicleCount = cargo.filter(c => c.isVehicle).length
+  const transportableCount = cargo.filter((c) => c.isTransportable).length
+  const animalCount = cargo.filter((c) => c.isAnimal).length
+  const materialCount = cargo.filter((c) => c.isMaterial).length
+  const vehicleCount = cargo.filter((c) => c.isVehicle).length
 
   // Create subtitle with breakdown
   const subtitleParts = [`${totalCargo} items`]

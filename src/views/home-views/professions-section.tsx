@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { getAllProfessions, getProfessionsByType, type Profession } from '@/lib/spacetime-db-live'
+import { getAllProfessions, getProfessionsByType, type Profession } from '@/lib/spacetime-db'
 import Image from 'next/image'
 
 function ProfessionCard({ profession }: { profession: Profession }) {

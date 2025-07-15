@@ -1,5 +1,5 @@
-import { type ConsumableWithItem } from '@/lib/spacetime-db-live/consumables'
-import { TagPageView } from '@/views/tag-page-view/tag-page-view'
+import { type ConsumableWithItem } from '@/lib/spacetime-db/consumables'
+import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ConsumableIndividualTagPageViewProps {
   tagName: string
@@ -35,16 +35,17 @@ export function ConsumableIndividualTagPageView({
     ]
 
     // Add nutrition column for food items
-    const hasFoodItems = consumableItems.some(item => item.isFood)
-    const nutritionColumn = hasFoodItems ? [
-      { key: 'nutritionValue', label: 'Nutrition', sortable: true, className: 'text-center' }
-    ] : []
+    const hasFoodItems = consumableItems.some((item) => item.isFood)
+    const nutritionColumn = hasFoodItems
+      ? [{ key: 'nutritionValue', label: 'Nutrition', sortable: true, className: 'text-center' }]
+      : []
 
     // Add category column if there are multiple categories in this group
-    const categories = new Set(consumableItems.map(item => item.consumableCategory))
-    const categoryColumn = categories.size > 1 ? [
-      { key: 'consumableCategory', label: 'Category', sortable: true, className: 'text-center' }
-    ] : []
+    const categories = new Set(consumableItems.map((item) => item.consumableCategory))
+    const categoryColumn =
+      categories.size > 1
+        ? [{ key: 'consumableCategory', label: 'Category', sortable: true, className: 'text-center' }]
+        : []
 
     // Create enriched items
     const enrichedItems = consumableItems.map((consumable) => ({
@@ -64,9 +65,9 @@ export function ConsumableIndividualTagPageView({
 
   // Consumable statistics
   const totalConsumables = consumables.length
-  const foodCount = consumables.filter(c => c.isFood).length
-  const potionCount = consumables.filter(c => c.isPotion).length
-  const baitCount = consumables.filter(c => c.isBait).length
+  const foodCount = consumables.filter((c) => c.isFood).length
+  const potionCount = consumables.filter((c) => c.isPotion).length
+  const baitCount = consumables.filter((c) => c.isBait).length
 
   // Create subtitle with breakdown
   const subtitleParts = [`${totalConsumables} items`]

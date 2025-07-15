@@ -1,5 +1,5 @@
-import { getWeaponsGroupedByType, getWeaponStatistics } from '@/lib/spacetime-db-live/weapons'
-import { WeaponsView } from '@/views/weapon-index-page-view/weapons-view'
+import { getWeaponsGroupedByType, getWeaponStatistics } from '@/lib/spacetime-db/weapons'
+import { WeaponsView } from '@/views/weapon-views/weapons-view'
 
 export default async function WeaponsPage() {
   const weaponsByType = await getWeaponsGroupedByType()

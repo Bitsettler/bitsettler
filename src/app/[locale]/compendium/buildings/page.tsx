@@ -1,4 +1,4 @@
-import { getBuildingStatistics } from '@/lib/spacetime-db-live/buildings'
+import { getBuildingStatistics } from '@/lib/spacetime-db/buildings'
 import { BuildingsView } from '@/views/buildings-views/buildings-index-page-view'
 
 // Category icons mapping

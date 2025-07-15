@@ -1,5 +1,5 @@
-import { getConsumableStatistics } from '@/lib/spacetime-db-live/consumables'
-import { tagCollections, getItemsByTags } from '@/lib/spacetime-db-live'
+import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
+import { getConsumableStatistics } from '@/lib/spacetime-db/consumables'
 import { ConsumablesView } from '@/views/consumables-views/consumables-index-page-view'
 
 export default async function ConsumablesPage() {
@@ -39,4 +39,3 @@ export default async function ConsumablesPage() {
     />
   )
 }
-

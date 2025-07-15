@@ -11,8 +11,8 @@ import extractionRecipes from '@/data/extraction-recipes.json'
 import items from '@/data/items.json'
 import craftingRecipes from '@/data/recipes.json'
 import resources from '@/data/resources.json'
-import { CalculatorItemInfoPanel } from '@/views/calculator-page-view/calculator-item-info-panel'
-import { CalculatorSearchInput } from '@/views/calculator-page-view/calculator-search-input'
+import { CalculatorItemInfoPanel } from '@/views/calculator-views/calculator-item-info-panel'
+import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 
 // Prepare and combine all game data
 const allItems = [...items, ...cargo, ...resources]

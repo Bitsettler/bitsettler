@@ -4,7 +4,7 @@ import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
-import { CompendiumIndexPageView } from '@/views/compendium-index-page-view/compendium-index-page-view'
+import { CompendiumIndexPageView } from '@/views/compendium-views/compendium-index-page-view'
 
 // Transform the JSON data to match the type structure
 type ItemDescWithSnakeCase = Omit<ItemDesc, 'compendiumEntry'> & { compendium_entry: boolean }

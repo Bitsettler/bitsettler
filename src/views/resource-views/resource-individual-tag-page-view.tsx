@@ -1,5 +1,5 @@
-import { type ResourceWithStats } from '@/lib/spacetime-db-live/resources/resources'
-import { TagPageView } from '@/views/tag-page-view/tag-page-view'
+import { type ResourceWithStats } from '@/lib/spacetime-db/resources/resources'
+import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {
   tagName: string
@@ -29,17 +29,17 @@ export function ResourceIndividualTagPageView({
     .sort(([a], [b]) => parseInt(a) - parseInt(b)) // Sort by tier number
     .map(([tierString, resourceItems]) => {
       const tier = parseInt(tierString)
-      
+
       // Collect all unique biomes for this tier
       const tierBiomes = new Set<string>()
-      resourceItems.forEach(item => {
-        item.availableBiomes.forEach(biome => {
+      resourceItems.forEach((item) => {
+        item.availableBiomes.forEach((biome) => {
           if (biome !== 'Unknown') {
             tierBiomes.add(biome)
           }
         })
       })
-      
+
       const biomesArray = Array.from(tierBiomes).sort()
       const biomesText = biomesArray.length > 0 ? biomesArray.join(', ') : 'Unknown'
 
@@ -52,9 +52,7 @@ export function ResourceIndividualTagPageView({
       ]
 
       // Add resource-specific columns
-      const resourceColumns = [
-        { key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' }
-      ]
+      const resourceColumns = [{ key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' }]
 
       // Add conditional columns based on resource properties
       const hasRespawningItems = resourceItems.some((item) => !item.isRespawning)
@@ -106,4 +104,3 @@ export function ResourceIndividualTagPageView({
     />
   )
 }
-

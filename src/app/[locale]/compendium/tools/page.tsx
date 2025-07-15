@@ -1,6 +1,6 @@
-import { tagCollections } from '@/lib/spacetime-db-live/item-tag-collections'
-import { getToolStatistics } from '@/lib/spacetime-db-live/tools'
-import { getItemsByTags } from '@/lib/spacetime-db-live'
+import { getItemsByTags } from '@/lib/spacetime-db'
+import { tagCollections } from '@/lib/spacetime-db/item-tag-collections'
+import { getToolStatistics } from '@/lib/spacetime-db/tools'
 import { ToolsView } from '@/views/tools-views/tools-index-page-view'
 
 export default async function ToolsPage() {

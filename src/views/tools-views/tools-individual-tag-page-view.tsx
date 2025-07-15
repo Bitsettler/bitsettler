@@ -1,5 +1,5 @@
-import type { ToolWithItem } from '@/lib/spacetime-db-live/tools'
-import { TagPageView } from '@/views/tag-page-view/tag-page-view'
+import type { ToolWithItem } from '@/lib/spacetime-db/tools'
+import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {
   tagName: string

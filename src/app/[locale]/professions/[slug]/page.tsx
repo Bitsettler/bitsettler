@@ -1,7 +1,7 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { getProfessionBySlug } from '@/lib/spacetime-db-live'
+import { getProfessionBySlug } from '@/lib/spacetime-db'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 

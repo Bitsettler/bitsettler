@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { getBuildingStatistics } from '@/lib/spacetime-db-live/buildings'
+import { getBuildingStatistics } from '@/lib/spacetime-db/buildings'
 
 interface BuildingCategory {
   id: string

@@ -1,7 +1,7 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
-import { getCargoWithStats } from '@/lib/spacetime-db-live/cargo/cargo'
-import { cargoCollections, findCargoTagCollection } from '@/lib/spacetime-db-live/cargo/cargo-tag-collections'
+import { getCargoWithStats } from '@/lib/spacetime-db/cargo/cargo'
+import { cargoCollections, findCargoTagCollection } from '@/lib/spacetime-db/cargo/cargo-tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CargoIndividualTagPageView } from '@/views/cargo-views/cargo-individual-tag-page-view'
 import { notFound } from 'next/navigation'
@@ -31,7 +31,7 @@ export default async function CargoTagPage({ params }: PageProps) {
 
   // Check if this tag is actually a valid cargo tag
   const isValidCargoTag = cargoCollections.cargo.tags.some((tag) => tag === tagName)
-  
+
   if (!isValidCargoTag) {
     notFound()
   }

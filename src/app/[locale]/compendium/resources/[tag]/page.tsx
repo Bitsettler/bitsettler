@@ -1,7 +1,7 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import resourceDescData from '@/data/global/resource_desc.json'
-import { getResourcesWithStats } from '@/lib/spacetime-db-live/resources/resources'
-import { resourceCollections, findResourceTagCollection } from '@/lib/spacetime-db-live/resources/resource-tag-collections'
+import { findResourceTagCollection, resourceCollections } from '@/lib/spacetime-db/resources/resource-tag-collections'
+import { getResourcesWithStats } from '@/lib/spacetime-db/resources/resources'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
 import { notFound } from 'next/navigation'
@@ -31,7 +31,7 @@ export default async function ResourceTagPage({ params }: PageProps) {
 
   // Check if this tag is actually a valid resource tag
   const isValidResourceTag = resourceCollections.resources.tags.some((tag) => tag === tagName)
-  
+
   if (!isValidResourceTag) {
     notFound()
   }
