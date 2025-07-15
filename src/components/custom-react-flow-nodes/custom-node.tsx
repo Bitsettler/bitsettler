@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
+import { getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
@@ -33,8 +33,6 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
   const gameData = useGameData()
   const { items, recipes } = gameData
 
-  console.log({ itemData, recipes })
-
   const handleToggleDone = useCallback(() => {
     const currentNodes = getNodes()
     const currentEdges = getEdges()
@@ -46,26 +44,20 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
 
     // Function to recursively find and mark all child nodes as done
     const markChildrenAsDone = (nodeId: string, nodesToUpdate: Set<string>) => {
-      // Find all edges where this node is the target (meaning find all materials that feed into this node)
       const childEdges = currentEdges.filter((edge) => edge.target === nodeId)
-
       childEdges.forEach((edge) => {
         const childNodeId = edge.source
         nodesToUpdate.add(childNodeId)
-        // Recursively mark children of children as done
         markChildrenAsDone(childNodeId, nodesToUpdate)
       })
     }
 
     // Function to recursively find and mark all parent nodes as not done
     const markParentsAsNotDone = (nodeId: string, nodesToUpdate: Set<string>) => {
-      // Find all edges where this node is the source (meaning find all items that depend on this node)
       const parentEdges = currentEdges.filter((edge) => edge.source === nodeId)
-
       parentEdges.forEach((edge) => {
         const parentNodeId = edge.target
         nodesToUpdate.add(parentNodeId)
-        // Recursively mark parents of parents as not done
         markParentsAsNotDone(parentNodeId, nodesToUpdate)
       })
     }
@@ -74,10 +66,8 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
     const nodesToUpdate = new Set<string>([id])
 
     if (newIsDone) {
-      // When marking as done, cascade to all children (dependencies)
       markChildrenAsDone(id, nodesToUpdate)
     } else {
-      // When marking as not done, cascade to all parents (dependents)
       markParentsAsNotDone(id, nodesToUpdate)
     }
 
@@ -98,163 +88,147 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
     setNodes(updatedNodes)
   }, [id, getNodes, getEdges, setNodes])
 
-  const handleRecipeSelect = useCallback(
-    (recipeId: string) => {
-      // Use game data from context
-      const allItems = items
+  const handleRecipeSelect = useCallback((recipeId: string) => {
+    const recipe = recipes.find((r) => r.id.toString() === recipeId)
+    if (!recipe) return
 
-      const recipe = recipes.find((r) => r.id.toString() === recipeId)
-      if (!recipe) return
+    // Update the current node with selected recipe
+    const updatedNodes = getNodes().map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            selectedRecipe: recipe
+          }
+        }
+      }
+      return node
+    })
 
-      // Update the current node with selected recipe
-      const updatedNodes = getNodes().map((node) => {
-        if (node.id === id) {
+    // Remove ALL existing material nodes and edges that were created FROM this parent node
+    const currentEdges = getEdges()
+    const childNodeIds = new Set<string>()
+
+    // Find all nodes that are directly connected as children
+    currentEdges.forEach((edge) => {
+      if (edge.target === id) {
+        childNodeIds.add(edge.source)
+      }
+    })
+
+    // Recursively find all descendant nodes
+    const findAllDescendants = (nodeIds: Set<string>): Set<string> => {
+      const allDescendants = new Set(nodeIds)
+      let foundNew = true
+
+      while (foundNew) {
+        foundNew = false
+        currentEdges.forEach((edge) => {
+          if (allDescendants.has(edge.target) && !allDescendants.has(edge.source)) {
+            allDescendants.add(edge.source)
+            foundNew = true
+          }
+        })
+      }
+
+      return allDescendants
+    }
+
+    const allChildNodeIds = findAllDescendants(childNodeIds)
+
+    // Remove all child nodes (but keep the current parent node)
+    const filteredNodes = updatedNodes.filter((node) => {
+      if (node.id === id) return true
+      return !allChildNodeIds.has(node.id)
+    })
+
+    // Remove all edges connected to the removed child nodes
+    const filteredEdges = currentEdges.filter((edge) => {
+      return !allChildNodeIds.has(edge.source) && !allChildNodeIds.has(edge.target)
+    })
+
+    // Only create material nodes if the recipe has materials
+    if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
+      const currentNode = filteredNodes.find((node) => node.id === id)
+      const currentData = currentNode?.data as unknown as ItemData
+      const parentQuantity = currentData?.quantity || 1
+      const parentIsDone = currentData?.isDone || false
+
+      // Calculate how many times we need to run this recipe
+      const outputItem = recipe.output.find((output) => output.item === currentData?.itemId)
+      const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+      const recipeRuns = Math.ceil(parentQuantity / outputQty)
+
+      // Create material nodes with quantity aggregation
+      const materialNodes = recipe.requirements.materials.map((material) => {
+        const materialId = material.id
+        const materialData = items.find((item) => item.id === materialId)
+
+        // Check if this material has recipes
+        const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
+
+        // Calculate the total quantity needed for this material
+        let calculatedQuantity: number = 0
+        if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
+          calculatedQuantity = material.qty * recipeRuns
+        }
+
+        // Check if a node for this material already exists
+        const existingNode = filteredNodes.find((node) => node.id === material.id)
+
+        if (existingNode) {
+          const existingData = existingNode.data as unknown as ItemData
+          const existingQuantity = existingData.quantity || 0
+          const newTotalQuantity = existingQuantity + calculatedQuantity
+
           return {
-            ...node,
+            ...existingNode,
             data: {
-              ...node.data,
-              selectedRecipe: recipe
+              ...existingNode.data,
+              quantity: newTotalQuantity,
+              isDone: parentIsDone || existingData.isDone,
+              icon_asset_name: existingData.icon_asset_name || ''
             }
           }
-        }
-        return node
-      })
-
-      // Remove ALL existing material nodes and edges that were created FROM this parent node
-      // We need to find all nodes that are children of the current node (id)
-      const currentEdges = getEdges()
-      const childNodeIds = new Set<string>()
-
-      // Find all nodes that are directly connected as children (targets of edges from current node)
-      currentEdges.forEach((edge) => {
-        if (edge.target === id) {
-          childNodeIds.add(edge.source)
-        }
-      })
-
-      // Recursively find all descendant nodes
-      const findAllDescendants = (nodeIds: Set<string>): Set<string> => {
-        const allDescendants = new Set(nodeIds)
-        let foundNew = true
-
-        while (foundNew) {
-          foundNew = false
-          currentEdges.forEach((edge) => {
-            if (allDescendants.has(edge.target) && !allDescendants.has(edge.source)) {
-              allDescendants.add(edge.source)
-              foundNew = true
-            }
-          })
-        }
-
-        return allDescendants
-      }
-
-      const allChildNodeIds = findAllDescendants(childNodeIds)
-
-      // Remove all child nodes (but keep the current parent node)
-      const filteredNodes = updatedNodes.filter((node) => {
-        if (node.id === id) return true // Keep the current node
-        return !allChildNodeIds.has(node.id) // Remove all child nodes
-      })
-
-      // Remove all edges connected to the removed child nodes
-      const filteredEdges = currentEdges.filter((edge) => {
-        // Keep edges that don't involve any of the removed child nodes
-        return !allChildNodeIds.has(edge.source) && !allChildNodeIds.has(edge.target)
-      })
-
-      // Only create material nodes if the recipe has materials
-      if (recipe.requirements.materials && recipe.requirements.materials.length > 0) {
-        // Get the current node's quantity to calculate child quantities
-        const currentNode = filteredNodes.find((node) => node.id === id)
-        const currentData = currentNode?.data as unknown as ItemData
-        const parentQuantity = currentData?.quantity || 1
-        const parentIsDone = currentData?.isDone || false
-
-        // Calculate how many times we need to run this recipe
-        const outputItem = recipe.output.find((output) => output.item === currentData?.itemId)
-        const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
-        const recipeRuns = Math.ceil(parentQuantity / outputQty)
-
-        // Create material nodes with quantity aggregation
-        const materialNodes = recipe.requirements.materials.map((material) => {
-          const materialId = material.id
-          const materialData = allItems.find((item) => item.id === materialId)
-
-          // Check if this material has recipes (for recursive expansion)
-          const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
-
-          // Calculate the total quantity needed for this material
-          let calculatedQuantity: number = 0
-          if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
-            calculatedQuantity = material.qty * recipeRuns
-          }
-
-          // Check if a node for this material already exists
-          const existingNode = filteredNodes.find((node) => node.id === material.id)
-
-          if (existingNode) {
-            // Node exists, update its quantity by adding the new requirement
-            const existingData = existingNode.data as unknown as ItemData
-            const existingQuantity = existingData.quantity || 0
-            const newTotalQuantity = existingQuantity + calculatedQuantity
-
-            return {
-              ...existingNode,
-              data: {
-                ...existingNode.data,
-                quantity: newTotalQuantity,
-                // If parent is done, mark existing node as done too
-                isDone: parentIsDone || existingData.isDone,
-                // Ensure icon_asset_name is set if it's missing
-                icon_asset_name: existingData.icon_asset_name || 'Unknown'
-              }
-            }
-          } else {
-            // Create new node
-            return {
-              id: material.id,
-              type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
-              data: {
-                label: materialData?.name || `Item ${material.id}`,
-                tier: materialData?.tier || 1,
-                rarity: materialData?.rarity || 'common',
-                category: materialData?.category || 'unknown',
-                quantity: calculatedQuantity,
-                recipes: materialRecipes,
-                selectedRecipe: null,
-                itemId: material.id,
-                isDone: parentIsDone, // Inherit parent's done status
-                icon_asset_name: materialData?.icon_asset_name || 'GeneratedIcons/Items/Unknown'
-              },
-              position: { x: 0, y: 0 }
-            }
-          }
-        })
-
-        // Create edges connecting main item to materials
-        const materialEdges = recipe.requirements.materials.map((material) => {
-          const materialId = material.id
+        } else {
+          // Create new node
           return {
-            id: `${id}-${materialId}`,
-            source: `${materialId}`,
-            target: id,
-            type: 'bezier',
-            animated: false
+            id: material.id,
+            type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
+            position: { x: 0, y: 0 },
+            data: {
+              label: materialData?.name || `Item ${material.id}`,
+              tier: materialData?.tier || 1,
+              rarity: materialData?.rarity || 'common',
+              category: materialData?.category || 'unknown',
+              quantity: calculatedQuantity,
+              recipes: materialRecipes,
+              selectedRecipe: null,
+              itemId: material.id,
+              isDone: parentIsDone,
+              icon_asset_name: materialData?.icon_asset_name || ''
+            }
           }
-        })
+        }
+      })
 
-        setNodes([...filteredNodes, ...materialNodes])
-        setEdges([...filteredEdges, ...materialEdges])
-      } else {
-        // For gathering recipes without materials, just update the node
-        setNodes([...filteredNodes])
-        setEdges([...filteredEdges])
-      }
-    },
-    [id, getNodes, getEdges, setNodes, setEdges, items, recipes]
-  )
+      // Create edges connecting main item to materials
+      const materialEdges = recipe.requirements.materials.map((material) => ({
+        id: `${id}-${material.id}`,
+        source: material.id,
+        target: id,
+        type: 'bezier' as const,
+        animated: false
+      }))
+
+      setNodes([...filteredNodes, ...materialNodes])
+      setEdges([...filteredEdges, ...materialEdges])
+    } else {
+      setNodes([...filteredNodes])
+      setEdges([...filteredEdges])
+    }
+  }, [id, getNodes, getEdges, setNodes, setEdges, items, recipes])
 
   const handleMouseEnter = useCallback(() => {
     const updatedNodes = getNodes().map((node) => {
@@ -326,22 +300,20 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
             {itemData.label}
           </CardTitle>
         </div>
-        {itemData.quantity && (
-          <div className="mt-1 flex items-center gap-2">
-            <Image
-              src={`/assets/${itemData.icon_asset_name || 'GeneratedIcons/Items/Unknown'}.webp`}
-              alt={itemData.label}
-              width={48}
-              height={48}
-              className="rounded"
-            />
-            {itemData.category !== 'resource' && (
-              <Badge variant="secondary" className="text-xs">
-                Qty: {Math.round(itemData.quantity)}
-              </Badge>
-            )}
-          </div>
-        )}
+        <div className="mt-1 flex items-center gap-2">
+          <Image
+            src={itemData.icon_asset_name || '/assets/Unknown.webp'}
+            alt={itemData.label}
+            width={48}
+            height={48}
+            className="rounded"
+          />
+          {itemData.quantity && itemData.category !== 'resource' && (
+            <Badge variant="secondary" className="text-xs">
+              Qty: {Math.round(itemData.quantity)}
+            </Badge>
+          )}
+        </div>
       </CardHeader>
 
       <CardContent className="pt-0">
@@ -351,9 +323,6 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               Tier {itemData.tier}
             </Badge>
           )}
-          <Badge variant="outline" className={`text-xs ${getRarityColor(itemData.rarity || 'common')}`}>
-            {itemData.rarity || 'Common'}
-          </Badge>
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
             {itemData.category}
           </Badge>

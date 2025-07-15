@@ -19,7 +19,7 @@ export default async function Calculator({ params, searchParams }: PageProps) {
   // Get game data from spacetime-db
   const gameData = await getCalculatorGameData()
 
-  // Find the item by slug
+  // Find the item by slug to validate it exists
   const selectedItem = gameData.items.find((item) => item.slug === slug)
   const quantity = parseInt(qty || '1')
 
@@ -28,5 +28,5 @@ export default async function Calculator({ params, searchParams }: PageProps) {
     notFound()
   }
 
-  return <FlowVisualizeView gameData={gameData} initialItemId={selectedItem.id} initialQuantity={quantity} />
+  return <FlowVisualizeView slug={slug} quantity={quantity} />
 }

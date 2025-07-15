@@ -1,7 +1,7 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import { createSlug } from '../entities'
 import { convertRarityToString } from '../rarity'
-import { cleanIconAssetPath } from '../shared/calculator-utils'
+import { getServerIconPath, cleanIconAssetName } from '../assets'
 import type { CalculatorItem } from '../calculator-dtos'
 
 /**
@@ -16,7 +16,7 @@ export function mapResourceToCalculatorItem(resource: ResourceDesc): CalculatorI
     rarity: convertRarityToString(resource.rarity),
     category: 'resources',
     description: resource.description || 'No description available',
-    icon_asset_name: cleanIconAssetPath(resource.iconAssetName || '')
+    icon_asset_name: getServerIconPath(cleanIconAssetName(resource.iconAssetName || ''))
   }
 }
 

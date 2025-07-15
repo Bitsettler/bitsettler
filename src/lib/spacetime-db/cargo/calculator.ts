@@ -1,7 +1,7 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import { createSlug } from '../entities'
 import { convertRarityToString } from '../rarity'
-import { cleanIconAssetPath } from '../shared/calculator-utils'
+import { getServerIconPath, cleanIconAssetName } from '../assets'
 import type { CalculatorItem } from '../calculator-dtos'
 
 /**
@@ -16,7 +16,7 @@ export function mapCargoToCalculatorItem(cargo: CargoDesc): CalculatorItem {
     rarity: convertRarityToString(cargo.rarity),
     category: 'cargo',
     description: cargo.description || 'No description available',
-    icon_asset_name: cleanIconAssetPath(cargo.iconAssetName || '')
+    icon_asset_name: getServerIconPath(cleanIconAssetName(cargo.iconAssetName || ''))
   }
 }
 
