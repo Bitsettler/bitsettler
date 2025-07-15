@@ -5,29 +5,14 @@ import { FlowCanvas } from '@/components/flow-canvas'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useItemSelection } from '@/hooks/use-item-selection'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
-import { Recipe } from '@/lib/types'
+import type { CalculatorGameData, CalculatorRecipe } from '@/lib/spacetime-db'
 import { updateNodeQuantities } from '@/lib/utils/recipe-utils'
 import type { Edge, Node } from '@xyflow/react'
 import { ReactFlowProvider, useEdgesState, useNodesState } from '@xyflow/react'
 import { useCallback, useEffect } from 'react'
 
-// Define the data structure that will be passed as props
-interface GameData {
-  items: Array<{
-    id: string
-    name: string
-    slug: string
-    tier: number
-    rarity: string
-    category: string
-    description: string
-    icon_asset_name: string
-  }>
-  recipes: Recipe[]
-}
-
 interface FlowVisualizeViewProps {
-  gameData: GameData
+  gameData: CalculatorGameData
   initialItemId: string
   initialQuantity?: number
 }
@@ -95,7 +80,7 @@ function View({ gameData, initialItemId, initialQuantity = 1 }: FlowVisualizeVie
       const expandNodeRecipes = (node: Node, depth: number): { nodes: Node[]; edges: Edge[] } => {
         if (depth > 1) return { nodes: [], edges: [] }
 
-        const nodeRecipes = node.data.recipes as Recipe[] | undefined
+        const nodeRecipes = node.data.recipes as CalculatorRecipe[] | undefined
         if (!nodeRecipes || nodeRecipes.length !== 1) {
           // If no recipes or multiple recipes, return the node without expansion
           return { nodes: [node], edges: [] }

@@ -3,14 +3,14 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
-import type { Item } from '@/hooks/use-item-selection'
+import type { CalculatorItem } from '@/lib/spacetime-db'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 interface CalculatorSearchInputProps {
-  items: Item[]
-  selectedItem?: Item
+  items: CalculatorItem[]
+  selectedItem?: CalculatorItem
   onItemSelect: (slug: string) => void
 }
 

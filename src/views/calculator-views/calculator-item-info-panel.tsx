@@ -4,19 +4,18 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import type { Item } from '@/hooks/use-item-selection'
 import { Link } from '@/i18n/navigation'
-import { Recipe } from '@/lib/types'
+import type { CalculatorItem, CalculatorRecipe } from '@/lib/spacetime-db'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { resolveRecipeName } from '@/lib/utils/recipe-utils'
 import { useTranslations } from 'next-intl'
 
 interface CalculatorItemInfoPanelProps {
-  selectedItem: Item | undefined
+  selectedItem: CalculatorItem | undefined
   desiredQuantity: number
   onQuantityChange: (quantity: number) => void
-  recipes: Recipe[]
-  items: Item[]
+  recipes: CalculatorRecipe[]
+  items: CalculatorItem[]
 }
 
 export function CalculatorItemInfoPanel({

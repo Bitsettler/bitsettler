@@ -29,6 +29,13 @@ export {
   getWeaponStatistics,
   type WeaponWithItem 
 } from './weapons'
+export { 
+  getCraftingRecipes, 
+  getExtractionRecipes, 
+  getAllGameItems, 
+  getCalculatorGameData 
+} from './recipes'
+export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './calculator-dtos'
 
 const uri = '{scheme}://{host}/v1/database/{module}/{endpoint}'
 const proto = 'v1.json.spacetimedb'
