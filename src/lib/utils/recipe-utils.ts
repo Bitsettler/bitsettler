@@ -1,6 +1,6 @@
 import itemsData from '@/data/global/item_desc.json'
 import { Recipe } from '@/lib/types'
-import type { Node } from '@xyflow/react'
+import type { Node, Edge } from '@xyflow/react'
 
 // Type definition for item_desc.json structure
 interface ItemDesc {
@@ -75,92 +75,92 @@ export const resolveRecipeName = (recipe: Recipe, allItems: ItemWithIdAndName[] 
   return resolvedName
 }
 
-export const updateNodeQuantities = (nodes: Node[], selectedItem: { id: string }, targetQuantity: number): Node[] => {
+export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selectedItem: { id: string }, targetQuantity: number): Node[] => {
   if (!selectedItem) return nodes
 
-  // First, update the selected item's quantity
-  let updatedNodes = nodes.map((node) => {
-    if (node.id === selectedItem.id) {
+  // Create a map to accumulate quantities for each node
+  const quantityMap = new Map<string, number>()
+  
+  // Set the root item's quantity
+  quantityMap.set(selectedItem.id, targetQuantity)
+
+  // Find all nodes that have no incoming edges (root nodes)
+  const incomingEdges = new Map<string, string[]>()
+  edges.forEach(edge => {
+    if (!incomingEdges.has(edge.target)) {
+      incomingEdges.set(edge.target, [])
+    }
+    incomingEdges.get(edge.target)!.push(edge.source)
+  })
+
+  // Create a queue for processing nodes in dependency order
+  const processQueue = [selectedItem.id]
+  const processed = new Set<string>()
+
+  while (processQueue.length > 0) {
+    const currentNodeId = processQueue.shift()!
+    
+    if (processed.has(currentNodeId)) continue
+    processed.add(currentNodeId)
+
+    const currentNode = nodes.find(n => n.id === currentNodeId)
+    if (!currentNode) continue
+
+    const recipe = currentNode.data.selectedRecipe as Recipe
+    if (!recipe || !recipe.requirements.materials) continue
+
+    const currentQuantity = quantityMap.get(currentNodeId) || 0
+    if (currentQuantity === 0) continue
+
+    // Calculate how many times we need to run this recipe
+    const outputItem = recipe.output?.find((output) => output.item === currentNode.data.itemId)
+    const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+    const recipeRuns = Math.ceil(currentQuantity / outputQty)
+
+    // Process each material required by this recipe
+    recipe.requirements.materials.forEach((material) => {
+      const materialId = material.id.toString()
+      const materialQuantity = material.qty || 0
+      
+      if (materialQuantity > 0) {
+        const totalMaterialNeeded = recipeRuns * materialQuantity
+        
+        // Accumulate quantity for this material
+        const existingQuantity = quantityMap.get(materialId) || 0
+        quantityMap.set(materialId, existingQuantity + totalMaterialNeeded)
+        
+        // Add to processing queue if not already processed
+        if (!processed.has(materialId)) {
+          processQueue.push(materialId)
+        }
+      }
+    })
+  }
+
+  // Update all nodes with calculated quantities
+  return nodes.map((node) => {
+    const nodeId = node.id
+    const calculatedQuantity = quantityMap.get(nodeId)
+    
+    // For resources, don't show quantity
+    if (node.data.category === 'resources') {
       return {
         ...node,
         data: {
           ...node.data,
-          quantity: targetQuantity
+          quantity: undefined
         }
       }
     }
-    return node
+    
+    // For other nodes, use calculated quantity or existing quantity
+    return {
+      ...node,
+      data: {
+        ...node.data,
+        quantity: calculatedQuantity !== undefined ? calculatedQuantity : node.data.quantity
+      }
+    }
   })
-
-  // Keep updating until no more changes occur (to handle deep nesting)
-  let hasChanges = true
-  let iterations = 0
-  const maxIterations = 10 // Prevent infinite loops
-
-  while (hasChanges && iterations < maxIterations) {
-    const previousQuantities = updatedNodes.map((n) => ({ id: n.id, quantity: n.data.quantity }))
-
-    // Update all material nodes based on their parent requirements
-    updatedNodes = updatedNodes.map((node) => {
-      // Skip if this is the selected item or doesn't have an itemId
-      if (node.id === selectedItem.id || !node.data.itemId) {
-        return node
-      }
-
-      // Find all parent nodes that use this material
-      const parentNodes = updatedNodes.filter((parentNode) => {
-        if (!parentNode.data.selectedRecipe) return false
-        const recipe = parentNode.data.selectedRecipe as Recipe
-        return recipe.requirements.materials?.some((mat) => mat.id === node.data.itemId)
-      })
-
-      // Calculate total quantity needed for this material from all parent nodes
-      let totalQuantityNeeded = 0
-
-      parentNodes.forEach((parentNode) => {
-        const recipe = parentNode.data.selectedRecipe as Recipe
-        const materialReq = recipe.requirements.materials?.find((mat) => mat.id === node.data.itemId)
-
-        if (materialReq && materialReq.qty !== null && materialReq.qty !== undefined) {
-          const parentQuantity = (parentNode.data.quantity as number) || 1
-
-          // Calculate how many times we need to run this recipe
-          const outputItem = recipe.output?.find((output) => output.item === parentNode.data.itemId)
-          const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
-          const recipeRuns = Math.ceil(parentQuantity / outputQty)
-
-          totalQuantityNeeded += recipeRuns * materialReq.qty
-        }
-      })
-
-      // Update quantity for materials that need it
-      if (totalQuantityNeeded > 0 && node.data.category !== 'resources') {
-        return {
-          ...node,
-          data: {
-            ...node.data,
-            quantity: totalQuantityNeeded
-          }
-        }
-      } else if (node.data.category === 'resources') {
-        // For resources, remove the quantity
-        return {
-          ...node,
-          data: {
-            ...node.data,
-            quantity: undefined
-          }
-        }
-      }
-
-      return node
-    })
-
-    // Check if any quantities changed
-    const currentQuantities = updatedNodes.map((n) => ({ id: n.id, quantity: n.data.quantity }))
-    hasChanges = JSON.stringify(previousQuantities) !== JSON.stringify(currentQuantities)
-    iterations++
-  }
-
-  return updatedNodes
 }
+

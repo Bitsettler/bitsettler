@@ -8,7 +8,7 @@ import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
 import type { CalculatorRecipe } from '@/lib/spacetime-db'
-import { updateNodeQuantities } from '@/lib/utils/recipe-utils'
+import { calculateQuantitiesFromEdges } from '@/lib/utils/recipe-utils'
 import type { Edge, Node } from '@xyflow/react'
 import { useEdgesState, useNodesState } from '@xyflow/react'
 import { useCallback, useEffect } from 'react'
@@ -81,8 +81,25 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
         continue
       }
 
-      // Use first recipe for auto-expansion
-      const recipe = nodeRecipes[0]
+      // Filter out recipes that would create circular dependencies
+      const nonCircularRecipes = nodeRecipes.filter(recipe => {
+        if (!recipe.requirements.materials) return true
+        
+        // Check if any material in this recipe would create a circular dependency
+        return !recipe.requirements.materials.some(material => {
+          const materialId = material.id.toString()
+          const currentNodeId = node.id
+          
+          // Check if there's already an edge from currentNodeId to materialId
+          // If so, creating materialId -> currentNodeId would create a circle
+          return allEdges.some(edge => 
+            edge.source === currentNodeId && edge.target === materialId
+          )
+        })
+      })
+      
+      // Use first non-circular recipe, or fallback to first recipe if all are circular
+      const recipe = nonCircularRecipes.length > 0 ? nonCircularRecipes[0] : nodeRecipes[0]
       const updatedNode = {
         ...node,
         data: {
@@ -180,7 +197,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
     if (savedState && savedState.nodes.length > 0) {
       // When loading from saved state, update quantities if needed
       if (selectedItem && savedState.quantity !== quantity) {
-        const updatedNodes = updateNodeQuantities(savedState.nodes, selectedItem, quantity)
+        const updatedNodes = calculateQuantitiesFromEdges(savedState.nodes, savedState.edges, selectedItem, quantity)
         setNodes(updatedNodes)
       } else {
         setNodes(savedState.nodes)
@@ -192,16 +209,21 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
 
   useEdgeColors(nodes, edges, setEdges)
 
-  const updateNodeQuantitiesCallback = useCallback(
-    (targetQuantity: number) => {
+  // Listen for quantity recalculation events from custom nodes
+  useEffect(() => {
+    const handleRecalculateQuantities = () => {
       if (!selectedItem) return
-
+      
       setNodes((currentNodes) => {
-        return updateNodeQuantities(currentNodes, selectedItem, targetQuantity)
+        return calculateQuantitiesFromEdges(currentNodes, edges, selectedItem, quantity)
       })
-    },
-    [selectedItem, setNodes]
-  )
+    }
+
+    window.addEventListener('recalculateQuantities', handleRecalculateQuantities)
+    return () => {
+      window.removeEventListener('recalculateQuantities', handleRecalculateQuantities)
+    }
+  }, [selectedItem, edges, quantity, setNodes])
 
   // Apply layout whenever nodes or edges change (but don't fit view)
   useEffect(() => {
@@ -213,9 +235,11 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
   // Update node quantities when quantity changes
   useEffect(() => {
     if (selectedItem && nodes.length > 0) {
-      updateNodeQuantitiesCallback(quantity)
+      setNodes((currentNodes) => {
+        return calculateQuantitiesFromEdges(currentNodes, edges, selectedItem, quantity)
+      })
     }
-  }, [quantity, selectedItem, nodes.length, updateNodeQuantitiesCallback])
+  }, [quantity, selectedItem, nodes.length, edges, setNodes])
 
   return (
     <div className="h-full">

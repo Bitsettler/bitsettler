@@ -213,6 +213,12 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         setNodes(updatedNodes)
         setEdges(edgesWithoutTargeting)
       }
+      
+      // Trigger quantity recalculation after a short delay to ensure nodes/edges are updated
+      setTimeout(() => {
+        const event = new CustomEvent('recalculateQuantities')
+        window.dispatchEvent(event)
+      }, 10)
     },
     [id, getNodes, getEdges, setNodes, setEdges, items, recipes]
   )
@@ -263,7 +269,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
     >
       {/* Debug mode: Show item ID and recipe ID in development */}
       {process.env.NEXT_PUBLIC_DEBUG == 'true' && (
-        <div className="absolute -top-2 -left-2 z-10 flex flex-col gap-0.5">
+        <div className="absolute -top-6 -left-2 z-10 flex flex-col gap-0.5">
           {itemData.itemId && (
             <div className="rounded bg-red-500 px-1 py-0.5 font-mono text-xs text-white">Item: {itemData.itemId}</div>
           )}
