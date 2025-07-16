@@ -16,7 +16,7 @@ interface FlowVisualizeViewProps {
   quantity?: number
 }
 
-const AUTO_EXPAND_DEPTH = 3
+const AUTO_EXPAND_DEPTH = 5
 
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
