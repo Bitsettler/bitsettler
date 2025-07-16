@@ -3,21 +3,21 @@ import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_type'
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import type { ItemListDesc } from '@/data/bindings/item_list_desc_type'
+import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
 import craftingRecipeDescData from '@/data/global/crafting_recipe_desc.json'
 import extractionRecipeDescData from '@/data/global/extraction_recipe_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
-import resourceDescData from '@/data/global/resource_desc.json'
 import itemListDescData from '@/data/global/item_list_desc.json'
+import resourceDescData from '@/data/global/resource_desc.json'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
-import { shouldFilterItem, createUnifiedLookup } from './shared/calculator-utils'
-import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
-import { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
-import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
-import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './recipes/calculator'
 import type { CalculatorGameData } from './calculator-dtos'
+import { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
+import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
+import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './recipes/calculator'
+import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
+import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'
 
 /**
  * Get game data from static JSON files
@@ -64,10 +64,10 @@ export async function getCalculatorGameData(): Promise<CalculatorGameData> {
   const calculatorItems = transformItemsToCalculator(filteredItems)
   const calculatorCargo = transformCargoToCalculator(filteredCargo)
   const calculatorResources = transformResourcesToCalculator(filteredResources)
-  
+
   // Combine all items for unified lookup
   const allCalculatorItems = [...calculatorItems, ...calculatorCargo, ...calculatorResources]
-  
+
   // Create unified lookup for recipe processing
   const unifiedLookup = createUnifiedLookup(
     filteredItems,
@@ -77,14 +77,12 @@ export async function getCalculatorGameData(): Promise<CalculatorGameData> {
     mapCargoToCalculatorItem,
     mapResourceToCalculatorItem
   )
-  
+
   // Transform recipes using module-specific functions
   const calculatorCraftingRecipes = transformCraftingRecipesToCalculator(craftingRecipeDesc, itemListDesc, itemDesc)
   const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(extractionRecipeDesc, unifiedLookup)
   const allCalculatorRecipes = [...calculatorCraftingRecipes, ...calculatorExtractionRecipes]
-  
-  console.log(`Transformed ${allCalculatorItems.length} items and ${allCalculatorRecipes.length} recipes (${calculatorCraftingRecipes.length} crafting, ${calculatorExtractionRecipes.length} extraction)`)
-  
+
   return {
     items: allCalculatorItems,
     recipes: allCalculatorRecipes
@@ -97,16 +95,7 @@ export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './cal
 export { createSlug, getTierColor } from './entities'
 
 // Re-export module-specific calculator functions
-export { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
 export { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
-export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
-export { 
-  mapCraftingRecipeToCalculatorRecipe, 
-  mapExtractionRecipeToCalculatorRecipe,
-  transformCraftingRecipesToCalculator,
-  transformExtractionRecipesToCalculator
-} from './recipes/calculator'
-export { cleanIconAssetPath, shouldFilterItem, getItemPrefix, createUnifiedLookup } from './shared/calculator-utils'
 export {
   findTagCollection,
   getEquipmentTags,
@@ -115,6 +104,7 @@ export {
   type TagCategory,
   type TagCollection
 } from './item-tag-collections'
+export { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
 export {
   getAllProfessions,
   getProfessionById,
@@ -126,6 +116,14 @@ export {
 } from './professions'
 export { convertRarityArrayToString, convertRarityToString, getRarityColor, getRarityDisplayName } from './rarity'
 export { getCraftingRecipes, getExtractionRecipes } from './recipes'
+export {
+  mapCraftingRecipeToCalculatorRecipe,
+  mapExtractionRecipeToCalculatorRecipe,
+  transformCraftingRecipesToCalculator,
+  transformExtractionRecipesToCalculator
+} from './recipes/calculator'
+export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
+export { cleanIconAssetPath, createUnifiedLookup, getItemPrefix, shouldFilterItem } from './shared/calculator-utils'
 
 // Re-export main transformation function for backward compatibility
 export { transformToCalculatorData } from './calculator-dtos'

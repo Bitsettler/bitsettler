@@ -1,16 +1,27 @@
+import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_type'
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import { createUnifiedLookup } from './shared/calculator-utils'
-import { mapItemToCalculatorItem } from './items/calculator'
 import { mapCargoToCalculatorItem } from './cargo/calculator'
+import { mapItemToCalculatorItem } from './items/calculator'
+import {
+  mapCraftingRecipeToCalculatorRecipe,
+  mapExtractionRecipeToCalculatorRecipe,
+  transformCraftingRecipesToCalculator,
+  transformExtractionRecipesToCalculator
+} from './recipes/calculator'
 import { mapResourceToCalculatorItem } from './resources/calculator'
-import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator, mapCraftingRecipeToCalculatorRecipe, mapExtractionRecipeToCalculatorRecipe } from './recipes/calculator'
+import { createUnifiedLookup } from './shared/calculator-utils'
 
 // Re-export module functions for backward compatibility
-export { mapItemToCalculatorItem, mapCargoToCalculatorItem, mapResourceToCalculatorItem, mapCraftingRecipeToCalculatorRecipe, mapExtractionRecipeToCalculatorRecipe }
+export {
+  mapCargoToCalculatorItem,
+  mapCraftingRecipeToCalculatorRecipe,
+  mapExtractionRecipeToCalculatorRecipe,
+  mapItemToCalculatorItem,
+  mapResourceToCalculatorItem
+}
 
 // Calculator-specific DTOs
 export interface CalculatorItem {
@@ -57,24 +68,22 @@ export function transformToCalculatorData(
 ): CalculatorGameData {
   // Create unified lookup for all entities
   const unifiedLookup = createUnifiedLookup(
-    items, 
-    cargo, 
+    items,
+    cargo,
     resources,
     mapItemToCalculatorItem,
     mapCargoToCalculatorItem,
     mapResourceToCalculatorItem
   )
-  
+
   // Transform items to calculator format
   const calculatorItems: CalculatorItem[] = Array.from(unifiedLookup.values())
-  
+
   // Transform recipes using module-specific functions
   const calculatorCraftingRecipes = transformCraftingRecipesToCalculator(craftingRecipes)
   const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(extractionRecipes, unifiedLookup)
   const calculatorRecipes = [...calculatorCraftingRecipes, ...calculatorExtractionRecipes]
-  
-  console.log(`Transformed ${calculatorItems.length} items and ${calculatorRecipes.length} recipes (${craftingRecipes.length} crafting, ${extractionRecipes.length} extraction)`)
-  
+
   return {
     items: calculatorItems,
     recipes: calculatorRecipes

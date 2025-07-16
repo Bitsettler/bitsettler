@@ -2,6 +2,7 @@
 
 import { CustomNode } from '@/components/custom-react-flow-nodes/custom-node'
 import { FlowCanvas } from '@/components/flow-canvas'
+import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import { useGameData } from '@/contexts/game-data-context'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
@@ -46,23 +47,39 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
         itemId: selectedItem.id,
         quantity: quantity,
         isDone: false,
-        icon_asset_name: selectedItem.icon_asset_name || 'Unknown'
+        icon_asset_name: selectedItem.icon_asset_name || DEFAULT_ICON_PATH
       },
       position: { x: 0, y: 0 }
     }
 
-    let finalNodes: Node[] = [itemNode]
-    let finalEdges: Edge[] = []
+    // Iterative expansion using a queue-based approach
+    const nodesToProcess: Array<{ node: Node; depth: number }> = [{ node: itemNode, depth: 0 }]
+    const allNodes: Node[] = []
+    const allEdges: Edge[] = []
+    const processedNodeIds = new Set<string>()
 
-    // Auto-expand first {n} depths for single-recipe items
-    const expandNodeRecipes = (node: Node, depth: number): { nodes: Node[]; edges: Edge[] } => {
-      if (depth > AUTO_EXPAND_DEPTH) return { nodes: [], edges: [] }
+    while (nodesToProcess.length > 0) {
+      const { node, depth } = nodesToProcess.shift()!
 
-      const nodeRecipes = node.data.recipes as CalculatorRecipe[] | undefined
-      if (!nodeRecipes || nodeRecipes.length !== 1) {
-        return { nodes: [node], edges: [] }
+      // Skip if we've already processed this node or hit depth limit
+      if (processedNodeIds.has(node.id) || depth >= AUTO_EXPAND_DEPTH) {
+        if (!processedNodeIds.has(node.id)) {
+          allNodes.push(node)
+          processedNodeIds.add(node.id)
+        }
+        continue
       }
 
+      const nodeRecipes = node.data.recipes as CalculatorRecipe[] | undefined
+
+      // If no recipes or multiple recipes, just add the node without expansion
+      if (!nodeRecipes || nodeRecipes.length === 0) {
+        allNodes.push(node)
+        processedNodeIds.add(node.id)
+        continue
+      }
+
+      // Use first recipe for auto-expansion
       const recipe = nodeRecipes[0]
       const updatedNode = {
         ...node,
@@ -72,8 +89,12 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
         }
       }
 
+      allNodes.push(updatedNode)
+      processedNodeIds.add(node.id)
+
+      // If recipe has no materials, continue to next node
       if (!recipe.requirements.materials || recipe.requirements.materials.length === 0) {
-        return { nodes: [updatedNode], edges: [] }
+        continue
       }
 
       // Calculate recipe runs
@@ -82,13 +103,11 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
       const nodeQuantity = Number(node.data.quantity) || 1
       const recipeRuns = Math.ceil(nodeQuantity / Number(outputQty))
 
-      const materialNodes: Node[] = []
-      const materialEdges: Edge[] = []
-
+      // Process each material
       recipe.requirements.materials.forEach((material) => {
         const materialId = material.id
         const materialData = items.find((item) => item.id === materialId)
-        const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === material.id))
+        const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
 
         let calculatedQuantity = 0
         if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
@@ -96,26 +115,25 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
         }
 
         const materialNode: Node = {
-          id: material.id,
+          id: materialId,
           type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
           data: {
-            label: materialData?.name || `Item ${material.id}`,
+            label: materialData?.name || `Item ${materialId}`,
             tier: materialData?.tier || 1,
             rarity: materialData?.rarity || 'common',
             category: materialData?.category || 'unknown',
             quantity: calculatedQuantity,
             recipes: materialRecipes,
             selectedRecipe: null,
-            itemId: material.id,
+            itemId: materialId,
             isDone: false,
-            icon_asset_name: materialData?.icon_asset_name || 'Unknown'
+            icon_asset_name: materialData?.icon_asset_name || DEFAULT_ICON_PATH
           },
           position: { x: 0, y: 0 }
         }
 
-        materialNodes.push(materialNode)
-
-        materialEdges.push({
+        // Add edge from material to parent
+        allEdges.push({
           id: `${node.id}-${materialId}`,
           source: materialId,
           target: node.id,
@@ -123,26 +141,27 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
           animated: false
         })
 
-        // Recursively expand if this material has single recipe and we haven't hit depth limit
-        if (depth < AUTO_EXPAND_DEPTH) {
-          const childExpansion = expandNodeRecipes(materialNode, depth + 1)
-          materialNodes.push(...childExpansion.nodes)
-          materialEdges.push(...childExpansion.edges)
-        }
+        // Add material node to processing queue for next depth level
+        nodesToProcess.push({ node: materialNode, depth: depth + 1 })
       })
-
-      return {
-        nodes: [updatedNode, ...materialNodes],
-        edges: materialEdges
-      }
     }
 
-    // Start expansion from the main item
-    const expansion = expandNodeRecipes(itemNode, 1)
-    finalNodes = expansion.nodes
-    finalEdges = expansion.edges
+    // Deduplicate nodes and edges
+    const seenNodeIds = new Set<string>()
+    const uniqueNodes = allNodes.filter((node) => {
+      if (seenNodeIds.has(node.id)) return false
+      seenNodeIds.add(node.id)
+      return true
+    })
 
-    return { nodes: finalNodes, edges: finalEdges }
+    const seenEdgeIds = new Set<string>()
+    const uniqueEdges = allEdges.filter((edge) => {
+      if (seenEdgeIds.has(edge.id)) return false
+      seenEdgeIds.add(edge.id)
+      return true
+    })
+
+    return { nodes: uniqueNodes, edges: uniqueEdges }
   }, [selectedItem, quantity, recipes, items])
 
   // Calculate initial nodes and edges directly
@@ -151,6 +170,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
   const [nodes, setNodes, onNodesChange] = useNodesState(initialCalculatedNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialCalculatedEdges)
   const { getLayoutedElements } = useLayoutedElements()
+
   useEdgeColors(nodes, edges, setEdges)
 
   const updateNodeQuantitiesCallback = useCallback(
