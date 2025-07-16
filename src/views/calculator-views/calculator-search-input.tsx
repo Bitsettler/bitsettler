@@ -1,10 +1,9 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
+import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import type { CalculatorItem } from '@/lib/spacetime-db'
-import { getServerIconPath } from '@/lib/spacetime-db/assets'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -32,8 +31,9 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
 
   const renderOption = (option: ComboboxOption) => (
     <div className="flex w-full items-center gap-2">
+      {/* <span>{option.icon_asset_name}</span> */}
       <Image
-        src={getServerIconPath(option.icon_asset_name || 'Unknown')}
+        src={option.icon_asset_name ?? `${DEFAULT_ICON_PATH}.webp`}
         alt={option.label}
         width={32}
         height={32}
@@ -41,16 +41,16 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
       />
       <div className="flex min-w-0 flex-col justify-center gap-y-1">
         <div className="truncate font-medium">{option.label}</div>
-        <div className="flex items-center gap-1 text-xs">
+        <div className="flex items-center gap-1">
           {option.tier !== -1 && (
-            <Badge variant="outline" className={`text-xs ${getTierColor(option.tier || 1)}`}>
+            <Badge variant="outline" className={getTierColor(option.tier || 1)}>
               Tier {option.tier}
             </Badge>
           )}
-          <Badge variant="outline" className={`text-xs ${getRarityColor(option.rarity || 'common')}`}>
+          <Badge variant="outline" className={getRarityColor(option.rarity || 'common')}>
             {option.rarity || 'Common'}
           </Badge>
-          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-xs text-blue-700">
+          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
             {option.category}
           </Badge>
         </div>
@@ -59,21 +59,14 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
   )
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{t('calculator.title')}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Combobox
-          options={itemOptions}
-          value={selectedItem?.slug || ''}
-          onValueChange={onItemSelect}
-          placeholder={t('calculator.searchPlaceholder')}
-          searchPlaceholder={t('calculator.searchItems')}
-          emptyText={t('calculator.noItemsFound')}
-          renderOption={renderOption}
-        />
-      </CardContent>
-    </Card>
+    <Combobox
+      options={itemOptions}
+      value={selectedItem?.slug || ''}
+      onValueChange={onItemSelect}
+      placeholder={t('calculator.searchPlaceholder')}
+      searchPlaceholder={t('calculator.searchItems')}
+      emptyText={t('calculator.noItemsFound')}
+      renderOption={renderOption}
+    />
   )
 }

@@ -101,7 +101,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
 
       // Step 2: Only remove direct children that have no other parents
       const directChildNodeIds = new Set<string>()
-      
+
       // Find all nodes that were directly connected as children
       currentEdges.forEach((edge) => {
         if (edge.target === id) {
@@ -288,6 +288,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           </CardTitle>
         </div>
         <div className="mt-1 flex items-center gap-2">
+          {/* <span>{itemData.icon_asset_name}</span> */}
           <Image
             src={itemData.icon_asset_name || '/assets/Unknown.webp'}
             alt={itemData.label}

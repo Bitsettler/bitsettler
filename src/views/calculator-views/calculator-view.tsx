@@ -4,6 +4,7 @@ import { CustomNode } from '@/components/custom-react-flow-nodes/custom-node'
 import { FlowCanvas } from '@/components/flow-canvas'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import { useGameData } from '@/contexts/game-data-context'
+import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
 import type { CalculatorRecipe } from '@/lib/spacetime-db'
@@ -22,6 +23,7 @@ const AUTO_EXPAND_DEPTH = 5
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
   const { items, recipes } = gameData
+  const { loadCalculator, hasSave } = useCalculatorSaves()
 
   // Find the item by slug
   const selectedItem = items.find((item) => item.slug === slug)
@@ -164,11 +166,28 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
     return { nodes: uniqueNodes, edges: uniqueEdges }
   }, [selectedItem, quantity, recipes, items])
 
-  // Calculate initial nodes and edges directly
-  const { nodes: initialCalculatedNodes, edges: initialCalculatedEdges } = createInitialNodesAndEdges()
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialCalculatedNodes)
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialCalculatedEdges)
+  // Always start with calculated nodes, then load saved state if available
+  const { nodes: calculatedNodes, edges: calculatedEdges } = createInitialNodesAndEdges()
+  
+  const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(calculatedEdges)
+  
+  // Check if there's a saved state for this item and load it when available
+  const savedState = loadCalculator(slug)
+  
+  // Load saved state when it becomes available
+  useEffect(() => {
+    if (savedState && savedState.nodes.length > 0) {
+      // When loading from saved state, update quantities if needed
+      if (selectedItem && savedState.quantity !== quantity) {
+        const updatedNodes = updateNodeQuantities(savedState.nodes, selectedItem, quantity)
+        setNodes(updatedNodes)
+      } else {
+        setNodes(savedState.nodes)
+      }
+      setEdges(savedState.edges)
+    }
+  }, [savedState, selectedItem, quantity, setNodes, setEdges])
   const { getLayoutedElements } = useLayoutedElements()
 
   useEdgeColors(nodes, edges, setEdges)

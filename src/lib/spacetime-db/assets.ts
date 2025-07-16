@@ -40,11 +40,6 @@ export function cleanIconAssetName(iconAssetName: string): string {
   let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons/Other/', 'GeneratedIcons/Other/')
   cleanPath = cleanPath.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
 
-  // Handle missing deed icon - the AncientDeed.webp file doesn't exist
-  if (cleanPath === 'Items/AncientDeed') {
-    cleanPath = 'Unknown'
-  }
-
   // Handle specific cosmetic item path fixes
   if (cleanPath === 'Items/LeatherBonnet') {
     cleanPath = 'GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapBonnet'
@@ -52,6 +47,10 @@ export function cleanIconAssetName(iconAssetName: string): string {
 
   if (cleanPath === 'Items/LeatherGloves') {
     cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves'
+  }
+
+  if (cleanPath === 'Items/HexCoin[,3,10,500]') {
+    cleanPath = 'GeneratedIcons/Items/HexCoin'
   }
 
   // Fix hair color filename mismatches (data references vs actual filenames)

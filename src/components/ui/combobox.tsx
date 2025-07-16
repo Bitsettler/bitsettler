@@ -54,13 +54,15 @@ export function Combobox({
   // Filter options based on search
   const filteredOptions = React.useMemo(() => {
     if (!searchValue) {
-      return []
+      return options.slice(0, 50) // Show first 50 items when no search
     }
     const searchLower = searchValue.toLowerCase()
-    return options.filter((option) => {
+    const filtered = options.filter((option) => {
       const haystack = `${option.label} ${option.keywords || ''}`.toLowerCase()
       return haystack.includes(searchLower)
     })
+    console.log('Filtered options:', { searchValue, count: filtered.length, open })
+    return filtered
   }, [options, searchValue])
 
   // Set up virtualization
@@ -73,7 +75,7 @@ export function Combobox({
 
   const virtualOptions = virtualizer.getVirtualItems()
 
-  // Force virtualizer to recalculate on open using ResizeObserver and animation frame
+  // Force virtualizer to recalculate on open and when filteredOptions change
   React.useEffect(() => {
     if (!open || !parentRef.current) return
     const ro = new window.ResizeObserver(() => {
@@ -87,6 +89,25 @@ export function Combobox({
     ro.observe(parentRef.current)
     return () => ro.disconnect()
   }, [open, virtualizer])
+
+  // Recalculate virtualizer when filtered options change
+  React.useEffect(() => {
+    if (open) {
+      requestAnimationFrame(() => {
+        virtualizer.measure()
+      })
+    }
+  }, [open, filteredOptions.length, virtualizer])
+
+  // Force update when popover opens with existing search
+  React.useEffect(() => {
+    if (open && searchValue) {
+      // Small delay to ensure the popover is fully rendered
+      setTimeout(() => {
+        virtualizer.measure()
+      }, 50)
+    }
+  }, [open, searchValue, virtualizer])
 
   // Calculate total height - ensure it's at least the height of visible items
   const itemHeight = renderOption ? 56 : 36
@@ -109,7 +130,7 @@ export function Combobox({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0" align="start">
-        <Command shouldFilter={false}>
+        <Command shouldFilter={false} key={open ? 'open' : 'closed'}>
           <CommandInput
             placeholder={searchPlaceholder}
             className={cn('h-9', inputClassName)}
@@ -117,9 +138,9 @@ export function Combobox({
             onValueChange={setSearchValue}
           />
           <CommandList ref={parentRef} className="max-h-[300px] overflow-y-auto">
-            <CommandEmpty>{searchValue ? emptyText : 'Type to search...'}</CommandEmpty>
+            <CommandEmpty>{emptyText}</CommandEmpty>
             <CommandGroup>
-              {searchValue && filteredOptions.length > 0 && (
+              {filteredOptions.length > 0 && (
                 <div
                   style={{
                     height: `${totalHeight}px`,
@@ -141,7 +162,7 @@ export function Combobox({
                         onSelect={() => {
                           onValueChange(option.value)
                           setOpen(false)
-                          setSearchValue('') // Clear search when item is selected
+                          // Keep search value so user can return to their search
                         }}
                       >
                         {renderOption ? (
