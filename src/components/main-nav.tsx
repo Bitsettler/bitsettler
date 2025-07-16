@@ -12,6 +12,7 @@ export function MainNav({ className, ...props }: React.ComponentProps<'nav'>) {
 
   const items = [
     { href: '/', label: t('header.navigation.calculator') },
+    { href: '/compendium', label: t('header.navigation.compendium') },
     { href: '/wiki', label: t('header.navigation.wiki') },
     { href: '/projects', label: t('header.navigation.projects') }
   ]

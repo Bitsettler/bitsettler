@@ -1,7 +1,7 @@
 {
   "common": {
     "loading": "Chargement...",
-    "error": "Une erreur est survenue",
+    "error": "Une erreur s'est produite",
     "search": "Rechercher",
     "quantity": "Quantité",
     "calculate": "Calculer",
@@ -13,18 +13,19 @@
     "usage": "Utilisation",
     "latest": "Dernier",
     "previous": "Précédent",
-    "firstRelease": "Première Version",
+    "firstRelease": "Première version",
     "menu": "Menu"
   },
   "header": {
-    "title": "Bitcraft.Guide",
-    "subtitle": "Calculateur de Crafting & Wiki Non Officiel",
+    "title": "Bienvenue sur Bitcraft.Guide !",
+    "subtitle": "Nous sommes l'encyclopédie non officielle de BitCraft Online, écrite et maintenue par les joueurs.",
     "navigation": {
       "calculator": "Calculateur",
+      "compendium": "Compendium",
       "wiki": "Wiki",
       "projects": "Projets",
       "about": "À propos",
-      "changelog": "Changelog"
+      "changelog": "Journal des modifications"
     },
     "language": {
       "en": "English",
@@ -34,23 +35,30 @@
     "discord": "Serveur Discord",
     "github": "Dépôt GitHub"
   },
+  "notFound": {
+    "title": "Page Non Trouvée",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "goHome": "Retour à l'Accueil",
+    "browseCompendium": "Parcourir le Compendium",
+    "helpText": "Besoin d'aide ? Consultez notre :"
+  },
   "calculator": {
-    "title": "Calculateur de Crafting",
-    "selectItem": "Sélectionner un Objet à Créer",
+    "title": "Calculateur de Fabrication",
+    "selectItem": "Sélectionner un objet à fabriquer",
     "searchPlaceholder": "Rechercher des objets...",
     "searchItems": "Rechercher des objets...",
     "noItemsFound": "Aucun objet trouvé.",
     "quantityLabel": "Quantité",
-    "calculateButton": "Calculer les Exigences de Crafting",
-    "requirements": "Exigences de Crafting",
-    "targetItem": "Objet Cible",
-    "baseResources": "Ressources de Base Nécessaires",
-    "craftingSteps": "Étapes de Crafting",
-    "selectItemPrompt": "Sélectionnez un objet et une quantité pour voir les exigences de crafting",
-    "totalEffort": "Effort Total",
-    "materialsNeeded": "Matériaux Nécessaires",
-    "craftingQuantity": "Quantité de Crafting",
-    "itemsToCraft": "objets à créer",
+    "calculateButton": "Calculer les exigences de fabrication",
+    "requirements": "Exigences de fabrication",
+    "targetItem": "Objet cible",
+    "baseResources": "Ressources de base nécessaires",
+    "craftingSteps": "Étapes de fabrication",
+    "selectItemPrompt": "Sélectionnez un objet et une quantité pour voir les exigences de fabrication",
+    "totalEffort": "Effort total",
+    "materialsNeeded": "Matériaux nécessaires",
+    "craftingQuantity": "Quantité de fabrication",
+    "itemsToCraft": "objets à fabriquer",
     "noRecipes": "Cet objet n'est utilisé dans aucune recette",
     "produces": "Produit"
   },
@@ -68,22 +76,47 @@
   },
   "errors": {
     "itemNotFound": "Objet non trouvé",
-    "calculationError": "Erreur lors du calcul des exigences de crafting"
+    "calculationError": "Erreur lors du calcul des exigences de fabrication"
   },
   "footer": {
     "allRightsReserved": "Tous droits réservés.",
     "github": "GitHub",
     "twitter": "Twitter",
     "discord": "Discord",
-    "unofficialDisclaimer": "Ceci est un projet de fan non officiel et n'est pas affilié à BitCraft ou ses développeurs.",
+    "unofficialDisclaimer": "Il s'agit d'un projet de fan non officiel et n'est pas affilié à BitCraft ou ses développeurs.",
     "assetsDisclaimer": "Toutes les données et ressources du jeu appartiennent à leurs propriétaires respectifs."
   },
   "languageSwitcher": {
     "switchLanguage": "Changer de langue",
     "switchLanguageSr": "Changer de langue"
   },
+  "sidebar": {
+    "navigation": "Navigation",
+    "mainPage": "Page principale",
+    "compendium": "Compendium",
+    "aboutUs": "À propos de nous",
+    "randomPage": "Page aléatoire",
+    "contactUs": "Nous contacter",
+    "donate": "Faire un don",
+    "recentChanges": "Modifications récentes",
+    "changelog": "Journal des modifications",
+    "recentChangesDescription": "Mises à jour du jeu, blogs des développeurs, et plus encore bientôt !",
+    "guides": "Guides",
+    "guidesComingSoon": "Bientôt disponible ! 🚀",
+    "community": "Communauté",
+    "bitcraftGuideDiscord": "Discord",
+    "bitcraftGuideGithub": "GitHub",
+    "bitcraftGuideTwitter": "Twitter",
+    "tools": "Outils",
+    "calculator": "Calculateur",
+    "projects": "Projets",
+    "comingSoon": "Bientôt"
+  },
+  "search": {
+    "globalPlaceholder": "Rechercher dans le guide..."
+  },
   "toast": {
-    "quantityAdjusted": "Quantité ajustée au minimum de {minQuantity}. Cette recette produit {minQuantity} objets par craft.",
-    "quantityAdjustedDescription": "Vous ne pouvez pas créer moins que ce qu'une exécution de recette produit."
+    "quantityAdjusted": "Quantité ajustée au minimum de {minQuantity}. Cette recette produit {minQuantity} objets par fabrication.",
+    "quantityAdjustedDescription": "Vous ne pouvez pas fabriquer moins que ce qu'une exécution de recette produit."
   }
 }

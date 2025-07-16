@@ -1,7 +1,7 @@
 {
   "common": {
     "loading": "Cargando...",
-    "error": "Se produjo un error",
+    "error": "Ocurrió un error",
     "search": "Buscar",
     "quantity": "Cantidad",
     "calculate": "Calcular",
@@ -9,22 +9,23 @@
     "effort": "Esfuerzo",
     "category": "Categoría",
     "description": "Descripción",
-    "info": "Información",
+    "info": "Info",
     "usage": "Uso",
     "latest": "Último",
     "previous": "Anterior",
-    "firstRelease": "Primer Lanzamiento",
+    "firstRelease": "Primera versión",
     "menu": "Menú"
   },
   "header": {
-    "title": "Bitcraft.Guide",
-    "subtitle": "Calculadora de Crafteo y Wiki No Oficial",
+    "title": "¡Bienvenido a Bitcraft.Guide!",
+    "subtitle": "Somos la enciclopedia no oficial de BitCraft Online, escrita y mantenida por los jugadores.",
     "navigation": {
       "calculator": "Calculadora",
+      "compendium": "Compendio",
       "wiki": "Wiki",
       "projects": "Proyectos",
       "about": "Acerca de",
-      "changelog": "Changelog"
+      "changelog": "Registro de cambios"
     },
     "language": {
       "en": "English",
@@ -34,23 +35,30 @@
     "discord": "Servidor de Discord",
     "github": "Repositorio de GitHub"
   },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio",
+    "browseCompendium": "Explorar Compendio",
+    "helpText": "¿Necesitas ayuda? Consulta nuestro:"
+  },
   "calculator": {
-    "title": "Calculadora de Crafteo",
-    "selectItem": "Seleccionar Objeto para Crear",
+    "title": "Calculadora de Fabricación",
+    "selectItem": "Seleccionar objeto a fabricar",
     "searchPlaceholder": "Buscar objetos...",
     "searchItems": "Buscar objetos...",
     "noItemsFound": "No se encontraron objetos.",
     "quantityLabel": "Cantidad",
-    "calculateButton": "Calcular Requisitos de Crafteo",
-    "requirements": "Requisitos de Crafteo",
-    "targetItem": "Objeto Objetivo",
-    "baseResources": "Recursos Base Necesarios",
-    "craftingSteps": "Pasos de Crafteo",
-    "selectItemPrompt": "Selecciona un objeto y cantidad para ver los requisitos de crafteo",
-    "totalEffort": "Esfuerzo Total",
-    "materialsNeeded": "Materiales Necesarios",
-    "craftingQuantity": "Cantidad de Crafteo",
-    "itemsToCraft": "objetos para crear",
+    "calculateButton": "Calcular requisitos de fabricación",
+    "requirements": "Requisitos de fabricación",
+    "targetItem": "Objeto objetivo",
+    "baseResources": "Recursos base necesarios",
+    "craftingSteps": "Pasos de fabricación",
+    "selectItemPrompt": "Selecciona un objeto y cantidad para ver los requisitos de fabricación",
+    "totalEffort": "Esfuerzo total",
+    "materialsNeeded": "Materiales necesarios",
+    "craftingQuantity": "Cantidad de fabricación",
+    "itemsToCraft": "objetos a fabricar",
     "noRecipes": "Este objeto no se usa en ninguna receta",
     "produces": "Produce"
   },
@@ -68,22 +76,47 @@
   },
   "errors": {
     "itemNotFound": "Objeto no encontrado",
-    "calculationError": "Error al calcular los requisitos de crafteo"
+    "calculationError": "Error al calcular los requisitos de fabricación"
   },
   "footer": {
     "allRightsReserved": "Todos los derechos reservados.",
     "github": "GitHub",
     "twitter": "Twitter",
     "discord": "Discord",
-    "unofficialDisclaimer": "Este es un proyecto de fan no oficial y no está afiliado a BitCraft o sus desarrolladores.",
+    "unofficialDisclaimer": "Este es un proyecto de fanáticos no oficial y no está afiliado con BitCraft o sus desarrolladores.",
     "assetsDisclaimer": "Todos los datos y recursos del juego pertenecen a sus respectivos propietarios."
   },
   "languageSwitcher": {
     "switchLanguage": "Cambiar idioma",
     "switchLanguageSr": "Cambiar idioma"
   },
+  "sidebar": {
+    "navigation": "Navegación",
+    "mainPage": "Página principal",
+    "compendium": "Compendio",
+    "aboutUs": "Acerca de nosotros",
+    "randomPage": "Página aleatoria",
+    "contactUs": "Contáctanos",
+    "donate": "Donar",
+    "recentChanges": "Cambios recientes",
+    "changelog": "Registro de cambios",
+    "recentChangesDescription": "¡Actualizaciones del juego, blogs de desarrolladores y más próximamente!",
+    "guides": "Guías",
+    "guidesComingSoon": "¡Próximamente! 🚀",
+    "community": "Comunidad",
+    "bitcraftGuideDiscord": "Discord",
+    "bitcraftGuideGithub": "GitHub",
+    "bitcraftGuideTwitter": "Twitter",
+    "tools": "Herramientas",
+    "calculator": "Calculadora",
+    "projects": "Proyectos",
+    "comingSoon": "Pronto"
+  },
+  "search": {
+    "globalPlaceholder": "Buscar en la guía..."
+  },
   "toast": {
-    "quantityAdjusted": "Cantidad ajustada al mínimo de {minQuantity}. Esta receta produce {minQuantity} objetos por craft.",
-    "quantityAdjustedDescription": "No puedes crear menos de lo que produce una ejecución de receta."
+    "quantityAdjusted": "Cantidad ajustada al mínimo de {minQuantity}. Esta receta produce {minQuantity} objetos por fabricación.",
+    "quantityAdjustedDescription": "No puedes fabricar menos de lo que produce una ejecución de receta."
   }
 }

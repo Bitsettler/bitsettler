@@ -52,5 +52,5 @@ export const useLayoutedElements = () => {
     [getNodes, getEdges, setNodes, fitView, isInitialLoad]
   )
 
-  return { getLayoutedElements }
+  return { getLayoutedElements, isInitialLoad }
 }

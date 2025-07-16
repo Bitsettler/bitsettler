@@ -1,8 +1,34 @@
-import items from '@/data/items.json'
+import itemsData from '@/data/global/item_desc.json'
 import { Recipe } from '@/lib/types'
 import type { Node } from '@xyflow/react'
 
-export const resolveRecipeName = (recipe: Recipe, allItems: typeof items): string => {
+// Type definition for item_desc.json structure
+interface ItemDesc {
+  id: number
+  name: string
+  description: string
+  volume: number
+  durability: number
+  convert_to_on_durability_zero: number
+  secondary_knowledge_id: number
+  model_asset_name: string
+  icon_asset_name: string
+  tier: number
+  tag: string
+  rarity: unknown[]
+  compendium_entry: boolean
+  item_list_id: number
+}
+
+const items: ItemDesc[] = itemsData as ItemDesc[]
+
+// Generic item type for resolveRecipeName function
+interface ItemWithIdAndName {
+  id: string | number
+  name: string
+}
+
+export const resolveRecipeName = (recipe: Recipe, allItems: ItemWithIdAndName[] = items): string => {
   let resolvedName = recipe.name
 
   // Replace {0} with output item name

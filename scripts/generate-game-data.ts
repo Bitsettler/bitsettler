@@ -225,38 +225,6 @@ async function getSchema(host: string, module: string): Promise<Schema | null> {
   }
 }
 
-async function loadTableNames(tableFile: string): Promise<string[]> {
-  try {
-    const content = await fs.readFile(tableFile, 'utf-8')
-    return content
-      .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0)
-  } catch (error) {
-    console.error(`Error loading table names from ${tableFile}:`, error)
-    return []
-  }
-}
-
-async function loadTableNamesFromJson(jsonFile: string): Promise<string[]> {
-  try {
-    const content = await fs.readFile(jsonFile, 'utf-8')
-    const data = JSON.parse(content)
-
-    // Combine public and private tables, or use all if we want everything
-    const publicTables = data.public || []
-    const privateTables = data.private || []
-
-    console.log(`Found ${publicTables.length} public tables and ${privateTables.length} private tables`)
-
-    // For now, let's use all tables (both public and private) since we want the game data
-    return [...publicTables, ...privateTables]
-  } catch (error) {
-    console.error(`Error loading table names from ${jsonFile}:`, error)
-    return []
-  }
-}
-
 async function getRegionInfo(globalHost: string, auth?: string): Promise<RegionConnectionInfo | null> {
   // Check if region module is specified in environment
   const regionModule = process.env.BITCRAFT_REGION_MODULE

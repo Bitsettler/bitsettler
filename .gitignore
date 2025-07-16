@@ -45,7 +45,10 @@ next-env.d.ts
 
 # sample data
 data/sample
+raw-data/
 
 # binary data from BitCraft
 /bins/
 manifest.txt
+
+**/*/test/

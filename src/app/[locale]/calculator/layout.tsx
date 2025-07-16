@@ -1,83 +1,24 @@
-'use client'
+import { CalculatorLayoutClient } from '@/views/calculator-views/components/calculator-layout-client'
+import { getCalculatorGameData } from '@/lib/spacetime-db'
 
-import { Container } from '@/components/container'
-import { useItemSelection } from '@/hooks/use-item-selection'
-import { usePathname, useRouter } from '@/i18n/navigation'
-import { Recipe } from '@/lib/types'
-import { useSearchParams } from 'next/navigation'
-
-import cargo from '@/data/cargo.json'
-import extractionRecipes from '@/data/extraction-recipes.json'
-import items from '@/data/items.json'
-import craftingRecipes from '@/data/recipes.json'
-import resources from '@/data/resources.json'
-import { CalculatorItemInfoPanel } from '@/view/calculator-page-view/calculator-item-info-panel'
-import { CalculatorSearchInput } from '@/view/calculator-page-view/calculator-search-input'
-
-// Prepare and combine all game data
-const allItems = [...items, ...cargo, ...resources]
-
-// Merge crafting and extraction recipes
-const allRecipes = [...craftingRecipes, ...extractionRecipes] as Recipe[]
-
-const gameData = {
-  items: allItems,
-  recipes: allRecipes
-}
-
-export default function CalculatorLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const { items, recipes } = gameData
-
-  // Get the current slug from the pathname
-  const slug = pathname.split('/').pop()
-  const selectedItem = slug ? items.find((item) => item.slug === slug) : undefined
-
-  const { desiredQuantity, updateQuantity } = useItemSelection({
-    items,
-    recipes,
-    initialQuantity: parseInt(searchParams.get('qty') || '1')
-  })
-
-  const handleQuantityChange = (newQuantity: number) => {
-    updateQuantity(newQuantity)
-    // Update URL with new quantity
-    const params = new URLSearchParams(searchParams)
-    params.set('qty', newQuantity.toString())
-    router.push(`${pathname}?${params.toString()}`)
-  }
-
-  const handleItemSelect = (slug: string) => {
-    router.push(`/calculator/${slug}?qty=${desiredQuantity}`)
-  }
-
-  return (
-    <div className="bg-background h-[calc(100vh-3.5rem)] overflow-hidden">
-      <Container className="h-full py-8">
-        <div className="grid h-full grid-cols-12 gap-6">
-          {/* Left Column - Search and Info (3 columns) */}
-          <div className="col-span-3 flex min-h-0 flex-col space-y-4">
-            {/* Search Card */}
-            <div className="flex-shrink-0">
-              <CalculatorSearchInput items={items} selectedItem={selectedItem} onItemSelect={handleItemSelect} />
-            </div>
-
-            {/* Item Information Card */}
-            <CalculatorItemInfoPanel
-              selectedItem={selectedItem}
-              desiredQuantity={desiredQuantity}
-              onQuantityChange={handleQuantityChange}
-              recipes={recipes}
-              items={items}
-            />
-          </div>
-
-          {/* Right Column - Flow Canvas (3) */}
-          <div className="col-span-9 h-full">{children}</div>
+export default async function CalculatorLayout({ children }: { children: React.ReactNode }) {
+  try {
+    const gameData = await getCalculatorGameData()
+    
+    return (
+      <CalculatorLayoutClient gameData={gameData}>
+        {children}
+      </CalculatorLayoutClient>
+    )
+  } catch (error) {
+    console.error('Failed to fetch calculator game data:', error)
+    return (
+      <div className="bg-background h-[calc(100vh-3.5rem)] overflow-hidden">
+        <div className="flex h-full items-center justify-center">
+          <div className="text-muted-foreground">Failed to load calculator data</div>
         </div>
-      </Container>
-    </div>
-  )
+      </div>
+    )
+  }
 }
+

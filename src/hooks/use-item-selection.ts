@@ -1,25 +1,14 @@
-import { Recipe } from '@/lib/types'
+import type { CalculatorItem, CalculatorRecipe } from '@/lib/spacetime-db'
 import { useCallback, useState } from 'react'
 
-export interface Item {
-  id: string
-  name: string
-  slug: string
-  tier: number
-  rarity: string
-  category: string
-  description: string
-  icon_asset_name: string
-}
-
 interface UseItemSelectionProps {
-  items: Item[]
-  recipes: Recipe[]
+  items: CalculatorItem[]
+  recipes: CalculatorRecipe[]
   initialQuantity?: number
 }
 
 export const useItemSelection = ({ items, recipes, initialQuantity = 1 }: UseItemSelectionProps) => {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
+  const [selectedItem, setSelectedItem] = useState<CalculatorItem | null>(null)
   const [desiredQuantity, setDesiredQuantity] = useState(initialQuantity)
   const [minQuantity, setMinQuantity] = useState(1)
 
