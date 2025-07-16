@@ -12,12 +12,20 @@ interface PageProps {
   }>
 }
 
+export function generateStaticParams() {
+  const gameData = getCalculatorGameData()
+
+  return gameData.items.map((each) => {
+    return { slug: each.slug }
+  })
+}
+
 export default async function Calculator({ params, searchParams }: PageProps) {
   const { slug } = await params
   const { qty } = await searchParams
 
   // Get game data from spacetime-db
-  const gameData = await getCalculatorGameData()
+  const gameData = getCalculatorGameData()
 
   // Find the item by slug to validate it exists
   const selectedItem = gameData.items.find((item) => item.slug === slug)

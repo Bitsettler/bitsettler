@@ -6,6 +6,11 @@ import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
+// Generate static params for all possible resource tag combinations
+export function generateStaticParams() {
+  return resourceCollections.resources.tags.map((each) => ({ tag: each }))
+}
+
 interface PageProps {
   params: Promise<{
     tag: string

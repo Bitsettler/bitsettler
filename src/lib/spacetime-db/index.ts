@@ -14,15 +14,15 @@ import resourceDescData from '@/data/global/resource_desc.json'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import type { CalculatorGameData } from './calculator-dtos'
 import { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
+import { transformCargoToSearch } from './cargo/search'
+import { transformCollectionsToSearch } from './collections/search'
 import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
+import { transformItemsToSearch } from './items/search'
 import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './recipes/calculator'
 import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
-import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'
-import { transformItemsToSearch } from './items/search'
-import { transformCargoToSearch } from './cargo/search'
 import { transformResourcesToSearch } from './resources/search'
-import { transformCollectionsToSearch } from './collections/search'
 import { transformToSearchData, type SearchData } from './search-dtos'
+import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'
 
 /**
  * Get game data from static JSON files
@@ -77,7 +77,7 @@ export async function getSearchGameData(): Promise<SearchData> {
 /**
  * Get calculator-ready game data from spacetime-db
  */
-export async function getCalculatorGameData(): Promise<CalculatorGameData> {
+export function getCalculatorGameData(): CalculatorGameData {
   const { itemDesc, cargoDesc, resourceDesc, craftingRecipeDesc, extractionRecipeDesc, itemListDesc } = getGameData()
 
   // Filter items for compendium entries
@@ -117,8 +117,8 @@ export async function getCalculatorGameData(): Promise<CalculatorGameData> {
 // Re-export utilities for consolidated access
 export { assetExists, cleanIconAssetName, getFallbackIconPath, getServerIconPath } from './assets'
 export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './calculator-dtos'
-export type { SearchData, SearchItem } from './search-dtos'
 export { createSlug, getTierColor } from './entities'
+export type { SearchData, SearchItem } from './search-dtos'
 
 // Re-export module-specific calculator functions
 export { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
@@ -152,10 +152,10 @@ export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './r
 export { cleanIconAssetPath, createUnifiedLookup, getItemPrefix, shouldFilterItem } from './shared/calculator-utils'
 
 // Re-export search functions
-export { mapItemToSearchItem, transformItemsToSearch } from './items/search'
 export { mapCargoToSearchItem, transformCargoToSearch } from './cargo/search'
-export { mapResourceToSearchItem, transformResourcesToSearch } from './resources/search'
 export { transformCollectionsToSearch } from './collections/search'
+export { mapItemToSearchItem, transformItemsToSearch } from './items/search'
+export { mapResourceToSearchItem, transformResourcesToSearch } from './resources/search'
 
 // Re-export main transformation function for backward compatibility
 export { transformToCalculatorData } from './calculator-dtos'

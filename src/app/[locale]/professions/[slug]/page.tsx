@@ -1,7 +1,7 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { getProfessionBySlug } from '@/lib/spacetime-db'
+import { getAllProfessions, getProfessionBySlug } from '@/lib/spacetime-db'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -10,6 +10,11 @@ interface ProfessionPageProps {
     locale: string
     slug: string
   }>
+}
+
+export function generateStaticParams() {
+  const professions = getAllProfessions()
+  return professions.map((p) => ({ slug: p.slug }))
 }
 
 export default async function ProfessionPage({ params }: ProfessionPageProps) {

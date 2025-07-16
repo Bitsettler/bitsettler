@@ -61,9 +61,8 @@ export function Combobox({
       const haystack = `${option.label} ${option.keywords || ''}`.toLowerCase()
       return haystack.includes(searchLower)
     })
-    console.log('Filtered options:', { searchValue, count: filtered.length, open })
     return filtered
-  }, [options, searchValue, open])
+  }, [options, searchValue])
 
   // Set up virtualization
   const virtualizer = useVirtualizer({

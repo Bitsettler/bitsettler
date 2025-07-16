@@ -1,29 +1,16 @@
 import { Container } from '@/components/container'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import rawResources from '@/data/global/resource_desc.json'
-import { convertRarityToString, createSlug, getAllCargo, getAllItems, getItemsByTags } from '@/lib/spacetime-db'
+import { getAllCargo, getAllItems, getItemsByTags } from '@/lib/spacetime-db'
 import { tagCollections } from '@/lib/spacetime-db/item-tag-collections'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { BuildingsSection } from './buildings-section'
 import { EquipmentSection } from './equipment-section'
-import { HeroSection, HeroSectionProps } from './hero-section'
+import { HeroSection } from './hero-section'
 import { ItemsSection } from './items-section'
 import { ProfessionsSection } from './professions-section'
 
 export function HomeView() {
-  const items = getAllItems()
-  const heroItems: HeroSectionProps['items'] = items.map((item) => {
-    return {
-      id: item.id.toString(),
-      name: item.name,
-      slug: createSlug(item.name),
-      category: item.tag,
-      tier: item.tier,
-      rarity: convertRarityToString(item.rarity),
-      icon_asset_name: item.iconAssetName
-    }
-  })
-
   const weapons = getItemsByTags(tagCollections.weapons.tags)
   const tools = getItemsByTags(tagCollections.tools.tags)
 
@@ -41,7 +28,7 @@ export function HomeView() {
       <div className="space-y-16 py-8">
         {/* Hero Section */}
         <section>
-          <HeroSection items={heroItems} />
+          <HeroSection />
         </section>
 
         <div className="">

@@ -6,6 +6,11 @@ import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CargoIndividualTagPageView } from '@/views/cargo-views/cargo-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
+// Generate static params for all possible cargo tag combinations
+export function generateStaticParams() {
+  return cargoCollections.cargo.tags.map((each) => ({ tag: each }))
+}
+
 interface PageProps {
   params: Promise<{
     tag: string

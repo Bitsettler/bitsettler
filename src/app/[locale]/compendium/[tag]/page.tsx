@@ -5,6 +5,7 @@ import { getCollectiblesWithItems } from '@/lib/spacetime-db/collectibles'
 import { getConsumablesWithStats } from '@/lib/spacetime-db/consumables'
 import { getEquipmentWithStats } from '@/lib/spacetime-db/equipments'
 import { findTagCollection, tagCollections } from '@/lib/spacetime-db/item-tag-collections'
+import { ItemTag } from '@/lib/spacetime-db/item-tags'
 import { getToolsWithItems } from '@/lib/spacetime-db/tools'
 import { camelCaseDeep } from '@/lib/utils/case-utils'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
@@ -15,6 +16,14 @@ import { ToolsIndividualTagPageView } from '@/views/tools-views/tools-individual
 import { notFound } from 'next/navigation'
 
 type CompendiumEntity = ItemDesc | ResourceDesc
+
+// Generate static params for all possible tag combinations
+export function generateStaticParams() {
+  const tags = Object.values(ItemTag)
+  return tags.map((tag) => ({
+    tag
+  }))
+}
 
 interface PageProps {
   params: Promise<{

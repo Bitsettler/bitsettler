@@ -28,7 +28,6 @@ export function useCalculatorSaves() {
       if (savedData) {
         const parsedSaves = JSON.parse(savedData) as CalculatorSavesMap
         setSaves(parsedSaves)
-        console.log({ parsedSaves })
       }
       setIsInitialized(true)
     } catch (error) {
@@ -40,7 +39,7 @@ export function useCalculatorSaves() {
   // Save to localStorage whenever saves change (but not on initial load)
   useEffect(() => {
     if (!isInitialized) return
-    
+
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(saves))
     } catch (error) {
@@ -112,4 +111,3 @@ export function useCalculatorSaves() {
     getAllSaves
   }
 }
-
