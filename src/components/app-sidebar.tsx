@@ -23,6 +23,7 @@ import { SITE_CONFIG } from '@/config/site-config'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { Logo } from './logo'
+import { KofiWidget } from './kofi-widget'
 
 // Type definitions for navigation items
 type NavigationItem = {
@@ -41,7 +42,6 @@ import {
   EnvelopeIcon,
   GithubLogoIcon,
   HammerIcon,
-  HeartIcon,
   HouseIcon,
   InfoIcon,
   ShuffleIcon,
@@ -58,8 +58,7 @@ const data = {
         { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
         { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
         { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon },
-        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon },
-        { translationKey: 'sidebar.donate', href: '/donate', icon: HeartIcon }
+        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
       ]
     },
     {
@@ -196,6 +195,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </Collapsible>
         ))}
       </SidebarContent>
+      
+      {/* Ko-fi Widget */}
+      <div className="p-4 border-t">
+        <KofiWidget className="w-full" />
+      </div>
+      
       <SidebarRail />
     </Sidebar>
   )
