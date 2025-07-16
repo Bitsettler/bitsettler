@@ -12,13 +12,13 @@ interface PageProps {
   }>
 }
 
-export function generateStaticParams() {
-  const gameData = getCalculatorGameData()
-
-  return gameData.items.map((each) => {
-    return { slug: each.slug }
-  })
-}
+// export function generateStaticParams() {
+//   const gameData = getCalculatorGameData()
+//
+//   return gameData.items.map((each) => {
+//     return { slug: each.slug }
+//   })
+// }
 
 export default async function Calculator({ params, searchParams }: PageProps) {
   const { slug } = await params
