@@ -72,7 +72,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
 
       const nodeRecipes = node.data.recipes as CalculatorRecipe[] | undefined
 
-      // If no recipes or multiple recipes, just add the node without expansion
+      // If no recipes, just add the node without expansion
       if (!nodeRecipes || nodeRecipes.length === 0) {
         allNodes.push(node)
         processedNodeIds.add(node.id)
