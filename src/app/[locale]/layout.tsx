@@ -1,4 +1,4 @@
-import { AppSidebarWithData } from '@/components/app-sidebar-with-data'
+import { AppSidebar } from '@/components/app-sidebar'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -67,7 +67,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <SidebarProvider>
-              <AppSidebarWithData searchData={searchData} />
+              <AppSidebar searchData={searchData} />
               <SidebarInset className="flex min-h-screen flex-col">
                 <Header />
                 <main className="flex-1">{children}</main>

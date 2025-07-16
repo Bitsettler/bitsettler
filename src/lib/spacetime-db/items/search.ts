@@ -3,7 +3,7 @@ import { createSlug } from '../entities'
 import { convertRarityToString } from '../rarity'
 import { getServerIconPath, cleanIconAssetName } from '../assets'
 import type { SearchItem } from '../search-dtos'
-import { tagCollections } from '../item-tag-collections'
+import { tagCollections, type TagCategory } from '../item-tag-collections'
 
 /**
  * Get compendium href for an item based on its tag
@@ -17,8 +17,9 @@ function getItemCompendiumHref(item: { tag?: string }): string {
   for (const collection of Object.values(tagCollections)) {
     if (collection.tags.some(tag => tag === item.tag)) {
       // Find the specific category href for this tag
-      const category = collection.categories[item.tag as keyof typeof collection.categories]
-      if (category) {
+      const categories = collection.categories as Record<string, TagCategory>
+      const category = categories[item.tag]
+      if (category && category.href) {
         return category.href
       }
     }

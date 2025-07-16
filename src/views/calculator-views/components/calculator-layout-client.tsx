@@ -9,13 +9,14 @@ import { usePathname, useRouter } from '@/i18n/navigation'
 import type { CalculatorGameData } from '@/lib/spacetime-db'
 import { ReactFlowProvider } from '@xyflow/react'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface CalculatorLayoutClientProps {
   children: React.ReactNode
   gameData: CalculatorGameData
 }
 
-export function CalculatorLayoutClient({ children, gameData }: CalculatorLayoutClientProps) {
+function CalculatorLayoutClientContent({ children, gameData }: CalculatorLayoutClientProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -68,5 +69,15 @@ export function CalculatorLayoutClient({ children, gameData }: CalculatorLayoutC
         </div>
       </ReactFlowProvider>
     </GameDataProvider>
+  )
+}
+
+export function CalculatorLayoutClient({ children, gameData }: CalculatorLayoutClientProps) {
+  return (
+    <Suspense fallback={<div>Loading calculator...</div>}>
+      <CalculatorLayoutClientContent gameData={gameData}>
+        {children}
+      </CalculatorLayoutClientContent>
+    </Suspense>
   )
 }

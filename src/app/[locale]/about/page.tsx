@@ -45,9 +45,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   Community Driven
                 </Badge>
               </div>
-              <p className="text-muted-foreground">
-                Empowering BitCraft players with accurate data and powerful tools
-              </p>
+              <p className="text-muted-foreground">Empowering BitCraft players with accurate data and powerful tools</p>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -58,8 +56,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <h4 className="text-foreground font-medium">Interactive Recipe Calculator</h4>
                       <p className="text-muted-foreground text-sm">
-                        Visualize complex crafting trees and calculate exact material requirements for any item in BitCraft.
-                        Our calculator shows you every step of the crafting process.
+                        Visualize complex crafting trees and calculate exact material requirements for any item in
+                        BitCraft. Our calculator shows you every step of the crafting process.
                       </p>
                     </div>
                   </div>
@@ -68,8 +66,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <h4 className="text-foreground font-medium">Comprehensive Item Database</h4>
                       <p className="text-muted-foreground text-sm">
-                        Access detailed information about all items, resources, and cargo in BitCraft. Search, filter, and
-                        explore the complete game catalog.
+                        Access detailed information about all items, resources, and cargo in BitCraft. Search, filter,
+                        and explore the complete game catalog.
                       </p>
                     </div>
                   </div>
@@ -156,7 +154,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <h4 className="text-foreground font-medium">Next.js 15 & React</h4>
                       <p className="text-muted-foreground text-sm">
-                        Built on the latest Next.js framework with React for optimal performance and developer experience.
+                        Built on the latest Next.js framework with React for optimal performance and developer
+                        experience.
                       </p>
                     </div>
                   </div>
@@ -165,7 +164,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <h4 className="text-foreground font-medium">TypeScript</h4>
                       <p className="text-muted-foreground text-sm">
-                        Full TypeScript support ensures type safety and better maintainability across the entire codebase.
+                        Full TypeScript support ensures type safety and better maintainability across the entire
+                        codebase.
                       </p>
                     </div>
                   </div>
@@ -174,7 +174,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <h4 className="text-foreground font-medium">Tailwind CSS & shadcn/ui</h4>
                       <p className="text-muted-foreground text-sm">
-                        Beautiful, responsive design system with Tailwind CSS and carefully crafted shadcn/ui components.
+                        Beautiful, responsive design system with Tailwind CSS and carefully crafted shadcn/ui
+                        components.
                       </p>
                     </div>
                   </div>
@@ -195,9 +196,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="pt-4 text-center">
                 <p className="text-muted-foreground text-sm">
                   Want to contribute? Check out our{' '}
-                  <a 
-                    href={SITE_CONFIG.links.github} 
-                    target="_blank" 
+                  <a
+                    href={SITE_CONFIG.links.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground hover:underline"
                   >
@@ -214,7 +215,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <CardHeader>
               <CardTitle className="text-2xl">Get in Touch</CardTitle>
               <p className="text-muted-foreground">
-                Questions, suggestions, or just want to say hello? We'd love to hear from you!
+                {"Questions, suggestions, or just want to say hello? We'd love to hear from you!"}
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -227,9 +228,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                       <h4 className="text-foreground font-medium">Discord Community</h4>
                       <p className="text-muted-foreground text-sm">
                         Join our Discord server for real-time support, feature requests, and community discussions.{' '}
-                        <a 
-                          href={SITE_CONFIG.links.discord} 
-                          target="_blank" 
+                        <a
+                          href={SITE_CONFIG.links.discord}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground hover:underline"
                         >
@@ -244,9 +245,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                       <h4 className="text-foreground font-medium">GitHub Issues</h4>
                       <p className="text-muted-foreground text-sm">
                         Found a bug or have a feature request? Open an issue on our GitHub repository.{' '}
-                        <a 
-                          href={`${SITE_CONFIG.links.github}/issues`} 
-                          target="_blank" 
+                        <a
+                          href={`${SITE_CONFIG.links.github}/issues`}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground hover:underline"
                         >
@@ -261,9 +262,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                       <h4 className="text-foreground font-medium">Twitter/X</h4>
                       <p className="text-muted-foreground text-sm">
                         Follow us for updates and BitCraft community content.{' '}
-                        <a 
-                          href={SITE_CONFIG.links.twitter} 
-                          target="_blank" 
+                        <a
+                          href={SITE_CONFIG.links.twitter}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground hover:underline"
                         >
@@ -289,3 +290,4 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     </div>
   )
 }
+

@@ -63,7 +63,7 @@ export function Combobox({
     })
     console.log('Filtered options:', { searchValue, count: filtered.length, open })
     return filtered
-  }, [options, searchValue])
+  }, [options, searchValue, open])
 
   // Set up virtualization
   const virtualizer = useVirtualizer({

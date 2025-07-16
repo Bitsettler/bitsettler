@@ -1,10 +1,10 @@
 import { Container } from '@/components/container'
-import { getCalculatorGameData } from '@/lib/spacetime-db'
-import { I18N_CONFIG } from '@/i18n/config'
 import { SITE_CONFIG } from '@/config/site-config'
+import { I18N_CONFIG } from '@/i18n/config'
+import { getCalculatorGameData } from '@/lib/spacetime-db'
+import { CalculatorIndexClient } from '@/views/calculator-views/calculator-index-page-view'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
-import { CalculatorIndexClient } from '@/views/calculator-views/components/calculator-index-client'
 
 export function generateStaticParams() {
   return I18N_CONFIG.locales.map((locale) => ({ locale }))
@@ -25,7 +25,7 @@ export default async function CalculatorIndexPage({ params }: { params: Promise<
 
   try {
     const gameData = await getCalculatorGameData()
-    
+
     return <CalculatorIndexClient gameData={gameData} />
   } catch (error) {
     console.error('Failed to fetch calculator game data:', error)
