@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import type { CalculatorItem } from '@/lib/spacetime-db'
+import { getServerIconPath } from '@/lib/spacetime-db/assets'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -32,7 +33,7 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
   const renderOption = (option: ComboboxOption) => (
     <div className="flex w-full items-center gap-2">
       <Image
-        src={`/assets/${option.icon_asset_name || 'GeneratedIcons/Items/Unknown'}.webp`}
+        src={getServerIconPath(option.icon_asset_name || 'Unknown')}
         alt={option.label}
         width={32}
         height={32}
