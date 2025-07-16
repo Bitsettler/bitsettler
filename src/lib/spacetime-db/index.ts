@@ -18,6 +18,11 @@ import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/cal
 import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './recipes/calculator'
 import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
 import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'
+import { transformItemsToSearch } from './items/search'
+import { transformCargoToSearch } from './cargo/search'
+import { transformResourcesToSearch } from './resources/search'
+import { transformCollectionsToSearch } from './collections/search'
+import { transformToSearchData, type SearchData } from './search-dtos'
 
 /**
  * Get game data from static JSON files
@@ -47,6 +52,26 @@ export async function getAllGameItems(): Promise<{
     cargo: cargoDesc,
     resources: resourceDesc.filter((resource) => resource.compendiumEntry)
   }
+}
+
+/**
+ * Get search-ready game data from spacetime-db
+ */
+export async function getSearchGameData(): Promise<SearchData> {
+  const { itemDesc, cargoDesc, resourceDesc } = getGameData()
+
+  // Filter items for compendium entries
+  const filteredItems = itemDesc.filter((item) => item.compendiumEntry)
+  const filteredResources = resourceDesc.filter((resource) => resource.compendiumEntry)
+  const filteredCargo = cargoDesc.filter((cargo) => !shouldFilterItem(cargo))
+
+  // Transform each module using module-specific search functions
+  const searchItems = transformItemsToSearch(filteredItems)
+  const searchCargo = transformCargoToSearch(filteredCargo)
+  const searchResources = transformResourcesToSearch(filteredResources)
+  const searchCollections = transformCollectionsToSearch()
+
+  return transformToSearchData(searchItems, searchCargo, searchResources, searchCollections)
 }
 
 /**
@@ -92,6 +117,7 @@ export async function getCalculatorGameData(): Promise<CalculatorGameData> {
 // Re-export utilities for consolidated access
 export { assetExists, cleanIconAssetName, getFallbackIconPath, getServerIconPath } from './assets'
 export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './calculator-dtos'
+export type { SearchData, SearchItem } from './search-dtos'
 export { createSlug, getTierColor } from './entities'
 
 // Re-export module-specific calculator functions
@@ -124,6 +150,12 @@ export {
 } from './recipes/calculator'
 export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
 export { cleanIconAssetPath, createUnifiedLookup, getItemPrefix, shouldFilterItem } from './shared/calculator-utils'
+
+// Re-export search functions
+export { mapItemToSearchItem, transformItemsToSearch } from './items/search'
+export { mapCargoToSearchItem, transformCargoToSearch } from './cargo/search'
+export { mapResourceToSearchItem, transformResourcesToSearch } from './resources/search'
+export { transformCollectionsToSearch } from './collections/search'
 
 // Re-export main transformation function for backward compatibility
 export { transformToCalculatorData } from './calculator-dtos'

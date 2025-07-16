@@ -23,7 +23,7 @@ const AUTO_EXPAND_DEPTH = 5
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
   const { items, recipes } = gameData
-  const { loadCalculator, hasSave } = useCalculatorSaves()
+  const { loadCalculator } = useCalculatorSaves()
 
   // Find the item by slug
   const selectedItem = items.find((item) => item.slug === slug)
@@ -168,13 +168,13 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
 
   // Always start with calculated nodes, then load saved state if available
   const { nodes: calculatedNodes, edges: calculatedEdges } = createInitialNodesAndEdges()
-  
+
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(calculatedEdges)
-  
+
   // Check if there's a saved state for this item and load it when available
   const savedState = loadCalculator(slug)
-  
+
   // Load saved state when it becomes available
   useEffect(() => {
     if (savedState && savedState.nodes.length > 0) {

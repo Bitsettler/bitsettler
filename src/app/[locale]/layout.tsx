@@ -1,4 +1,4 @@
-import { AppSidebar } from '@/components/app-sidebar'
+import { AppSidebarWithData } from '@/components/app-sidebar-with-data'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -11,6 +11,7 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { getSearchGameData } from '@/lib/spacetime-db'
 import '../globals.css'
 
 export function generateStaticParams() {
@@ -56,6 +57,9 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages()
+  
+  // Load search data for sidebar
+  const searchData = await getSearchGameData()
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -63,7 +67,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <SidebarProvider>
-              <AppSidebar />
+              <AppSidebarWithData searchData={searchData} />
               <SidebarInset className="flex min-h-screen flex-col">
                 <Header />
                 <main className="flex-1">{children}</main>

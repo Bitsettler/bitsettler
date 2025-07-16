@@ -4,7 +4,8 @@ import { Link, usePathname } from '@/i18n/navigation'
 import { ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
-import { SearchForm } from '@/components/search-form'
+import { EnhancedSearchForm } from '@/components/enhanced-search-form'
+import type { SearchData } from '@/lib/spacetime-db'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
@@ -22,8 +23,8 @@ import {
 import { SITE_CONFIG } from '@/config/site-config'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import { Logo } from './logo'
 import { KofiWidget } from './kofi-widget'
+import { Logo } from './logo'
 
 // Type definitions for navigation items
 type NavigationItem = {
@@ -39,7 +40,6 @@ import {
   BookOpenIcon,
   CalculatorIcon,
   DiscordLogoIcon,
-  EnvelopeIcon,
   GithubLogoIcon,
   HammerIcon,
   HouseIcon,
@@ -57,8 +57,8 @@ const data = {
       children: [
         { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
         { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
-        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon },
-        { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
+        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon }
+        // { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
       ]
     },
     {
@@ -104,7 +104,11 @@ const data = {
   ]
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  searchData: SearchData
+}
+
+export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
   const pathname = usePathname()
   const t = useTranslations()
 
@@ -156,7 +160,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className="flex h-10 items-center">
           <Logo />
         </div>
-        <SearchForm />
+        <EnhancedSearchForm searchData={searchData} />
       </SidebarHeader>
       <SidebarContent className="gap-0">
         {data.navMain.map((section) => (
@@ -195,12 +199,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </Collapsible>
         ))}
       </SidebarContent>
-      
+
       {/* Ko-fi Widget */}
-      <div className="p-4 border-t">
+      <div className="border-t p-4">
         <KofiWidget className="w-full" />
       </div>
-      
+
       <SidebarRail />
     </Sidebar>
   )
