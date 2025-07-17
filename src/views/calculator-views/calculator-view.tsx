@@ -18,7 +18,7 @@ interface FlowVisualizeViewProps {
   quantity?: number
 }
 
-const AUTO_EXPAND_DEPTH = 5
+const AUTO_EXPAND_DEPTH = 2
 
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
@@ -82,22 +82,20 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
       }
 
       // Filter out recipes that would create circular dependencies
-      const nonCircularRecipes = nodeRecipes.filter(recipe => {
+      const nonCircularRecipes = nodeRecipes.filter((recipe) => {
         if (!recipe.requirements.materials) return true
-        
+
         // Check if any material in this recipe would create a circular dependency
-        return !recipe.requirements.materials.some(material => {
+        return !recipe.requirements.materials.some((material) => {
           const materialId = material.id.toString()
           const currentNodeId = node.id
-          
+
           // Check if there's already an edge from currentNodeId to materialId
           // If so, creating materialId -> currentNodeId would create a circle
-          return allEdges.some(edge => 
-            edge.source === currentNodeId && edge.target === materialId
-          )
+          return allEdges.some((edge) => edge.source === currentNodeId && edge.target === materialId)
         })
       })
-      
+
       // Use first non-circular recipe, or fallback to first recipe if all are circular
       const recipe = nonCircularRecipes.length > 0 ? nonCircularRecipes[0] : nodeRecipes[0]
       const updatedNode = {
@@ -156,7 +154,6 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
           id: `${node.id}-${materialId}`,
           source: materialId,
           target: node.id,
-          type: 'bezier',
           animated: false
         })
 
@@ -213,7 +210,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
   useEffect(() => {
     const handleRecalculateQuantities = () => {
       if (!selectedItem) return
-      
+
       setNodes((currentNodes) => {
         return calculateQuantitiesFromEdges(currentNodes, edges, selectedItem, quantity)
       })
