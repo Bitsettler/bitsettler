@@ -203,7 +203,6 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
           id: `${id}-${material.id}`,
           source: material.id,
           target: id,
-          type: 'bezier' as const,
           animated: false
         }))
 
@@ -213,7 +212,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
         setNodes(updatedNodes)
         setEdges(edgesWithoutTargeting)
       }
-      
+
       // Trigger quantity recalculation after a short delay to ensure nodes/edges are updated
       setTimeout(() => {
         const event = new CustomEvent('recalculateQuantities')
@@ -301,6 +300,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
             width={48}
             height={48}
             className="rounded"
+            unoptimized
           />
           {itemData.quantity && itemData.category !== 'resource' && (
             <Badge variant="secondary" className="text-xs">
