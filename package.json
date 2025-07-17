@@ -15,7 +15,9 @@
     "generate-bindings": "npx ts-node scripts/generate-bindings.ts",
     "generate-game-data": "npx ts-node scripts/generate-game-data.ts",
     "fetch-assets": "npx ts-node scripts/fetch-assets.ts",
-    "get-unique-item-tags": "npx ts-node scripts/tags/get-unique-item-tags.ts"
+    "get-unique-item-tags": "npx ts-node scripts/tags/get-unique-item-tags.ts",
+    "prebuilt:prod": "vercel build --prod",
+    "deploy:prod": "vercel deploy --prod --prebuilt --archive=tgz --logs"
   },
   "dependencies": {
     "@clockworklabs/spacetimedb-sdk": "^1.2.1",

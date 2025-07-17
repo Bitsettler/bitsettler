@@ -20,9 +20,15 @@ type CompendiumEntity = ItemDesc | ResourceDesc
 // Generate static params for all possible tag combinations
 export function generateStaticParams() {
   const tags = Object.values(ItemTag)
-  return tags.map((tag) => ({
-    tag
-  }))
+  
+  // Exclude tags that conflict with specific routes
+  const conflictingRoutes = ['weapon'] // lowercase versions of specific routes
+  
+  return tags
+    .filter(tag => !conflictingRoutes.includes(tag.toLowerCase()))
+    .map((tag) => ({
+      tag
+    }))
 }
 
 interface PageProps {
