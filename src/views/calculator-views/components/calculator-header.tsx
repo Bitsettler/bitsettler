@@ -1,13 +1,12 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import type { CalculatorItem } from '@/lib/spacetime-db'
 import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
 import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 import { useReactFlow } from '@xyflow/react'
-import { MoreHorizontal, Save } from 'lucide-react'
+import { Save } from 'lucide-react'
 import { toast } from 'sonner'
 
 interface CalculatorHeaderProps {
@@ -111,7 +110,7 @@ export function CalculatorHeader({
           Save
         </Button>
 
-        <Popover>
+        {/* <Popover>
           <PopoverTrigger asChild>
             <Button variant="secondary" size="icon">
               <MoreHorizontal className="h-4 w-4" />
@@ -130,7 +129,7 @@ export function CalculatorHeader({
               </Button>
             </div>
           </PopoverContent>
-        </Popover>
+        </Popover> */}
       </div>
     </div>
   )
