@@ -5,7 +5,6 @@ import { ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
 import { EnhancedSearchForm } from '@/components/enhanced-search-form'
-import type { SearchData } from '@/lib/spacetime-db'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
@@ -21,6 +20,7 @@ import {
   SidebarRail
 } from '@/components/ui/sidebar'
 import { SITE_CONFIG } from '@/config/site-config'
+import type { SearchData } from '@/lib/spacetime-db'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { KofiWidget } from './kofi-widget'
@@ -61,16 +61,11 @@ const data = {
         // { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
       ]
     },
-    {
-      translationLabel: 'sidebar.recentChanges',
-      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
-      description: 'sidebar.recentChangesDescription'
-    },
-    {
-      translationLabel: 'sidebar.guides',
-      children: [],
-      description: 'sidebar.guidesComingSoon'
-    },
+    // {
+    //   translationLabel: 'sidebar.guides',
+    //   children: [],
+    //   description: 'sidebar.guidesComingSoon'
+    // },
     {
       translationLabel: 'sidebar.compendium',
       children: [
@@ -111,6 +106,11 @@ const data = {
           external: true
         }
       ]
+    },
+    {
+      translationLabel: 'sidebar.recentChanges',
+      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
+      description: 'sidebar.recentChangesDescription'
     }
   ]
 }
@@ -125,14 +125,13 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
 
   const isActive = (href: string) => {
     if (href === '/') {
-      return pathname === '/' || pathname === '/en' || pathname === '/fr' || pathname === '/es'
+      return pathname === '/'
     }
-    
-    // Special case for /compendium - only match exact path
+
     if (href === '/compendium') {
-      return pathname === '/compendium' || pathname === '/en/compendium' || pathname === '/fr/compendium' || pathname === '/es/compendium'
+      return pathname === '/compendium'
     }
-    
+
     return pathname.includes(href)
   }
 

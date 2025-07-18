@@ -1,5 +1,5 @@
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import type { CalculatorItem } from './dtos/calculator-dtos'
 
@@ -84,15 +84,15 @@ export function getItemPrefix(itemType: unknown): string {
  * Create a unified lookup for all entities by prefixed ID
  */
 export function createUnifiedLookup(
-  items: ItemDesc[], 
-  cargo: CargoDesc[], 
+  items: ItemDesc[],
+  cargo: CargoDesc[],
   resources: ResourceDesc[],
   mapItemToCalculatorItem: (item: ItemDesc) => CalculatorItem,
   mapCargoToCalculatorItem: (cargo: CargoDesc) => CalculatorItem,
   mapResourceToCalculatorItem: (resource: ResourceDesc) => CalculatorItem
 ): Map<string, CalculatorItem> {
   const lookup = new Map<string, CalculatorItem>()
-  
+
   // Add items
   for (const item of items) {
     if (!shouldFilterItem(item)) {
@@ -100,7 +100,7 @@ export function createUnifiedLookup(
       lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
     }
   }
-  
+
   // Add cargo
   for (const cargoItem of cargo) {
     if (!shouldFilterItem(cargoItem)) {
@@ -108,7 +108,7 @@ export function createUnifiedLookup(
       lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
     }
   }
-  
+
   // Add resources
   for (const resource of resources) {
     if (!shouldFilterItem(resource)) {
@@ -116,6 +116,6 @@ export function createUnifiedLookup(
       lookup.set(calculatorItem.id, calculatorItem) // Use prefixed ID as key
     }
   }
-  
+
   return lookup
 }

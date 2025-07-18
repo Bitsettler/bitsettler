@@ -1,9 +1,9 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import { resourceCollections } from '../collections/resource-tag-collections'
 import { cleanIconAssetName, getServerIconPath } from '../../shared/assets'
 import type { SearchItem } from '../../shared/dtos/search-dtos'
 import { createSlug } from '../../shared/utils/entities'
 import { convertRarityToString } from '../../shared/utils/rarity'
+import { resourceCollections } from '../collections/resource-tag-collections'
 
 /**
  * Get compendium href for a resource based on its tag

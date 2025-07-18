@@ -1,9 +1,9 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import { tagCollections, type TagCategory } from '../collections/item-tag-collections'
 import { cleanIconAssetName, getServerIconPath } from '../../shared/assets'
 import type { SearchItem } from '../../shared/dtos/search-dtos'
 import { createSlug } from '../../shared/utils/entities'
 import { convertRarityToString } from '../../shared/utils/rarity'
+import { tagCollections, type TagCategory } from '../collections/item-tag-collections'
 
 /**
  * Get compendium href for an item based on its tag

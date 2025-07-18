@@ -1,5 +1,5 @@
-import { cargoCollections } from '../collections/cargo-tag-collections'
 import type { SearchItem } from '../../shared/dtos/search-dtos'
+import { cargoCollections } from '../collections/cargo-tag-collections'
 import { tagCollections } from './item-tag-collections'
 import { resourceCollections } from './resource-tag-collections'
 

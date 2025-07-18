@@ -1,6 +1,9 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import resourceDescData from '@/data/global/resource_desc.json'
-import { findResourceTagCollection, resourceCollections } from '@/lib/spacetime-db/modules/collections/resource-tag-collections'
+import {
+  findResourceTagCollection,
+  resourceCollections
+} from '@/lib/spacetime-db/modules/collections/resource-tag-collections'
 import { getResourcesWithStats } from '@/lib/spacetime-db/modules/resources/resources'
 import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'

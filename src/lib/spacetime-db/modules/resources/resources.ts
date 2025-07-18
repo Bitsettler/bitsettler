@@ -813,4 +813,3 @@ export async function getResourceStatistics() {
     }))
   }
 }
-

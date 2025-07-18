@@ -8,10 +8,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'storage.ko-fi.com',
         port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+        pathname: '/**'
+      }
+    ]
+  }
 }
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')

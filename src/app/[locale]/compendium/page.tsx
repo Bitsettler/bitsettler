@@ -1,6 +1,6 @@
+import { getCargoCategoriesCommand } from '@/lib/spacetime-db/modules/cargo/commands/get-cargo-categories'
 import { getItemsCategoriesCommand } from '@/lib/spacetime-db/modules/items/commands/get-items-categories'
 import { getItemsStatisticsCommand } from '@/lib/spacetime-db/modules/items/commands/get-items-statistics'
-import { getCargoCategoriesCommand } from '@/lib/spacetime-db/modules/cargo/commands/get-cargo-categories'
 import { getResourcesCategoriesCommand } from '@/lib/spacetime-db/modules/resources/commands/get-resources-categories'
 import { CompendiumIndexPageView } from '@/views/compendium-views/compendium-index-page-view'
 

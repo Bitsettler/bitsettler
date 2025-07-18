@@ -1,9 +1,9 @@
 'use client'
 
 import { Container } from '@/components/container'
-import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 import { useRouter } from '@/i18n/navigation'
 import type { CalculatorGameData } from '@/lib/spacetime-db'
+import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 
 interface CalculatorIndexClientProps {
   gameData: CalculatorGameData
@@ -30,10 +30,7 @@ export function CalculatorIndexClient({ gameData }: CalculatorIndexClientProps) 
 
           {/* Search */}
           <div className="mb-8">
-            <CalculatorSearchInput 
-              items={gameData.items} 
-              onItemSelect={handleItemSelect}
-            />
+            <CalculatorSearchInput items={gameData.items} onItemSelect={handleItemSelect} />
           </div>
 
           {/* Instructions */}

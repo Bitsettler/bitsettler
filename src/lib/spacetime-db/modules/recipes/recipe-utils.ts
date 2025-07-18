@@ -1,6 +1,6 @@
 import itemsData from '@/data/global/item_desc.json'
 import { Recipe } from '@/lib/types'
-import type { Node, Edge } from '@xyflow/react'
+import type { Edge, Node } from '@xyflow/react'
 
 // Type definition for item_desc.json structure
 interface ItemDesc {
@@ -75,18 +75,23 @@ export const resolveRecipeName = (recipe: Recipe, allItems: ItemWithIdAndName[] 
   return resolvedName
 }
 
-export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selectedItem: { id: string }, targetQuantity: number): Node[] => {
+export const calculateQuantitiesFromEdges = (
+  nodes: Node[],
+  edges: Edge[],
+  selectedItem: { id: string },
+  targetQuantity: number
+): Node[] => {
   if (!selectedItem) return nodes
 
   // Create a map to accumulate quantities for each node
   const quantityMap = new Map<string, number>()
-  
+
   // Set the root item's quantity
   quantityMap.set(selectedItem.id, targetQuantity)
 
   // Find all nodes that have no incoming edges (root nodes)
   const incomingEdges = new Map<string, string[]>()
-  edges.forEach(edge => {
+  edges.forEach((edge) => {
     if (!incomingEdges.has(edge.target)) {
       incomingEdges.set(edge.target, [])
     }
@@ -99,11 +104,11 @@ export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selec
 
   while (processQueue.length > 0) {
     const currentNodeId = processQueue.shift()!
-    
+
     if (processed.has(currentNodeId)) continue
     processed.add(currentNodeId)
 
-    const currentNode = nodes.find(n => n.id === currentNodeId)
+    const currentNode = nodes.find((n) => n.id === currentNodeId)
     if (!currentNode) continue
 
     const recipe = currentNode.data.selectedRecipe as Recipe
@@ -121,14 +126,14 @@ export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selec
     recipe.requirements.materials.forEach((material) => {
       const materialId = material.id.toString()
       const materialQuantity = material.qty || 0
-      
+
       if (materialQuantity > 0) {
         const totalMaterialNeeded = recipeRuns * materialQuantity
-        
+
         // Accumulate quantity for this material
         const existingQuantity = quantityMap.get(materialId) || 0
         quantityMap.set(materialId, existingQuantity + totalMaterialNeeded)
-        
+
         // Add to processing queue if not already processed
         if (!processed.has(materialId)) {
           processQueue.push(materialId)
@@ -141,7 +146,7 @@ export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selec
   return nodes.map((node) => {
     const nodeId = node.id
     const calculatedQuantity = quantityMap.get(nodeId)
-    
+
     // For resources, don't show quantity
     if (node.data.category === 'resources') {
       return {
@@ -152,7 +157,7 @@ export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selec
         }
       }
     }
-    
+
     // For other nodes, use calculated quantity or existing quantity
     return {
       ...node,
@@ -163,4 +168,3 @@ export const calculateQuantitiesFromEdges = (nodes: Node[], edges: Edge[], selec
     }
   })
 }
-

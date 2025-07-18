@@ -17,7 +17,10 @@ import { transformCargoToSearch } from './modules/cargo/search'
 import { transformCollectionsToSearch } from './modules/collections/search'
 import { mapItemToCalculatorItem, transformItemsToCalculator } from './modules/items/calculator'
 import { transformItemsToSearch } from './modules/items/search'
-import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './modules/recipes/calculator'
+import {
+  transformCraftingRecipesToCalculator,
+  transformExtractionRecipesToCalculator
+} from './modules/recipes/calculator'
 import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './modules/resources/calculator'
 import { transformResourcesToSearch } from './modules/resources/search'
 import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'

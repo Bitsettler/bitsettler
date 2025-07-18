@@ -2,8 +2,8 @@ import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_ty
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ItemListDesc } from '@/data/bindings/item_list_desc_type'
-import type { CalculatorItem, CalculatorRecipe } from '../../shared/dtos/calculator-dtos'
 import { getItemPrefix } from '../../shared/calculator-utils'
+import type { CalculatorItem, CalculatorRecipe } from '../../shared/dtos/calculator-dtos'
 
 /**
  * Resolve an item that might have an item_list_id to its actual outputs

@@ -166,4 +166,3 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
     </form>
   )
 }
-

@@ -26,13 +26,13 @@ export async function fetchCommunityBiomeData(): Promise<BiomeResourceMap> {
     return parseCommunityCSV(csvText)
   } catch (error) {
     console.warn('Failed to fetch from Google Sheets, falling back to local CSV:', error)
-    
+
     try {
       // Fallback to local CSV file
       const csvPath = '/src/data/crowd-sourced/Bitcraft Biome Diversity - Biome Diversity.csv'
       const fs = await import('fs/promises')
       const path = await import('path')
-      
+
       const filePath = path.join(process.cwd(), csvPath)
       const csvText = await fs.readFile(filePath, 'utf-8')
       return parseCommunityCSV(csvText)
@@ -51,17 +51,17 @@ async function fetchFromGoogleSheets(): Promise<string> {
   const sheetId = '1ARJoeKVgv2AQuyGeF5cjU2RKkPajfVr6f3dogXup0Y8'
   const gid = '0' // First sheet
   const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}`
-  
+
   const response = await fetch(csvUrl, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (compatible; BitcraftGuide/1.0)'
     }
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch Google Sheets CSV: ${response.status} ${response.statusText}`)
   }
-  
+
   return response.text()
 }
 
@@ -425,4 +425,3 @@ function mapGameTagToCommunityResource(gameTag: string): string | null {
 
   return gameTagMapping[gameTag] || null
 }
-

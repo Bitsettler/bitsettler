@@ -5,13 +5,13 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
+import { getSearchGameData } from '@/lib/spacetime-db'
 import { geistSans } from '@/styles/typography'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { getSearchGameData } from '@/lib/spacetime-db'
 import '../globals.css'
 
 export function generateStaticParams() {
@@ -57,7 +57,7 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages()
-  
+
   // Load search data for sidebar
   const searchData = await getSearchGameData()
 

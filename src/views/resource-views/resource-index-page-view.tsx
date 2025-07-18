@@ -1,6 +1,6 @@
 import { Container } from '@/components/container'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 
@@ -41,11 +41,11 @@ function ResourceCategoryCard({ category }: { category: ResourceCategory }) {
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between space-y-3">
           <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
-          
+
           {/* Primary Biomes */}
           {category.primaryBiomes.length > 0 && (
             <div className="space-y-2">
-              <p className="text-xs font-medium text-muted-foreground">Primary Biomes:</p>
+              <p className="text-muted-foreground text-xs font-medium">Primary Biomes:</p>
               <div className="flex flex-wrap gap-1">
                 {category.primaryBiomes.slice(0, 3).map((biome) => (
                   <Badge key={biome} variant="secondary" className="text-xs">

@@ -103,4 +103,3 @@ export function CargoView({ title, subtitle, cargoCategories }: CargoViewProps) 
     </Container>
   )
 }
-
