@@ -30,7 +30,7 @@ import { Logo } from './logo'
 type NavigationItem = {
   translationKey: string
   href: string
-  icon: React.ComponentType<{ className?: string }>
+  icon?: React.ComponentType<{ className?: string }>
   external?: boolean
   comingSoon?: boolean
 }
@@ -70,6 +70,17 @@ const data = {
       translationLabel: 'sidebar.guides',
       children: [],
       description: 'sidebar.guidesComingSoon'
+    },
+    {
+      translationLabel: 'sidebar.compendium',
+      children: [
+        { translationKey: 'sidebar.codex', href: '/compendium/codex' },
+        { translationKey: 'sidebar.compendiumTools', href: '/compendium/tools' },
+        { translationKey: 'sidebar.resources', href: '/compendium/resources' },
+        { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
+        { translationKey: 'sidebar.deployables', href: '/compendium/deployable-deed' },
+        { translationKey: 'sidebar.seeAll', href: '/compendium' }
+      ]
     },
     {
       translationLabel: 'sidebar.tools',
@@ -116,6 +127,12 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
     if (href === '/') {
       return pathname === '/' || pathname === '/en' || pathname === '/fr' || pathname === '/es'
     }
+    
+    // Special case for /compendium - only match exact path
+    if (href === '/compendium') {
+      return pathname === '/compendium' || pathname === '/en/compendium' || pathname === '/fr/compendium' || pathname === '/es/compendium'
+    }
+    
     return pathname.includes(href)
   }
 

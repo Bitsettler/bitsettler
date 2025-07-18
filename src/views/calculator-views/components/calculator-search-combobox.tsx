@@ -2,8 +2,8 @@ import { Badge } from '@/components/ui/badge'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Link } from '@/i18n/navigation'
 import type { CalculatorItem } from '@/lib/spacetime-db'
-import { getServerIconPath } from '@/lib/spacetime-db/assets'
-import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
+import { getRarityColor, getTierColor } from '@/lib/spacetime-db/modules/items/item-utils'
+import { getServerIconPath } from '@/lib/spacetime-db/shared/assets'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
@@ -13,10 +13,10 @@ interface CalculatorSearchComboboxProps {
   currentQuantity: number
 }
 
-export async function CalculatorSearchCombobox({ 
-  items, 
-  selectedItem, 
-  currentQuantity 
+export async function CalculatorSearchCombobox({
+  items,
+  selectedItem,
+  currentQuantity
 }: CalculatorSearchComboboxProps) {
   const t = await getTranslations()
 

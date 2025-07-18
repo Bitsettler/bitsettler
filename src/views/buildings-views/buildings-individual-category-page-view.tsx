@@ -1,4 +1,4 @@
-import type { BuildingWithConstructionInfo } from '@/lib/spacetime-db/buildings'
+import type { BuildingWithConstructionInfo } from '@/lib/spacetime-db/modules/buildings/buildings'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface BuildingsIndividualCategoryPageViewProps {

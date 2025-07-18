@@ -1,4 +1,4 @@
-import { type ConsumableWithItem } from '@/lib/spacetime-db/consumables'
+import { type ConsumableWithItem } from '@/lib/spacetime-db/modules/collections/consumables'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ConsumableIndividualTagPageViewProps {

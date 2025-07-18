@@ -17,7 +17,7 @@
     "fetch-assets": "npx ts-node scripts/fetch-assets.ts",
     "get-unique-item-tags": "npx ts-node scripts/tags/get-unique-item-tags.ts",
     "prebuild:prod": "vercel build --prod",
-    "deploy:prod": "vercel deploy --prod --prebuilt --archive=tgz --logs"
+    "deploy:prod": "vercel deploy --prod --prebuilt --archive=tgz --build-env NEXT_PUBLIC_DEBUG=false"
   },
   "dependencies": {
     "@clockworklabs/spacetimedb-sdk": "^1.2.1",

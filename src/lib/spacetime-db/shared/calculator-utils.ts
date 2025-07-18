@@ -1,7 +1,7 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import type { CalculatorItem } from '../calculator-dtos'
+import type { CalculatorItem } from './dtos/calculator-dtos'
 
 /**
  * Clean up malformed icon asset paths (from scripts/items/map-items.ts)

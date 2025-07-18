@@ -8,7 +8,7 @@ import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
 import type { CalculatorRecipe } from '@/lib/spacetime-db'
-import { calculateQuantitiesFromEdges } from '@/lib/utils/recipe-utils'
+import { calculateQuantitiesFromEdges } from '@/lib/spacetime-db/modules/recipes/recipe-utils'
 import type { Edge, Node } from '@xyflow/react'
 import { useEdgesState, useNodesState } from '@xyflow/react'
 import { useCallback, useEffect } from 'react'
@@ -18,7 +18,7 @@ interface FlowVisualizeViewProps {
   quantity?: number
 }
 
-const AUTO_EXPAND_DEPTH = 5
+const AUTO_EXPAND_DEPTH = 4
 
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
@@ -135,7 +135,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
           id: materialId,
           type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
           data: {
-            label: materialData?.name || `Item ${materialId}`,
+            label: materialData?.name || 'Not in Compendium',
             tier: materialData?.tier || 1,
             rarity: materialData?.rarity || 'common',
             category: materialData?.category || 'unknown',

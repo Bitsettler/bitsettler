@@ -1,4 +1,4 @@
-import type { ToolWithItem } from '@/lib/spacetime-db/tools'
+import type { ToolWithItem } from '@/lib/spacetime-db/modules/collections/tools'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {

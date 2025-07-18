@@ -1,5 +1,5 @@
 import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
-import { getEquipmentStatistics } from '@/lib/spacetime-db/equipments'
+import { getEquipmentStatistics } from '@/lib/spacetime-db/modules/collections/equipments'
 import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view'
 
 export default async function EquipmentPage() {

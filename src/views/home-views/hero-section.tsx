@@ -10,9 +10,15 @@ export function HeroSection() {
       <div className="space-y-4">
         <h1 className="text-6xl font-bold">{t('header.title')}</h1>
         <p className="text-muted-foreground text-xl">{t('header.subtitle')}</p>
-        <Button asChild>
-          <Link href="/calculator">Try the Calculator!</Link>
-        </Button>
+
+        <div className="items-cetner flex gap-2">
+          <Button asChild>
+            <Link href="/calculator">Try the Calculator!</Link>
+          </Button>
+          <Button asChild variant={'secondary'}>
+            <Link href="/compendium">Checkout the Compendium</Link>
+          </Button>
+        </div>
       </div>
     </div>
   )

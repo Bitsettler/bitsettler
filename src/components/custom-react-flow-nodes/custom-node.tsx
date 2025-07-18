@@ -4,14 +4,14 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { getTierColor } from '@/lib/utils/item-utils'
-import { resolveRecipeName } from '@/lib/utils/recipe-utils'
+import { getTierColor } from '@/lib/spacetime-db/modules/items/item-utils'
+import { resolveRecipeName } from '@/lib/spacetime-db/modules/recipes/recipe-utils'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
 import { memo, useCallback } from 'react'
 
 import { useGameData } from '@/contexts/game-data-context'
-import type { CalculatorRecipe } from '@/lib/spacetime-db/calculator-dtos'
+import type { CalculatorRecipe } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
 
 interface ItemData {
   label: string
@@ -183,7 +183,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
               position: { x: 0, y: 0 },
               data: {
-                label: materialData?.name || `Item ${materialId}`,
+                label: materialData?.name || 'Not in Compendium',
                 tier: materialData?.tier || 1,
                 rarity: materialData?.rarity || 'common',
                 category: materialData?.category || 'unknown',

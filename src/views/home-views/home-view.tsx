@@ -2,8 +2,8 @@ import { Container } from '@/components/container'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import rawResources from '@/data/global/resource_desc.json'
 import { getAllCargo, getAllItems, getItemsByTags } from '@/lib/spacetime-db'
-import { tagCollections } from '@/lib/spacetime-db/item-tag-collections'
-import { camelCaseDeep } from '@/lib/utils/case-utils'
+import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
+import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
 import { BuildingsSection } from './buildings-section'
 import { EquipmentSection } from './equipment-section'
 import { HeroSection } from './hero-section'
@@ -30,12 +30,6 @@ export function HomeView() {
         <section>
           <HeroSection />
         </section>
-
-        <div className="">
-          <p className="text-muted-foreground text-sm">
-            🔍 Click on any category to explore detailed item information, stats, and crafting recipes!
-          </p>
-        </div>
 
         {/* Equipment Section */}
         <section>

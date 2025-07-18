@@ -1,5 +1,5 @@
-import { resourceCollections } from '@/lib/spacetime-db/resources/resource-tag-collections'
-import { getResourceStatistics, getResourcesGroupedByTag } from '@/lib/spacetime-db/resources/resources'
+import { resourceCollections } from '@/lib/spacetime-db/modules/collections/resource-tag-collections'
+import { getResourceStatistics, getResourcesGroupedByTag } from '@/lib/spacetime-db/modules/resources/resources'
 import { ResourceIndexPageView } from '@/views/resource-views/resource-index-page-view'
 
 export default async function ResourcesPage() {

@@ -11,22 +11,19 @@ import extractionRecipeDescData from '@/data/global/extraction_recipe_desc.json'
 import itemDescData from '@/data/global/item_desc.json'
 import itemListDescData from '@/data/global/item_list_desc.json'
 import resourceDescData from '@/data/global/resource_desc.json'
-import { camelCaseDeep } from '@/lib/utils/case-utils'
-import type { CalculatorGameData } from './calculator-dtos'
-import { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
-import { transformCargoToSearch } from './cargo/search'
-import { transformCollectionsToSearch } from './collections/search'
-import { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
-import { transformItemsToSearch } from './items/search'
-import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './recipes/calculator'
-import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
-import { transformResourcesToSearch } from './resources/search'
-import { transformToSearchData, type SearchData } from './search-dtos'
+import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
+import { mapCargoToCalculatorItem, transformCargoToCalculator } from './modules/cargo/calculator'
+import { transformCargoToSearch } from './modules/cargo/search'
+import { transformCollectionsToSearch } from './modules/collections/search'
+import { mapItemToCalculatorItem, transformItemsToCalculator } from './modules/items/calculator'
+import { transformItemsToSearch } from './modules/items/search'
+import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from './modules/recipes/calculator'
+import { mapResourceToCalculatorItem, transformResourcesToCalculator } from './modules/resources/calculator'
+import { transformResourcesToSearch } from './modules/resources/search'
 import { createUnifiedLookup, shouldFilterItem } from './shared/calculator-utils'
+import type { CalculatorGameData } from './shared/dtos/calculator-dtos'
+import { transformToSearchData, type SearchData } from './shared/dtos/search-dtos'
 
-/**
- * Get game data from static JSON files
- */
 function getGameData() {
   return {
     craftingRecipeDesc: camelCaseDeep<CraftingRecipeDesc[]>(craftingRecipeDescData),
@@ -38,25 +35,6 @@ function getGameData() {
   }
 }
 
-/**
- * Get all items (including cargo and resources) from static data
- */
-export async function getAllGameItems(): Promise<{
-  items: ItemDesc[]
-  cargo: CargoDesc[]
-  resources: ResourceDesc[]
-}> {
-  const { itemDesc, cargoDesc, resourceDesc } = getGameData()
-  return {
-    items: itemDesc.filter((item) => item.compendiumEntry),
-    cargo: cargoDesc,
-    resources: resourceDesc.filter((resource) => resource.compendiumEntry)
-  }
-}
-
-/**
- * Get search-ready game data from spacetime-db
- */
 export async function getSearchGameData(): Promise<SearchData> {
   const { itemDesc, cargoDesc, resourceDesc } = getGameData()
 
@@ -74,9 +52,6 @@ export async function getSearchGameData(): Promise<SearchData> {
   return transformToSearchData(searchItems, searchCargo, searchResources, searchCollections)
 }
 
-/**
- * Get calculator-ready game data from spacetime-db
- */
 export function getCalculatorGameData(): CalculatorGameData {
   const { itemDesc, cargoDesc, resourceDesc, craftingRecipeDesc, extractionRecipeDesc, itemListDesc } = getGameData()
 
@@ -115,13 +90,13 @@ export function getCalculatorGameData(): CalculatorGameData {
 }
 
 // Re-export utilities for consolidated access
-export { assetExists, cleanIconAssetName, getFallbackIconPath, getServerIconPath } from './assets'
-export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './calculator-dtos'
-export { createSlug, getTierColor } from './entities'
-export type { SearchData, SearchItem } from './search-dtos'
+export { assetExists, cleanIconAssetName, getFallbackIconPath, getServerIconPath } from './shared/assets'
+export type { CalculatorGameData, CalculatorItem, CalculatorRecipe } from './shared/dtos/calculator-dtos'
+export type { SearchData, SearchItem } from './shared/dtos/search-dtos'
+export { createSlug, getTierColor } from './shared/utils/entities'
 
 // Re-export module-specific calculator functions
-export { mapCargoToCalculatorItem, transformCargoToCalculator } from './cargo/calculator'
+export { mapCargoToCalculatorItem, transformCargoToCalculator } from './modules/cargo/calculator'
 export {
   findTagCollection,
   getEquipmentTags,
@@ -129,8 +104,8 @@ export {
   tagCollections,
   type TagCategory,
   type TagCollection
-} from './item-tag-collections'
-export { mapItemToCalculatorItem, transformItemsToCalculator } from './items/calculator'
+} from './modules/collections/item-tag-collections'
+export { mapItemToCalculatorItem, transformItemsToCalculator } from './modules/items/calculator'
 export {
   getAllProfessions,
   getProfessionById,
@@ -139,27 +114,29 @@ export {
   getProfessionsByType,
   getProfessionStats,
   type Profession
-} from './professions'
-export { convertRarityArrayToString, convertRarityToString, getRarityColor, getRarityDisplayName } from './rarity'
-export { getCraftingRecipes, getExtractionRecipes } from './recipes'
+} from './modules/professions/professions'
 export {
   mapCraftingRecipeToCalculatorRecipe,
   mapExtractionRecipeToCalculatorRecipe,
   transformCraftingRecipesToCalculator,
   transformExtractionRecipesToCalculator
-} from './recipes/calculator'
-export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './resources/calculator'
+} from './modules/recipes/calculator'
+export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './modules/resources/calculator'
 export { cleanIconAssetPath, createUnifiedLookup, getItemPrefix, shouldFilterItem } from './shared/calculator-utils'
+export {
+  convertRarityArrayToString,
+  convertRarityToString,
+  getRarityColor,
+  getRarityDisplayName
+} from './shared/utils/rarity'
 
 // Re-export search functions
-export { mapCargoToSearchItem, transformCargoToSearch } from './cargo/search'
-export { transformCollectionsToSearch } from './collections/search'
-export { mapItemToSearchItem, transformItemsToSearch } from './items/search'
-export { mapResourceToSearchItem, transformResourcesToSearch } from './resources/search'
+export { mapCargoToSearchItem, transformCargoToSearch } from './modules/cargo/search'
+export { transformCollectionsToSearch } from './modules/collections/search'
+export { mapItemToSearchItem, transformItemsToSearch } from './modules/items/search'
+export { mapResourceToSearchItem, transformResourcesToSearch } from './modules/resources/search'
 
 // Re-export main transformation function for backward compatibility
-export { transformToCalculatorData } from './calculator-dtos'
-export { getAllCargo, getAllItems, getItemsByTags } from './utils'
 export {
   getWeaponItems,
   getWeaponsGroupedByCategory,
@@ -172,189 +149,6 @@ export {
   getWeaponTypes,
   isHuntingWeaponType,
   type WeaponWithItem
-} from './weapons'
-
-// const uri = '{scheme}://{host}/v1/database/{module}/{endpoint}'
-// const proto = 'v1.json.spacetimedb'
-
-// interface TableData {
-//   table_name: string
-//   updates: Array<{
-//     inserts: string[]
-//   }>
-// }
-
-// interface InitialSubscription {
-//   database_update: {
-//     tables: TableData[]
-//   }
-// }
-
-// interface WebSocketMessage {
-//   InitialSubscription?: InitialSubscription
-//   TransactionUpdate?: {
-//     status: {
-//       Failed?: string
-//     }
-//   }
-// }
-
-// interface SubscribeMessage {
-//   Subscribe: {
-//     request_id: number
-//     query_strings: string[]
-//   }
-// }
-
-// type Query = string | [string, string, string]
-
-// export function dumpTables(
-//   host: string,
-//   module: string,
-//   queries: Query | Query[],
-//   auth?: string
-// ): Promise<Record<string, unknown[]>> {
-//   return new Promise((resolve, reject) => {
-//     const saveData: Record<string, unknown[]> = {}
-//     let newQueries: Query[] | null = null
-
-//     // Add timeout for build environments
-//     const timeout = setTimeout(() => {
-//       reject(new Error('WebSocket connection timeout - this is expected during build time'))
-//     }, 10000) // 10 second timeout
-
-//     // Normalize queries to array
-//     const queryArray: Query[] = Array.isArray(queries) ? queries : [queries]
-
-//     try {
-//       const wsUrl = uri
-//         .replace('{scheme}', 'wss')
-//         .replace('{host}', host)
-//         .replace('{module}', module)
-//         .replace('{endpoint}', 'subscribe')
-
-//       console.log('Connecting to WebSocket:')
-//       console.log('  URL:', wsUrl)
-//       if (auth) {
-//         console.log('  Headers:', { Authorization: `Bearer ${auth.substring(0, 20)}...` })
-//       } else {
-//         console.log('  Headers: none')
-//       }
-//       console.log('  Subprotocols:', [proto])
-
-//       const headers: Record<string, string> = {}
-//       if (auth) {
-//         headers['Authorization'] = `Bearer ${auth}`
-//       }
-
-//       const ws = new WebSocket(wsUrl, [proto], {
-//         headers
-//       })
-
-//       let hasReceivedInitialMessage = false
-
-//       ws.on('open', () => {
-//         console.log('WebSocket connected')
-//         // Don't send subscription immediately - wait for initial message first
-//       })
-
-//       ws.on('message', (data) => {
-//         try {
-//           if (!hasReceivedInitialMessage) {
-//             // Handle the initial message (like Python's ws.recv())
-//             console.log('Received initial message, now sending subscription...')
-//             hasReceivedInitialMessage = true
-
-//             // Send subscription message after receiving initial message
-//             const sub: SubscribeMessage = {
-//               Subscribe: {
-//                 request_id: 1,
-//                 query_strings: queryArray.map((q: Query) => {
-//                   if (typeof q === 'string') {
-//                     return `SELECT * FROM ${q};`
-//                   } else {
-//                     return `SELECT * FROM ${q[0]} WHERE ${q[1]} = ${q[2]};`
-//                   }
-//                 })
-//               }
-//             }
-
-//             ws.send(JSON.stringify(sub))
-//             return
-//           }
-
-//           const msg: WebSocketMessage = JSON.parse(data.toString())
-//           console.log('Received WebSocket message type:', Object.keys(msg))
-
-//           if (msg.InitialSubscription) {
-//             console.log('Processing InitialSubscription...')
-//             const initial = msg.InitialSubscription.database_update.tables
-//             console.log(`Found ${initial.length} tables in response`)
-
-//             for (const table of initial) {
-//               const name = table.table_name
-//               const rows = table.updates[0].inserts
-//               console.log(`Processing table ${name} with ${rows.length} rows`)
-//               saveData[name] = rows.map((row) => JSON.parse(row))
-//             }
-//             console.log(`Total tables processed: ${Object.keys(saveData).length}`)
-//             ws.close()
-//           } else if (msg.TransactionUpdate && msg.TransactionUpdate.status.Failed) {
-//             console.log('Transaction failed:', msg.TransactionUpdate.status.Failed)
-//             const failure = msg.TransactionUpdate.status.Failed
-//             const badTableMatch = failure.match(/`(\w*)` is not a valid table/)
-//             if (badTableMatch) {
-//               const badTable = badTableMatch[1]
-//               console.log('Invalid table, skipping and retrying: ' + badTable)
-//               newQueries = queryArray.filter((q: Query) => {
-//                 if (typeof q === 'string') {
-//                   return q !== badTable
-//                 } else {
-//                   return q[0] !== badTable
-//                 }
-//               })
-//             }
-//             ws.close()
-//           } else {
-//             console.log('Unknown message type:', msg)
-//           }
-//         } catch (error) {
-//           console.error('Error parsing WebSocket message:', error)
-//           console.log('Raw message:', data.toString())
-//         }
-//       })
-
-//       ws.on('error', (error) => {
-//         clearTimeout(timeout)
-//         reject(error)
-//       })
-
-//       ws.on('close', () => {
-//         clearTimeout(timeout)
-//         if (newQueries) {
-//           dumpTables(host, module, newQueries, auth).then(resolve).catch(reject)
-//         } else {
-//           resolve(saveData)
-//         }
-//       })
-//     } catch (error) {
-//       clearTimeout(timeout)
-//       reject(error)
-//     }
-//   })
-// }
-
-// export async function fetchItemDesc(): Promise<ItemDesc[]> {
-//   const host = process.env.BITCRAFT_SPACETIME_HOST
-//   const auth = process.env.BITCRAFT_AUTH_TOKEN || process.env.BITCRAFT_SPACETIME_AUTH
-//   const moduleAddress = 'bitcraft-global' // Use global module like generate-game-data.ts
-
-//   if (!host) {
-//     throw new Error('BITCRAFT_SPACETIME_HOST environment variable is not set')
-//   }
-
-//   console.log(`Fetching from module: ${moduleAddress}`)
-//   const tables = await dumpTables(host, moduleAddress, ['item_desc'], auth)
-//   console.log('Available tables:', Object.keys(tables))
-//   return (tables['item_desc'] as ItemDesc[]) || []
-// }
+} from './modules/collections/weapons'
+export { transformToCalculatorData } from './shared/dtos/calculator-dtos'
+export { getAllCargo, getAllItems, getItemsByTags } from './utils'

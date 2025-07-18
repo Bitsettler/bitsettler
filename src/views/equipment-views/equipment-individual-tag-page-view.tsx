@@ -1,4 +1,4 @@
-import { formatStatName, type EquipmentWithStats } from '@/lib/spacetime-db/equipments'
+import { formatStatName, type EquipmentWithStats } from '@/lib/spacetime-db/modules/collections/equipments'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface EquipmentIndividualTagPageViewProps {

@@ -1,4 +1,4 @@
-import type { CollectibleWithItem } from '@/lib/spacetime-db/collectibles'
+import type { CollectibleWithItem } from '@/lib/spacetime-db/modules/collectibles/collectibles'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface CollectiblesIndividualTagPageViewProps {

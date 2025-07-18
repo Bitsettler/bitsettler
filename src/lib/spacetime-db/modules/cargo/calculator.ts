@@ -1,0 +1,28 @@
+import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
+import type { CalculatorItem } from '../../shared/dtos/calculator-dtos'
+import { cleanIconAssetName, getServerIconPath } from '../../shared/assets'
+import { createSlug } from '../../shared/utils/entities'
+import { convertRarityToString } from '../../shared/utils/rarity'
+
+/**
+ * Map CargoDesc to CalculatorItem
+ */
+export function mapCargoToCalculatorItem(cargo: CargoDesc): CalculatorItem {
+  return {
+    id: `cargo_${cargo.id}`,
+    name: cargo.name,
+    slug: createSlug(cargo.name),
+    tier: cargo.tier,
+    rarity: convertRarityToString(cargo.rarity),
+    category: 'cargo',
+    description: cargo.description || 'No description available',
+    icon_asset_name: getServerIconPath(cleanIconAssetName(cargo.iconAssetName || ''))
+  }
+}
+
+/**
+ * Transform cargo to calculator format
+ */
+export function transformCargoToCalculator(cargo: CargoDesc[]): CalculatorItem[] {
+  return cargo.map(mapCargoToCalculatorItem)
+}

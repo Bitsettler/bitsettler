@@ -1,5 +1,5 @@
 import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
-import { getCollectibleStatistics } from '@/lib/spacetime-db/collectibles'
+import { getCollectibleStatistics } from '@/lib/spacetime-db/modules/collectibles/collectibles'
 import { CollectiblesView } from '@/views/collectibles-views/collectibles-index-page-view'
 
 export default async function CollectiblesPage() {
