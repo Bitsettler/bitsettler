@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import type { CalculatorItem } from '@/lib/spacetime-db'
-import { getRarityColor, getTierColor } from '@/lib/utils/item-utils'
+import { getRarityColor, getTierColor } from '@/lib/spacetime-db/modules/items/item-utils'
 import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 import { getNodesBounds, getViewportForBounds, useReactFlow } from '@xyflow/react'
 import { toBlob, toJpeg, toPng } from 'html-to-image'
@@ -102,7 +102,7 @@ export function CalculatorHeader({
       // Get viewport transformation to fit all nodes
       const viewport = getViewportForBounds(nodesBounds, imageWidth, imageHeight, 0.5, 2, 20)
 
-      let filename = `bitcraft-guide_${selectedItem.slug}_qty-${desiredQuantity}.png`
+      const filename = `bitcraft-guide_${selectedItem.slug}_qty-${desiredQuantity}.png`
 
       const baseExportOptions = {
         backgroundColor: '#ffffff',

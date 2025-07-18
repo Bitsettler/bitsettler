@@ -1,4 +1,4 @@
-import { getBuildingsGroupedByCategory, type BuildingWithItem } from '@/lib/spacetime-db/buildings'
+import { getBuildingsGroupedByCategory, type BuildingWithItem } from '@/lib/spacetime-db/modules/buildings/buildings'
 import { BuildingsIndividualCategoryPageView } from '@/views/buildings-views/buildings-individual-category-page-view'
 import { notFound } from 'next/navigation'
 

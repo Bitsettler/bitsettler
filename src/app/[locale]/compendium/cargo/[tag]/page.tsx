@@ -1,8 +1,8 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import cargoDescData from '@/data/global/cargo_desc.json'
-import { getCargoWithStats } from '@/lib/spacetime-db/cargo/cargo'
-import { cargoCollections, findCargoTagCollection } from '@/lib/spacetime-db/cargo/cargo-tag-collections'
-import { camelCaseDeep } from '@/lib/utils/case-utils'
+import { getCargoWithStats } from '@/lib/spacetime-db/modules/cargo/cargo'
+import { cargoCollections, findCargoTagCollection } from '@/lib/spacetime-db/modules/collections/cargo-tag-collections'
+import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
 import { CargoIndividualTagPageView } from '@/views/cargo-views/cargo-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 

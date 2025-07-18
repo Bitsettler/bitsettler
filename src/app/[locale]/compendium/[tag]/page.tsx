@@ -1,13 +1,13 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import itemDescData from '@/data/global/item_desc.json'
-import { getCollectiblesWithItems } from '@/lib/spacetime-db/collectibles'
-import { getConsumablesWithStats } from '@/lib/spacetime-db/consumables'
-import { getEquipmentWithStats } from '@/lib/spacetime-db/equipments'
-import { findTagCollection, tagCollections } from '@/lib/spacetime-db/item-tag-collections'
-import { ItemTag } from '@/lib/spacetime-db/item-tags'
-import { getToolsWithItems } from '@/lib/spacetime-db/tools'
-import { camelCaseDeep } from '@/lib/utils/case-utils'
+import { getCollectiblesWithItems } from '@/lib/spacetime-db/modules/collectibles/collectibles'
+import { getConsumablesWithStats } from '@/lib/spacetime-db/modules/collections/consumables'
+import { getEquipmentWithStats } from '@/lib/spacetime-db/modules/collections/equipments'
+import { findTagCollection, tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
+import { getToolsWithItems } from '@/lib/spacetime-db/modules/collections/tools'
+import { ItemTag } from '@/lib/spacetime-db/modules/items/item-tags'
+import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
 import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
 import { EquipmentIndividualTagPageView } from '@/views/equipment-views/equipment-individual-tag-page-view'
@@ -20,12 +20,12 @@ type CompendiumEntity = ItemDesc | ResourceDesc
 // Generate static params for all possible tag combinations
 export function generateStaticParams() {
   const tags = Object.values(ItemTag)
-  
+
   // Exclude tags that conflict with specific routes
   const conflictingRoutes = ['weapon'] // lowercase versions of specific routes
-  
+
   return tags
-    .filter(tag => !conflictingRoutes.includes(tag.toLowerCase()))
+    .filter((tag) => !conflictingRoutes.includes(tag.toLowerCase()))
     .map((tag) => ({
       tag
     }))

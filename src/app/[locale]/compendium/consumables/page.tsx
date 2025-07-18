@@ -1,5 +1,5 @@
 import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
-import { getConsumableStatistics } from '@/lib/spacetime-db/consumables'
+import { getConsumableStatistics } from '@/lib/spacetime-db/modules/collections/consumables'
 import { ConsumablesView } from '@/views/consumables-views/consumables-index-page-view'
 
 export default async function ConsumablesPage() {

@@ -1,4 +1,4 @@
-import { type ResourceWithStats } from '@/lib/spacetime-db/resources/resources'
+import { type ResourceWithStats } from '@/lib/spacetime-db/modules/resources/resources'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {

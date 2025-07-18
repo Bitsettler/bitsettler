@@ -1,4 +1,4 @@
-import { type CargoWithStats } from '@/lib/spacetime-db/cargo/cargo'
+import { type CargoWithStats } from '@/lib/spacetime-db/modules/cargo/cargo'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface CargoIndividualTagPageViewProps {
