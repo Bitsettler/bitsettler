@@ -17,9 +17,9 @@ export default function CompendiumPage() {
   const cargoData = cargoDescData as unknown as CargoDescWithSnakeCase[]
   const resourceData = resourceDescData as unknown as ResourceDescWithSnakeCase[]
 
-  // Filter only compendium entries
+  // Filter only compendium entries (cargo doesn't have compendium_entry field)
   const items = itemData.filter((item) => item.compendium_entry)
-  const cargo = cargoData.filter((cargo) => cargo.compendium_entry)
+  const cargo = cargoData // All cargo items are visible
   const resources = resourceData.filter((resource) => resource.compendium_entry)
 
   // Extract unique categories
@@ -54,6 +54,12 @@ export default function CompendiumPage() {
       icon: '🔨',
       title: 'Tools',
       description: 'All profession tools'
+    },
+    {
+      href: '/compendium/consumables',
+      icon: '🍎',
+      title: 'Consumables',
+      description: 'Food, potions & supplies'
     }
   ]
 

@@ -1,6 +1,6 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 
 export interface CategoryData {
@@ -43,57 +43,78 @@ export function CompendiumIndexPageView({
 }: CompendiumIndexPageViewProps) {
   return (
     <Container>
-      <div className="space-y-8 py-8">
-        <div className="space-y-4 text-center">
-          <h1 className="text-4xl font-bold">{title}</h1>
-          <p className="text-muted-foreground text-lg">{subtitle}</p>
+      <div className="space-y-12 py-8">
+        {/* Hero Section */}
+        <div className="space-y-6 text-center">
+          <h1 className="text-5xl font-bold tracking-tight">{title}</h1>
+          <p className="text-muted-foreground mx-auto max-w-2xl text-xl leading-relaxed">{subtitle}</p>
         </div>
 
         {/* Special Collections */}
         {specialCollections.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Special Collections</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-                {specialCollections.map((collection) => (
-                  <Link key={collection.href} href={collection.href} className="block">
-                    <Badge variant="secondary" className="hover:bg-accent w-full justify-between p-3">
-                      <span>
-                        {collection.icon} {collection.title}
-                      </span>
-                      <span>{collection.description}</span>
-                    </Badge>
-                  </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <section className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-semibold tracking-tight">Featured Collections</h2>
+              <p className="text-muted-foreground text-lg">
+                Explore curated collections of the most important items in Bitcraft
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {specialCollections.map((collection) => (
+                <Link key={collection.href} href={collection.href} className="group block">
+                  <Card className="hover:bg-accent/50 transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">{collection.icon}</span>
+                        <div>
+                          <h3 className="group-hover:text-accent-foreground font-semibold">{collection.title}</h3>
+                          <p className="text-muted-foreground text-sm">{collection.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
         )}
 
-        {/* Dynamic Sections */}
-        {sections.map((section) => (
-          <Card key={section.title}>
-            <CardHeader>
-              <CardTitle>
-                {section.title} ({section.totalCount})
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* Browse by Category */}
+        <section className="space-y-8">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight">Browse by Category</h2>
+            <p className="text-muted-foreground text-lg">
+              Find exactly what you're looking for with our organized category system
+            </p>
+          </div>
+
+          {sections.map((section) => (
+            <div key={section.title} className="space-y-4">
+              <div className="border-b pb-2">
+                <h3 className="text-2xl font-semibold">
+                  {section.title}
+                  <span className="text-muted-foreground ml-2 text-lg font-normal">({section.totalCount} items)</span>
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 {section.categories.map((category) => (
-                  <Link key={category.tag} href={`/compendium/${createSlug(category.tag)}`} className="block">
-                    <Badge variant="outline" className="hover:bg-accent w-full justify-between p-2">
-                      <span>{category.tag}</span>
-                      <span>{category.count}</span>
-                    </Badge>
-                  </Link>
+                  <Card key={category.tag} className="hover:bg-accent/50 p-4 transition-colors">
+                    <Link href={`/compendium/${createSlug(category.tag)}`} className="group block">
+                      <div className="flex items-center justify-between">
+                        <span className="group-hover:text-accent-foreground font-medium">{category.tag}</span>
+                        <Badge variant="secondary" className="text-xs">
+                          {category.count}
+                        </Badge>
+                      </div>
+                    </Link>
+                  </Card>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </section>
       </div>
     </Container>
   )
