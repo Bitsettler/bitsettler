@@ -18,7 +18,7 @@ interface FlowVisualizeViewProps {
   quantity?: number
 }
 
-const AUTO_EXPAND_DEPTH = 2
+const AUTO_EXPAND_DEPTH = 4
 
 export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
@@ -135,7 +135,7 @@ export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps
           id: materialId,
           type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
           data: {
-            label: materialData?.name || `Item ${materialId}`,
+            label: materialData?.name || 'Not in Compendium',
             tier: materialData?.tier || 1,
             rarity: materialData?.rarity || 'common',
             category: materialData?.category || 'unknown',

@@ -183,7 +183,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
               type: materialRecipes.length > 0 ? 'itemNode' : 'materialNode',
               position: { x: 0, y: 0 },
               data: {
-                label: materialData?.name || `Item ${materialId}`,
+                label: materialData?.name || 'Not in Compendium',
                 tier: materialData?.tier || 1,
                 rarity: materialData?.rarity || 'common',
                 category: materialData?.category || 'unknown',
