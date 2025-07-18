@@ -1,7 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import type { CalculatorItem } from '@/lib/spacetime-db'
 import { getRarityColor, getTierColor } from '@/lib/spacetime-db/modules/items/item-utils'
@@ -280,7 +279,7 @@ export function CalculatorHeader({
           Save
         </Button>
 
-        <Popover>
+        {/* <Popover>
           <PopoverTrigger asChild>
             <Button variant="secondary" size="icon">
               <MoreHorizontal className="h-4 w-4" />
@@ -300,7 +299,7 @@ export function CalculatorHeader({
               </Button>
             </div>
           </PopoverContent>
-        </Popover>
+        </Popover> */}
       </div>
     </div>
   )
