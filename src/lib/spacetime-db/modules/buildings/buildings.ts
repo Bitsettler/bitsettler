@@ -1,3 +1,5 @@
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
+
 // Re-export all buildings functionality from the proper modules
 export { type BuildingWithConstructionInfo, type BuildingWithItem } from './building-utils'
 
@@ -33,7 +35,7 @@ export async function getWritsGroupedByTag() {
   const { getWritItems } = await import('./commands')
   const writs = getWritItems()
 
-  const grouped: Record<string, any[]> = {}
+  const grouped: Record<string, ItemDesc[]> = {}
 
   for (const writ of writs) {
     const tag = writ.tag

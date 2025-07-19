@@ -1,3 +1,4 @@
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { getBuildingData } from '../commands/get-building-data'
 import {
   type BuildingWithConstructionInfo,
@@ -43,7 +44,7 @@ export async function getBuildingsWithConstructionInfo(): Promise<BuildingWithCo
     const deconstructionRecipe = deconstructionRecipeDesc.find((recipe) => recipe.consumedBuilding === building.id)
 
     // Find Writ items that are consumed in the construction of this building
-    let writItems = []
+    let writItems: ItemDesc[] = []
     if (constructionRecipe) {
       const consumedItemIds = constructionRecipe.consumedItemStacks?.map((stack) => stack.itemId) || []
       writItems = itemDesc.filter((item) => consumedItemIds.includes(item.id) && item.tag === 'Writ')

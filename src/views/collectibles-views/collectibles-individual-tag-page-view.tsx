@@ -18,7 +18,7 @@ export function CollectiblesIndividualTagPageView({
   const enrichedItems = collectibles.map((collectible) => ({
     ...collectible.item,
     // Override the iconAssetName for proper display
-    iconAssetName: collectible.iconAssetName || collectible.item.iconAssetName,
+    iconAssetName: collectible.item.iconAssetName,
     // Add collectible-specific properties if needed
     collectible: collectible
   }))
