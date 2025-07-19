@@ -1,30 +1,32 @@
 /**
- * Get tier color classes for UI display (supports tiers 1-10)
+ * Get tier color classes for UI display (supports tiers 0-10)
  */
 export function getTierColor(tier: number): string {
   switch (tier) {
+    case 0:
+      return 'bg-slate-700 text-slate-50 border-slate-500'
     case 1:
-      return 'bg-slate-100 text-slate-800 border-slate-300' // Basic - slate
+      return 'bg-stone-700 text-stone-100 border-stone-500'
     case 2:
-      return 'bg-green-100 text-green-800 border-green-300' // Common - green
+      return 'bg-yellow-700 text-yellow-100 border-yellow-500'
     case 3:
-      return 'bg-blue-100 text-blue-800 border-blue-300' // Uncommon - blue
+      return 'bg-lime-300 text-lime-950 border-lime-800'
     case 4:
-      return 'bg-purple-100 text-purple-800 border-purple-300' // Rare - purple
+      return 'bg-sky-300 text-sky-950 border-sky-800'
     case 5:
-      return 'bg-yellow-100 text-yellow-800 border-yellow-300' // Epic - yellow/gold
+      return 'bg-indigo-300 text-indigo-950 border-indigo-800'
     case 6:
-      return 'bg-orange-100 text-orange-800 border-orange-300' // Legendary - orange
+      return 'bg-red-300 text-red-950 border-red-800'
     case 7:
-      return 'bg-red-100 text-red-800 border-red-300' // Mythic - red
+      return 'bg-yellow-300 text-yellow-950 border-yellow-800'
     case 8:
-      return 'bg-pink-100 text-pink-800 border-pink-300' // Celestial - pink
+      return 'bg-cyan-200 text-cyan-950 border-cyan-800'
     case 9:
-      return 'bg-indigo-100 text-indigo-800 border-indigo-300' // Divine - indigo
+      return 'bg-zinc-900 text-zinc-300 border-zinc-500'
     case 10:
-      return 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 border-purple-300' // Transcendent - gradient
+      return 'bg-stone-300 text-stone-950 border-stone-800'
     default:
-      return 'bg-slate-100 text-slate-800 border-slate-300' // Default to basic tier
+      return 'bg-slate-700 text-slate-50 border-slate-500'
   }
 }
 
