@@ -10,7 +10,7 @@ import {
   transformExtractionRecipesToCalculator
 } from '@/lib/spacetime-db/modules/recipes/calculator'
 import { getAllResources } from '@/lib/spacetime-db/modules/resources/commands/get-all-resources'
-import { mapResourceToCalculatorItem, transformResourcesToCalculator } from '@/lib/spacetime-db/modules/resources/calculator'
+import { mapResourceToCalculatorItem, transformResourcesToCalculator } from '@/lib/spacetime-db/modules/resources/commands'
 import { createUnifiedLookup, shouldFilterItem } from '@/lib/spacetime-db/shared/calculator-utils'
 import type { CalculatorGameData } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
 

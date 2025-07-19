@@ -4,7 +4,7 @@ import { transformCollectionsToSearch } from '@/lib/spacetime-db/modules/collect
 import { getAllItems } from '@/lib/spacetime-db/modules/items/commands/get-all-items'
 import { transformItemsToSearch } from '@/lib/spacetime-db/modules/items/commands'
 import { getAllResources } from '@/lib/spacetime-db/modules/resources/commands/get-all-resources'
-import { transformResourcesToSearch } from '@/lib/spacetime-db/modules/resources/search'
+import { transformResourcesToSearch } from '@/lib/spacetime-db/modules/resources/commands'
 import { shouldFilterItem } from '@/lib/spacetime-db/shared/calculator-utils'
 import { transformToSearchData, type SearchData } from '@/lib/spacetime-db/shared/dtos/search-dtos'
 

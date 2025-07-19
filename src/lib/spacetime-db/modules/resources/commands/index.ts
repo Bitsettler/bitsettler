@@ -1,2 +1,5 @@
 export { getAllResources } from './get-all-resources'
+export { getResourceItems } from './get-resource-items'
 export { getResourcesCategoriesCommand } from './get-resources-categories'
+export { mapResourceToCalculatorItem, transformResourcesToCalculator } from './map-resource-to-calculator'
+export { mapResourceToSearchItem, transformResourcesToSearch } from './map-resource-to-search'

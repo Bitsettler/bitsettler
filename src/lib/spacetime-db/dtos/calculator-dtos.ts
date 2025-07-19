@@ -11,7 +11,7 @@ import {
   transformCraftingRecipesToCalculator,
   transformExtractionRecipesToCalculator
 } from '../modules/recipes/calculator'
-import { mapResourceToCalculatorItem } from '../modules/resources/calculator'
+import { mapResourceToCalculatorItem } from '../modules/resources/commands'
 import { createUnifiedLookup } from '../shared/calculator-utils'
 
 // Re-export module functions for backward compatibility
