@@ -21,52 +21,195 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 
 // Import and reexport all reducer arg types
-import { AdminBroadcastMsg } from './admin_broadcast_msg_reducer.ts'
-import { AdminGrantShards } from './admin_grant_shards_reducer.ts'
-import { AdminMarkUserReportAsActioned } from './admin_mark_user_report_as_actioned_reducer.ts'
-import { AdminNotifyPlayerByIdentity } from './admin_notify_player_by_identity_reducer.ts'
-import { AdminNotifyPlayer } from './admin_notify_player_reducer.ts'
-import { AdminRenameEmpireEntity } from './admin_rename_empire_entity_reducer.ts'
-import { AdminRenameEmpireRankEntity } from './admin_rename_empire_rank_entity_reducer.ts'
-import { AdminRenameEmpireRank } from './admin_rename_empire_rank_reducer.ts'
-import { AdminRenameEmpire } from './admin_rename_empire_reducer.ts'
-import { AdminRenamePlayerEntity } from './admin_rename_player_entity_reducer.ts'
-import { AdminRenamePlayer } from './admin_rename_player_reducer.ts'
-import { AdminSignOutAll } from './admin_sign_out_all_reducer.ts'
-import { AdminSkipQueueEntity } from './admin_skip_queue_entity_reducer.ts'
-import { AdminSkipQueueIdentity } from './admin_skip_queue_identity_reducer.ts'
-import { AdminSkipQueueName } from './admin_skip_queue_name_reducer.ts'
-import { AdminUpdateGrantedHubItemState } from './admin_update_granted_hub_item_state_reducer.ts'
-import { AdminUpdateSignInParameters } from './admin_update_sign_in_parameters_reducer.ts'
-import { Authenticate } from './authenticate_reducer.ts'
-import { BlockIdentity } from './block_identity_reducer.ts'
-import { CheatEmpireSiegeAddSupplies } from './cheat_empire_siege_add_supplies_reducer.ts'
-import { CheatEmpireSiegeCancel } from './cheat_empire_siege_cancel_reducer.ts'
-import { CheatPlayerSetName } from './cheat_player_set_name_reducer.ts'
-import { CheatShardsGrant } from './cheat_shards_grant_reducer.ts'
+import { AchievementClaim } from './achievement_claim_reducer.ts'
+import { AcquireKnowledgeFromEntities } from './acquire_knowledge_from_entities_reducer.ts'
+import { AdminAlpha3CompleteOnboarding } from './admin_alpha_3_complete_onboarding_reducer.ts'
+import { AdminAlpha3ResetOnboardingToFifthTempleQuest } from './admin_alpha_3_reset_onboarding_to_fifth_temple_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToFirstExpandQuest } from './admin_alpha_3_reset_onboarding_to_first_expand_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToFirstTempleQuest } from './admin_alpha_3_reset_onboarding_to_first_temple_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToFourthExpandQuest } from './admin_alpha_3_reset_onboarding_to_fourth_expand_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToFourthTempleQuest } from './admin_alpha_3_reset_onboarding_to_fourth_temple_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToSecondExpandQuest } from './admin_alpha_3_reset_onboarding_to_second_expand_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToSecondTempleQuest } from './admin_alpha_3_reset_onboarding_to_second_temple_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToThirdExpandQuest } from './admin_alpha_3_reset_onboarding_to_third_expand_quest_reducer.ts'
+import { AdminAlpha3ResetOnboardingToThirdTempleQuest } from './admin_alpha_3_reset_onboarding_to_third_temple_quest_reducer.ts'
+import { AdminBroadcastMsgRegion } from './admin_broadcast_msg_region_reducer.ts'
+import { AdminClearAllResources } from './admin_clear_all_resources_reducer.ts'
+import { AdminClearChunkResources } from './admin_clear_chunk_resources_reducer.ts'
+import { AdminCollapseRuin } from './admin_collapse_ruin_reducer.ts'
+import { AdminCollapseRuins } from './admin_collapse_ruins_reducer.ts'
+import { AdminCompleteAllPassiveCrafts } from './admin_complete_all_passive_crafts_reducer.ts'
+import { AdminCountInventoryItems } from './admin_count_inventory_items_reducer.ts'
+import { AdminDeleteAllItemsOfType } from './admin_delete_all_items_of_type_reducer.ts'
+import { AdminDeleteChatMessage } from './admin_delete_chat_message_reducer.ts'
+import { AdminDespawnOverworldEnemies } from './admin_despawn_overworld_enemies_reducer.ts'
+import { AdminGrantCollectibles } from './admin_grant_collectibles_reducer.ts'
+import { AdminModifyChatMessage } from './admin_modify_chat_message_reducer.ts'
+import { AdminRenameBuildingCoord } from './admin_rename_building_coord_reducer.ts'
+import { AdminRenameBuildingEntity } from './admin_rename_building_entity_reducer.ts'
+import { AdminRenameBuilding } from './admin_rename_building_reducer.ts'
+import { AdminRenameClaimEntity } from './admin_rename_claim_entity_reducer.ts'
+import { AdminRenameClaim } from './admin_rename_claim_reducer.ts'
+import { AdminRenameDeployableEntity } from './admin_rename_deployable_entity_reducer.ts'
+import { AdminRenameDeployable } from './admin_rename_deployable_reducer.ts'
+import { AdminResetAllHerdLocations } from './admin_reset_all_herd_locations_reducer.ts'
+import { AdminResetHerdLocations } from './admin_reset_herd_locations_reducer.ts'
+import { AdminResetOnboardingCompletely } from './admin_reset_onboarding_completely_reducer.ts'
+import { AdminRestoreAllCollapsedRuins } from './admin_restore_all_collapsed_ruins_reducer.ts'
+import { AdminRestorePlayerState } from './admin_restore_player_state_reducer.ts'
+import { AdminRestorePlayerStateScheduled } from './admin_restore_player_state_scheduled_reducer.ts'
+import { AdminSetSignTextCoord } from './admin_set_sign_text_coord_reducer.ts'
+import { AdminSetSignTextEntity } from './admin_set_sign_text_entity_reducer.ts'
+import { AdminSetSignText } from './admin_set_sign_text_reducer.ts'
+import { AdminSignOutAllRegion } from './admin_sign_out_all_region_reducer.ts'
+import { AdminSignOut } from './admin_sign_out_reducer.ts'
+import { AdminSignOutString } from './admin_sign_out_string_reducer.ts'
+import { AdminUpdateLightSourceStates } from './admin_update_light_source_states_reducer.ts'
+import { AttackImpact } from './attack_impact_reducer.ts'
+import { Attack } from './attack_reducer.ts'
+import { AttackScheduled } from './attack_scheduled_reducer.ts'
+import { AttackStart } from './attack_start_reducer.ts'
+import { AutoLogoutLoop } from './auto_logout_loop_reducer.ts'
+import { BarterStallOrderAccept } from './barter_stall_order_accept_reducer.ts'
+import { BarterStallOrderCreate } from './barter_stall_order_create_reducer.ts'
+import { BarterStallOrderDelete } from './barter_stall_order_delete_reducer.ts'
+import { BarterStallSetMarketModeEnabled } from './barter_stall_set_market_mode_enabled_reducer.ts'
+import { BlueprintPlace } from './blueprint_place_reducer.ts'
+import { BuildingDecayAgentLoop } from './building_decay_agent_loop_reducer.ts'
+import { BuildingDeconstruct } from './building_deconstruct_reducer.ts'
+import { BuildingDeconstructStart } from './building_deconstruct_start_reducer.ts'
+import { BuildingDespawn } from './building_despawn_reducer.ts'
+import { BuildingMove } from './building_move_reducer.ts'
+import { BuildingRepair } from './building_repair_reducer.ts'
+import { BuildingRepairStart } from './building_repair_start_reducer.ts'
+import { BuildingSetNickname } from './building_set_nickname_reducer.ts'
+import { BuildingSetSignText } from './building_set_sign_text_reducer.ts'
+import { ChatPostMessage } from './chat_post_message_reducer.ts'
+import { CheatBuildingMove } from './cheat_building_move_reducer.ts'
+import { CheatBuildingPlace } from './cheat_building_place_reducer.ts'
+import { CheatCargoGrant } from './cheat_cargo_grant_reducer.ts'
+import { CheatClaimTakeOwnership } from './cheat_claim_take_ownership_reducer.ts'
+import { CheatClaimTotemAddSupplies } from './cheat_claim_totem_add_supplies_reducer.ts'
+import { CheatClaimTotemCompleteCurrentResearch } from './cheat_claim_totem_complete_current_research_reducer.ts'
+import { CheatClaimTotemResearchAll } from './cheat_claim_totem_research_all_reducer.ts'
+import { CheatClearBuffsAndDebuffs } from './cheat_clear_buffs_and_debuffs_reducer.ts'
+import { CheatCompendiumPlaceEnemy } from './cheat_compendium_place_enemy_reducer.ts'
+import { CheatCompendiumPlaceResource } from './cheat_compendium_place_resource_reducer.ts'
+import { CheatDeleteItem } from './cheat_delete_item_reducer.ts'
+import { CheatDeployableStore } from './cheat_deployable_store_reducer.ts'
+import { CheatDiscoverMap } from './cheat_discover_map_reducer.ts'
+import { CheatExperienceGrant } from './cheat_experience_grant_reducer.ts'
+import { CheatGrantKnowledge } from './cheat_grant_knowledge_reducer.ts'
+import { CheatGrantTeleportEnergy } from './cheat_grant_teleport_energy_reducer.ts'
+import { CheatItemStackGrantAndEquip } from './cheat_item_stack_grant_and_equip_reducer.ts'
+import { CheatItemStackGrant } from './cheat_item_stack_grant_reducer.ts'
+import { CheatKill } from './cheat_kill_reducer.ts'
+import { CheatPavingAddTile } from './cheat_paving_add_tile_reducer.ts'
+import { CheatPavingDestroy } from './cheat_paving_destroy_reducer.ts'
+import { CheatPillarShapingAddPillar } from './cheat_pillar_shaping_add_pillar_reducer.ts'
+import { CheatPillarShapingDestroy } from './cheat_pillar_shaping_destroy_reducer.ts'
+import { CheatProjectSiteAddAllMaterials } from './cheat_project_site_add_all_materials_reducer.ts'
+import { CheatRemoveEntityBuilding } from './cheat_remove_entity_building_reducer.ts'
+import { CheatRemoveEntityEnemy } from './cheat_remove_entity_enemy_reducer.ts'
+import { CheatRemoveEntityResource } from './cheat_remove_entity_resource_reducer.ts'
+import { CheatSetAiDebugState } from './cheat_set_ai_debug_state_reducer.ts'
+import { CheatSpawnLootChest } from './cheat_spawn_loot_chest_reducer.ts'
+import { CheatTeleportFloat } from './cheat_teleport_float_reducer.ts'
+import { CheatTerraform } from './cheat_terraform_reducer.ts'
+import { CheatToggleActiveCollectible } from './cheat_toggle_active_collectible_reducer.ts'
+import { CheatWarp } from './cheat_warp_reducer.ts'
+import { ClaimAddMember } from './claim_add_member_reducer.ts'
+import { ClaimAddRecruitment } from './claim_add_recruitment_reducer.ts'
+import { ClaimAddTile } from './claim_add_tile_reducer.ts'
+import { ClaimApplyForRecruitment } from './claim_apply_for_recruitment_reducer.ts'
+import { ClaimLeave } from './claim_leave_reducer.ts'
+import { ClaimPurchaseSuppliesFromPlayer } from './claim_purchase_supplies_from_player_reducer.ts'
+import { ClaimRemoveMember } from './claim_remove_member_reducer.ts'
+import { ClaimRemoveRecruitment } from './claim_remove_recruitment_reducer.ts'
+import { ClaimRemoveTile } from './claim_remove_tile_reducer.ts'
+import { ClaimRename } from './claim_rename_reducer.ts'
+import { ClaimResupply } from './claim_resupply_reducer.ts'
+import { ClaimResupplyStart } from './claim_resupply_start_reducer.ts'
+import { ClaimSetMemberPermissions } from './claim_set_member_permissions_reducer.ts'
+import { ClaimSetPurchaseSupplyPrice } from './claim_set_purchase_supply_price_reducer.ts'
+import { ClaimSetPurchaseSupplyThreshold } from './claim_set_purchase_supply_threshold_reducer.ts'
+import { ClaimTakeOwnership } from './claim_take_ownership_reducer.ts'
+import { ClaimTechCancel } from './claim_tech_cancel_reducer.ts'
+import { ClaimTechLearn } from './claim_tech_learn_reducer.ts'
+import { ClaimTechUnlockTech } from './claim_tech_unlock_tech_reducer.ts'
+import { ClaimTransferOwnership } from './claim_transfer_ownership_reducer.ts'
+import { ClaimWithdrawFromTreasury } from './claim_withdraw_from_treasury_reducer.ts'
 import { ClearStagedStaticData } from './clear_staged_static_data_reducer.ts'
+import { ClosedListingCollect } from './closed_listing_collect_reducer.ts'
+import { CollectStatsReducer } from './collect_stats_reducer_reducer.ts'
+import { CollectibleActivate } from './collectible_activate_reducer.ts'
 import { CommitStagedStaticData } from './commit_staged_static_data_reducer.ts'
+import { CompleteOnboardingQuest } from './complete_onboarding_quest_reducer.ts'
+import { CompleteOnboardingState } from './complete_onboarding_state_reducer.ts'
+import { ConvertCollectibleToDeed } from './convert_collectible_to_deed_reducer.ts'
+import { ConvertDeedToCollectible } from './convert_deed_to_collectible_reducer.ts'
+import { CraftCancel } from './craft_cancel_reducer.ts'
+import { CraftCollectAll } from './craft_collect_all_reducer.ts'
+import { CraftCollect } from './craft_collect_reducer.ts'
+import { CraftContinue } from './craft_continue_reducer.ts'
+import { CraftContinueStart } from './craft_continue_start_reducer.ts'
+import { CraftInitiate } from './craft_initiate_reducer.ts'
+import { CraftInitiateStart } from './craft_initiate_start_reducer.ts'
 import { CurrentVersion } from './current_version_reducer.ts'
-import { EmpireChangeEmblem } from './empire_change_emblem_reducer.ts'
-import { EmpireCraftSupplies } from './empire_craft_supplies_reducer.ts'
-import { EmpireCraftSuppliesScheduled } from './empire_craft_supplies_scheduled_reducer.ts'
-import { EmpireDecayAgentLoop } from './empire_decay_agent_loop_reducer.ts'
-import { EmpireDismantle } from './empire_dismantle_reducer.ts'
-import { EmpireDonateShards } from './empire_donate_shards_reducer.ts'
-import { EmpireForm } from './empire_form_reducer.ts'
-import { EmpireLeave } from './empire_leave_reducer.ts'
-import { EmpireMarkForExpansion } from './empire_mark_for_expansion_reducer.ts'
-import { EmpireMarkForSiege } from './empire_mark_for_siege_reducer.ts'
-import { EmpirePlayerJoin } from './empire_player_join_reducer.ts'
-import { EmpirePlayerLeave } from './empire_player_leave_reducer.ts'
-import { EmpireSetDirectiveMessage } from './empire_set_directive_message_reducer.ts'
-import { EmpireSetNobilityThreshold } from './empire_set_nobility_threshold_reducer.ts'
-import { EmpireSetPlayerRank } from './empire_set_player_rank_reducer.ts'
-import { EmpireSetRankTitle } from './empire_set_rank_title_reducer.ts'
-import { EmpireSiegeAgentLoop } from './empire_siege_agent_loop_reducer.ts'
-import { EmpireSubmit } from './empire_submit_reducer.ts'
-import { EmpireTransferEmperorship } from './empire_transfer_emperorship_reducer.ts'
-import { EmpireUpdatePermissions } from './empire_update_permissions_reducer.ts'
+import { DayNightAgentLoop } from './day_night_agent_loop_reducer.ts'
+import { DeleteAllNpcs } from './delete_all_npcs_reducer.ts'
+import { DeployableDeploy } from './deployable_deploy_reducer.ts'
+import { DeployableDeployStart } from './deployable_deploy_start_reducer.ts'
+import { DeployableDismount } from './deployable_dismount_reducer.ts'
+import { DeployableDismountScheduled } from './deployable_dismount_scheduled_reducer.ts'
+import { DeployableMount } from './deployable_mount_reducer.ts'
+import { DeployableMoveOffClaim } from './deployable_move_off_claim_reducer.ts'
+import { DeployableMove } from './deployable_move_reducer.ts'
+import { DeployableStore } from './deployable_store_reducer.ts'
+import { DeployableStoreStart } from './deployable_store_start_reducer.ts'
+import { DestroyDimensionNetwork } from './destroy_dimension_network_reducer.ts'
+import { DevDeleteWorld } from './dev_delete_world_reducer.ts'
+import { DiscoverEntities } from './discover_entities_reducer.ts'
+import { DroppedInventoryDespawn } from './dropped_inventory_despawn_reducer.ts'
+import { DroppedInventoryLoseOwnership } from './dropped_inventory_lose_ownership_reducer.ts'
+import { DuelAgentTimerLoop } from './duel_agent_timer_loop_reducer.ts'
+import { DuelDespawn } from './duel_despawn_reducer.ts'
+import { Eat } from './eat_reducer.ts'
+import { Emote } from './emote_reducer.ts'
+import { EmoteStart } from './emote_start_reducer.ts'
+import { EmpireAddSiegeSupplies } from './empire_add_siege_supplies_reducer.ts'
+import { EmpireClaimJoin } from './empire_claim_join_reducer.ts'
+import { EmpireCollectHexiteCapsule } from './empire_collect_hexite_capsule_reducer.ts'
+import { EmpireDeploySiegeEngine } from './empire_deploy_siege_engine_reducer.ts'
+import { EmpireDeploySiegeEngineStart } from './empire_deploy_siege_engine_start_reducer.ts'
+import { EmpireQueueSupplies } from './empire_queue_supplies_reducer.ts'
+import { EmpireResupplyNode } from './empire_resupply_node_reducer.ts'
+import { EmpireResupplyNodeStart } from './empire_resupply_node_start_reducer.ts'
+import { EmpireSiegeDepletedWatchtower } from './empire_siege_depleted_watchtower_reducer.ts'
+import { EndGracePeriod } from './end_grace_period_reducer.ts'
+import { EnemyClearAggro } from './enemy_clear_aggro_reducer.ts'
+import { EnemyDespawnFromMobMonitorBatch } from './enemy_despawn_from_mob_monitor_batch_reducer.ts'
+import { EnemyDespawnFromMobMonitor } from './enemy_despawn_from_mob_monitor_reducer.ts'
+import { EnemyDespawn } from './enemy_despawn_reducer.ts'
+import { EnemyMoveBatch } from './enemy_move_batch_reducer.ts'
+import { EnemyMove } from './enemy_move_reducer.ts'
+import { EnemyRegenAgentLoop } from './enemy_regen_agent_loop_reducer.ts'
+import { EnemySetHealthBatch } from './enemy_set_health_batch_reducer.ts'
+import { EnemySetHealth } from './enemy_set_health_reducer.ts'
+import { EnemySpawnBatch } from './enemy_spawn_batch_reducer.ts'
+import { EnemySpawnLoot } from './enemy_spawn_loot_reducer.ts'
+import { EnemySpawn } from './enemy_spawn_reducer.ts'
+import { EnvironmentDebuffAgentLoop } from './environment_debuff_agent_loop_reducer.ts'
+import { EquipmentAdd } from './equipment_add_reducer.ts'
+import { EquipmentRemove } from './equipment_remove_reducer.ts'
+import { Extract } from './extract_reducer.ts'
+import { ExtractStart } from './extract_start_reducer.ts'
+import { ForceStartAgents } from './force_start_agents_reducer.ts'
+import { GenerateDevIsland } from './generate_dev_island_reducer.ts'
+import { GenerateFlatWorld } from './generate_flat_world_reducer.ts'
+import { GenerateWorld } from './generate_world_reducer.ts'
+import { GrowthAgentLoop } from './growth_agent_loop_reducer.ts'
+import { HideDeployable } from './hide_deployable_reducer.ts'
 import { IdentityConnected } from './identity_connected_reducer.ts'
 import { IdentityDisconnected } from './identity_disconnected_reducer.ts'
 import { ImportAchievementDesc } from './import_achievement_desc_reducer.ts'
@@ -115,6 +258,7 @@ import { ImportDroppedInventoryState } from './import_dropped_inventory_state_re
 import { ImportElevatorDesc } from './import_elevator_desc_reducer.ts'
 import { ImportEmoteDesc } from './import_emote_desc_reducer.ts'
 import { ImportEmpireColorsDesc } from './import_empire_colors_desc_reducer.ts'
+import { ImportEmpireIconDesc } from './import_empire_icon_desc_reducer.ts'
 import { ImportEmpireNotificationDesc } from './import_empire_notification_desc_reducer.ts'
 import { ImportEmpireRankDesc } from './import_empire_rank_desc_reducer.ts'
 import { ImportEmpireSuppliesDesc } from './import_empire_supplies_desc_reducer.ts'
@@ -138,6 +282,7 @@ import { ImportHerdCache } from './import_herd_cache_reducer.ts'
 import { ImportHexiteExchangeEntryDesc } from './import_hexite_exchange_entry_desc_reducer.ts'
 import { ImportIdentityRole } from './import_identity_role_reducer.ts'
 import { ImportInteriorCollapseTriggerState } from './import_interior_collapse_trigger_state_reducer.ts'
+import { ImportInteriorEnvironmentDesc } from './import_interior_environment_desc_reducer.ts'
 import { ImportInteriorInstanceDesc } from './import_interior_instance_desc_reducer.ts'
 import { ImportInteriorNetworkDesc } from './import_interior_network_desc_reducer.ts'
 import { ImportInteriorPortalConnectionsDesc } from './import_interior_portal_connections_desc_reducer.ts'
@@ -160,6 +305,7 @@ import { ImportKnowledgeItemState } from './import_knowledge_item_state_reducer.
 import { ImportKnowledgeLoreState } from './import_knowledge_lore_state_reducer.ts'
 import { ImportKnowledgeNpcState } from './import_knowledge_npc_state_reducer.ts'
 import { ImportKnowledgePavingState } from './import_knowledge_paving_state_reducer.ts'
+import { ImportKnowledgePillarShapingState } from './import_knowledge_pillar_shaping_state_reducer.ts'
 import { ImportKnowledgeResourcePlacementState } from './import_knowledge_resource_placement_state_reducer.ts'
 import { ImportKnowledgeResourceState } from './import_knowledge_resource_state_reducer.ts'
 import { ImportKnowledgeRuinsState } from './import_knowledge_ruins_state_reducer.ts'
@@ -168,6 +314,7 @@ import { ImportKnowledgeScrollTypeDesc } from './import_knowledge_scroll_type_de
 import { ImportKnowledgeSecondaryState } from './import_knowledge_secondary_state_reducer.ts'
 import { ImportKnowledgeStatModifierDesc } from './import_knowledge_stat_modifier_desc_reducer.ts'
 import { ImportKnowledgeVaultState } from './import_knowledge_vault_state_reducer.ts'
+import { ImportLocationCache } from './import_location_cache_reducer.ts'
 import { ImportLocationState } from './import_location_state_reducer.ts'
 import { ImportLootChestDesc } from './import_loot_chest_desc_reducer.ts'
 import { ImportLootChestState } from './import_loot_chest_state_reducer.ts'
@@ -183,24 +330,25 @@ import { ImportParametersDesc } from './import_parameters_desc_reducer.ts'
 import { ImportPathfindingDesc } from './import_pathfinding_desc_reducer.ts'
 import { ImportPavedTileState } from './import_paved_tile_state_reducer.ts'
 import { ImportPavingTileDesc } from './import_paving_tile_desc_reducer.ts'
+import { ImportPillarShapingDesc } from './import_pillar_shaping_desc_reducer.ts'
 import { ImportPlayerActionDesc } from './import_player_action_desc_reducer.ts'
 import { ImportPlayerActionState } from './import_player_action_state_reducer.ts'
+import { ImportPlayerHousingDesc } from './import_player_housing_desc_reducer.ts'
 import { ImportPlayerPrefsState } from './import_player_prefs_state_reducer.ts'
 import { ImportPlayerState } from './import_player_state_reducer.ts'
-import { ImportPlayerVoteState } from './import_player_vote_state_reducer.ts'
 import { ImportPortalState } from './import_portal_state_reducer.ts'
 import { ImportPrivateParametersDesc } from './import_private_parameters_desc_reducer.ts'
 import { ImportProgressiveActionState } from './import_progressive_action_state_reducer.ts'
 import { ImportProjectSiteState } from './import_project_site_state_reducer.ts'
-import { ImportRegionConnectionInfo } from './import_region_connection_info_reducer.ts'
-import { ImportRegionSignInParameters } from './import_region_sign_in_parameters_reducer.ts'
 import { ImportRentState } from './import_rent_state_reducer.ts'
+import { ImportReservedNameDesc } from './import_reserved_name_desc_reducer.ts'
 import { ImportResourceClumpDesc } from './import_resource_clump_desc_reducer.ts'
 import { ImportResourceCount } from './import_resource_count_reducer.ts'
 import { ImportResourceDesc } from './import_resource_desc_reducer.ts'
 import { ImportResourceGrowthRecipeDesc } from './import_resource_growth_recipe_desc_reducer.ts'
 import { ImportResourcePlacementRecipeDesc } from './import_resource_placement_recipe_desc_reducer.ts'
 import { ImportResourceState } from './import_resource_state_reducer.ts'
+import { ImportResourcesLog } from './import_resources_log_reducer.ts'
 import { ImportSatiationState } from './import_satiation_state_reducer.ts'
 import { ImportSecondaryKnowledgeDesc } from './import_secondary_knowledge_desc_reducer.ts'
 import { ImportServerIdentity } from './import_server_identity_reducer.ts'
@@ -227,20 +375,124 @@ import { ImportWeaponDesc } from './import_weapon_desc_reducer.ts'
 import { ImportWeaponTypeDesc } from './import_weapon_type_desc_reducer.ts'
 import { ImportWorldRegionNameState } from './import_world_region_name_state_reducer.ts'
 import { ImportWorldRegionState } from './import_world_region_state_reducer.ts'
+import { InsertResourcesLog } from './insert_resources_log_reducer.ts'
+import { InsertTerrainChunk } from './insert_terrain_chunk_reducer.ts'
+import { InteriorSetCollapsed } from './interior_set_collapsed_reducer.ts'
+import { InteriorSetCollapsedScheduled } from './interior_set_collapsed_scheduled_reducer.ts'
+import { InventoryCreatePersonal } from './inventory_create_personal_reducer.ts'
+import { InventorySort } from './inventory_sort_reducer.ts'
+import { ItemConvert } from './item_convert_reducer.ts'
+import { ItemConvertStart } from './item_convert_start_reducer.ts'
+import { ItemDrop } from './item_drop_reducer.ts'
+import { ItemPickUp } from './item_pick_up_reducer.ts'
+import { ItemStackMoveAll } from './item_stack_move_all_reducer.ts'
+import { ItemStackMove } from './item_stack_move_reducer.ts'
+import { ItemStackSplit } from './item_stack_split_reducer.ts'
+import { ItemUse } from './item_use_reducer.ts'
+import { ItemUseStart } from './item_use_start_reducer.ts'
 import { LoadConfig } from './load_config_reducer.ts'
-import { LogEmpireLeaderboard } from './log_empire_leaderboard_reducer.ts'
-import { LogPlayerWith } from './log_player_with_reducer.ts'
+import { LogClaimMemberLeaderboard } from './log_claim_member_leaderboard_reducer.ts'
+import { LogClaimTierLeaderboard } from './log_claim_tier_leaderboard_reducer.ts'
+import { LootChestDespawn } from './loot_chest_despawn_reducer.ts'
+import { LootChestSpawn } from './loot_chest_spawn_reducer.ts'
+import { NpcAiAgentLoop } from './npc_ai_agent_loop_reducer.ts'
+import { OnDurabilityZero } from './on_durability_zero_reducer.ts'
 import { OnInterModuleMessageProcessed } from './on_inter_module_message_processed_reducer.ts'
-import { PlayerClaimDailyShards } from './player_claim_daily_shards_reducer.ts'
-import { PlayerCreate } from './player_create_reducer.ts'
-import { PlayerDismissNotification } from './player_dismiss_notification_reducer.ts'
+import { OrderCancel } from './order_cancel_reducer.ts'
+import { OrderCollect } from './order_collect_reducer.ts'
+import { OrderEditBuyOrder } from './order_edit_buy_order_reducer.ts'
+import { OrderEditSellOrder } from './order_edit_sell_order_reducer.ts'
+import { OrderPostBuyOrder } from './order_post_buy_order_reducer.ts'
+import { OrderPostSellOrder } from './order_post_sell_order_reducer.ts'
+import { PassiveCraftCancel } from './passive_craft_cancel_reducer.ts'
+import { PassiveCraftCollectAll } from './passive_craft_collect_all_reducer.ts'
+import { PassiveCraftCollect } from './passive_craft_collect_reducer.ts'
+import { PassiveCraftProcess } from './passive_craft_process_reducer.ts'
+import { PassiveCraftQueue } from './passive_craft_queue_reducer.ts'
+import { PausePlayTimer } from './pause_play_timer_reducer.ts'
+import { PavingDestroyTile } from './paving_destroy_tile_reducer.ts'
+import { PavingDestroyTileStart } from './paving_destroy_tile_start_reducer.ts'
+import { PavingPlaceTile } from './paving_place_tile_reducer.ts'
+import { PavingPlaceTileStart } from './paving_place_tile_start_reducer.ts'
+import { PermissionEdit } from './permission_edit_reducer.ts'
+import { PillarShapingDestroy } from './pillar_shaping_destroy_reducer.ts'
+import { PillarShapingDestroyStart } from './pillar_shaping_destroy_start_reducer.ts'
+import { PillarShapingPlacePillar } from './pillar_shaping_place_pillar_reducer.ts'
+import { PillarShapingPlacePillarStart } from './pillar_shaping_place_pillar_start_reducer.ts'
+import { PlayerActionCancel } from './player_action_cancel_reducer.ts'
+import { PlayerCancelRegionTransfer } from './player_cancel_region_transfer_reducer.ts'
+import { PlayerClearActionState } from './player_clear_action_state_reducer.ts'
+import { PlayerClimb } from './player_climb_reducer.ts'
+import { PlayerClimbStart } from './player_climb_start_reducer.ts'
+import { PlayerCompleteTask } from './player_complete_task_reducer.ts'
+import { PlayerDeathStart } from './player_death_start_reducer.ts'
+import { PlayerDismissAlert } from './player_dismiss_alert_reducer.ts'
+import { PlayerDuelInitiate } from './player_duel_initiate_reducer.ts'
+import { PlayerElevatorArrive } from './player_elevator_arrive_reducer.ts'
+import { PlayerHousingChangeEntrance } from './player_housing_change_entrance_reducer.ts'
+import { PlayerHousingEnter } from './player_housing_enter_reducer.ts'
+import { PlayerHousingEvictPlayerComplete } from './player_housing_evict_player_complete_reducer.ts'
+import { PlayerHousingEvictPlayer } from './player_housing_evict_player_reducer.ts'
+import { PlayerHousingIncomeAgentLoop } from './player_housing_income_agent_loop_reducer.ts'
+import { PlayerHousingRequestAccess } from './player_housing_request_access_reducer.ts'
+import { PlayerHousingUpdate } from './player_housing_update_reducer.ts'
+import { PlayerMove } from './player_move_reducer.ts'
 import { PlayerNotificationEventReducer } from './player_notification_event_reducer_reducer.ts'
-import { PlayerSetName } from './player_set_name_reducer.ts'
+import { PlayerQueueJoin } from './player_queue_join_reducer.ts'
+import { PlayerQueueLeave } from './player_queue_leave_reducer.ts'
+import { PlayerRegenAgentLoop } from './player_regen_agent_loop_reducer.ts'
+import { PlayerRegionCrossover } from './player_region_crossover_reducer.ts'
+import { PlayerRegionTransferEventReducer } from './player_region_transfer_event_reducer_reducer.ts'
+import { PlayerRespawn } from './player_respawn_reducer.ts'
+import { PlayerSetDefaultDeployable } from './player_set_default_deployable_reducer.ts'
+import { PlayerSetNameOutcomeEventReducer } from './player_set_name_outcome_event_reducer_reducer.ts'
+import { PlayerTeleportHome } from './player_teleport_home_reducer.ts'
+import { PlayerTeleportHomeStart } from './player_teleport_home_start_reducer.ts'
+import { PlayerTeleportWaystone } from './player_teleport_waystone_reducer.ts'
+import { PlayerTeleportWaystoneStart } from './player_teleport_waystone_start_reducer.ts'
+import { PlayerUseElevator } from './player_use_elevator_reducer.ts'
 import { PlayerVoteAnswer } from './player_vote_answer_reducer.ts'
 import { PlayerVoteConclude } from './player_vote_conclude_reducer.ts'
+import { PocketSwapContents } from './pocket_swap_contents_reducer.ts'
+import { PortalEnter } from './portal_enter_reducer.ts'
 import { ProcessInterModuleMessage } from './process_inter_module_message_reducer.ts'
-import { SetRoleForIdentity } from './set_role_for_identity_reducer.ts'
+import { ProjectSiteAddMaterials } from './project_site_add_materials_reducer.ts'
+import { ProjectSiteAdvanceProject } from './project_site_advance_project_reducer.ts'
+import { ProjectSiteAdvanceProjectStart } from './project_site_advance_project_start_reducer.ts'
+import { ProjectSiteCancel } from './project_site_cancel_reducer.ts'
+import { ProjectSitePlace } from './project_site_place_reducer.ts'
+import { RegionPopuplationAgentLoop } from './region_popuplation_agent_loop_reducer.ts'
+import { RentAddListing } from './rent_add_listing_reducer.ts'
+import { RentAddTenant } from './rent_add_tenant_reducer.ts'
+import { RentCollectEvictionFee } from './rent_collect_eviction_fee_reducer.ts'
+import { RentCollectorAgentLoop } from './rent_collector_agent_loop_reducer.ts'
+import { RentDepositCoins } from './rent_deposit_coins_reducer.ts'
+import { RentEvict } from './rent_evict_reducer.ts'
+import { RentEvictTerm } from './rent_evict_term_reducer.ts'
+import { RentPurchase } from './rent_purchase_reducer.ts'
+import { RentRemoveTenant } from './rent_remove_tenant_reducer.ts'
+import { RentSetDailyRate } from './rent_set_daily_rate_reducer.ts'
+import { RentTerminate } from './rent_terminate_reducer.ts'
+import { RentUnlist } from './rent_unlist_reducer.ts'
+import { ReportChatMessage } from './report_chat_message_reducer.ts'
+import { ReportPlayer } from './report_player_reducer.ts'
+import { ResetChunkIndex } from './reset_chunk_index_reducer.ts'
+import { ResetChunkIndexWithDimension } from './reset_chunk_index_with_dimension_reducer.ts'
+import { ResetMobileEntityPosition } from './reset_mobile_entity_position_reducer.ts'
+import { ResetOnboarding } from './reset_onboarding_reducer.ts'
+import { ResourceSpawnScheduled } from './resource_spawn_scheduled_reducer.ts'
+import { ResourcesRegen } from './resources_regen_reducer.ts'
+import { RespawnInteriorNpcs } from './respawn_interior_npcs_reducer.ts'
+import { RespawnResourceInChunk } from './respawn_resource_in_chunk_reducer.ts'
+import { RetrieveLostItem } from './retrieve_lost_item_reducer.ts'
+import { ScrollRead } from './scroll_read_reducer.ts'
+import { SearchForClosestBuilding } from './search_for_closest_building_reducer.ts'
+import { SearchForClosestBuildingType } from './search_for_closest_building_type_reducer.ts'
+import { ServerTeleportPlayer } from './server_teleport_player_reducer.ts'
+import { SetHome } from './set_home_reducer.ts'
 import { SignIn } from './sign_in_reducer.ts'
+import { SignOut } from './sign_out_reducer.ts'
+import { Sleep } from './sleep_reducer.ts'
 import { StageAchievementDesc } from './stage_achievement_desc_reducer.ts'
 import { StageAlertDesc } from './stage_alert_desc_reducer.ts'
 import { StageBiomeDesc } from './stage_biome_desc_reducer.ts'
@@ -323,322 +575,610 @@ import { StageTravelerTradeOrderDesc } from './stage_traveler_trade_order_desc_r
 import { StageWallDesc } from './stage_wall_desc_reducer.ts'
 import { StageWeaponDesc } from './stage_weapon_desc_reducer.ts'
 import { StageWeaponTypeDesc } from './stage_weapon_type_desc_reducer.ts'
-import { UpdateRoleForPlayer } from './update_role_for_player_reducer.ts'
+import { StartAgents } from './start_agents_reducer.ts'
+import { StartGeneratingWorld } from './start_generating_world_reducer.ts'
+import { StartOnboardingQuest } from './start_onboarding_quest_reducer.ts'
+import { StarvingAgentLoop } from './starving_agent_loop_reducer.ts'
+import { StopAgents } from './stop_agents_reducer.ts'
+import { SynchronizeTime } from './synchronize_time_reducer.ts'
+import { TargetUpdate } from './target_update_reducer.ts'
+import { TeleportationEnergyRegenAgentLoop } from './teleportation_energy_regen_agent_loop_reducer.ts'
+import { TerraformCancel } from './terraform_cancel_reducer.ts'
+import { Terraform } from './terraform_reducer.ts'
+import { TerraformSetFinalTarget } from './terraform_set_final_target_reducer.ts'
+import { TerraformStart } from './terraform_start_reducer.ts'
+import { TradeAccept } from './trade_accept_reducer.ts'
+import { TradeAcceptSession } from './trade_accept_session_reducer.ts'
+import { TradeAddItem } from './trade_add_item_reducer.ts'
+import { TradeCancelServer } from './trade_cancel_server_reducer.ts'
+import { TradeDecline } from './trade_decline_reducer.ts'
+import { TradeDeclineSession } from './trade_decline_session_reducer.ts'
+import { TradeInitiateSession } from './trade_initiate_session_reducer.ts'
+import { TradeRemoveItem } from './trade_remove_item_reducer.ts'
+import { TradeSessionsAgentLoop } from './trade_sessions_agent_loop_reducer.ts'
+import { TradeSwapPockets } from './trade_swap_pockets_reducer.ts'
+import { TransferPlayerDelayed } from './transfer_player_delayed_reducer.ts'
+import { TravelerTaskAgentLoop } from './traveler_task_agent_loop_reducer.ts'
 import { UpdateScheduledTimersFromStaticData } from './update_scheduled_timers_from_static_data_reducer.ts'
-import { UserModerationClearAll } from './user_moderation_clear_all_reducer.ts'
-import { UserModerationCreate } from './user_moderation_create_reducer.ts'
-import { UserModerationDelete } from './user_moderation_delete_reducer.ts'
-import { UserModerationListAll } from './user_moderation_list_all_reducer.ts'
-export {
-  AdminBroadcastMsg,
-  AdminGrantShards,
-  AdminMarkUserReportAsActioned,
-  AdminNotifyPlayer,
-  AdminNotifyPlayerByIdentity,
-  AdminRenameEmpire,
-  AdminRenameEmpireEntity,
-  AdminRenameEmpireRank,
-  AdminRenameEmpireRankEntity,
-  AdminRenamePlayer,
-  AdminRenamePlayerEntity,
-  AdminSignOutAll,
-  AdminSkipQueueEntity,
-  AdminSkipQueueIdentity,
-  AdminSkipQueueName,
-  AdminUpdateGrantedHubItemState,
-  AdminUpdateSignInParameters,
-  Authenticate,
-  BlockIdentity,
-  CheatEmpireSiegeAddSupplies,
-  CheatEmpireSiegeCancel,
-  CheatPlayerSetName,
-  CheatShardsGrant,
-  ClearStagedStaticData,
-  CommitStagedStaticData,
-  CurrentVersion,
-  EmpireChangeEmblem,
-  EmpireCraftSupplies,
-  EmpireCraftSuppliesScheduled,
-  EmpireDecayAgentLoop,
-  EmpireDismantle,
-  EmpireDonateShards,
-  EmpireForm,
-  EmpireLeave,
-  EmpireMarkForExpansion,
-  EmpireMarkForSiege,
-  EmpirePlayerJoin,
-  EmpirePlayerLeave,
-  EmpireSetDirectiveMessage,
-  EmpireSetNobilityThreshold,
-  EmpireSetPlayerRank,
-  EmpireSetRankTitle,
-  EmpireSiegeAgentLoop,
-  EmpireSubmit,
-  EmpireTransferEmperorship,
-  EmpireUpdatePermissions,
-  IdentityConnected,
-  IdentityDisconnected,
-  ImportAchievementDesc,
-  ImportActiveBuffState,
-  ImportAdminBroadcast,
-  ImportAlertDesc,
-  ImportAlertState,
-  ImportAttackOutcomeState,
-  ImportBiomeDesc,
-  ImportBuffDesc,
-  ImportBuffTypeDesc,
-  ImportBuildingClaimDesc,
-  ImportBuildingDesc,
-  ImportBuildingPortalDesc,
-  ImportBuildingRepairsDesc,
-  ImportBuildingSpawnDesc,
-  ImportBuildingState,
-  ImportBuildingTypeDesc,
-  ImportCargoDesc,
-  ImportCharacterStatDesc,
-  ImportCharacterStatsState,
-  ImportChatMessageState,
-  ImportChestRarityDesc,
-  ImportClaimLocalState,
-  ImportClaimRecruitmentState,
-  ImportClaimState,
-  ImportClaimTechDesc,
-  ImportClaimTechState,
-  ImportClaimTileCost,
-  ImportClaimTileState,
-  ImportClimbRequirementDesc,
-  ImportClothingDesc,
-  ImportCollectibleDesc,
-  ImportCombatActionDesc,
-  ImportCombatState,
-  ImportConfig,
-  ImportConstructionRecipeDesc,
-  ImportCraftingRecipeDesc,
-  ImportDeconstructionRecipeDesc,
-  ImportDeployableDesc,
-  ImportDeployableState,
-  ImportDimensionDescriptionState,
-  ImportDimensionNetworkDescriptionState,
-  ImportDistantVisibleEntityDesc,
-  ImportDroppedInventoryState,
-  ImportElevatorDesc,
-  ImportEmoteDesc,
-  ImportEmpireColorsDesc,
-  ImportEmpireNotificationDesc,
-  ImportEmpireRankDesc,
-  ImportEmpireSuppliesDesc,
-  ImportEmpireTerritoryDesc,
-  ImportEnemyAiParamsDesc,
-  ImportEnemyDesc,
-  ImportEnemyState,
-  ImportEnvironmentDebuffDesc,
-  ImportEquipmentDesc,
-  ImportEquipmentState,
-  ImportExperienceState,
-  ImportExplorationChunksState,
-  ImportExtractionRecipeDesc,
-  ImportFoodDesc,
-  ImportFootprintTileState,
-  ImportGateDesc,
-  ImportGlobals,
-  ImportGrowthState,
-  ImportHealthState,
-  ImportHerdCache,
-  ImportHexiteExchangeEntryDesc,
-  ImportIdentityRole,
-  ImportInteriorCollapseTriggerState,
-  ImportInteriorInstanceDesc,
-  ImportInteriorNetworkDesc,
-  ImportInteriorPortalConnectionsDesc,
-  ImportInteriorShapeDesc,
-  ImportInteriorSpawnDesc,
-  ImportInventoryState,
-  ImportItemConversionRecipeDesc,
-  ImportItemDesc,
-  ImportItemListDesc,
-  ImportKnowledgeAchievementState,
-  ImportKnowledgeBattleActionState,
-  ImportKnowledgeBuildingState,
-  ImportKnowledgeCargoState,
-  ImportKnowledgeConstructionState,
-  ImportKnowledgeCraftState,
-  ImportKnowledgeDeployableState,
-  ImportKnowledgeEnemyState,
-  ImportKnowledgeExtractState,
-  ImportKnowledgeItemState,
-  ImportKnowledgeLoreState,
-  ImportKnowledgeNpcState,
-  ImportKnowledgePavingState,
-  ImportKnowledgeResourcePlacementState,
-  ImportKnowledgeResourceState,
-  ImportKnowledgeRuinsState,
-  ImportKnowledgeScrollDesc,
-  ImportKnowledgeScrollTypeDesc,
-  ImportKnowledgeSecondaryState,
-  ImportKnowledgeStatModifierDesc,
-  ImportKnowledgeVaultState,
-  ImportLocationState,
-  ImportLootChestDesc,
-  ImportLootChestState,
-  ImportLootRarityDesc,
-  ImportLootTableDesc,
-  ImportMobileEntityState,
-  ImportMountingState,
-  ImportNpcDesc,
-  ImportNpcState,
-  ImportOnboardingRewardDesc,
-  ImportOnboardingState,
-  ImportParametersDesc,
-  ImportPathfindingDesc,
-  ImportPavedTileState,
-  ImportPavingTileDesc,
-  ImportPlayerActionDesc,
-  ImportPlayerActionState,
-  ImportPlayerPrefsState,
-  ImportPlayerState,
-  ImportPlayerVoteState,
-  ImportPortalState,
-  ImportPrivateParametersDesc,
-  ImportProgressiveActionState,
-  ImportProjectSiteState,
-  ImportRegionConnectionInfo,
-  ImportRegionSignInParameters,
-  ImportRentState,
-  ImportResourceClumpDesc,
-  ImportResourceCount,
-  ImportResourceDesc,
-  ImportResourceGrowthRecipeDesc,
-  ImportResourcePlacementRecipeDesc,
-  ImportResourceState,
-  ImportSatiationState,
-  ImportSecondaryKnowledgeDesc,
-  ImportServerIdentity,
-  ImportSignedInPlayerState,
-  ImportSkillDesc,
-  ImportStaminaState,
-  ImportTargetableState,
-  ImportTargetingMatrixDesc,
-  ImportTargetState,
-  ImportTeleportItemDesc,
-  ImportTerraformRecipeDesc,
-  ImportTerrainChunkState,
-  ImportToolDesc,
-  ImportToolTypeDesc,
-  ImportTradeOrderState,
-  ImportTradeSessionState,
-  ImportTravelerTaskDesc,
-  ImportTravelerTradeOrderDesc,
-  ImportUserModerationState,
-  ImportUserState,
-  ImportVaultState,
-  ImportWallDesc,
-  ImportWeaponDesc,
-  ImportWeaponTypeDesc,
-  ImportWorldRegionNameState,
-  ImportWorldRegionState,
-  LoadConfig,
-  LogEmpireLeaderboard,
-  LogPlayerWith,
-  OnInterModuleMessageProcessed,
-  PlayerClaimDailyShards,
-  PlayerCreate,
-  PlayerDismissNotification,
-  PlayerNotificationEventReducer,
-  PlayerSetName,
-  PlayerVoteAnswer,
-  PlayerVoteConclude,
-  ProcessInterModuleMessage,
-  SetRoleForIdentity,
-  SignIn,
-  StageAchievementDesc,
-  StageAlertDesc,
-  StageBiomeDesc,
-  StageBuffDesc,
-  StageBuffTypeDesc,
-  StageBuildingClaimDesc,
-  StageBuildingDesc,
-  StageBuildingPortalDesc,
-  StageBuildingRepairsDesc,
-  StageBuildingSpawnDesc,
-  StageBuildingTypeDesc,
-  StageCargoDesc,
-  StageCharacterStatDesc,
-  StageChestRarityDesc,
-  StageClaimTechDesc,
-  StageClaimTileCost,
-  StageClimbRequirementDesc,
-  StageClothingDesc,
-  StageCollectibleDesc,
-  StageCombatActionDesc,
-  StageConstructionRecipeDesc,
-  StageCraftingRecipeDesc,
-  StageDeconstructionRecipeDesc,
-  StageDeployableDesc,
-  StageDistantVisibleEntityDesc,
-  StageElevatorDesc,
-  StageEmoteDesc,
-  StageEmpireColorsDesc,
-  StageEmpireIconDesc,
-  StageEmpireNotificationDesc,
-  StageEmpireRankDesc,
-  StageEmpireSuppliesDesc,
-  StageEmpireTerritoryDesc,
-  StageEnemyAiParamsDesc,
-  StageEnemyDesc,
-  StageEnvironmentDebuffDesc,
-  StageEquipmentDesc,
-  StageExtractionRecipeDesc,
-  StageFoodDesc,
-  StageGateDesc,
-  StageHexiteExchangeEntryDesc,
-  StageInteriorEnvironmentDesc,
-  StageInteriorInstanceDesc,
-  StageInteriorNetworkDesc,
-  StageInteriorPortalConnectionsDesc,
-  StageInteriorShapeDesc,
-  StageInteriorSpawnDesc,
-  StageItemConversionRecipeDesc,
-  StageItemDesc,
-  StageItemListDesc,
-  StageKnowledgeScrollDesc,
-  StageKnowledgeScrollTypeDesc,
-  StageKnowledgeStatModifierDesc,
-  StageLootChestDesc,
-  StageLootRarityDesc,
-  StageLootTableDesc,
-  StageNpcDesc,
-  StageOnboardingRewardDesc,
-  StageParametersDesc,
-  StagePathfindingDesc,
-  StagePavingTileDesc,
-  StagePillarShapingDesc,
-  StagePlayerActionDesc,
-  StagePlayerHousingDesc,
-  StagePrivateParametersDesc,
-  StageReservedNameDesc,
-  StageResourceClumpDesc,
-  StageResourceDesc,
-  StageResourceGrowthRecipeDesc,
-  StageResourcePlacementRecipeDesc,
-  StageSecondaryKnowledgeDesc,
-  StageSkillDesc,
-  StageTargetingMatrixDesc,
-  StageTeleportItemDesc,
-  StageTerraformRecipeDesc,
-  StageToolDesc,
-  StageToolTypeDesc,
-  StageTravelerTaskDesc,
-  StageTravelerTradeOrderDesc,
-  StageWallDesc,
-  StageWeaponDesc,
-  StageWeaponTypeDesc,
-  UpdateRoleForPlayer,
-  UpdateScheduledTimersFromStaticData,
-  UserModerationClearAll,
-  UserModerationCreate,
-  UserModerationDelete,
-  UserModerationListAll
-}
+export { AchievementClaim }
+export { AcquireKnowledgeFromEntities }
+export { AdminAlpha3CompleteOnboarding }
+export { AdminAlpha3ResetOnboardingToFifthTempleQuest }
+export { AdminAlpha3ResetOnboardingToFirstExpandQuest }
+export { AdminAlpha3ResetOnboardingToFirstTempleQuest }
+export { AdminAlpha3ResetOnboardingToFourthExpandQuest }
+export { AdminAlpha3ResetOnboardingToFourthTempleQuest }
+export { AdminAlpha3ResetOnboardingToSecondExpandQuest }
+export { AdminAlpha3ResetOnboardingToSecondTempleQuest }
+export { AdminAlpha3ResetOnboardingToThirdExpandQuest }
+export { AdminAlpha3ResetOnboardingToThirdTempleQuest }
+export { AdminBroadcastMsgRegion }
+export { AdminClearAllResources }
+export { AdminClearChunkResources }
+export { AdminCollapseRuin }
+export { AdminCollapseRuins }
+export { AdminCompleteAllPassiveCrafts }
+export { AdminCountInventoryItems }
+export { AdminDeleteAllItemsOfType }
+export { AdminDeleteChatMessage }
+export { AdminDespawnOverworldEnemies }
+export { AdminGrantCollectibles }
+export { AdminModifyChatMessage }
+export { AdminRenameBuilding }
+export { AdminRenameBuildingCoord }
+export { AdminRenameBuildingEntity }
+export { AdminRenameClaim }
+export { AdminRenameClaimEntity }
+export { AdminRenameDeployable }
+export { AdminRenameDeployableEntity }
+export { AdminResetAllHerdLocations }
+export { AdminResetHerdLocations }
+export { AdminResetOnboardingCompletely }
+export { AdminRestoreAllCollapsedRuins }
+export { AdminRestorePlayerState }
+export { AdminRestorePlayerStateScheduled }
+export { AdminSetSignText }
+export { AdminSetSignTextCoord }
+export { AdminSetSignTextEntity }
+export { AdminSignOut }
+export { AdminSignOutAllRegion }
+export { AdminSignOutString }
+export { AdminUpdateLightSourceStates }
+export { Attack }
+export { AttackImpact }
+export { AttackScheduled }
+export { AttackStart }
+export { AutoLogoutLoop }
+export { BarterStallOrderAccept }
+export { BarterStallOrderCreate }
+export { BarterStallOrderDelete }
+export { BarterStallSetMarketModeEnabled }
+export { BlueprintPlace }
+export { BuildingDecayAgentLoop }
+export { BuildingDeconstruct }
+export { BuildingDeconstructStart }
+export { BuildingDespawn }
+export { BuildingMove }
+export { BuildingRepair }
+export { BuildingRepairStart }
+export { BuildingSetNickname }
+export { BuildingSetSignText }
+export { ChatPostMessage }
+export { CheatBuildingMove }
+export { CheatBuildingPlace }
+export { CheatCargoGrant }
+export { CheatClaimTakeOwnership }
+export { CheatClaimTotemAddSupplies }
+export { CheatClaimTotemCompleteCurrentResearch }
+export { CheatClaimTotemResearchAll }
+export { CheatClearBuffsAndDebuffs }
+export { CheatCompendiumPlaceEnemy }
+export { CheatCompendiumPlaceResource }
+export { CheatDeleteItem }
+export { CheatDeployableStore }
+export { CheatDiscoverMap }
+export { CheatExperienceGrant }
+export { CheatGrantKnowledge }
+export { CheatGrantTeleportEnergy }
+export { CheatItemStackGrant }
+export { CheatItemStackGrantAndEquip }
+export { CheatKill }
+export { CheatPavingAddTile }
+export { CheatPavingDestroy }
+export { CheatPillarShapingAddPillar }
+export { CheatPillarShapingDestroy }
+export { CheatProjectSiteAddAllMaterials }
+export { CheatRemoveEntityBuilding }
+export { CheatRemoveEntityEnemy }
+export { CheatRemoveEntityResource }
+export { CheatSetAiDebugState }
+export { CheatSpawnLootChest }
+export { CheatTeleportFloat }
+export { CheatTerraform }
+export { CheatToggleActiveCollectible }
+export { CheatWarp }
+export { ClaimAddMember }
+export { ClaimAddRecruitment }
+export { ClaimAddTile }
+export { ClaimApplyForRecruitment }
+export { ClaimLeave }
+export { ClaimPurchaseSuppliesFromPlayer }
+export { ClaimRemoveMember }
+export { ClaimRemoveRecruitment }
+export { ClaimRemoveTile }
+export { ClaimRename }
+export { ClaimResupply }
+export { ClaimResupplyStart }
+export { ClaimSetMemberPermissions }
+export { ClaimSetPurchaseSupplyPrice }
+export { ClaimSetPurchaseSupplyThreshold }
+export { ClaimTakeOwnership }
+export { ClaimTechCancel }
+export { ClaimTechLearn }
+export { ClaimTechUnlockTech }
+export { ClaimTransferOwnership }
+export { ClaimWithdrawFromTreasury }
+export { ClearStagedStaticData }
+export { ClosedListingCollect }
+export { CollectStatsReducer }
+export { CollectibleActivate }
+export { CommitStagedStaticData }
+export { CompleteOnboardingQuest }
+export { CompleteOnboardingState }
+export { ConvertCollectibleToDeed }
+export { ConvertDeedToCollectible }
+export { CraftCancel }
+export { CraftCollect }
+export { CraftCollectAll }
+export { CraftContinue }
+export { CraftContinueStart }
+export { CraftInitiate }
+export { CraftInitiateStart }
+export { CurrentVersion }
+export { DayNightAgentLoop }
+export { DeleteAllNpcs }
+export { DeployableDeploy }
+export { DeployableDeployStart }
+export { DeployableDismount }
+export { DeployableDismountScheduled }
+export { DeployableMount }
+export { DeployableMove }
+export { DeployableMoveOffClaim }
+export { DeployableStore }
+export { DeployableStoreStart }
+export { DestroyDimensionNetwork }
+export { DevDeleteWorld }
+export { DiscoverEntities }
+export { DroppedInventoryDespawn }
+export { DroppedInventoryLoseOwnership }
+export { DuelAgentTimerLoop }
+export { DuelDespawn }
+export { Eat }
+export { Emote }
+export { EmoteStart }
+export { EmpireAddSiegeSupplies }
+export { EmpireClaimJoin }
+export { EmpireCollectHexiteCapsule }
+export { EmpireDeploySiegeEngine }
+export { EmpireDeploySiegeEngineStart }
+export { EmpireQueueSupplies }
+export { EmpireResupplyNode }
+export { EmpireResupplyNodeStart }
+export { EmpireSiegeDepletedWatchtower }
+export { EndGracePeriod }
+export { EnemyClearAggro }
+export { EnemyDespawn }
+export { EnemyDespawnFromMobMonitor }
+export { EnemyDespawnFromMobMonitorBatch }
+export { EnemyMove }
+export { EnemyMoveBatch }
+export { EnemyRegenAgentLoop }
+export { EnemySetHealth }
+export { EnemySetHealthBatch }
+export { EnemySpawn }
+export { EnemySpawnBatch }
+export { EnemySpawnLoot }
+export { EnvironmentDebuffAgentLoop }
+export { EquipmentAdd }
+export { EquipmentRemove }
+export { Extract }
+export { ExtractStart }
+export { ForceStartAgents }
+export { GenerateDevIsland }
+export { GenerateFlatWorld }
+export { GenerateWorld }
+export { GrowthAgentLoop }
+export { HideDeployable }
+export { IdentityConnected }
+export { IdentityDisconnected }
+export { ImportAchievementDesc }
+export { ImportActiveBuffState }
+export { ImportAdminBroadcast }
+export { ImportAlertDesc }
+export { ImportAlertState }
+export { ImportAttackOutcomeState }
+export { ImportBiomeDesc }
+export { ImportBuffDesc }
+export { ImportBuffTypeDesc }
+export { ImportBuildingClaimDesc }
+export { ImportBuildingDesc }
+export { ImportBuildingPortalDesc }
+export { ImportBuildingRepairsDesc }
+export { ImportBuildingSpawnDesc }
+export { ImportBuildingState }
+export { ImportBuildingTypeDesc }
+export { ImportCargoDesc }
+export { ImportCharacterStatDesc }
+export { ImportCharacterStatsState }
+export { ImportChatMessageState }
+export { ImportChestRarityDesc }
+export { ImportClaimLocalState }
+export { ImportClaimRecruitmentState }
+export { ImportClaimState }
+export { ImportClaimTechDesc }
+export { ImportClaimTechState }
+export { ImportClaimTileCost }
+export { ImportClaimTileState }
+export { ImportClimbRequirementDesc }
+export { ImportClothingDesc }
+export { ImportCollectibleDesc }
+export { ImportCombatActionDesc }
+export { ImportCombatState }
+export { ImportConfig }
+export { ImportConstructionRecipeDesc }
+export { ImportCraftingRecipeDesc }
+export { ImportDeconstructionRecipeDesc }
+export { ImportDeployableDesc }
+export { ImportDeployableState }
+export { ImportDimensionDescriptionState }
+export { ImportDimensionNetworkDescriptionState }
+export { ImportDistantVisibleEntityDesc }
+export { ImportDroppedInventoryState }
+export { ImportElevatorDesc }
+export { ImportEmoteDesc }
+export { ImportEmpireColorsDesc }
+export { ImportEmpireIconDesc }
+export { ImportEmpireNotificationDesc }
+export { ImportEmpireRankDesc }
+export { ImportEmpireSuppliesDesc }
+export { ImportEmpireTerritoryDesc }
+export { ImportEnemyAiParamsDesc }
+export { ImportEnemyDesc }
+export { ImportEnemyState }
+export { ImportEnvironmentDebuffDesc }
+export { ImportEquipmentDesc }
+export { ImportEquipmentState }
+export { ImportExperienceState }
+export { ImportExplorationChunksState }
+export { ImportExtractionRecipeDesc }
+export { ImportFoodDesc }
+export { ImportFootprintTileState }
+export { ImportGateDesc }
+export { ImportGlobals }
+export { ImportGrowthState }
+export { ImportHealthState }
+export { ImportHerdCache }
+export { ImportHexiteExchangeEntryDesc }
+export { ImportIdentityRole }
+export { ImportInteriorCollapseTriggerState }
+export { ImportInteriorEnvironmentDesc }
+export { ImportInteriorInstanceDesc }
+export { ImportInteriorNetworkDesc }
+export { ImportInteriorPortalConnectionsDesc }
+export { ImportInteriorShapeDesc }
+export { ImportInteriorSpawnDesc }
+export { ImportInventoryState }
+export { ImportItemConversionRecipeDesc }
+export { ImportItemDesc }
+export { ImportItemListDesc }
+export { ImportKnowledgeAchievementState }
+export { ImportKnowledgeBattleActionState }
+export { ImportKnowledgeBuildingState }
+export { ImportKnowledgeCargoState }
+export { ImportKnowledgeConstructionState }
+export { ImportKnowledgeCraftState }
+export { ImportKnowledgeDeployableState }
+export { ImportKnowledgeEnemyState }
+export { ImportKnowledgeExtractState }
+export { ImportKnowledgeItemState }
+export { ImportKnowledgeLoreState }
+export { ImportKnowledgeNpcState }
+export { ImportKnowledgePavingState }
+export { ImportKnowledgePillarShapingState }
+export { ImportKnowledgeResourcePlacementState }
+export { ImportKnowledgeResourceState }
+export { ImportKnowledgeRuinsState }
+export { ImportKnowledgeScrollDesc }
+export { ImportKnowledgeScrollTypeDesc }
+export { ImportKnowledgeSecondaryState }
+export { ImportKnowledgeStatModifierDesc }
+export { ImportKnowledgeVaultState }
+export { ImportLocationCache }
+export { ImportLocationState }
+export { ImportLootChestDesc }
+export { ImportLootChestState }
+export { ImportLootRarityDesc }
+export { ImportLootTableDesc }
+export { ImportMobileEntityState }
+export { ImportMountingState }
+export { ImportNpcDesc }
+export { ImportNpcState }
+export { ImportOnboardingRewardDesc }
+export { ImportOnboardingState }
+export { ImportParametersDesc }
+export { ImportPathfindingDesc }
+export { ImportPavedTileState }
+export { ImportPavingTileDesc }
+export { ImportPillarShapingDesc }
+export { ImportPlayerActionDesc }
+export { ImportPlayerActionState }
+export { ImportPlayerHousingDesc }
+export { ImportPlayerPrefsState }
+export { ImportPlayerState }
+export { ImportPortalState }
+export { ImportPrivateParametersDesc }
+export { ImportProgressiveActionState }
+export { ImportProjectSiteState }
+export { ImportRentState }
+export { ImportReservedNameDesc }
+export { ImportResourceClumpDesc }
+export { ImportResourceCount }
+export { ImportResourceDesc }
+export { ImportResourceGrowthRecipeDesc }
+export { ImportResourcePlacementRecipeDesc }
+export { ImportResourceState }
+export { ImportResourcesLog }
+export { ImportSatiationState }
+export { ImportSecondaryKnowledgeDesc }
+export { ImportServerIdentity }
+export { ImportSignedInPlayerState }
+export { ImportSkillDesc }
+export { ImportStaminaState }
+export { ImportTargetState }
+export { ImportTargetableState }
+export { ImportTargetingMatrixDesc }
+export { ImportTeleportItemDesc }
+export { ImportTerraformRecipeDesc }
+export { ImportTerrainChunkState }
+export { ImportToolDesc }
+export { ImportToolTypeDesc }
+export { ImportTradeOrderState }
+export { ImportTradeSessionState }
+export { ImportTravelerTaskDesc }
+export { ImportTravelerTradeOrderDesc }
+export { ImportUserModerationState }
+export { ImportUserState }
+export { ImportVaultState }
+export { ImportWallDesc }
+export { ImportWeaponDesc }
+export { ImportWeaponTypeDesc }
+export { ImportWorldRegionNameState }
+export { ImportWorldRegionState }
+export { InsertResourcesLog }
+export { InsertTerrainChunk }
+export { InteriorSetCollapsed }
+export { InteriorSetCollapsedScheduled }
+export { InventoryCreatePersonal }
+export { InventorySort }
+export { ItemConvert }
+export { ItemConvertStart }
+export { ItemDrop }
+export { ItemPickUp }
+export { ItemStackMove }
+export { ItemStackMoveAll }
+export { ItemStackSplit }
+export { ItemUse }
+export { ItemUseStart }
+export { LoadConfig }
+export { LogClaimMemberLeaderboard }
+export { LogClaimTierLeaderboard }
+export { LootChestDespawn }
+export { LootChestSpawn }
+export { NpcAiAgentLoop }
+export { OnDurabilityZero }
+export { OnInterModuleMessageProcessed }
+export { OrderCancel }
+export { OrderCollect }
+export { OrderEditBuyOrder }
+export { OrderEditSellOrder }
+export { OrderPostBuyOrder }
+export { OrderPostSellOrder }
+export { PassiveCraftCancel }
+export { PassiveCraftCollect }
+export { PassiveCraftCollectAll }
+export { PassiveCraftProcess }
+export { PassiveCraftQueue }
+export { PausePlayTimer }
+export { PavingDestroyTile }
+export { PavingDestroyTileStart }
+export { PavingPlaceTile }
+export { PavingPlaceTileStart }
+export { PermissionEdit }
+export { PillarShapingDestroy }
+export { PillarShapingDestroyStart }
+export { PillarShapingPlacePillar }
+export { PillarShapingPlacePillarStart }
+export { PlayerActionCancel }
+export { PlayerCancelRegionTransfer }
+export { PlayerClearActionState }
+export { PlayerClimb }
+export { PlayerClimbStart }
+export { PlayerCompleteTask }
+export { PlayerDeathStart }
+export { PlayerDismissAlert }
+export { PlayerDuelInitiate }
+export { PlayerElevatorArrive }
+export { PlayerHousingChangeEntrance }
+export { PlayerHousingEnter }
+export { PlayerHousingEvictPlayer }
+export { PlayerHousingEvictPlayerComplete }
+export { PlayerHousingIncomeAgentLoop }
+export { PlayerHousingRequestAccess }
+export { PlayerHousingUpdate }
+export { PlayerMove }
+export { PlayerNotificationEventReducer }
+export { PlayerQueueJoin }
+export { PlayerQueueLeave }
+export { PlayerRegenAgentLoop }
+export { PlayerRegionCrossover }
+export { PlayerRegionTransferEventReducer }
+export { PlayerRespawn }
+export { PlayerSetDefaultDeployable }
+export { PlayerSetNameOutcomeEventReducer }
+export { PlayerTeleportHome }
+export { PlayerTeleportHomeStart }
+export { PlayerTeleportWaystone }
+export { PlayerTeleportWaystoneStart }
+export { PlayerUseElevator }
+export { PlayerVoteAnswer }
+export { PlayerVoteConclude }
+export { PocketSwapContents }
+export { PortalEnter }
+export { ProcessInterModuleMessage }
+export { ProjectSiteAddMaterials }
+export { ProjectSiteAdvanceProject }
+export { ProjectSiteAdvanceProjectStart }
+export { ProjectSiteCancel }
+export { ProjectSitePlace }
+export { RegionPopuplationAgentLoop }
+export { RentAddListing }
+export { RentAddTenant }
+export { RentCollectEvictionFee }
+export { RentCollectorAgentLoop }
+export { RentDepositCoins }
+export { RentEvict }
+export { RentEvictTerm }
+export { RentPurchase }
+export { RentRemoveTenant }
+export { RentSetDailyRate }
+export { RentTerminate }
+export { RentUnlist }
+export { ReportChatMessage }
+export { ReportPlayer }
+export { ResetChunkIndex }
+export { ResetChunkIndexWithDimension }
+export { ResetMobileEntityPosition }
+export { ResetOnboarding }
+export { ResourceSpawnScheduled }
+export { ResourcesRegen }
+export { RespawnInteriorNpcs }
+export { RespawnResourceInChunk }
+export { RetrieveLostItem }
+export { ScrollRead }
+export { SearchForClosestBuilding }
+export { SearchForClosestBuildingType }
+export { ServerTeleportPlayer }
+export { SetHome }
+export { SignIn }
+export { SignOut }
+export { Sleep }
+export { StageAchievementDesc }
+export { StageAlertDesc }
+export { StageBiomeDesc }
+export { StageBuffDesc }
+export { StageBuffTypeDesc }
+export { StageBuildingClaimDesc }
+export { StageBuildingDesc }
+export { StageBuildingPortalDesc }
+export { StageBuildingRepairsDesc }
+export { StageBuildingSpawnDesc }
+export { StageBuildingTypeDesc }
+export { StageCargoDesc }
+export { StageCharacterStatDesc }
+export { StageChestRarityDesc }
+export { StageClaimTechDesc }
+export { StageClaimTileCost }
+export { StageClimbRequirementDesc }
+export { StageClothingDesc }
+export { StageCollectibleDesc }
+export { StageCombatActionDesc }
+export { StageConstructionRecipeDesc }
+export { StageCraftingRecipeDesc }
+export { StageDeconstructionRecipeDesc }
+export { StageDeployableDesc }
+export { StageDistantVisibleEntityDesc }
+export { StageElevatorDesc }
+export { StageEmoteDesc }
+export { StageEmpireColorsDesc }
+export { StageEmpireIconDesc }
+export { StageEmpireNotificationDesc }
+export { StageEmpireRankDesc }
+export { StageEmpireSuppliesDesc }
+export { StageEmpireTerritoryDesc }
+export { StageEnemyAiParamsDesc }
+export { StageEnemyDesc }
+export { StageEnvironmentDebuffDesc }
+export { StageEquipmentDesc }
+export { StageExtractionRecipeDesc }
+export { StageFoodDesc }
+export { StageGateDesc }
+export { StageHexiteExchangeEntryDesc }
+export { StageInteriorEnvironmentDesc }
+export { StageInteriorInstanceDesc }
+export { StageInteriorNetworkDesc }
+export { StageInteriorPortalConnectionsDesc }
+export { StageInteriorShapeDesc }
+export { StageInteriorSpawnDesc }
+export { StageItemConversionRecipeDesc }
+export { StageItemDesc }
+export { StageItemListDesc }
+export { StageKnowledgeScrollDesc }
+export { StageKnowledgeScrollTypeDesc }
+export { StageKnowledgeStatModifierDesc }
+export { StageLootChestDesc }
+export { StageLootRarityDesc }
+export { StageLootTableDesc }
+export { StageNpcDesc }
+export { StageOnboardingRewardDesc }
+export { StageParametersDesc }
+export { StagePathfindingDesc }
+export { StagePavingTileDesc }
+export { StagePillarShapingDesc }
+export { StagePlayerActionDesc }
+export { StagePlayerHousingDesc }
+export { StagePrivateParametersDesc }
+export { StageReservedNameDesc }
+export { StageResourceClumpDesc }
+export { StageResourceDesc }
+export { StageResourceGrowthRecipeDesc }
+export { StageResourcePlacementRecipeDesc }
+export { StageSecondaryKnowledgeDesc }
+export { StageSkillDesc }
+export { StageTargetingMatrixDesc }
+export { StageTeleportItemDesc }
+export { StageTerraformRecipeDesc }
+export { StageToolDesc }
+export { StageToolTypeDesc }
+export { StageTravelerTaskDesc }
+export { StageTravelerTradeOrderDesc }
+export { StageWallDesc }
+export { StageWeaponDesc }
+export { StageWeaponTypeDesc }
+export { StartAgents }
+export { StartGeneratingWorld }
+export { StartOnboardingQuest }
+export { StarvingAgentLoop }
+export { StopAgents }
+export { SynchronizeTime }
+export { TargetUpdate }
+export { TeleportationEnergyRegenAgentLoop }
+export { Terraform }
+export { TerraformCancel }
+export { TerraformSetFinalTarget }
+export { TerraformStart }
+export { TradeAccept }
+export { TradeAcceptSession }
+export { TradeAddItem }
+export { TradeCancelServer }
+export { TradeDecline }
+export { TradeDeclineSession }
+export { TradeInitiateSession }
+export { TradeRemoveItem }
+export { TradeSessionsAgentLoop }
+export { TradeSwapPockets }
+export { TransferPlayerDelayed }
+export { TravelerTaskAgentLoop }
+export { UpdateScheduledTimersFromStaticData }
 
 // Import and reexport all table handle types
 import { AIDebugStateTableHandle } from './a_i_debug_state_table.ts'
@@ -646,18 +1186,25 @@ import { AchievementDescTableHandle } from './achievement_desc_table.ts'
 import { ActionStateTableHandle } from './action_state_table.ts'
 import { ActiveBuffStateTableHandle } from './active_buff_state_table.ts'
 import { AdminBroadcastTableHandle } from './admin_broadcast_table.ts'
+import { AdminClearResourceTimerTableHandle } from './admin_clear_resource_timer_table.ts'
+import { AdminRestorePlayerStateTimerTableHandle } from './admin_restore_player_state_timer_table.ts'
 import { AlertDescTableHandle } from './alert_desc_table.ts'
 import { AlertStateTableHandle } from './alert_state_table.ts'
 import { AttachedHerdsStateTableHandle } from './attached_herds_state_table.ts'
+import { AttackImpactTimerTableHandle } from './attack_impact_timer_table.ts'
 import { AttackOutcomeStateTableHandle } from './attack_outcome_state_table.ts'
+import { AttackTimerTableHandle } from './attack_timer_table.ts'
 import { AutoClaimStateTableHandle } from './auto_claim_state_table.ts'
+import { AutoLogoutLoopTimerTableHandle } from './auto_logout_loop_timer_table.ts'
 import { BarterStallStateTableHandle } from './barter_stall_state_table.ts'
 import { BiomeDescTableHandle } from './biome_desc_table.ts'
 import { BlockedIdentityTableHandle } from './blocked_identity_table.ts'
 import { BuffDescTableHandle } from './buff_desc_table.ts'
 import { BuffTypeDescTableHandle } from './buff_type_desc_table.ts'
 import { BuildingClaimDescTableHandle } from './building_claim_desc_table.ts'
+import { BuildingDecayLoopTimerTableHandle } from './building_decay_loop_timer_table.ts'
 import { BuildingDescTableHandle } from './building_desc_table.ts'
+import { BuildingDespawnTimerTableHandle } from './building_despawn_timer_table.ts'
 import { BuildingFunctionTypeMappingDescTableHandle } from './building_function_type_mapping_desc_table.ts'
 import { BuildingNicknameStateTableHandle } from './building_nickname_state_table.ts'
 import { BuildingPortalDescTableHandle } from './building_portal_desc_table.ts'
@@ -677,58 +1224,61 @@ import { ClaimRecruitmentStateTableHandle } from './claim_recruitment_state_tabl
 import { ClaimStateTableHandle } from './claim_state_table.ts'
 import { ClaimTechDescTableHandle } from './claim_tech_desc_table.ts'
 import { ClaimTechStateTableHandle } from './claim_tech_state_table.ts'
+import { ClaimTechUnlockTimerTableHandle } from './claim_tech_unlock_timer_table.ts'
 import { ClaimTileCostTableHandle } from './claim_tile_cost_table.ts'
 import { ClaimTileStateTableHandle } from './claim_tile_state_table.ts'
 import { ClimbRequirementDescTableHandle } from './climb_requirement_desc_table.ts'
 import { ClosedListingStateTableHandle } from './closed_listing_state_table.ts'
 import { ClothingDescTableHandle } from './clothing_desc_table.ts'
+import { CollectStatsTimerTableHandle } from './collect_stats_timer_table.ts'
 import { CollectibleDescTableHandle } from './collectible_desc_table.ts'
 import { CombatActionDescTableHandle } from './combat_action_desc_table.ts'
 import { CombatStateTableHandle } from './combat_state_table.ts'
 import { ConfigTableHandle } from './config_table.ts'
 import { ConstructionRecipeDescTableHandle } from './construction_recipe_desc_table.ts'
 import { CraftingRecipeDescTableHandle } from './crafting_recipe_desc_table.ts'
+import { DayNightLoopTimerTableHandle } from './day_night_loop_timer_table.ts'
 import { DeconstructionRecipeDescTableHandle } from './deconstruction_recipe_desc_table.ts'
 import { DeployableCollectibleStateTableHandle } from './deployable_collectible_state_table.ts'
 import { DeployableDescTableHandle } from './deployable_desc_table.ts'
+import { DeployableDismountTimerTableHandle } from './deployable_dismount_timer_table.ts'
 import { DeployableStateTableHandle } from './deployable_state_table.ts'
+import { DestroyDimensionNetworkTimerTableHandle } from './destroy_dimension_network_timer_table.ts'
 import { DimensionDescriptionStateTableHandle } from './dimension_description_state_table.ts'
 import { DimensionNetworkStateTableHandle } from './dimension_network_state_table.ts'
 import { DistantVisibleEntityDescTableHandle } from './distant_visible_entity_desc_table.ts'
 import { DistantVisibleEntityTableHandle } from './distant_visible_entity_table.ts'
+import { DroppedInventoryDespawnTimerTableHandle } from './dropped_inventory_despawn_timer_table.ts'
+import { DroppedInventoryOwnershipTimerTableHandle } from './dropped_inventory_ownership_timer_table.ts'
 import { DroppedInventoryStateTableHandle } from './dropped_inventory_state_table.ts'
+import { DuelAgentTimerTableHandle } from './duel_agent_timer_table.ts'
+import { DuelDespawnTimerTableHandle } from './duel_despawn_timer_table.ts'
 import { DuelStateTableHandle } from './duel_state_table.ts'
 import { ElevatorDescTableHandle } from './elevator_desc_table.ts'
 import { EmoteDescTableHandle } from './emote_desc_table.ts'
 import { EmpireChunkStateTableHandle } from './empire_chunk_state_table.ts'
 import { EmpireColorDescTableHandle } from './empire_color_desc_table.ts'
-import { EmpireCraftSuppliesTimerTableHandle } from './empire_craft_supplies_timer_table.ts'
-import { EmpireDecayLoopTimerTableHandle } from './empire_decay_loop_timer_table.ts'
-import { EmpireDirectiveStateTableHandle } from './empire_directive_state_table.ts'
-import { EmpireEmblemStateTableHandle } from './empire_emblem_state_table.ts'
 import { EmpireExpansionStateTableHandle } from './empire_expansion_state_table.ts'
-import { EmpireFoundryStateTableHandle } from './empire_foundry_state_table.ts'
 import { EmpireIconDescTableHandle } from './empire_icon_desc_table.ts'
-import { EmpireLogStateTableHandle } from './empire_log_state_table.ts'
 import { EmpireNodeSiegeStateTableHandle } from './empire_node_siege_state_table.ts'
 import { EmpireNodeStateTableHandle } from './empire_node_state_table.ts'
 import { EmpireNotificationDescTableHandle } from './empire_notification_desc_table.ts'
-import { EmpireNotificationStateTableHandle } from './empire_notification_state_table.ts'
 import { EmpirePlayerDataStateTableHandle } from './empire_player_data_state_table.ts'
-import { EmpirePlayerLogStateTableHandle } from './empire_player_log_state_table.ts'
 import { EmpireRankDescTableHandle } from './empire_rank_desc_table.ts'
 import { EmpireRankStateTableHandle } from './empire_rank_state_table.ts'
 import { EmpireSettlementStateTableHandle } from './empire_settlement_state_table.ts'
-import { EmpireSiegeEngineStateTableHandle } from './empire_siege_engine_state_table.ts'
-import { EmpireSiegeLoopTimerTableHandle } from './empire_siege_loop_timer_table.ts'
 import { EmpireStateTableHandle } from './empire_state_table.ts'
 import { EmpireSuppliesDescTableHandle } from './empire_supplies_desc_table.ts'
 import { EmpireTerritoryDescTableHandle } from './empire_territory_desc_table.ts'
+import { EndGracePeriodTimerTableHandle } from './end_grace_period_timer_table.ts'
 import { EnemyAiParamsDescTableHandle } from './enemy_ai_params_desc_table.ts'
 import { EnemyDescTableHandle } from './enemy_desc_table.ts'
+import { EnemyDespawnTimerTableHandle } from './enemy_despawn_timer_table.ts'
 import { EnemyMobMonitorStateTableHandle } from './enemy_mob_monitor_state_table.ts'
+import { EnemyRegenLoopTimerTableHandle } from './enemy_regen_loop_timer_table.ts'
 import { EnemyStateTableHandle } from './enemy_state_table.ts'
 import { EnvironmentDebuffDescTableHandle } from './environment_debuff_desc_table.ts'
+import { EnvironmentDebuffLoopTimerTableHandle } from './environment_debuff_loop_timer_table.ts'
 import { EquipmentDescTableHandle } from './equipment_desc_table.ts'
 import { EquipmentStateTableHandle } from './equipment_state_table.ts'
 import { ExperienceStateTableHandle } from './experience_state_table.ts'
@@ -741,11 +1291,12 @@ import { ForceGenerateTypesTableHandle } from './force_generate_types_table.ts'
 import { GateDescTableHandle } from './gate_desc_table.ts'
 import { GlobalSearchStateTableHandle } from './global_search_state_table.ts'
 import { GlobalsTableHandle } from './globals_table.ts'
-import { GrantedHubItemStateTableHandle } from './granted_hub_item_state_table.ts'
+import { GrowthLoopTimerTableHandle } from './growth_loop_timer_table.ts'
 import { GrowthStateTableHandle } from './growth_state_table.ts'
 import { HealthStateTableHandle } from './health_state_table.ts'
 import { HerdStateTableHandle } from './herd_state_table.ts'
 import { HexiteExchangeEntryDescTableHandle } from './hexite_exchange_entry_desc_table.ts'
+import { HideDeployableTimerTableHandle } from './hide_deployable_timer_table.ts'
 import { IdentityRoleTableHandle } from './identity_role_table.ts'
 import { InterModuleMessageCounterTableHandle } from './inter_module_message_counter_table.ts'
 import { InterModuleMessageTableHandle } from './inter_module_message_table.ts'
@@ -755,6 +1306,7 @@ import { InteriorEnvironmentDescTableHandle } from './interior_environment_desc_
 import { InteriorInstanceDescTableHandle } from './interior_instance_desc_table.ts'
 import { InteriorNetworkDescTableHandle } from './interior_network_desc_table.ts'
 import { InteriorPortalConnectionsDescTableHandle } from './interior_portal_connections_desc_table.ts'
+import { InteriorSetCollapsedTimerTableHandle } from './interior_set_collapsed_timer_table.ts'
 import { InteriorShapeDescTableHandle } from './interior_shape_desc_table.ts'
 import { InteriorSpawnDescTableHandle } from './interior_spawn_desc_table.ts'
 import { InventoryStateTableHandle } from './inventory_state_table.ts'
@@ -785,8 +1337,11 @@ import { KnowledgeSecondaryStateTableHandle } from './knowledge_secondary_state_
 import { KnowledgeStatModifierDescTableHandle } from './knowledge_stat_modifier_desc_table.ts'
 import { KnowledgeVaultStateTableHandle } from './knowledge_vault_state_table.ts'
 import { LightSourceStateTableHandle } from './light_source_state_table.ts'
+import { LocationCacheTableHandle } from './location_cache_table.ts'
 import { LocationStateTableHandle } from './location_state_table.ts'
 import { LootChestDescTableHandle } from './loot_chest_desc_table.ts'
+import { LootChestDespawnTimerTableHandle } from './loot_chest_despawn_timer_table.ts'
+import { LootChestSpawnTimerTableHandle } from './loot_chest_spawn_timer_table.ts'
 import { LootChestStateTableHandle } from './loot_chest_state_table.ts'
 import { LootRarityDescTableHandle } from './loot_rarity_desc_table.ts'
 import { LootTableDescTableHandle } from './loot_table_desc_table.ts'
@@ -794,13 +1349,16 @@ import { LostItemsStateTableHandle } from './lost_items_state_table.ts'
 import { MobileEntityStateTableHandle } from './mobile_entity_state_table.ts'
 import { MountingStateTableHandle } from './mounting_state_table.ts'
 import { MoveValidationStrikeCounterStateTableHandle } from './move_validation_strike_counter_state_table.ts'
+import { NpcAiLoopTimerTableHandle } from './npc_ai_loop_timer_table.ts'
 import { NpcDescTableHandle } from './npc_desc_table.ts'
 import { NpcStateTableHandle } from './npc_state_table.ts'
+import { OnDurabilityZeroTimerTableHandle } from './on_durability_zero_timer_table.ts'
 import { OnboardingRewardDescTableHandle } from './onboarding_reward_desc_table.ts'
 import { OnboardingStateTableHandle } from './onboarding_state_table.ts'
 import { ParametersDescTableHandle } from './parameters_desc_table.ts'
 import { ParametersPlayerMoveDescTableHandle } from './parameters_player_move_desc_table.ts'
 import { PassiveCraftStateTableHandle } from './passive_craft_state_table.ts'
+import { PassiveCraftTimerTableHandle } from './passive_craft_timer_table.ts'
 import { PathfindingDescTableHandle } from './pathfinding_desc_table.ts'
 import { PavedTileStateTableHandle } from './paved_tile_state_table.ts'
 import { PavingTileDescTableHandle } from './paving_tile_desc_table.ts'
@@ -809,19 +1367,24 @@ import { PillarShapingDescTableHandle } from './pillar_shaping_desc_table.ts'
 import { PillarShapingStateTableHandle } from './pillar_shaping_state_table.ts'
 import { PlayerActionDescTableHandle } from './player_action_desc_table.ts'
 import { PlayerActionStateTableHandle } from './player_action_state_table.ts'
-import { PlayerDeveloperNotificationStateTableHandle } from './player_developer_notification_state_table.ts'
+import { PlayerDeathTimerTableHandle } from './player_death_timer_table.ts'
 import { PlayerHousingDescTableHandle } from './player_housing_desc_table.ts'
+import { PlayerHousingEvictPlayerTimerTableHandle } from './player_housing_evict_player_timer_table.ts'
+import { PlayerHousingIncomeLoopTimerTableHandle } from './player_housing_income_loop_timer_table.ts'
 import { PlayerHousingStateTableHandle } from './player_housing_state_table.ts'
 import { PlayerLowercaseUsernameStateTableHandle } from './player_lowercase_username_state_table.ts'
 import { PlayerNoteStateTableHandle } from './player_note_state_table.ts'
 import { PlayerNotificationEventTableHandle } from './player_notification_event_table.ts'
 import { PlayerPrefsStateTableHandle } from './player_prefs_state_table.ts'
 import { PlayerQueueStateTableHandle } from './player_queue_state_table.ts'
+import { PlayerRegenLoopTimerTableHandle } from './player_regen_loop_timer_table.ts'
+import { PlayerRegionTransferEventTableHandle } from './player_region_transfer_event_table.ts'
 import { PlayerReportStateTableHandle } from './player_report_state_table.ts'
 import { PlayerReportStateTimestampTableHandle } from './player_report_state_timestamp_table.ts'
-import { PlayerShardStateTableHandle } from './player_shard_state_table.ts'
+import { PlayerSetNameOutcomeEventTableHandle } from './player_set_name_outcome_event_table.ts'
 import { PlayerStateTableHandle } from './player_state_table.ts'
 import { PlayerTimestampStateTableHandle } from './player_timestamp_state_table.ts'
+import { PlayerUseElevatorTimerTableHandle } from './player_use_elevator_timer_table.ts'
 import { PlayerUsernameStateTableHandle } from './player_username_state_table.ts'
 import { PlayerVoteConcludeTimerTableHandle } from './player_vote_conclude_timer_table.ts'
 import { PlayerVoteStateTableHandle } from './player_vote_state_table.ts'
@@ -831,31 +1394,44 @@ import { ProgressiveActionStateTableHandle } from './progressive_action_state_ta
 import { ProjectSiteStateTableHandle } from './project_site_state_table.ts'
 import { RegionConnectionInfoTableHandle } from './region_connection_info_table.ts'
 import { RegionPopulationInfoTableHandle } from './region_population_info_table.ts'
+import { RegionPopuplationLoopTimerTableHandle } from './region_popuplation_loop_timer_table.ts'
 import { RegionSignInParametersTableHandle } from './region_sign_in_parameters_table.ts'
+import { RentCollectorLoopTimerTableHandle } from './rent_collector_loop_timer_table.ts'
+import { RentEvictTimerTableHandle } from './rent_evict_timer_table.ts'
 import { RentStateTableHandle } from './rent_state_table.ts'
 import { ReservedNameDescTableHandle } from './reserved_name_desc_table.ts'
+import { ResetChunkIndexTimerTableHandle } from './reset_chunk_index_timer_table.ts'
+import { ResetMobileEntityTimerTableHandle } from './reset_mobile_entity_timer_table.ts'
 import { ResourceClumpDescTableHandle } from './resource_clump_desc_table.ts'
 import { ResourceCountTableHandle } from './resource_count_table.ts'
 import { ResourceDescTableHandle } from './resource_desc_table.ts'
 import { ResourceGrowthRecipeDescTableHandle } from './resource_growth_recipe_desc_table.ts'
 import { ResourceHealthStateTableHandle } from './resource_health_state_table.ts'
 import { ResourcePlacementRecipeDescTableHandle } from './resource_placement_recipe_desc_table.ts'
+import { ResourceSpawnTimerTableHandle } from './resource_spawn_timer_table.ts'
 import { ResourceStateTableHandle } from './resource_state_table.ts'
+import { ResourcesLogTableHandle } from './resources_log_table.ts'
+import { ResourcesRegenLoopTimerTableHandle } from './resources_regen_loop_timer_table.ts'
+import { RespawnResourceInChunkTimerTableHandle } from './respawn_resource_in_chunk_timer_table.ts'
 import { RezSickLongTermStateTableHandle } from './rez_sick_long_term_state_table.ts'
 import { SatiationStateTableHandle } from './satiation_state_table.ts'
 import { SecondaryKnowledgeDescTableHandle } from './secondary_knowledge_desc_table.ts'
 import { SellOrderStateTableHandle } from './sell_order_state_table.ts'
 import { ServerIdentityTableHandle } from './server_identity_table.ts'
 import { SignedInPlayerStateTableHandle } from './signed_in_player_state_table.ts'
+import { SingleResourceClumpInfoTableHandle } from './single_resource_clump_info_table.ts'
 import { SingleResourceToClumpDescTableHandle } from './single_resource_to_clump_desc_table.ts'
 import { SkillDescTableHandle } from './skill_desc_table.ts'
 import { StagedStaticDataTableHandle } from './staged_static_data_table.ts'
 import { StaminaStateTableHandle } from './stamina_state_table.ts'
+import { StarvingLoopTimerTableHandle } from './starving_loop_timer_table.ts'
 import { StarvingPlayerStateTableHandle } from './starving_player_state_table.ts'
 import { TargetStateTableHandle } from './target_state_table.ts'
 import { TargetableStateTableHandle } from './targetable_state_table.ts'
 import { TargetingMatrixDescTableHandle } from './targeting_matrix_desc_table.ts'
 import { TeleportItemDescTableHandle } from './teleport_item_desc_table.ts'
+import { TeleportPlayerTimerTableHandle } from './teleport_player_timer_table.ts'
+import { TeleportationEnergyRegenLoopTimerTableHandle } from './teleportation_energy_regen_loop_timer_table.ts'
 import { TeleportationEnergyStateTableHandle } from './teleportation_energy_state_table.ts'
 import { TerraformProgressStateTableHandle } from './terraform_progress_state_table.ts'
 import { TerraformRecipeDescTableHandle } from './terraform_recipe_desc_table.ts'
@@ -866,8 +1442,11 @@ import { ToolDescTableHandle } from './tool_desc_table.ts'
 import { ToolTypeDescTableHandle } from './tool_type_desc_table.ts'
 import { ToolbarStateTableHandle } from './toolbar_state_table.ts'
 import { TradeOrderStateTableHandle } from './trade_order_state_table.ts'
+import { TradeSessionLoopTimerTableHandle } from './trade_session_loop_timer_table.ts'
 import { TradeSessionStateTableHandle } from './trade_session_state_table.ts'
+import { TransferPlayerTimerTableHandle } from './transfer_player_timer_table.ts'
 import { TravelerTaskDescTableHandle } from './traveler_task_desc_table.ts'
+import { TravelerTaskLoopTimerTableHandle } from './traveler_task_loop_timer_table.ts'
 import { TravelerTaskStateTableHandle } from './traveler_task_state_table.ts'
 import { TravelerTradeOrderDescTableHandle } from './traveler_trade_order_desc_table.ts'
 import { UnclaimedCollectiblesStateTableHandle } from './unclaimed_collectibles_state_table.ts'
@@ -875,7 +1454,6 @@ import { UnclaimedShardsStateTableHandle } from './unclaimed_shards_state_table.
 import { UserAuthenticationStateTableHandle } from './user_authentication_state_table.ts'
 import { UserModerationStateTableHandle } from './user_moderation_state_table.ts'
 import { UserPreviousRegionStateTableHandle } from './user_previous_region_state_table.ts'
-import { UserRegionStateTableHandle } from './user_region_state_table.ts'
 import { UserStateTableHandle } from './user_state_table.ts'
 import { VaultStateTableHandle } from './vault_state_table.ts'
 import { WallDescTableHandle } from './wall_desc_table.ts'
@@ -883,250 +1461,286 @@ import { WeaponDescTableHandle } from './weapon_desc_table.ts'
 import { WeaponTypeDescTableHandle } from './weapon_type_desc_table.ts'
 import { WorldRegionNameStateTableHandle } from './world_region_name_state_table.ts'
 import { WorldRegionStateTableHandle } from './world_region_state_table.ts'
-export {
-  AchievementDescTableHandle,
-  ActionStateTableHandle,
-  ActiveBuffStateTableHandle,
-  AdminBroadcastTableHandle,
-  AIDebugStateTableHandle,
-  AlertDescTableHandle,
-  AlertStateTableHandle,
-  AttachedHerdsStateTableHandle,
-  AttackOutcomeStateTableHandle,
-  AutoClaimStateTableHandle,
-  BarterStallStateTableHandle,
-  BiomeDescTableHandle,
-  BlockedIdentityTableHandle,
-  BuffDescTableHandle,
-  BuffTypeDescTableHandle,
-  BuildingClaimDescTableHandle,
-  BuildingDescTableHandle,
-  BuildingFunctionTypeMappingDescTableHandle,
-  BuildingNicknameStateTableHandle,
-  BuildingPortalDescTableHandle,
-  BuildingRepairsDescTableHandle,
-  BuildingSpawnDescTableHandle,
-  BuildingStateTableHandle,
-  BuildingTypeDescTableHandle,
-  BuyOrderStateTableHandle,
-  CargoDescTableHandle,
-  CharacterStatDescTableHandle,
-  CharacterStatsStateTableHandle,
-  ChatMessageStateTableHandle,
-  ChestRarityDescTableHandle,
-  ClaimLocalStateTableHandle,
-  ClaimMemberStateTableHandle,
-  ClaimRecruitmentStateTableHandle,
-  ClaimStateTableHandle,
-  ClaimTechDescTableHandle,
-  ClaimTechStateTableHandle,
-  ClaimTileCostTableHandle,
-  ClaimTileStateTableHandle,
-  ClimbRequirementDescTableHandle,
-  ClosedListingStateTableHandle,
-  ClothingDescTableHandle,
-  CollectibleDescTableHandle,
-  CombatActionDescTableHandle,
-  CombatStateTableHandle,
-  ConfigTableHandle,
-  ConstructionRecipeDescTableHandle,
-  CraftingRecipeDescTableHandle,
-  DeconstructionRecipeDescTableHandle,
-  DeployableCollectibleStateTableHandle,
-  DeployableDescTableHandle,
-  DeployableStateTableHandle,
-  DimensionDescriptionStateTableHandle,
-  DimensionNetworkStateTableHandle,
-  DistantVisibleEntityDescTableHandle,
-  DistantVisibleEntityTableHandle,
-  DroppedInventoryStateTableHandle,
-  DuelStateTableHandle,
-  ElevatorDescTableHandle,
-  EmoteDescTableHandle,
-  EmpireChunkStateTableHandle,
-  EmpireColorDescTableHandle,
-  EmpireCraftSuppliesTimerTableHandle,
-  EmpireDecayLoopTimerTableHandle,
-  EmpireDirectiveStateTableHandle,
-  EmpireEmblemStateTableHandle,
-  EmpireExpansionStateTableHandle,
-  EmpireFoundryStateTableHandle,
-  EmpireIconDescTableHandle,
-  EmpireLogStateTableHandle,
-  EmpireNodeSiegeStateTableHandle,
-  EmpireNodeStateTableHandle,
-  EmpireNotificationDescTableHandle,
-  EmpireNotificationStateTableHandle,
-  EmpirePlayerDataStateTableHandle,
-  EmpirePlayerLogStateTableHandle,
-  EmpireRankDescTableHandle,
-  EmpireRankStateTableHandle,
-  EmpireSettlementStateTableHandle,
-  EmpireSiegeEngineStateTableHandle,
-  EmpireSiegeLoopTimerTableHandle,
-  EmpireStateTableHandle,
-  EmpireSuppliesDescTableHandle,
-  EmpireTerritoryDescTableHandle,
-  EnemyAiParamsDescTableHandle,
-  EnemyDescTableHandle,
-  EnemyMobMonitorStateTableHandle,
-  EnemyStateTableHandle,
-  EnvironmentDebuffDescTableHandle,
-  EquipmentDescTableHandle,
-  EquipmentStateTableHandle,
-  ExperienceStateTableHandle,
-  ExplorationChunksStateTableHandle,
-  ExtractionRecipeDescTableHandle,
-  ExtractOutcomeStateTableHandle,
-  FoodDescTableHandle,
-  FootprintTileStateTableHandle,
-  ForceGenerateTypesTableHandle,
-  GateDescTableHandle,
-  GlobalSearchStateTableHandle,
-  GlobalsTableHandle,
-  GrantedHubItemStateTableHandle,
-  GrowthStateTableHandle,
-  HealthStateTableHandle,
-  HerdStateTableHandle,
-  HexiteExchangeEntryDescTableHandle,
-  IdentityRoleTableHandle,
-  InteriorCollapseTriggerStateTableHandle,
-  InteriorEnvironmentDescTableHandle,
-  InteriorInstanceDescTableHandle,
-  InteriorNetworkDescTableHandle,
-  InteriorPortalConnectionsDescTableHandle,
-  InteriorShapeDescTableHandle,
-  InteriorSpawnDescTableHandle,
-  InterModuleMessageCounterTableHandle,
-  InterModuleMessageTableHandle,
-  InterModuleResponseMessageCounterTableHandle,
-  InventoryStateTableHandle,
-  ItemConversionRecipeDescTableHandle,
-  ItemDescTableHandle,
-  ItemListDescTableHandle,
-  KnowledgeAchievementStateTableHandle,
-  KnowledgeBattleActionStateTableHandle,
-  KnowledgeBuildingStateTableHandle,
-  KnowledgeCargoStateTableHandle,
-  KnowledgeClaimStateTableHandle,
-  KnowledgeConstructionStateTableHandle,
-  KnowledgeCraftStateTableHandle,
-  KnowledgeDeployableStateTableHandle,
-  KnowledgeEnemyStateTableHandle,
-  KnowledgeExtractStateTableHandle,
-  KnowledgeItemStateTableHandle,
-  KnowledgeLoreStateTableHandle,
-  KnowledgeNpcStateTableHandle,
-  KnowledgePavingStateTableHandle,
-  KnowledgePillarShapingStateTableHandle,
-  KnowledgeResourcePlacementStateTableHandle,
-  KnowledgeResourceStateTableHandle,
-  KnowledgeRuinsStateTableHandle,
-  KnowledgeScrollDescTableHandle,
-  KnowledgeScrollTypeDescTableHandle,
-  KnowledgeSecondaryStateTableHandle,
-  KnowledgeStatModifierDescTableHandle,
-  KnowledgeVaultStateTableHandle,
-  LightSourceStateTableHandle,
-  LocationStateTableHandle,
-  LootChestDescTableHandle,
-  LootChestStateTableHandle,
-  LootRarityDescTableHandle,
-  LootTableDescTableHandle,
-  LostItemsStateTableHandle,
-  MobileEntityStateTableHandle,
-  MountingStateTableHandle,
-  MoveValidationStrikeCounterStateTableHandle,
-  NpcDescTableHandle,
-  NpcStateTableHandle,
-  OnboardingRewardDescTableHandle,
-  OnboardingStateTableHandle,
-  ParametersDescTableHandle,
-  ParametersPlayerMoveDescTableHandle,
-  PassiveCraftStateTableHandle,
-  PathfindingDescTableHandle,
-  PavedTileStateTableHandle,
-  PavingTileDescTableHandle,
-  PermissionStateTableHandle,
-  PillarShapingDescTableHandle,
-  PillarShapingStateTableHandle,
-  PlayerActionDescTableHandle,
-  PlayerActionStateTableHandle,
-  PlayerDeveloperNotificationStateTableHandle,
-  PlayerHousingDescTableHandle,
-  PlayerHousingStateTableHandle,
-  PlayerLowercaseUsernameStateTableHandle,
-  PlayerNoteStateTableHandle,
-  PlayerNotificationEventTableHandle,
-  PlayerPrefsStateTableHandle,
-  PlayerQueueStateTableHandle,
-  PlayerReportStateTableHandle,
-  PlayerReportStateTimestampTableHandle,
-  PlayerShardStateTableHandle,
-  PlayerStateTableHandle,
-  PlayerTimestampStateTableHandle,
-  PlayerUsernameStateTableHandle,
-  PlayerVoteConcludeTimerTableHandle,
-  PlayerVoteStateTableHandle,
-  PortalStateTableHandle,
-  PrivateParametersDescTableHandle,
-  ProgressiveActionStateTableHandle,
-  ProjectSiteStateTableHandle,
-  RegionConnectionInfoTableHandle,
-  RegionPopulationInfoTableHandle,
-  RegionSignInParametersTableHandle,
-  RentStateTableHandle,
-  ReservedNameDescTableHandle,
-  ResourceClumpDescTableHandle,
-  ResourceCountTableHandle,
-  ResourceDescTableHandle,
-  ResourceGrowthRecipeDescTableHandle,
-  ResourceHealthStateTableHandle,
-  ResourcePlacementRecipeDescTableHandle,
-  ResourceStateTableHandle,
-  RezSickLongTermStateTableHandle,
-  SatiationStateTableHandle,
-  SecondaryKnowledgeDescTableHandle,
-  SellOrderStateTableHandle,
-  ServerIdentityTableHandle,
-  SignedInPlayerStateTableHandle,
-  SingleResourceToClumpDescTableHandle,
-  SkillDescTableHandle,
-  StagedStaticDataTableHandle,
-  StaminaStateTableHandle,
-  StarvingPlayerStateTableHandle,
-  TargetableStateTableHandle,
-  TargetingMatrixDescTableHandle,
-  TargetStateTableHandle,
-  TeleportationEnergyStateTableHandle,
-  TeleportItemDescTableHandle,
-  TerraformProgressStateTableHandle,
-  TerraformRecipeDescTableHandle,
-  TerrainChunkStateTableHandle,
-  TheGreatPlaceholderTableTableHandle,
-  ThreatStateTableHandle,
-  ToolbarStateTableHandle,
-  ToolDescTableHandle,
-  ToolTypeDescTableHandle,
-  TradeOrderStateTableHandle,
-  TradeSessionStateTableHandle,
-  TravelerTaskDescTableHandle,
-  TravelerTaskStateTableHandle,
-  TravelerTradeOrderDescTableHandle,
-  UnclaimedCollectiblesStateTableHandle,
-  UnclaimedShardsStateTableHandle,
-  UserAuthenticationStateTableHandle,
-  UserModerationStateTableHandle,
-  UserPreviousRegionStateTableHandle,
-  UserRegionStateTableHandle,
-  UserStateTableHandle,
-  VaultStateTableHandle,
-  WallDescTableHandle,
-  WeaponDescTableHandle,
-  WeaponTypeDescTableHandle,
-  WorldRegionNameStateTableHandle,
-  WorldRegionStateTableHandle
-}
+export { AIDebugStateTableHandle }
+export { AchievementDescTableHandle }
+export { ActionStateTableHandle }
+export { ActiveBuffStateTableHandle }
+export { AdminBroadcastTableHandle }
+export { AdminClearResourceTimerTableHandle }
+export { AdminRestorePlayerStateTimerTableHandle }
+export { AlertDescTableHandle }
+export { AlertStateTableHandle }
+export { AttachedHerdsStateTableHandle }
+export { AttackImpactTimerTableHandle }
+export { AttackOutcomeStateTableHandle }
+export { AttackTimerTableHandle }
+export { AutoClaimStateTableHandle }
+export { AutoLogoutLoopTimerTableHandle }
+export { BarterStallStateTableHandle }
+export { BiomeDescTableHandle }
+export { BlockedIdentityTableHandle }
+export { BuffDescTableHandle }
+export { BuffTypeDescTableHandle }
+export { BuildingClaimDescTableHandle }
+export { BuildingDecayLoopTimerTableHandle }
+export { BuildingDescTableHandle }
+export { BuildingDespawnTimerTableHandle }
+export { BuildingFunctionTypeMappingDescTableHandle }
+export { BuildingNicknameStateTableHandle }
+export { BuildingPortalDescTableHandle }
+export { BuildingRepairsDescTableHandle }
+export { BuildingSpawnDescTableHandle }
+export { BuildingStateTableHandle }
+export { BuildingTypeDescTableHandle }
+export { BuyOrderStateTableHandle }
+export { CargoDescTableHandle }
+export { CharacterStatDescTableHandle }
+export { CharacterStatsStateTableHandle }
+export { ChatMessageStateTableHandle }
+export { ChestRarityDescTableHandle }
+export { ClaimLocalStateTableHandle }
+export { ClaimMemberStateTableHandle }
+export { ClaimRecruitmentStateTableHandle }
+export { ClaimStateTableHandle }
+export { ClaimTechDescTableHandle }
+export { ClaimTechStateTableHandle }
+export { ClaimTechUnlockTimerTableHandle }
+export { ClaimTileCostTableHandle }
+export { ClaimTileStateTableHandle }
+export { ClimbRequirementDescTableHandle }
+export { ClosedListingStateTableHandle }
+export { ClothingDescTableHandle }
+export { CollectStatsTimerTableHandle }
+export { CollectibleDescTableHandle }
+export { CombatActionDescTableHandle }
+export { CombatStateTableHandle }
+export { ConfigTableHandle }
+export { ConstructionRecipeDescTableHandle }
+export { CraftingRecipeDescTableHandle }
+export { DayNightLoopTimerTableHandle }
+export { DeconstructionRecipeDescTableHandle }
+export { DeployableCollectibleStateTableHandle }
+export { DeployableDescTableHandle }
+export { DeployableDismountTimerTableHandle }
+export { DeployableStateTableHandle }
+export { DestroyDimensionNetworkTimerTableHandle }
+export { DimensionDescriptionStateTableHandle }
+export { DimensionNetworkStateTableHandle }
+export { DistantVisibleEntityTableHandle }
+export { DistantVisibleEntityDescTableHandle }
+export { DroppedInventoryDespawnTimerTableHandle }
+export { DroppedInventoryOwnershipTimerTableHandle }
+export { DroppedInventoryStateTableHandle }
+export { DuelAgentTimerTableHandle }
+export { DuelDespawnTimerTableHandle }
+export { DuelStateTableHandle }
+export { ElevatorDescTableHandle }
+export { EmoteDescTableHandle }
+export { EmpireChunkStateTableHandle }
+export { EmpireColorDescTableHandle }
+export { EmpireExpansionStateTableHandle }
+export { EmpireIconDescTableHandle }
+export { EmpireNodeSiegeStateTableHandle }
+export { EmpireNodeStateTableHandle }
+export { EmpireNotificationDescTableHandle }
+export { EmpirePlayerDataStateTableHandle }
+export { EmpireRankDescTableHandle }
+export { EmpireRankStateTableHandle }
+export { EmpireSettlementStateTableHandle }
+export { EmpireStateTableHandle }
+export { EmpireSuppliesDescTableHandle }
+export { EmpireTerritoryDescTableHandle }
+export { EndGracePeriodTimerTableHandle }
+export { EnemyAiParamsDescTableHandle }
+export { EnemyDescTableHandle }
+export { EnemyDespawnTimerTableHandle }
+export { EnemyMobMonitorStateTableHandle }
+export { EnemyRegenLoopTimerTableHandle }
+export { EnemyStateTableHandle }
+export { EnvironmentDebuffDescTableHandle }
+export { EnvironmentDebuffLoopTimerTableHandle }
+export { EquipmentDescTableHandle }
+export { EquipmentStateTableHandle }
+export { ExperienceStateTableHandle }
+export { ExplorationChunksStateTableHandle }
+export { ExtractOutcomeStateTableHandle }
+export { ExtractionRecipeDescTableHandle }
+export { FoodDescTableHandle }
+export { FootprintTileStateTableHandle }
+export { ForceGenerateTypesTableHandle }
+export { GateDescTableHandle }
+export { GlobalSearchStateTableHandle }
+export { GlobalsTableHandle }
+export { GrowthLoopTimerTableHandle }
+export { GrowthStateTableHandle }
+export { HealthStateTableHandle }
+export { HerdStateTableHandle }
+export { HexiteExchangeEntryDescTableHandle }
+export { HideDeployableTimerTableHandle }
+export { IdentityRoleTableHandle }
+export { InterModuleMessageTableHandle }
+export { InterModuleMessageCounterTableHandle }
+export { InterModuleResponseMessageCounterTableHandle }
+export { InteriorCollapseTriggerStateTableHandle }
+export { InteriorEnvironmentDescTableHandle }
+export { InteriorInstanceDescTableHandle }
+export { InteriorNetworkDescTableHandle }
+export { InteriorPortalConnectionsDescTableHandle }
+export { InteriorSetCollapsedTimerTableHandle }
+export { InteriorShapeDescTableHandle }
+export { InteriorSpawnDescTableHandle }
+export { InventoryStateTableHandle }
+export { ItemConversionRecipeDescTableHandle }
+export { ItemDescTableHandle }
+export { ItemListDescTableHandle }
+export { KnowledgeAchievementStateTableHandle }
+export { KnowledgeBattleActionStateTableHandle }
+export { KnowledgeBuildingStateTableHandle }
+export { KnowledgeCargoStateTableHandle }
+export { KnowledgeClaimStateTableHandle }
+export { KnowledgeConstructionStateTableHandle }
+export { KnowledgeCraftStateTableHandle }
+export { KnowledgeDeployableStateTableHandle }
+export { KnowledgeEnemyStateTableHandle }
+export { KnowledgeExtractStateTableHandle }
+export { KnowledgeItemStateTableHandle }
+export { KnowledgeLoreStateTableHandle }
+export { KnowledgeNpcStateTableHandle }
+export { KnowledgePavingStateTableHandle }
+export { KnowledgePillarShapingStateTableHandle }
+export { KnowledgeResourcePlacementStateTableHandle }
+export { KnowledgeResourceStateTableHandle }
+export { KnowledgeRuinsStateTableHandle }
+export { KnowledgeScrollDescTableHandle }
+export { KnowledgeScrollTypeDescTableHandle }
+export { KnowledgeSecondaryStateTableHandle }
+export { KnowledgeStatModifierDescTableHandle }
+export { KnowledgeVaultStateTableHandle }
+export { LightSourceStateTableHandle }
+export { LocationCacheTableHandle }
+export { LocationStateTableHandle }
+export { LootChestDescTableHandle }
+export { LootChestDespawnTimerTableHandle }
+export { LootChestSpawnTimerTableHandle }
+export { LootChestStateTableHandle }
+export { LootRarityDescTableHandle }
+export { LootTableDescTableHandle }
+export { LostItemsStateTableHandle }
+export { MobileEntityStateTableHandle }
+export { MountingStateTableHandle }
+export { MoveValidationStrikeCounterStateTableHandle }
+export { NpcAiLoopTimerTableHandle }
+export { NpcDescTableHandle }
+export { NpcStateTableHandle }
+export { OnDurabilityZeroTimerTableHandle }
+export { OnboardingRewardDescTableHandle }
+export { OnboardingStateTableHandle }
+export { ParametersDescTableHandle }
+export { ParametersPlayerMoveDescTableHandle }
+export { PassiveCraftStateTableHandle }
+export { PassiveCraftTimerTableHandle }
+export { PathfindingDescTableHandle }
+export { PavedTileStateTableHandle }
+export { PavingTileDescTableHandle }
+export { PermissionStateTableHandle }
+export { PillarShapingDescTableHandle }
+export { PillarShapingStateTableHandle }
+export { PlayerActionDescTableHandle }
+export { PlayerActionStateTableHandle }
+export { PlayerDeathTimerTableHandle }
+export { PlayerHousingDescTableHandle }
+export { PlayerHousingEvictPlayerTimerTableHandle }
+export { PlayerHousingIncomeLoopTimerTableHandle }
+export { PlayerHousingStateTableHandle }
+export { PlayerLowercaseUsernameStateTableHandle }
+export { PlayerNoteStateTableHandle }
+export { PlayerNotificationEventTableHandle }
+export { PlayerPrefsStateTableHandle }
+export { PlayerQueueStateTableHandle }
+export { PlayerRegenLoopTimerTableHandle }
+export { PlayerRegionTransferEventTableHandle }
+export { PlayerReportStateTableHandle }
+export { PlayerReportStateTimestampTableHandle }
+export { PlayerSetNameOutcomeEventTableHandle }
+export { PlayerStateTableHandle }
+export { PlayerTimestampStateTableHandle }
+export { PlayerUseElevatorTimerTableHandle }
+export { PlayerUsernameStateTableHandle }
+export { PlayerVoteConcludeTimerTableHandle }
+export { PlayerVoteStateTableHandle }
+export { PortalStateTableHandle }
+export { PrivateParametersDescTableHandle }
+export { ProgressiveActionStateTableHandle }
+export { ProjectSiteStateTableHandle }
+export { RegionConnectionInfoTableHandle }
+export { RegionPopulationInfoTableHandle }
+export { RegionPopuplationLoopTimerTableHandle }
+export { RegionSignInParametersTableHandle }
+export { RentCollectorLoopTimerTableHandle }
+export { RentEvictTimerTableHandle }
+export { RentStateTableHandle }
+export { ReservedNameDescTableHandle }
+export { ResetChunkIndexTimerTableHandle }
+export { ResetMobileEntityTimerTableHandle }
+export { ResourceClumpDescTableHandle }
+export { ResourceCountTableHandle }
+export { ResourceDescTableHandle }
+export { ResourceGrowthRecipeDescTableHandle }
+export { ResourceHealthStateTableHandle }
+export { ResourcePlacementRecipeDescTableHandle }
+export { ResourceSpawnTimerTableHandle }
+export { ResourceStateTableHandle }
+export { ResourcesLogTableHandle }
+export { ResourcesRegenLoopTimerTableHandle }
+export { RespawnResourceInChunkTimerTableHandle }
+export { RezSickLongTermStateTableHandle }
+export { SatiationStateTableHandle }
+export { SecondaryKnowledgeDescTableHandle }
+export { SellOrderStateTableHandle }
+export { ServerIdentityTableHandle }
+export { SignedInPlayerStateTableHandle }
+export { SingleResourceClumpInfoTableHandle }
+export { SingleResourceToClumpDescTableHandle }
+export { SkillDescTableHandle }
+export { StagedStaticDataTableHandle }
+export { StaminaStateTableHandle }
+export { StarvingLoopTimerTableHandle }
+export { StarvingPlayerStateTableHandle }
+export { TargetStateTableHandle }
+export { TargetableStateTableHandle }
+export { TargetingMatrixDescTableHandle }
+export { TeleportItemDescTableHandle }
+export { TeleportPlayerTimerTableHandle }
+export { TeleportationEnergyRegenLoopTimerTableHandle }
+export { TeleportationEnergyStateTableHandle }
+export { TerraformProgressStateTableHandle }
+export { TerraformRecipeDescTableHandle }
+export { TerrainChunkStateTableHandle }
+export { TheGreatPlaceholderTableTableHandle }
+export { ThreatStateTableHandle }
+export { ToolDescTableHandle }
+export { ToolTypeDescTableHandle }
+export { ToolbarStateTableHandle }
+export { TradeOrderStateTableHandle }
+export { TradeSessionLoopTimerTableHandle }
+export { TradeSessionStateTableHandle }
+export { TransferPlayerTimerTableHandle }
+export { TravelerTaskDescTableHandle }
+export { TravelerTaskLoopTimerTableHandle }
+export { TravelerTaskStateTableHandle }
+export { TravelerTradeOrderDescTableHandle }
+export { UnclaimedCollectiblesStateTableHandle }
+export { UnclaimedShardsStateTableHandle }
+export { UserAuthenticationStateTableHandle }
+export { UserModerationStateTableHandle }
+export { UserPreviousRegionStateTableHandle }
+export { UserStateTableHandle }
+export { VaultStateTableHandle }
+export { WallDescTableHandle }
+export { WeaponDescTableHandle }
+export { WeaponTypeDescTableHandle }
+export { WorldRegionNameStateTableHandle }
+export { WorldRegionStateTableHandle }
 
 // Import and reexport all types
 import { AchievementDesc } from './achievement_desc_type.ts'
@@ -1136,14 +1750,20 @@ import { ActiveBuffState } from './active_buff_state_type.ts'
 import { ActiveBuff } from './active_buff_type.ts'
 import { AdminBroadcastMessageMsg } from './admin_broadcast_message_msg_type.ts'
 import { AdminBroadcast } from './admin_broadcast_type.ts'
+import { AdminClearResourceTimer } from './admin_clear_resource_timer_type.ts'
+import { AdminRestorePlayerStateTimer } from './admin_restore_player_state_timer_type.ts'
 import { AiDebugState } from './ai_debug_state_type.ts'
 import { AlertDesc } from './alert_desc_type.ts'
 import { AlertState } from './alert_state_type.ts'
 import { AlertType } from './alert_type_type.ts'
 import { AttachedHerdsState } from './attached_herds_state_type.ts'
+import { AttackImpactTimer } from './attack_impact_timer_type.ts'
 import { AttackOutcomeState } from './attack_outcome_state_type.ts'
+import { AttackTimer } from './attack_timer_type.ts'
 import { AuctionListingState } from './auction_listing_state_type.ts'
 import { AutoClaimState } from './auto_claim_state_type.ts'
+import { AutoLogoutLoopTimer } from './auto_logout_loop_timer_type.ts'
+import { BarterStallSetMarketModeEnabledRequest } from './barter_stall_set_market_mode_enabled_request_type.ts'
 import { BarterStallState } from './barter_stall_state_type.ts'
 import { BiomeDesc } from './biome_desc_type.ts'
 import { Biome } from './biome_type.ts'
@@ -1155,7 +1775,9 @@ import { BuffEffect } from './buff_effect_type.ts'
 import { BuffTypeDesc } from './buff_type_desc_type.ts'
 import { BuildingCategory } from './building_category_type.ts'
 import { BuildingClaimDesc } from './building_claim_desc_type.ts'
+import { BuildingDecayLoopTimer } from './building_decay_loop_timer_type.ts'
 import { BuildingDesc } from './building_desc_type.ts'
+import { BuildingDespawnTimer } from './building_despawn_timer_type.ts'
 import { BuildingFunction } from './building_function_type.ts'
 import { BuildingFunctionTypeMappingDesc } from './building_function_type_mapping_desc_type.ts'
 import { BuildingInteractionLevel } from './building_interaction_level_type.ts'
@@ -1164,6 +1786,7 @@ import { BuildingNicknameState } from './building_nickname_state_type.ts'
 import { BuildingPortalDesc } from './building_portal_desc_type.ts'
 import { BuildingRepairsDesc } from './building_repairs_desc_type.ts'
 import { BuildingRequirement } from './building_requirement_type.ts'
+import { BuildingSetSignTextRequest } from './building_set_sign_text_request_type.ts'
 import { BuildingSpawnDesc } from './building_spawn_desc_type.ts'
 import { BuildingSpawnType } from './building_spawn_type_type.ts'
 import { BuildingStateOp } from './building_state_op_type.ts'
@@ -1176,7 +1799,17 @@ import { CharacterStatType } from './character_stat_type_type.ts'
 import { CharacterStatsState } from './character_stats_state_type.ts'
 import { ChatChannel } from './chat_channel_type.ts'
 import { ChatMessageState } from './chat_message_state_type.ts'
-import { CheatShardsGrantRequest } from './cheat_shards_grant_request_type.ts'
+import { CheatCargoGrantRequest } from './cheat_cargo_grant_request_type.ts'
+import { CheatCompendiumEnemyPlaceRequest } from './cheat_compendium_enemy_place_request_type.ts'
+import { CheatCompendiumItemPlaceRequest } from './cheat_compendium_item_place_request_type.ts'
+import { CheatDiscoverMapRequest } from './cheat_discover_map_request_type.ts'
+import { CheatExperienceGrantRequest } from './cheat_experience_grant_request_type.ts'
+import { CheatGrantKnowledgeRequest } from './cheat_grant_knowledge_request_type.ts'
+import { CheatSetDebugAiStateRequest } from './cheat_set_debug_ai_state_request_type.ts'
+import { CheatSpawnLootChestRequest } from './cheat_spawn_loot_chest_request_type.ts'
+import { CheatTeleportFloatRequest } from './cheat_teleport_float_request_type.ts'
+import { CheatToggleActiveCollectibleRequest } from './cheat_toggle_active_collectible_request_type.ts'
+import { CheatWarpRequest } from './cheat_warp_request_type.ts'
 import { ChestLootRarity } from './chest_loot_rarity_type.ts'
 import { ChestRarityDesc } from './chest_rarity_desc_type.ts'
 import { ChunkCoordinatesMessage } from './chunk_coordinates_message_type.ts'
@@ -1185,11 +1818,16 @@ import { ClaimLocalState } from './claim_local_state_type.ts'
 import { ClaimMemberStateOp } from './claim_member_state_op_type.ts'
 import { ClaimMemberState } from './claim_member_state_type.ts'
 import { ClaimPermission } from './claim_permission_type.ts'
+import { ClaimPurchaseSuppliesFromPlayerRequest } from './claim_purchase_supplies_from_player_request_type.ts'
 import { ClaimRecruitmentState } from './claim_recruitment_state_type.ts'
+import { ClaimResupplyRequest } from './claim_resupply_request_type.ts'
+import { ClaimSetPurchaseSupplyPriceRequest } from './claim_set_purchase_supply_price_request_type.ts'
+import { ClaimSetPurchaseSupplyThresholdRequest } from './claim_set_purchase_supply_threshold_request_type.ts'
 import { ClaimStateOp } from './claim_state_op_type.ts'
 import { ClaimState } from './claim_state_type.ts'
 import { ClaimTechDesc } from './claim_tech_desc_type.ts'
 import { ClaimTechState } from './claim_tech_state_type.ts'
+import { ClaimTechUnlockTimer } from './claim_tech_unlock_timer_type.ts'
 import { ClaimTileCost } from './claim_tile_cost_type.ts'
 import { ClaimTileState } from './claim_tile_state_type.ts'
 import { ClaimType } from './claim_type_type.ts'
@@ -1198,93 +1836,95 @@ import { ClosedListingState } from './closed_listing_state_type.ts'
 import { ClothingDesc } from './clothing_desc_type.ts'
 import { ClothingMask } from './clothing_mask_type.ts'
 import { ClothingVisual } from './clothing_visual_type.ts'
+import { CollectStatsTimer } from './collect_stats_timer_type.ts'
 import { CollectibleDesc } from './collectible_desc_type.ts'
 import { CollectibleType } from './collectible_type_type.ts'
 import { CombatActionDesc } from './combat_action_desc_type.ts'
 import { CombatState } from './combat_state_type.ts'
+import { CommonRng } from './common_rng_type.ts'
 import { Config } from './config_type.ts'
 import { ConstructionRecipeDesc } from './construction_recipe_desc_type.ts'
 import { CraftingRecipeDesc } from './crafting_recipe_desc_type.ts'
 import { CsvStatEntry } from './csv_stat_entry_type.ts'
+import { DayNightLoopTimer } from './day_night_loop_timer_type.ts'
 import { DeconstructionRecipeDesc } from './deconstruction_recipe_desc_type.ts'
 import { DeleteEmpireMsg } from './delete_empire_msg_type.ts'
 import { DeployableCollectibleState } from './deployable_collectible_state_type.ts'
+import { DeployableDeployRequest } from './deployable_deploy_request_type.ts'
 import { DeployableDesc } from './deployable_desc_type.ts'
+import { DeployableDismountTimer } from './deployable_dismount_timer_type.ts'
 import { DeployableState } from './deployable_state_type.ts'
+import { DeployableStoreRequest } from './deployable_store_request_type.ts'
 import { DeployableType } from './deployable_type_type.ts'
+import { DestroyDimensionNetworkTimer } from './destroy_dimension_network_timer_type.ts'
 import { DimensionDescriptionState } from './dimension_description_state_type.ts'
 import { DimensionNetworkState } from './dimension_network_state_type.ts'
 import { DimensionType } from './dimension_type_type.ts'
 import { DistantVisibleEntityDesc } from './distant_visible_entity_desc_type.ts'
 import { DistantVisibleEntity } from './distant_visible_entity_type.ts'
+import { DroppedInventoryDespawnTimer } from './dropped_inventory_despawn_timer_type.ts'
+import { DroppedInventoryOwnershipTimer } from './dropped_inventory_ownership_timer_type.ts'
 import { DroppedInventoryState } from './dropped_inventory_state_type.ts'
+import { DuelAgentTimer } from './duel_agent_timer_type.ts'
+import { DuelDespawnTimer } from './duel_despawn_timer_type.ts'
 import { DuelState } from './duel_state_type.ts'
 import { ElevatorDesc } from './elevator_desc_type.ts'
 import { EmoteDesc } from './emote_desc_type.ts'
-import { EmpireChangeEmblemRequest } from './empire_change_emblem_request_type.ts'
+import { EmpireAddSiegeSuppliesRequest } from './empire_add_siege_supplies_request_type.ts'
 import { EmpireChunkStateOp } from './empire_chunk_state_op_type.ts'
 import { EmpireChunkState } from './empire_chunk_state_type.ts'
 import { EmpireClaimJoinMsg } from './empire_claim_join_msg_type.ts'
 import { EmpireCollectHexiteCapsuleMsg } from './empire_collect_hexite_capsule_msg_type.ts'
+import { EmpireCollectHexiteCapsuleRequest } from './empire_collect_hexite_capsule_request_type.ts'
 import { EmpireColorDesc } from './empire_color_desc_type.ts'
-import { EmpireCraftSuppliesTimer } from './empire_craft_supplies_timer_type.ts'
 import { EmpireCreateBuildingMsg } from './empire_create_building_msg_type.ts'
-import { EmpireDecayLoopTimer } from './empire_decay_loop_timer_type.ts'
-import { EmpireDirectiveState } from './empire_directive_state_type.ts'
-import { EmpireDismantleRequest } from './empire_dismantle_request_type.ts'
-import { EmpireDonateShardsRequest } from './empire_donate_shards_request_type.ts'
-import { EmpireEmblemState } from './empire_emblem_state_type.ts'
 import { EmpireExpansionStateOp } from './empire_expansion_state_op_type.ts'
 import { EmpireExpansionState } from './empire_expansion_state_type.ts'
-import { EmpireFormRequest } from './empire_form_request_type.ts'
-import { EmpireFoundryState } from './empire_foundry_state_type.ts'
 import { EmpireIconDesc } from './empire_icon_desc_type.ts'
-import { EmpireLeaveRequest } from './empire_leave_request_type.ts'
-import { EmpireLogState } from './empire_log_state_type.ts'
-import { EmpireMarkForExpansionRequest } from './empire_mark_for_expansion_request_type.ts'
-import { EmpireMarkForSiegeRequest } from './empire_mark_for_siege_request_type.ts'
 import { EmpireNodeSiegeStateOp } from './empire_node_siege_state_op_type.ts'
 import { EmpireNodeSiegeState } from './empire_node_siege_state_type.ts'
 import { EmpireNodeStateOp } from './empire_node_state_op_type.ts'
 import { EmpireNodeState } from './empire_node_state_type.ts'
 import { EmpireNotificationDesc } from './empire_notification_desc_type.ts'
-import { EmpireNotificationState } from './empire_notification_state_type.ts'
 import { EmpireNotificationType } from './empire_notification_type_type.ts'
-import { EmpirePermission } from './empire_permission_type.ts'
 import { EmpirePlayerDataStateOp } from './empire_player_data_state_op_type.ts'
 import { EmpirePlayerDataState } from './empire_player_data_state_type.ts'
-import { EmpirePlayerJoinRequest } from './empire_player_join_request_type.ts'
-import { EmpirePlayerLeaveRequest } from './empire_player_leave_request_type.ts'
-import { EmpirePlayerLogState } from './empire_player_log_state_type.ts'
 import { EmpireQueueSuppliesMsg } from './empire_queue_supplies_msg_type.ts'
+import { EmpireQueueSuppliesRequest } from './empire_queue_supplies_request_type.ts'
 import { EmpireRankDesc } from './empire_rank_desc_type.ts'
 import { EmpireRankStateOp } from './empire_rank_state_op_type.ts'
 import { EmpireRankState } from './empire_rank_state_type.ts'
 import { EmpireRemoveCrownMsg } from './empire_remove_crown_msg_type.ts'
 import { EmpireResupplyNodeMsg } from './empire_resupply_node_msg_type.ts'
-import { EmpireSetDirectiveMessageRequest } from './empire_set_directive_message_request_type.ts'
-import { EmpireSetPlayerRankRequest } from './empire_set_player_rank_request_type.ts'
-import { EmpireSetRankTitleRequest } from './empire_set_rank_title_request_type.ts'
+import { EmpireResupplyNodeRequest } from './empire_resupply_node_request_type.ts'
 import { EmpireSettlementStateOp } from './empire_settlement_state_op_type.ts'
 import { EmpireSettlementState } from './empire_settlement_state_type.ts'
 import { EmpireSiegeAddSuppliesMsg } from './empire_siege_add_supplies_msg_type.ts'
-import { EmpireSiegeEngineState } from './empire_siege_engine_state_type.ts'
-import { EmpireSiegeLoopTimer } from './empire_siege_loop_timer_type.ts'
 import { EmpireStartSiegeMsg } from './empire_start_siege_msg_type.ts'
+import { EmpireStartSiegeRequest } from './empire_start_siege_request_type.ts'
 import { EmpireStateOp } from './empire_state_op_type.ts'
 import { EmpireState } from './empire_state_type.ts'
 import { EmpireSuppliesDesc } from './empire_supplies_desc_type.ts'
 import { EmpireTerritoryDesc } from './empire_territory_desc_type.ts'
 import { EmpireUpdateEmperorCrownMsg } from './empire_update_emperor_crown_msg_type.ts'
-import { EmpireUpdatePermissionsRequest } from './empire_update_permissions_request_type.ts'
+import { EndGracePeriodTimer } from './end_grace_period_timer_type.ts'
 import { EnemyAiParamsDesc } from './enemy_ai_params_desc_type.ts'
+import { EnemyClearAggroRequest } from './enemy_clear_aggro_request_type.ts'
 import { EnemyDesc } from './enemy_desc_type.ts'
+import { EnemyDespawnTimer } from './enemy_despawn_timer_type.ts'
 import { EnemyMobMonitorState } from './enemy_mob_monitor_state_type.ts'
+import { EnemyMoveRequest } from './enemy_move_request_type.ts'
+import { EnemyRegenLoopTimer } from './enemy_regen_loop_timer_type.ts'
+import { EnemySetHealthRequest } from './enemy_set_health_request_type.ts'
+import { EnemySpawnLootRequest } from './enemy_spawn_loot_request_type.ts'
+import { EnemySpawnRequest } from './enemy_spawn_request_type.ts'
 import { EnemyState } from './enemy_state_type.ts'
 import { EnemyStatus } from './enemy_status_type.ts'
 import { EnemyType } from './enemy_type_type.ts'
+import { EntityAttackRequest } from './entity_attack_request_type.ts'
 import { EntityType } from './entity_type_type.ts'
 import { EnvironmentDebuffDesc } from './environment_debuff_desc_type.ts'
+import { EnvironmentDebuffLoopTimer } from './environment_debuff_loop_timer_type.ts'
 import { EnvironmentResistanceType } from './environment_resistance_type_type.ts'
 import { EquipmentDesc } from './equipment_desc_type.ts'
 import { EquipmentSlot } from './equipment_slot_type.ts'
@@ -1307,14 +1947,16 @@ import { GateDesc } from './gate_desc_type.ts'
 import { GlobalDeleteEmpireBuildingMsg } from './global_delete_empire_building_msg_type.ts'
 import { GlobalSearchState } from './global_search_state_type.ts'
 import { Globals } from './globals_type.ts'
+import { GracePeriodType } from './grace_period_type_type.ts'
 import { GrantHubItemMsg } from './grant_hub_item_msg_type.ts'
-import { GrantedHubItemState } from './granted_hub_item_state_type.ts'
+import { GrowthLoopTimer } from './growth_loop_timer_type.ts'
 import { GrowthState } from './growth_state_type.ts'
 import { HandEquipmentVisual } from './hand_equipment_visual_type.ts'
 import { HealthState } from './health_state_type.ts'
 import { HerdState } from './herd_state_type.ts'
 import { HexDirection } from './hex_direction_type.ts'
 import { HexiteExchangeEntryDesc } from './hexite_exchange_entry_desc_type.ts'
+import { HideDeployableTimer } from './hide_deployable_timer_type.ts'
 import { HubItemType } from './hub_item_type_type.ts'
 import { IdentityRoleOp } from './identity_role_op_type.ts'
 import { IdentityRole } from './identity_role_type.ts'
@@ -1328,6 +1970,7 @@ import { InteriorEnvironmentDesc } from './interior_environment_desc_type.ts'
 import { InteriorInstanceDesc } from './interior_instance_desc_type.ts'
 import { InteriorNetworkDesc } from './interior_network_desc_type.ts'
 import { InteriorPortalConnectionsDesc } from './interior_portal_connections_desc_type.ts'
+import { InteriorSetCollapsedTimer } from './interior_set_collapsed_timer_type.ts'
 import { InteriorShapeDesc } from './interior_shape_desc_type.ts'
 import { InteriorSpawnDesc } from './interior_spawn_desc_type.ts'
 import { InteriorSpawnType } from './interior_spawn_type_type.ts'
@@ -1369,9 +2012,12 @@ import { KnowledgeVaultState } from './knowledge_vault_state_type.ts'
 import { LargeHexTileMessage } from './large_hex_tile_message_type.ts'
 import { LevelRequirement } from './level_requirement_type.ts'
 import { LightSourceState } from './light_source_state_type.ts'
+import { LocationCache } from './location_cache_type.ts'
 import { LocationStateOp } from './location_state_op_type.ts'
 import { LocationState } from './location_state_type.ts'
 import { LootChestDesc } from './loot_chest_desc_type.ts'
+import { LootChestDespawnTimer } from './loot_chest_despawn_timer_type.ts'
+import { LootChestSpawnTimer } from './loot_chest_spawn_timer_type.ts'
 import { LootChestState } from './loot_chest_state_type.ts'
 import { LootRarityDesc } from './loot_rarity_desc_type.ts'
 import { LootTableDesc } from './loot_table_desc_type.ts'
@@ -1384,13 +2030,16 @@ import { MoveValidationStrikeCounterState } from './move_validation_strike_count
 import { MovementSpeed } from './movement_speed_type.ts'
 import { MovementType } from './movement_type_type.ts'
 import { NotificationSeverity } from './notification_severity_type.ts'
+import { NpcAiLoopTimer } from './npc_ai_loop_timer_type.ts'
 import { NpcDesc } from './npc_desc_type.ts'
 import { NpcState } from './npc_state_type.ts'
 import { NpcType } from './npc_type_type.ts'
 import { OffsetCoordinatesFloat } from './offset_coordinates_float_type.ts'
+import { OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type.ts'
 import { OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type.ts'
 import { OnClaimMembersChangedMsg } from './on_claim_members_changed_msg_type.ts'
 import { OnDeployableRecoveredMsg } from './on_deployable_recovered_msg_type.ts'
+import { OnDurabilityZeroTimer } from './on_durability_zero_timer_type.ts'
 import { OnEmpireBuildingDeletedMsg } from './on_empire_building_deleted_msg_type.ts'
 import { OnPlayerJoinedEmpireMsg } from './on_player_joined_empire_msg_type.ts'
 import { OnPlayerLeftEmpireMsg } from './on_player_left_empire_msg_type.ts'
@@ -1403,6 +2052,7 @@ import { ParametersDesc } from './parameters_desc_type.ts'
 import { ParametersPlayerMoveDesc } from './parameters_player_move_desc_type.ts'
 import { PassiveCraftState } from './passive_craft_state_type.ts'
 import { PassiveCraftStatus } from './passive_craft_status_type.ts'
+import { PassiveCraftTimer } from './passive_craft_timer_type.ts'
 import { PathfindingDesc } from './pathfinding_desc_type.ts'
 import { PathfindingTraversalOption } from './pathfinding_traversal_option_type.ts'
 import { PavedTileState } from './paved_tile_state_type.ts'
@@ -1412,35 +2062,132 @@ import { PermissionState } from './permission_state_type.ts'
 import { Permission } from './permission_type.ts'
 import { PillarShapingDesc } from './pillar_shaping_desc_type.ts'
 import { PillarShapingState } from './pillar_shaping_state_type.ts'
+import { PlayerAchievementClaimRequest } from './player_achievement_claim_request_type.ts'
+import { PlayerAcquireKnowledgeFromEntitiesRequest } from './player_acquire_knowledge_from_entities_request_type.ts'
 import { PlayerActionDesc } from './player_action_desc_type.ts'
 import { PlayerActionLayer } from './player_action_layer_type.ts'
 import { PlayerActionResult } from './player_action_result_type.ts'
 import { PlayerActionState } from './player_action_state_type.ts'
 import { PlayerActionType } from './player_action_type_type.ts'
+import { PlayerBarterStallOrderAccept } from './player_barter_stall_order_accept_type.ts'
+import { PlayerBarterStallOrderCreateRequest } from './player_barter_stall_order_create_request_type.ts'
+import { PlayerBarterStallOrderDeleteRequest } from './player_barter_stall_order_delete_request_type.ts'
+import { PlayerBuildingDeconstructRequest } from './player_building_deconstruct_request_type.ts'
+import { PlayerBuildingMoveRequest } from './player_building_move_request_type.ts'
+import { PlayerBuildingRepairRequest } from './player_building_repair_request_type.ts'
+import { PlayerBuildingSetNicknameRequest } from './player_building_set_nickname_request_type.ts'
+import { PlayerChatPostMessageRequest } from './player_chat_post_message_request_type.ts'
+import { PlayerClaimAddMemberRequest } from './player_claim_add_member_request_type.ts'
+import { PlayerClaimAddRecruitmentRequest } from './player_claim_add_recruitment_request_type.ts'
+import { PlayerClaimAddTileRequest } from './player_claim_add_tile_request_type.ts'
+import { PlayerClaimApplyForRecruitmentRequest } from './player_claim_apply_for_recruitment_request_type.ts'
+import { PlayerClaimLeaveRequest } from './player_claim_leave_request_type.ts'
+import { PlayerClaimRemoveMemberRequest } from './player_claim_remove_member_request_type.ts'
+import { PlayerClaimRemoveRecruitmentRequest } from './player_claim_remove_recruitment_request_type.ts'
+import { PlayerClaimRemoveTileRequest } from './player_claim_remove_tile_request_type.ts'
+import { PlayerClaimRenameRequest } from './player_claim_rename_request_type.ts'
+import { PlayerClaimSetMemberPermissionsRequest } from './player_claim_set_member_permissions_request_type.ts'
+import { PlayerClaimTakeOwnershipRequest } from './player_claim_take_ownership_request_type.ts'
+import { PlayerClaimTechCancelRequest } from './player_claim_tech_cancel_request_type.ts'
+import { PlayerClaimTechLearnRequest } from './player_claim_tech_learn_request_type.ts'
+import { PlayerClaimTransferOwnershipRequest } from './player_claim_transfer_ownership_request_type.ts'
+import { PlayerClaimWithdrawFromTreasuryRequest } from './player_claim_withdraw_from_treasury_request_type.ts'
+import { PlayerClimbRequest } from './player_climb_request_type.ts'
+import { PlayerClosedListingCollectRequest } from './player_closed_listing_collect_request_type.ts'
+import { PlayerCollectibleActivateRequest } from './player_collectible_activate_request_type.ts'
+import { PlayerCompleteTaskRequest } from './player_complete_task_request_type.ts'
+import { PlayerConvertCollectibleToDeedRequest } from './player_convert_collectible_to_deed_request_type.ts'
+import { PlayerConvertDeedToCollectibleRequest } from './player_convert_deed_to_collectible_request_type.ts'
+import { PlayerCraftCancelRequest } from './player_craft_cancel_request_type.ts'
+import { PlayerCraftCollectAllRequest } from './player_craft_collect_all_request_type.ts'
+import { PlayerCraftCollectRequest } from './player_craft_collect_request_type.ts'
+import { PlayerCraftContinueRequest } from './player_craft_continue_request_type.ts'
+import { PlayerCraftInitiateRequest } from './player_craft_initiate_request_type.ts'
 import { PlayerCreateMsg } from './player_create_msg_type.ts'
-import { PlayerDeveloperNotificationState } from './player_developer_notification_state_type.ts'
+import { PlayerDeathTimer } from './player_death_timer_type.ts'
+import { PlayerDeployableDismountRequest } from './player_deployable_dismount_request_type.ts'
+import { PlayerDeployableMountRequest } from './player_deployable_mount_request_type.ts'
+import { PlayerDeployableMoveRequest } from './player_deployable_move_request_type.ts'
+import { PlayerDiscoverEntitiesRequest } from './player_discover_entities_request_type.ts'
+import { PlayerDismissAlertRequest } from './player_dismiss_alert_request_type.ts'
+import { PlayerDroppedInventoryPickUpRequest } from './player_dropped_inventory_pick_up_request_type.ts'
+import { PlayerEatRequest } from './player_eat_request_type.ts'
+import { PlayerEditOrderRequest } from './player_edit_order_request_type.ts'
+import { PlayerEmoteRequest } from './player_emote_request_type.ts'
+import { PlayerEquipmentAddRequest } from './player_equipment_add_request_type.ts'
+import { PlayerEquipmentRemoveRequest } from './player_equipment_remove_request_type.ts'
+import { PlayerExtractRequest } from './player_extract_request_type.ts'
 import { PlayerHousingDesc } from './player_housing_desc_type.ts'
+import { PlayerHousingEnterRequest } from './player_housing_enter_request_type.ts'
+import { PlayerHousingEvictPlayerRequest } from './player_housing_evict_player_request_type.ts'
+import { PlayerHousingEvictPlayerTimer } from './player_housing_evict_player_timer_type.ts'
+import { PlayerHousingIncomeLoopTimer } from './player_housing_income_loop_timer_type.ts'
+import { PlayerHousingRequestAccessRequest } from './player_housing_request_access_request_type.ts'
 import { PlayerHousingStateOp } from './player_housing_state_op_type.ts'
 import { PlayerHousingState } from './player_housing_state_type.ts'
+import { PlayerItemConvertRequest } from './player_item_convert_request_type.ts'
+import { PlayerItemDropRequest } from './player_item_drop_request_type.ts'
+import { PlayerItemStackMoveAllRequest } from './player_item_stack_move_all_request_type.ts'
+import { PlayerItemStackMoveRequest } from './player_item_stack_move_request_type.ts'
+import { PlayerItemStackSplitRequest } from './player_item_stack_split_request_type.ts'
+import { PlayerItemUseRequest } from './player_item_use_request_type.ts'
 import { PlayerLowercaseUsernameState } from './player_lowercase_username_state_type.ts'
+import { PlayerMoveRequest } from './player_move_request_type.ts'
 import { PlayerNoteState } from './player_note_state_type.ts'
 import { PlayerNotificationEvent } from './player_notification_event_type.ts'
+import { PlayerOrderCancelRequest } from './player_order_cancel_request_type.ts'
+import { PlayerOrderCollectRequest } from './player_order_collect_request_type.ts'
+import { PlayerPassiveCraftQueueRequest } from './player_passive_craft_queue_request_type.ts'
+import { PlayerPausePlayTimerRequest } from './player_pause_play_timer_request_type.ts'
+import { PlayerPavingDestroyTileRequest } from './player_paving_destroy_tile_request_type.ts'
+import { PlayerPavingPlaceTileRequest } from './player_paving_place_tile_request_type.ts'
+import { PlayerPermissionEditRequest } from './player_permission_edit_request_type.ts'
+import { PlayerPillarShapingDestroyRequest } from './player_pillar_shaping_destroy_request_type.ts'
+import { PlayerPillarShapingPlaceRequest } from './player_pillar_shaping_place_request_type.ts'
+import { PlayerPocketSwapContentsRequest } from './player_pocket_swap_contents_request_type.ts'
+import { PlayerPortalEnterRequest } from './player_portal_enter_request_type.ts'
+import { PlayerPostOrderRequest } from './player_post_order_request_type.ts'
 import { PlayerPrefsState } from './player_prefs_state_type.ts'
+import { PlayerProjectSiteAddMaterialsRequest } from './player_project_site_add_materials_request_type.ts'
+import { PlayerProjectSiteAdvanceProjectRequest } from './player_project_site_advance_project_request_type.ts'
+import { PlayerProjectSiteCancelRequest } from './player_project_site_cancel_request_type.ts'
+import { PlayerProjectSitePlaceRequest } from './player_project_site_place_request_type.ts'
 import { PlayerQueueState } from './player_queue_state_type.ts'
+import { PlayerRegenLoopTimer } from './player_regen_loop_timer_type.ts'
+import { PlayerRegionTransferEvent } from './player_region_transfer_event_type.ts'
 import { PlayerReportStateOp } from './player_report_state_op_type.ts'
 import { PlayerReportStateTimestamp } from './player_report_state_timestamp_type.ts'
 import { PlayerReportState } from './player_report_state_type.ts'
-import { PlayerSetNameRequest } from './player_set_name_request_type.ts'
-import { PlayerShardState } from './player_shard_state_type.ts'
+import { PlayerRetrieveLostItemRequest } from './player_retrieve_lost_item_request_type.ts'
+import { PlayerScrollReadRequest } from './player_scroll_read_request_type.ts'
+import { PlayerSetDefaultDeployableRequest } from './player_set_default_deployable_request_type.ts'
+import { PlayerSetHomeRequest } from './player_set_home_request_type.ts'
+import { PlayerSetNameOutcomeEvent } from './player_set_name_outcome_event_type.ts'
 import { PlayerSignInRequest } from './player_sign_in_request_type.ts'
 import { PlayerSkipQueueMsg } from './player_skip_queue_msg_type.ts'
+import { PlayerSleepRequest } from './player_sleep_request_type.ts'
 import { PlayerState } from './player_state_type.ts'
+import { PlayerTeleportHomeRequest } from './player_teleport_home_request_type.ts'
+import { PlayerTeleportWaystoneRequest } from './player_teleport_waystone_request_type.ts'
+import { PlayerTerraformCancelRequest } from './player_terraform_cancel_request_type.ts'
+import { PlayerTerraformRequest } from './player_terraform_request_type.ts'
+import { PlayerTerraformSetFinalTargetRequest } from './player_terraform_set_final_target_request_type.ts'
 import { PlayerTimestampState } from './player_timestamp_state_type.ts'
+import { PlayerTradeAcceptRequest } from './player_trade_accept_request_type.ts'
+import { PlayerTradeAcceptSessionRequest } from './player_trade_accept_session_request_type.ts'
+import { PlayerTradeAddItemRequest } from './player_trade_add_item_request_type.ts'
+import { PlayerTradeDeclineRequest } from './player_trade_decline_request_type.ts'
+import { PlayerTradeDeclineSessionRequest } from './player_trade_decline_session_request_type.ts'
+import { PlayerTradeInitiateSessionRequest } from './player_trade_initiate_session_request_type.ts'
+import { PlayerTradeRemoveItemRequest } from './player_trade_remove_item_request_type.ts'
+import { PlayerTradeSwapPocketsRequest } from './player_trade_swap_pockets_request_type.ts'
+import { PlayerUseElevatorTimer } from './player_use_elevator_timer_type.ts'
 import { PlayerUsernameState } from './player_username_state_type.ts'
 import { PlayerVoteAnswerRequest } from './player_vote_answer_request_type.ts'
 import { PlayerVoteConcludeTimer } from './player_vote_conclude_timer_type.ts'
 import { PlayerVoteState } from './player_vote_state_type.ts'
 import { PlayerVoteType } from './player_vote_type_type.ts'
+import { PocketKey } from './pocket_key_type.ts'
 import { Pocket } from './pocket_type.ts'
 import { PortalState } from './portal_state_type.ts'
 import { PrivateParametersDesc } from './private_parameters_desc_type.ts'
@@ -1455,39 +2202,70 @@ import { RegionConnectionInfo } from './region_connection_info_type.ts'
 import { RegionDestroySiegeEngineMsg } from './region_destroy_siege_engine_msg_type.ts'
 import { RegionPopulationInfoOp } from './region_population_info_op_type.ts'
 import { RegionPopulationInfo } from './region_population_info_type.ts'
+import { RegionPopulationLoopTimer } from './region_population_loop_timer_type.ts'
 import { RegionSignInParametersOp } from './region_sign_in_parameters_op_type.ts'
 import { RegionSignInParameters } from './region_sign_in_parameters_type.ts'
+import { RentAddListingRequest } from './rent_add_listing_request_type.ts'
+import { RentAddTenantRequest } from './rent_add_tenant_request_type.ts'
+import { RentCollectorLoopTimer } from './rent_collector_loop_timer_type.ts'
+import { RentDepositCoinsRequest } from './rent_deposit_coins_request_type.ts'
+import { RentEvictRequest } from './rent_evict_request_type.ts'
+import { RentEvictTimer } from './rent_evict_timer_type.ts'
+import { RentPurchaseRequest } from './rent_purchase_request_type.ts'
+import { RentRemoveTenantRequest } from './rent_remove_tenant_request_type.ts'
+import { RentSetDailyRateRequest } from './rent_set_daily_rate_request_type.ts'
 import { RentState } from './rent_state_type.ts'
+import { RentTerminateRequest } from './rent_terminate_request_type.ts'
+import { RentUnlistRequest } from './rent_unlist_request_type.ts'
+import { ReportPlayerChatMessage } from './report_player_chat_message_type.ts'
+import { ReportPlayerMessage } from './report_player_message_type.ts'
 import { ReservedNameDesc } from './reserved_name_desc_type.ts'
+import { ResetChunkIndexTimer } from './reset_chunk_index_timer_type.ts'
+import { ResetMobileEntityTimer } from './reset_mobile_entity_timer_type.ts'
 import { ResourceClumpDesc } from './resource_clump_desc_type.ts'
+import { ResourceClumpInfo } from './resource_clump_info_type.ts'
 import { ResourceCount } from './resource_count_type.ts'
 import { ResourceDesc } from './resource_desc_type.ts'
 import { ResourceGrowthRecipeDesc } from './resource_growth_recipe_desc_type.ts'
 import { ResourceHealthState } from './resource_health_state_type.ts'
+import { ResourceInfo } from './resource_info_type.ts'
 import { ResourcePlacementRecipeDesc } from './resource_placement_recipe_desc_type.ts'
+import { ResourceSpawnTimer } from './resource_spawn_timer_type.ts'
 import { ResourceState } from './resource_state_type.ts'
+import { ResourcesLog } from './resources_log_type.ts'
+import { ResourcesRegenLoopTimer } from './resources_regen_loop_timer_type.ts'
+import { RespawnResourceInChunkTimer } from './respawn_resource_in_chunk_timer_type.ts'
 import { RezSickLongTermState } from './rez_sick_long_term_state_type.ts'
 import { Role } from './role_type.ts'
+import { RuinsEntityValuePair } from './ruins_entity_value_pair_type.ts'
 import { SatiationState } from './satiation_state_type.ts'
 import { SecondaryKnowledgeDesc } from './secondary_knowledge_desc_type.ts'
 import { ServerIdentity } from './server_identity_type.ts'
+import { ServerTeleportReason } from './server_teleport_reason_type.ts'
 import { SignPlayerOutMsg } from './sign_player_out_msg_type.ts'
 import { SignedInPlayerState } from './signed_in_player_state_type.ts'
+import { SingleResourceClumpInfo } from './single_resource_clump_info_type.ts'
 import { SingleResourceToClumpDesc } from './single_resource_to_clump_desc_type.ts'
 import { SkillCategory } from './skill_category_type.ts'
 import { SkillDesc } from './skill_desc_type.ts'
 import { SkillType } from './skill_type_type.ts'
+import { SmallHexTileMessage } from './small_hex_tile_message_type.ts'
+import { SpawnInfo } from './spawn_info_type.ts'
 import { StagedStaticData } from './staged_static_data_type.ts'
 import { StaminaState } from './stamina_state_type.ts'
+import { StarvingLoopTimer } from './starving_loop_timer_type.ts'
 import { StarvingPlayerState } from './starving_player_state_type.ts'
 import { StaticDataUpload } from './static_data_upload_type.ts'
 import { SurfaceType } from './surface_type_type.ts'
 import { TargetState } from './target_state_type.ts'
+import { TargetUpdateRequest } from './target_update_request_type.ts'
 import { TargetableState } from './targetable_state_type.ts'
 import { TargetingMatrixDesc } from './targeting_matrix_desc_type.ts'
 import { TeleportItemDesc } from './teleport_item_desc_type.ts'
 import { TeleportLocation } from './teleport_location_type.ts'
 import { TeleportLocationType } from './teleport_location_type_type.ts'
+import { TeleportPlayerTimer } from './teleport_player_timer_type.ts'
+import { TeleportationEnergyRegenLoopTimer } from './teleportation_energy_regen_loop_timer_type.ts'
 import { TeleportationEnergyState } from './teleportation_energy_state_type.ts'
 import { TerraformProgressState } from './terraform_progress_state_type.ts'
 import { TerraformRecipeDesc } from './terraform_recipe_desc_type.ts'
@@ -1501,11 +2279,14 @@ import { ToolTypeDesc } from './tool_type_desc_type.ts'
 import { ToolbarState } from './toolbar_state_type.ts'
 import { TradeOrderState } from './trade_order_state_type.ts'
 import { TradePocket } from './trade_pocket_type.ts'
+import { TradeSessionLoopTimer } from './trade_session_loop_timer_type.ts'
 import { TradeSessionState } from './trade_session_state_type.ts'
 import { TradeSessionStatus } from './trade_session_status_type.ts'
 import { TransferPlayerHousingMsg } from './transfer_player_housing_msg_type.ts'
 import { TransferPlayerMsg } from './transfer_player_msg_type.ts'
+import { TransferPlayerTimer } from './transfer_player_timer_type.ts'
 import { TravelerTaskDesc } from './traveler_task_desc_type.ts'
+import { TravelerTaskLoopTimer } from './traveler_task_loop_timer_type.ts'
 import { TravelerTaskState } from './traveler_task_state_type.ts'
 import { TravelerTradeOrderDesc } from './traveler_trade_order_desc_type.ts'
 import { TraversalSettings } from './traversal_settings_type.ts'
@@ -1513,12 +2294,10 @@ import { UnclaimedCollectiblesState } from './unclaimed_collectibles_state_type.
 import { UnclaimedShardsState } from './unclaimed_shards_state_type.ts'
 import { UserAuthenticationStateOp } from './user_authentication_state_op_type.ts'
 import { UserAuthenticationState } from './user_authentication_state_type.ts'
-import { UserModerationCreateUserPolicyRequest } from './user_moderation_create_user_policy_request_type.ts'
 import { UserModerationPolicy } from './user_moderation_policy_type.ts'
 import { UserModerationStateOp } from './user_moderation_state_op_type.ts'
 import { UserModerationState } from './user_moderation_state_type.ts'
 import { UserPreviousRegionState } from './user_previous_region_state_type.ts'
-import { UserRegionState } from './user_region_state_type.ts'
 import { UserStateOp } from './user_state_op_type.ts'
 import { UserState } from './user_state_type.ts'
 import { UserUpdateRegionMsg } from './user_update_region_msg_type.ts'
@@ -1528,412 +2307,625 @@ import { VfxAttachmentPoint } from './vfx_attachment_point_type.ts'
 import { WallDesc } from './wall_desc_type.ts'
 import { WeaponDesc } from './weapon_desc_type.ts'
 import { WeaponTypeDesc } from './weapon_type_desc_type.ts'
+import { WorldGenAnimationCurveKeyframe } from './world_gen_animation_curve_keyframe_type.ts'
+import { WorldGenAnimationCurve } from './world_gen_animation_curve_type.ts'
+import { WorldGenBiomeDefinition } from './world_gen_biome_definition_type.ts'
+import { WorldGenBiomesMapDefinition } from './world_gen_biomes_map_definition_type.ts'
+import { WorldGenBuildingDetails } from './world_gen_building_details_type.ts'
+import { WorldGenBuildingsMapDefinition } from './world_gen_buildings_map_definition_type.ts'
+import { WorldGenGeneratedBuilding } from './world_gen_generated_building_type.ts'
+import { WorldGenGeneratedResourceDeposit } from './world_gen_generated_resource_deposit_type.ts'
+import { WorldGenLandShapeDefinition } from './world_gen_land_shape_definition_type.ts'
+import { WorldGenMountain } from './world_gen_mountain_type.ts'
+import { WorldGenMountainsMapDefinition } from './world_gen_mountains_map_definition_type.ts'
+import { WorldGenNoiseBasedElevationLayerBlendingMode } from './world_gen_noise_based_elevation_layer_blending_mode_type.ts'
+import { WorldGenNoiseBasedElevationLayer } from './world_gen_noise_based_elevation_layer_type.ts'
+import { WorldGenNoiseSpecs } from './world_gen_noise_specs_type.ts'
+import { WorldGenRectInt } from './world_gen_rect_int_type.ts'
+import { WorldGenResourceBiome } from './world_gen_resource_biome_type.ts'
+import { WorldGenResourceDefinition } from './world_gen_resource_definition_type.ts'
+import { WorldGenResourceDetails } from './world_gen_resource_details_type.ts'
+import { WorldGenResourcesMapDefinition } from './world_gen_resources_map_definition_type.ts'
+import { WorldGenRiverGenerationSettings } from './world_gen_river_generation_settings_type.ts'
+import { WorldGenRiverPathfindingCosts } from './world_gen_river_pathfinding_costs_type.ts'
+import { WorldGenVector2Int } from './world_gen_vector_2_int_type.ts'
+import { WorldGenVector2 } from './world_gen_vector_2_type.ts'
+import { WorldGenWorldDefinition } from './world_gen_world_definition_type.ts'
+import { WorldGenWorldMapDefinition } from './world_gen_world_map_definition_type.ts'
 import { WorldRegionNameState } from './world_region_name_state_type.ts'
 import { WorldRegionState } from './world_region_state_type.ts'
-export {
-  AchievementDesc,
-  ActionCooldown,
-  ActionState,
-  ActiveBuff,
-  ActiveBuffState,
-  AdminBroadcast,
-  AdminBroadcastMessageMsg,
-  AiDebugState,
-  AlertDesc,
-  AlertState,
-  AlertType,
-  AttachedHerdsState,
-  AttackOutcomeState,
-  AuctionListingState,
-  AutoClaimState,
-  BarterStallState,
-  Biome,
-  BiomeDesc,
-  BlockedIdentity,
-  BlockedIdentityOp,
-  BuffCategory,
-  BuffDesc,
-  BuffEffect,
-  BuffTypeDesc,
-  BuildingCategory,
-  BuildingClaimDesc,
-  BuildingDesc,
-  BuildingFunction,
-  BuildingFunctionTypeMappingDesc,
-  BuildingInteractionLevel,
-  BuildingNicknameState,
-  BuildingNicknameStateOp,
-  BuildingPortalDesc,
-  BuildingRepairsDesc,
-  BuildingRequirement,
-  BuildingSpawnDesc,
-  BuildingSpawnType,
-  BuildingState,
-  BuildingStateOp,
-  BuildingTypeDesc,
-  CappedLevelRequirement,
-  CargoDesc,
-  CharacterStatDesc,
-  CharacterStatsState,
-  CharacterStatType,
-  ChatChannel,
-  ChatMessageState,
-  CheatShardsGrantRequest,
-  ChestLootRarity,
-  ChestRarityDesc,
-  ChunkCoordinatesMessage,
-  ClaimCreateEmpireSettlementMsg,
-  ClaimLocalState,
-  ClaimMemberState,
-  ClaimMemberStateOp,
-  ClaimPermission,
-  ClaimRecruitmentState,
-  ClaimState,
-  ClaimStateOp,
-  ClaimTechDesc,
-  ClaimTechState,
-  ClaimTileCost,
-  ClaimTileState,
-  ClaimType,
-  ClimbRequirementDesc,
-  ClosedListingState,
-  ClothingDesc,
-  ClothingMask,
-  ClothingVisual,
-  CollectibleDesc,
-  CollectibleType,
-  CombatActionDesc,
-  CombatState,
-  Config,
-  ConstructionRecipeDesc,
-  CraftingRecipeDesc,
-  CsvStatEntry,
-  DeconstructionRecipeDesc,
-  DeleteEmpireMsg,
-  DeployableCollectibleState,
-  DeployableDesc,
-  DeployableState,
-  DeployableType,
-  DimensionDescriptionState,
-  DimensionNetworkState,
-  DimensionType,
-  DistantVisibleEntity,
-  DistantVisibleEntityDesc,
-  DroppedInventoryState,
-  DuelState,
-  ElevatorDesc,
-  EmoteDesc,
-  EmpireChangeEmblemRequest,
-  EmpireChunkState,
-  EmpireChunkStateOp,
-  EmpireClaimJoinMsg,
-  EmpireCollectHexiteCapsuleMsg,
-  EmpireColorDesc,
-  EmpireCraftSuppliesTimer,
-  EmpireCreateBuildingMsg,
-  EmpireDecayLoopTimer,
-  EmpireDirectiveState,
-  EmpireDismantleRequest,
-  EmpireDonateShardsRequest,
-  EmpireEmblemState,
-  EmpireExpansionState,
-  EmpireExpansionStateOp,
-  EmpireFormRequest,
-  EmpireFoundryState,
-  EmpireIconDesc,
-  EmpireLeaveRequest,
-  EmpireLogState,
-  EmpireMarkForExpansionRequest,
-  EmpireMarkForSiegeRequest,
-  EmpireNodeSiegeState,
-  EmpireNodeSiegeStateOp,
-  EmpireNodeState,
-  EmpireNodeStateOp,
-  EmpireNotificationDesc,
-  EmpireNotificationState,
-  EmpireNotificationType,
-  EmpirePermission,
-  EmpirePlayerDataState,
-  EmpirePlayerDataStateOp,
-  EmpirePlayerJoinRequest,
-  EmpirePlayerLeaveRequest,
-  EmpirePlayerLogState,
-  EmpireQueueSuppliesMsg,
-  EmpireRankDesc,
-  EmpireRankState,
-  EmpireRankStateOp,
-  EmpireRemoveCrownMsg,
-  EmpireResupplyNodeMsg,
-  EmpireSetDirectiveMessageRequest,
-  EmpireSetPlayerRankRequest,
-  EmpireSetRankTitleRequest,
-  EmpireSettlementState,
-  EmpireSettlementStateOp,
-  EmpireSiegeAddSuppliesMsg,
-  EmpireSiegeEngineState,
-  EmpireSiegeLoopTimer,
-  EmpireStartSiegeMsg,
-  EmpireState,
-  EmpireStateOp,
-  EmpireSuppliesDesc,
-  EmpireTerritoryDesc,
-  EmpireUpdateEmperorCrownMsg,
-  EmpireUpdatePermissionsRequest,
-  EnemyAiParamsDesc,
-  EnemyDesc,
-  EnemyMobMonitorState,
-  EnemyState,
-  EnemyStatus,
-  EnemyType,
-  EntityType,
-  EnvironmentDebuffDesc,
-  EnvironmentResistanceType,
-  EquipmentDesc,
-  EquipmentSlot,
-  EquipmentSlotType,
-  EquipmentState,
-  EquipmentVisualType,
-  ExperienceStack,
-  ExperienceStackF32,
-  ExperienceState,
-  ExplorationChunksState,
-  ExtractionRecipeDesc,
-  ExtractOutcomeState,
-  FloatHexTileMessage,
-  FoodDesc,
-  FootprintTile,
-  FootprintTileState,
-  FootprintType,
-  ForceGenerateTypes,
-  GateDesc,
-  GlobalDeleteEmpireBuildingMsg,
-  Globals,
-  GlobalSearchState,
-  GrantedHubItemState,
-  GrantHubItemMsg,
-  GrowthState,
-  HandEquipmentVisual,
-  HealthState,
-  HerdState,
-  HexDirection,
-  HexiteExchangeEntryDesc,
-  HubItemType,
-  IdentityRole,
-  IdentityRoleOp,
-  InputItemStack,
-  InteriorCollapseTriggerState,
-  InteriorEnvironmentDesc,
-  InteriorInstanceDesc,
-  InteriorNetworkDesc,
-  InteriorPortalConnectionsDesc,
-  InteriorShapeDesc,
-  InteriorSpawnDesc,
-  InteriorSpawnType,
-  InterModuleMessage,
-  InterModuleMessageCounter,
-  InterModuleResponseMessageCounter,
-  InterModuleTableUpdates,
-  InventoryState,
-  ItemConversionLocationContext,
-  ItemConversionRecipeDesc,
-  ItemDesc,
-  ItemListDesc,
-  ItemListPossibility,
-  ItemStack,
-  ItemType,
-  KnowledgeAchievementState,
-  KnowledgeBattleActionState,
-  KnowledgeBuildingState,
-  KnowledgeCargoState,
-  KnowledgeClaimState,
-  KnowledgeConstructionState,
-  KnowledgeCraftState,
-  KnowledgeDeployableState,
-  KnowledgeEnemyState,
-  KnowledgeEntityEntry,
-  KnowledgeEntry,
-  KnowledgeExtractState,
-  KnowledgeItemState,
-  KnowledgeLocationEntry,
-  KnowledgeLoreState,
-  KnowledgeNpcState,
-  KnowledgePavingState,
-  KnowledgePillarShapingState,
-  KnowledgeResourcePlacementState,
-  KnowledgeResourceState,
-  KnowledgeRuinsState,
-  KnowledgeScrollDesc,
-  KnowledgeScrollTypeDesc,
-  KnowledgeSecondaryState,
-  KnowledgeState,
-  KnowledgeStatModifierDesc,
-  KnowledgeVaultState,
-  LargeHexTileMessage,
-  LevelRequirement,
-  LightSourceState,
-  LocationState,
-  LocationStateOp,
-  LootChestDesc,
-  LootChestState,
-  LootRarityDesc,
-  LootTableDesc,
-  LostItemsState,
-  MessageContents,
-  MobileEntityState,
-  MountingState,
-  MovementSpeed,
-  MovementType,
-  MoveValidationParamsDesc,
-  MoveValidationStrikeCounterState,
-  NotificationSeverity,
-  NpcDesc,
-  NpcState,
-  NpcType,
-  OffsetCoordinatesFloat,
-  OffsetCoordinatesSmallMessage,
-  OnboardingRewardDesc,
-  OnboardingState,
-  OnClaimMembersChangedMsg,
-  OnDeployableRecoveredMsg,
-  OnEmpireBuildingDeletedMsg,
-  OnlineTimestamp,
-  OnPlayerJoinedEmpireMsg,
-  OnPlayerLeftEmpireMsg,
-  OnPlayerNameSetMsg,
-  OnRegionPlayerCreatedMsg,
-  ParametersDesc,
-  ParametersPlayerMoveDesc,
-  PassiveCraftState,
-  PassiveCraftStatus,
-  PathfindingDesc,
-  PathfindingTraversalOption,
-  PavedTileState,
-  PavingTileDesc,
-  Permission,
-  PermissionGroup,
-  PermissionState,
-  PillarShapingDesc,
-  PillarShapingState,
-  PlayerActionDesc,
-  PlayerActionLayer,
-  PlayerActionResult,
-  PlayerActionState,
-  PlayerActionType,
-  PlayerCreateMsg,
-  PlayerDeveloperNotificationState,
-  PlayerHousingDesc,
-  PlayerHousingState,
-  PlayerHousingStateOp,
-  PlayerLowercaseUsernameState,
-  PlayerNoteState,
-  PlayerNotificationEvent,
-  PlayerPrefsState,
-  PlayerQueueState,
-  PlayerReportState,
-  PlayerReportStateOp,
-  PlayerReportStateTimestamp,
-  PlayerSetNameRequest,
-  PlayerShardState,
-  PlayerSignInRequest,
-  PlayerSkipQueueMsg,
-  PlayerState,
-  PlayerTimestampState,
-  PlayerUsernameState,
-  PlayerVoteAnswer,
-  PlayerVoteAnswerRequest,
-  PlayerVoteConcludeTimer,
-  PlayerVoteState,
-  PlayerVoteType,
-  Pocket,
-  PortalState,
-  PrivateParametersDesc,
-  ProbabilisticItemStack,
-  ProgressiveActionState,
-  ProgressiveActionStatus,
-  ProjectSiteState,
-  Rarity,
-  RecoverDeployableMsg,
-  RegionConnectionInfo,
-  RegionConnectionInfoOp,
-  RegionDestroySiegeEngineMsg,
-  RegionPopulationInfo,
-  RegionPopulationInfoOp,
-  RegionSignInParameters,
-  RegionSignInParametersOp,
-  RentState,
-  ReservedNameDesc,
-  ResourceClumpDesc,
-  ResourceCount,
-  ResourceDesc,
-  ResourceGrowthRecipeDesc,
-  ResourceHealthState,
-  ResourcePlacementRecipeDesc,
-  ResourceState,
-  RezSickLongTermState,
-  Role,
-  SatiationState,
-  SecondaryKnowledgeDesc,
-  ServerIdentity,
-  SignedInPlayerState,
-  SignPlayerOutMsg,
-  SingleResourceToClumpDesc,
-  SkillCategory,
-  SkillDesc,
-  SkillType,
-  StagedStaticData,
-  StaminaState,
-  StarvingPlayerState,
-  StaticDataUpload,
-  SurfaceType,
-  TargetableState,
-  TargetingMatrixDesc,
-  TargetState,
-  TeleportationEnergyState,
-  TeleportItemDesc,
-  TeleportLocation,
-  TeleportLocationType,
-  TerraformProgressState,
-  TerraformRecipeDesc,
-  TerrainCell,
-  TerrainChunkState,
-  TheGreatPlaceHolderTable,
-  ThreatState,
-  ToolbarState,
-  ToolDesc,
-  ToolRequirement,
-  ToolTypeDesc,
-  TradeOrderState,
-  TradePocket,
-  TradeSessionState,
-  TradeSessionStatus,
-  TransferPlayerHousingMsg,
-  TransferPlayerMsg,
-  TravelerTaskDesc,
-  TravelerTaskState,
-  TravelerTradeOrderDesc,
-  TraversalSettings,
-  UnclaimedCollectiblesState,
-  UnclaimedShardsState,
-  UserAuthenticationState,
-  UserAuthenticationStateOp,
-  UserModerationCreateUserPolicyRequest,
-  UserModerationPolicy,
-  UserModerationState,
-  UserModerationStateOp,
-  UserPreviousRegionState,
-  UserRegionState,
-  UserState,
-  UserStateOp,
-  UserUpdateRegionMsg,
-  VaultCollectible,
-  VaultState,
-  VfxAttachmentPoint,
-  WallDesc,
-  WeaponDesc,
-  WeaponTypeDesc,
-  WorldRegionNameState,
-  WorldRegionState
-}
+export { AiDebugState }
+export { AchievementDesc }
+export { ActionCooldown }
+export { ActionState }
+export { ActiveBuff }
+export { ActiveBuffState }
+export { AdminBroadcast }
+export { AdminBroadcastMessageMsg }
+export { AdminClearResourceTimer }
+export { AdminRestorePlayerStateTimer }
+export { AlertDesc }
+export { AlertState }
+export { AlertType }
+export { AttachedHerdsState }
+export { AttackImpactTimer }
+export { AttackOutcomeState }
+export { AttackTimer }
+export { AuctionListingState }
+export { AutoClaimState }
+export { AutoLogoutLoopTimer }
+export { BarterStallSetMarketModeEnabledRequest }
+export { BarterStallState }
+export { Biome }
+export { BiomeDesc }
+export { BlockedIdentity }
+export { BlockedIdentityOp }
+export { BuffCategory }
+export { BuffDesc }
+export { BuffEffect }
+export { BuffTypeDesc }
+export { BuildingCategory }
+export { BuildingClaimDesc }
+export { BuildingDecayLoopTimer }
+export { BuildingDesc }
+export { BuildingDespawnTimer }
+export { BuildingFunction }
+export { BuildingFunctionTypeMappingDesc }
+export { BuildingInteractionLevel }
+export { BuildingNicknameState }
+export { BuildingNicknameStateOp }
+export { BuildingPortalDesc }
+export { BuildingRepairsDesc }
+export { BuildingRequirement }
+export { BuildingSetSignTextRequest }
+export { BuildingSpawnDesc }
+export { BuildingSpawnType }
+export { BuildingState }
+export { BuildingStateOp }
+export { BuildingTypeDesc }
+export { CappedLevelRequirement }
+export { CargoDesc }
+export { CharacterStatDesc }
+export { CharacterStatType }
+export { CharacterStatsState }
+export { ChatChannel }
+export { ChatMessageState }
+export { CheatCargoGrantRequest }
+export { CheatCompendiumEnemyPlaceRequest }
+export { CheatCompendiumItemPlaceRequest }
+export { CheatDiscoverMapRequest }
+export { CheatExperienceGrantRequest }
+export { CheatGrantKnowledgeRequest }
+export { CheatSetDebugAiStateRequest }
+export { CheatSpawnLootChestRequest }
+export { CheatTeleportFloatRequest }
+export { CheatToggleActiveCollectibleRequest }
+export { CheatWarpRequest }
+export { ChestLootRarity }
+export { ChestRarityDesc }
+export { ChunkCoordinatesMessage }
+export { ClaimCreateEmpireSettlementMsg }
+export { ClaimLocalState }
+export { ClaimMemberState }
+export { ClaimMemberStateOp }
+export { ClaimPermission }
+export { ClaimPurchaseSuppliesFromPlayerRequest }
+export { ClaimRecruitmentState }
+export { ClaimResupplyRequest }
+export { ClaimSetPurchaseSupplyPriceRequest }
+export { ClaimSetPurchaseSupplyThresholdRequest }
+export { ClaimState }
+export { ClaimStateOp }
+export { ClaimTechDesc }
+export { ClaimTechState }
+export { ClaimTechUnlockTimer }
+export { ClaimTileCost }
+export { ClaimTileState }
+export { ClaimType }
+export { ClimbRequirementDesc }
+export { ClosedListingState }
+export { ClothingDesc }
+export { ClothingMask }
+export { ClothingVisual }
+export { CollectStatsTimer }
+export { CollectibleDesc }
+export { CollectibleType }
+export { CombatActionDesc }
+export { CombatState }
+export { CommonRng }
+export { Config }
+export { ConstructionRecipeDesc }
+export { CraftingRecipeDesc }
+export { CsvStatEntry }
+export { DayNightLoopTimer }
+export { DeconstructionRecipeDesc }
+export { DeleteEmpireMsg }
+export { DeployableCollectibleState }
+export { DeployableDeployRequest }
+export { DeployableDesc }
+export { DeployableDismountTimer }
+export { DeployableState }
+export { DeployableStoreRequest }
+export { DeployableType }
+export { DestroyDimensionNetworkTimer }
+export { DimensionDescriptionState }
+export { DimensionNetworkState }
+export { DimensionType }
+export { DistantVisibleEntity }
+export { DistantVisibleEntityDesc }
+export { DroppedInventoryDespawnTimer }
+export { DroppedInventoryOwnershipTimer }
+export { DroppedInventoryState }
+export { DuelAgentTimer }
+export { DuelDespawnTimer }
+export { DuelState }
+export { ElevatorDesc }
+export { EmoteDesc }
+export { EmpireAddSiegeSuppliesRequest }
+export { EmpireChunkState }
+export { EmpireChunkStateOp }
+export { EmpireClaimJoinMsg }
+export { EmpireCollectHexiteCapsuleMsg }
+export { EmpireCollectHexiteCapsuleRequest }
+export { EmpireColorDesc }
+export { EmpireCreateBuildingMsg }
+export { EmpireExpansionState }
+export { EmpireExpansionStateOp }
+export { EmpireIconDesc }
+export { EmpireNodeSiegeState }
+export { EmpireNodeSiegeStateOp }
+export { EmpireNodeState }
+export { EmpireNodeStateOp }
+export { EmpireNotificationDesc }
+export { EmpireNotificationType }
+export { EmpirePlayerDataState }
+export { EmpirePlayerDataStateOp }
+export { EmpireQueueSuppliesMsg }
+export { EmpireQueueSuppliesRequest }
+export { EmpireRankDesc }
+export { EmpireRankState }
+export { EmpireRankStateOp }
+export { EmpireRemoveCrownMsg }
+export { EmpireResupplyNodeMsg }
+export { EmpireResupplyNodeRequest }
+export { EmpireSettlementState }
+export { EmpireSettlementStateOp }
+export { EmpireSiegeAddSuppliesMsg }
+export { EmpireStartSiegeMsg }
+export { EmpireStartSiegeRequest }
+export { EmpireState }
+export { EmpireStateOp }
+export { EmpireSuppliesDesc }
+export { EmpireTerritoryDesc }
+export { EmpireUpdateEmperorCrownMsg }
+export { EndGracePeriodTimer }
+export { EnemyAiParamsDesc }
+export { EnemyClearAggroRequest }
+export { EnemyDesc }
+export { EnemyDespawnTimer }
+export { EnemyMobMonitorState }
+export { EnemyMoveRequest }
+export { EnemyRegenLoopTimer }
+export { EnemySetHealthRequest }
+export { EnemySpawnLootRequest }
+export { EnemySpawnRequest }
+export { EnemyState }
+export { EnemyStatus }
+export { EnemyType }
+export { EntityAttackRequest }
+export { EntityType }
+export { EnvironmentDebuffDesc }
+export { EnvironmentDebuffLoopTimer }
+export { EnvironmentResistanceType }
+export { EquipmentDesc }
+export { EquipmentSlot }
+export { EquipmentSlotType }
+export { EquipmentState }
+export { EquipmentVisualType }
+export { ExperienceStack }
+export { ExperienceStackF32 }
+export { ExperienceState }
+export { ExplorationChunksState }
+export { ExtractOutcomeState }
+export { ExtractionRecipeDesc }
+export { FloatHexTileMessage }
+export { FoodDesc }
+export { FootprintTile }
+export { FootprintTileState }
+export { FootprintType }
+export { ForceGenerateTypes }
+export { GateDesc }
+export { GlobalDeleteEmpireBuildingMsg }
+export { GlobalSearchState }
+export { Globals }
+export { GracePeriodType }
+export { GrantHubItemMsg }
+export { GrowthLoopTimer }
+export { GrowthState }
+export { HandEquipmentVisual }
+export { HealthState }
+export { HerdState }
+export { HexDirection }
+export { HexiteExchangeEntryDesc }
+export { HideDeployableTimer }
+export { HubItemType }
+export { IdentityRole }
+export { IdentityRoleOp }
+export { InputItemStack }
+export { InterModuleMessage }
+export { InterModuleMessageCounter }
+export { InterModuleResponseMessageCounter }
+export { InterModuleTableUpdates }
+export { InteriorCollapseTriggerState }
+export { InteriorEnvironmentDesc }
+export { InteriorInstanceDesc }
+export { InteriorNetworkDesc }
+export { InteriorPortalConnectionsDesc }
+export { InteriorSetCollapsedTimer }
+export { InteriorShapeDesc }
+export { InteriorSpawnDesc }
+export { InteriorSpawnType }
+export { InventoryState }
+export { ItemConversionLocationContext }
+export { ItemConversionRecipeDesc }
+export { ItemDesc }
+export { ItemListDesc }
+export { ItemListPossibility }
+export { ItemStack }
+export { ItemType }
+export { KnowledgeAchievementState }
+export { KnowledgeBattleActionState }
+export { KnowledgeBuildingState }
+export { KnowledgeCargoState }
+export { KnowledgeClaimState }
+export { KnowledgeConstructionState }
+export { KnowledgeCraftState }
+export { KnowledgeDeployableState }
+export { KnowledgeEnemyState }
+export { KnowledgeEntityEntry }
+export { KnowledgeEntry }
+export { KnowledgeExtractState }
+export { KnowledgeItemState }
+export { KnowledgeLocationEntry }
+export { KnowledgeLoreState }
+export { KnowledgeNpcState }
+export { KnowledgePavingState }
+export { KnowledgePillarShapingState }
+export { KnowledgeResourcePlacementState }
+export { KnowledgeResourceState }
+export { KnowledgeRuinsState }
+export { KnowledgeScrollDesc }
+export { KnowledgeScrollTypeDesc }
+export { KnowledgeSecondaryState }
+export { KnowledgeStatModifierDesc }
+export { KnowledgeState }
+export { KnowledgeVaultState }
+export { LargeHexTileMessage }
+export { LevelRequirement }
+export { LightSourceState }
+export { LocationCache }
+export { LocationState }
+export { LocationStateOp }
+export { LootChestDesc }
+export { LootChestDespawnTimer }
+export { LootChestSpawnTimer }
+export { LootChestState }
+export { LootRarityDesc }
+export { LootTableDesc }
+export { LostItemsState }
+export { MessageContents }
+export { MobileEntityState }
+export { MountingState }
+export { MoveValidationParamsDesc }
+export { MoveValidationStrikeCounterState }
+export { MovementSpeed }
+export { MovementType }
+export { NotificationSeverity }
+export { NpcAiLoopTimer }
+export { NpcDesc }
+export { NpcState }
+export { NpcType }
+export { OffsetCoordinatesFloat }
+export { OffsetCoordinatesLargeMessage }
+export { OffsetCoordinatesSmallMessage }
+export { OnClaimMembersChangedMsg }
+export { OnDeployableRecoveredMsg }
+export { OnDurabilityZeroTimer }
+export { OnEmpireBuildingDeletedMsg }
+export { OnPlayerJoinedEmpireMsg }
+export { OnPlayerLeftEmpireMsg }
+export { OnPlayerNameSetMsg }
+export { OnRegionPlayerCreatedMsg }
+export { OnboardingRewardDesc }
+export { OnboardingState }
+export { OnlineTimestamp }
+export { ParametersDesc }
+export { ParametersPlayerMoveDesc }
+export { PassiveCraftState }
+export { PassiveCraftStatus }
+export { PassiveCraftTimer }
+export { PathfindingDesc }
+export { PathfindingTraversalOption }
+export { PavedTileState }
+export { PavingTileDesc }
+export { Permission }
+export { PermissionGroup }
+export { PermissionState }
+export { PillarShapingDesc }
+export { PillarShapingState }
+export { PlayerAchievementClaimRequest }
+export { PlayerAcquireKnowledgeFromEntitiesRequest }
+export { PlayerActionDesc }
+export { PlayerActionLayer }
+export { PlayerActionResult }
+export { PlayerActionState }
+export { PlayerActionType }
+export { PlayerBarterStallOrderAccept }
+export { PlayerBarterStallOrderCreateRequest }
+export { PlayerBarterStallOrderDeleteRequest }
+export { PlayerBuildingDeconstructRequest }
+export { PlayerBuildingMoveRequest }
+export { PlayerBuildingRepairRequest }
+export { PlayerBuildingSetNicknameRequest }
+export { PlayerChatPostMessageRequest }
+export { PlayerClaimAddMemberRequest }
+export { PlayerClaimAddRecruitmentRequest }
+export { PlayerClaimAddTileRequest }
+export { PlayerClaimApplyForRecruitmentRequest }
+export { PlayerClaimLeaveRequest }
+export { PlayerClaimRemoveMemberRequest }
+export { PlayerClaimRemoveRecruitmentRequest }
+export { PlayerClaimRemoveTileRequest }
+export { PlayerClaimRenameRequest }
+export { PlayerClaimSetMemberPermissionsRequest }
+export { PlayerClaimTakeOwnershipRequest }
+export { PlayerClaimTechCancelRequest }
+export { PlayerClaimTechLearnRequest }
+export { PlayerClaimTransferOwnershipRequest }
+export { PlayerClaimWithdrawFromTreasuryRequest }
+export { PlayerClimbRequest }
+export { PlayerClosedListingCollectRequest }
+export { PlayerCollectibleActivateRequest }
+export { PlayerCompleteTaskRequest }
+export { PlayerConvertCollectibleToDeedRequest }
+export { PlayerConvertDeedToCollectibleRequest }
+export { PlayerCraftCancelRequest }
+export { PlayerCraftCollectAllRequest }
+export { PlayerCraftCollectRequest }
+export { PlayerCraftContinueRequest }
+export { PlayerCraftInitiateRequest }
+export { PlayerCreateMsg }
+export { PlayerDeathTimer }
+export { PlayerDeployableDismountRequest }
+export { PlayerDeployableMountRequest }
+export { PlayerDeployableMoveRequest }
+export { PlayerDiscoverEntitiesRequest }
+export { PlayerDismissAlertRequest }
+export { PlayerDroppedInventoryPickUpRequest }
+export { PlayerEatRequest }
+export { PlayerEditOrderRequest }
+export { PlayerEmoteRequest }
+export { PlayerEquipmentAddRequest }
+export { PlayerEquipmentRemoveRequest }
+export { PlayerExtractRequest }
+export { PlayerHousingDesc }
+export { PlayerHousingEnterRequest }
+export { PlayerHousingEvictPlayerRequest }
+export { PlayerHousingEvictPlayerTimer }
+export { PlayerHousingIncomeLoopTimer }
+export { PlayerHousingRequestAccessRequest }
+export { PlayerHousingState }
+export { PlayerHousingStateOp }
+export { PlayerItemConvertRequest }
+export { PlayerItemDropRequest }
+export { PlayerItemStackMoveAllRequest }
+export { PlayerItemStackMoveRequest }
+export { PlayerItemStackSplitRequest }
+export { PlayerItemUseRequest }
+export { PlayerLowercaseUsernameState }
+export { PlayerMoveRequest }
+export { PlayerNoteState }
+export { PlayerNotificationEvent }
+export { PlayerOrderCancelRequest }
+export { PlayerOrderCollectRequest }
+export { PlayerPassiveCraftQueueRequest }
+export { PlayerPausePlayTimerRequest }
+export { PlayerPavingDestroyTileRequest }
+export { PlayerPavingPlaceTileRequest }
+export { PlayerPermissionEditRequest }
+export { PlayerPillarShapingDestroyRequest }
+export { PlayerPillarShapingPlaceRequest }
+export { PlayerPocketSwapContentsRequest }
+export { PlayerPortalEnterRequest }
+export { PlayerPostOrderRequest }
+export { PlayerPrefsState }
+export { PlayerProjectSiteAddMaterialsRequest }
+export { PlayerProjectSiteAdvanceProjectRequest }
+export { PlayerProjectSiteCancelRequest }
+export { PlayerProjectSitePlaceRequest }
+export { PlayerQueueState }
+export { PlayerRegenLoopTimer }
+export { PlayerRegionTransferEvent }
+export { PlayerReportState }
+export { PlayerReportStateOp }
+export { PlayerReportStateTimestamp }
+export { PlayerRetrieveLostItemRequest }
+export { PlayerScrollReadRequest }
+export { PlayerSetDefaultDeployableRequest }
+export { PlayerSetHomeRequest }
+export { PlayerSetNameOutcomeEvent }
+export { PlayerSignInRequest }
+export { PlayerSkipQueueMsg }
+export { PlayerSleepRequest }
+export { PlayerState }
+export { PlayerTeleportHomeRequest }
+export { PlayerTeleportWaystoneRequest }
+export { PlayerTerraformCancelRequest }
+export { PlayerTerraformRequest }
+export { PlayerTerraformSetFinalTargetRequest }
+export { PlayerTimestampState }
+export { PlayerTradeAcceptRequest }
+export { PlayerTradeAcceptSessionRequest }
+export { PlayerTradeAddItemRequest }
+export { PlayerTradeDeclineRequest }
+export { PlayerTradeDeclineSessionRequest }
+export { PlayerTradeInitiateSessionRequest }
+export { PlayerTradeRemoveItemRequest }
+export { PlayerTradeSwapPocketsRequest }
+export { PlayerUseElevatorTimer }
+export { PlayerUsernameState }
+export { PlayerVoteAnswer }
+export { PlayerVoteAnswerRequest }
+export { PlayerVoteConcludeTimer }
+export { PlayerVoteState }
+export { PlayerVoteType }
+export { Pocket }
+export { PocketKey }
+export { PortalState }
+export { PrivateParametersDesc }
+export { ProbabilisticItemStack }
+export { ProgressiveActionState }
+export { ProgressiveActionStatus }
+export { ProjectSiteState }
+export { Rarity }
+export { RecoverDeployableMsg }
+export { RegionConnectionInfo }
+export { RegionConnectionInfoOp }
+export { RegionDestroySiegeEngineMsg }
+export { RegionPopulationInfo }
+export { RegionPopulationInfoOp }
+export { RegionPopulationLoopTimer }
+export { RegionSignInParameters }
+export { RegionSignInParametersOp }
+export { RentAddListingRequest }
+export { RentAddTenantRequest }
+export { RentCollectorLoopTimer }
+export { RentDepositCoinsRequest }
+export { RentEvictRequest }
+export { RentEvictTimer }
+export { RentPurchaseRequest }
+export { RentRemoveTenantRequest }
+export { RentSetDailyRateRequest }
+export { RentState }
+export { RentTerminateRequest }
+export { RentUnlistRequest }
+export { ReportPlayerChatMessage }
+export { ReportPlayerMessage }
+export { ReservedNameDesc }
+export { ResetChunkIndexTimer }
+export { ResetMobileEntityTimer }
+export { ResourceClumpDesc }
+export { ResourceClumpInfo }
+export { ResourceCount }
+export { ResourceDesc }
+export { ResourceGrowthRecipeDesc }
+export { ResourceHealthState }
+export { ResourceInfo }
+export { ResourcePlacementRecipeDesc }
+export { ResourceSpawnTimer }
+export { ResourceState }
+export { ResourcesLog }
+export { ResourcesRegenLoopTimer }
+export { RespawnResourceInChunkTimer }
+export { RezSickLongTermState }
+export { Role }
+export { RuinsEntityValuePair }
+export { SatiationState }
+export { SecondaryKnowledgeDesc }
+export { ServerIdentity }
+export { ServerTeleportReason }
+export { SignPlayerOutMsg }
+export { SignedInPlayerState }
+export { SingleResourceClumpInfo }
+export { SingleResourceToClumpDesc }
+export { SkillCategory }
+export { SkillDesc }
+export { SkillType }
+export { SmallHexTileMessage }
+export { SpawnInfo }
+export { StagedStaticData }
+export { StaminaState }
+export { StarvingLoopTimer }
+export { StarvingPlayerState }
+export { StaticDataUpload }
+export { SurfaceType }
+export { TargetState }
+export { TargetUpdateRequest }
+export { TargetableState }
+export { TargetingMatrixDesc }
+export { TeleportItemDesc }
+export { TeleportLocation }
+export { TeleportLocationType }
+export { TeleportPlayerTimer }
+export { TeleportationEnergyRegenLoopTimer }
+export { TeleportationEnergyState }
+export { TerraformProgressState }
+export { TerraformRecipeDesc }
+export { TerrainCell }
+export { TerrainChunkState }
+export { TheGreatPlaceHolderTable }
+export { ThreatState }
+export { ToolDesc }
+export { ToolRequirement }
+export { ToolTypeDesc }
+export { ToolbarState }
+export { TradeOrderState }
+export { TradePocket }
+export { TradeSessionLoopTimer }
+export { TradeSessionState }
+export { TradeSessionStatus }
+export { TransferPlayerHousingMsg }
+export { TransferPlayerMsg }
+export { TransferPlayerTimer }
+export { TravelerTaskDesc }
+export { TravelerTaskLoopTimer }
+export { TravelerTaskState }
+export { TravelerTradeOrderDesc }
+export { TraversalSettings }
+export { UnclaimedCollectiblesState }
+export { UnclaimedShardsState }
+export { UserAuthenticationState }
+export { UserAuthenticationStateOp }
+export { UserModerationPolicy }
+export { UserModerationState }
+export { UserModerationStateOp }
+export { UserPreviousRegionState }
+export { UserState }
+export { UserStateOp }
+export { UserUpdateRegionMsg }
+export { VaultCollectible }
+export { VaultState }
+export { VfxAttachmentPoint }
+export { WallDesc }
+export { WeaponDesc }
+export { WeaponTypeDesc }
+export { WorldGenAnimationCurve }
+export { WorldGenAnimationCurveKeyframe }
+export { WorldGenBiomeDefinition }
+export { WorldGenBiomesMapDefinition }
+export { WorldGenBuildingDetails }
+export { WorldGenBuildingsMapDefinition }
+export { WorldGenGeneratedBuilding }
+export { WorldGenGeneratedResourceDeposit }
+export { WorldGenLandShapeDefinition }
+export { WorldGenMountain }
+export { WorldGenMountainsMapDefinition }
+export { WorldGenNoiseBasedElevationLayer }
+export { WorldGenNoiseBasedElevationLayerBlendingMode }
+export { WorldGenNoiseSpecs }
+export { WorldGenRectInt }
+export { WorldGenResourceBiome }
+export { WorldGenResourceDefinition }
+export { WorldGenResourceDetails }
+export { WorldGenResourcesMapDefinition }
+export { WorldGenRiverGenerationSettings }
+export { WorldGenRiverPathfindingCosts }
+export { WorldGenVector2 }
+export { WorldGenVector2Int }
+export { WorldGenWorldDefinition }
+export { WorldGenWorldMapDefinition }
+export { WorldRegionNameState }
+export { WorldRegionState }
 
 const REMOTE_MODULE = {
   tables: {
@@ -1982,6 +2974,24 @@ const REMOTE_MODULE = {
         colType: AdminBroadcast.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    admin_clear_resource_timer: {
+      tableName: 'admin_clear_resource_timer',
+      rowType: AdminClearResourceTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: AdminClearResourceTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    admin_restore_player_state_timer: {
+      tableName: 'admin_restore_player_state_timer',
+      rowType: AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     alert_desc: {
       tableName: 'alert_desc',
       rowType: AlertDesc.getTypeScriptAlgebraicType(),
@@ -2009,6 +3019,15 @@ const REMOTE_MODULE = {
         colType: AttachedHerdsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    attack_impact_timer: {
+      tableName: 'attack_impact_timer',
+      rowType: AttackImpactTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: AttackImpactTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     attack_outcome_state: {
       tableName: 'attack_outcome_state',
       rowType: AttackOutcomeState.getTypeScriptAlgebraicType(),
@@ -2018,6 +3037,15 @@ const REMOTE_MODULE = {
         colType: AttackOutcomeState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    attack_timer: {
+      tableName: 'attack_timer',
+      rowType: AttackTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: AttackTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     auto_claim_state: {
       tableName: 'auto_claim_state',
       rowType: AutoClaimState.getTypeScriptAlgebraicType(),
@@ -2025,6 +3053,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: AutoClaimState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    auto_logout_loop_timer: {
+      tableName: 'auto_logout_loop_timer',
+      rowType: AutoLogoutLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: AutoLogoutLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     barter_stall_state: {
@@ -2081,6 +3118,15 @@ const REMOTE_MODULE = {
         colType: BuildingClaimDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    building_decay_loop_timer: {
+      tableName: 'building_decay_loop_timer',
+      rowType: BuildingDecayLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: BuildingDecayLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     building_desc: {
       tableName: 'building_desc',
       rowType: BuildingDesc.getTypeScriptAlgebraicType(),
@@ -2088,6 +3134,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: BuildingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    building_despawn_timer: {
+      tableName: 'building_despawn_timer',
+      rowType: BuildingDespawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: BuildingDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     building_function_type_mapping_desc: {
@@ -2261,6 +3316,15 @@ const REMOTE_MODULE = {
         colType: ClaimTechState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    claim_tech_unlock_timer: {
+      tableName: 'claim_tech_unlock_timer',
+      rowType: ClaimTechUnlockTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: ClaimTechUnlockTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     claim_tile_cost: {
       tableName: 'claim_tile_cost',
       rowType: ClaimTileCost.getTypeScriptAlgebraicType(),
@@ -2304,6 +3368,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'itemId',
         colType: ClothingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    collect_stats_timer: {
+      tableName: 'collect_stats_timer',
+      rowType: CollectStatsTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: CollectStatsTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     collectible_desc: {
@@ -2360,6 +3433,15 @@ const REMOTE_MODULE = {
         colType: CraftingRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    day_night_loop_timer: {
+      tableName: 'day_night_loop_timer',
+      rowType: DayNightLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DayNightLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     deconstruction_recipe_desc: {
       tableName: 'deconstruction_recipe_desc',
       rowType: DeconstructionRecipeDesc.getTypeScriptAlgebraicType(),
@@ -2387,6 +3469,15 @@ const REMOTE_MODULE = {
         colType: DeployableDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    deployable_dismount_timer: {
+      tableName: 'deployable_dismount_timer',
+      rowType: DeployableDismountTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DeployableDismountTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     deployable_state: {
       tableName: 'deployable_state',
       rowType: DeployableState.getTypeScriptAlgebraicType(),
@@ -2394,6 +3485,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: DeployableState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    destroy_dimension_network_timer: {
+      tableName: 'destroy_dimension_network_timer',
+      rowType: DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     dimension_description_state: {
@@ -2432,6 +3532,24 @@ const REMOTE_MODULE = {
         colType: DistantVisibleEntityDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    dropped_inventory_despawn_timer: {
+      tableName: 'dropped_inventory_despawn_timer',
+      rowType: DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    dropped_inventory_ownership_timer: {
+      tableName: 'dropped_inventory_ownership_timer',
+      rowType: DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     dropped_inventory_state: {
       tableName: 'dropped_inventory_state',
       rowType: DroppedInventoryState.getTypeScriptAlgebraicType(),
@@ -2439,6 +3557,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: DroppedInventoryState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    duel_agent_timer: {
+      tableName: 'duel_agent_timer',
+      rowType: DuelAgentTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DuelAgentTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    duel_despawn_timer: {
+      tableName: 'duel_despawn_timer',
+      rowType: DuelDespawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: DuelDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     duel_state: {
@@ -2486,42 +3622,6 @@ const REMOTE_MODULE = {
         colType: EmpireColorDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    empire_craft_supplies_timer: {
-      tableName: 'empire_craft_supplies_timer',
-      rowType: EmpireCraftSuppliesTimer.getTypeScriptAlgebraicType(),
-      primaryKey: 'scheduledId',
-      primaryKeyInfo: {
-        colName: 'scheduledId',
-        colType: EmpireCraftSuppliesTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_decay_loop_timer: {
-      tableName: 'empire_decay_loop_timer',
-      rowType: EmpireDecayLoopTimer.getTypeScriptAlgebraicType(),
-      primaryKey: 'scheduledId',
-      primaryKeyInfo: {
-        colName: 'scheduledId',
-        colType: EmpireDecayLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_directive_state: {
-      tableName: 'empire_directive_state',
-      rowType: EmpireDirectiveState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireDirectiveState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_emblem_state: {
-      tableName: 'empire_emblem_state',
-      rowType: EmpireEmblemState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireEmblemState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
     empire_expansion_state: {
       tableName: 'empire_expansion_state',
       rowType: EmpireExpansionState.getTypeScriptAlgebraicType(),
@@ -2531,15 +3631,6 @@ const REMOTE_MODULE = {
         colType: EmpireExpansionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    empire_foundry_state: {
-      tableName: 'empire_foundry_state',
-      rowType: EmpireFoundryState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireFoundryState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
     empire_icon_desc: {
       tableName: 'empire_icon_desc',
       rowType: EmpireIconDesc.getTypeScriptAlgebraicType(),
@@ -2547,15 +3638,6 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: EmpireIconDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_log_state: {
-      tableName: 'empire_log_state',
-      rowType: EmpireLogState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireLogState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     empire_node_siege_state: {
@@ -2585,15 +3667,6 @@ const REMOTE_MODULE = {
         colType: EmpireNotificationDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    empire_notification_state: {
-      tableName: 'empire_notification_state',
-      rowType: EmpireNotificationState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireNotificationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
     empire_player_data_state: {
       tableName: 'empire_player_data_state',
       rowType: EmpirePlayerDataState.getTypeScriptAlgebraicType(),
@@ -2601,15 +3674,6 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: EmpirePlayerDataState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_player_log_state: {
-      tableName: 'empire_player_log_state',
-      rowType: EmpirePlayerLogState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpirePlayerLogState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     empire_rank_desc: {
@@ -2639,24 +3703,6 @@ const REMOTE_MODULE = {
         colType: EmpireSettlementState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    empire_siege_engine_state: {
-      tableName: 'empire_siege_engine_state',
-      rowType: EmpireSiegeEngineState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
-      primaryKeyInfo: {
-        colName: 'entityId',
-        colType: EmpireSiegeEngineState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    empire_siege_loop_timer: {
-      tableName: 'empire_siege_loop_timer',
-      rowType: EmpireSiegeLoopTimer.getTypeScriptAlgebraicType(),
-      primaryKey: 'scheduledId',
-      primaryKeyInfo: {
-        colName: 'scheduledId',
-        colType: EmpireSiegeLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
     empire_state: {
       tableName: 'empire_state',
       rowType: EmpireState.getTypeScriptAlgebraicType(),
@@ -2684,6 +3730,15 @@ const REMOTE_MODULE = {
         colType: EmpireTerritoryDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    end_grace_period_timer: {
+      tableName: 'end_grace_period_timer',
+      rowType: EndGracePeriodTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: EndGracePeriodTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     enemy_ai_params_desc: {
       tableName: 'enemy_ai_params_desc',
       rowType: EnemyAiParamsDesc.getTypeScriptAlgebraicType(),
@@ -2702,6 +3757,15 @@ const REMOTE_MODULE = {
         colType: EnemyDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    enemy_despawn_timer: {
+      tableName: 'enemy_despawn_timer',
+      rowType: EnemyDespawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: EnemyDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     enemy_mob_monitor_state: {
       tableName: 'enemy_mob_monitor_state',
       rowType: EnemyMobMonitorState.getTypeScriptAlgebraicType(),
@@ -2709,6 +3773,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: EnemyMobMonitorState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    enemy_regen_loop_timer: {
+      tableName: 'enemy_regen_loop_timer',
+      rowType: EnemyRegenLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: EnemyRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     enemy_state: {
@@ -2727,6 +3800,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'buffId',
         colType: EnvironmentDebuffDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    environment_debuff_loop_timer: {
+      tableName: 'environment_debuff_loop_timer',
+      rowType: EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     equipment_desc: {
@@ -2832,13 +3914,13 @@ const REMOTE_MODULE = {
         colType: Globals.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    granted_hub_item_state: {
-      tableName: 'granted_hub_item_state',
-      rowType: GrantedHubItemState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
+    growth_loop_timer: {
+      tableName: 'growth_loop_timer',
+      rowType: GrowthLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
       primaryKeyInfo: {
-        colName: 'entityId',
-        colType: GrantedHubItemState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colName: 'scheduledId',
+        colType: GrowthLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     growth_state: {
@@ -2875,6 +3957,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    hide_deployable_timer: {
+      tableName: 'hide_deployable_timer',
+      rowType: HideDeployableTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: HideDeployableTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     identity_role: {
@@ -2956,6 +4047,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    interior_set_collapsed_timer: {
+      tableName: 'interior_set_collapsed_timer',
+      rowType: InteriorSetCollapsedTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     interior_shape_desc: {
@@ -3228,6 +4328,15 @@ const REMOTE_MODULE = {
         colType: LightSourceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    location_cache: {
+      tableName: 'location_cache',
+      rowType: LocationCache.getTypeScriptAlgebraicType(),
+      primaryKey: 'version',
+      primaryKeyInfo: {
+        colName: 'version',
+        colType: LocationCache.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     location_state: {
       tableName: 'location_state',
       rowType: LocationState.getTypeScriptAlgebraicType(),
@@ -3244,6 +4353,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: LootChestDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    loot_chest_despawn_timer: {
+      tableName: 'loot_chest_despawn_timer',
+      rowType: LootChestDespawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: LootChestDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    loot_chest_spawn_timer: {
+      tableName: 'loot_chest_spawn_timer',
+      rowType: LootChestSpawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: LootChestSpawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     loot_chest_state: {
@@ -3309,6 +4436,15 @@ const REMOTE_MODULE = {
         colType: MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    npc_ai_loop_timer: {
+      tableName: 'npc_ai_loop_timer',
+      rowType: NpcAiLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: NpcAiLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     npc_desc: {
       tableName: 'npc_desc',
       rowType: NpcDesc.getTypeScriptAlgebraicType(),
@@ -3325,6 +4461,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: NpcState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    on_durability_zero_timer: {
+      tableName: 'on_durability_zero_timer',
+      rowType: OnDurabilityZeroTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: OnDurabilityZeroTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     onboarding_reward_desc: {
@@ -3370,6 +4515,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: PassiveCraftState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    passive_craft_timer: {
+      tableName: 'passive_craft_timer',
+      rowType: PassiveCraftTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PassiveCraftTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     pathfinding_desc: {
@@ -3444,13 +4598,13 @@ const REMOTE_MODULE = {
         colType: PlayerActionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    player_developer_notification_state: {
-      tableName: 'player_developer_notification_state',
-      rowType: PlayerDeveloperNotificationState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
+    player_death_timer: {
+      tableName: 'player_death_timer',
+      rowType: PlayerDeathTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
       primaryKeyInfo: {
-        colName: 'entityId',
-        colType: PlayerDeveloperNotificationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colName: 'scheduledId',
+        colType: PlayerDeathTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     player_housing_desc: {
@@ -3460,6 +4614,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'secondaryKnowledgeId',
         colType: PlayerHousingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    player_housing_evict_player_timer: {
+      tableName: 'player_housing_evict_player_timer',
+      rowType: PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    player_housing_income_loop_timer: {
+      tableName: 'player_housing_income_loop_timer',
+      rowType: PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     player_housing_state: {
@@ -3516,6 +4688,24 @@ const REMOTE_MODULE = {
         colType: PlayerQueueState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    player_regen_loop_timer: {
+      tableName: 'player_regen_loop_timer',
+      rowType: PlayerRegenLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PlayerRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    player_region_transfer_event: {
+      tableName: 'player_region_transfer_event',
+      rowType: PlayerRegionTransferEvent.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PlayerRegionTransferEvent.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     player_report_state: {
       tableName: 'player_report_state',
       rowType: PlayerReportState.getTypeScriptAlgebraicType(),
@@ -3534,13 +4724,13 @@ const REMOTE_MODULE = {
         colType: PlayerReportStateTimestamp.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
-    player_shard_state: {
-      tableName: 'player_shard_state',
-      rowType: PlayerShardState.getTypeScriptAlgebraicType(),
-      primaryKey: 'entityId',
+    player_set_name_outcome_event: {
+      tableName: 'player_set_name_outcome_event',
+      rowType: PlayerSetNameOutcomeEvent.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
       primaryKeyInfo: {
-        colName: 'entityId',
-        colType: PlayerShardState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colName: 'scheduledId',
+        colType: PlayerSetNameOutcomeEvent.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     player_state: {
@@ -3559,6 +4749,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: PlayerTimestampState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    player_use_elevator_timer: {
+      tableName: 'player_use_elevator_timer',
+      rowType: PlayerUseElevatorTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: PlayerUseElevatorTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     player_username_state: {
@@ -3642,6 +4841,15 @@ const REMOTE_MODULE = {
         colType: RegionPopulationInfo.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    region_popuplation_loop_timer: {
+      tableName: 'region_popuplation_loop_timer',
+      rowType: RegionPopulationLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: RegionPopulationLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     region_sign_in_parameters: {
       tableName: 'region_sign_in_parameters',
       rowType: RegionSignInParameters.getTypeScriptAlgebraicType(),
@@ -3649,6 +4857,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'regionId',
         colType: RegionSignInParameters.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    rent_collector_loop_timer: {
+      tableName: 'rent_collector_loop_timer',
+      rowType: RentCollectorLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: RentCollectorLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    rent_evict_timer: {
+      tableName: 'rent_evict_timer',
+      rowType: RentEvictTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: RentEvictTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     rent_state: {
@@ -3667,6 +4893,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'name',
         colType: ReservedNameDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    reset_chunk_index_timer: {
+      tableName: 'reset_chunk_index_timer',
+      rowType: ResetChunkIndexTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: ResetChunkIndexTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    reset_mobile_entity_timer: {
+      tableName: 'reset_mobile_entity_timer',
+      rowType: ResetMobileEntityTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: ResetMobileEntityTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     resource_clump_desc: {
@@ -3723,6 +4967,15 @@ const REMOTE_MODULE = {
         colType: ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    resource_spawn_timer: {
+      tableName: 'resource_spawn_timer',
+      rowType: ResourceSpawnTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: ResourceSpawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     resource_state: {
       tableName: 'resource_state',
       rowType: ResourceState.getTypeScriptAlgebraicType(),
@@ -3730,6 +4983,33 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: ResourceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    resources_log: {
+      tableName: 'resources_log',
+      rowType: ResourcesLog.getTypeScriptAlgebraicType(),
+      primaryKey: 'version',
+      primaryKeyInfo: {
+        colName: 'version',
+        colType: ResourcesLog.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    resources_regen_loop_timer: {
+      tableName: 'resources_regen_loop_timer',
+      rowType: ResourcesRegenLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: ResourcesRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    respawn_resource_in_chunk_timer: {
+      tableName: 'respawn_resource_in_chunk_timer',
+      rowType: RespawnResourceInChunkTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     rez_sick_long_term_state: {
@@ -3786,6 +5066,15 @@ const REMOTE_MODULE = {
         colType: SignedInPlayerState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    single_resource_clump_info: {
+      tableName: 'single_resource_clump_info',
+      rowType: SingleResourceClumpInfo.getTypeScriptAlgebraicType(),
+      primaryKey: 'clumpId',
+      primaryKeyInfo: {
+        colName: 'clumpId',
+        colType: SingleResourceClumpInfo.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     single_resource_to_clump_desc: {
       tableName: 'single_resource_to_clump_desc',
       rowType: SingleResourceToClumpDesc.getTypeScriptAlgebraicType(),
@@ -3820,6 +5109,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'entityId',
         colType: StaminaState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    starving_loop_timer: {
+      tableName: 'starving_loop_timer',
+      rowType: StarvingLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: StarvingLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     starving_player_state: {
@@ -3865,6 +5163,24 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: TeleportItemDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    teleport_player_timer: {
+      tableName: 'teleport_player_timer',
+      rowType: TeleportPlayerTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: TeleportPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    teleportation_energy_regen_loop_timer: {
+      tableName: 'teleportation_energy_regen_loop_timer',
+      rowType: TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     teleportation_energy_state: {
@@ -3957,6 +5273,15 @@ const REMOTE_MODULE = {
         colType: TradeOrderState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    trade_session_loop_timer: {
+      tableName: 'trade_session_loop_timer',
+      rowType: TradeSessionLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: TradeSessionLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     trade_session_state: {
       tableName: 'trade_session_state',
       rowType: TradeSessionState.getTypeScriptAlgebraicType(),
@@ -3966,6 +5291,15 @@ const REMOTE_MODULE = {
         colType: TradeSessionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
+    transfer_player_timer: {
+      tableName: 'transfer_player_timer',
+      rowType: TransferPlayerTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: TransferPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
     traveler_task_desc: {
       tableName: 'traveler_task_desc',
       rowType: TravelerTaskDesc.getTypeScriptAlgebraicType(),
@@ -3973,6 +5307,15 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'id',
         colType: TravelerTaskDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+      }
+    },
+    traveler_task_loop_timer: {
+      tableName: 'traveler_task_loop_timer',
+      rowType: TravelerTaskLoopTimer.getTypeScriptAlgebraicType(),
+      primaryKey: 'scheduledId',
+      primaryKeyInfo: {
+        colName: 'scheduledId',
+        colType: TravelerTaskLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     traveler_task_state: {
@@ -4036,15 +5379,6 @@ const REMOTE_MODULE = {
       primaryKeyInfo: {
         colName: 'identity',
         colType: UserPreviousRegionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
-      }
-    },
-    user_region_state: {
-      tableName: 'user_region_state',
-      rowType: UserRegionState.getTypeScriptAlgebraicType(),
-      primaryKey: 'identity',
-      primaryKeyInfo: {
-        colName: 'identity',
-        colType: UserRegionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     user_state: {
@@ -4112,189 +5446,761 @@ const REMOTE_MODULE = {
     }
   },
   reducers: {
-    admin_broadcast_msg: {
-      reducerName: 'admin_broadcast_msg',
-      argsType: AdminBroadcastMsg.getTypeScriptAlgebraicType()
+    achievement_claim: {
+      reducerName: 'achievement_claim',
+      argsType: AchievementClaim.getTypeScriptAlgebraicType()
     },
-    admin_grant_shards: {
-      reducerName: 'admin_grant_shards',
-      argsType: AdminGrantShards.getTypeScriptAlgebraicType()
+    acquire_knowledge_from_entities: {
+      reducerName: 'acquire_knowledge_from_entities',
+      argsType: AcquireKnowledgeFromEntities.getTypeScriptAlgebraicType()
     },
-    admin_mark_user_report_as_actioned: {
-      reducerName: 'admin_mark_user_report_as_actioned',
-      argsType: AdminMarkUserReportAsActioned.getTypeScriptAlgebraicType()
+    admin_alpha3_complete_onboarding: {
+      reducerName: 'admin_alpha3_complete_onboarding',
+      argsType: AdminAlpha3CompleteOnboarding.getTypeScriptAlgebraicType()
     },
-    admin_notify_player: {
-      reducerName: 'admin_notify_player',
-      argsType: AdminNotifyPlayer.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_fifth_temple_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
+      argsType: AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType()
     },
-    admin_notify_player_by_identity: {
-      reducerName: 'admin_notify_player_by_identity',
-      argsType: AdminNotifyPlayerByIdentity.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_first_expand_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_first_expand_quest',
+      argsType: AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_empire: {
-      reducerName: 'admin_rename_empire',
-      argsType: AdminRenameEmpire.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_first_temple_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_first_temple_quest',
+      argsType: AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_empire_entity: {
-      reducerName: 'admin_rename_empire_entity',
-      argsType: AdminRenameEmpireEntity.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_fourth_expand_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
+      argsType: AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_empire_rank: {
-      reducerName: 'admin_rename_empire_rank',
-      argsType: AdminRenameEmpireRank.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_fourth_temple_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
+      argsType: AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_empire_rank_entity: {
-      reducerName: 'admin_rename_empire_rank_entity',
-      argsType: AdminRenameEmpireRankEntity.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_second_expand_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_second_expand_quest',
+      argsType: AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_player: {
-      reducerName: 'admin_rename_player',
-      argsType: AdminRenamePlayer.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_second_temple_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_second_temple_quest',
+      argsType: AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType()
     },
-    admin_rename_player_entity: {
-      reducerName: 'admin_rename_player_entity',
-      argsType: AdminRenamePlayerEntity.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_third_expand_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_third_expand_quest',
+      argsType: AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType()
     },
-    admin_sign_out_all: {
-      reducerName: 'admin_sign_out_all',
-      argsType: AdminSignOutAll.getTypeScriptAlgebraicType()
+    admin_alpha3_reset_onboarding_to_third_temple_quest: {
+      reducerName: 'admin_alpha3_reset_onboarding_to_third_temple_quest',
+      argsType: AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType()
     },
-    admin_skip_queue_entity: {
-      reducerName: 'admin_skip_queue_entity',
-      argsType: AdminSkipQueueEntity.getTypeScriptAlgebraicType()
+    admin_broadcast_msg_region: {
+      reducerName: 'admin_broadcast_msg_region',
+      argsType: AdminBroadcastMsgRegion.getTypeScriptAlgebraicType()
     },
-    admin_skip_queue_identity: {
-      reducerName: 'admin_skip_queue_identity',
-      argsType: AdminSkipQueueIdentity.getTypeScriptAlgebraicType()
+    admin_clear_all_resources: {
+      reducerName: 'admin_clear_all_resources',
+      argsType: AdminClearAllResources.getTypeScriptAlgebraicType()
     },
-    admin_skip_queue_name: {
-      reducerName: 'admin_skip_queue_name',
-      argsType: AdminSkipQueueName.getTypeScriptAlgebraicType()
+    admin_clear_chunk_resources: {
+      reducerName: 'admin_clear_chunk_resources',
+      argsType: AdminClearChunkResources.getTypeScriptAlgebraicType()
     },
-    admin_update_granted_hub_item_state: {
-      reducerName: 'admin_update_granted_hub_item_state',
-      argsType: AdminUpdateGrantedHubItemState.getTypeScriptAlgebraicType()
+    admin_collapse_ruin: {
+      reducerName: 'admin_collapse_ruin',
+      argsType: AdminCollapseRuin.getTypeScriptAlgebraicType()
     },
-    admin_update_sign_in_parameters: {
-      reducerName: 'admin_update_sign_in_parameters',
-      argsType: AdminUpdateSignInParameters.getTypeScriptAlgebraicType()
+    admin_collapse_ruins: {
+      reducerName: 'admin_collapse_ruins',
+      argsType: AdminCollapseRuins.getTypeScriptAlgebraicType()
     },
-    authenticate: {
-      reducerName: 'authenticate',
-      argsType: Authenticate.getTypeScriptAlgebraicType()
+    admin_complete_all_passive_crafts: {
+      reducerName: 'admin_complete_all_passive_crafts',
+      argsType: AdminCompleteAllPassiveCrafts.getTypeScriptAlgebraicType()
     },
-    block_identity: {
-      reducerName: 'block_identity',
-      argsType: BlockIdentity.getTypeScriptAlgebraicType()
+    admin_count_inventory_items: {
+      reducerName: 'admin_count_inventory_items',
+      argsType: AdminCountInventoryItems.getTypeScriptAlgebraicType()
     },
-    cheat_empire_siege_add_supplies: {
-      reducerName: 'cheat_empire_siege_add_supplies',
-      argsType: CheatEmpireSiegeAddSupplies.getTypeScriptAlgebraicType()
+    admin_delete_all_items_of_type: {
+      reducerName: 'admin_delete_all_items_of_type',
+      argsType: AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType()
     },
-    cheat_empire_siege_cancel: {
-      reducerName: 'cheat_empire_siege_cancel',
-      argsType: CheatEmpireSiegeCancel.getTypeScriptAlgebraicType()
+    admin_delete_chat_message: {
+      reducerName: 'admin_delete_chat_message',
+      argsType: AdminDeleteChatMessage.getTypeScriptAlgebraicType()
     },
-    cheat_player_set_name: {
-      reducerName: 'cheat_player_set_name',
-      argsType: CheatPlayerSetName.getTypeScriptAlgebraicType()
+    admin_despawn_overworld_enemies: {
+      reducerName: 'admin_despawn_overworld_enemies',
+      argsType: AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType()
     },
-    cheat_shards_grant: {
-      reducerName: 'cheat_shards_grant',
-      argsType: CheatShardsGrant.getTypeScriptAlgebraicType()
+    admin_grant_collectibles: {
+      reducerName: 'admin_grant_collectibles',
+      argsType: AdminGrantCollectibles.getTypeScriptAlgebraicType()
+    },
+    admin_modify_chat_message: {
+      reducerName: 'admin_modify_chat_message',
+      argsType: AdminModifyChatMessage.getTypeScriptAlgebraicType()
+    },
+    admin_rename_building: {
+      reducerName: 'admin_rename_building',
+      argsType: AdminRenameBuilding.getTypeScriptAlgebraicType()
+    },
+    admin_rename_building_coord: {
+      reducerName: 'admin_rename_building_coord',
+      argsType: AdminRenameBuildingCoord.getTypeScriptAlgebraicType()
+    },
+    admin_rename_building_entity: {
+      reducerName: 'admin_rename_building_entity',
+      argsType: AdminRenameBuildingEntity.getTypeScriptAlgebraicType()
+    },
+    admin_rename_claim: {
+      reducerName: 'admin_rename_claim',
+      argsType: AdminRenameClaim.getTypeScriptAlgebraicType()
+    },
+    admin_rename_claim_entity: {
+      reducerName: 'admin_rename_claim_entity',
+      argsType: AdminRenameClaimEntity.getTypeScriptAlgebraicType()
+    },
+    admin_rename_deployable: {
+      reducerName: 'admin_rename_deployable',
+      argsType: AdminRenameDeployable.getTypeScriptAlgebraicType()
+    },
+    admin_rename_deployable_entity: {
+      reducerName: 'admin_rename_deployable_entity',
+      argsType: AdminRenameDeployableEntity.getTypeScriptAlgebraicType()
+    },
+    admin_reset_all_herd_locations: {
+      reducerName: 'admin_reset_all_herd_locations',
+      argsType: AdminResetAllHerdLocations.getTypeScriptAlgebraicType()
+    },
+    admin_reset_herd_locations: {
+      reducerName: 'admin_reset_herd_locations',
+      argsType: AdminResetHerdLocations.getTypeScriptAlgebraicType()
+    },
+    admin_reset_onboarding_completely: {
+      reducerName: 'admin_reset_onboarding_completely',
+      argsType: AdminResetOnboardingCompletely.getTypeScriptAlgebraicType()
+    },
+    admin_restore_all_collapsed_ruins: {
+      reducerName: 'admin_restore_all_collapsed_ruins',
+      argsType: AdminRestoreAllCollapsedRuins.getTypeScriptAlgebraicType()
+    },
+    admin_restore_player_state: {
+      reducerName: 'admin_restore_player_state',
+      argsType: AdminRestorePlayerState.getTypeScriptAlgebraicType()
+    },
+    admin_restore_player_state_scheduled: {
+      reducerName: 'admin_restore_player_state_scheduled',
+      argsType: AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType()
+    },
+    admin_set_sign_text: {
+      reducerName: 'admin_set_sign_text',
+      argsType: AdminSetSignText.getTypeScriptAlgebraicType()
+    },
+    admin_set_sign_text_coord: {
+      reducerName: 'admin_set_sign_text_coord',
+      argsType: AdminSetSignTextCoord.getTypeScriptAlgebraicType()
+    },
+    admin_set_sign_text_entity: {
+      reducerName: 'admin_set_sign_text_entity',
+      argsType: AdminSetSignTextEntity.getTypeScriptAlgebraicType()
+    },
+    admin_sign_out: {
+      reducerName: 'admin_sign_out',
+      argsType: AdminSignOut.getTypeScriptAlgebraicType()
+    },
+    admin_sign_out_all_region: {
+      reducerName: 'admin_sign_out_all_region',
+      argsType: AdminSignOutAllRegion.getTypeScriptAlgebraicType()
+    },
+    admin_sign_out_string: {
+      reducerName: 'admin_sign_out_string',
+      argsType: AdminSignOutString.getTypeScriptAlgebraicType()
+    },
+    admin_update_light_source_states: {
+      reducerName: 'admin_update_light_source_states',
+      argsType: AdminUpdateLightSourceStates.getTypeScriptAlgebraicType()
+    },
+    attack: {
+      reducerName: 'attack',
+      argsType: Attack.getTypeScriptAlgebraicType()
+    },
+    attack_impact: {
+      reducerName: 'attack_impact',
+      argsType: AttackImpact.getTypeScriptAlgebraicType()
+    },
+    attack_scheduled: {
+      reducerName: 'attack_scheduled',
+      argsType: AttackScheduled.getTypeScriptAlgebraicType()
+    },
+    attack_start: {
+      reducerName: 'attack_start',
+      argsType: AttackStart.getTypeScriptAlgebraicType()
+    },
+    auto_logout_loop: {
+      reducerName: 'auto_logout_loop',
+      argsType: AutoLogoutLoop.getTypeScriptAlgebraicType()
+    },
+    barter_stall_order_accept: {
+      reducerName: 'barter_stall_order_accept',
+      argsType: BarterStallOrderAccept.getTypeScriptAlgebraicType()
+    },
+    barter_stall_order_create: {
+      reducerName: 'barter_stall_order_create',
+      argsType: BarterStallOrderCreate.getTypeScriptAlgebraicType()
+    },
+    barter_stall_order_delete: {
+      reducerName: 'barter_stall_order_delete',
+      argsType: BarterStallOrderDelete.getTypeScriptAlgebraicType()
+    },
+    barter_stall_set_market_mode_enabled: {
+      reducerName: 'barter_stall_set_market_mode_enabled',
+      argsType: BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType()
+    },
+    blueprint_place: {
+      reducerName: 'blueprint_place',
+      argsType: BlueprintPlace.getTypeScriptAlgebraicType()
+    },
+    building_decay_agent_loop: {
+      reducerName: 'building_decay_agent_loop',
+      argsType: BuildingDecayAgentLoop.getTypeScriptAlgebraicType()
+    },
+    building_deconstruct: {
+      reducerName: 'building_deconstruct',
+      argsType: BuildingDeconstruct.getTypeScriptAlgebraicType()
+    },
+    building_deconstruct_start: {
+      reducerName: 'building_deconstruct_start',
+      argsType: BuildingDeconstructStart.getTypeScriptAlgebraicType()
+    },
+    building_despawn: {
+      reducerName: 'building_despawn',
+      argsType: BuildingDespawn.getTypeScriptAlgebraicType()
+    },
+    building_move: {
+      reducerName: 'building_move',
+      argsType: BuildingMove.getTypeScriptAlgebraicType()
+    },
+    building_repair: {
+      reducerName: 'building_repair',
+      argsType: BuildingRepair.getTypeScriptAlgebraicType()
+    },
+    building_repair_start: {
+      reducerName: 'building_repair_start',
+      argsType: BuildingRepairStart.getTypeScriptAlgebraicType()
+    },
+    building_set_nickname: {
+      reducerName: 'building_set_nickname',
+      argsType: BuildingSetNickname.getTypeScriptAlgebraicType()
+    },
+    building_set_sign_text: {
+      reducerName: 'building_set_sign_text',
+      argsType: BuildingSetSignText.getTypeScriptAlgebraicType()
+    },
+    chat_post_message: {
+      reducerName: 'chat_post_message',
+      argsType: ChatPostMessage.getTypeScriptAlgebraicType()
+    },
+    cheat_building_move: {
+      reducerName: 'cheat_building_move',
+      argsType: CheatBuildingMove.getTypeScriptAlgebraicType()
+    },
+    cheat_building_place: {
+      reducerName: 'cheat_building_place',
+      argsType: CheatBuildingPlace.getTypeScriptAlgebraicType()
+    },
+    cheat_cargo_grant: {
+      reducerName: 'cheat_cargo_grant',
+      argsType: CheatCargoGrant.getTypeScriptAlgebraicType()
+    },
+    cheat_claim_take_ownership: {
+      reducerName: 'cheat_claim_take_ownership',
+      argsType: CheatClaimTakeOwnership.getTypeScriptAlgebraicType()
+    },
+    cheat_claim_totem_add_supplies: {
+      reducerName: 'cheat_claim_totem_add_supplies',
+      argsType: CheatClaimTotemAddSupplies.getTypeScriptAlgebraicType()
+    },
+    cheat_claim_totem_complete_current_research: {
+      reducerName: 'cheat_claim_totem_complete_current_research',
+      argsType: CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType()
+    },
+    cheat_claim_totem_research_all: {
+      reducerName: 'cheat_claim_totem_research_all',
+      argsType: CheatClaimTotemResearchAll.getTypeScriptAlgebraicType()
+    },
+    cheat_clear_buffs_and_debuffs: {
+      reducerName: 'cheat_clear_buffs_and_debuffs',
+      argsType: CheatClearBuffsAndDebuffs.getTypeScriptAlgebraicType()
+    },
+    cheat_compendium_place_enemy: {
+      reducerName: 'cheat_compendium_place_enemy',
+      argsType: CheatCompendiumPlaceEnemy.getTypeScriptAlgebraicType()
+    },
+    cheat_compendium_place_resource: {
+      reducerName: 'cheat_compendium_place_resource',
+      argsType: CheatCompendiumPlaceResource.getTypeScriptAlgebraicType()
+    },
+    cheat_delete_item: {
+      reducerName: 'cheat_delete_item',
+      argsType: CheatDeleteItem.getTypeScriptAlgebraicType()
+    },
+    cheat_deployable_store: {
+      reducerName: 'cheat_deployable_store',
+      argsType: CheatDeployableStore.getTypeScriptAlgebraicType()
+    },
+    cheat_discover_map: {
+      reducerName: 'cheat_discover_map',
+      argsType: CheatDiscoverMap.getTypeScriptAlgebraicType()
+    },
+    cheat_experience_grant: {
+      reducerName: 'cheat_experience_grant',
+      argsType: CheatExperienceGrant.getTypeScriptAlgebraicType()
+    },
+    cheat_grant_knowledge: {
+      reducerName: 'cheat_grant_knowledge',
+      argsType: CheatGrantKnowledge.getTypeScriptAlgebraicType()
+    },
+    cheat_grant_teleport_energy: {
+      reducerName: 'cheat_grant_teleport_energy',
+      argsType: CheatGrantTeleportEnergy.getTypeScriptAlgebraicType()
+    },
+    cheat_item_stack_grant: {
+      reducerName: 'cheat_item_stack_grant',
+      argsType: CheatItemStackGrant.getTypeScriptAlgebraicType()
+    },
+    cheat_item_stack_grant_and_equip: {
+      reducerName: 'cheat_item_stack_grant_and_equip',
+      argsType: CheatItemStackGrantAndEquip.getTypeScriptAlgebraicType()
+    },
+    cheat_kill: {
+      reducerName: 'cheat_kill',
+      argsType: CheatKill.getTypeScriptAlgebraicType()
+    },
+    cheat_paving_add_tile: {
+      reducerName: 'cheat_paving_add_tile',
+      argsType: CheatPavingAddTile.getTypeScriptAlgebraicType()
+    },
+    cheat_paving_destroy: {
+      reducerName: 'cheat_paving_destroy',
+      argsType: CheatPavingDestroy.getTypeScriptAlgebraicType()
+    },
+    cheat_pillar_shaping_add_pillar: {
+      reducerName: 'cheat_pillar_shaping_add_pillar',
+      argsType: CheatPillarShapingAddPillar.getTypeScriptAlgebraicType()
+    },
+    cheat_pillar_shaping_destroy: {
+      reducerName: 'cheat_pillar_shaping_destroy',
+      argsType: CheatPillarShapingDestroy.getTypeScriptAlgebraicType()
+    },
+    cheat_project_site_add_all_materials: {
+      reducerName: 'cheat_project_site_add_all_materials',
+      argsType: CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType()
+    },
+    cheat_remove_entity_building: {
+      reducerName: 'cheat_remove_entity_building',
+      argsType: CheatRemoveEntityBuilding.getTypeScriptAlgebraicType()
+    },
+    cheat_remove_entity_enemy: {
+      reducerName: 'cheat_remove_entity_enemy',
+      argsType: CheatRemoveEntityEnemy.getTypeScriptAlgebraicType()
+    },
+    cheat_remove_entity_resource: {
+      reducerName: 'cheat_remove_entity_resource',
+      argsType: CheatRemoveEntityResource.getTypeScriptAlgebraicType()
+    },
+    cheat_set_ai_debug_state: {
+      reducerName: 'cheat_set_ai_debug_state',
+      argsType: CheatSetAiDebugState.getTypeScriptAlgebraicType()
+    },
+    cheat_spawn_loot_chest: {
+      reducerName: 'cheat_spawn_loot_chest',
+      argsType: CheatSpawnLootChest.getTypeScriptAlgebraicType()
+    },
+    cheat_teleport_float: {
+      reducerName: 'cheat_teleport_float',
+      argsType: CheatTeleportFloat.getTypeScriptAlgebraicType()
+    },
+    cheat_terraform: {
+      reducerName: 'cheat_terraform',
+      argsType: CheatTerraform.getTypeScriptAlgebraicType()
+    },
+    cheat_toggle_active_collectible: {
+      reducerName: 'cheat_toggle_active_collectible',
+      argsType: CheatToggleActiveCollectible.getTypeScriptAlgebraicType()
+    },
+    cheat_warp: {
+      reducerName: 'cheat_warp',
+      argsType: CheatWarp.getTypeScriptAlgebraicType()
+    },
+    claim_add_member: {
+      reducerName: 'claim_add_member',
+      argsType: ClaimAddMember.getTypeScriptAlgebraicType()
+    },
+    claim_add_recruitment: {
+      reducerName: 'claim_add_recruitment',
+      argsType: ClaimAddRecruitment.getTypeScriptAlgebraicType()
+    },
+    claim_add_tile: {
+      reducerName: 'claim_add_tile',
+      argsType: ClaimAddTile.getTypeScriptAlgebraicType()
+    },
+    claim_apply_for_recruitment: {
+      reducerName: 'claim_apply_for_recruitment',
+      argsType: ClaimApplyForRecruitment.getTypeScriptAlgebraicType()
+    },
+    claim_leave: {
+      reducerName: 'claim_leave',
+      argsType: ClaimLeave.getTypeScriptAlgebraicType()
+    },
+    claim_purchase_supplies_from_player: {
+      reducerName: 'claim_purchase_supplies_from_player',
+      argsType: ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType()
+    },
+    claim_remove_member: {
+      reducerName: 'claim_remove_member',
+      argsType: ClaimRemoveMember.getTypeScriptAlgebraicType()
+    },
+    claim_remove_recruitment: {
+      reducerName: 'claim_remove_recruitment',
+      argsType: ClaimRemoveRecruitment.getTypeScriptAlgebraicType()
+    },
+    claim_remove_tile: {
+      reducerName: 'claim_remove_tile',
+      argsType: ClaimRemoveTile.getTypeScriptAlgebraicType()
+    },
+    claim_rename: {
+      reducerName: 'claim_rename',
+      argsType: ClaimRename.getTypeScriptAlgebraicType()
+    },
+    claim_resupply: {
+      reducerName: 'claim_resupply',
+      argsType: ClaimResupply.getTypeScriptAlgebraicType()
+    },
+    claim_resupply_start: {
+      reducerName: 'claim_resupply_start',
+      argsType: ClaimResupplyStart.getTypeScriptAlgebraicType()
+    },
+    claim_set_member_permissions: {
+      reducerName: 'claim_set_member_permissions',
+      argsType: ClaimSetMemberPermissions.getTypeScriptAlgebraicType()
+    },
+    claim_set_purchase_supply_price: {
+      reducerName: 'claim_set_purchase_supply_price',
+      argsType: ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType()
+    },
+    claim_set_purchase_supply_threshold: {
+      reducerName: 'claim_set_purchase_supply_threshold',
+      argsType: ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType()
+    },
+    claim_take_ownership: {
+      reducerName: 'claim_take_ownership',
+      argsType: ClaimTakeOwnership.getTypeScriptAlgebraicType()
+    },
+    claim_tech_cancel: {
+      reducerName: 'claim_tech_cancel',
+      argsType: ClaimTechCancel.getTypeScriptAlgebraicType()
+    },
+    claim_tech_learn: {
+      reducerName: 'claim_tech_learn',
+      argsType: ClaimTechLearn.getTypeScriptAlgebraicType()
+    },
+    claim_tech_unlock_tech: {
+      reducerName: 'claim_tech_unlock_tech',
+      argsType: ClaimTechUnlockTech.getTypeScriptAlgebraicType()
+    },
+    claim_transfer_ownership: {
+      reducerName: 'claim_transfer_ownership',
+      argsType: ClaimTransferOwnership.getTypeScriptAlgebraicType()
+    },
+    claim_withdraw_from_treasury: {
+      reducerName: 'claim_withdraw_from_treasury',
+      argsType: ClaimWithdrawFromTreasury.getTypeScriptAlgebraicType()
     },
     clear_staged_static_data: {
       reducerName: 'clear_staged_static_data',
       argsType: ClearStagedStaticData.getTypeScriptAlgebraicType()
     },
+    closed_listing_collect: {
+      reducerName: 'closed_listing_collect',
+      argsType: ClosedListingCollect.getTypeScriptAlgebraicType()
+    },
+    collect_stats_reducer: {
+      reducerName: 'collect_stats_reducer',
+      argsType: CollectStatsReducer.getTypeScriptAlgebraicType()
+    },
+    collectible_activate: {
+      reducerName: 'collectible_activate',
+      argsType: CollectibleActivate.getTypeScriptAlgebraicType()
+    },
     commit_staged_static_data: {
       reducerName: 'commit_staged_static_data',
       argsType: CommitStagedStaticData.getTypeScriptAlgebraicType()
+    },
+    complete_onboarding_quest: {
+      reducerName: 'complete_onboarding_quest',
+      argsType: CompleteOnboardingQuest.getTypeScriptAlgebraicType()
+    },
+    complete_onboarding_state: {
+      reducerName: 'complete_onboarding_state',
+      argsType: CompleteOnboardingState.getTypeScriptAlgebraicType()
+    },
+    convert_collectible_to_deed: {
+      reducerName: 'convert_collectible_to_deed',
+      argsType: ConvertCollectibleToDeed.getTypeScriptAlgebraicType()
+    },
+    convert_deed_to_collectible: {
+      reducerName: 'convert_deed_to_collectible',
+      argsType: ConvertDeedToCollectible.getTypeScriptAlgebraicType()
+    },
+    craft_cancel: {
+      reducerName: 'craft_cancel',
+      argsType: CraftCancel.getTypeScriptAlgebraicType()
+    },
+    craft_collect: {
+      reducerName: 'craft_collect',
+      argsType: CraftCollect.getTypeScriptAlgebraicType()
+    },
+    craft_collect_all: {
+      reducerName: 'craft_collect_all',
+      argsType: CraftCollectAll.getTypeScriptAlgebraicType()
+    },
+    craft_continue: {
+      reducerName: 'craft_continue',
+      argsType: CraftContinue.getTypeScriptAlgebraicType()
+    },
+    craft_continue_start: {
+      reducerName: 'craft_continue_start',
+      argsType: CraftContinueStart.getTypeScriptAlgebraicType()
+    },
+    craft_initiate: {
+      reducerName: 'craft_initiate',
+      argsType: CraftInitiate.getTypeScriptAlgebraicType()
+    },
+    craft_initiate_start: {
+      reducerName: 'craft_initiate_start',
+      argsType: CraftInitiateStart.getTypeScriptAlgebraicType()
     },
     current_version: {
       reducerName: 'current_version',
       argsType: CurrentVersion.getTypeScriptAlgebraicType()
     },
-    empire_change_emblem: {
-      reducerName: 'empire_change_emblem',
-      argsType: EmpireChangeEmblem.getTypeScriptAlgebraicType()
+    day_night_agent_loop: {
+      reducerName: 'day_night_agent_loop',
+      argsType: DayNightAgentLoop.getTypeScriptAlgebraicType()
     },
-    empire_craft_supplies: {
-      reducerName: 'empire_craft_supplies',
-      argsType: EmpireCraftSupplies.getTypeScriptAlgebraicType()
+    delete_all_npcs: {
+      reducerName: 'delete_all_npcs',
+      argsType: DeleteAllNpcs.getTypeScriptAlgebraicType()
     },
-    empire_craft_supplies_scheduled: {
-      reducerName: 'empire_craft_supplies_scheduled',
-      argsType: EmpireCraftSuppliesScheduled.getTypeScriptAlgebraicType()
+    deployable_deploy: {
+      reducerName: 'deployable_deploy',
+      argsType: DeployableDeploy.getTypeScriptAlgebraicType()
     },
-    empire_decay_agent_loop: {
-      reducerName: 'empire_decay_agent_loop',
-      argsType: EmpireDecayAgentLoop.getTypeScriptAlgebraicType()
+    deployable_deploy_start: {
+      reducerName: 'deployable_deploy_start',
+      argsType: DeployableDeployStart.getTypeScriptAlgebraicType()
     },
-    empire_dismantle: {
-      reducerName: 'empire_dismantle',
-      argsType: EmpireDismantle.getTypeScriptAlgebraicType()
+    deployable_dismount: {
+      reducerName: 'deployable_dismount',
+      argsType: DeployableDismount.getTypeScriptAlgebraicType()
     },
-    empire_donate_shards: {
-      reducerName: 'empire_donate_shards',
-      argsType: EmpireDonateShards.getTypeScriptAlgebraicType()
+    deployable_dismount_scheduled: {
+      reducerName: 'deployable_dismount_scheduled',
+      argsType: DeployableDismountScheduled.getTypeScriptAlgebraicType()
     },
-    empire_form: {
-      reducerName: 'empire_form',
-      argsType: EmpireForm.getTypeScriptAlgebraicType()
+    deployable_mount: {
+      reducerName: 'deployable_mount',
+      argsType: DeployableMount.getTypeScriptAlgebraicType()
     },
-    empire_leave: {
-      reducerName: 'empire_leave',
-      argsType: EmpireLeave.getTypeScriptAlgebraicType()
+    deployable_move: {
+      reducerName: 'deployable_move',
+      argsType: DeployableMove.getTypeScriptAlgebraicType()
     },
-    empire_mark_for_expansion: {
-      reducerName: 'empire_mark_for_expansion',
-      argsType: EmpireMarkForExpansion.getTypeScriptAlgebraicType()
+    deployable_move_off_claim: {
+      reducerName: 'deployable_move_off_claim',
+      argsType: DeployableMoveOffClaim.getTypeScriptAlgebraicType()
     },
-    empire_mark_for_siege: {
-      reducerName: 'empire_mark_for_siege',
-      argsType: EmpireMarkForSiege.getTypeScriptAlgebraicType()
+    deployable_store: {
+      reducerName: 'deployable_store',
+      argsType: DeployableStore.getTypeScriptAlgebraicType()
     },
-    empire_player_join: {
-      reducerName: 'empire_player_join',
-      argsType: EmpirePlayerJoin.getTypeScriptAlgebraicType()
+    deployable_store_start: {
+      reducerName: 'deployable_store_start',
+      argsType: DeployableStoreStart.getTypeScriptAlgebraicType()
     },
-    empire_player_leave: {
-      reducerName: 'empire_player_leave',
-      argsType: EmpirePlayerLeave.getTypeScriptAlgebraicType()
+    destroy_dimension_network: {
+      reducerName: 'destroy_dimension_network',
+      argsType: DestroyDimensionNetwork.getTypeScriptAlgebraicType()
     },
-    empire_set_directive_message: {
-      reducerName: 'empire_set_directive_message',
-      argsType: EmpireSetDirectiveMessage.getTypeScriptAlgebraicType()
+    dev_delete_world: {
+      reducerName: 'dev_delete_world',
+      argsType: DevDeleteWorld.getTypeScriptAlgebraicType()
     },
-    empire_set_nobility_threshold: {
-      reducerName: 'empire_set_nobility_threshold',
-      argsType: EmpireSetNobilityThreshold.getTypeScriptAlgebraicType()
+    discover_entities: {
+      reducerName: 'discover_entities',
+      argsType: DiscoverEntities.getTypeScriptAlgebraicType()
     },
-    empire_set_player_rank: {
-      reducerName: 'empire_set_player_rank',
-      argsType: EmpireSetPlayerRank.getTypeScriptAlgebraicType()
+    dropped_inventory_despawn: {
+      reducerName: 'dropped_inventory_despawn',
+      argsType: DroppedInventoryDespawn.getTypeScriptAlgebraicType()
     },
-    empire_set_rank_title: {
-      reducerName: 'empire_set_rank_title',
-      argsType: EmpireSetRankTitle.getTypeScriptAlgebraicType()
+    dropped_inventory_lose_ownership: {
+      reducerName: 'dropped_inventory_lose_ownership',
+      argsType: DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType()
     },
-    empire_siege_agent_loop: {
-      reducerName: 'empire_siege_agent_loop',
-      argsType: EmpireSiegeAgentLoop.getTypeScriptAlgebraicType()
+    duel_agent_timer_loop: {
+      reducerName: 'duel_agent_timer_loop',
+      argsType: DuelAgentTimerLoop.getTypeScriptAlgebraicType()
     },
-    empire_submit: {
-      reducerName: 'empire_submit',
-      argsType: EmpireSubmit.getTypeScriptAlgebraicType()
+    duel_despawn: {
+      reducerName: 'duel_despawn',
+      argsType: DuelDespawn.getTypeScriptAlgebraicType()
     },
-    empire_transfer_emperorship: {
-      reducerName: 'empire_transfer_emperorship',
-      argsType: EmpireTransferEmperorship.getTypeScriptAlgebraicType()
+    eat: {
+      reducerName: 'eat',
+      argsType: Eat.getTypeScriptAlgebraicType()
     },
-    empire_update_permissions: {
-      reducerName: 'empire_update_permissions',
-      argsType: EmpireUpdatePermissions.getTypeScriptAlgebraicType()
+    emote: {
+      reducerName: 'emote',
+      argsType: Emote.getTypeScriptAlgebraicType()
+    },
+    emote_start: {
+      reducerName: 'emote_start',
+      argsType: EmoteStart.getTypeScriptAlgebraicType()
+    },
+    empire_add_siege_supplies: {
+      reducerName: 'empire_add_siege_supplies',
+      argsType: EmpireAddSiegeSupplies.getTypeScriptAlgebraicType()
+    },
+    empire_claim_join: {
+      reducerName: 'empire_claim_join',
+      argsType: EmpireClaimJoin.getTypeScriptAlgebraicType()
+    },
+    empire_collect_hexite_capsule: {
+      reducerName: 'empire_collect_hexite_capsule',
+      argsType: EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType()
+    },
+    empire_deploy_siege_engine: {
+      reducerName: 'empire_deploy_siege_engine',
+      argsType: EmpireDeploySiegeEngine.getTypeScriptAlgebraicType()
+    },
+    empire_deploy_siege_engine_start: {
+      reducerName: 'empire_deploy_siege_engine_start',
+      argsType: EmpireDeploySiegeEngineStart.getTypeScriptAlgebraicType()
+    },
+    empire_queue_supplies: {
+      reducerName: 'empire_queue_supplies',
+      argsType: EmpireQueueSupplies.getTypeScriptAlgebraicType()
+    },
+    empire_resupply_node: {
+      reducerName: 'empire_resupply_node',
+      argsType: EmpireResupplyNode.getTypeScriptAlgebraicType()
+    },
+    empire_resupply_node_start: {
+      reducerName: 'empire_resupply_node_start',
+      argsType: EmpireResupplyNodeStart.getTypeScriptAlgebraicType()
+    },
+    empire_siege_depleted_watchtower: {
+      reducerName: 'empire_siege_depleted_watchtower',
+      argsType: EmpireSiegeDepletedWatchtower.getTypeScriptAlgebraicType()
+    },
+    end_grace_period: {
+      reducerName: 'end_grace_period',
+      argsType: EndGracePeriod.getTypeScriptAlgebraicType()
+    },
+    enemy_clear_aggro: {
+      reducerName: 'enemy_clear_aggro',
+      argsType: EnemyClearAggro.getTypeScriptAlgebraicType()
+    },
+    enemy_despawn: {
+      reducerName: 'enemy_despawn',
+      argsType: EnemyDespawn.getTypeScriptAlgebraicType()
+    },
+    enemy_despawn_from_mob_monitor: {
+      reducerName: 'enemy_despawn_from_mob_monitor',
+      argsType: EnemyDespawnFromMobMonitor.getTypeScriptAlgebraicType()
+    },
+    enemy_despawn_from_mob_monitor_batch: {
+      reducerName: 'enemy_despawn_from_mob_monitor_batch',
+      argsType: EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType()
+    },
+    enemy_move: {
+      reducerName: 'enemy_move',
+      argsType: EnemyMove.getTypeScriptAlgebraicType()
+    },
+    enemy_move_batch: {
+      reducerName: 'enemy_move_batch',
+      argsType: EnemyMoveBatch.getTypeScriptAlgebraicType()
+    },
+    enemy_regen_agent_loop: {
+      reducerName: 'enemy_regen_agent_loop',
+      argsType: EnemyRegenAgentLoop.getTypeScriptAlgebraicType()
+    },
+    enemy_set_health: {
+      reducerName: 'enemy_set_health',
+      argsType: EnemySetHealth.getTypeScriptAlgebraicType()
+    },
+    enemy_set_health_batch: {
+      reducerName: 'enemy_set_health_batch',
+      argsType: EnemySetHealthBatch.getTypeScriptAlgebraicType()
+    },
+    enemy_spawn: {
+      reducerName: 'enemy_spawn',
+      argsType: EnemySpawn.getTypeScriptAlgebraicType()
+    },
+    enemy_spawn_batch: {
+      reducerName: 'enemy_spawn_batch',
+      argsType: EnemySpawnBatch.getTypeScriptAlgebraicType()
+    },
+    enemy_spawn_loot: {
+      reducerName: 'enemy_spawn_loot',
+      argsType: EnemySpawnLoot.getTypeScriptAlgebraicType()
+    },
+    environment_debuff_agent_loop: {
+      reducerName: 'environment_debuff_agent_loop',
+      argsType: EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType()
+    },
+    equipment_add: {
+      reducerName: 'equipment_add',
+      argsType: EquipmentAdd.getTypeScriptAlgebraicType()
+    },
+    equipment_remove: {
+      reducerName: 'equipment_remove',
+      argsType: EquipmentRemove.getTypeScriptAlgebraicType()
+    },
+    extract: {
+      reducerName: 'extract',
+      argsType: Extract.getTypeScriptAlgebraicType()
+    },
+    extract_start: {
+      reducerName: 'extract_start',
+      argsType: ExtractStart.getTypeScriptAlgebraicType()
+    },
+    force_start_agents: {
+      reducerName: 'force_start_agents',
+      argsType: ForceStartAgents.getTypeScriptAlgebraicType()
+    },
+    generate_dev_island: {
+      reducerName: 'generate_dev_island',
+      argsType: GenerateDevIsland.getTypeScriptAlgebraicType()
+    },
+    generate_flat_world: {
+      reducerName: 'generate_flat_world',
+      argsType: GenerateFlatWorld.getTypeScriptAlgebraicType()
+    },
+    generate_world: {
+      reducerName: 'generate_world',
+      argsType: GenerateWorld.getTypeScriptAlgebraicType()
+    },
+    growth_agent_loop: {
+      reducerName: 'growth_agent_loop',
+      argsType: GrowthAgentLoop.getTypeScriptAlgebraicType()
+    },
+    hide_deployable: {
+      reducerName: 'hide_deployable',
+      argsType: HideDeployable.getTypeScriptAlgebraicType()
     },
     identity_connected: {
       reducerName: 'identity_connected',
@@ -4488,6 +6394,10 @@ const REMOTE_MODULE = {
       reducerName: 'import_empire_colors_desc',
       argsType: ImportEmpireColorsDesc.getTypeScriptAlgebraicType()
     },
+    import_empire_icon_desc: {
+      reducerName: 'import_empire_icon_desc',
+      argsType: ImportEmpireIconDesc.getTypeScriptAlgebraicType()
+    },
     import_empire_notification_desc: {
       reducerName: 'import_empire_notification_desc',
       argsType: ImportEmpireNotificationDesc.getTypeScriptAlgebraicType()
@@ -4580,6 +6490,10 @@ const REMOTE_MODULE = {
       reducerName: 'import_interior_collapse_trigger_state',
       argsType: ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType()
     },
+    import_interior_environment_desc: {
+      reducerName: 'import_interior_environment_desc',
+      argsType: ImportInteriorEnvironmentDesc.getTypeScriptAlgebraicType()
+    },
     import_interior_instance_desc: {
       reducerName: 'import_interior_instance_desc',
       argsType: ImportInteriorInstanceDesc.getTypeScriptAlgebraicType()
@@ -4668,6 +6582,10 @@ const REMOTE_MODULE = {
       reducerName: 'import_knowledge_paving_state',
       argsType: ImportKnowledgePavingState.getTypeScriptAlgebraicType()
     },
+    import_knowledge_pillar_shaping_state: {
+      reducerName: 'import_knowledge_pillar_shaping_state',
+      argsType: ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType()
+    },
     import_knowledge_resource_placement_state: {
       reducerName: 'import_knowledge_resource_placement_state',
       argsType: ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType()
@@ -4699,6 +6617,10 @@ const REMOTE_MODULE = {
     import_knowledge_vault_state: {
       reducerName: 'import_knowledge_vault_state',
       argsType: ImportKnowledgeVaultState.getTypeScriptAlgebraicType()
+    },
+    import_location_cache: {
+      reducerName: 'import_location_cache',
+      argsType: ImportLocationCache.getTypeScriptAlgebraicType()
     },
     import_location_state: {
       reducerName: 'import_location_state',
@@ -4760,6 +6682,10 @@ const REMOTE_MODULE = {
       reducerName: 'import_paving_tile_desc',
       argsType: ImportPavingTileDesc.getTypeScriptAlgebraicType()
     },
+    import_pillar_shaping_desc: {
+      reducerName: 'import_pillar_shaping_desc',
+      argsType: ImportPillarShapingDesc.getTypeScriptAlgebraicType()
+    },
     import_player_action_desc: {
       reducerName: 'import_player_action_desc',
       argsType: ImportPlayerActionDesc.getTypeScriptAlgebraicType()
@@ -4768,6 +6694,10 @@ const REMOTE_MODULE = {
       reducerName: 'import_player_action_state',
       argsType: ImportPlayerActionState.getTypeScriptAlgebraicType()
     },
+    import_player_housing_desc: {
+      reducerName: 'import_player_housing_desc',
+      argsType: ImportPlayerHousingDesc.getTypeScriptAlgebraicType()
+    },
     import_player_prefs_state: {
       reducerName: 'import_player_prefs_state',
       argsType: ImportPlayerPrefsState.getTypeScriptAlgebraicType()
@@ -4775,10 +6705,6 @@ const REMOTE_MODULE = {
     import_player_state: {
       reducerName: 'import_player_state',
       argsType: ImportPlayerState.getTypeScriptAlgebraicType()
-    },
-    import_player_vote_state: {
-      reducerName: 'import_player_vote_state',
-      argsType: ImportPlayerVoteState.getTypeScriptAlgebraicType()
     },
     import_portal_state: {
       reducerName: 'import_portal_state',
@@ -4796,17 +6722,13 @@ const REMOTE_MODULE = {
       reducerName: 'import_project_site_state',
       argsType: ImportProjectSiteState.getTypeScriptAlgebraicType()
     },
-    import_region_connection_info: {
-      reducerName: 'import_region_connection_info',
-      argsType: ImportRegionConnectionInfo.getTypeScriptAlgebraicType()
-    },
-    import_region_sign_in_parameters: {
-      reducerName: 'import_region_sign_in_parameters',
-      argsType: ImportRegionSignInParameters.getTypeScriptAlgebraicType()
-    },
     import_rent_state: {
       reducerName: 'import_rent_state',
       argsType: ImportRentState.getTypeScriptAlgebraicType()
+    },
+    import_reserved_name_desc: {
+      reducerName: 'import_reserved_name_desc',
+      argsType: ImportReservedNameDesc.getTypeScriptAlgebraicType()
     },
     import_resource_clump_desc: {
       reducerName: 'import_resource_clump_desc',
@@ -4831,6 +6753,10 @@ const REMOTE_MODULE = {
     import_resource_state: {
       reducerName: 'import_resource_state',
       argsType: ImportResourceState.getTypeScriptAlgebraicType()
+    },
+    import_resources_log: {
+      reducerName: 'import_resources_log',
+      argsType: ImportResourcesLog.getTypeScriptAlgebraicType()
     },
     import_satiation_state: {
       reducerName: 'import_satiation_state',
@@ -4936,41 +6862,309 @@ const REMOTE_MODULE = {
       reducerName: 'import_world_region_state',
       argsType: ImportWorldRegionState.getTypeScriptAlgebraicType()
     },
+    insert_resources_log: {
+      reducerName: 'insert_resources_log',
+      argsType: InsertResourcesLog.getTypeScriptAlgebraicType()
+    },
+    insert_terrain_chunk: {
+      reducerName: 'insert_terrain_chunk',
+      argsType: InsertTerrainChunk.getTypeScriptAlgebraicType()
+    },
+    interior_set_collapsed: {
+      reducerName: 'interior_set_collapsed',
+      argsType: InteriorSetCollapsed.getTypeScriptAlgebraicType()
+    },
+    interior_set_collapsed_scheduled: {
+      reducerName: 'interior_set_collapsed_scheduled',
+      argsType: InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType()
+    },
+    inventory_create_personal: {
+      reducerName: 'inventory_create_personal',
+      argsType: InventoryCreatePersonal.getTypeScriptAlgebraicType()
+    },
+    inventory_sort: {
+      reducerName: 'inventory_sort',
+      argsType: InventorySort.getTypeScriptAlgebraicType()
+    },
+    item_convert: {
+      reducerName: 'item_convert',
+      argsType: ItemConvert.getTypeScriptAlgebraicType()
+    },
+    item_convert_start: {
+      reducerName: 'item_convert_start',
+      argsType: ItemConvertStart.getTypeScriptAlgebraicType()
+    },
+    item_drop: {
+      reducerName: 'item_drop',
+      argsType: ItemDrop.getTypeScriptAlgebraicType()
+    },
+    item_pick_up: {
+      reducerName: 'item_pick_up',
+      argsType: ItemPickUp.getTypeScriptAlgebraicType()
+    },
+    item_stack_move: {
+      reducerName: 'item_stack_move',
+      argsType: ItemStackMove.getTypeScriptAlgebraicType()
+    },
+    item_stack_move_all: {
+      reducerName: 'item_stack_move_all',
+      argsType: ItemStackMoveAll.getTypeScriptAlgebraicType()
+    },
+    item_stack_split: {
+      reducerName: 'item_stack_split',
+      argsType: ItemStackSplit.getTypeScriptAlgebraicType()
+    },
+    item_use: {
+      reducerName: 'item_use',
+      argsType: ItemUse.getTypeScriptAlgebraicType()
+    },
+    item_use_start: {
+      reducerName: 'item_use_start',
+      argsType: ItemUseStart.getTypeScriptAlgebraicType()
+    },
     load_config: {
       reducerName: 'load_config',
       argsType: LoadConfig.getTypeScriptAlgebraicType()
     },
-    log_empire_leaderboard: {
-      reducerName: 'log_empire_leaderboard',
-      argsType: LogEmpireLeaderboard.getTypeScriptAlgebraicType()
+    log_claim_member_leaderboard: {
+      reducerName: 'log_claim_member_leaderboard',
+      argsType: LogClaimMemberLeaderboard.getTypeScriptAlgebraicType()
     },
-    log_player_with_: {
-      reducerName: 'log_player_with_',
-      argsType: LogPlayerWith.getTypeScriptAlgebraicType()
+    log_claim_tier_leaderboard: {
+      reducerName: 'log_claim_tier_leaderboard',
+      argsType: LogClaimTierLeaderboard.getTypeScriptAlgebraicType()
+    },
+    loot_chest_despawn: {
+      reducerName: 'loot_chest_despawn',
+      argsType: LootChestDespawn.getTypeScriptAlgebraicType()
+    },
+    loot_chest_spawn: {
+      reducerName: 'loot_chest_spawn',
+      argsType: LootChestSpawn.getTypeScriptAlgebraicType()
+    },
+    npc_ai_agent_loop: {
+      reducerName: 'npc_ai_agent_loop',
+      argsType: NpcAiAgentLoop.getTypeScriptAlgebraicType()
+    },
+    on_durability_zero: {
+      reducerName: 'on_durability_zero',
+      argsType: OnDurabilityZero.getTypeScriptAlgebraicType()
     },
     on_inter_module_message_processed: {
       reducerName: 'on_inter_module_message_processed',
       argsType: OnInterModuleMessageProcessed.getTypeScriptAlgebraicType()
     },
-    player_claim_daily_shards: {
-      reducerName: 'player_claim_daily_shards',
-      argsType: PlayerClaimDailyShards.getTypeScriptAlgebraicType()
+    order_cancel: {
+      reducerName: 'order_cancel',
+      argsType: OrderCancel.getTypeScriptAlgebraicType()
     },
-    player_create: {
-      reducerName: 'player_create',
-      argsType: PlayerCreate.getTypeScriptAlgebraicType()
+    order_collect: {
+      reducerName: 'order_collect',
+      argsType: OrderCollect.getTypeScriptAlgebraicType()
     },
-    player_dismiss_notification: {
-      reducerName: 'player_dismiss_notification',
-      argsType: PlayerDismissNotification.getTypeScriptAlgebraicType()
+    order_edit_buy_order: {
+      reducerName: 'order_edit_buy_order',
+      argsType: OrderEditBuyOrder.getTypeScriptAlgebraicType()
+    },
+    order_edit_sell_order: {
+      reducerName: 'order_edit_sell_order',
+      argsType: OrderEditSellOrder.getTypeScriptAlgebraicType()
+    },
+    order_post_buy_order: {
+      reducerName: 'order_post_buy_order',
+      argsType: OrderPostBuyOrder.getTypeScriptAlgebraicType()
+    },
+    order_post_sell_order: {
+      reducerName: 'order_post_sell_order',
+      argsType: OrderPostSellOrder.getTypeScriptAlgebraicType()
+    },
+    passive_craft_cancel: {
+      reducerName: 'passive_craft_cancel',
+      argsType: PassiveCraftCancel.getTypeScriptAlgebraicType()
+    },
+    passive_craft_collect: {
+      reducerName: 'passive_craft_collect',
+      argsType: PassiveCraftCollect.getTypeScriptAlgebraicType()
+    },
+    passive_craft_collect_all: {
+      reducerName: 'passive_craft_collect_all',
+      argsType: PassiveCraftCollectAll.getTypeScriptAlgebraicType()
+    },
+    passive_craft_process: {
+      reducerName: 'passive_craft_process',
+      argsType: PassiveCraftProcess.getTypeScriptAlgebraicType()
+    },
+    passive_craft_queue: {
+      reducerName: 'passive_craft_queue',
+      argsType: PassiveCraftQueue.getTypeScriptAlgebraicType()
+    },
+    pause_play_timer: {
+      reducerName: 'pause_play_timer',
+      argsType: PausePlayTimer.getTypeScriptAlgebraicType()
+    },
+    paving_destroy_tile: {
+      reducerName: 'paving_destroy_tile',
+      argsType: PavingDestroyTile.getTypeScriptAlgebraicType()
+    },
+    paving_destroy_tile_start: {
+      reducerName: 'paving_destroy_tile_start',
+      argsType: PavingDestroyTileStart.getTypeScriptAlgebraicType()
+    },
+    paving_place_tile: {
+      reducerName: 'paving_place_tile',
+      argsType: PavingPlaceTile.getTypeScriptAlgebraicType()
+    },
+    paving_place_tile_start: {
+      reducerName: 'paving_place_tile_start',
+      argsType: PavingPlaceTileStart.getTypeScriptAlgebraicType()
+    },
+    permission_edit: {
+      reducerName: 'permission_edit',
+      argsType: PermissionEdit.getTypeScriptAlgebraicType()
+    },
+    pillar_shaping_destroy: {
+      reducerName: 'pillar_shaping_destroy',
+      argsType: PillarShapingDestroy.getTypeScriptAlgebraicType()
+    },
+    pillar_shaping_destroy_start: {
+      reducerName: 'pillar_shaping_destroy_start',
+      argsType: PillarShapingDestroyStart.getTypeScriptAlgebraicType()
+    },
+    pillar_shaping_place_pillar: {
+      reducerName: 'pillar_shaping_place_pillar',
+      argsType: PillarShapingPlacePillar.getTypeScriptAlgebraicType()
+    },
+    pillar_shaping_place_pillar_start: {
+      reducerName: 'pillar_shaping_place_pillar_start',
+      argsType: PillarShapingPlacePillarStart.getTypeScriptAlgebraicType()
+    },
+    player_action_cancel: {
+      reducerName: 'player_action_cancel',
+      argsType: PlayerActionCancel.getTypeScriptAlgebraicType()
+    },
+    player_cancel_region_transfer: {
+      reducerName: 'player_cancel_region_transfer',
+      argsType: PlayerCancelRegionTransfer.getTypeScriptAlgebraicType()
+    },
+    player_clear_action_state: {
+      reducerName: 'player_clear_action_state',
+      argsType: PlayerClearActionState.getTypeScriptAlgebraicType()
+    },
+    player_climb: {
+      reducerName: 'player_climb',
+      argsType: PlayerClimb.getTypeScriptAlgebraicType()
+    },
+    player_climb_start: {
+      reducerName: 'player_climb_start',
+      argsType: PlayerClimbStart.getTypeScriptAlgebraicType()
+    },
+    player_complete_task: {
+      reducerName: 'player_complete_task',
+      argsType: PlayerCompleteTask.getTypeScriptAlgebraicType()
+    },
+    player_death_start: {
+      reducerName: 'player_death_start',
+      argsType: PlayerDeathStart.getTypeScriptAlgebraicType()
+    },
+    player_dismiss_alert: {
+      reducerName: 'player_dismiss_alert',
+      argsType: PlayerDismissAlert.getTypeScriptAlgebraicType()
+    },
+    player_duel_initiate: {
+      reducerName: 'player_duel_initiate',
+      argsType: PlayerDuelInitiate.getTypeScriptAlgebraicType()
+    },
+    player_elevator_arrive: {
+      reducerName: 'player_elevator_arrive',
+      argsType: PlayerElevatorArrive.getTypeScriptAlgebraicType()
+    },
+    player_housing_change_entrance: {
+      reducerName: 'player_housing_change_entrance',
+      argsType: PlayerHousingChangeEntrance.getTypeScriptAlgebraicType()
+    },
+    player_housing_enter: {
+      reducerName: 'player_housing_enter',
+      argsType: PlayerHousingEnter.getTypeScriptAlgebraicType()
+    },
+    player_housing_evict_player: {
+      reducerName: 'player_housing_evict_player',
+      argsType: PlayerHousingEvictPlayer.getTypeScriptAlgebraicType()
+    },
+    player_housing_evict_player_complete: {
+      reducerName: 'player_housing_evict_player_complete',
+      argsType: PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType()
+    },
+    player_housing_income_agent_loop: {
+      reducerName: 'player_housing_income_agent_loop',
+      argsType: PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType()
+    },
+    player_housing_request_access: {
+      reducerName: 'player_housing_request_access',
+      argsType: PlayerHousingRequestAccess.getTypeScriptAlgebraicType()
+    },
+    player_housing_update: {
+      reducerName: 'player_housing_update',
+      argsType: PlayerHousingUpdate.getTypeScriptAlgebraicType()
+    },
+    player_move: {
+      reducerName: 'player_move',
+      argsType: PlayerMove.getTypeScriptAlgebraicType()
     },
     player_notification_event_reducer: {
       reducerName: 'player_notification_event_reducer',
       argsType: PlayerNotificationEventReducer.getTypeScriptAlgebraicType()
     },
-    player_set_name: {
-      reducerName: 'player_set_name',
-      argsType: PlayerSetName.getTypeScriptAlgebraicType()
+    player_queue_join: {
+      reducerName: 'player_queue_join',
+      argsType: PlayerQueueJoin.getTypeScriptAlgebraicType()
+    },
+    player_queue_leave: {
+      reducerName: 'player_queue_leave',
+      argsType: PlayerQueueLeave.getTypeScriptAlgebraicType()
+    },
+    player_regen_agent_loop: {
+      reducerName: 'player_regen_agent_loop',
+      argsType: PlayerRegenAgentLoop.getTypeScriptAlgebraicType()
+    },
+    player_region_crossover: {
+      reducerName: 'player_region_crossover',
+      argsType: PlayerRegionCrossover.getTypeScriptAlgebraicType()
+    },
+    player_region_transfer_event_reducer: {
+      reducerName: 'player_region_transfer_event_reducer',
+      argsType: PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType()
+    },
+    player_respawn: {
+      reducerName: 'player_respawn',
+      argsType: PlayerRespawn.getTypeScriptAlgebraicType()
+    },
+    player_set_default_deployable: {
+      reducerName: 'player_set_default_deployable',
+      argsType: PlayerSetDefaultDeployable.getTypeScriptAlgebraicType()
+    },
+    player_set_name_outcome_event_reducer: {
+      reducerName: 'player_set_name_outcome_event_reducer',
+      argsType: PlayerSetNameOutcomeEventReducer.getTypeScriptAlgebraicType()
+    },
+    player_teleport_home: {
+      reducerName: 'player_teleport_home',
+      argsType: PlayerTeleportHome.getTypeScriptAlgebraicType()
+    },
+    player_teleport_home_start: {
+      reducerName: 'player_teleport_home_start',
+      argsType: PlayerTeleportHomeStart.getTypeScriptAlgebraicType()
+    },
+    player_teleport_waystone: {
+      reducerName: 'player_teleport_waystone',
+      argsType: PlayerTeleportWaystone.getTypeScriptAlgebraicType()
+    },
+    player_teleport_waystone_start: {
+      reducerName: 'player_teleport_waystone_start',
+      argsType: PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType()
+    },
+    player_use_elevator: {
+      reducerName: 'player_use_elevator',
+      argsType: PlayerUseElevator.getTypeScriptAlgebraicType()
     },
     player_vote_answer: {
       reducerName: 'player_vote_answer',
@@ -4980,17 +7174,165 @@ const REMOTE_MODULE = {
       reducerName: 'player_vote_conclude',
       argsType: PlayerVoteConclude.getTypeScriptAlgebraicType()
     },
+    pocket_swap_contents: {
+      reducerName: 'pocket_swap_contents',
+      argsType: PocketSwapContents.getTypeScriptAlgebraicType()
+    },
+    portal_enter: {
+      reducerName: 'portal_enter',
+      argsType: PortalEnter.getTypeScriptAlgebraicType()
+    },
     process_inter_module_message: {
       reducerName: 'process_inter_module_message',
       argsType: ProcessInterModuleMessage.getTypeScriptAlgebraicType()
     },
-    set_role_for_identity: {
-      reducerName: 'set_role_for_identity',
-      argsType: SetRoleForIdentity.getTypeScriptAlgebraicType()
+    project_site_add_materials: {
+      reducerName: 'project_site_add_materials',
+      argsType: ProjectSiteAddMaterials.getTypeScriptAlgebraicType()
+    },
+    project_site_advance_project: {
+      reducerName: 'project_site_advance_project',
+      argsType: ProjectSiteAdvanceProject.getTypeScriptAlgebraicType()
+    },
+    project_site_advance_project_start: {
+      reducerName: 'project_site_advance_project_start',
+      argsType: ProjectSiteAdvanceProjectStart.getTypeScriptAlgebraicType()
+    },
+    project_site_cancel: {
+      reducerName: 'project_site_cancel',
+      argsType: ProjectSiteCancel.getTypeScriptAlgebraicType()
+    },
+    project_site_place: {
+      reducerName: 'project_site_place',
+      argsType: ProjectSitePlace.getTypeScriptAlgebraicType()
+    },
+    region_popuplation_agent_loop: {
+      reducerName: 'region_popuplation_agent_loop',
+      argsType: RegionPopuplationAgentLoop.getTypeScriptAlgebraicType()
+    },
+    rent_add_listing: {
+      reducerName: 'rent_add_listing',
+      argsType: RentAddListing.getTypeScriptAlgebraicType()
+    },
+    rent_add_tenant: {
+      reducerName: 'rent_add_tenant',
+      argsType: RentAddTenant.getTypeScriptAlgebraicType()
+    },
+    rent_collect_eviction_fee: {
+      reducerName: 'rent_collect_eviction_fee',
+      argsType: RentCollectEvictionFee.getTypeScriptAlgebraicType()
+    },
+    rent_collector_agent_loop: {
+      reducerName: 'rent_collector_agent_loop',
+      argsType: RentCollectorAgentLoop.getTypeScriptAlgebraicType()
+    },
+    rent_deposit_coins: {
+      reducerName: 'rent_deposit_coins',
+      argsType: RentDepositCoins.getTypeScriptAlgebraicType()
+    },
+    rent_evict: {
+      reducerName: 'rent_evict',
+      argsType: RentEvict.getTypeScriptAlgebraicType()
+    },
+    rent_evict_term: {
+      reducerName: 'rent_evict_term',
+      argsType: RentEvictTerm.getTypeScriptAlgebraicType()
+    },
+    rent_purchase: {
+      reducerName: 'rent_purchase',
+      argsType: RentPurchase.getTypeScriptAlgebraicType()
+    },
+    rent_remove_tenant: {
+      reducerName: 'rent_remove_tenant',
+      argsType: RentRemoveTenant.getTypeScriptAlgebraicType()
+    },
+    rent_set_daily_rate: {
+      reducerName: 'rent_set_daily_rate',
+      argsType: RentSetDailyRate.getTypeScriptAlgebraicType()
+    },
+    rent_terminate: {
+      reducerName: 'rent_terminate',
+      argsType: RentTerminate.getTypeScriptAlgebraicType()
+    },
+    rent_unlist: {
+      reducerName: 'rent_unlist',
+      argsType: RentUnlist.getTypeScriptAlgebraicType()
+    },
+    report_chat_message: {
+      reducerName: 'report_chat_message',
+      argsType: ReportChatMessage.getTypeScriptAlgebraicType()
+    },
+    report_player: {
+      reducerName: 'report_player',
+      argsType: ReportPlayer.getTypeScriptAlgebraicType()
+    },
+    reset_chunk_index: {
+      reducerName: 'reset_chunk_index',
+      argsType: ResetChunkIndex.getTypeScriptAlgebraicType()
+    },
+    reset_chunk_index_with_dimension: {
+      reducerName: 'reset_chunk_index_with_dimension',
+      argsType: ResetChunkIndexWithDimension.getTypeScriptAlgebraicType()
+    },
+    reset_mobile_entity_position: {
+      reducerName: 'reset_mobile_entity_position',
+      argsType: ResetMobileEntityPosition.getTypeScriptAlgebraicType()
+    },
+    reset_onboarding: {
+      reducerName: 'reset_onboarding',
+      argsType: ResetOnboarding.getTypeScriptAlgebraicType()
+    },
+    resource_spawn_scheduled: {
+      reducerName: 'resource_spawn_scheduled',
+      argsType: ResourceSpawnScheduled.getTypeScriptAlgebraicType()
+    },
+    resources_regen: {
+      reducerName: 'resources_regen',
+      argsType: ResourcesRegen.getTypeScriptAlgebraicType()
+    },
+    respawn_interior_npcs: {
+      reducerName: 'respawn_interior_npcs',
+      argsType: RespawnInteriorNpcs.getTypeScriptAlgebraicType()
+    },
+    respawn_resource_in_chunk: {
+      reducerName: 'respawn_resource_in_chunk',
+      argsType: RespawnResourceInChunk.getTypeScriptAlgebraicType()
+    },
+    retrieve_lost_item: {
+      reducerName: 'retrieve_lost_item',
+      argsType: RetrieveLostItem.getTypeScriptAlgebraicType()
+    },
+    scroll_read: {
+      reducerName: 'scroll_read',
+      argsType: ScrollRead.getTypeScriptAlgebraicType()
+    },
+    search_for_closest_building: {
+      reducerName: 'search_for_closest_building',
+      argsType: SearchForClosestBuilding.getTypeScriptAlgebraicType()
+    },
+    search_for_closest_building_type: {
+      reducerName: 'search_for_closest_building_type',
+      argsType: SearchForClosestBuildingType.getTypeScriptAlgebraicType()
+    },
+    server_teleport_player: {
+      reducerName: 'server_teleport_player',
+      argsType: ServerTeleportPlayer.getTypeScriptAlgebraicType()
+    },
+    set_home: {
+      reducerName: 'set_home',
+      argsType: SetHome.getTypeScriptAlgebraicType()
     },
     sign_in: {
       reducerName: 'sign_in',
       argsType: SignIn.getTypeScriptAlgebraicType()
+    },
+    sign_out: {
+      reducerName: 'sign_out',
+      argsType: SignOut.getTypeScriptAlgebraicType()
+    },
+    sleep: {
+      reducerName: 'sleep',
+      argsType: Sleep.getTypeScriptAlgebraicType()
     },
     stage_achievement_desc: {
       reducerName: 'stage_achievement_desc',
@@ -5320,29 +7662,105 @@ const REMOTE_MODULE = {
       reducerName: 'stage_weapon_type_desc',
       argsType: StageWeaponTypeDesc.getTypeScriptAlgebraicType()
     },
-    update_role_for_player: {
-      reducerName: 'update_role_for_player',
-      argsType: UpdateRoleForPlayer.getTypeScriptAlgebraicType()
+    start_agents: {
+      reducerName: 'start_agents',
+      argsType: StartAgents.getTypeScriptAlgebraicType()
+    },
+    start_generating_world: {
+      reducerName: 'start_generating_world',
+      argsType: StartGeneratingWorld.getTypeScriptAlgebraicType()
+    },
+    start_onboarding_quest: {
+      reducerName: 'start_onboarding_quest',
+      argsType: StartOnboardingQuest.getTypeScriptAlgebraicType()
+    },
+    starving_agent_loop: {
+      reducerName: 'starving_agent_loop',
+      argsType: StarvingAgentLoop.getTypeScriptAlgebraicType()
+    },
+    stop_agents: {
+      reducerName: 'stop_agents',
+      argsType: StopAgents.getTypeScriptAlgebraicType()
+    },
+    synchronize_time: {
+      reducerName: 'synchronize_time',
+      argsType: SynchronizeTime.getTypeScriptAlgebraicType()
+    },
+    target_update: {
+      reducerName: 'target_update',
+      argsType: TargetUpdate.getTypeScriptAlgebraicType()
+    },
+    teleportation_energy_regen_agent_loop: {
+      reducerName: 'teleportation_energy_regen_agent_loop',
+      argsType: TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType()
+    },
+    terraform: {
+      reducerName: 'terraform',
+      argsType: Terraform.getTypeScriptAlgebraicType()
+    },
+    terraform_cancel: {
+      reducerName: 'terraform_cancel',
+      argsType: TerraformCancel.getTypeScriptAlgebraicType()
+    },
+    terraform_set_final_target: {
+      reducerName: 'terraform_set_final_target',
+      argsType: TerraformSetFinalTarget.getTypeScriptAlgebraicType()
+    },
+    terraform_start: {
+      reducerName: 'terraform_start',
+      argsType: TerraformStart.getTypeScriptAlgebraicType()
+    },
+    trade_accept: {
+      reducerName: 'trade_accept',
+      argsType: TradeAccept.getTypeScriptAlgebraicType()
+    },
+    trade_accept_session: {
+      reducerName: 'trade_accept_session',
+      argsType: TradeAcceptSession.getTypeScriptAlgebraicType()
+    },
+    trade_add_item: {
+      reducerName: 'trade_add_item',
+      argsType: TradeAddItem.getTypeScriptAlgebraicType()
+    },
+    trade_cancel_server: {
+      reducerName: 'trade_cancel_server',
+      argsType: TradeCancelServer.getTypeScriptAlgebraicType()
+    },
+    trade_decline: {
+      reducerName: 'trade_decline',
+      argsType: TradeDecline.getTypeScriptAlgebraicType()
+    },
+    trade_decline_session: {
+      reducerName: 'trade_decline_session',
+      argsType: TradeDeclineSession.getTypeScriptAlgebraicType()
+    },
+    trade_initiate_session: {
+      reducerName: 'trade_initiate_session',
+      argsType: TradeInitiateSession.getTypeScriptAlgebraicType()
+    },
+    trade_remove_item: {
+      reducerName: 'trade_remove_item',
+      argsType: TradeRemoveItem.getTypeScriptAlgebraicType()
+    },
+    trade_sessions_agent_loop: {
+      reducerName: 'trade_sessions_agent_loop',
+      argsType: TradeSessionsAgentLoop.getTypeScriptAlgebraicType()
+    },
+    trade_swap_pockets: {
+      reducerName: 'trade_swap_pockets',
+      argsType: TradeSwapPockets.getTypeScriptAlgebraicType()
+    },
+    transfer_player_delayed: {
+      reducerName: 'transfer_player_delayed',
+      argsType: TransferPlayerDelayed.getTypeScriptAlgebraicType()
+    },
+    traveler_task_agent_loop: {
+      reducerName: 'traveler_task_agent_loop',
+      argsType: TravelerTaskAgentLoop.getTypeScriptAlgebraicType()
     },
     update_scheduled_timers_from_static_data: {
       reducerName: 'update_scheduled_timers_from_static_data',
       argsType: UpdateScheduledTimersFromStaticData.getTypeScriptAlgebraicType()
-    },
-    user_moderation_clear_all: {
-      reducerName: 'user_moderation_clear_all',
-      argsType: UserModerationClearAll.getTypeScriptAlgebraicType()
-    },
-    user_moderation_create: {
-      reducerName: 'user_moderation_create',
-      argsType: UserModerationCreate.getTypeScriptAlgebraicType()
-    },
-    user_moderation_delete: {
-      reducerName: 'user_moderation_delete',
-      argsType: UserModerationDelete.getTypeScriptAlgebraicType()
-    },
-    user_moderation_list_all: {
-      reducerName: 'user_moderation_list_all',
-      argsType: UserModerationListAll.getTypeScriptAlgebraicType()
     }
   },
   versionInfo: {
@@ -5375,52 +7793,195 @@ const REMOTE_MODULE = {
 // A type representing all the possible variants of a reducer.
 export type Reducer =
   | never
-  | { name: 'AdminBroadcastMsg'; args: AdminBroadcastMsg }
-  | { name: 'AdminGrantShards'; args: AdminGrantShards }
-  | { name: 'AdminMarkUserReportAsActioned'; args: AdminMarkUserReportAsActioned }
-  | { name: 'AdminNotifyPlayer'; args: AdminNotifyPlayer }
-  | { name: 'AdminNotifyPlayerByIdentity'; args: AdminNotifyPlayerByIdentity }
-  | { name: 'AdminRenameEmpire'; args: AdminRenameEmpire }
-  | { name: 'AdminRenameEmpireEntity'; args: AdminRenameEmpireEntity }
-  | { name: 'AdminRenameEmpireRank'; args: AdminRenameEmpireRank }
-  | { name: 'AdminRenameEmpireRankEntity'; args: AdminRenameEmpireRankEntity }
-  | { name: 'AdminRenamePlayer'; args: AdminRenamePlayer }
-  | { name: 'AdminRenamePlayerEntity'; args: AdminRenamePlayerEntity }
-  | { name: 'AdminSignOutAll'; args: AdminSignOutAll }
-  | { name: 'AdminSkipQueueEntity'; args: AdminSkipQueueEntity }
-  | { name: 'AdminSkipQueueIdentity'; args: AdminSkipQueueIdentity }
-  | { name: 'AdminSkipQueueName'; args: AdminSkipQueueName }
-  | { name: 'AdminUpdateGrantedHubItemState'; args: AdminUpdateGrantedHubItemState }
-  | { name: 'AdminUpdateSignInParameters'; args: AdminUpdateSignInParameters }
-  | { name: 'Authenticate'; args: Authenticate }
-  | { name: 'BlockIdentity'; args: BlockIdentity }
-  | { name: 'CheatEmpireSiegeAddSupplies'; args: CheatEmpireSiegeAddSupplies }
-  | { name: 'CheatEmpireSiegeCancel'; args: CheatEmpireSiegeCancel }
-  | { name: 'CheatPlayerSetName'; args: CheatPlayerSetName }
-  | { name: 'CheatShardsGrant'; args: CheatShardsGrant }
+  | { name: 'AchievementClaim'; args: AchievementClaim }
+  | { name: 'AcquireKnowledgeFromEntities'; args: AcquireKnowledgeFromEntities }
+  | { name: 'AdminAlpha3CompleteOnboarding'; args: AdminAlpha3CompleteOnboarding }
+  | { name: 'AdminAlpha3ResetOnboardingToFifthTempleQuest'; args: AdminAlpha3ResetOnboardingToFifthTempleQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToFirstExpandQuest'; args: AdminAlpha3ResetOnboardingToFirstExpandQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToFirstTempleQuest'; args: AdminAlpha3ResetOnboardingToFirstTempleQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToFourthExpandQuest'; args: AdminAlpha3ResetOnboardingToFourthExpandQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToFourthTempleQuest'; args: AdminAlpha3ResetOnboardingToFourthTempleQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToSecondExpandQuest'; args: AdminAlpha3ResetOnboardingToSecondExpandQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToSecondTempleQuest'; args: AdminAlpha3ResetOnboardingToSecondTempleQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToThirdExpandQuest'; args: AdminAlpha3ResetOnboardingToThirdExpandQuest }
+  | { name: 'AdminAlpha3ResetOnboardingToThirdTempleQuest'; args: AdminAlpha3ResetOnboardingToThirdTempleQuest }
+  | { name: 'AdminBroadcastMsgRegion'; args: AdminBroadcastMsgRegion }
+  | { name: 'AdminClearAllResources'; args: AdminClearAllResources }
+  | { name: 'AdminClearChunkResources'; args: AdminClearChunkResources }
+  | { name: 'AdminCollapseRuin'; args: AdminCollapseRuin }
+  | { name: 'AdminCollapseRuins'; args: AdminCollapseRuins }
+  | { name: 'AdminCompleteAllPassiveCrafts'; args: AdminCompleteAllPassiveCrafts }
+  | { name: 'AdminCountInventoryItems'; args: AdminCountInventoryItems }
+  | { name: 'AdminDeleteAllItemsOfType'; args: AdminDeleteAllItemsOfType }
+  | { name: 'AdminDeleteChatMessage'; args: AdminDeleteChatMessage }
+  | { name: 'AdminDespawnOverworldEnemies'; args: AdminDespawnOverworldEnemies }
+  | { name: 'AdminGrantCollectibles'; args: AdminGrantCollectibles }
+  | { name: 'AdminModifyChatMessage'; args: AdminModifyChatMessage }
+  | { name: 'AdminRenameBuilding'; args: AdminRenameBuilding }
+  | { name: 'AdminRenameBuildingCoord'; args: AdminRenameBuildingCoord }
+  | { name: 'AdminRenameBuildingEntity'; args: AdminRenameBuildingEntity }
+  | { name: 'AdminRenameClaim'; args: AdminRenameClaim }
+  | { name: 'AdminRenameClaimEntity'; args: AdminRenameClaimEntity }
+  | { name: 'AdminRenameDeployable'; args: AdminRenameDeployable }
+  | { name: 'AdminRenameDeployableEntity'; args: AdminRenameDeployableEntity }
+  | { name: 'AdminResetAllHerdLocations'; args: AdminResetAllHerdLocations }
+  | { name: 'AdminResetHerdLocations'; args: AdminResetHerdLocations }
+  | { name: 'AdminResetOnboardingCompletely'; args: AdminResetOnboardingCompletely }
+  | { name: 'AdminRestoreAllCollapsedRuins'; args: AdminRestoreAllCollapsedRuins }
+  | { name: 'AdminRestorePlayerState'; args: AdminRestorePlayerState }
+  | { name: 'AdminRestorePlayerStateScheduled'; args: AdminRestorePlayerStateScheduled }
+  | { name: 'AdminSetSignText'; args: AdminSetSignText }
+  | { name: 'AdminSetSignTextCoord'; args: AdminSetSignTextCoord }
+  | { name: 'AdminSetSignTextEntity'; args: AdminSetSignTextEntity }
+  | { name: 'AdminSignOut'; args: AdminSignOut }
+  | { name: 'AdminSignOutAllRegion'; args: AdminSignOutAllRegion }
+  | { name: 'AdminSignOutString'; args: AdminSignOutString }
+  | { name: 'AdminUpdateLightSourceStates'; args: AdminUpdateLightSourceStates }
+  | { name: 'Attack'; args: Attack }
+  | { name: 'AttackImpact'; args: AttackImpact }
+  | { name: 'AttackScheduled'; args: AttackScheduled }
+  | { name: 'AttackStart'; args: AttackStart }
+  | { name: 'AutoLogoutLoop'; args: AutoLogoutLoop }
+  | { name: 'BarterStallOrderAccept'; args: BarterStallOrderAccept }
+  | { name: 'BarterStallOrderCreate'; args: BarterStallOrderCreate }
+  | { name: 'BarterStallOrderDelete'; args: BarterStallOrderDelete }
+  | { name: 'BarterStallSetMarketModeEnabled'; args: BarterStallSetMarketModeEnabled }
+  | { name: 'BlueprintPlace'; args: BlueprintPlace }
+  | { name: 'BuildingDecayAgentLoop'; args: BuildingDecayAgentLoop }
+  | { name: 'BuildingDeconstruct'; args: BuildingDeconstruct }
+  | { name: 'BuildingDeconstructStart'; args: BuildingDeconstructStart }
+  | { name: 'BuildingDespawn'; args: BuildingDespawn }
+  | { name: 'BuildingMove'; args: BuildingMove }
+  | { name: 'BuildingRepair'; args: BuildingRepair }
+  | { name: 'BuildingRepairStart'; args: BuildingRepairStart }
+  | { name: 'BuildingSetNickname'; args: BuildingSetNickname }
+  | { name: 'BuildingSetSignText'; args: BuildingSetSignText }
+  | { name: 'ChatPostMessage'; args: ChatPostMessage }
+  | { name: 'CheatBuildingMove'; args: CheatBuildingMove }
+  | { name: 'CheatBuildingPlace'; args: CheatBuildingPlace }
+  | { name: 'CheatCargoGrant'; args: CheatCargoGrant }
+  | { name: 'CheatClaimTakeOwnership'; args: CheatClaimTakeOwnership }
+  | { name: 'CheatClaimTotemAddSupplies'; args: CheatClaimTotemAddSupplies }
+  | { name: 'CheatClaimTotemCompleteCurrentResearch'; args: CheatClaimTotemCompleteCurrentResearch }
+  | { name: 'CheatClaimTotemResearchAll'; args: CheatClaimTotemResearchAll }
+  | { name: 'CheatClearBuffsAndDebuffs'; args: CheatClearBuffsAndDebuffs }
+  | { name: 'CheatCompendiumPlaceEnemy'; args: CheatCompendiumPlaceEnemy }
+  | { name: 'CheatCompendiumPlaceResource'; args: CheatCompendiumPlaceResource }
+  | { name: 'CheatDeleteItem'; args: CheatDeleteItem }
+  | { name: 'CheatDeployableStore'; args: CheatDeployableStore }
+  | { name: 'CheatDiscoverMap'; args: CheatDiscoverMap }
+  | { name: 'CheatExperienceGrant'; args: CheatExperienceGrant }
+  | { name: 'CheatGrantKnowledge'; args: CheatGrantKnowledge }
+  | { name: 'CheatGrantTeleportEnergy'; args: CheatGrantTeleportEnergy }
+  | { name: 'CheatItemStackGrant'; args: CheatItemStackGrant }
+  | { name: 'CheatItemStackGrantAndEquip'; args: CheatItemStackGrantAndEquip }
+  | { name: 'CheatKill'; args: CheatKill }
+  | { name: 'CheatPavingAddTile'; args: CheatPavingAddTile }
+  | { name: 'CheatPavingDestroy'; args: CheatPavingDestroy }
+  | { name: 'CheatPillarShapingAddPillar'; args: CheatPillarShapingAddPillar }
+  | { name: 'CheatPillarShapingDestroy'; args: CheatPillarShapingDestroy }
+  | { name: 'CheatProjectSiteAddAllMaterials'; args: CheatProjectSiteAddAllMaterials }
+  | { name: 'CheatRemoveEntityBuilding'; args: CheatRemoveEntityBuilding }
+  | { name: 'CheatRemoveEntityEnemy'; args: CheatRemoveEntityEnemy }
+  | { name: 'CheatRemoveEntityResource'; args: CheatRemoveEntityResource }
+  | { name: 'CheatSetAiDebugState'; args: CheatSetAiDebugState }
+  | { name: 'CheatSpawnLootChest'; args: CheatSpawnLootChest }
+  | { name: 'CheatTeleportFloat'; args: CheatTeleportFloat }
+  | { name: 'CheatTerraform'; args: CheatTerraform }
+  | { name: 'CheatToggleActiveCollectible'; args: CheatToggleActiveCollectible }
+  | { name: 'CheatWarp'; args: CheatWarp }
+  | { name: 'ClaimAddMember'; args: ClaimAddMember }
+  | { name: 'ClaimAddRecruitment'; args: ClaimAddRecruitment }
+  | { name: 'ClaimAddTile'; args: ClaimAddTile }
+  | { name: 'ClaimApplyForRecruitment'; args: ClaimApplyForRecruitment }
+  | { name: 'ClaimLeave'; args: ClaimLeave }
+  | { name: 'ClaimPurchaseSuppliesFromPlayer'; args: ClaimPurchaseSuppliesFromPlayer }
+  | { name: 'ClaimRemoveMember'; args: ClaimRemoveMember }
+  | { name: 'ClaimRemoveRecruitment'; args: ClaimRemoveRecruitment }
+  | { name: 'ClaimRemoveTile'; args: ClaimRemoveTile }
+  | { name: 'ClaimRename'; args: ClaimRename }
+  | { name: 'ClaimResupply'; args: ClaimResupply }
+  | { name: 'ClaimResupplyStart'; args: ClaimResupplyStart }
+  | { name: 'ClaimSetMemberPermissions'; args: ClaimSetMemberPermissions }
+  | { name: 'ClaimSetPurchaseSupplyPrice'; args: ClaimSetPurchaseSupplyPrice }
+  | { name: 'ClaimSetPurchaseSupplyThreshold'; args: ClaimSetPurchaseSupplyThreshold }
+  | { name: 'ClaimTakeOwnership'; args: ClaimTakeOwnership }
+  | { name: 'ClaimTechCancel'; args: ClaimTechCancel }
+  | { name: 'ClaimTechLearn'; args: ClaimTechLearn }
+  | { name: 'ClaimTechUnlockTech'; args: ClaimTechUnlockTech }
+  | { name: 'ClaimTransferOwnership'; args: ClaimTransferOwnership }
+  | { name: 'ClaimWithdrawFromTreasury'; args: ClaimWithdrawFromTreasury }
   | { name: 'ClearStagedStaticData'; args: ClearStagedStaticData }
+  | { name: 'ClosedListingCollect'; args: ClosedListingCollect }
+  | { name: 'CollectStatsReducer'; args: CollectStatsReducer }
+  | { name: 'CollectibleActivate'; args: CollectibleActivate }
   | { name: 'CommitStagedStaticData'; args: CommitStagedStaticData }
+  | { name: 'CompleteOnboardingQuest'; args: CompleteOnboardingQuest }
+  | { name: 'CompleteOnboardingState'; args: CompleteOnboardingState }
+  | { name: 'ConvertCollectibleToDeed'; args: ConvertCollectibleToDeed }
+  | { name: 'ConvertDeedToCollectible'; args: ConvertDeedToCollectible }
+  | { name: 'CraftCancel'; args: CraftCancel }
+  | { name: 'CraftCollect'; args: CraftCollect }
+  | { name: 'CraftCollectAll'; args: CraftCollectAll }
+  | { name: 'CraftContinue'; args: CraftContinue }
+  | { name: 'CraftContinueStart'; args: CraftContinueStart }
+  | { name: 'CraftInitiate'; args: CraftInitiate }
+  | { name: 'CraftInitiateStart'; args: CraftInitiateStart }
   | { name: 'CurrentVersion'; args: CurrentVersion }
-  | { name: 'EmpireChangeEmblem'; args: EmpireChangeEmblem }
-  | { name: 'EmpireCraftSupplies'; args: EmpireCraftSupplies }
-  | { name: 'EmpireCraftSuppliesScheduled'; args: EmpireCraftSuppliesScheduled }
-  | { name: 'EmpireDecayAgentLoop'; args: EmpireDecayAgentLoop }
-  | { name: 'EmpireDismantle'; args: EmpireDismantle }
-  | { name: 'EmpireDonateShards'; args: EmpireDonateShards }
-  | { name: 'EmpireForm'; args: EmpireForm }
-  | { name: 'EmpireLeave'; args: EmpireLeave }
-  | { name: 'EmpireMarkForExpansion'; args: EmpireMarkForExpansion }
-  | { name: 'EmpireMarkForSiege'; args: EmpireMarkForSiege }
-  | { name: 'EmpirePlayerJoin'; args: EmpirePlayerJoin }
-  | { name: 'EmpirePlayerLeave'; args: EmpirePlayerLeave }
-  | { name: 'EmpireSetDirectiveMessage'; args: EmpireSetDirectiveMessage }
-  | { name: 'EmpireSetNobilityThreshold'; args: EmpireSetNobilityThreshold }
-  | { name: 'EmpireSetPlayerRank'; args: EmpireSetPlayerRank }
-  | { name: 'EmpireSetRankTitle'; args: EmpireSetRankTitle }
-  | { name: 'EmpireSiegeAgentLoop'; args: EmpireSiegeAgentLoop }
-  | { name: 'EmpireSubmit'; args: EmpireSubmit }
-  | { name: 'EmpireTransferEmperorship'; args: EmpireTransferEmperorship }
-  | { name: 'EmpireUpdatePermissions'; args: EmpireUpdatePermissions }
+  | { name: 'DayNightAgentLoop'; args: DayNightAgentLoop }
+  | { name: 'DeleteAllNpcs'; args: DeleteAllNpcs }
+  | { name: 'DeployableDeploy'; args: DeployableDeploy }
+  | { name: 'DeployableDeployStart'; args: DeployableDeployStart }
+  | { name: 'DeployableDismount'; args: DeployableDismount }
+  | { name: 'DeployableDismountScheduled'; args: DeployableDismountScheduled }
+  | { name: 'DeployableMount'; args: DeployableMount }
+  | { name: 'DeployableMove'; args: DeployableMove }
+  | { name: 'DeployableMoveOffClaim'; args: DeployableMoveOffClaim }
+  | { name: 'DeployableStore'; args: DeployableStore }
+  | { name: 'DeployableStoreStart'; args: DeployableStoreStart }
+  | { name: 'DestroyDimensionNetwork'; args: DestroyDimensionNetwork }
+  | { name: 'DevDeleteWorld'; args: DevDeleteWorld }
+  | { name: 'DiscoverEntities'; args: DiscoverEntities }
+  | { name: 'DroppedInventoryDespawn'; args: DroppedInventoryDespawn }
+  | { name: 'DroppedInventoryLoseOwnership'; args: DroppedInventoryLoseOwnership }
+  | { name: 'DuelAgentTimerLoop'; args: DuelAgentTimerLoop }
+  | { name: 'DuelDespawn'; args: DuelDespawn }
+  | { name: 'Eat'; args: Eat }
+  | { name: 'Emote'; args: Emote }
+  | { name: 'EmoteStart'; args: EmoteStart }
+  | { name: 'EmpireAddSiegeSupplies'; args: EmpireAddSiegeSupplies }
+  | { name: 'EmpireClaimJoin'; args: EmpireClaimJoin }
+  | { name: 'EmpireCollectHexiteCapsule'; args: EmpireCollectHexiteCapsule }
+  | { name: 'EmpireDeploySiegeEngine'; args: EmpireDeploySiegeEngine }
+  | { name: 'EmpireDeploySiegeEngineStart'; args: EmpireDeploySiegeEngineStart }
+  | { name: 'EmpireQueueSupplies'; args: EmpireQueueSupplies }
+  | { name: 'EmpireResupplyNode'; args: EmpireResupplyNode }
+  | { name: 'EmpireResupplyNodeStart'; args: EmpireResupplyNodeStart }
+  | { name: 'EmpireSiegeDepletedWatchtower'; args: EmpireSiegeDepletedWatchtower }
+  | { name: 'EndGracePeriod'; args: EndGracePeriod }
+  | { name: 'EnemyClearAggro'; args: EnemyClearAggro }
+  | { name: 'EnemyDespawn'; args: EnemyDespawn }
+  | { name: 'EnemyDespawnFromMobMonitor'; args: EnemyDespawnFromMobMonitor }
+  | { name: 'EnemyDespawnFromMobMonitorBatch'; args: EnemyDespawnFromMobMonitorBatch }
+  | { name: 'EnemyMove'; args: EnemyMove }
+  | { name: 'EnemyMoveBatch'; args: EnemyMoveBatch }
+  | { name: 'EnemyRegenAgentLoop'; args: EnemyRegenAgentLoop }
+  | { name: 'EnemySetHealth'; args: EnemySetHealth }
+  | { name: 'EnemySetHealthBatch'; args: EnemySetHealthBatch }
+  | { name: 'EnemySpawn'; args: EnemySpawn }
+  | { name: 'EnemySpawnBatch'; args: EnemySpawnBatch }
+  | { name: 'EnemySpawnLoot'; args: EnemySpawnLoot }
+  | { name: 'EnvironmentDebuffAgentLoop'; args: EnvironmentDebuffAgentLoop }
+  | { name: 'EquipmentAdd'; args: EquipmentAdd }
+  | { name: 'EquipmentRemove'; args: EquipmentRemove }
+  | { name: 'Extract'; args: Extract }
+  | { name: 'ExtractStart'; args: ExtractStart }
+  | { name: 'ForceStartAgents'; args: ForceStartAgents }
+  | { name: 'GenerateDevIsland'; args: GenerateDevIsland }
+  | { name: 'GenerateFlatWorld'; args: GenerateFlatWorld }
+  | { name: 'GenerateWorld'; args: GenerateWorld }
+  | { name: 'GrowthAgentLoop'; args: GrowthAgentLoop }
+  | { name: 'HideDeployable'; args: HideDeployable }
   | { name: 'IdentityConnected'; args: IdentityConnected }
   | { name: 'IdentityDisconnected'; args: IdentityDisconnected }
   | { name: 'ImportAchievementDesc'; args: ImportAchievementDesc }
@@ -5469,6 +8030,7 @@ export type Reducer =
   | { name: 'ImportElevatorDesc'; args: ImportElevatorDesc }
   | { name: 'ImportEmoteDesc'; args: ImportEmoteDesc }
   | { name: 'ImportEmpireColorsDesc'; args: ImportEmpireColorsDesc }
+  | { name: 'ImportEmpireIconDesc'; args: ImportEmpireIconDesc }
   | { name: 'ImportEmpireNotificationDesc'; args: ImportEmpireNotificationDesc }
   | { name: 'ImportEmpireRankDesc'; args: ImportEmpireRankDesc }
   | { name: 'ImportEmpireSuppliesDesc'; args: ImportEmpireSuppliesDesc }
@@ -5492,6 +8054,7 @@ export type Reducer =
   | { name: 'ImportHexiteExchangeEntryDesc'; args: ImportHexiteExchangeEntryDesc }
   | { name: 'ImportIdentityRole'; args: ImportIdentityRole }
   | { name: 'ImportInteriorCollapseTriggerState'; args: ImportInteriorCollapseTriggerState }
+  | { name: 'ImportInteriorEnvironmentDesc'; args: ImportInteriorEnvironmentDesc }
   | { name: 'ImportInteriorInstanceDesc'; args: ImportInteriorInstanceDesc }
   | { name: 'ImportInteriorNetworkDesc'; args: ImportInteriorNetworkDesc }
   | { name: 'ImportInteriorPortalConnectionsDesc'; args: ImportInteriorPortalConnectionsDesc }
@@ -5514,6 +8077,7 @@ export type Reducer =
   | { name: 'ImportKnowledgeLoreState'; args: ImportKnowledgeLoreState }
   | { name: 'ImportKnowledgeNpcState'; args: ImportKnowledgeNpcState }
   | { name: 'ImportKnowledgePavingState'; args: ImportKnowledgePavingState }
+  | { name: 'ImportKnowledgePillarShapingState'; args: ImportKnowledgePillarShapingState }
   | { name: 'ImportKnowledgeResourcePlacementState'; args: ImportKnowledgeResourcePlacementState }
   | { name: 'ImportKnowledgeResourceState'; args: ImportKnowledgeResourceState }
   | { name: 'ImportKnowledgeRuinsState'; args: ImportKnowledgeRuinsState }
@@ -5522,6 +8086,7 @@ export type Reducer =
   | { name: 'ImportKnowledgeSecondaryState'; args: ImportKnowledgeSecondaryState }
   | { name: 'ImportKnowledgeStatModifierDesc'; args: ImportKnowledgeStatModifierDesc }
   | { name: 'ImportKnowledgeVaultState'; args: ImportKnowledgeVaultState }
+  | { name: 'ImportLocationCache'; args: ImportLocationCache }
   | { name: 'ImportLocationState'; args: ImportLocationState }
   | { name: 'ImportLootChestDesc'; args: ImportLootChestDesc }
   | { name: 'ImportLootChestState'; args: ImportLootChestState }
@@ -5537,24 +8102,25 @@ export type Reducer =
   | { name: 'ImportPathfindingDesc'; args: ImportPathfindingDesc }
   | { name: 'ImportPavedTileState'; args: ImportPavedTileState }
   | { name: 'ImportPavingTileDesc'; args: ImportPavingTileDesc }
+  | { name: 'ImportPillarShapingDesc'; args: ImportPillarShapingDesc }
   | { name: 'ImportPlayerActionDesc'; args: ImportPlayerActionDesc }
   | { name: 'ImportPlayerActionState'; args: ImportPlayerActionState }
+  | { name: 'ImportPlayerHousingDesc'; args: ImportPlayerHousingDesc }
   | { name: 'ImportPlayerPrefsState'; args: ImportPlayerPrefsState }
   | { name: 'ImportPlayerState'; args: ImportPlayerState }
-  | { name: 'ImportPlayerVoteState'; args: ImportPlayerVoteState }
   | { name: 'ImportPortalState'; args: ImportPortalState }
   | { name: 'ImportPrivateParametersDesc'; args: ImportPrivateParametersDesc }
   | { name: 'ImportProgressiveActionState'; args: ImportProgressiveActionState }
   | { name: 'ImportProjectSiteState'; args: ImportProjectSiteState }
-  | { name: 'ImportRegionConnectionInfo'; args: ImportRegionConnectionInfo }
-  | { name: 'ImportRegionSignInParameters'; args: ImportRegionSignInParameters }
   | { name: 'ImportRentState'; args: ImportRentState }
+  | { name: 'ImportReservedNameDesc'; args: ImportReservedNameDesc }
   | { name: 'ImportResourceClumpDesc'; args: ImportResourceClumpDesc }
   | { name: 'ImportResourceCount'; args: ImportResourceCount }
   | { name: 'ImportResourceDesc'; args: ImportResourceDesc }
   | { name: 'ImportResourceGrowthRecipeDesc'; args: ImportResourceGrowthRecipeDesc }
   | { name: 'ImportResourcePlacementRecipeDesc'; args: ImportResourcePlacementRecipeDesc }
   | { name: 'ImportResourceState'; args: ImportResourceState }
+  | { name: 'ImportResourcesLog'; args: ImportResourcesLog }
   | { name: 'ImportSatiationState'; args: ImportSatiationState }
   | { name: 'ImportSecondaryKnowledgeDesc'; args: ImportSecondaryKnowledgeDesc }
   | { name: 'ImportServerIdentity'; args: ImportServerIdentity }
@@ -5581,20 +8147,124 @@ export type Reducer =
   | { name: 'ImportWeaponTypeDesc'; args: ImportWeaponTypeDesc }
   | { name: 'ImportWorldRegionNameState'; args: ImportWorldRegionNameState }
   | { name: 'ImportWorldRegionState'; args: ImportWorldRegionState }
+  | { name: 'InsertResourcesLog'; args: InsertResourcesLog }
+  | { name: 'InsertTerrainChunk'; args: InsertTerrainChunk }
+  | { name: 'InteriorSetCollapsed'; args: InteriorSetCollapsed }
+  | { name: 'InteriorSetCollapsedScheduled'; args: InteriorSetCollapsedScheduled }
+  | { name: 'InventoryCreatePersonal'; args: InventoryCreatePersonal }
+  | { name: 'InventorySort'; args: InventorySort }
+  | { name: 'ItemConvert'; args: ItemConvert }
+  | { name: 'ItemConvertStart'; args: ItemConvertStart }
+  | { name: 'ItemDrop'; args: ItemDrop }
+  | { name: 'ItemPickUp'; args: ItemPickUp }
+  | { name: 'ItemStackMove'; args: ItemStackMove }
+  | { name: 'ItemStackMoveAll'; args: ItemStackMoveAll }
+  | { name: 'ItemStackSplit'; args: ItemStackSplit }
+  | { name: 'ItemUse'; args: ItemUse }
+  | { name: 'ItemUseStart'; args: ItemUseStart }
   | { name: 'LoadConfig'; args: LoadConfig }
-  | { name: 'LogEmpireLeaderboard'; args: LogEmpireLeaderboard }
-  | { name: 'LogPlayerWith'; args: LogPlayerWith }
+  | { name: 'LogClaimMemberLeaderboard'; args: LogClaimMemberLeaderboard }
+  | { name: 'LogClaimTierLeaderboard'; args: LogClaimTierLeaderboard }
+  | { name: 'LootChestDespawn'; args: LootChestDespawn }
+  | { name: 'LootChestSpawn'; args: LootChestSpawn }
+  | { name: 'NpcAiAgentLoop'; args: NpcAiAgentLoop }
+  | { name: 'OnDurabilityZero'; args: OnDurabilityZero }
   | { name: 'OnInterModuleMessageProcessed'; args: OnInterModuleMessageProcessed }
-  | { name: 'PlayerClaimDailyShards'; args: PlayerClaimDailyShards }
-  | { name: 'PlayerCreate'; args: PlayerCreate }
-  | { name: 'PlayerDismissNotification'; args: PlayerDismissNotification }
+  | { name: 'OrderCancel'; args: OrderCancel }
+  | { name: 'OrderCollect'; args: OrderCollect }
+  | { name: 'OrderEditBuyOrder'; args: OrderEditBuyOrder }
+  | { name: 'OrderEditSellOrder'; args: OrderEditSellOrder }
+  | { name: 'OrderPostBuyOrder'; args: OrderPostBuyOrder }
+  | { name: 'OrderPostSellOrder'; args: OrderPostSellOrder }
+  | { name: 'PassiveCraftCancel'; args: PassiveCraftCancel }
+  | { name: 'PassiveCraftCollect'; args: PassiveCraftCollect }
+  | { name: 'PassiveCraftCollectAll'; args: PassiveCraftCollectAll }
+  | { name: 'PassiveCraftProcess'; args: PassiveCraftProcess }
+  | { name: 'PassiveCraftQueue'; args: PassiveCraftQueue }
+  | { name: 'PausePlayTimer'; args: PausePlayTimer }
+  | { name: 'PavingDestroyTile'; args: PavingDestroyTile }
+  | { name: 'PavingDestroyTileStart'; args: PavingDestroyTileStart }
+  | { name: 'PavingPlaceTile'; args: PavingPlaceTile }
+  | { name: 'PavingPlaceTileStart'; args: PavingPlaceTileStart }
+  | { name: 'PermissionEdit'; args: PermissionEdit }
+  | { name: 'PillarShapingDestroy'; args: PillarShapingDestroy }
+  | { name: 'PillarShapingDestroyStart'; args: PillarShapingDestroyStart }
+  | { name: 'PillarShapingPlacePillar'; args: PillarShapingPlacePillar }
+  | { name: 'PillarShapingPlacePillarStart'; args: PillarShapingPlacePillarStart }
+  | { name: 'PlayerActionCancel'; args: PlayerActionCancel }
+  | { name: 'PlayerCancelRegionTransfer'; args: PlayerCancelRegionTransfer }
+  | { name: 'PlayerClearActionState'; args: PlayerClearActionState }
+  | { name: 'PlayerClimb'; args: PlayerClimb }
+  | { name: 'PlayerClimbStart'; args: PlayerClimbStart }
+  | { name: 'PlayerCompleteTask'; args: PlayerCompleteTask }
+  | { name: 'PlayerDeathStart'; args: PlayerDeathStart }
+  | { name: 'PlayerDismissAlert'; args: PlayerDismissAlert }
+  | { name: 'PlayerDuelInitiate'; args: PlayerDuelInitiate }
+  | { name: 'PlayerElevatorArrive'; args: PlayerElevatorArrive }
+  | { name: 'PlayerHousingChangeEntrance'; args: PlayerHousingChangeEntrance }
+  | { name: 'PlayerHousingEnter'; args: PlayerHousingEnter }
+  | { name: 'PlayerHousingEvictPlayer'; args: PlayerHousingEvictPlayer }
+  | { name: 'PlayerHousingEvictPlayerComplete'; args: PlayerHousingEvictPlayerComplete }
+  | { name: 'PlayerHousingIncomeAgentLoop'; args: PlayerHousingIncomeAgentLoop }
+  | { name: 'PlayerHousingRequestAccess'; args: PlayerHousingRequestAccess }
+  | { name: 'PlayerHousingUpdate'; args: PlayerHousingUpdate }
+  | { name: 'PlayerMove'; args: PlayerMove }
   | { name: 'PlayerNotificationEventReducer'; args: PlayerNotificationEventReducer }
-  | { name: 'PlayerSetName'; args: PlayerSetName }
+  | { name: 'PlayerQueueJoin'; args: PlayerQueueJoin }
+  | { name: 'PlayerQueueLeave'; args: PlayerQueueLeave }
+  | { name: 'PlayerRegenAgentLoop'; args: PlayerRegenAgentLoop }
+  | { name: 'PlayerRegionCrossover'; args: PlayerRegionCrossover }
+  | { name: 'PlayerRegionTransferEventReducer'; args: PlayerRegionTransferEventReducer }
+  | { name: 'PlayerRespawn'; args: PlayerRespawn }
+  | { name: 'PlayerSetDefaultDeployable'; args: PlayerSetDefaultDeployable }
+  | { name: 'PlayerSetNameOutcomeEventReducer'; args: PlayerSetNameOutcomeEventReducer }
+  | { name: 'PlayerTeleportHome'; args: PlayerTeleportHome }
+  | { name: 'PlayerTeleportHomeStart'; args: PlayerTeleportHomeStart }
+  | { name: 'PlayerTeleportWaystone'; args: PlayerTeleportWaystone }
+  | { name: 'PlayerTeleportWaystoneStart'; args: PlayerTeleportWaystoneStart }
+  | { name: 'PlayerUseElevator'; args: PlayerUseElevator }
   | { name: 'PlayerVoteAnswer'; args: PlayerVoteAnswer }
   | { name: 'PlayerVoteConclude'; args: PlayerVoteConclude }
+  | { name: 'PocketSwapContents'; args: PocketSwapContents }
+  | { name: 'PortalEnter'; args: PortalEnter }
   | { name: 'ProcessInterModuleMessage'; args: ProcessInterModuleMessage }
-  | { name: 'SetRoleForIdentity'; args: SetRoleForIdentity }
+  | { name: 'ProjectSiteAddMaterials'; args: ProjectSiteAddMaterials }
+  | { name: 'ProjectSiteAdvanceProject'; args: ProjectSiteAdvanceProject }
+  | { name: 'ProjectSiteAdvanceProjectStart'; args: ProjectSiteAdvanceProjectStart }
+  | { name: 'ProjectSiteCancel'; args: ProjectSiteCancel }
+  | { name: 'ProjectSitePlace'; args: ProjectSitePlace }
+  | { name: 'RegionPopuplationAgentLoop'; args: RegionPopuplationAgentLoop }
+  | { name: 'RentAddListing'; args: RentAddListing }
+  | { name: 'RentAddTenant'; args: RentAddTenant }
+  | { name: 'RentCollectEvictionFee'; args: RentCollectEvictionFee }
+  | { name: 'RentCollectorAgentLoop'; args: RentCollectorAgentLoop }
+  | { name: 'RentDepositCoins'; args: RentDepositCoins }
+  | { name: 'RentEvict'; args: RentEvict }
+  | { name: 'RentEvictTerm'; args: RentEvictTerm }
+  | { name: 'RentPurchase'; args: RentPurchase }
+  | { name: 'RentRemoveTenant'; args: RentRemoveTenant }
+  | { name: 'RentSetDailyRate'; args: RentSetDailyRate }
+  | { name: 'RentTerminate'; args: RentTerminate }
+  | { name: 'RentUnlist'; args: RentUnlist }
+  | { name: 'ReportChatMessage'; args: ReportChatMessage }
+  | { name: 'ReportPlayer'; args: ReportPlayer }
+  | { name: 'ResetChunkIndex'; args: ResetChunkIndex }
+  | { name: 'ResetChunkIndexWithDimension'; args: ResetChunkIndexWithDimension }
+  | { name: 'ResetMobileEntityPosition'; args: ResetMobileEntityPosition }
+  | { name: 'ResetOnboarding'; args: ResetOnboarding }
+  | { name: 'ResourceSpawnScheduled'; args: ResourceSpawnScheduled }
+  | { name: 'ResourcesRegen'; args: ResourcesRegen }
+  | { name: 'RespawnInteriorNpcs'; args: RespawnInteriorNpcs }
+  | { name: 'RespawnResourceInChunk'; args: RespawnResourceInChunk }
+  | { name: 'RetrieveLostItem'; args: RetrieveLostItem }
+  | { name: 'ScrollRead'; args: ScrollRead }
+  | { name: 'SearchForClosestBuilding'; args: SearchForClosestBuilding }
+  | { name: 'SearchForClosestBuildingType'; args: SearchForClosestBuildingType }
+  | { name: 'ServerTeleportPlayer'; args: ServerTeleportPlayer }
+  | { name: 'SetHome'; args: SetHome }
   | { name: 'SignIn'; args: SignIn }
+  | { name: 'SignOut'; args: SignOut }
+  | { name: 'Sleep'; args: Sleep }
   | { name: 'StageAchievementDesc'; args: StageAchievementDesc }
   | { name: 'StageAlertDesc'; args: StageAlertDesc }
   | { name: 'StageBiomeDesc'; args: StageBiomeDesc }
@@ -5677,12 +8347,31 @@ export type Reducer =
   | { name: 'StageWallDesc'; args: StageWallDesc }
   | { name: 'StageWeaponDesc'; args: StageWeaponDesc }
   | { name: 'StageWeaponTypeDesc'; args: StageWeaponTypeDesc }
-  | { name: 'UpdateRoleForPlayer'; args: UpdateRoleForPlayer }
+  | { name: 'StartAgents'; args: StartAgents }
+  | { name: 'StartGeneratingWorld'; args: StartGeneratingWorld }
+  | { name: 'StartOnboardingQuest'; args: StartOnboardingQuest }
+  | { name: 'StarvingAgentLoop'; args: StarvingAgentLoop }
+  | { name: 'StopAgents'; args: StopAgents }
+  | { name: 'SynchronizeTime'; args: SynchronizeTime }
+  | { name: 'TargetUpdate'; args: TargetUpdate }
+  | { name: 'TeleportationEnergyRegenAgentLoop'; args: TeleportationEnergyRegenAgentLoop }
+  | { name: 'Terraform'; args: Terraform }
+  | { name: 'TerraformCancel'; args: TerraformCancel }
+  | { name: 'TerraformSetFinalTarget'; args: TerraformSetFinalTarget }
+  | { name: 'TerraformStart'; args: TerraformStart }
+  | { name: 'TradeAccept'; args: TradeAccept }
+  | { name: 'TradeAcceptSession'; args: TradeAcceptSession }
+  | { name: 'TradeAddItem'; args: TradeAddItem }
+  | { name: 'TradeCancelServer'; args: TradeCancelServer }
+  | { name: 'TradeDecline'; args: TradeDecline }
+  | { name: 'TradeDeclineSession'; args: TradeDeclineSession }
+  | { name: 'TradeInitiateSession'; args: TradeInitiateSession }
+  | { name: 'TradeRemoveItem'; args: TradeRemoveItem }
+  | { name: 'TradeSessionsAgentLoop'; args: TradeSessionsAgentLoop }
+  | { name: 'TradeSwapPockets'; args: TradeSwapPockets }
+  | { name: 'TransferPlayerDelayed'; args: TransferPlayerDelayed }
+  | { name: 'TravelerTaskAgentLoop'; args: TravelerTaskAgentLoop }
   | { name: 'UpdateScheduledTimersFromStaticData'; args: UpdateScheduledTimersFromStaticData }
-  | { name: 'UserModerationClearAll'; args: UserModerationClearAll }
-  | { name: 'UserModerationCreate'; args: UserModerationCreate }
-  | { name: 'UserModerationDelete'; args: UserModerationDelete }
-  | { name: 'UserModerationListAll'; args: UserModerationListAll }
 
 export class RemoteReducers {
   constructor(
@@ -5690,462 +8379,2372 @@ export class RemoteReducers {
     private setCallReducerFlags: SetReducerFlags
   ) {}
 
-  adminBroadcastMsg(region: number, title: string, message: string) {
-    const __args = { region, title, message }
-    let __writer = new BinaryWriter(1024)
-    AdminBroadcastMsg.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_broadcast_msg', __argsBuffer, this.setCallReducerFlags.adminBroadcastMsgFlags)
-  }
-
-  onAdminBroadcastMsg(callback: (ctx: ReducerEventContext, region: number, title: string, message: string) => void) {
-    this.connection.onReducer('admin_broadcast_msg', callback)
-  }
-
-  removeOnAdminBroadcastMsg(
-    callback: (ctx: ReducerEventContext, region: number, title: string, message: string) => void
-  ) {
-    this.connection.offReducer('admin_broadcast_msg', callback)
-  }
-
-  adminGrantShards(identity: string, amount: number) {
-    const __args = { identity, amount }
-    let __writer = new BinaryWriter(1024)
-    AdminGrantShards.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_grant_shards', __argsBuffer, this.setCallReducerFlags.adminGrantShardsFlags)
-  }
-
-  onAdminGrantShards(callback: (ctx: ReducerEventContext, identity: string, amount: number) => void) {
-    this.connection.onReducer('admin_grant_shards', callback)
-  }
-
-  removeOnAdminGrantShards(callback: (ctx: ReducerEventContext, identity: string, amount: number) => void) {
-    this.connection.offReducer('admin_grant_shards', callback)
-  }
-
-  adminMarkUserReportAsActioned(entityId: bigint, actioned: boolean) {
-    const __args = { entityId, actioned }
-    let __writer = new BinaryWriter(1024)
-    AdminMarkUserReportAsActioned.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_mark_user_report_as_actioned',
-      __argsBuffer,
-      this.setCallReducerFlags.adminMarkUserReportAsActionedFlags
-    )
-  }
-
-  onAdminMarkUserReportAsActioned(callback: (ctx: ReducerEventContext, entityId: bigint, actioned: boolean) => void) {
-    this.connection.onReducer('admin_mark_user_report_as_actioned', callback)
-  }
-
-  removeOnAdminMarkUserReportAsActioned(
-    callback: (ctx: ReducerEventContext, entityId: bigint, actioned: boolean) => void
-  ) {
-    this.connection.offReducer('admin_mark_user_report_as_actioned', callback)
-  }
-
-  adminNotifyPlayer(username: string, title: string, message: string) {
-    const __args = { username, title, message }
-    let __writer = new BinaryWriter(1024)
-    AdminNotifyPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_notify_player', __argsBuffer, this.setCallReducerFlags.adminNotifyPlayerFlags)
-  }
-
-  onAdminNotifyPlayer(callback: (ctx: ReducerEventContext, username: string, title: string, message: string) => void) {
-    this.connection.onReducer('admin_notify_player', callback)
-  }
-
-  removeOnAdminNotifyPlayer(
-    callback: (ctx: ReducerEventContext, username: string, title: string, message: string) => void
-  ) {
-    this.connection.offReducer('admin_notify_player', callback)
-  }
-
-  adminNotifyPlayerByIdentity(identity: string, title: string, message: string) {
-    const __args = { identity, title, message }
-    let __writer = new BinaryWriter(1024)
-    AdminNotifyPlayerByIdentity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_notify_player_by_identity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminNotifyPlayerByIdentityFlags
-    )
-  }
-
-  onAdminNotifyPlayerByIdentity(
-    callback: (ctx: ReducerEventContext, identity: string, title: string, message: string) => void
-  ) {
-    this.connection.onReducer('admin_notify_player_by_identity', callback)
-  }
-
-  removeOnAdminNotifyPlayerByIdentity(
-    callback: (ctx: ReducerEventContext, identity: string, title: string, message: string) => void
-  ) {
-    this.connection.offReducer('admin_notify_player_by_identity', callback)
-  }
-
-  adminRenameEmpire(currentName: string, newName: string) {
-    const __args = { currentName, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenameEmpire.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_rename_empire', __argsBuffer, this.setCallReducerFlags.adminRenameEmpireFlags)
-  }
-
-  onAdminRenameEmpire(callback: (ctx: ReducerEventContext, currentName: string, newName: string) => void) {
-    this.connection.onReducer('admin_rename_empire', callback)
-  }
-
-  removeOnAdminRenameEmpire(callback: (ctx: ReducerEventContext, currentName: string, newName: string) => void) {
-    this.connection.offReducer('admin_rename_empire', callback)
-  }
-
-  adminRenameEmpireEntity(entityId: bigint, newName: string) {
-    const __args = { entityId, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenameEmpireEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_rename_empire_entity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminRenameEmpireEntityFlags
-    )
-  }
-
-  onAdminRenameEmpireEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
-    this.connection.onReducer('admin_rename_empire_entity', callback)
-  }
-
-  removeOnAdminRenameEmpireEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
-    this.connection.offReducer('admin_rename_empire_entity', callback)
-  }
-
-  adminRenameEmpireRank(empireName: string, rank: number, newName: string) {
-    const __args = { empireName, rank, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenameEmpireRank.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_rename_empire_rank',
-      __argsBuffer,
-      this.setCallReducerFlags.adminRenameEmpireRankFlags
-    )
-  }
-
-  onAdminRenameEmpireRank(
-    callback: (ctx: ReducerEventContext, empireName: string, rank: number, newName: string) => void
-  ) {
-    this.connection.onReducer('admin_rename_empire_rank', callback)
-  }
-
-  removeOnAdminRenameEmpireRank(
-    callback: (ctx: ReducerEventContext, empireName: string, rank: number, newName: string) => void
-  ) {
-    this.connection.offReducer('admin_rename_empire_rank', callback)
-  }
-
-  adminRenameEmpireRankEntity(empireEntityId: bigint, rank: number, newName: string) {
-    const __args = { empireEntityId, rank, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenameEmpireRankEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_rename_empire_rank_entity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminRenameEmpireRankEntityFlags
-    )
-  }
-
-  onAdminRenameEmpireRankEntity(
-    callback: (ctx: ReducerEventContext, empireEntityId: bigint, rank: number, newName: string) => void
-  ) {
-    this.connection.onReducer('admin_rename_empire_rank_entity', callback)
-  }
-
-  removeOnAdminRenameEmpireRankEntity(
-    callback: (ctx: ReducerEventContext, empireEntityId: bigint, rank: number, newName: string) => void
-  ) {
-    this.connection.offReducer('admin_rename_empire_rank_entity', callback)
-  }
-
-  adminRenamePlayer(currentName: string, newName: string) {
-    const __args = { currentName, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenamePlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_rename_player', __argsBuffer, this.setCallReducerFlags.adminRenamePlayerFlags)
-  }
-
-  onAdminRenamePlayer(callback: (ctx: ReducerEventContext, currentName: string, newName: string) => void) {
-    this.connection.onReducer('admin_rename_player', callback)
-  }
-
-  removeOnAdminRenamePlayer(callback: (ctx: ReducerEventContext, currentName: string, newName: string) => void) {
-    this.connection.offReducer('admin_rename_player', callback)
-  }
-
-  adminRenamePlayerEntity(entityId: bigint, newName: string) {
-    const __args = { entityId, newName }
-    let __writer = new BinaryWriter(1024)
-    AdminRenamePlayerEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_rename_player_entity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminRenamePlayerEntityFlags
-    )
-  }
-
-  onAdminRenamePlayerEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
-    this.connection.onReducer('admin_rename_player_entity', callback)
-  }
-
-  removeOnAdminRenamePlayerEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
-    this.connection.offReducer('admin_rename_player_entity', callback)
-  }
-
-  adminSignOutAll(region: number) {
-    const __args = { region }
-    let __writer = new BinaryWriter(1024)
-    AdminSignOutAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_sign_out_all', __argsBuffer, this.setCallReducerFlags.adminSignOutAllFlags)
-  }
-
-  onAdminSignOutAll(callback: (ctx: ReducerEventContext, region: number) => void) {
-    this.connection.onReducer('admin_sign_out_all', callback)
-  }
-
-  removeOnAdminSignOutAll(callback: (ctx: ReducerEventContext, region: number) => void) {
-    this.connection.offReducer('admin_sign_out_all', callback)
-  }
-
-  adminSkipQueueEntity(entityId: bigint) {
-    const __args = { entityId }
-    let __writer = new BinaryWriter(1024)
-    AdminSkipQueueEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_skip_queue_entity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminSkipQueueEntityFlags
-    )
-  }
-
-  onAdminSkipQueueEntity(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_skip_queue_entity', callback)
-  }
-
-  removeOnAdminSkipQueueEntity(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_skip_queue_entity', callback)
-  }
-
-  adminSkipQueueIdentity(identity: Identity) {
-    const __args = { identity }
-    let __writer = new BinaryWriter(1024)
-    AdminSkipQueueIdentity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_skip_queue_identity',
-      __argsBuffer,
-      this.setCallReducerFlags.adminSkipQueueIdentityFlags
-    )
-  }
-
-  onAdminSkipQueueIdentity(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
-    this.connection.onReducer('admin_skip_queue_identity', callback)
-  }
-
-  removeOnAdminSkipQueueIdentity(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
-    this.connection.offReducer('admin_skip_queue_identity', callback)
-  }
-
-  adminSkipQueueName(name: string) {
-    const __args = { name }
-    let __writer = new BinaryWriter(1024)
-    AdminSkipQueueName.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_skip_queue_name', __argsBuffer, this.setCallReducerFlags.adminSkipQueueNameFlags)
-  }
-
-  onAdminSkipQueueName(callback: (ctx: ReducerEventContext, name: string) => void) {
-    this.connection.onReducer('admin_skip_queue_name', callback)
-  }
-
-  removeOnAdminSkipQueueName(callback: (ctx: ReducerEventContext, name: string) => void) {
-    this.connection.offReducer('admin_skip_queue_name', callback)
-  }
-
-  adminUpdateGrantedHubItemState(identity: Identity, itemType: HubItemType, itemId: number, balance: number) {
-    const __args = { identity, itemType, itemId, balance }
-    let __writer = new BinaryWriter(1024)
-    AdminUpdateGrantedHubItemState.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_update_granted_hub_item_state',
-      __argsBuffer,
-      this.setCallReducerFlags.adminUpdateGrantedHubItemStateFlags
-    )
-  }
-
-  onAdminUpdateGrantedHubItemState(
-    callback: (
-      ctx: ReducerEventContext,
-      identity: Identity,
-      itemType: HubItemType,
-      itemId: number,
-      balance: number
-    ) => void
-  ) {
-    this.connection.onReducer('admin_update_granted_hub_item_state', callback)
-  }
-
-  removeOnAdminUpdateGrantedHubItemState(
-    callback: (
-      ctx: ReducerEventContext,
-      identity: Identity,
-      itemType: HubItemType,
-      itemId: number,
-      balance: number
-    ) => void
-  ) {
-    this.connection.offReducer('admin_update_granted_hub_item_state', callback)
-  }
-
-  adminUpdateSignInParameters(regionSignInParameters: RegionSignInParameters, region: number) {
-    const __args = { regionSignInParameters, region }
-    let __writer = new BinaryWriter(1024)
-    AdminUpdateSignInParameters.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'admin_update_sign_in_parameters',
-      __argsBuffer,
-      this.setCallReducerFlags.adminUpdateSignInParametersFlags
-    )
-  }
-
-  onAdminUpdateSignInParameters(
-    callback: (ctx: ReducerEventContext, regionSignInParameters: RegionSignInParameters, region: number) => void
-  ) {
-    this.connection.onReducer('admin_update_sign_in_parameters', callback)
-  }
-
-  removeOnAdminUpdateSignInParameters(
-    callback: (ctx: ReducerEventContext, regionSignInParameters: RegionSignInParameters, region: number) => void
-  ) {
-    this.connection.offReducer('admin_update_sign_in_parameters', callback)
-  }
-
-  authenticate(identity: string) {
-    const __args = { identity }
-    let __writer = new BinaryWriter(1024)
-    Authenticate.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('authenticate', __argsBuffer, this.setCallReducerFlags.authenticateFlags)
-  }
-
-  onAuthenticate(callback: (ctx: ReducerEventContext, identity: string) => void) {
-    this.connection.onReducer('authenticate', callback)
-  }
-
-  removeOnAuthenticate(callback: (ctx: ReducerEventContext, identity: string) => void) {
-    this.connection.offReducer('authenticate', callback)
-  }
-
-  blockIdentity(identity: string) {
-    const __args = { identity }
-    let __writer = new BinaryWriter(1024)
-    BlockIdentity.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('block_identity', __argsBuffer, this.setCallReducerFlags.blockIdentityFlags)
-  }
-
-  onBlockIdentity(callback: (ctx: ReducerEventContext, identity: string) => void) {
-    this.connection.onReducer('block_identity', callback)
-  }
-
-  removeOnBlockIdentity(callback: (ctx: ReducerEventContext, identity: string) => void) {
-    this.connection.offReducer('block_identity', callback)
-  }
-
-  cheatEmpireSiegeAddSupplies(siegeNodeEntityId: bigint, supplies: number) {
-    const __args = { siegeNodeEntityId, supplies }
-    let __writer = new BinaryWriter(1024)
-    CheatEmpireSiegeAddSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'cheat_empire_siege_add_supplies',
-      __argsBuffer,
-      this.setCallReducerFlags.cheatEmpireSiegeAddSuppliesFlags
-    )
-  }
-
-  onCheatEmpireSiegeAddSupplies(
-    callback: (ctx: ReducerEventContext, siegeNodeEntityId: bigint, supplies: number) => void
-  ) {
-    this.connection.onReducer('cheat_empire_siege_add_supplies', callback)
-  }
-
-  removeOnCheatEmpireSiegeAddSupplies(
-    callback: (ctx: ReducerEventContext, siegeNodeEntityId: bigint, supplies: number) => void
-  ) {
-    this.connection.offReducer('cheat_empire_siege_add_supplies', callback)
-  }
-
-  cheatEmpireSiegeCancel(siegeNodeEntityId: bigint) {
-    const __args = { siegeNodeEntityId }
-    let __writer = new BinaryWriter(1024)
-    CheatEmpireSiegeCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'cheat_empire_siege_cancel',
-      __argsBuffer,
-      this.setCallReducerFlags.cheatEmpireSiegeCancelFlags
-    )
-  }
-
-  onCheatEmpireSiegeCancel(callback: (ctx: ReducerEventContext, siegeNodeEntityId: bigint) => void) {
-    this.connection.onReducer('cheat_empire_siege_cancel', callback)
-  }
-
-  removeOnCheatEmpireSiegeCancel(callback: (ctx: ReducerEventContext, siegeNodeEntityId: bigint) => void) {
-    this.connection.offReducer('cheat_empire_siege_cancel', callback)
-  }
-
-  cheatPlayerSetName(playerEntityId: bigint, name: string) {
-    const __args = { playerEntityId, name }
-    let __writer = new BinaryWriter(1024)
-    CheatPlayerSetName.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_player_set_name', __argsBuffer, this.setCallReducerFlags.cheatPlayerSetNameFlags)
-  }
-
-  onCheatPlayerSetName(callback: (ctx: ReducerEventContext, playerEntityId: bigint, name: string) => void) {
-    this.connection.onReducer('cheat_player_set_name', callback)
-  }
-
-  removeOnCheatPlayerSetName(callback: (ctx: ReducerEventContext, playerEntityId: bigint, name: string) => void) {
-    this.connection.offReducer('cheat_player_set_name', callback)
-  }
-
-  cheatShardsGrant(request: CheatShardsGrantRequest) {
+  achievementClaim(request: PlayerAchievementClaimRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatShardsGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AchievementClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_shards_grant', __argsBuffer, this.setCallReducerFlags.cheatShardsGrantFlags)
+    this.connection.callReducer('achievement_claim', __argsBuffer, this.setCallReducerFlags.achievementClaimFlags)
   }
 
-  onCheatShardsGrant(callback: (ctx: ReducerEventContext, request: CheatShardsGrantRequest) => void) {
-    this.connection.onReducer('cheat_shards_grant', callback)
+  onAchievementClaim(callback: (ctx: ReducerEventContext, request: PlayerAchievementClaimRequest) => void) {
+    this.connection.onReducer('achievement_claim', callback)
   }
 
-  removeOnCheatShardsGrant(callback: (ctx: ReducerEventContext, request: CheatShardsGrantRequest) => void) {
-    this.connection.offReducer('cheat_shards_grant', callback)
+  removeOnAchievementClaim(callback: (ctx: ReducerEventContext, request: PlayerAchievementClaimRequest) => void) {
+    this.connection.offReducer('achievement_claim', callback)
+  }
+
+  acquireKnowledgeFromEntities(request: PlayerAcquireKnowledgeFromEntitiesRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    AcquireKnowledgeFromEntities.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'acquire_knowledge_from_entities',
+      __argsBuffer,
+      this.setCallReducerFlags.acquireKnowledgeFromEntitiesFlags
+    )
+  }
+
+  onAcquireKnowledgeFromEntities(
+    callback: (ctx: ReducerEventContext, request: PlayerAcquireKnowledgeFromEntitiesRequest) => void
+  ) {
+    this.connection.onReducer('acquire_knowledge_from_entities', callback)
+  }
+
+  removeOnAcquireKnowledgeFromEntities(
+    callback: (ctx: ReducerEventContext, request: PlayerAcquireKnowledgeFromEntitiesRequest) => void
+  ) {
+    this.connection.offReducer('acquire_knowledge_from_entities', callback)
+  }
+
+  adminAlpha3CompleteOnboarding(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3CompleteOnboarding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_complete_onboarding',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3CompleteOnboardingFlags
+    )
+  }
+
+  onAdminAlpha3CompleteOnboarding(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_complete_onboarding', callback)
+  }
+
+  removeOnAdminAlpha3CompleteOnboarding(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_complete_onboarding', callback)
+  }
+
+  adminAlpha3ResetOnboardingToFifthTempleQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFifthTempleQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToFifthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fifth_temple_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToFifthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fifth_temple_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToFirstExpandQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_first_expand_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFirstExpandQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToFirstExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_first_expand_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToFirstExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_first_expand_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToFirstTempleQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_first_temple_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFirstTempleQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToFirstTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_first_temple_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToFirstTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_first_temple_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToFourthExpandQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFourthExpandQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToFourthExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fourth_expand_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToFourthExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fourth_expand_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToFourthTempleQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFourthTempleQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToFourthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fourth_temple_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToFourthTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fourth_temple_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToSecondExpandQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_second_expand_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToSecondExpandQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToSecondExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_second_expand_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToSecondExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_second_expand_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToSecondTempleQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_second_temple_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToSecondTempleQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToSecondTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_second_temple_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToSecondTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_second_temple_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToThirdExpandQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_third_expand_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToThirdExpandQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToThirdExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_third_expand_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToThirdExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_third_expand_quest', callback)
+  }
+
+  adminAlpha3ResetOnboardingToThirdTempleQuest(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_alpha3_reset_onboarding_to_third_temple_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.adminAlpha3ResetOnboardingToThirdTempleQuestFlags
+    )
+  }
+
+  onAdminAlpha3ResetOnboardingToThirdTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_alpha3_reset_onboarding_to_third_temple_quest', callback)
+  }
+
+  removeOnAdminAlpha3ResetOnboardingToThirdTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_alpha3_reset_onboarding_to_third_temple_quest', callback)
+  }
+
+  adminBroadcastMsgRegion(title: string, message: string) {
+    const __args = { title, message }
+    let __writer = new BinaryWriter(1024)
+    AdminBroadcastMsgRegion.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_broadcast_msg_region',
+      __argsBuffer,
+      this.setCallReducerFlags.adminBroadcastMsgRegionFlags
+    )
+  }
+
+  onAdminBroadcastMsgRegion(callback: (ctx: ReducerEventContext, title: string, message: string) => void) {
+    this.connection.onReducer('admin_broadcast_msg_region', callback)
+  }
+
+  removeOnAdminBroadcastMsgRegion(callback: (ctx: ReducerEventContext, title: string, message: string) => void) {
+    this.connection.offReducer('admin_broadcast_msg_region', callback)
+  }
+
+  adminClearAllResources() {
+    this.connection.callReducer(
+      'admin_clear_all_resources',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminClearAllResourcesFlags
+    )
+  }
+
+  onAdminClearAllResources(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_clear_all_resources', callback)
+  }
+
+  removeOnAdminClearAllResources(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_clear_all_resources', callback)
+  }
+
+  adminClearChunkResources(timer: AdminClearResourceTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    AdminClearChunkResources.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_clear_chunk_resources',
+      __argsBuffer,
+      this.setCallReducerFlags.adminClearChunkResourcesFlags
+    )
+  }
+
+  onAdminClearChunkResources(callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void) {
+    this.connection.onReducer('admin_clear_chunk_resources', callback)
+  }
+
+  removeOnAdminClearChunkResources(callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void) {
+    this.connection.offReducer('admin_clear_chunk_resources', callback)
+  }
+
+  adminCollapseRuin(ruinBuildingEntityId: bigint) {
+    const __args = { ruinBuildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    AdminCollapseRuin.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('admin_collapse_ruin', __argsBuffer, this.setCallReducerFlags.adminCollapseRuinFlags)
+  }
+
+  onAdminCollapseRuin(callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void) {
+    this.connection.onReducer('admin_collapse_ruin', callback)
+  }
+
+  removeOnAdminCollapseRuin(callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void) {
+    this.connection.offReducer('admin_collapse_ruin', callback)
+  }
+
+  adminCollapseRuins() {
+    this.connection.callReducer(
+      'admin_collapse_ruins',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminCollapseRuinsFlags
+    )
+  }
+
+  onAdminCollapseRuins(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_collapse_ruins', callback)
+  }
+
+  removeOnAdminCollapseRuins(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_collapse_ruins', callback)
+  }
+
+  adminCompleteAllPassiveCrafts() {
+    this.connection.callReducer(
+      'admin_complete_all_passive_crafts',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminCompleteAllPassiveCraftsFlags
+    )
+  }
+
+  onAdminCompleteAllPassiveCrafts(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_complete_all_passive_crafts', callback)
+  }
+
+  removeOnAdminCompleteAllPassiveCrafts(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_complete_all_passive_crafts', callback)
+  }
+
+  adminCountInventoryItems(itemId: number, limit: number) {
+    const __args = { itemId, limit }
+    let __writer = new BinaryWriter(1024)
+    AdminCountInventoryItems.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_count_inventory_items',
+      __argsBuffer,
+      this.setCallReducerFlags.adminCountInventoryItemsFlags
+    )
+  }
+
+  onAdminCountInventoryItems(callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void) {
+    this.connection.onReducer('admin_count_inventory_items', callback)
+  }
+
+  removeOnAdminCountInventoryItems(callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void) {
+    this.connection.offReducer('admin_count_inventory_items', callback)
+  }
+
+  adminDeleteAllItemsOfType(playerUsername: string, itemId: number, isCargo: boolean) {
+    const __args = { playerUsername, itemId, isCargo }
+    let __writer = new BinaryWriter(1024)
+    AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_delete_all_items_of_type',
+      __argsBuffer,
+      this.setCallReducerFlags.adminDeleteAllItemsOfTypeFlags
+    )
+  }
+
+  onAdminDeleteAllItemsOfType(
+    callback: (ctx: ReducerEventContext, playerUsername: string, itemId: number, isCargo: boolean) => void
+  ) {
+    this.connection.onReducer('admin_delete_all_items_of_type', callback)
+  }
+
+  removeOnAdminDeleteAllItemsOfType(
+    callback: (ctx: ReducerEventContext, playerUsername: string, itemId: number, isCargo: boolean) => void
+  ) {
+    this.connection.offReducer('admin_delete_all_items_of_type', callback)
+  }
+
+  adminDeleteChatMessage(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminDeleteChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_delete_chat_message',
+      __argsBuffer,
+      this.setCallReducerFlags.adminDeleteChatMessageFlags
+    )
+  }
+
+  onAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_delete_chat_message', callback)
+  }
+
+  removeOnAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_delete_chat_message', callback)
+  }
+
+  adminDespawnOverworldEnemies() {
+    this.connection.callReducer(
+      'admin_despawn_overworld_enemies',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminDespawnOverworldEnemiesFlags
+    )
+  }
+
+  onAdminDespawnOverworldEnemies(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_despawn_overworld_enemies', callback)
+  }
+
+  removeOnAdminDespawnOverworldEnemies(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_despawn_overworld_enemies', callback)
+  }
+
+  adminGrantCollectibles(identity: string, collectibles: number[]) {
+    const __args = { identity, collectibles }
+    let __writer = new BinaryWriter(1024)
+    AdminGrantCollectibles.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_grant_collectibles',
+      __argsBuffer,
+      this.setCallReducerFlags.adminGrantCollectiblesFlags
+    )
+  }
+
+  onAdminGrantCollectibles(callback: (ctx: ReducerEventContext, identity: string, collectibles: number[]) => void) {
+    this.connection.onReducer('admin_grant_collectibles', callback)
+  }
+
+  removeOnAdminGrantCollectibles(
+    callback: (ctx: ReducerEventContext, identity: string, collectibles: number[]) => void
+  ) {
+    this.connection.offReducer('admin_grant_collectibles', callback)
+  }
+
+  adminModifyChatMessage(entityId: bigint, newMessageText: string) {
+    const __args = { entityId, newMessageText }
+    let __writer = new BinaryWriter(1024)
+    AdminModifyChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_modify_chat_message',
+      __argsBuffer,
+      this.setCallReducerFlags.adminModifyChatMessageFlags
+    )
+  }
+
+  onAdminModifyChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void) {
+    this.connection.onReducer('admin_modify_chat_message', callback)
+  }
+
+  removeOnAdminModifyChatMessage(
+    callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void
+  ) {
+    this.connection.offReducer('admin_modify_chat_message', callback)
+  }
+
+  adminRenameBuilding(buildingName: string, newName: string) {
+    const __args = { buildingName, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameBuilding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_building',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameBuildingFlags
+    )
+  }
+
+  onAdminRenameBuilding(callback: (ctx: ReducerEventContext, buildingName: string, newName: string) => void) {
+    this.connection.onReducer('admin_rename_building', callback)
+  }
+
+  removeOnAdminRenameBuilding(callback: (ctx: ReducerEventContext, buildingName: string, newName: string) => void) {
+    this.connection.offReducer('admin_rename_building', callback)
+  }
+
+  adminRenameBuildingCoord(coord: OffsetCoordinatesSmallMessage, newName: string) {
+    const __args = { coord, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameBuildingCoord.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_building_coord',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameBuildingCoordFlags
+    )
+  }
+
+  onAdminRenameBuildingCoord(
+    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+  ) {
+    this.connection.onReducer('admin_rename_building_coord', callback)
+  }
+
+  removeOnAdminRenameBuildingCoord(
+    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+  ) {
+    this.connection.offReducer('admin_rename_building_coord', callback)
+  }
+
+  adminRenameBuildingEntity(entityId: bigint, newName: string) {
+    const __args = { entityId, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameBuildingEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_building_entity',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameBuildingEntityFlags
+    )
+  }
+
+  onAdminRenameBuildingEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.onReducer('admin_rename_building_entity', callback)
+  }
+
+  removeOnAdminRenameBuildingEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.offReducer('admin_rename_building_entity', callback)
+  }
+
+  adminRenameClaim(claimName: string, newName: string) {
+    const __args = { claimName, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('admin_rename_claim', __argsBuffer, this.setCallReducerFlags.adminRenameClaimFlags)
+  }
+
+  onAdminRenameClaim(callback: (ctx: ReducerEventContext, claimName: string, newName: string) => void) {
+    this.connection.onReducer('admin_rename_claim', callback)
+  }
+
+  removeOnAdminRenameClaim(callback: (ctx: ReducerEventContext, claimName: string, newName: string) => void) {
+    this.connection.offReducer('admin_rename_claim', callback)
+  }
+
+  adminRenameClaimEntity(entityId: bigint, newName: string) {
+    const __args = { entityId, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameClaimEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_claim_entity',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameClaimEntityFlags
+    )
+  }
+
+  onAdminRenameClaimEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.onReducer('admin_rename_claim_entity', callback)
+  }
+
+  removeOnAdminRenameClaimEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.offReducer('admin_rename_claim_entity', callback)
+  }
+
+  adminRenameDeployable(deployableName: string, newName: string) {
+    const __args = { deployableName, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_deployable',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameDeployableFlags
+    )
+  }
+
+  onAdminRenameDeployable(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+    this.connection.onReducer('admin_rename_deployable', callback)
+  }
+
+  removeOnAdminRenameDeployable(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+    this.connection.offReducer('admin_rename_deployable', callback)
+  }
+
+  adminRenameDeployableEntity(entityId: bigint, newName: string) {
+    const __args = { entityId, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminRenameDeployableEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_rename_deployable_entity',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameDeployableEntityFlags
+    )
+  }
+
+  onAdminRenameDeployableEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.onReducer('admin_rename_deployable_entity', callback)
+  }
+
+  removeOnAdminRenameDeployableEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.offReducer('admin_rename_deployable_entity', callback)
+  }
+
+  adminResetAllHerdLocations() {
+    this.connection.callReducer(
+      'admin_reset_all_herd_locations',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminResetAllHerdLocationsFlags
+    )
+  }
+
+  onAdminResetAllHerdLocations(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_reset_all_herd_locations', callback)
+  }
+
+  removeOnAdminResetAllHerdLocations(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_reset_all_herd_locations', callback)
+  }
+
+  adminResetHerdLocations(enemyAiParamsDescId: number) {
+    const __args = { enemyAiParamsDescId }
+    let __writer = new BinaryWriter(1024)
+    AdminResetHerdLocations.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_reset_herd_locations',
+      __argsBuffer,
+      this.setCallReducerFlags.adminResetHerdLocationsFlags
+    )
+  }
+
+  onAdminResetHerdLocations(callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void) {
+    this.connection.onReducer('admin_reset_herd_locations', callback)
+  }
+
+  removeOnAdminResetHerdLocations(callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void) {
+    this.connection.offReducer('admin_reset_herd_locations', callback)
+  }
+
+  adminResetOnboardingCompletely(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    AdminResetOnboardingCompletely.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_reset_onboarding_completely',
+      __argsBuffer,
+      this.setCallReducerFlags.adminResetOnboardingCompletelyFlags
+    )
+  }
+
+  onAdminResetOnboardingCompletely(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('admin_reset_onboarding_completely', callback)
+  }
+
+  removeOnAdminResetOnboardingCompletely(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('admin_reset_onboarding_completely', callback)
+  }
+
+  adminRestoreAllCollapsedRuins() {
+    this.connection.callReducer(
+      'admin_restore_all_collapsed_ruins',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminRestoreAllCollapsedRuinsFlags
+    )
+  }
+
+  onAdminRestoreAllCollapsedRuins(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_restore_all_collapsed_ruins', callback)
+  }
+
+  removeOnAdminRestoreAllCollapsedRuins(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_restore_all_collapsed_ruins', callback)
+  }
+
+  adminRestorePlayerState(
+    username: string,
+    restorePosition: boolean,
+    forceSignout: boolean,
+    restoreAllDeployablesPositions: boolean,
+    storeDeployables: boolean,
+    clearCargo: boolean,
+    clearItems: boolean,
+    clearToolbelt: boolean
+  ) {
+    const __args = {
+      username,
+      restorePosition,
+      forceSignout,
+      restoreAllDeployablesPositions,
+      storeDeployables,
+      clearCargo,
+      clearItems,
+      clearToolbelt
+    }
+    let __writer = new BinaryWriter(1024)
+    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_restore_player_state',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRestorePlayerStateFlags
+    )
+  }
+
+  onAdminRestorePlayerState(
+    callback: (
+      ctx: ReducerEventContext,
+      username: string,
+      restorePosition: boolean,
+      forceSignout: boolean,
+      restoreAllDeployablesPositions: boolean,
+      storeDeployables: boolean,
+      clearCargo: boolean,
+      clearItems: boolean,
+      clearToolbelt: boolean
+    ) => void
+  ) {
+    this.connection.onReducer('admin_restore_player_state', callback)
+  }
+
+  removeOnAdminRestorePlayerState(
+    callback: (
+      ctx: ReducerEventContext,
+      username: string,
+      restorePosition: boolean,
+      forceSignout: boolean,
+      restoreAllDeployablesPositions: boolean,
+      storeDeployables: boolean,
+      clearCargo: boolean,
+      clearItems: boolean,
+      clearToolbelt: boolean
+    ) => void
+  ) {
+    this.connection.offReducer('admin_restore_player_state', callback)
+  }
+
+  adminRestorePlayerStateScheduled(timer: AdminRestorePlayerStateTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_restore_player_state_scheduled',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRestorePlayerStateScheduledFlags
+    )
+  }
+
+  onAdminRestorePlayerStateScheduled(
+    callback: (ctx: ReducerEventContext, timer: AdminRestorePlayerStateTimer) => void
+  ) {
+    this.connection.onReducer('admin_restore_player_state_scheduled', callback)
+  }
+
+  removeOnAdminRestorePlayerStateScheduled(
+    callback: (ctx: ReducerEventContext, timer: AdminRestorePlayerStateTimer) => void
+  ) {
+    this.connection.offReducer('admin_restore_player_state_scheduled', callback)
+  }
+
+  adminSetSignText(deployableName: string, newName: string) {
+    const __args = { deployableName, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminSetSignText.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('admin_set_sign_text', __argsBuffer, this.setCallReducerFlags.adminSetSignTextFlags)
+  }
+
+  onAdminSetSignText(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+    this.connection.onReducer('admin_set_sign_text', callback)
+  }
+
+  removeOnAdminSetSignText(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+    this.connection.offReducer('admin_set_sign_text', callback)
+  }
+
+  adminSetSignTextCoord(coord: OffsetCoordinatesSmallMessage, newName: string) {
+    const __args = { coord, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminSetSignTextCoord.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_set_sign_text_coord',
+      __argsBuffer,
+      this.setCallReducerFlags.adminSetSignTextCoordFlags
+    )
+  }
+
+  onAdminSetSignTextCoord(
+    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+  ) {
+    this.connection.onReducer('admin_set_sign_text_coord', callback)
+  }
+
+  removeOnAdminSetSignTextCoord(
+    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+  ) {
+    this.connection.offReducer('admin_set_sign_text_coord', callback)
+  }
+
+  adminSetSignTextEntity(entityId: bigint, newName: string) {
+    const __args = { entityId, newName }
+    let __writer = new BinaryWriter(1024)
+    AdminSetSignTextEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'admin_set_sign_text_entity',
+      __argsBuffer,
+      this.setCallReducerFlags.adminSetSignTextEntityFlags
+    )
+  }
+
+  onAdminSetSignTextEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.onReducer('admin_set_sign_text_entity', callback)
+  }
+
+  removeOnAdminSetSignTextEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+    this.connection.offReducer('admin_set_sign_text_entity', callback)
+  }
+
+  adminSignOut(identity: Identity) {
+    const __args = { identity }
+    let __writer = new BinaryWriter(1024)
+    AdminSignOut.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('admin_sign_out', __argsBuffer, this.setCallReducerFlags.adminSignOutFlags)
+  }
+
+  onAdminSignOut(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
+    this.connection.onReducer('admin_sign_out', callback)
+  }
+
+  removeOnAdminSignOut(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
+    this.connection.offReducer('admin_sign_out', callback)
+  }
+
+  adminSignOutAllRegion() {
+    this.connection.callReducer(
+      'admin_sign_out_all_region',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminSignOutAllRegionFlags
+    )
+  }
+
+  onAdminSignOutAllRegion(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_sign_out_all_region', callback)
+  }
+
+  removeOnAdminSignOutAllRegion(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_sign_out_all_region', callback)
+  }
+
+  adminSignOutString(identity: string) {
+    const __args = { identity }
+    let __writer = new BinaryWriter(1024)
+    AdminSignOutString.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('admin_sign_out_string', __argsBuffer, this.setCallReducerFlags.adminSignOutStringFlags)
+  }
+
+  onAdminSignOutString(callback: (ctx: ReducerEventContext, identity: string) => void) {
+    this.connection.onReducer('admin_sign_out_string', callback)
+  }
+
+  removeOnAdminSignOutString(callback: (ctx: ReducerEventContext, identity: string) => void) {
+    this.connection.offReducer('admin_sign_out_string', callback)
+  }
+
+  adminUpdateLightSourceStates() {
+    this.connection.callReducer(
+      'admin_update_light_source_states',
+      new Uint8Array(0),
+      this.setCallReducerFlags.adminUpdateLightSourceStatesFlags
+    )
+  }
+
+  onAdminUpdateLightSourceStates(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('admin_update_light_source_states', callback)
+  }
+
+  removeOnAdminUpdateLightSourceStates(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('admin_update_light_source_states', callback)
+  }
+
+  attack(request: EntityAttackRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    Attack.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('attack', __argsBuffer, this.setCallReducerFlags.attackFlags)
+  }
+
+  onAttack(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+    this.connection.onReducer('attack', callback)
+  }
+
+  removeOnAttack(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+    this.connection.offReducer('attack', callback)
+  }
+
+  attackImpact(timer: AttackImpactTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    AttackImpact.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('attack_impact', __argsBuffer, this.setCallReducerFlags.attackImpactFlags)
+  }
+
+  onAttackImpact(callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void) {
+    this.connection.onReducer('attack_impact', callback)
+  }
+
+  removeOnAttackImpact(callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void) {
+    this.connection.offReducer('attack_impact', callback)
+  }
+
+  attackScheduled(timer: AttackTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    AttackScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('attack_scheduled', __argsBuffer, this.setCallReducerFlags.attackScheduledFlags)
+  }
+
+  onAttackScheduled(callback: (ctx: ReducerEventContext, timer: AttackTimer) => void) {
+    this.connection.onReducer('attack_scheduled', callback)
+  }
+
+  removeOnAttackScheduled(callback: (ctx: ReducerEventContext, timer: AttackTimer) => void) {
+    this.connection.offReducer('attack_scheduled', callback)
+  }
+
+  attackStart(request: EntityAttackRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    AttackStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('attack_start', __argsBuffer, this.setCallReducerFlags.attackStartFlags)
+  }
+
+  onAttackStart(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+    this.connection.onReducer('attack_start', callback)
+  }
+
+  removeOnAttackStart(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+    this.connection.offReducer('attack_start', callback)
+  }
+
+  autoLogoutLoop(timer: AutoLogoutLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    AutoLogoutLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('auto_logout_loop', __argsBuffer, this.setCallReducerFlags.autoLogoutLoopFlags)
+  }
+
+  onAutoLogoutLoop(callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void) {
+    this.connection.onReducer('auto_logout_loop', callback)
+  }
+
+  removeOnAutoLogoutLoop(callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void) {
+    this.connection.offReducer('auto_logout_loop', callback)
+  }
+
+  barterStallOrderAccept(request: PlayerBarterStallOrderAccept) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BarterStallOrderAccept.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'barter_stall_order_accept',
+      __argsBuffer,
+      this.setCallReducerFlags.barterStallOrderAcceptFlags
+    )
+  }
+
+  onBarterStallOrderAccept(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderAccept) => void) {
+    this.connection.onReducer('barter_stall_order_accept', callback)
+  }
+
+  removeOnBarterStallOrderAccept(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderAccept) => void) {
+    this.connection.offReducer('barter_stall_order_accept', callback)
+  }
+
+  barterStallOrderCreate(request: PlayerBarterStallOrderCreateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BarterStallOrderCreate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'barter_stall_order_create',
+      __argsBuffer,
+      this.setCallReducerFlags.barterStallOrderCreateFlags
+    )
+  }
+
+  onBarterStallOrderCreate(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderCreateRequest) => void) {
+    this.connection.onReducer('barter_stall_order_create', callback)
+  }
+
+  removeOnBarterStallOrderCreate(
+    callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderCreateRequest) => void
+  ) {
+    this.connection.offReducer('barter_stall_order_create', callback)
+  }
+
+  barterStallOrderDelete(request: PlayerBarterStallOrderDeleteRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BarterStallOrderDelete.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'barter_stall_order_delete',
+      __argsBuffer,
+      this.setCallReducerFlags.barterStallOrderDeleteFlags
+    )
+  }
+
+  onBarterStallOrderDelete(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderDeleteRequest) => void) {
+    this.connection.onReducer('barter_stall_order_delete', callback)
+  }
+
+  removeOnBarterStallOrderDelete(
+    callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderDeleteRequest) => void
+  ) {
+    this.connection.offReducer('barter_stall_order_delete', callback)
+  }
+
+  barterStallSetMarketModeEnabled(request: BarterStallSetMarketModeEnabledRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'barter_stall_set_market_mode_enabled',
+      __argsBuffer,
+      this.setCallReducerFlags.barterStallSetMarketModeEnabledFlags
+    )
+  }
+
+  onBarterStallSetMarketModeEnabled(
+    callback: (ctx: ReducerEventContext, request: BarterStallSetMarketModeEnabledRequest) => void
+  ) {
+    this.connection.onReducer('barter_stall_set_market_mode_enabled', callback)
+  }
+
+  removeOnBarterStallSetMarketModeEnabled(
+    callback: (ctx: ReducerEventContext, request: BarterStallSetMarketModeEnabledRequest) => void
+  ) {
+    this.connection.offReducer('barter_stall_set_market_mode_enabled', callback)
+  }
+
+  blueprintPlace(
+    center: OffsetCoordinatesSmallMessage,
+    blueprintJson: string,
+    settingsJson: string,
+    rotation: number,
+    elevationOffset: number
+  ) {
+    const __args = { center, blueprintJson, settingsJson, rotation, elevationOffset }
+    let __writer = new BinaryWriter(1024)
+    BlueprintPlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('blueprint_place', __argsBuffer, this.setCallReducerFlags.blueprintPlaceFlags)
+  }
+
+  onBlueprintPlace(
+    callback: (
+      ctx: ReducerEventContext,
+      center: OffsetCoordinatesSmallMessage,
+      blueprintJson: string,
+      settingsJson: string,
+      rotation: number,
+      elevationOffset: number
+    ) => void
+  ) {
+    this.connection.onReducer('blueprint_place', callback)
+  }
+
+  removeOnBlueprintPlace(
+    callback: (
+      ctx: ReducerEventContext,
+      center: OffsetCoordinatesSmallMessage,
+      blueprintJson: string,
+      settingsJson: string,
+      rotation: number,
+      elevationOffset: number
+    ) => void
+  ) {
+    this.connection.offReducer('blueprint_place', callback)
+  }
+
+  buildingDecayAgentLoop(timer: BuildingDecayLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    BuildingDecayAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'building_decay_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingDecayAgentLoopFlags
+    )
+  }
+
+  onBuildingDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void) {
+    this.connection.onReducer('building_decay_agent_loop', callback)
+  }
+
+  removeOnBuildingDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void) {
+    this.connection.offReducer('building_decay_agent_loop', callback)
+  }
+
+  buildingDeconstruct(request: PlayerBuildingDeconstructRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingDeconstruct.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('building_deconstruct', __argsBuffer, this.setCallReducerFlags.buildingDeconstructFlags)
+  }
+
+  onBuildingDeconstruct(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+    this.connection.onReducer('building_deconstruct', callback)
+  }
+
+  removeOnBuildingDeconstruct(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+    this.connection.offReducer('building_deconstruct', callback)
+  }
+
+  buildingDeconstructStart(request: PlayerBuildingDeconstructRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingDeconstructStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'building_deconstruct_start',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingDeconstructStartFlags
+    )
+  }
+
+  onBuildingDeconstructStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+    this.connection.onReducer('building_deconstruct_start', callback)
+  }
+
+  removeOnBuildingDeconstructStart(
+    callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void
+  ) {
+    this.connection.offReducer('building_deconstruct_start', callback)
+  }
+
+  buildingDespawn(timer: BuildingDespawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    BuildingDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('building_despawn', __argsBuffer, this.setCallReducerFlags.buildingDespawnFlags)
+  }
+
+  onBuildingDespawn(callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void) {
+    this.connection.onReducer('building_despawn', callback)
+  }
+
+  removeOnBuildingDespawn(callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void) {
+    this.connection.offReducer('building_despawn', callback)
+  }
+
+  buildingMove(request: PlayerBuildingMoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('building_move', __argsBuffer, this.setCallReducerFlags.buildingMoveFlags)
+  }
+
+  onBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+    this.connection.onReducer('building_move', callback)
+  }
+
+  removeOnBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+    this.connection.offReducer('building_move', callback)
+  }
+
+  buildingRepair(request: PlayerBuildingRepairRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingRepair.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('building_repair', __argsBuffer, this.setCallReducerFlags.buildingRepairFlags)
+  }
+
+  onBuildingRepair(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+    this.connection.onReducer('building_repair', callback)
+  }
+
+  removeOnBuildingRepair(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+    this.connection.offReducer('building_repair', callback)
+  }
+
+  buildingRepairStart(request: PlayerBuildingRepairRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingRepairStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'building_repair_start',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingRepairStartFlags
+    )
+  }
+
+  onBuildingRepairStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+    this.connection.onReducer('building_repair_start', callback)
+  }
+
+  removeOnBuildingRepairStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+    this.connection.offReducer('building_repair_start', callback)
+  }
+
+  buildingSetNickname(request: PlayerBuildingSetNicknameRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingSetNickname.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'building_set_nickname',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingSetNicknameFlags
+    )
+  }
+
+  onBuildingSetNickname(callback: (ctx: ReducerEventContext, request: PlayerBuildingSetNicknameRequest) => void) {
+    this.connection.onReducer('building_set_nickname', callback)
+  }
+
+  removeOnBuildingSetNickname(callback: (ctx: ReducerEventContext, request: PlayerBuildingSetNicknameRequest) => void) {
+    this.connection.offReducer('building_set_nickname', callback)
+  }
+
+  buildingSetSignText(request: BuildingSetSignTextRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    BuildingSetSignText.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'building_set_sign_text',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingSetSignTextFlags
+    )
+  }
+
+  onBuildingSetSignText(callback: (ctx: ReducerEventContext, request: BuildingSetSignTextRequest) => void) {
+    this.connection.onReducer('building_set_sign_text', callback)
+  }
+
+  removeOnBuildingSetSignText(callback: (ctx: ReducerEventContext, request: BuildingSetSignTextRequest) => void) {
+    this.connection.offReducer('building_set_sign_text', callback)
+  }
+
+  chatPostMessage(request: PlayerChatPostMessageRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ChatPostMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('chat_post_message', __argsBuffer, this.setCallReducerFlags.chatPostMessageFlags)
+  }
+
+  onChatPostMessage(callback: (ctx: ReducerEventContext, request: PlayerChatPostMessageRequest) => void) {
+    this.connection.onReducer('chat_post_message', callback)
+  }
+
+  removeOnChatPostMessage(callback: (ctx: ReducerEventContext, request: PlayerChatPostMessageRequest) => void) {
+    this.connection.offReducer('chat_post_message', callback)
+  }
+
+  cheatBuildingMove(request: PlayerBuildingMoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatBuildingMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_building_move', __argsBuffer, this.setCallReducerFlags.cheatBuildingMoveFlags)
+  }
+
+  onCheatBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+    this.connection.onReducer('cheat_building_move', callback)
+  }
+
+  removeOnCheatBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+    this.connection.offReducer('cheat_building_move', callback)
+  }
+
+  cheatBuildingPlace(request: PlayerProjectSitePlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatBuildingPlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_building_place', __argsBuffer, this.setCallReducerFlags.cheatBuildingPlaceFlags)
+  }
+
+  onCheatBuildingPlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+    this.connection.onReducer('cheat_building_place', callback)
+  }
+
+  removeOnCheatBuildingPlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+    this.connection.offReducer('cheat_building_place', callback)
+  }
+
+  cheatCargoGrant(request: CheatCargoGrantRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatCargoGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_cargo_grant', __argsBuffer, this.setCallReducerFlags.cheatCargoGrantFlags)
+  }
+
+  onCheatCargoGrant(callback: (ctx: ReducerEventContext, request: CheatCargoGrantRequest) => void) {
+    this.connection.onReducer('cheat_cargo_grant', callback)
+  }
+
+  removeOnCheatCargoGrant(callback: (ctx: ReducerEventContext, request: CheatCargoGrantRequest) => void) {
+    this.connection.offReducer('cheat_cargo_grant', callback)
+  }
+
+  cheatClaimTakeOwnership(claimEntityId: bigint) {
+    const __args = { claimEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_claim_take_ownership',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatClaimTakeOwnershipFlags
+    )
+  }
+
+  onCheatClaimTakeOwnership(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_claim_take_ownership', callback)
+  }
+
+  removeOnCheatClaimTakeOwnership(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_claim_take_ownership', callback)
+  }
+
+  cheatClaimTotemAddSupplies(claimEntityId: bigint, amount: number) {
+    const __args = { claimEntityId, amount }
+    let __writer = new BinaryWriter(1024)
+    CheatClaimTotemAddSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_claim_totem_add_supplies',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatClaimTotemAddSuppliesFlags
+    )
+  }
+
+  onCheatClaimTotemAddSupplies(callback: (ctx: ReducerEventContext, claimEntityId: bigint, amount: number) => void) {
+    this.connection.onReducer('cheat_claim_totem_add_supplies', callback)
+  }
+
+  removeOnCheatClaimTotemAddSupplies(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint, amount: number) => void
+  ) {
+    this.connection.offReducer('cheat_claim_totem_add_supplies', callback)
+  }
+
+  cheatClaimTotemCompleteCurrentResearch(claimEntityId: bigint) {
+    const __args = { claimEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_claim_totem_complete_current_research',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatClaimTotemCompleteCurrentResearchFlags
+    )
+  }
+
+  onCheatClaimTotemCompleteCurrentResearch(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_claim_totem_complete_current_research', callback)
+  }
+
+  removeOnCheatClaimTotemCompleteCurrentResearch(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_claim_totem_complete_current_research', callback)
+  }
+
+  cheatClaimTotemResearchAll(claimEntityId: bigint) {
+    const __args = { claimEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatClaimTotemResearchAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_claim_totem_research_all',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatClaimTotemResearchAllFlags
+    )
+  }
+
+  onCheatClaimTotemResearchAll(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_claim_totem_research_all', callback)
+  }
+
+  removeOnCheatClaimTotemResearchAll(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_claim_totem_research_all', callback)
+  }
+
+  cheatClearBuffsAndDebuffs(playerEntityId: bigint) {
+    const __args = { playerEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatClearBuffsAndDebuffs.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_clear_buffs_and_debuffs',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatClearBuffsAndDebuffsFlags
+    )
+  }
+
+  onCheatClearBuffsAndDebuffs(callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_clear_buffs_and_debuffs', callback)
+  }
+
+  removeOnCheatClearBuffsAndDebuffs(callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_clear_buffs_and_debuffs', callback)
+  }
+
+  cheatCompendiumPlaceEnemy(request: CheatCompendiumEnemyPlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatCompendiumPlaceEnemy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_compendium_place_enemy',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatCompendiumPlaceEnemyFlags
+    )
+  }
+
+  onCheatCompendiumPlaceEnemy(callback: (ctx: ReducerEventContext, request: CheatCompendiumEnemyPlaceRequest) => void) {
+    this.connection.onReducer('cheat_compendium_place_enemy', callback)
+  }
+
+  removeOnCheatCompendiumPlaceEnemy(
+    callback: (ctx: ReducerEventContext, request: CheatCompendiumEnemyPlaceRequest) => void
+  ) {
+    this.connection.offReducer('cheat_compendium_place_enemy', callback)
+  }
+
+  cheatCompendiumPlaceResource(request: CheatCompendiumItemPlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_compendium_place_resource',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatCompendiumPlaceResourceFlags
+    )
+  }
+
+  onCheatCompendiumPlaceResource(
+    callback: (ctx: ReducerEventContext, request: CheatCompendiumItemPlaceRequest) => void
+  ) {
+    this.connection.onReducer('cheat_compendium_place_resource', callback)
+  }
+
+  removeOnCheatCompendiumPlaceResource(
+    callback: (ctx: ReducerEventContext, request: CheatCompendiumItemPlaceRequest) => void
+  ) {
+    this.connection.offReducer('cheat_compendium_place_resource', callback)
+  }
+
+  cheatDeleteItem(inventoryEntityId: bigint, pocketIndex: number) {
+    const __args = { inventoryEntityId, pocketIndex }
+    let __writer = new BinaryWriter(1024)
+    CheatDeleteItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_delete_item', __argsBuffer, this.setCallReducerFlags.cheatDeleteItemFlags)
+  }
+
+  onCheatDeleteItem(callback: (ctx: ReducerEventContext, inventoryEntityId: bigint, pocketIndex: number) => void) {
+    this.connection.onReducer('cheat_delete_item', callback)
+  }
+
+  removeOnCheatDeleteItem(
+    callback: (ctx: ReducerEventContext, inventoryEntityId: bigint, pocketIndex: number) => void
+  ) {
+    this.connection.offReducer('cheat_delete_item', callback)
+  }
+
+  cheatDeployableStore(deployableEntityId: bigint) {
+    const __args = { deployableEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatDeployableStore.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_deployable_store',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatDeployableStoreFlags
+    )
+  }
+
+  onCheatDeployableStore(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_deployable_store', callback)
+  }
+
+  removeOnCheatDeployableStore(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_deployable_store', callback)
+  }
+
+  cheatDiscoverMap(request: CheatDiscoverMapRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatDiscoverMap.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_discover_map', __argsBuffer, this.setCallReducerFlags.cheatDiscoverMapFlags)
+  }
+
+  onCheatDiscoverMap(callback: (ctx: ReducerEventContext, request: CheatDiscoverMapRequest) => void) {
+    this.connection.onReducer('cheat_discover_map', callback)
+  }
+
+  removeOnCheatDiscoverMap(callback: (ctx: ReducerEventContext, request: CheatDiscoverMapRequest) => void) {
+    this.connection.offReducer('cheat_discover_map', callback)
+  }
+
+  cheatExperienceGrant(request: CheatExperienceGrantRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatExperienceGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_experience_grant',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatExperienceGrantFlags
+    )
+  }
+
+  onCheatExperienceGrant(callback: (ctx: ReducerEventContext, request: CheatExperienceGrantRequest) => void) {
+    this.connection.onReducer('cheat_experience_grant', callback)
+  }
+
+  removeOnCheatExperienceGrant(callback: (ctx: ReducerEventContext, request: CheatExperienceGrantRequest) => void) {
+    this.connection.offReducer('cheat_experience_grant', callback)
+  }
+
+  cheatGrantKnowledge(request: CheatGrantKnowledgeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatGrantKnowledge.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_grant_knowledge',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatGrantKnowledgeFlags
+    )
+  }
+
+  onCheatGrantKnowledge(callback: (ctx: ReducerEventContext, request: CheatGrantKnowledgeRequest) => void) {
+    this.connection.onReducer('cheat_grant_knowledge', callback)
+  }
+
+  removeOnCheatGrantKnowledge(callback: (ctx: ReducerEventContext, request: CheatGrantKnowledgeRequest) => void) {
+    this.connection.offReducer('cheat_grant_knowledge', callback)
+  }
+
+  cheatGrantTeleportEnergy(playerEntityId: bigint, amount: number) {
+    const __args = { playerEntityId, amount }
+    let __writer = new BinaryWriter(1024)
+    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_grant_teleport_energy',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatGrantTeleportEnergyFlags
+    )
+  }
+
+  onCheatGrantTeleportEnergy(callback: (ctx: ReducerEventContext, playerEntityId: bigint, amount: number) => void) {
+    this.connection.onReducer('cheat_grant_teleport_energy', callback)
+  }
+
+  removeOnCheatGrantTeleportEnergy(
+    callback: (ctx: ReducerEventContext, playerEntityId: bigint, amount: number) => void
+  ) {
+    this.connection.offReducer('cheat_grant_teleport_energy', callback)
+  }
+
+  cheatItemStackGrant(playerEntityId: bigint, itemId: number, quantity: number, isCargo: boolean) {
+    const __args = { playerEntityId, itemId, quantity, isCargo }
+    let __writer = new BinaryWriter(1024)
+    CheatItemStackGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_item_stack_grant',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatItemStackGrantFlags
+    )
+  }
+
+  onCheatItemStackGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      itemId: number,
+      quantity: number,
+      isCargo: boolean
+    ) => void
+  ) {
+    this.connection.onReducer('cheat_item_stack_grant', callback)
+  }
+
+  removeOnCheatItemStackGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      itemId: number,
+      quantity: number,
+      isCargo: boolean
+    ) => void
+  ) {
+    this.connection.offReducer('cheat_item_stack_grant', callback)
+  }
+
+  cheatItemStackGrantAndEquip(playerEntityId: bigint, itemId: number, quantity: number, isCargo: boolean) {
+    const __args = { playerEntityId, itemId, quantity, isCargo }
+    let __writer = new BinaryWriter(1024)
+    CheatItemStackGrantAndEquip.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_item_stack_grant_and_equip',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatItemStackGrantAndEquipFlags
+    )
+  }
+
+  onCheatItemStackGrantAndEquip(
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      itemId: number,
+      quantity: number,
+      isCargo: boolean
+    ) => void
+  ) {
+    this.connection.onReducer('cheat_item_stack_grant_and_equip', callback)
+  }
+
+  removeOnCheatItemStackGrantAndEquip(
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      itemId: number,
+      quantity: number,
+      isCargo: boolean
+    ) => void
+  ) {
+    this.connection.offReducer('cheat_item_stack_grant_and_equip', callback)
+  }
+
+  cheatKill(entityId: bigint) {
+    const __args = { entityId }
+    let __writer = new BinaryWriter(1024)
+    CheatKill.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_kill', __argsBuffer, this.setCallReducerFlags.cheatKillFlags)
+  }
+
+  onCheatKill(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.onReducer('cheat_kill', callback)
+  }
+
+  removeOnCheatKill(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+    this.connection.offReducer('cheat_kill', callback)
+  }
+
+  cheatPavingAddTile(request: PlayerPavingPlaceTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatPavingAddTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_paving_add_tile', __argsBuffer, this.setCallReducerFlags.cheatPavingAddTileFlags)
+  }
+
+  onCheatPavingAddTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.onReducer('cheat_paving_add_tile', callback)
+  }
+
+  removeOnCheatPavingAddTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.offReducer('cheat_paving_add_tile', callback)
+  }
+
+  cheatPavingDestroy(x: number, z: number, dimension: number) {
+    const __args = { x, z, dimension }
+    let __writer = new BinaryWriter(1024)
+    CheatPavingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_paving_destroy', __argsBuffer, this.setCallReducerFlags.cheatPavingDestroyFlags)
+  }
+
+  onCheatPavingDestroy(callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number) => void) {
+    this.connection.onReducer('cheat_paving_destroy', callback)
+  }
+
+  removeOnCheatPavingDestroy(callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number) => void) {
+    this.connection.offReducer('cheat_paving_destroy', callback)
+  }
+
+  cheatPillarShapingAddPillar(request: PlayerPillarShapingPlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_pillar_shaping_add_pillar',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatPillarShapingAddPillarFlags
+    )
+  }
+
+  onCheatPillarShapingAddPillar(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+  ) {
+    this.connection.onReducer('cheat_pillar_shaping_add_pillar', callback)
+  }
+
+  removeOnCheatPillarShapingAddPillar(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+  ) {
+    this.connection.offReducer('cheat_pillar_shaping_add_pillar', callback)
+  }
+
+  cheatPillarShapingDestroy(request: PlayerPillarShapingDestroyRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatPillarShapingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_pillar_shaping_destroy',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatPillarShapingDestroyFlags
+    )
+  }
+
+  onCheatPillarShapingDestroy(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+  ) {
+    this.connection.onReducer('cheat_pillar_shaping_destroy', callback)
+  }
+
+  removeOnCheatPillarShapingDestroy(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+  ) {
+    this.connection.offReducer('cheat_pillar_shaping_destroy', callback)
+  }
+
+  cheatProjectSiteAddAllMaterials(projectSiteEntityId: bigint) {
+    const __args = { projectSiteEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_project_site_add_all_materials',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatProjectSiteAddAllMaterialsFlags
+    )
+  }
+
+  onCheatProjectSiteAddAllMaterials(callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_project_site_add_all_materials', callback)
+  }
+
+  removeOnCheatProjectSiteAddAllMaterials(callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_project_site_add_all_materials', callback)
+  }
+
+  cheatRemoveEntityBuilding(buildingEntityId: bigint) {
+    const __args = { buildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatRemoveEntityBuilding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_remove_entity_building',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatRemoveEntityBuildingFlags
+    )
+  }
+
+  onCheatRemoveEntityBuilding(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_remove_entity_building', callback)
+  }
+
+  removeOnCheatRemoveEntityBuilding(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_remove_entity_building', callback)
+  }
+
+  cheatRemoveEntityEnemy(enemyEntityId: bigint) {
+    const __args = { enemyEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatRemoveEntityEnemy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_remove_entity_enemy',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatRemoveEntityEnemyFlags
+    )
+  }
+
+  onCheatRemoveEntityEnemy(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_remove_entity_enemy', callback)
+  }
+
+  removeOnCheatRemoveEntityEnemy(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_remove_entity_enemy', callback)
+  }
+
+  cheatRemoveEntityResource(targetEntityId: bigint) {
+    const __args = { targetEntityId }
+    let __writer = new BinaryWriter(1024)
+    CheatRemoveEntityResource.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_remove_entity_resource',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatRemoveEntityResourceFlags
+    )
+  }
+
+  onCheatRemoveEntityResource(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+    this.connection.onReducer('cheat_remove_entity_resource', callback)
+  }
+
+  removeOnCheatRemoveEntityResource(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+    this.connection.offReducer('cheat_remove_entity_resource', callback)
+  }
+
+  cheatSetAiDebugState(request: CheatSetDebugAiStateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_set_ai_debug_state',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatSetAiDebugStateFlags
+    )
+  }
+
+  onCheatSetAiDebugState(callback: (ctx: ReducerEventContext, request: CheatSetDebugAiStateRequest) => void) {
+    this.connection.onReducer('cheat_set_ai_debug_state', callback)
+  }
+
+  removeOnCheatSetAiDebugState(callback: (ctx: ReducerEventContext, request: CheatSetDebugAiStateRequest) => void) {
+    this.connection.offReducer('cheat_set_ai_debug_state', callback)
+  }
+
+  cheatSpawnLootChest(request: CheatSpawnLootChestRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatSpawnLootChest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_spawn_loot_chest',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatSpawnLootChestFlags
+    )
+  }
+
+  onCheatSpawnLootChest(callback: (ctx: ReducerEventContext, request: CheatSpawnLootChestRequest) => void) {
+    this.connection.onReducer('cheat_spawn_loot_chest', callback)
+  }
+
+  removeOnCheatSpawnLootChest(callback: (ctx: ReducerEventContext, request: CheatSpawnLootChestRequest) => void) {
+    this.connection.offReducer('cheat_spawn_loot_chest', callback)
+  }
+
+  cheatTeleportFloat(request: CheatTeleportFloatRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatTeleportFloat.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_teleport_float', __argsBuffer, this.setCallReducerFlags.cheatTeleportFloatFlags)
+  }
+
+  onCheatTeleportFloat(callback: (ctx: ReducerEventContext, request: CheatTeleportFloatRequest) => void) {
+    this.connection.onReducer('cheat_teleport_float', callback)
+  }
+
+  removeOnCheatTeleportFloat(callback: (ctx: ReducerEventContext, request: CheatTeleportFloatRequest) => void) {
+    this.connection.offReducer('cheat_teleport_float', callback)
+  }
+
+  cheatTerraform(x: number, z: number, dimension: number, delta: number) {
+    const __args = { x, z, dimension, delta }
+    let __writer = new BinaryWriter(1024)
+    CheatTerraform.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_terraform', __argsBuffer, this.setCallReducerFlags.cheatTerraformFlags)
+  }
+
+  onCheatTerraform(
+    callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number, delta: number) => void
+  ) {
+    this.connection.onReducer('cheat_terraform', callback)
+  }
+
+  removeOnCheatTerraform(
+    callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number, delta: number) => void
+  ) {
+    this.connection.offReducer('cheat_terraform', callback)
+  }
+
+  cheatToggleActiveCollectible(request: CheatToggleActiveCollectibleRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatToggleActiveCollectible.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'cheat_toggle_active_collectible',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatToggleActiveCollectibleFlags
+    )
+  }
+
+  onCheatToggleActiveCollectible(
+    callback: (ctx: ReducerEventContext, request: CheatToggleActiveCollectibleRequest) => void
+  ) {
+    this.connection.onReducer('cheat_toggle_active_collectible', callback)
+  }
+
+  removeOnCheatToggleActiveCollectible(
+    callback: (ctx: ReducerEventContext, request: CheatToggleActiveCollectibleRequest) => void
+  ) {
+    this.connection.offReducer('cheat_toggle_active_collectible', callback)
+  }
+
+  cheatWarp(request: CheatWarpRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CheatWarp.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('cheat_warp', __argsBuffer, this.setCallReducerFlags.cheatWarpFlags)
+  }
+
+  onCheatWarp(callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void) {
+    this.connection.onReducer('cheat_warp', callback)
+  }
+
+  removeOnCheatWarp(callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void) {
+    this.connection.offReducer('cheat_warp', callback)
+  }
+
+  claimAddMember(request: PlayerClaimAddMemberRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimAddMember.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_add_member', __argsBuffer, this.setCallReducerFlags.claimAddMemberFlags)
+  }
+
+  onClaimAddMember(callback: (ctx: ReducerEventContext, request: PlayerClaimAddMemberRequest) => void) {
+    this.connection.onReducer('claim_add_member', callback)
+  }
+
+  removeOnClaimAddMember(callback: (ctx: ReducerEventContext, request: PlayerClaimAddMemberRequest) => void) {
+    this.connection.offReducer('claim_add_member', callback)
+  }
+
+  claimAddRecruitment(request: PlayerClaimAddRecruitmentRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimAddRecruitment.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_add_recruitment',
+      __argsBuffer,
+      this.setCallReducerFlags.claimAddRecruitmentFlags
+    )
+  }
+
+  onClaimAddRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimAddRecruitmentRequest) => void) {
+    this.connection.onReducer('claim_add_recruitment', callback)
+  }
+
+  removeOnClaimAddRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimAddRecruitmentRequest) => void) {
+    this.connection.offReducer('claim_add_recruitment', callback)
+  }
+
+  claimAddTile(request: PlayerClaimAddTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimAddTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_add_tile', __argsBuffer, this.setCallReducerFlags.claimAddTileFlags)
+  }
+
+  onClaimAddTile(callback: (ctx: ReducerEventContext, request: PlayerClaimAddTileRequest) => void) {
+    this.connection.onReducer('claim_add_tile', callback)
+  }
+
+  removeOnClaimAddTile(callback: (ctx: ReducerEventContext, request: PlayerClaimAddTileRequest) => void) {
+    this.connection.offReducer('claim_add_tile', callback)
+  }
+
+  claimApplyForRecruitment(request: PlayerClaimApplyForRecruitmentRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimApplyForRecruitment.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_apply_for_recruitment',
+      __argsBuffer,
+      this.setCallReducerFlags.claimApplyForRecruitmentFlags
+    )
+  }
+
+  onClaimApplyForRecruitment(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimApplyForRecruitmentRequest) => void
+  ) {
+    this.connection.onReducer('claim_apply_for_recruitment', callback)
+  }
+
+  removeOnClaimApplyForRecruitment(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimApplyForRecruitmentRequest) => void
+  ) {
+    this.connection.offReducer('claim_apply_for_recruitment', callback)
+  }
+
+  claimLeave(request: PlayerClaimLeaveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimLeave.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_leave', __argsBuffer, this.setCallReducerFlags.claimLeaveFlags)
+  }
+
+  onClaimLeave(callback: (ctx: ReducerEventContext, request: PlayerClaimLeaveRequest) => void) {
+    this.connection.onReducer('claim_leave', callback)
+  }
+
+  removeOnClaimLeave(callback: (ctx: ReducerEventContext, request: PlayerClaimLeaveRequest) => void) {
+    this.connection.offReducer('claim_leave', callback)
+  }
+
+  claimPurchaseSuppliesFromPlayer(request: ClaimPurchaseSuppliesFromPlayerRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_purchase_supplies_from_player',
+      __argsBuffer,
+      this.setCallReducerFlags.claimPurchaseSuppliesFromPlayerFlags
+    )
+  }
+
+  onClaimPurchaseSuppliesFromPlayer(
+    callback: (ctx: ReducerEventContext, request: ClaimPurchaseSuppliesFromPlayerRequest) => void
+  ) {
+    this.connection.onReducer('claim_purchase_supplies_from_player', callback)
+  }
+
+  removeOnClaimPurchaseSuppliesFromPlayer(
+    callback: (ctx: ReducerEventContext, request: ClaimPurchaseSuppliesFromPlayerRequest) => void
+  ) {
+    this.connection.offReducer('claim_purchase_supplies_from_player', callback)
+  }
+
+  claimRemoveMember(request: PlayerClaimRemoveMemberRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimRemoveMember.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_remove_member', __argsBuffer, this.setCallReducerFlags.claimRemoveMemberFlags)
+  }
+
+  onClaimRemoveMember(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveMemberRequest) => void) {
+    this.connection.onReducer('claim_remove_member', callback)
+  }
+
+  removeOnClaimRemoveMember(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveMemberRequest) => void) {
+    this.connection.offReducer('claim_remove_member', callback)
+  }
+
+  claimRemoveRecruitment(request: PlayerClaimRemoveRecruitmentRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimRemoveRecruitment.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_remove_recruitment',
+      __argsBuffer,
+      this.setCallReducerFlags.claimRemoveRecruitmentFlags
+    )
+  }
+
+  onClaimRemoveRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveRecruitmentRequest) => void) {
+    this.connection.onReducer('claim_remove_recruitment', callback)
+  }
+
+  removeOnClaimRemoveRecruitment(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveRecruitmentRequest) => void
+  ) {
+    this.connection.offReducer('claim_remove_recruitment', callback)
+  }
+
+  claimRemoveTile(request: PlayerClaimRemoveTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimRemoveTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_remove_tile', __argsBuffer, this.setCallReducerFlags.claimRemoveTileFlags)
+  }
+
+  onClaimRemoveTile(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveTileRequest) => void) {
+    this.connection.onReducer('claim_remove_tile', callback)
+  }
+
+  removeOnClaimRemoveTile(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveTileRequest) => void) {
+    this.connection.offReducer('claim_remove_tile', callback)
+  }
+
+  claimRename(request: PlayerClaimRenameRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimRename.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_rename', __argsBuffer, this.setCallReducerFlags.claimRenameFlags)
+  }
+
+  onClaimRename(callback: (ctx: ReducerEventContext, request: PlayerClaimRenameRequest) => void) {
+    this.connection.onReducer('claim_rename', callback)
+  }
+
+  removeOnClaimRename(callback: (ctx: ReducerEventContext, request: PlayerClaimRenameRequest) => void) {
+    this.connection.offReducer('claim_rename', callback)
+  }
+
+  claimResupply(request: ClaimResupplyRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimResupply.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_resupply', __argsBuffer, this.setCallReducerFlags.claimResupplyFlags)
+  }
+
+  onClaimResupply(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+    this.connection.onReducer('claim_resupply', callback)
+  }
+
+  removeOnClaimResupply(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+    this.connection.offReducer('claim_resupply', callback)
+  }
+
+  claimResupplyStart(request: ClaimResupplyRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimResupplyStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_resupply_start', __argsBuffer, this.setCallReducerFlags.claimResupplyStartFlags)
+  }
+
+  onClaimResupplyStart(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+    this.connection.onReducer('claim_resupply_start', callback)
+  }
+
+  removeOnClaimResupplyStart(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+    this.connection.offReducer('claim_resupply_start', callback)
+  }
+
+  claimSetMemberPermissions(request: PlayerClaimSetMemberPermissionsRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimSetMemberPermissions.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_set_member_permissions',
+      __argsBuffer,
+      this.setCallReducerFlags.claimSetMemberPermissionsFlags
+    )
+  }
+
+  onClaimSetMemberPermissions(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimSetMemberPermissionsRequest) => void
+  ) {
+    this.connection.onReducer('claim_set_member_permissions', callback)
+  }
+
+  removeOnClaimSetMemberPermissions(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimSetMemberPermissionsRequest) => void
+  ) {
+    this.connection.offReducer('claim_set_member_permissions', callback)
+  }
+
+  claimSetPurchaseSupplyPrice(request: ClaimSetPurchaseSupplyPriceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_set_purchase_supply_price',
+      __argsBuffer,
+      this.setCallReducerFlags.claimSetPurchaseSupplyPriceFlags
+    )
+  }
+
+  onClaimSetPurchaseSupplyPrice(
+    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyPriceRequest) => void
+  ) {
+    this.connection.onReducer('claim_set_purchase_supply_price', callback)
+  }
+
+  removeOnClaimSetPurchaseSupplyPrice(
+    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyPriceRequest) => void
+  ) {
+    this.connection.offReducer('claim_set_purchase_supply_price', callback)
+  }
+
+  claimSetPurchaseSupplyThreshold(request: ClaimSetPurchaseSupplyThresholdRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_set_purchase_supply_threshold',
+      __argsBuffer,
+      this.setCallReducerFlags.claimSetPurchaseSupplyThresholdFlags
+    )
+  }
+
+  onClaimSetPurchaseSupplyThreshold(
+    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyThresholdRequest) => void
+  ) {
+    this.connection.onReducer('claim_set_purchase_supply_threshold', callback)
+  }
+
+  removeOnClaimSetPurchaseSupplyThreshold(
+    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyThresholdRequest) => void
+  ) {
+    this.connection.offReducer('claim_set_purchase_supply_threshold', callback)
+  }
+
+  claimTakeOwnership(request: PlayerClaimTakeOwnershipRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_take_ownership', __argsBuffer, this.setCallReducerFlags.claimTakeOwnershipFlags)
+  }
+
+  onClaimTakeOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTakeOwnershipRequest) => void) {
+    this.connection.onReducer('claim_take_ownership', callback)
+  }
+
+  removeOnClaimTakeOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTakeOwnershipRequest) => void) {
+    this.connection.offReducer('claim_take_ownership', callback)
+  }
+
+  claimTechCancel(request: PlayerClaimTechCancelRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimTechCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_tech_cancel', __argsBuffer, this.setCallReducerFlags.claimTechCancelFlags)
+  }
+
+  onClaimTechCancel(callback: (ctx: ReducerEventContext, request: PlayerClaimTechCancelRequest) => void) {
+    this.connection.onReducer('claim_tech_cancel', callback)
+  }
+
+  removeOnClaimTechCancel(callback: (ctx: ReducerEventContext, request: PlayerClaimTechCancelRequest) => void) {
+    this.connection.offReducer('claim_tech_cancel', callback)
+  }
+
+  claimTechLearn(request: PlayerClaimTechLearnRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimTechLearn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('claim_tech_learn', __argsBuffer, this.setCallReducerFlags.claimTechLearnFlags)
+  }
+
+  onClaimTechLearn(callback: (ctx: ReducerEventContext, request: PlayerClaimTechLearnRequest) => void) {
+    this.connection.onReducer('claim_tech_learn', callback)
+  }
+
+  removeOnClaimTechLearn(callback: (ctx: ReducerEventContext, request: PlayerClaimTechLearnRequest) => void) {
+    this.connection.offReducer('claim_tech_learn', callback)
+  }
+
+  claimTechUnlockTech(timer: ClaimTechUnlockTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ClaimTechUnlockTech.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_tech_unlock_tech',
+      __argsBuffer,
+      this.setCallReducerFlags.claimTechUnlockTechFlags
+    )
+  }
+
+  onClaimTechUnlockTech(callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void) {
+    this.connection.onReducer('claim_tech_unlock_tech', callback)
+  }
+
+  removeOnClaimTechUnlockTech(callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void) {
+    this.connection.offReducer('claim_tech_unlock_tech', callback)
+  }
+
+  claimTransferOwnership(request: PlayerClaimTransferOwnershipRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimTransferOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_transfer_ownership',
+      __argsBuffer,
+      this.setCallReducerFlags.claimTransferOwnershipFlags
+    )
+  }
+
+  onClaimTransferOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTransferOwnershipRequest) => void) {
+    this.connection.onReducer('claim_transfer_ownership', callback)
+  }
+
+  removeOnClaimTransferOwnership(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimTransferOwnershipRequest) => void
+  ) {
+    this.connection.offReducer('claim_transfer_ownership', callback)
+  }
+
+  claimWithdrawFromTreasury(request: PlayerClaimWithdrawFromTreasuryRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClaimWithdrawFromTreasury.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'claim_withdraw_from_treasury',
+      __argsBuffer,
+      this.setCallReducerFlags.claimWithdrawFromTreasuryFlags
+    )
+  }
+
+  onClaimWithdrawFromTreasury(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimWithdrawFromTreasuryRequest) => void
+  ) {
+    this.connection.onReducer('claim_withdraw_from_treasury', callback)
+  }
+
+  removeOnClaimWithdrawFromTreasury(
+    callback: (ctx: ReducerEventContext, request: PlayerClaimWithdrawFromTreasuryRequest) => void
+  ) {
+    this.connection.offReducer('claim_withdraw_from_treasury', callback)
   }
 
   clearStagedStaticData() {
@@ -6164,6 +10763,64 @@ export class RemoteReducers {
     this.connection.offReducer('clear_staged_static_data', callback)
   }
 
+  closedListingCollect(request: PlayerClosedListingCollectRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ClosedListingCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'closed_listing_collect',
+      __argsBuffer,
+      this.setCallReducerFlags.closedListingCollectFlags
+    )
+  }
+
+  onClosedListingCollect(callback: (ctx: ReducerEventContext, request: PlayerClosedListingCollectRequest) => void) {
+    this.connection.onReducer('closed_listing_collect', callback)
+  }
+
+  removeOnClosedListingCollect(
+    callback: (ctx: ReducerEventContext, request: PlayerClosedListingCollectRequest) => void
+  ) {
+    this.connection.offReducer('closed_listing_collect', callback)
+  }
+
+  collectStatsReducer(timer: CollectStatsTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    CollectStatsReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'collect_stats_reducer',
+      __argsBuffer,
+      this.setCallReducerFlags.collectStatsReducerFlags
+    )
+  }
+
+  onCollectStatsReducer(callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void) {
+    this.connection.onReducer('collect_stats_reducer', callback)
+  }
+
+  removeOnCollectStatsReducer(callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void) {
+    this.connection.offReducer('collect_stats_reducer', callback)
+  }
+
+  collectibleActivate(request: PlayerCollectibleActivateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CollectibleActivate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('collectible_activate', __argsBuffer, this.setCallReducerFlags.collectibleActivateFlags)
+  }
+
+  onCollectibleActivate(callback: (ctx: ReducerEventContext, request: PlayerCollectibleActivateRequest) => void) {
+    this.connection.onReducer('collectible_activate', callback)
+  }
+
+  removeOnCollectibleActivate(callback: (ctx: ReducerEventContext, request: PlayerCollectibleActivateRequest) => void) {
+    this.connection.offReducer('collectible_activate', callback)
+  }
+
   commitStagedStaticData() {
     this.connection.callReducer(
       'commit_staged_static_data',
@@ -6180,6 +10837,206 @@ export class RemoteReducers {
     this.connection.offReducer('commit_staged_static_data', callback)
   }
 
+  completeOnboardingQuest(id: number) {
+    const __args = { id }
+    let __writer = new BinaryWriter(1024)
+    CompleteOnboardingQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'complete_onboarding_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.completeOnboardingQuestFlags
+    )
+  }
+
+  onCompleteOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.onReducer('complete_onboarding_quest', callback)
+  }
+
+  removeOnCompleteOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.offReducer('complete_onboarding_quest', callback)
+  }
+
+  completeOnboardingState(id: number) {
+    const __args = { id }
+    let __writer = new BinaryWriter(1024)
+    CompleteOnboardingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'complete_onboarding_state',
+      __argsBuffer,
+      this.setCallReducerFlags.completeOnboardingStateFlags
+    )
+  }
+
+  onCompleteOnboardingState(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.onReducer('complete_onboarding_state', callback)
+  }
+
+  removeOnCompleteOnboardingState(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.offReducer('complete_onboarding_state', callback)
+  }
+
+  convertCollectibleToDeed(request: PlayerConvertCollectibleToDeedRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'convert_collectible_to_deed',
+      __argsBuffer,
+      this.setCallReducerFlags.convertCollectibleToDeedFlags
+    )
+  }
+
+  onConvertCollectibleToDeed(
+    callback: (ctx: ReducerEventContext, request: PlayerConvertCollectibleToDeedRequest) => void
+  ) {
+    this.connection.onReducer('convert_collectible_to_deed', callback)
+  }
+
+  removeOnConvertCollectibleToDeed(
+    callback: (ctx: ReducerEventContext, request: PlayerConvertCollectibleToDeedRequest) => void
+  ) {
+    this.connection.offReducer('convert_collectible_to_deed', callback)
+  }
+
+  convertDeedToCollectible(request: PlayerConvertDeedToCollectibleRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ConvertDeedToCollectible.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'convert_deed_to_collectible',
+      __argsBuffer,
+      this.setCallReducerFlags.convertDeedToCollectibleFlags
+    )
+  }
+
+  onConvertDeedToCollectible(
+    callback: (ctx: ReducerEventContext, request: PlayerConvertDeedToCollectibleRequest) => void
+  ) {
+    this.connection.onReducer('convert_deed_to_collectible', callback)
+  }
+
+  removeOnConvertDeedToCollectible(
+    callback: (ctx: ReducerEventContext, request: PlayerConvertDeedToCollectibleRequest) => void
+  ) {
+    this.connection.offReducer('convert_deed_to_collectible', callback)
+  }
+
+  craftCancel(request: PlayerCraftCancelRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_cancel', __argsBuffer, this.setCallReducerFlags.craftCancelFlags)
+  }
+
+  onCraftCancel(callback: (ctx: ReducerEventContext, request: PlayerCraftCancelRequest) => void) {
+    this.connection.onReducer('craft_cancel', callback)
+  }
+
+  removeOnCraftCancel(callback: (ctx: ReducerEventContext, request: PlayerCraftCancelRequest) => void) {
+    this.connection.offReducer('craft_cancel', callback)
+  }
+
+  craftCollect(request: PlayerCraftCollectRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_collect', __argsBuffer, this.setCallReducerFlags.craftCollectFlags)
+  }
+
+  onCraftCollect(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectRequest) => void) {
+    this.connection.onReducer('craft_collect', callback)
+  }
+
+  removeOnCraftCollect(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectRequest) => void) {
+    this.connection.offReducer('craft_collect', callback)
+  }
+
+  craftCollectAll(request: PlayerCraftCollectAllRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftCollectAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_collect_all', __argsBuffer, this.setCallReducerFlags.craftCollectAllFlags)
+  }
+
+  onCraftCollectAll(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectAllRequest) => void) {
+    this.connection.onReducer('craft_collect_all', callback)
+  }
+
+  removeOnCraftCollectAll(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectAllRequest) => void) {
+    this.connection.offReducer('craft_collect_all', callback)
+  }
+
+  craftContinue(request: PlayerCraftContinueRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftContinue.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_continue', __argsBuffer, this.setCallReducerFlags.craftContinueFlags)
+  }
+
+  onCraftContinue(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+    this.connection.onReducer('craft_continue', callback)
+  }
+
+  removeOnCraftContinue(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+    this.connection.offReducer('craft_continue', callback)
+  }
+
+  craftContinueStart(request: PlayerCraftContinueRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftContinueStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_continue_start', __argsBuffer, this.setCallReducerFlags.craftContinueStartFlags)
+  }
+
+  onCraftContinueStart(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+    this.connection.onReducer('craft_continue_start', callback)
+  }
+
+  removeOnCraftContinueStart(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+    this.connection.offReducer('craft_continue_start', callback)
+  }
+
+  craftInitiate(request: PlayerCraftInitiateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftInitiate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_initiate', __argsBuffer, this.setCallReducerFlags.craftInitiateFlags)
+  }
+
+  onCraftInitiate(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+    this.connection.onReducer('craft_initiate', callback)
+  }
+
+  removeOnCraftInitiate(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+    this.connection.offReducer('craft_initiate', callback)
+  }
+
+  craftInitiateStart(request: PlayerCraftInitiateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    CraftInitiateStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('craft_initiate_start', __argsBuffer, this.setCallReducerFlags.craftInitiateStartFlags)
+  }
+
+  onCraftInitiateStart(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+    this.connection.onReducer('craft_initiate_start', callback)
+  }
+
+  removeOnCraftInitiateStart(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+    this.connection.offReducer('craft_initiate_start', callback)
+  }
+
   currentVersion() {
     this.connection.callReducer('current_version', new Uint8Array(0), this.setCallReducerFlags.currentVersionFlags)
   }
@@ -6192,368 +11049,942 @@ export class RemoteReducers {
     this.connection.offReducer('current_version', callback)
   }
 
-  empireChangeEmblem(request: EmpireChangeEmblemRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireChangeEmblem.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_change_emblem', __argsBuffer, this.setCallReducerFlags.empireChangeEmblemFlags)
-  }
-
-  onEmpireChangeEmblem(callback: (ctx: ReducerEventContext, request: EmpireChangeEmblemRequest) => void) {
-    this.connection.onReducer('empire_change_emblem', callback)
-  }
-
-  removeOnEmpireChangeEmblem(callback: (ctx: ReducerEventContext, request: EmpireChangeEmblemRequest) => void) {
-    this.connection.offReducer('empire_change_emblem', callback)
-  }
-
-  empireCraftSupplies(foundryEntityId: bigint) {
-    const __args = { foundryEntityId }
-    let __writer = new BinaryWriter(1024)
-    EmpireCraftSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'empire_craft_supplies',
-      __argsBuffer,
-      this.setCallReducerFlags.empireCraftSuppliesFlags
-    )
-  }
-
-  onEmpireCraftSupplies(callback: (ctx: ReducerEventContext, foundryEntityId: bigint) => void) {
-    this.connection.onReducer('empire_craft_supplies', callback)
-  }
-
-  removeOnEmpireCraftSupplies(callback: (ctx: ReducerEventContext, foundryEntityId: bigint) => void) {
-    this.connection.offReducer('empire_craft_supplies', callback)
-  }
-
-  empireCraftSuppliesScheduled(timer: EmpireCraftSuppliesTimer) {
+  dayNightAgentLoop(timer: DayNightLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    EmpireCraftSuppliesScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DayNightAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('day_night_agent_loop', __argsBuffer, this.setCallReducerFlags.dayNightAgentLoopFlags)
+  }
+
+  onDayNightAgentLoop(callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void) {
+    this.connection.onReducer('day_night_agent_loop', callback)
+  }
+
+  removeOnDayNightAgentLoop(callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void) {
+    this.connection.offReducer('day_night_agent_loop', callback)
+  }
+
+  deleteAllNpcs() {
+    this.connection.callReducer('delete_all_npcs', new Uint8Array(0), this.setCallReducerFlags.deleteAllNpcsFlags)
+  }
+
+  onDeleteAllNpcs(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('delete_all_npcs', callback)
+  }
+
+  removeOnDeleteAllNpcs(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('delete_all_npcs', callback)
+  }
+
+  deployableDeploy(request: DeployableDeployRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    DeployableDeploy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('deployable_deploy', __argsBuffer, this.setCallReducerFlags.deployableDeployFlags)
+  }
+
+  onDeployableDeploy(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+    this.connection.onReducer('deployable_deploy', callback)
+  }
+
+  removeOnDeployableDeploy(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+    this.connection.offReducer('deployable_deploy', callback)
+  }
+
+  deployableDeployStart(request: DeployableDeployRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    DeployableDeployStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'empire_craft_supplies_scheduled',
+      'deployable_deploy_start',
       __argsBuffer,
-      this.setCallReducerFlags.empireCraftSuppliesScheduledFlags
+      this.setCallReducerFlags.deployableDeployStartFlags
     )
   }
 
-  onEmpireCraftSuppliesScheduled(callback: (ctx: ReducerEventContext, timer: EmpireCraftSuppliesTimer) => void) {
-    this.connection.onReducer('empire_craft_supplies_scheduled', callback)
+  onDeployableDeployStart(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+    this.connection.onReducer('deployable_deploy_start', callback)
   }
 
-  removeOnEmpireCraftSuppliesScheduled(callback: (ctx: ReducerEventContext, timer: EmpireCraftSuppliesTimer) => void) {
-    this.connection.offReducer('empire_craft_supplies_scheduled', callback)
+  removeOnDeployableDeployStart(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+    this.connection.offReducer('deployable_deploy_start', callback)
   }
 
-  empireDecayAgentLoop(timer: EmpireDecayLoopTimer) {
+  deployableDismount(request: PlayerDeployableDismountRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    DeployableDismount.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('deployable_dismount', __argsBuffer, this.setCallReducerFlags.deployableDismountFlags)
+  }
+
+  onDeployableDismount(callback: (ctx: ReducerEventContext, request: PlayerDeployableDismountRequest) => void) {
+    this.connection.onReducer('deployable_dismount', callback)
+  }
+
+  removeOnDeployableDismount(callback: (ctx: ReducerEventContext, request: PlayerDeployableDismountRequest) => void) {
+    this.connection.offReducer('deployable_dismount', callback)
+  }
+
+  deployableDismountScheduled(timer: DeployableDismountTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    EmpireDecayAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableDismountScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'empire_decay_agent_loop',
+      'deployable_dismount_scheduled',
       __argsBuffer,
-      this.setCallReducerFlags.empireDecayAgentLoopFlags
+      this.setCallReducerFlags.deployableDismountScheduledFlags
     )
   }
 
-  onEmpireDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: EmpireDecayLoopTimer) => void) {
-    this.connection.onReducer('empire_decay_agent_loop', callback)
+  onDeployableDismountScheduled(callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void) {
+    this.connection.onReducer('deployable_dismount_scheduled', callback)
   }
 
-  removeOnEmpireDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: EmpireDecayLoopTimer) => void) {
-    this.connection.offReducer('empire_decay_agent_loop', callback)
+  removeOnDeployableDismountScheduled(callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void) {
+    this.connection.offReducer('deployable_dismount_scheduled', callback)
   }
 
-  empireDismantle(request: EmpireDismantleRequest) {
+  deployableMount(request: PlayerDeployableMountRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireDismantle.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableMount.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_dismantle', __argsBuffer, this.setCallReducerFlags.empireDismantleFlags)
+    this.connection.callReducer('deployable_mount', __argsBuffer, this.setCallReducerFlags.deployableMountFlags)
   }
 
-  onEmpireDismantle(callback: (ctx: ReducerEventContext, request: EmpireDismantleRequest) => void) {
-    this.connection.onReducer('empire_dismantle', callback)
+  onDeployableMount(callback: (ctx: ReducerEventContext, request: PlayerDeployableMountRequest) => void) {
+    this.connection.onReducer('deployable_mount', callback)
   }
 
-  removeOnEmpireDismantle(callback: (ctx: ReducerEventContext, request: EmpireDismantleRequest) => void) {
-    this.connection.offReducer('empire_dismantle', callback)
+  removeOnDeployableMount(callback: (ctx: ReducerEventContext, request: PlayerDeployableMountRequest) => void) {
+    this.connection.offReducer('deployable_mount', callback)
   }
 
-  empireDonateShards(request: EmpireDonateShardsRequest) {
+  deployableMove(request: PlayerDeployableMoveRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireDonateShards.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_donate_shards', __argsBuffer, this.setCallReducerFlags.empireDonateShardsFlags)
+    this.connection.callReducer('deployable_move', __argsBuffer, this.setCallReducerFlags.deployableMoveFlags)
   }
 
-  onEmpireDonateShards(callback: (ctx: ReducerEventContext, request: EmpireDonateShardsRequest) => void) {
-    this.connection.onReducer('empire_donate_shards', callback)
+  onDeployableMove(callback: (ctx: ReducerEventContext, request: PlayerDeployableMoveRequest) => void) {
+    this.connection.onReducer('deployable_move', callback)
   }
 
-  removeOnEmpireDonateShards(callback: (ctx: ReducerEventContext, request: EmpireDonateShardsRequest) => void) {
-    this.connection.offReducer('empire_donate_shards', callback)
+  removeOnDeployableMove(callback: (ctx: ReducerEventContext, request: PlayerDeployableMoveRequest) => void) {
+    this.connection.offReducer('deployable_move', callback)
   }
 
-  empireForm(request: EmpireFormRequest) {
-    const __args = { request }
+  deployableMoveOffClaim(deployableEntityId: bigint) {
+    const __args = { deployableEntityId }
     let __writer = new BinaryWriter(1024)
-    EmpireForm.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_form', __argsBuffer, this.setCallReducerFlags.empireFormFlags)
-  }
-
-  onEmpireForm(callback: (ctx: ReducerEventContext, request: EmpireFormRequest) => void) {
-    this.connection.onReducer('empire_form', callback)
-  }
-
-  removeOnEmpireForm(callback: (ctx: ReducerEventContext, request: EmpireFormRequest) => void) {
-    this.connection.offReducer('empire_form', callback)
-  }
-
-  empireLeave(request: EmpireLeaveRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireLeave.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_leave', __argsBuffer, this.setCallReducerFlags.empireLeaveFlags)
-  }
-
-  onEmpireLeave(callback: (ctx: ReducerEventContext, request: EmpireLeaveRequest) => void) {
-    this.connection.onReducer('empire_leave', callback)
-  }
-
-  removeOnEmpireLeave(callback: (ctx: ReducerEventContext, request: EmpireLeaveRequest) => void) {
-    this.connection.offReducer('empire_leave', callback)
-  }
-
-  empireMarkForExpansion(request: EmpireMarkForExpansionRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireMarkForExpansion.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableMoveOffClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'empire_mark_for_expansion',
+      'deployable_move_off_claim',
       __argsBuffer,
-      this.setCallReducerFlags.empireMarkForExpansionFlags
+      this.setCallReducerFlags.deployableMoveOffClaimFlags
     )
   }
 
-  onEmpireMarkForExpansion(callback: (ctx: ReducerEventContext, request: EmpireMarkForExpansionRequest) => void) {
-    this.connection.onReducer('empire_mark_for_expansion', callback)
+  onDeployableMoveOffClaim(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+    this.connection.onReducer('deployable_move_off_claim', callback)
   }
 
-  removeOnEmpireMarkForExpansion(callback: (ctx: ReducerEventContext, request: EmpireMarkForExpansionRequest) => void) {
-    this.connection.offReducer('empire_mark_for_expansion', callback)
+  removeOnDeployableMoveOffClaim(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+    this.connection.offReducer('deployable_move_off_claim', callback)
   }
 
-  empireMarkForSiege(request: EmpireMarkForSiegeRequest) {
+  deployableStore(request: DeployableStoreRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireMarkForSiege.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableStore.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_mark_for_siege', __argsBuffer, this.setCallReducerFlags.empireMarkForSiegeFlags)
+    this.connection.callReducer('deployable_store', __argsBuffer, this.setCallReducerFlags.deployableStoreFlags)
   }
 
-  onEmpireMarkForSiege(callback: (ctx: ReducerEventContext, request: EmpireMarkForSiegeRequest) => void) {
-    this.connection.onReducer('empire_mark_for_siege', callback)
+  onDeployableStore(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+    this.connection.onReducer('deployable_store', callback)
   }
 
-  removeOnEmpireMarkForSiege(callback: (ctx: ReducerEventContext, request: EmpireMarkForSiegeRequest) => void) {
-    this.connection.offReducer('empire_mark_for_siege', callback)
+  removeOnDeployableStore(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+    this.connection.offReducer('deployable_store', callback)
   }
 
-  empirePlayerJoin(request: EmpirePlayerJoinRequest) {
+  deployableStoreStart(request: DeployableStoreRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpirePlayerJoin.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_player_join', __argsBuffer, this.setCallReducerFlags.empirePlayerJoinFlags)
-  }
-
-  onEmpirePlayerJoin(callback: (ctx: ReducerEventContext, request: EmpirePlayerJoinRequest) => void) {
-    this.connection.onReducer('empire_player_join', callback)
-  }
-
-  removeOnEmpirePlayerJoin(callback: (ctx: ReducerEventContext, request: EmpirePlayerJoinRequest) => void) {
-    this.connection.offReducer('empire_player_join', callback)
-  }
-
-  empirePlayerLeave(request: EmpirePlayerLeaveRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpirePlayerLeave.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_player_leave', __argsBuffer, this.setCallReducerFlags.empirePlayerLeaveFlags)
-  }
-
-  onEmpirePlayerLeave(callback: (ctx: ReducerEventContext, request: EmpirePlayerLeaveRequest) => void) {
-    this.connection.onReducer('empire_player_leave', callback)
-  }
-
-  removeOnEmpirePlayerLeave(callback: (ctx: ReducerEventContext, request: EmpirePlayerLeaveRequest) => void) {
-    this.connection.offReducer('empire_player_leave', callback)
-  }
-
-  empireSetDirectiveMessage(request: EmpireSetDirectiveMessageRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireSetDirectiveMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableStoreStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'empire_set_directive_message',
+      'deployable_store_start',
       __argsBuffer,
-      this.setCallReducerFlags.empireSetDirectiveMessageFlags
+      this.setCallReducerFlags.deployableStoreStartFlags
     )
   }
 
-  onEmpireSetDirectiveMessage(callback: (ctx: ReducerEventContext, request: EmpireSetDirectiveMessageRequest) => void) {
-    this.connection.onReducer('empire_set_directive_message', callback)
+  onDeployableStoreStart(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+    this.connection.onReducer('deployable_store_start', callback)
   }
 
-  removeOnEmpireSetDirectiveMessage(
-    callback: (ctx: ReducerEventContext, request: EmpireSetDirectiveMessageRequest) => void
+  removeOnDeployableStoreStart(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+    this.connection.offReducer('deployable_store_start', callback)
+  }
+
+  destroyDimensionNetwork(timer: DestroyDimensionNetworkTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    DestroyDimensionNetwork.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'destroy_dimension_network',
+      __argsBuffer,
+      this.setCallReducerFlags.destroyDimensionNetworkFlags
+    )
+  }
+
+  onDestroyDimensionNetwork(callback: (ctx: ReducerEventContext, timer: DestroyDimensionNetworkTimer) => void) {
+    this.connection.onReducer('destroy_dimension_network', callback)
+  }
+
+  removeOnDestroyDimensionNetwork(callback: (ctx: ReducerEventContext, timer: DestroyDimensionNetworkTimer) => void) {
+    this.connection.offReducer('destroy_dimension_network', callback)
+  }
+
+  devDeleteWorld() {
+    this.connection.callReducer('dev_delete_world', new Uint8Array(0), this.setCallReducerFlags.devDeleteWorldFlags)
+  }
+
+  onDevDeleteWorld(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('dev_delete_world', callback)
+  }
+
+  removeOnDevDeleteWorld(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('dev_delete_world', callback)
+  }
+
+  discoverEntities(request: PlayerDiscoverEntitiesRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    DiscoverEntities.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('discover_entities', __argsBuffer, this.setCallReducerFlags.discoverEntitiesFlags)
+  }
+
+  onDiscoverEntities(callback: (ctx: ReducerEventContext, request: PlayerDiscoverEntitiesRequest) => void) {
+    this.connection.onReducer('discover_entities', callback)
+  }
+
+  removeOnDiscoverEntities(callback: (ctx: ReducerEventContext, request: PlayerDiscoverEntitiesRequest) => void) {
+    this.connection.offReducer('discover_entities', callback)
+  }
+
+  droppedInventoryDespawn(timer: DroppedInventoryDespawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    DroppedInventoryDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'dropped_inventory_despawn',
+      __argsBuffer,
+      this.setCallReducerFlags.droppedInventoryDespawnFlags
+    )
+  }
+
+  onDroppedInventoryDespawn(callback: (ctx: ReducerEventContext, timer: DroppedInventoryDespawnTimer) => void) {
+    this.connection.onReducer('dropped_inventory_despawn', callback)
+  }
+
+  removeOnDroppedInventoryDespawn(callback: (ctx: ReducerEventContext, timer: DroppedInventoryDespawnTimer) => void) {
+    this.connection.offReducer('dropped_inventory_despawn', callback)
+  }
+
+  droppedInventoryLoseOwnership(timer: DroppedInventoryOwnershipTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'dropped_inventory_lose_ownership',
+      __argsBuffer,
+      this.setCallReducerFlags.droppedInventoryLoseOwnershipFlags
+    )
+  }
+
+  onDroppedInventoryLoseOwnership(callback: (ctx: ReducerEventContext, timer: DroppedInventoryOwnershipTimer) => void) {
+    this.connection.onReducer('dropped_inventory_lose_ownership', callback)
+  }
+
+  removeOnDroppedInventoryLoseOwnership(
+    callback: (ctx: ReducerEventContext, timer: DroppedInventoryOwnershipTimer) => void
   ) {
-    this.connection.offReducer('empire_set_directive_message', callback)
+    this.connection.offReducer('dropped_inventory_lose_ownership', callback)
   }
 
-  empireSetNobilityThreshold(threshold: number) {
-    const __args = { threshold }
-    let __writer = new BinaryWriter(1024)
-    EmpireSetNobilityThreshold.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'empire_set_nobility_threshold',
-      __argsBuffer,
-      this.setCallReducerFlags.empireSetNobilityThresholdFlags
-    )
-  }
-
-  onEmpireSetNobilityThreshold(callback: (ctx: ReducerEventContext, threshold: number) => void) {
-    this.connection.onReducer('empire_set_nobility_threshold', callback)
-  }
-
-  removeOnEmpireSetNobilityThreshold(callback: (ctx: ReducerEventContext, threshold: number) => void) {
-    this.connection.offReducer('empire_set_nobility_threshold', callback)
-  }
-
-  empireSetPlayerRank(request: EmpireSetPlayerRankRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireSetPlayerRank.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'empire_set_player_rank',
-      __argsBuffer,
-      this.setCallReducerFlags.empireSetPlayerRankFlags
-    )
-  }
-
-  onEmpireSetPlayerRank(callback: (ctx: ReducerEventContext, request: EmpireSetPlayerRankRequest) => void) {
-    this.connection.onReducer('empire_set_player_rank', callback)
-  }
-
-  removeOnEmpireSetPlayerRank(callback: (ctx: ReducerEventContext, request: EmpireSetPlayerRankRequest) => void) {
-    this.connection.offReducer('empire_set_player_rank', callback)
-  }
-
-  empireSetRankTitle(request: EmpireSetRankTitleRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    EmpireSetRankTitle.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_set_rank_title', __argsBuffer, this.setCallReducerFlags.empireSetRankTitleFlags)
-  }
-
-  onEmpireSetRankTitle(callback: (ctx: ReducerEventContext, request: EmpireSetRankTitleRequest) => void) {
-    this.connection.onReducer('empire_set_rank_title', callback)
-  }
-
-  removeOnEmpireSetRankTitle(callback: (ctx: ReducerEventContext, request: EmpireSetRankTitleRequest) => void) {
-    this.connection.offReducer('empire_set_rank_title', callback)
-  }
-
-  empireSiegeAgentLoop(timer: EmpireSiegeLoopTimer) {
+  duelAgentTimerLoop(timer: DuelAgentTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    EmpireSiegeAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DuelAgentTimerLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'empire_siege_agent_loop',
-      __argsBuffer,
-      this.setCallReducerFlags.empireSiegeAgentLoopFlags
-    )
+    this.connection.callReducer('duel_agent_timer_loop', __argsBuffer, this.setCallReducerFlags.duelAgentTimerLoopFlags)
   }
 
-  onEmpireSiegeAgentLoop(callback: (ctx: ReducerEventContext, timer: EmpireSiegeLoopTimer) => void) {
-    this.connection.onReducer('empire_siege_agent_loop', callback)
+  onDuelAgentTimerLoop(callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void) {
+    this.connection.onReducer('duel_agent_timer_loop', callback)
   }
 
-  removeOnEmpireSiegeAgentLoop(callback: (ctx: ReducerEventContext, timer: EmpireSiegeLoopTimer) => void) {
-    this.connection.offReducer('empire_siege_agent_loop', callback)
+  removeOnDuelAgentTimerLoop(callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void) {
+    this.connection.offReducer('duel_agent_timer_loop', callback)
   }
 
-  empireSubmit(newEmpireEntityId: bigint) {
-    const __args = { newEmpireEntityId }
+  duelDespawn(timer: DuelDespawnTimer) {
+    const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    EmpireSubmit.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DuelDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_submit', __argsBuffer, this.setCallReducerFlags.empireSubmitFlags)
+    this.connection.callReducer('duel_despawn', __argsBuffer, this.setCallReducerFlags.duelDespawnFlags)
   }
 
-  onEmpireSubmit(callback: (ctx: ReducerEventContext, newEmpireEntityId: bigint) => void) {
-    this.connection.onReducer('empire_submit', callback)
+  onDuelDespawn(callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void) {
+    this.connection.onReducer('duel_despawn', callback)
   }
 
-  removeOnEmpireSubmit(callback: (ctx: ReducerEventContext, newEmpireEntityId: bigint) => void) {
-    this.connection.offReducer('empire_submit', callback)
+  removeOnDuelDespawn(callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void) {
+    this.connection.offReducer('duel_despawn', callback)
   }
 
-  empireTransferEmperorship(targetPlayerEntityId: bigint) {
-    const __args = { targetPlayerEntityId }
-    let __writer = new BinaryWriter(1024)
-    EmpireTransferEmperorship.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'empire_transfer_emperorship',
-      __argsBuffer,
-      this.setCallReducerFlags.empireTransferEmperorshipFlags
-    )
-  }
-
-  onEmpireTransferEmperorship(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
-    this.connection.onReducer('empire_transfer_emperorship', callback)
-  }
-
-  removeOnEmpireTransferEmperorship(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
-    this.connection.offReducer('empire_transfer_emperorship', callback)
-  }
-
-  empireUpdatePermissions(request: EmpireUpdatePermissionsRequest) {
+  eat(request: PlayerEatRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireUpdatePermissions.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    Eat.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('eat', __argsBuffer, this.setCallReducerFlags.eatFlags)
+  }
+
+  onEat(callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void) {
+    this.connection.onReducer('eat', callback)
+  }
+
+  removeOnEat(callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void) {
+    this.connection.offReducer('eat', callback)
+  }
+
+  emote(request: PlayerEmoteRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    Emote.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('emote', __argsBuffer, this.setCallReducerFlags.emoteFlags)
+  }
+
+  onEmote(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+    this.connection.onReducer('emote', callback)
+  }
+
+  removeOnEmote(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+    this.connection.offReducer('emote', callback)
+  }
+
+  emoteStart(request: PlayerEmoteRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmoteStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('emote_start', __argsBuffer, this.setCallReducerFlags.emoteStartFlags)
+  }
+
+  onEmoteStart(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+    this.connection.onReducer('emote_start', callback)
+  }
+
+  removeOnEmoteStart(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+    this.connection.offReducer('emote_start', callback)
+  }
+
+  empireAddSiegeSupplies(request: EmpireAddSiegeSuppliesRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'empire_update_permissions',
+      'empire_add_siege_supplies',
       __argsBuffer,
-      this.setCallReducerFlags.empireUpdatePermissionsFlags
+      this.setCallReducerFlags.empireAddSiegeSuppliesFlags
     )
   }
 
-  onEmpireUpdatePermissions(callback: (ctx: ReducerEventContext, request: EmpireUpdatePermissionsRequest) => void) {
-    this.connection.onReducer('empire_update_permissions', callback)
+  onEmpireAddSiegeSupplies(callback: (ctx: ReducerEventContext, request: EmpireAddSiegeSuppliesRequest) => void) {
+    this.connection.onReducer('empire_add_siege_supplies', callback)
   }
 
-  removeOnEmpireUpdatePermissions(
-    callback: (ctx: ReducerEventContext, request: EmpireUpdatePermissionsRequest) => void
+  removeOnEmpireAddSiegeSupplies(callback: (ctx: ReducerEventContext, request: EmpireAddSiegeSuppliesRequest) => void) {
+    this.connection.offReducer('empire_add_siege_supplies', callback)
+  }
+
+  empireClaimJoin(buildingEntityId: bigint, empireEntityId: bigint) {
+    const __args = { buildingEntityId, empireEntityId }
+    let __writer = new BinaryWriter(1024)
+    EmpireClaimJoin.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('empire_claim_join', __argsBuffer, this.setCallReducerFlags.empireClaimJoinFlags)
+  }
+
+  onEmpireClaimJoin(callback: (ctx: ReducerEventContext, buildingEntityId: bigint, empireEntityId: bigint) => void) {
+    this.connection.onReducer('empire_claim_join', callback)
+  }
+
+  removeOnEmpireClaimJoin(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint, empireEntityId: bigint) => void
   ) {
-    this.connection.offReducer('empire_update_permissions', callback)
+    this.connection.offReducer('empire_claim_join', callback)
+  }
+
+  empireCollectHexiteCapsule(request: EmpireCollectHexiteCapsuleRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_collect_hexite_capsule',
+      __argsBuffer,
+      this.setCallReducerFlags.empireCollectHexiteCapsuleFlags
+    )
+  }
+
+  onEmpireCollectHexiteCapsule(
+    callback: (ctx: ReducerEventContext, request: EmpireCollectHexiteCapsuleRequest) => void
+  ) {
+    this.connection.onReducer('empire_collect_hexite_capsule', callback)
+  }
+
+  removeOnEmpireCollectHexiteCapsule(
+    callback: (ctx: ReducerEventContext, request: EmpireCollectHexiteCapsuleRequest) => void
+  ) {
+    this.connection.offReducer('empire_collect_hexite_capsule', callback)
+  }
+
+  empireDeploySiegeEngine(request: EmpireStartSiegeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireDeploySiegeEngine.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_deploy_siege_engine',
+      __argsBuffer,
+      this.setCallReducerFlags.empireDeploySiegeEngineFlags
+    )
+  }
+
+  onEmpireDeploySiegeEngine(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+    this.connection.onReducer('empire_deploy_siege_engine', callback)
+  }
+
+  removeOnEmpireDeploySiegeEngine(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+    this.connection.offReducer('empire_deploy_siege_engine', callback)
+  }
+
+  empireDeploySiegeEngineStart(request: EmpireStartSiegeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireDeploySiegeEngineStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_deploy_siege_engine_start',
+      __argsBuffer,
+      this.setCallReducerFlags.empireDeploySiegeEngineStartFlags
+    )
+  }
+
+  onEmpireDeploySiegeEngineStart(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+    this.connection.onReducer('empire_deploy_siege_engine_start', callback)
+  }
+
+  removeOnEmpireDeploySiegeEngineStart(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+    this.connection.offReducer('empire_deploy_siege_engine_start', callback)
+  }
+
+  empireQueueSupplies(request: EmpireQueueSuppliesRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireQueueSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_queue_supplies',
+      __argsBuffer,
+      this.setCallReducerFlags.empireQueueSuppliesFlags
+    )
+  }
+
+  onEmpireQueueSupplies(callback: (ctx: ReducerEventContext, request: EmpireQueueSuppliesRequest) => void) {
+    this.connection.onReducer('empire_queue_supplies', callback)
+  }
+
+  removeOnEmpireQueueSupplies(callback: (ctx: ReducerEventContext, request: EmpireQueueSuppliesRequest) => void) {
+    this.connection.offReducer('empire_queue_supplies', callback)
+  }
+
+  empireResupplyNode(request: EmpireResupplyNodeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireResupplyNode.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('empire_resupply_node', __argsBuffer, this.setCallReducerFlags.empireResupplyNodeFlags)
+  }
+
+  onEmpireResupplyNode(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+    this.connection.onReducer('empire_resupply_node', callback)
+  }
+
+  removeOnEmpireResupplyNode(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+    this.connection.offReducer('empire_resupply_node', callback)
+  }
+
+  empireResupplyNodeStart(request: EmpireResupplyNodeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireResupplyNodeStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_resupply_node_start',
+      __argsBuffer,
+      this.setCallReducerFlags.empireResupplyNodeStartFlags
+    )
+  }
+
+  onEmpireResupplyNodeStart(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+    this.connection.onReducer('empire_resupply_node_start', callback)
+  }
+
+  removeOnEmpireResupplyNodeStart(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+    this.connection.offReducer('empire_resupply_node_start', callback)
+  }
+
+  empireSiegeDepletedWatchtower(request: EmpireStartSiegeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EmpireSiegeDepletedWatchtower.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'empire_siege_depleted_watchtower',
+      __argsBuffer,
+      this.setCallReducerFlags.empireSiegeDepletedWatchtowerFlags
+    )
+  }
+
+  onEmpireSiegeDepletedWatchtower(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+    this.connection.onReducer('empire_siege_depleted_watchtower', callback)
+  }
+
+  removeOnEmpireSiegeDepletedWatchtower(
+    callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void
+  ) {
+    this.connection.offReducer('empire_siege_depleted_watchtower', callback)
+  }
+
+  endGracePeriod(timer: EndGracePeriodTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    EndGracePeriod.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('end_grace_period', __argsBuffer, this.setCallReducerFlags.endGracePeriodFlags)
+  }
+
+  onEndGracePeriod(callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void) {
+    this.connection.onReducer('end_grace_period', callback)
+  }
+
+  removeOnEndGracePeriod(callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void) {
+    this.connection.offReducer('end_grace_period', callback)
+  }
+
+  enemyClearAggro(request: EnemyClearAggroRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EnemyClearAggro.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_clear_aggro', __argsBuffer, this.setCallReducerFlags.enemyClearAggroFlags)
+  }
+
+  onEnemyClearAggro(callback: (ctx: ReducerEventContext, request: EnemyClearAggroRequest) => void) {
+    this.connection.onReducer('enemy_clear_aggro', callback)
+  }
+
+  removeOnEnemyClearAggro(callback: (ctx: ReducerEventContext, request: EnemyClearAggroRequest) => void) {
+    this.connection.offReducer('enemy_clear_aggro', callback)
+  }
+
+  enemyDespawn(timer: EnemyDespawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    EnemyDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_despawn', __argsBuffer, this.setCallReducerFlags.enemyDespawnFlags)
+  }
+
+  onEnemyDespawn(callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void) {
+    this.connection.onReducer('enemy_despawn', callback)
+  }
+
+  removeOnEnemyDespawn(callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void) {
+    this.connection.offReducer('enemy_despawn', callback)
+  }
+
+  enemyDespawnFromMobMonitor(enemyEntityId: bigint) {
+    const __args = { enemyEntityId }
+    let __writer = new BinaryWriter(1024)
+    EnemyDespawnFromMobMonitor.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'enemy_despawn_from_mob_monitor',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyDespawnFromMobMonitorFlags
+    )
+  }
+
+  onEnemyDespawnFromMobMonitor(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+    this.connection.onReducer('enemy_despawn_from_mob_monitor', callback)
+  }
+
+  removeOnEnemyDespawnFromMobMonitor(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+    this.connection.offReducer('enemy_despawn_from_mob_monitor', callback)
+  }
+
+  enemyDespawnFromMobMonitorBatch(enemyEntityIds: bigint[]) {
+    const __args = { enemyEntityIds }
+    let __writer = new BinaryWriter(1024)
+    EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'enemy_despawn_from_mob_monitor_batch',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyDespawnFromMobMonitorBatchFlags
+    )
+  }
+
+  onEnemyDespawnFromMobMonitorBatch(callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void) {
+    this.connection.onReducer('enemy_despawn_from_mob_monitor_batch', callback)
+  }
+
+  removeOnEnemyDespawnFromMobMonitorBatch(callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void) {
+    this.connection.offReducer('enemy_despawn_from_mob_monitor_batch', callback)
+  }
+
+  enemyMove(request: EnemyMoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EnemyMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_move', __argsBuffer, this.setCallReducerFlags.enemyMoveFlags)
+  }
+
+  onEnemyMove(callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void) {
+    this.connection.onReducer('enemy_move', callback)
+  }
+
+  removeOnEnemyMove(callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void) {
+    this.connection.offReducer('enemy_move', callback)
+  }
+
+  enemyMoveBatch(requests: EnemyMoveRequest[]) {
+    const __args = { requests }
+    let __writer = new BinaryWriter(1024)
+    EnemyMoveBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_move_batch', __argsBuffer, this.setCallReducerFlags.enemyMoveBatchFlags)
+  }
+
+  onEnemyMoveBatch(callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void) {
+    this.connection.onReducer('enemy_move_batch', callback)
+  }
+
+  removeOnEnemyMoveBatch(callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void) {
+    this.connection.offReducer('enemy_move_batch', callback)
+  }
+
+  enemyRegenAgentLoop(timer: EnemyRegenLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    EnemyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'enemy_regen_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyRegenAgentLoopFlags
+    )
+  }
+
+  onEnemyRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void) {
+    this.connection.onReducer('enemy_regen_agent_loop', callback)
+  }
+
+  removeOnEnemyRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void) {
+    this.connection.offReducer('enemy_regen_agent_loop', callback)
+  }
+
+  enemySetHealth(request: EnemySetHealthRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EnemySetHealth.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_set_health', __argsBuffer, this.setCallReducerFlags.enemySetHealthFlags)
+  }
+
+  onEnemySetHealth(callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void) {
+    this.connection.onReducer('enemy_set_health', callback)
+  }
+
+  removeOnEnemySetHealth(callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void) {
+    this.connection.offReducer('enemy_set_health', callback)
+  }
+
+  enemySetHealthBatch(requests: EnemySetHealthRequest[]) {
+    const __args = { requests }
+    let __writer = new BinaryWriter(1024)
+    EnemySetHealthBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'enemy_set_health_batch',
+      __argsBuffer,
+      this.setCallReducerFlags.enemySetHealthBatchFlags
+    )
+  }
+
+  onEnemySetHealthBatch(callback: (ctx: ReducerEventContext, requests: EnemySetHealthRequest[]) => void) {
+    this.connection.onReducer('enemy_set_health_batch', callback)
+  }
+
+  removeOnEnemySetHealthBatch(callback: (ctx: ReducerEventContext, requests: EnemySetHealthRequest[]) => void) {
+    this.connection.offReducer('enemy_set_health_batch', callback)
+  }
+
+  enemySpawn(request: EnemySpawnRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EnemySpawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_spawn', __argsBuffer, this.setCallReducerFlags.enemySpawnFlags)
+  }
+
+  onEnemySpawn(callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void) {
+    this.connection.onReducer('enemy_spawn', callback)
+  }
+
+  removeOnEnemySpawn(callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void) {
+    this.connection.offReducer('enemy_spawn', callback)
+  }
+
+  enemySpawnBatch(requests: EnemySpawnRequest[]) {
+    const __args = { requests }
+    let __writer = new BinaryWriter(1024)
+    EnemySpawnBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_spawn_batch', __argsBuffer, this.setCallReducerFlags.enemySpawnBatchFlags)
+  }
+
+  onEnemySpawnBatch(callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void) {
+    this.connection.onReducer('enemy_spawn_batch', callback)
+  }
+
+  removeOnEnemySpawnBatch(callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void) {
+    this.connection.offReducer('enemy_spawn_batch', callback)
+  }
+
+  enemySpawnLoot(request: EnemySpawnLootRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EnemySpawnLoot.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('enemy_spawn_loot', __argsBuffer, this.setCallReducerFlags.enemySpawnLootFlags)
+  }
+
+  onEnemySpawnLoot(callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void) {
+    this.connection.onReducer('enemy_spawn_loot', callback)
+  }
+
+  removeOnEnemySpawnLoot(callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void) {
+    this.connection.offReducer('enemy_spawn_loot', callback)
+  }
+
+  environmentDebuffAgentLoop(timer: EnvironmentDebuffLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'environment_debuff_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.environmentDebuffAgentLoopFlags
+    )
+  }
+
+  onEnvironmentDebuffAgentLoop(callback: (ctx: ReducerEventContext, timer: EnvironmentDebuffLoopTimer) => void) {
+    this.connection.onReducer('environment_debuff_agent_loop', callback)
+  }
+
+  removeOnEnvironmentDebuffAgentLoop(callback: (ctx: ReducerEventContext, timer: EnvironmentDebuffLoopTimer) => void) {
+    this.connection.offReducer('environment_debuff_agent_loop', callback)
+  }
+
+  equipmentAdd(request: PlayerEquipmentAddRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EquipmentAdd.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('equipment_add', __argsBuffer, this.setCallReducerFlags.equipmentAddFlags)
+  }
+
+  onEquipmentAdd(callback: (ctx: ReducerEventContext, request: PlayerEquipmentAddRequest) => void) {
+    this.connection.onReducer('equipment_add', callback)
+  }
+
+  removeOnEquipmentAdd(callback: (ctx: ReducerEventContext, request: PlayerEquipmentAddRequest) => void) {
+    this.connection.offReducer('equipment_add', callback)
+  }
+
+  equipmentRemove(request: PlayerEquipmentRemoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    EquipmentRemove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('equipment_remove', __argsBuffer, this.setCallReducerFlags.equipmentRemoveFlags)
+  }
+
+  onEquipmentRemove(callback: (ctx: ReducerEventContext, request: PlayerEquipmentRemoveRequest) => void) {
+    this.connection.onReducer('equipment_remove', callback)
+  }
+
+  removeOnEquipmentRemove(callback: (ctx: ReducerEventContext, request: PlayerEquipmentRemoveRequest) => void) {
+    this.connection.offReducer('equipment_remove', callback)
+  }
+
+  extract(request: PlayerExtractRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    Extract.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('extract', __argsBuffer, this.setCallReducerFlags.extractFlags)
+  }
+
+  onExtract(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+    this.connection.onReducer('extract', callback)
+  }
+
+  removeOnExtract(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+    this.connection.offReducer('extract', callback)
+  }
+
+  extractStart(request: PlayerExtractRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ExtractStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('extract_start', __argsBuffer, this.setCallReducerFlags.extractStartFlags)
+  }
+
+  onExtractStart(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+    this.connection.onReducer('extract_start', callback)
+  }
+
+  removeOnExtractStart(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+    this.connection.offReducer('extract_start', callback)
+  }
+
+  forceStartAgents() {
+    this.connection.callReducer('force_start_agents', new Uint8Array(0), this.setCallReducerFlags.forceStartAgentsFlags)
+  }
+
+  onForceStartAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('force_start_agents', callback)
+  }
+
+  removeOnForceStartAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('force_start_agents', callback)
+  }
+
+  generateDevIsland() {
+    this.connection.callReducer(
+      'generate_dev_island',
+      new Uint8Array(0),
+      this.setCallReducerFlags.generateDevIslandFlags
+    )
+  }
+
+  onGenerateDevIsland(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('generate_dev_island', callback)
+  }
+
+  removeOnGenerateDevIsland(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('generate_dev_island', callback)
+  }
+
+  generateFlatWorld() {
+    this.connection.callReducer(
+      'generate_flat_world',
+      new Uint8Array(0),
+      this.setCallReducerFlags.generateFlatWorldFlags
+    )
+  }
+
+  onGenerateFlatWorld(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('generate_flat_world', callback)
+  }
+
+  removeOnGenerateFlatWorld(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('generate_flat_world', callback)
+  }
+
+  generateWorld(worldDefinition: WorldGenWorldDefinition) {
+    const __args = { worldDefinition }
+    let __writer = new BinaryWriter(1024)
+    GenerateWorld.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('generate_world', __argsBuffer, this.setCallReducerFlags.generateWorldFlags)
+  }
+
+  onGenerateWorld(callback: (ctx: ReducerEventContext, worldDefinition: WorldGenWorldDefinition) => void) {
+    this.connection.onReducer('generate_world', callback)
+  }
+
+  removeOnGenerateWorld(callback: (ctx: ReducerEventContext, worldDefinition: WorldGenWorldDefinition) => void) {
+    this.connection.offReducer('generate_world', callback)
+  }
+
+  growthAgentLoop(timer: GrowthLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    GrowthAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('growth_agent_loop', __argsBuffer, this.setCallReducerFlags.growthAgentLoopFlags)
+  }
+
+  onGrowthAgentLoop(callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void) {
+    this.connection.onReducer('growth_agent_loop', callback)
+  }
+
+  removeOnGrowthAgentLoop(callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void) {
+    this.connection.offReducer('growth_agent_loop', callback)
+  }
+
+  hideDeployable(timer: HideDeployableTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    HideDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('hide_deployable', __argsBuffer, this.setCallReducerFlags.hideDeployableFlags)
+  }
+
+  onHideDeployable(callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void) {
+    this.connection.onReducer('hide_deployable', callback)
+  }
+
+  removeOnHideDeployable(callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void) {
+    this.connection.offReducer('hide_deployable', callback)
   }
 
   onIdentityConnected(callback: (ctx: ReducerEventContext) => void) {
@@ -7454,6 +12885,26 @@ export class RemoteReducers {
     this.connection.offReducer('import_empire_colors_desc', callback)
   }
 
+  importEmpireIconDesc(records: EmpireIconDesc[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportEmpireIconDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_empire_icon_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importEmpireIconDescFlags
+    )
+  }
+
+  onImportEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+    this.connection.onReducer('import_empire_icon_desc', callback)
+  }
+
+  removeOnImportEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+    this.connection.offReducer('import_empire_icon_desc', callback)
+  }
+
   importEmpireNotificationDesc(records: EmpireNotificationDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
@@ -7886,6 +13337,28 @@ export class RemoteReducers {
     callback: (ctx: ReducerEventContext, records: InteriorCollapseTriggerState[]) => void
   ) {
     this.connection.offReducer('import_interior_collapse_trigger_state', callback)
+  }
+
+  importInteriorEnvironmentDesc(records: InteriorEnvironmentDesc[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportInteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_interior_environment_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importInteriorEnvironmentDescFlags
+    )
+  }
+
+  onImportInteriorEnvironmentDesc(callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void) {
+    this.connection.onReducer('import_interior_environment_desc', callback)
+  }
+
+  removeOnImportInteriorEnvironmentDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void
+  ) {
+    this.connection.offReducer('import_interior_environment_desc', callback)
   }
 
   importInteriorInstanceDesc(records: InteriorInstanceDesc[]) {
@@ -8342,6 +13815,30 @@ export class RemoteReducers {
     this.connection.offReducer('import_knowledge_paving_state', callback)
   }
 
+  importKnowledgePillarShapingState(records: KnowledgePillarShapingState[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_knowledge_pillar_shaping_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importKnowledgePillarShapingStateFlags
+    )
+  }
+
+  onImportKnowledgePillarShapingState(
+    callback: (ctx: ReducerEventContext, records: KnowledgePillarShapingState[]) => void
+  ) {
+    this.connection.onReducer('import_knowledge_pillar_shaping_state', callback)
+  }
+
+  removeOnImportKnowledgePillarShapingState(
+    callback: (ctx: ReducerEventContext, records: KnowledgePillarShapingState[]) => void
+  ) {
+    this.connection.offReducer('import_knowledge_pillar_shaping_state', callback)
+  }
+
   importKnowledgeResourcePlacementState(records: KnowledgeResourcePlacementState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
@@ -8514,6 +14011,26 @@ export class RemoteReducers {
 
   removeOnImportKnowledgeVaultState(callback: (ctx: ReducerEventContext, records: KnowledgeVaultState[]) => void) {
     this.connection.offReducer('import_knowledge_vault_state', callback)
+  }
+
+  importLocationCache(records: LocationCache[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportLocationCache.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_location_cache',
+      __argsBuffer,
+      this.setCallReducerFlags.importLocationCacheFlags
+    )
+  }
+
+  onImportLocationCache(callback: (ctx: ReducerEventContext, records: LocationCache[]) => void) {
+    this.connection.onReducer('import_location_cache', callback)
+  }
+
+  removeOnImportLocationCache(callback: (ctx: ReducerEventContext, records: LocationCache[]) => void) {
+    this.connection.offReducer('import_location_cache', callback)
   }
 
   importLocationState(records: LocationState[]) {
@@ -8808,6 +14325,26 @@ export class RemoteReducers {
     this.connection.offReducer('import_paving_tile_desc', callback)
   }
 
+  importPillarShapingDesc(records: PillarShapingDesc[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportPillarShapingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_pillar_shaping_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importPillarShapingDescFlags
+    )
+  }
+
+  onImportPillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+    this.connection.onReducer('import_pillar_shaping_desc', callback)
+  }
+
+  removeOnImportPillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+    this.connection.offReducer('import_pillar_shaping_desc', callback)
+  }
+
   importPlayerActionDesc(records: PlayerActionDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
@@ -8848,6 +14385,26 @@ export class RemoteReducers {
     this.connection.offReducer('import_player_action_state', callback)
   }
 
+  importPlayerHousingDesc(records: PlayerHousingDesc[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportPlayerHousingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_player_housing_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importPlayerHousingDescFlags
+    )
+  }
+
+  onImportPlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+    this.connection.onReducer('import_player_housing_desc', callback)
+  }
+
+  removeOnImportPlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+    this.connection.offReducer('import_player_housing_desc', callback)
+  }
+
   importPlayerPrefsState(records: PlayerPrefsState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
@@ -8882,26 +14439,6 @@ export class RemoteReducers {
 
   removeOnImportPlayerState(callback: (ctx: ReducerEventContext, records: PlayerState[]) => void) {
     this.connection.offReducer('import_player_state', callback)
-  }
-
-  importPlayerVoteState(records: PlayerVoteState[]) {
-    const __args = { records }
-    let __writer = new BinaryWriter(1024)
-    ImportPlayerVoteState.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'import_player_vote_state',
-      __argsBuffer,
-      this.setCallReducerFlags.importPlayerVoteStateFlags
-    )
-  }
-
-  onImportPlayerVoteState(callback: (ctx: ReducerEventContext, records: PlayerVoteState[]) => void) {
-    this.connection.onReducer('import_player_vote_state', callback)
-  }
-
-  removeOnImportPlayerVoteState(callback: (ctx: ReducerEventContext, records: PlayerVoteState[]) => void) {
-    this.connection.offReducer('import_player_vote_state', callback)
   }
 
   importPortalState(records: PortalState[]) {
@@ -8982,48 +14519,6 @@ export class RemoteReducers {
     this.connection.offReducer('import_project_site_state', callback)
   }
 
-  importRegionConnectionInfo(records: RegionConnectionInfo[]) {
-    const __args = { records }
-    let __writer = new BinaryWriter(1024)
-    ImportRegionConnectionInfo.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'import_region_connection_info',
-      __argsBuffer,
-      this.setCallReducerFlags.importRegionConnectionInfoFlags
-    )
-  }
-
-  onImportRegionConnectionInfo(callback: (ctx: ReducerEventContext, records: RegionConnectionInfo[]) => void) {
-    this.connection.onReducer('import_region_connection_info', callback)
-  }
-
-  removeOnImportRegionConnectionInfo(callback: (ctx: ReducerEventContext, records: RegionConnectionInfo[]) => void) {
-    this.connection.offReducer('import_region_connection_info', callback)
-  }
-
-  importRegionSignInParameters(records: RegionSignInParameters[]) {
-    const __args = { records }
-    let __writer = new BinaryWriter(1024)
-    ImportRegionSignInParameters.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'import_region_sign_in_parameters',
-      __argsBuffer,
-      this.setCallReducerFlags.importRegionSignInParametersFlags
-    )
-  }
-
-  onImportRegionSignInParameters(callback: (ctx: ReducerEventContext, records: RegionSignInParameters[]) => void) {
-    this.connection.onReducer('import_region_sign_in_parameters', callback)
-  }
-
-  removeOnImportRegionSignInParameters(
-    callback: (ctx: ReducerEventContext, records: RegionSignInParameters[]) => void
-  ) {
-    this.connection.offReducer('import_region_sign_in_parameters', callback)
-  }
-
   importRentState(records: RentState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
@@ -9038,6 +14533,26 @@ export class RemoteReducers {
 
   removeOnImportRentState(callback: (ctx: ReducerEventContext, records: RentState[]) => void) {
     this.connection.offReducer('import_rent_state', callback)
+  }
+
+  importReservedNameDesc(records: ReservedNameDesc[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportReservedNameDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'import_reserved_name_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importReservedNameDescFlags
+    )
+  }
+
+  onImportReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+    this.connection.onReducer('import_reserved_name_desc', callback)
+  }
+
+  removeOnImportReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+    this.connection.offReducer('import_reserved_name_desc', callback)
   }
 
   importResourceClumpDesc(records: ResourceClumpDesc[]) {
@@ -9160,6 +14675,22 @@ export class RemoteReducers {
 
   removeOnImportResourceState(callback: (ctx: ReducerEventContext, records: ResourceState[]) => void) {
     this.connection.offReducer('import_resource_state', callback)
+  }
+
+  importResourcesLog(records: ResourcesLog[]) {
+    const __args = { records }
+    let __writer = new BinaryWriter(1024)
+    ImportResourcesLog.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('import_resources_log', __argsBuffer, this.setCallReducerFlags.importResourcesLogFlags)
+  }
+
+  onImportResourcesLog(callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void) {
+    this.connection.onReducer('import_resources_log', callback)
+  }
+
+  removeOnImportResourcesLog(callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void) {
+    this.connection.offReducer('import_resources_log', callback)
   }
 
   importSatiationState(records: SatiationState[]) {
@@ -9650,6 +15181,282 @@ export class RemoteReducers {
     this.connection.offReducer('import_world_region_state', callback)
   }
 
+  insertResourcesLog(resourcesLog: ResourcesLog) {
+    const __args = { resourcesLog }
+    let __writer = new BinaryWriter(1024)
+    InsertResourcesLog.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('insert_resources_log', __argsBuffer, this.setCallReducerFlags.insertResourcesLogFlags)
+  }
+
+  onInsertResourcesLog(callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void) {
+    this.connection.onReducer('insert_resources_log', callback)
+  }
+
+  removeOnInsertResourcesLog(callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void) {
+    this.connection.offReducer('insert_resources_log', callback)
+  }
+
+  insertTerrainChunk(
+    terrainChunk: TerrainChunkState,
+    buildings: WorldGenGeneratedBuilding[],
+    resources: WorldGenGeneratedResourceDeposit[]
+  ) {
+    const __args = { terrainChunk, buildings, resources }
+    let __writer = new BinaryWriter(1024)
+    InsertTerrainChunk.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('insert_terrain_chunk', __argsBuffer, this.setCallReducerFlags.insertTerrainChunkFlags)
+  }
+
+  onInsertTerrainChunk(
+    callback: (
+      ctx: ReducerEventContext,
+      terrainChunk: TerrainChunkState,
+      buildings: WorldGenGeneratedBuilding[],
+      resources: WorldGenGeneratedResourceDeposit[]
+    ) => void
+  ) {
+    this.connection.onReducer('insert_terrain_chunk', callback)
+  }
+
+  removeOnInsertTerrainChunk(
+    callback: (
+      ctx: ReducerEventContext,
+      terrainChunk: TerrainChunkState,
+      buildings: WorldGenGeneratedBuilding[],
+      resources: WorldGenGeneratedResourceDeposit[]
+    ) => void
+  ) {
+    this.connection.offReducer('insert_terrain_chunk', callback)
+  }
+
+  interiorSetCollapsed(dimensionNetworkEntityId: bigint, isCollapsed: boolean) {
+    const __args = { dimensionNetworkEntityId, isCollapsed }
+    let __writer = new BinaryWriter(1024)
+    InteriorSetCollapsed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'interior_set_collapsed',
+      __argsBuffer,
+      this.setCallReducerFlags.interiorSetCollapsedFlags
+    )
+  }
+
+  onInteriorSetCollapsed(
+    callback: (ctx: ReducerEventContext, dimensionNetworkEntityId: bigint, isCollapsed: boolean) => void
+  ) {
+    this.connection.onReducer('interior_set_collapsed', callback)
+  }
+
+  removeOnInteriorSetCollapsed(
+    callback: (ctx: ReducerEventContext, dimensionNetworkEntityId: bigint, isCollapsed: boolean) => void
+  ) {
+    this.connection.offReducer('interior_set_collapsed', callback)
+  }
+
+  interiorSetCollapsedScheduled(timer: InteriorSetCollapsedTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'interior_set_collapsed_scheduled',
+      __argsBuffer,
+      this.setCallReducerFlags.interiorSetCollapsedScheduledFlags
+    )
+  }
+
+  onInteriorSetCollapsedScheduled(callback: (ctx: ReducerEventContext, timer: InteriorSetCollapsedTimer) => void) {
+    this.connection.onReducer('interior_set_collapsed_scheduled', callback)
+  }
+
+  removeOnInteriorSetCollapsedScheduled(
+    callback: (ctx: ReducerEventContext, timer: InteriorSetCollapsedTimer) => void
+  ) {
+    this.connection.offReducer('interior_set_collapsed_scheduled', callback)
+  }
+
+  inventoryCreatePersonal(buildingEntityId: bigint) {
+    const __args = { buildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    InventoryCreatePersonal.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'inventory_create_personal',
+      __argsBuffer,
+      this.setCallReducerFlags.inventoryCreatePersonalFlags
+    )
+  }
+
+  onInventoryCreatePersonal(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.onReducer('inventory_create_personal', callback)
+  }
+
+  removeOnInventoryCreatePersonal(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.offReducer('inventory_create_personal', callback)
+  }
+
+  inventorySort(targetEntityId: bigint) {
+    const __args = { targetEntityId }
+    let __writer = new BinaryWriter(1024)
+    InventorySort.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('inventory_sort', __argsBuffer, this.setCallReducerFlags.inventorySortFlags)
+  }
+
+  onInventorySort(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+    this.connection.onReducer('inventory_sort', callback)
+  }
+
+  removeOnInventorySort(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+    this.connection.offReducer('inventory_sort', callback)
+  }
+
+  itemConvert(request: PlayerItemConvertRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemConvert.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_convert', __argsBuffer, this.setCallReducerFlags.itemConvertFlags)
+  }
+
+  onItemConvert(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+    this.connection.onReducer('item_convert', callback)
+  }
+
+  removeOnItemConvert(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+    this.connection.offReducer('item_convert', callback)
+  }
+
+  itemConvertStart(request: PlayerItemConvertRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemConvertStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_convert_start', __argsBuffer, this.setCallReducerFlags.itemConvertStartFlags)
+  }
+
+  onItemConvertStart(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+    this.connection.onReducer('item_convert_start', callback)
+  }
+
+  removeOnItemConvertStart(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+    this.connection.offReducer('item_convert_start', callback)
+  }
+
+  itemDrop(request: PlayerItemDropRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemDrop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_drop', __argsBuffer, this.setCallReducerFlags.itemDropFlags)
+  }
+
+  onItemDrop(callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void) {
+    this.connection.onReducer('item_drop', callback)
+  }
+
+  removeOnItemDrop(callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void) {
+    this.connection.offReducer('item_drop', callback)
+  }
+
+  itemPickUp(request: PlayerDroppedInventoryPickUpRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemPickUp.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_pick_up', __argsBuffer, this.setCallReducerFlags.itemPickUpFlags)
+  }
+
+  onItemPickUp(callback: (ctx: ReducerEventContext, request: PlayerDroppedInventoryPickUpRequest) => void) {
+    this.connection.onReducer('item_pick_up', callback)
+  }
+
+  removeOnItemPickUp(callback: (ctx: ReducerEventContext, request: PlayerDroppedInventoryPickUpRequest) => void) {
+    this.connection.offReducer('item_pick_up', callback)
+  }
+
+  itemStackMove(request: PlayerItemStackMoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemStackMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_stack_move', __argsBuffer, this.setCallReducerFlags.itemStackMoveFlags)
+  }
+
+  onItemStackMove(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveRequest) => void) {
+    this.connection.onReducer('item_stack_move', callback)
+  }
+
+  removeOnItemStackMove(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveRequest) => void) {
+    this.connection.offReducer('item_stack_move', callback)
+  }
+
+  itemStackMoveAll(request: PlayerItemStackMoveAllRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemStackMoveAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_stack_move_all', __argsBuffer, this.setCallReducerFlags.itemStackMoveAllFlags)
+  }
+
+  onItemStackMoveAll(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveAllRequest) => void) {
+    this.connection.onReducer('item_stack_move_all', callback)
+  }
+
+  removeOnItemStackMoveAll(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveAllRequest) => void) {
+    this.connection.offReducer('item_stack_move_all', callback)
+  }
+
+  itemStackSplit(request: PlayerItemStackSplitRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemStackSplit.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_stack_split', __argsBuffer, this.setCallReducerFlags.itemStackSplitFlags)
+  }
+
+  onItemStackSplit(callback: (ctx: ReducerEventContext, request: PlayerItemStackSplitRequest) => void) {
+    this.connection.onReducer('item_stack_split', callback)
+  }
+
+  removeOnItemStackSplit(callback: (ctx: ReducerEventContext, request: PlayerItemStackSplitRequest) => void) {
+    this.connection.offReducer('item_stack_split', callback)
+  }
+
+  itemUse(request: PlayerItemUseRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemUse.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_use', __argsBuffer, this.setCallReducerFlags.itemUseFlags)
+  }
+
+  onItemUse(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+    this.connection.onReducer('item_use', callback)
+  }
+
+  removeOnItemUse(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+    this.connection.offReducer('item_use', callback)
+  }
+
+  itemUseStart(request: PlayerItemUseRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ItemUseStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('item_use_start', __argsBuffer, this.setCallReducerFlags.itemUseStartFlags)
+  }
+
+  onItemUseStart(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+    this.connection.onReducer('item_use_start', callback)
+  }
+
+  removeOnItemUseStart(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+    this.connection.offReducer('item_use_start', callback)
+  }
+
   loadConfig(environmentNames: string[], contents: string[]) {
     const __args = { environmentNames, contents }
     let __writer = new BinaryWriter(1024)
@@ -9666,32 +15473,100 @@ export class RemoteReducers {
     this.connection.offReducer('load_config', callback)
   }
 
-  logEmpireLeaderboard() {
+  logClaimMemberLeaderboard() {
     this.connection.callReducer(
-      'log_empire_leaderboard',
+      'log_claim_member_leaderboard',
       new Uint8Array(0),
-      this.setCallReducerFlags.logEmpireLeaderboardFlags
+      this.setCallReducerFlags.logClaimMemberLeaderboardFlags
     )
   }
 
-  onLogEmpireLeaderboard(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('log_empire_leaderboard', callback)
+  onLogClaimMemberLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('log_claim_member_leaderboard', callback)
   }
 
-  removeOnLogEmpireLeaderboard(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('log_empire_leaderboard', callback)
+  removeOnLogClaimMemberLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('log_claim_member_leaderboard', callback)
   }
 
-  logPlayerWith() {
-    this.connection.callReducer('log_player_with_', new Uint8Array(0), this.setCallReducerFlags.logPlayerWithFlags)
+  logClaimTierLeaderboard() {
+    this.connection.callReducer(
+      'log_claim_tier_leaderboard',
+      new Uint8Array(0),
+      this.setCallReducerFlags.logClaimTierLeaderboardFlags
+    )
   }
 
-  onLogPlayerWith(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('log_player_with_', callback)
+  onLogClaimTierLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('log_claim_tier_leaderboard', callback)
   }
 
-  removeOnLogPlayerWith(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('log_player_with_', callback)
+  removeOnLogClaimTierLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('log_claim_tier_leaderboard', callback)
+  }
+
+  lootChestDespawn(timer: LootChestDespawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    LootChestDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('loot_chest_despawn', __argsBuffer, this.setCallReducerFlags.lootChestDespawnFlags)
+  }
+
+  onLootChestDespawn(callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void) {
+    this.connection.onReducer('loot_chest_despawn', callback)
+  }
+
+  removeOnLootChestDespawn(callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void) {
+    this.connection.offReducer('loot_chest_despawn', callback)
+  }
+
+  lootChestSpawn(timer: LootChestSpawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    LootChestSpawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('loot_chest_spawn', __argsBuffer, this.setCallReducerFlags.lootChestSpawnFlags)
+  }
+
+  onLootChestSpawn(callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void) {
+    this.connection.onReducer('loot_chest_spawn', callback)
+  }
+
+  removeOnLootChestSpawn(callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void) {
+    this.connection.offReducer('loot_chest_spawn', callback)
+  }
+
+  npcAiAgentLoop(timer: NpcAiLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    NpcAiAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('npc_ai_agent_loop', __argsBuffer, this.setCallReducerFlags.npcAiAgentLoopFlags)
+  }
+
+  onNpcAiAgentLoop(callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void) {
+    this.connection.onReducer('npc_ai_agent_loop', callback)
+  }
+
+  removeOnNpcAiAgentLoop(callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void) {
+    this.connection.offReducer('npc_ai_agent_loop', callback)
+  }
+
+  onDurabilityZero(timer: OnDurabilityZeroTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    OnDurabilityZero.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('on_durability_zero', __argsBuffer, this.setCallReducerFlags.onDurabilityZeroFlags)
+  }
+
+  onOnDurabilityZero(callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void) {
+    this.connection.onReducer('on_durability_zero', callback)
+  }
+
+  removeOnOnDurabilityZero(callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void) {
+    this.connection.offReducer('on_durability_zero', callback)
   }
 
   onInterModuleMessageProcessed(id: bigint, error: string | undefined) {
@@ -9716,48 +15591,743 @@ export class RemoteReducers {
     this.connection.offReducer('on_inter_module_message_processed', callback)
   }
 
-  playerClaimDailyShards() {
+  orderCancel(request: PlayerOrderCancelRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_cancel', __argsBuffer, this.setCallReducerFlags.orderCancelFlags)
+  }
+
+  onOrderCancel(callback: (ctx: ReducerEventContext, request: PlayerOrderCancelRequest) => void) {
+    this.connection.onReducer('order_cancel', callback)
+  }
+
+  removeOnOrderCancel(callback: (ctx: ReducerEventContext, request: PlayerOrderCancelRequest) => void) {
+    this.connection.offReducer('order_cancel', callback)
+  }
+
+  orderCollect(request: PlayerOrderCollectRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_collect', __argsBuffer, this.setCallReducerFlags.orderCollectFlags)
+  }
+
+  onOrderCollect(callback: (ctx: ReducerEventContext, request: PlayerOrderCollectRequest) => void) {
+    this.connection.onReducer('order_collect', callback)
+  }
+
+  removeOnOrderCollect(callback: (ctx: ReducerEventContext, request: PlayerOrderCollectRequest) => void) {
+    this.connection.offReducer('order_collect', callback)
+  }
+
+  orderEditBuyOrder(request: PlayerEditOrderRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderEditBuyOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_edit_buy_order', __argsBuffer, this.setCallReducerFlags.orderEditBuyOrderFlags)
+  }
+
+  onOrderEditBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+    this.connection.onReducer('order_edit_buy_order', callback)
+  }
+
+  removeOnOrderEditBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+    this.connection.offReducer('order_edit_buy_order', callback)
+  }
+
+  orderEditSellOrder(request: PlayerEditOrderRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderEditSellOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_edit_sell_order', __argsBuffer, this.setCallReducerFlags.orderEditSellOrderFlags)
+  }
+
+  onOrderEditSellOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+    this.connection.onReducer('order_edit_sell_order', callback)
+  }
+
+  removeOnOrderEditSellOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+    this.connection.offReducer('order_edit_sell_order', callback)
+  }
+
+  orderPostBuyOrder(request: PlayerPostOrderRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderPostBuyOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_post_buy_order', __argsBuffer, this.setCallReducerFlags.orderPostBuyOrderFlags)
+  }
+
+  onOrderPostBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+    this.connection.onReducer('order_post_buy_order', callback)
+  }
+
+  removeOnOrderPostBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+    this.connection.offReducer('order_post_buy_order', callback)
+  }
+
+  orderPostSellOrder(request: PlayerPostOrderRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    OrderPostSellOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('order_post_sell_order', __argsBuffer, this.setCallReducerFlags.orderPostSellOrderFlags)
+  }
+
+  onOrderPostSellOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+    this.connection.onReducer('order_post_sell_order', callback)
+  }
+
+  removeOnOrderPostSellOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+    this.connection.offReducer('order_post_sell_order', callback)
+  }
+
+  passiveCraftCancel(passiveCraftEntityId: bigint) {
+    const __args = { passiveCraftEntityId }
+    let __writer = new BinaryWriter(1024)
+    PassiveCraftCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('passive_craft_cancel', __argsBuffer, this.setCallReducerFlags.passiveCraftCancelFlags)
+  }
+
+  onPassiveCraftCancel(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+    this.connection.onReducer('passive_craft_cancel', callback)
+  }
+
+  removeOnPassiveCraftCancel(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+    this.connection.offReducer('passive_craft_cancel', callback)
+  }
+
+  passiveCraftCollect(passiveCraftEntityId: bigint) {
+    const __args = { passiveCraftEntityId }
+    let __writer = new BinaryWriter(1024)
+    PassiveCraftCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'player_claim_daily_shards',
-      new Uint8Array(0),
-      this.setCallReducerFlags.playerClaimDailyShardsFlags
+      'passive_craft_collect',
+      __argsBuffer,
+      this.setCallReducerFlags.passiveCraftCollectFlags
     )
   }
 
-  onPlayerClaimDailyShards(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('player_claim_daily_shards', callback)
+  onPassiveCraftCollect(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+    this.connection.onReducer('passive_craft_collect', callback)
   }
 
-  removeOnPlayerClaimDailyShards(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('player_claim_daily_shards', callback)
+  removeOnPassiveCraftCollect(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+    this.connection.offReducer('passive_craft_collect', callback)
   }
 
-  playerCreate() {
-    this.connection.callReducer('player_create', new Uint8Array(0), this.setCallReducerFlags.playerCreateFlags)
-  }
-
-  onPlayerCreate(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('player_create', callback)
-  }
-
-  removeOnPlayerCreate(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('player_create', callback)
-  }
-
-  playerDismissNotification() {
+  passiveCraftCollectAll(buildingEntityId: bigint) {
+    const __args = { buildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    PassiveCraftCollectAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'player_dismiss_notification',
-      new Uint8Array(0),
-      this.setCallReducerFlags.playerDismissNotificationFlags
+      'passive_craft_collect_all',
+      __argsBuffer,
+      this.setCallReducerFlags.passiveCraftCollectAllFlags
     )
   }
 
-  onPlayerDismissNotification(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('player_dismiss_notification', callback)
+  onPassiveCraftCollectAll(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.onReducer('passive_craft_collect_all', callback)
   }
 
-  removeOnPlayerDismissNotification(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('player_dismiss_notification', callback)
+  removeOnPassiveCraftCollectAll(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.offReducer('passive_craft_collect_all', callback)
+  }
+
+  passiveCraftProcess(timer: PassiveCraftTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PassiveCraftProcess.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'passive_craft_process',
+      __argsBuffer,
+      this.setCallReducerFlags.passiveCraftProcessFlags
+    )
+  }
+
+  onPassiveCraftProcess(callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void) {
+    this.connection.onReducer('passive_craft_process', callback)
+  }
+
+  removeOnPassiveCraftProcess(callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void) {
+    this.connection.offReducer('passive_craft_process', callback)
+  }
+
+  passiveCraftQueue(request: PlayerPassiveCraftQueueRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PassiveCraftQueue.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('passive_craft_queue', __argsBuffer, this.setCallReducerFlags.passiveCraftQueueFlags)
+  }
+
+  onPassiveCraftQueue(callback: (ctx: ReducerEventContext, request: PlayerPassiveCraftQueueRequest) => void) {
+    this.connection.onReducer('passive_craft_queue', callback)
+  }
+
+  removeOnPassiveCraftQueue(callback: (ctx: ReducerEventContext, request: PlayerPassiveCraftQueueRequest) => void) {
+    this.connection.offReducer('passive_craft_queue', callback)
+  }
+
+  pausePlayTimer(request: PlayerPausePlayTimerRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PausePlayTimer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('pause_play_timer', __argsBuffer, this.setCallReducerFlags.pausePlayTimerFlags)
+  }
+
+  onPausePlayTimer(callback: (ctx: ReducerEventContext, request: PlayerPausePlayTimerRequest) => void) {
+    this.connection.onReducer('pause_play_timer', callback)
+  }
+
+  removeOnPausePlayTimer(callback: (ctx: ReducerEventContext, request: PlayerPausePlayTimerRequest) => void) {
+    this.connection.offReducer('pause_play_timer', callback)
+  }
+
+  pavingDestroyTile(request: PlayerPavingDestroyTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PavingDestroyTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('paving_destroy_tile', __argsBuffer, this.setCallReducerFlags.pavingDestroyTileFlags)
+  }
+
+  onPavingDestroyTile(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+    this.connection.onReducer('paving_destroy_tile', callback)
+  }
+
+  removeOnPavingDestroyTile(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+    this.connection.offReducer('paving_destroy_tile', callback)
+  }
+
+  pavingDestroyTileStart(request: PlayerPavingDestroyTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PavingDestroyTileStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'paving_destroy_tile_start',
+      __argsBuffer,
+      this.setCallReducerFlags.pavingDestroyTileStartFlags
+    )
+  }
+
+  onPavingDestroyTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+    this.connection.onReducer('paving_destroy_tile_start', callback)
+  }
+
+  removeOnPavingDestroyTileStart(
+    callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void
+  ) {
+    this.connection.offReducer('paving_destroy_tile_start', callback)
+  }
+
+  pavingPlaceTile(request: PlayerPavingPlaceTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PavingPlaceTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('paving_place_tile', __argsBuffer, this.setCallReducerFlags.pavingPlaceTileFlags)
+  }
+
+  onPavingPlaceTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.onReducer('paving_place_tile', callback)
+  }
+
+  removeOnPavingPlaceTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.offReducer('paving_place_tile', callback)
+  }
+
+  pavingPlaceTileStart(request: PlayerPavingPlaceTileRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PavingPlaceTileStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'paving_place_tile_start',
+      __argsBuffer,
+      this.setCallReducerFlags.pavingPlaceTileStartFlags
+    )
+  }
+
+  onPavingPlaceTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.onReducer('paving_place_tile_start', callback)
+  }
+
+  removeOnPavingPlaceTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+    this.connection.offReducer('paving_place_tile_start', callback)
+  }
+
+  permissionEdit(request: PlayerPermissionEditRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PermissionEdit.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('permission_edit', __argsBuffer, this.setCallReducerFlags.permissionEditFlags)
+  }
+
+  onPermissionEdit(callback: (ctx: ReducerEventContext, request: PlayerPermissionEditRequest) => void) {
+    this.connection.onReducer('permission_edit', callback)
+  }
+
+  removeOnPermissionEdit(callback: (ctx: ReducerEventContext, request: PlayerPermissionEditRequest) => void) {
+    this.connection.offReducer('permission_edit', callback)
+  }
+
+  pillarShapingDestroy(request: PlayerPillarShapingDestroyRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PillarShapingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'pillar_shaping_destroy',
+      __argsBuffer,
+      this.setCallReducerFlags.pillarShapingDestroyFlags
+    )
+  }
+
+  onPillarShapingDestroy(callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void) {
+    this.connection.onReducer('pillar_shaping_destroy', callback)
+  }
+
+  removeOnPillarShapingDestroy(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+  ) {
+    this.connection.offReducer('pillar_shaping_destroy', callback)
+  }
+
+  pillarShapingDestroyStart(request: PlayerPillarShapingDestroyRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PillarShapingDestroyStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'pillar_shaping_destroy_start',
+      __argsBuffer,
+      this.setCallReducerFlags.pillarShapingDestroyStartFlags
+    )
+  }
+
+  onPillarShapingDestroyStart(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+  ) {
+    this.connection.onReducer('pillar_shaping_destroy_start', callback)
+  }
+
+  removeOnPillarShapingDestroyStart(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+  ) {
+    this.connection.offReducer('pillar_shaping_destroy_start', callback)
+  }
+
+  pillarShapingPlacePillar(request: PlayerPillarShapingPlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PillarShapingPlacePillar.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'pillar_shaping_place_pillar',
+      __argsBuffer,
+      this.setCallReducerFlags.pillarShapingPlacePillarFlags
+    )
+  }
+
+  onPillarShapingPlacePillar(callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void) {
+    this.connection.onReducer('pillar_shaping_place_pillar', callback)
+  }
+
+  removeOnPillarShapingPlacePillar(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+  ) {
+    this.connection.offReducer('pillar_shaping_place_pillar', callback)
+  }
+
+  pillarShapingPlacePillarStart(request: PlayerPillarShapingPlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'pillar_shaping_place_pillar_start',
+      __argsBuffer,
+      this.setCallReducerFlags.pillarShapingPlacePillarStartFlags
+    )
+  }
+
+  onPillarShapingPlacePillarStart(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+  ) {
+    this.connection.onReducer('pillar_shaping_place_pillar_start', callback)
+  }
+
+  removeOnPillarShapingPlacePillarStart(
+    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+  ) {
+    this.connection.offReducer('pillar_shaping_place_pillar_start', callback)
+  }
+
+  playerActionCancel(clientCancel: boolean) {
+    const __args = { clientCancel }
+    let __writer = new BinaryWriter(1024)
+    PlayerActionCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_action_cancel', __argsBuffer, this.setCallReducerFlags.playerActionCancelFlags)
+  }
+
+  onPlayerActionCancel(callback: (ctx: ReducerEventContext, clientCancel: boolean) => void) {
+    this.connection.onReducer('player_action_cancel', callback)
+  }
+
+  removeOnPlayerActionCancel(callback: (ctx: ReducerEventContext, clientCancel: boolean) => void) {
+    this.connection.offReducer('player_action_cancel', callback)
+  }
+
+  playerCancelRegionTransfer() {
+    this.connection.callReducer(
+      'player_cancel_region_transfer',
+      new Uint8Array(0),
+      this.setCallReducerFlags.playerCancelRegionTransferFlags
+    )
+  }
+
+  onPlayerCancelRegionTransfer(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('player_cancel_region_transfer', callback)
+  }
+
+  removeOnPlayerCancelRegionTransfer(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('player_cancel_region_transfer', callback)
+  }
+
+  playerClearActionState(
+    actorId: bigint,
+    currentAction: PlayerActionType,
+    layer: PlayerActionLayer,
+    lastActionResult: PlayerActionResult
+  ) {
+    const __args = { actorId, currentAction, layer, lastActionResult }
+    let __writer = new BinaryWriter(1024)
+    PlayerClearActionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_clear_action_state',
+      __argsBuffer,
+      this.setCallReducerFlags.playerClearActionStateFlags
+    )
+  }
+
+  onPlayerClearActionState(
+    callback: (
+      ctx: ReducerEventContext,
+      actorId: bigint,
+      currentAction: PlayerActionType,
+      layer: PlayerActionLayer,
+      lastActionResult: PlayerActionResult
+    ) => void
+  ) {
+    this.connection.onReducer('player_clear_action_state', callback)
+  }
+
+  removeOnPlayerClearActionState(
+    callback: (
+      ctx: ReducerEventContext,
+      actorId: bigint,
+      currentAction: PlayerActionType,
+      layer: PlayerActionLayer,
+      lastActionResult: PlayerActionResult
+    ) => void
+  ) {
+    this.connection.offReducer('player_clear_action_state', callback)
+  }
+
+  playerClimb(request: PlayerClimbRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerClimb.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_climb', __argsBuffer, this.setCallReducerFlags.playerClimbFlags)
+  }
+
+  onPlayerClimb(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+    this.connection.onReducer('player_climb', callback)
+  }
+
+  removeOnPlayerClimb(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+    this.connection.offReducer('player_climb', callback)
+  }
+
+  playerClimbStart(request: PlayerClimbRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerClimbStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_climb_start', __argsBuffer, this.setCallReducerFlags.playerClimbStartFlags)
+  }
+
+  onPlayerClimbStart(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+    this.connection.onReducer('player_climb_start', callback)
+  }
+
+  removeOnPlayerClimbStart(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+    this.connection.offReducer('player_climb_start', callback)
+  }
+
+  playerCompleteTask(request: PlayerCompleteTaskRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerCompleteTask.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_complete_task', __argsBuffer, this.setCallReducerFlags.playerCompleteTaskFlags)
+  }
+
+  onPlayerCompleteTask(callback: (ctx: ReducerEventContext, request: PlayerCompleteTaskRequest) => void) {
+    this.connection.onReducer('player_complete_task', callback)
+  }
+
+  removeOnPlayerCompleteTask(callback: (ctx: ReducerEventContext, request: PlayerCompleteTaskRequest) => void) {
+    this.connection.offReducer('player_complete_task', callback)
+  }
+
+  playerDeathStart(timer: PlayerDeathTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerDeathStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_death_start', __argsBuffer, this.setCallReducerFlags.playerDeathStartFlags)
+  }
+
+  onPlayerDeathStart(callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void) {
+    this.connection.onReducer('player_death_start', callback)
+  }
+
+  removeOnPlayerDeathStart(callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void) {
+    this.connection.offReducer('player_death_start', callback)
+  }
+
+  playerDismissAlert(request: PlayerDismissAlertRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerDismissAlert.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_dismiss_alert', __argsBuffer, this.setCallReducerFlags.playerDismissAlertFlags)
+  }
+
+  onPlayerDismissAlert(callback: (ctx: ReducerEventContext, request: PlayerDismissAlertRequest) => void) {
+    this.connection.onReducer('player_dismiss_alert', callback)
+  }
+
+  removeOnPlayerDismissAlert(callback: (ctx: ReducerEventContext, request: PlayerDismissAlertRequest) => void) {
+    this.connection.offReducer('player_dismiss_alert', callback)
+  }
+
+  playerDuelInitiate(targetPlayerEntityId: bigint) {
+    const __args = { targetPlayerEntityId }
+    let __writer = new BinaryWriter(1024)
+    PlayerDuelInitiate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_duel_initiate', __argsBuffer, this.setCallReducerFlags.playerDuelInitiateFlags)
+  }
+
+  onPlayerDuelInitiate(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
+    this.connection.onReducer('player_duel_initiate', callback)
+  }
+
+  removeOnPlayerDuelInitiate(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
+    this.connection.offReducer('player_duel_initiate', callback)
+  }
+
+  playerElevatorArrive(timer: PlayerUseElevatorTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerElevatorArrive.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_elevator_arrive',
+      __argsBuffer,
+      this.setCallReducerFlags.playerElevatorArriveFlags
+    )
+  }
+
+  onPlayerElevatorArrive(callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void) {
+    this.connection.onReducer('player_elevator_arrive', callback)
+  }
+
+  removeOnPlayerElevatorArrive(callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void) {
+    this.connection.offReducer('player_elevator_arrive', callback)
+  }
+
+  playerHousingChangeEntrance(buildingEntityId: bigint) {
+    const __args = { buildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_change_entrance',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingChangeEntranceFlags
+    )
+  }
+
+  onPlayerHousingChangeEntrance(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.onReducer('player_housing_change_entrance', callback)
+  }
+
+  removeOnPlayerHousingChangeEntrance(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.offReducer('player_housing_change_entrance', callback)
+  }
+
+  playerHousingEnter(request: PlayerHousingEnterRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingEnter.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_housing_enter', __argsBuffer, this.setCallReducerFlags.playerHousingEnterFlags)
+  }
+
+  onPlayerHousingEnter(callback: (ctx: ReducerEventContext, request: PlayerHousingEnterRequest) => void) {
+    this.connection.onReducer('player_housing_enter', callback)
+  }
+
+  removeOnPlayerHousingEnter(callback: (ctx: ReducerEventContext, request: PlayerHousingEnterRequest) => void) {
+    this.connection.offReducer('player_housing_enter', callback)
+  }
+
+  playerHousingEvictPlayer(request: PlayerHousingEvictPlayerRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingEvictPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_evict_player',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingEvictPlayerFlags
+    )
+  }
+
+  onPlayerHousingEvictPlayer(callback: (ctx: ReducerEventContext, request: PlayerHousingEvictPlayerRequest) => void) {
+    this.connection.onReducer('player_housing_evict_player', callback)
+  }
+
+  removeOnPlayerHousingEvictPlayer(
+    callback: (ctx: ReducerEventContext, request: PlayerHousingEvictPlayerRequest) => void
+  ) {
+    this.connection.offReducer('player_housing_evict_player', callback)
+  }
+
+  playerHousingEvictPlayerComplete(timer: PlayerHousingEvictPlayerTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_evict_player_complete',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingEvictPlayerCompleteFlags
+    )
+  }
+
+  onPlayerHousingEvictPlayerComplete(
+    callback: (ctx: ReducerEventContext, timer: PlayerHousingEvictPlayerTimer) => void
+  ) {
+    this.connection.onReducer('player_housing_evict_player_complete', callback)
+  }
+
+  removeOnPlayerHousingEvictPlayerComplete(
+    callback: (ctx: ReducerEventContext, timer: PlayerHousingEvictPlayerTimer) => void
+  ) {
+    this.connection.offReducer('player_housing_evict_player_complete', callback)
+  }
+
+  playerHousingIncomeAgentLoop(timer: PlayerHousingIncomeLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_income_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingIncomeAgentLoopFlags
+    )
+  }
+
+  onPlayerHousingIncomeAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerHousingIncomeLoopTimer) => void) {
+    this.connection.onReducer('player_housing_income_agent_loop', callback)
+  }
+
+  removeOnPlayerHousingIncomeAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: PlayerHousingIncomeLoopTimer) => void
+  ) {
+    this.connection.offReducer('player_housing_income_agent_loop', callback)
+  }
+
+  playerHousingRequestAccess(request: PlayerHousingRequestAccessRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingRequestAccess.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_request_access',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingRequestAccessFlags
+    )
+  }
+
+  onPlayerHousingRequestAccess(
+    callback: (ctx: ReducerEventContext, request: PlayerHousingRequestAccessRequest) => void
+  ) {
+    this.connection.onReducer('player_housing_request_access', callback)
+  }
+
+  removeOnPlayerHousingRequestAccess(
+    callback: (ctx: ReducerEventContext, request: PlayerHousingRequestAccessRequest) => void
+  ) {
+    this.connection.offReducer('player_housing_request_access', callback)
+  }
+
+  playerHousingUpdate(buildingEntityId: bigint) {
+    const __args = { buildingEntityId }
+    let __writer = new BinaryWriter(1024)
+    PlayerHousingUpdate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_housing_update',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingUpdateFlags
+    )
+  }
+
+  onPlayerHousingUpdate(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.onReducer('player_housing_update', callback)
+  }
+
+  removeOnPlayerHousingUpdate(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+    this.connection.offReducer('player_housing_update', callback)
+  }
+
+  playerMove(request: PlayerMoveRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_move', __argsBuffer, this.setCallReducerFlags.playerMoveFlags)
+  }
+
+  onPlayerMove(callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void) {
+    this.connection.onReducer('player_move', callback)
+  }
+
+  removeOnPlayerMove(callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void) {
+    this.connection.offReducer('player_move', callback)
   }
 
   playerNotificationEventReducer(timer: PlayerNotificationEvent) {
@@ -9780,20 +16350,242 @@ export class RemoteReducers {
     this.connection.offReducer('player_notification_event_reducer', callback)
   }
 
-  playerSetName(request: PlayerSetNameRequest) {
+  playerQueueJoin() {
+    this.connection.callReducer('player_queue_join', new Uint8Array(0), this.setCallReducerFlags.playerQueueJoinFlags)
+  }
+
+  onPlayerQueueJoin(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('player_queue_join', callback)
+  }
+
+  removeOnPlayerQueueJoin(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('player_queue_join', callback)
+  }
+
+  playerQueueLeave() {
+    this.connection.callReducer('player_queue_leave', new Uint8Array(0), this.setCallReducerFlags.playerQueueLeaveFlags)
+  }
+
+  onPlayerQueueLeave(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('player_queue_leave', callback)
+  }
+
+  removeOnPlayerQueueLeave(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('player_queue_leave', callback)
+  }
+
+  playerRegenAgentLoop(timer: PlayerRegenLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerRegenAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_regen_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.playerRegenAgentLoopFlags
+    )
+  }
+
+  onPlayerRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void) {
+    this.connection.onReducer('player_regen_agent_loop', callback)
+  }
+
+  removeOnPlayerRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void) {
+    this.connection.offReducer('player_regen_agent_loop', callback)
+  }
+
+  playerRegionCrossover() {
+    this.connection.callReducer(
+      'player_region_crossover',
+      new Uint8Array(0),
+      this.setCallReducerFlags.playerRegionCrossoverFlags
+    )
+  }
+
+  onPlayerRegionCrossover(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('player_region_crossover', callback)
+  }
+
+  removeOnPlayerRegionCrossover(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('player_region_crossover', callback)
+  }
+
+  playerRegionTransferEventReducer(timer: PlayerRegionTransferEvent) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_region_transfer_event_reducer',
+      __argsBuffer,
+      this.setCallReducerFlags.playerRegionTransferEventReducerFlags
+    )
+  }
+
+  onPlayerRegionTransferEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerRegionTransferEvent) => void) {
+    this.connection.onReducer('player_region_transfer_event_reducer', callback)
+  }
+
+  removeOnPlayerRegionTransferEventReducer(
+    callback: (ctx: ReducerEventContext, timer: PlayerRegionTransferEvent) => void
+  ) {
+    this.connection.offReducer('player_region_transfer_event_reducer', callback)
+  }
+
+  playerRespawn(teleportHome: boolean) {
+    const __args = { teleportHome }
+    let __writer = new BinaryWriter(1024)
+    PlayerRespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_respawn', __argsBuffer, this.setCallReducerFlags.playerRespawnFlags)
+  }
+
+  onPlayerRespawn(callback: (ctx: ReducerEventContext, teleportHome: boolean) => void) {
+    this.connection.onReducer('player_respawn', callback)
+  }
+
+  removeOnPlayerRespawn(callback: (ctx: ReducerEventContext, teleportHome: boolean) => void) {
+    this.connection.offReducer('player_respawn', callback)
+  }
+
+  playerSetDefaultDeployable(request: PlayerSetDefaultDeployableRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerSetName.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerSetDefaultDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_set_name', __argsBuffer, this.setCallReducerFlags.playerSetNameFlags)
+    this.connection.callReducer(
+      'player_set_default_deployable',
+      __argsBuffer,
+      this.setCallReducerFlags.playerSetDefaultDeployableFlags
+    )
   }
 
-  onPlayerSetName(callback: (ctx: ReducerEventContext, request: PlayerSetNameRequest) => void) {
-    this.connection.onReducer('player_set_name', callback)
+  onPlayerSetDefaultDeployable(
+    callback: (ctx: ReducerEventContext, request: PlayerSetDefaultDeployableRequest) => void
+  ) {
+    this.connection.onReducer('player_set_default_deployable', callback)
   }
 
-  removeOnPlayerSetName(callback: (ctx: ReducerEventContext, request: PlayerSetNameRequest) => void) {
-    this.connection.offReducer('player_set_name', callback)
+  removeOnPlayerSetDefaultDeployable(
+    callback: (ctx: ReducerEventContext, request: PlayerSetDefaultDeployableRequest) => void
+  ) {
+    this.connection.offReducer('player_set_default_deployable', callback)
+  }
+
+  playerSetNameOutcomeEventReducer(timer: PlayerSetNameOutcomeEvent) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    PlayerSetNameOutcomeEventReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_set_name_outcome_event_reducer',
+      __argsBuffer,
+      this.setCallReducerFlags.playerSetNameOutcomeEventReducerFlags
+    )
+  }
+
+  onPlayerSetNameOutcomeEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerSetNameOutcomeEvent) => void) {
+    this.connection.onReducer('player_set_name_outcome_event_reducer', callback)
+  }
+
+  removeOnPlayerSetNameOutcomeEventReducer(
+    callback: (ctx: ReducerEventContext, timer: PlayerSetNameOutcomeEvent) => void
+  ) {
+    this.connection.offReducer('player_set_name_outcome_event_reducer', callback)
+  }
+
+  playerTeleportHome(request: PlayerTeleportHomeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerTeleportHome.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_teleport_home', __argsBuffer, this.setCallReducerFlags.playerTeleportHomeFlags)
+  }
+
+  onPlayerTeleportHome(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+    this.connection.onReducer('player_teleport_home', callback)
+  }
+
+  removeOnPlayerTeleportHome(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+    this.connection.offReducer('player_teleport_home', callback)
+  }
+
+  playerTeleportHomeStart(request: PlayerTeleportHomeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerTeleportHomeStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_teleport_home_start',
+      __argsBuffer,
+      this.setCallReducerFlags.playerTeleportHomeStartFlags
+    )
+  }
+
+  onPlayerTeleportHomeStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+    this.connection.onReducer('player_teleport_home_start', callback)
+  }
+
+  removeOnPlayerTeleportHomeStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+    this.connection.offReducer('player_teleport_home_start', callback)
+  }
+
+  playerTeleportWaystone(request: PlayerTeleportWaystoneRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerTeleportWaystone.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_teleport_waystone',
+      __argsBuffer,
+      this.setCallReducerFlags.playerTeleportWaystoneFlags
+    )
+  }
+
+  onPlayerTeleportWaystone(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+    this.connection.onReducer('player_teleport_waystone', callback)
+  }
+
+  removeOnPlayerTeleportWaystone(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+    this.connection.offReducer('player_teleport_waystone', callback)
+  }
+
+  playerTeleportWaystoneStart(request: PlayerTeleportWaystoneRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'player_teleport_waystone_start',
+      __argsBuffer,
+      this.setCallReducerFlags.playerTeleportWaystoneStartFlags
+    )
+  }
+
+  onPlayerTeleportWaystoneStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+    this.connection.onReducer('player_teleport_waystone_start', callback)
+  }
+
+  removeOnPlayerTeleportWaystoneStart(
+    callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void
+  ) {
+    this.connection.offReducer('player_teleport_waystone_start', callback)
+  }
+
+  playerUseElevator(platformEntityId: bigint) {
+    const __args = { platformEntityId }
+    let __writer = new BinaryWriter(1024)
+    PlayerUseElevator.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('player_use_elevator', __argsBuffer, this.setCallReducerFlags.playerUseElevatorFlags)
+  }
+
+  onPlayerUseElevator(callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void) {
+    this.connection.onReducer('player_use_elevator', callback)
+  }
+
+  removeOnPlayerUseElevator(callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void) {
+    this.connection.offReducer('player_use_elevator', callback)
   }
 
   playerVoteAnswer(request: PlayerVoteAnswerRequest) {
@@ -9828,6 +16620,38 @@ export class RemoteReducers {
     this.connection.offReducer('player_vote_conclude', callback)
   }
 
+  pocketSwapContents(request: PlayerPocketSwapContentsRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PocketSwapContents.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('pocket_swap_contents', __argsBuffer, this.setCallReducerFlags.pocketSwapContentsFlags)
+  }
+
+  onPocketSwapContents(callback: (ctx: ReducerEventContext, request: PlayerPocketSwapContentsRequest) => void) {
+    this.connection.onReducer('pocket_swap_contents', callback)
+  }
+
+  removeOnPocketSwapContents(callback: (ctx: ReducerEventContext, request: PlayerPocketSwapContentsRequest) => void) {
+    this.connection.offReducer('pocket_swap_contents', callback)
+  }
+
+  portalEnter(request: PlayerPortalEnterRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    PortalEnter.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('portal_enter', __argsBuffer, this.setCallReducerFlags.portalEnterFlags)
+  }
+
+  onPortalEnter(callback: (ctx: ReducerEventContext, request: PlayerPortalEnterRequest) => void) {
+    this.connection.onReducer('portal_enter', callback)
+  }
+
+  removeOnPortalEnter(callback: (ctx: ReducerEventContext, request: PlayerPortalEnterRequest) => void) {
+    this.connection.offReducer('portal_enter', callback)
+  }
+
   processInterModuleMessage(sender: number, message: InterModuleMessage) {
     const __args = { sender, message }
     let __writer = new BinaryWriter(1024)
@@ -9852,20 +16676,604 @@ export class RemoteReducers {
     this.connection.offReducer('process_inter_module_message', callback)
   }
 
-  setRoleForIdentity(identity: string, role: Role) {
-    const __args = { identity, role }
+  projectSiteAddMaterials(request: PlayerProjectSiteAddMaterialsRequest) {
+    const __args = { request }
     let __writer = new BinaryWriter(1024)
-    SetRoleForIdentity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ProjectSiteAddMaterials.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('set_role_for_identity', __argsBuffer, this.setCallReducerFlags.setRoleForIdentityFlags)
+    this.connection.callReducer(
+      'project_site_add_materials',
+      __argsBuffer,
+      this.setCallReducerFlags.projectSiteAddMaterialsFlags
+    )
   }
 
-  onSetRoleForIdentity(callback: (ctx: ReducerEventContext, identity: string, role: Role) => void) {
-    this.connection.onReducer('set_role_for_identity', callback)
+  onProjectSiteAddMaterials(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAddMaterialsRequest) => void
+  ) {
+    this.connection.onReducer('project_site_add_materials', callback)
   }
 
-  removeOnSetRoleForIdentity(callback: (ctx: ReducerEventContext, identity: string, role: Role) => void) {
-    this.connection.offReducer('set_role_for_identity', callback)
+  removeOnProjectSiteAddMaterials(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAddMaterialsRequest) => void
+  ) {
+    this.connection.offReducer('project_site_add_materials', callback)
+  }
+
+  projectSiteAdvanceProject(request: PlayerProjectSiteAdvanceProjectRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ProjectSiteAdvanceProject.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'project_site_advance_project',
+      __argsBuffer,
+      this.setCallReducerFlags.projectSiteAdvanceProjectFlags
+    )
+  }
+
+  onProjectSiteAdvanceProject(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+  ) {
+    this.connection.onReducer('project_site_advance_project', callback)
+  }
+
+  removeOnProjectSiteAdvanceProject(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+  ) {
+    this.connection.offReducer('project_site_advance_project', callback)
+  }
+
+  projectSiteAdvanceProjectStart(request: PlayerProjectSiteAdvanceProjectRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ProjectSiteAdvanceProjectStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'project_site_advance_project_start',
+      __argsBuffer,
+      this.setCallReducerFlags.projectSiteAdvanceProjectStartFlags
+    )
+  }
+
+  onProjectSiteAdvanceProjectStart(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+  ) {
+    this.connection.onReducer('project_site_advance_project_start', callback)
+  }
+
+  removeOnProjectSiteAdvanceProjectStart(
+    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+  ) {
+    this.connection.offReducer('project_site_advance_project_start', callback)
+  }
+
+  projectSiteCancel(request: PlayerProjectSiteCancelRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ProjectSiteCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('project_site_cancel', __argsBuffer, this.setCallReducerFlags.projectSiteCancelFlags)
+  }
+
+  onProjectSiteCancel(callback: (ctx: ReducerEventContext, request: PlayerProjectSiteCancelRequest) => void) {
+    this.connection.onReducer('project_site_cancel', callback)
+  }
+
+  removeOnProjectSiteCancel(callback: (ctx: ReducerEventContext, request: PlayerProjectSiteCancelRequest) => void) {
+    this.connection.offReducer('project_site_cancel', callback)
+  }
+
+  projectSitePlace(request: PlayerProjectSitePlaceRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ProjectSitePlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('project_site_place', __argsBuffer, this.setCallReducerFlags.projectSitePlaceFlags)
+  }
+
+  onProjectSitePlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+    this.connection.onReducer('project_site_place', callback)
+  }
+
+  removeOnProjectSitePlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+    this.connection.offReducer('project_site_place', callback)
+  }
+
+  regionPopuplationAgentLoop(timer: RegionPopulationLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'region_popuplation_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.regionPopuplationAgentLoopFlags
+    )
+  }
+
+  onRegionPopuplationAgentLoop(callback: (ctx: ReducerEventContext, timer: RegionPopulationLoopTimer) => void) {
+    this.connection.onReducer('region_popuplation_agent_loop', callback)
+  }
+
+  removeOnRegionPopuplationAgentLoop(callback: (ctx: ReducerEventContext, timer: RegionPopulationLoopTimer) => void) {
+    this.connection.offReducer('region_popuplation_agent_loop', callback)
+  }
+
+  rentAddListing(request: RentAddListingRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentAddListing.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_add_listing', __argsBuffer, this.setCallReducerFlags.rentAddListingFlags)
+  }
+
+  onRentAddListing(callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void) {
+    this.connection.onReducer('rent_add_listing', callback)
+  }
+
+  removeOnRentAddListing(callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void) {
+    this.connection.offReducer('rent_add_listing', callback)
+  }
+
+  rentAddTenant(request: RentAddTenantRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentAddTenant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_add_tenant', __argsBuffer, this.setCallReducerFlags.rentAddTenantFlags)
+  }
+
+  onRentAddTenant(callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void) {
+    this.connection.onReducer('rent_add_tenant', callback)
+  }
+
+  removeOnRentAddTenant(callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void) {
+    this.connection.offReducer('rent_add_tenant', callback)
+  }
+
+  rentCollectEvictionFee(rentEntityId: bigint) {
+    const __args = { rentEntityId }
+    let __writer = new BinaryWriter(1024)
+    RentCollectEvictionFee.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'rent_collect_eviction_fee',
+      __argsBuffer,
+      this.setCallReducerFlags.rentCollectEvictionFeeFlags
+    )
+  }
+
+  onRentCollectEvictionFee(callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void) {
+    this.connection.onReducer('rent_collect_eviction_fee', callback)
+  }
+
+  removeOnRentCollectEvictionFee(callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void) {
+    this.connection.offReducer('rent_collect_eviction_fee', callback)
+  }
+
+  rentCollectorAgentLoop(timer: RentCollectorLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    RentCollectorAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'rent_collector_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.rentCollectorAgentLoopFlags
+    )
+  }
+
+  onRentCollectorAgentLoop(callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void) {
+    this.connection.onReducer('rent_collector_agent_loop', callback)
+  }
+
+  removeOnRentCollectorAgentLoop(callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void) {
+    this.connection.offReducer('rent_collector_agent_loop', callback)
+  }
+
+  rentDepositCoins(request: RentDepositCoinsRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentDepositCoins.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_deposit_coins', __argsBuffer, this.setCallReducerFlags.rentDepositCoinsFlags)
+  }
+
+  onRentDepositCoins(callback: (ctx: ReducerEventContext, request: RentDepositCoinsRequest) => void) {
+    this.connection.onReducer('rent_deposit_coins', callback)
+  }
+
+  removeOnRentDepositCoins(callback: (ctx: ReducerEventContext, request: RentDepositCoinsRequest) => void) {
+    this.connection.offReducer('rent_deposit_coins', callback)
+  }
+
+  rentEvict(request: RentEvictRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentEvict.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_evict', __argsBuffer, this.setCallReducerFlags.rentEvictFlags)
+  }
+
+  onRentEvict(callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void) {
+    this.connection.onReducer('rent_evict', callback)
+  }
+
+  removeOnRentEvict(callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void) {
+    this.connection.offReducer('rent_evict', callback)
+  }
+
+  rentEvictTerm(timer: RentEvictTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    RentEvictTerm.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_evict_term', __argsBuffer, this.setCallReducerFlags.rentEvictTermFlags)
+  }
+
+  onRentEvictTerm(callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void) {
+    this.connection.onReducer('rent_evict_term', callback)
+  }
+
+  removeOnRentEvictTerm(callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void) {
+    this.connection.offReducer('rent_evict_term', callback)
+  }
+
+  rentPurchase(request: RentPurchaseRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentPurchase.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_purchase', __argsBuffer, this.setCallReducerFlags.rentPurchaseFlags)
+  }
+
+  onRentPurchase(callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void) {
+    this.connection.onReducer('rent_purchase', callback)
+  }
+
+  removeOnRentPurchase(callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void) {
+    this.connection.offReducer('rent_purchase', callback)
+  }
+
+  rentRemoveTenant(request: RentRemoveTenantRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentRemoveTenant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_remove_tenant', __argsBuffer, this.setCallReducerFlags.rentRemoveTenantFlags)
+  }
+
+  onRentRemoveTenant(callback: (ctx: ReducerEventContext, request: RentRemoveTenantRequest) => void) {
+    this.connection.onReducer('rent_remove_tenant', callback)
+  }
+
+  removeOnRentRemoveTenant(callback: (ctx: ReducerEventContext, request: RentRemoveTenantRequest) => void) {
+    this.connection.offReducer('rent_remove_tenant', callback)
+  }
+
+  rentSetDailyRate(request: RentSetDailyRateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentSetDailyRate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_set_daily_rate', __argsBuffer, this.setCallReducerFlags.rentSetDailyRateFlags)
+  }
+
+  onRentSetDailyRate(callback: (ctx: ReducerEventContext, request: RentSetDailyRateRequest) => void) {
+    this.connection.onReducer('rent_set_daily_rate', callback)
+  }
+
+  removeOnRentSetDailyRate(callback: (ctx: ReducerEventContext, request: RentSetDailyRateRequest) => void) {
+    this.connection.offReducer('rent_set_daily_rate', callback)
+  }
+
+  rentTerminate(request: RentTerminateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentTerminate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_terminate', __argsBuffer, this.setCallReducerFlags.rentTerminateFlags)
+  }
+
+  onRentTerminate(callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void) {
+    this.connection.onReducer('rent_terminate', callback)
+  }
+
+  removeOnRentTerminate(callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void) {
+    this.connection.offReducer('rent_terminate', callback)
+  }
+
+  rentUnlist(request: RentUnlistRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RentUnlist.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('rent_unlist', __argsBuffer, this.setCallReducerFlags.rentUnlistFlags)
+  }
+
+  onRentUnlist(callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void) {
+    this.connection.onReducer('rent_unlist', callback)
+  }
+
+  removeOnRentUnlist(callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void) {
+    this.connection.offReducer('rent_unlist', callback)
+  }
+
+  reportChatMessage(request: ReportPlayerChatMessage) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ReportChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('report_chat_message', __argsBuffer, this.setCallReducerFlags.reportChatMessageFlags)
+  }
+
+  onReportChatMessage(callback: (ctx: ReducerEventContext, request: ReportPlayerChatMessage) => void) {
+    this.connection.onReducer('report_chat_message', callback)
+  }
+
+  removeOnReportChatMessage(callback: (ctx: ReducerEventContext, request: ReportPlayerChatMessage) => void) {
+    this.connection.offReducer('report_chat_message', callback)
+  }
+
+  reportPlayer(request: ReportPlayerMessage) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ReportPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('report_player', __argsBuffer, this.setCallReducerFlags.reportPlayerFlags)
+  }
+
+  onReportPlayer(callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void) {
+    this.connection.onReducer('report_player', callback)
+  }
+
+  removeOnReportPlayer(callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void) {
+    this.connection.offReducer('report_player', callback)
+  }
+
+  resetChunkIndex() {
+    this.connection.callReducer('reset_chunk_index', new Uint8Array(0), this.setCallReducerFlags.resetChunkIndexFlags)
+  }
+
+  onResetChunkIndex(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('reset_chunk_index', callback)
+  }
+
+  removeOnResetChunkIndex(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('reset_chunk_index', callback)
+  }
+
+  resetChunkIndexWithDimension(timer: ResetChunkIndexTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'reset_chunk_index_with_dimension',
+      __argsBuffer,
+      this.setCallReducerFlags.resetChunkIndexWithDimensionFlags
+    )
+  }
+
+  onResetChunkIndexWithDimension(callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void) {
+    this.connection.onReducer('reset_chunk_index_with_dimension', callback)
+  }
+
+  removeOnResetChunkIndexWithDimension(callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void) {
+    this.connection.offReducer('reset_chunk_index_with_dimension', callback)
+  }
+
+  resetMobileEntityPosition(timer: ResetMobileEntityTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ResetMobileEntityPosition.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'reset_mobile_entity_position',
+      __argsBuffer,
+      this.setCallReducerFlags.resetMobileEntityPositionFlags
+    )
+  }
+
+  onResetMobileEntityPosition(callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void) {
+    this.connection.onReducer('reset_mobile_entity_position', callback)
+  }
+
+  removeOnResetMobileEntityPosition(callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void) {
+    this.connection.offReducer('reset_mobile_entity_position', callback)
+  }
+
+  resetOnboarding() {
+    this.connection.callReducer('reset_onboarding', new Uint8Array(0), this.setCallReducerFlags.resetOnboardingFlags)
+  }
+
+  onResetOnboarding(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('reset_onboarding', callback)
+  }
+
+  removeOnResetOnboarding(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('reset_onboarding', callback)
+  }
+
+  resourceSpawnScheduled(timer: ResourceSpawnTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ResourceSpawnScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'resource_spawn_scheduled',
+      __argsBuffer,
+      this.setCallReducerFlags.resourceSpawnScheduledFlags
+    )
+  }
+
+  onResourceSpawnScheduled(callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void) {
+    this.connection.onReducer('resource_spawn_scheduled', callback)
+  }
+
+  removeOnResourceSpawnScheduled(callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void) {
+    this.connection.offReducer('resource_spawn_scheduled', callback)
+  }
+
+  resourcesRegen(timer: ResourcesRegenLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ResourcesRegen.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('resources_regen', __argsBuffer, this.setCallReducerFlags.resourcesRegenFlags)
+  }
+
+  onResourcesRegen(callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void) {
+    this.connection.onReducer('resources_regen', callback)
+  }
+
+  removeOnResourcesRegen(callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void) {
+    this.connection.offReducer('resources_regen', callback)
+  }
+
+  respawnInteriorNpcs() {
+    this.connection.callReducer(
+      'respawn_interior_npcs',
+      new Uint8Array(0),
+      this.setCallReducerFlags.respawnInteriorNpcsFlags
+    )
+  }
+
+  onRespawnInteriorNpcs(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('respawn_interior_npcs', callback)
+  }
+
+  removeOnRespawnInteriorNpcs(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('respawn_interior_npcs', callback)
+  }
+
+  respawnResourceInChunk(timer: RespawnResourceInChunkTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    RespawnResourceInChunk.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'respawn_resource_in_chunk',
+      __argsBuffer,
+      this.setCallReducerFlags.respawnResourceInChunkFlags
+    )
+  }
+
+  onRespawnResourceInChunk(callback: (ctx: ReducerEventContext, timer: RespawnResourceInChunkTimer) => void) {
+    this.connection.onReducer('respawn_resource_in_chunk', callback)
+  }
+
+  removeOnRespawnResourceInChunk(callback: (ctx: ReducerEventContext, timer: RespawnResourceInChunkTimer) => void) {
+    this.connection.offReducer('respawn_resource_in_chunk', callback)
+  }
+
+  retrieveLostItem(request: PlayerRetrieveLostItemRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    RetrieveLostItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('retrieve_lost_item', __argsBuffer, this.setCallReducerFlags.retrieveLostItemFlags)
+  }
+
+  onRetrieveLostItem(callback: (ctx: ReducerEventContext, request: PlayerRetrieveLostItemRequest) => void) {
+    this.connection.onReducer('retrieve_lost_item', callback)
+  }
+
+  removeOnRetrieveLostItem(callback: (ctx: ReducerEventContext, request: PlayerRetrieveLostItemRequest) => void) {
+    this.connection.offReducer('retrieve_lost_item', callback)
+  }
+
+  scrollRead(request: PlayerScrollReadRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    ScrollRead.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('scroll_read', __argsBuffer, this.setCallReducerFlags.scrollReadFlags)
+  }
+
+  onScrollRead(callback: (ctx: ReducerEventContext, request: PlayerScrollReadRequest) => void) {
+    this.connection.onReducer('scroll_read', callback)
+  }
+
+  removeOnScrollRead(callback: (ctx: ReducerEventContext, request: PlayerScrollReadRequest) => void) {
+    this.connection.offReducer('scroll_read', callback)
+  }
+
+  searchForClosestBuilding(buildingDescriptionIds: number[]) {
+    const __args = { buildingDescriptionIds }
+    let __writer = new BinaryWriter(1024)
+    SearchForClosestBuilding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'search_for_closest_building',
+      __argsBuffer,
+      this.setCallReducerFlags.searchForClosestBuildingFlags
+    )
+  }
+
+  onSearchForClosestBuilding(callback: (ctx: ReducerEventContext, buildingDescriptionIds: number[]) => void) {
+    this.connection.onReducer('search_for_closest_building', callback)
+  }
+
+  removeOnSearchForClosestBuilding(callback: (ctx: ReducerEventContext, buildingDescriptionIds: number[]) => void) {
+    this.connection.offReducer('search_for_closest_building', callback)
+  }
+
+  searchForClosestBuildingType(buildingTypeId: number) {
+    const __args = { buildingTypeId }
+    let __writer = new BinaryWriter(1024)
+    SearchForClosestBuildingType.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'search_for_closest_building_type',
+      __argsBuffer,
+      this.setCallReducerFlags.searchForClosestBuildingTypeFlags
+    )
+  }
+
+  onSearchForClosestBuildingType(callback: (ctx: ReducerEventContext, buildingTypeId: number) => void) {
+    this.connection.onReducer('search_for_closest_building_type', callback)
+  }
+
+  removeOnSearchForClosestBuildingType(callback: (ctx: ReducerEventContext, buildingTypeId: number) => void) {
+    this.connection.offReducer('search_for_closest_building_type', callback)
+  }
+
+  serverTeleportPlayer(timer: TeleportPlayerTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    ServerTeleportPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'server_teleport_player',
+      __argsBuffer,
+      this.setCallReducerFlags.serverTeleportPlayerFlags
+    )
+  }
+
+  onServerTeleportPlayer(callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void) {
+    this.connection.onReducer('server_teleport_player', callback)
+  }
+
+  removeOnServerTeleportPlayer(callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void) {
+    this.connection.offReducer('server_teleport_player', callback)
+  }
+
+  setHome(request: PlayerSetHomeRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    SetHome.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('set_home', __argsBuffer, this.setCallReducerFlags.setHomeFlags)
+  }
+
+  onSetHome(callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void) {
+    this.connection.onReducer('set_home', callback)
+  }
+
+  removeOnSetHome(callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void) {
+    this.connection.offReducer('set_home', callback)
   }
 
   signIn(request: PlayerSignInRequest) {
@@ -9882,6 +17290,34 @@ export class RemoteReducers {
 
   removeOnSignIn(callback: (ctx: ReducerEventContext, request: PlayerSignInRequest) => void) {
     this.connection.offReducer('sign_in', callback)
+  }
+
+  signOut() {
+    this.connection.callReducer('sign_out', new Uint8Array(0), this.setCallReducerFlags.signOutFlags)
+  }
+
+  onSignOut(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('sign_out', callback)
+  }
+
+  removeOnSignOut(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('sign_out', callback)
+  }
+
+  sleep(request: PlayerSleepRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    Sleep.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('sleep', __argsBuffer, this.setCallReducerFlags.sleepFlags)
+  }
+
+  onSleep(callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void) {
+    this.connection.onReducer('sleep', callback)
+  }
+
+  removeOnSleep(callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void) {
+    this.connection.offReducer('sleep', callback)
   }
 
   stageAchievementDesc(records: AchievementDesc[]) {
@@ -11444,24 +18880,446 @@ export class RemoteReducers {
     this.connection.offReducer('stage_weapon_type_desc', callback)
   }
 
-  updateRoleForPlayer(playerEntityId: bigint, role: Role) {
-    const __args = { playerEntityId, role }
+  startAgents() {
+    this.connection.callReducer('start_agents', new Uint8Array(0), this.setCallReducerFlags.startAgentsFlags)
+  }
+
+  onStartAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('start_agents', callback)
+  }
+
+  removeOnStartAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('start_agents', callback)
+  }
+
+  startGeneratingWorld(worldWidth: number, worldHeight: number, regionIndex: number, regionCount: number) {
+    const __args = { worldWidth, worldHeight, regionIndex, regionCount }
     let __writer = new BinaryWriter(1024)
-    UpdateRoleForPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StartGeneratingWorld.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
-      'update_role_for_player',
+      'start_generating_world',
       __argsBuffer,
-      this.setCallReducerFlags.updateRoleForPlayerFlags
+      this.setCallReducerFlags.startGeneratingWorldFlags
     )
   }
 
-  onUpdateRoleForPlayer(callback: (ctx: ReducerEventContext, playerEntityId: bigint, role: Role) => void) {
-    this.connection.onReducer('update_role_for_player', callback)
+  onStartGeneratingWorld(
+    callback: (
+      ctx: ReducerEventContext,
+      worldWidth: number,
+      worldHeight: number,
+      regionIndex: number,
+      regionCount: number
+    ) => void
+  ) {
+    this.connection.onReducer('start_generating_world', callback)
   }
 
-  removeOnUpdateRoleForPlayer(callback: (ctx: ReducerEventContext, playerEntityId: bigint, role: Role) => void) {
-    this.connection.offReducer('update_role_for_player', callback)
+  removeOnStartGeneratingWorld(
+    callback: (
+      ctx: ReducerEventContext,
+      worldWidth: number,
+      worldHeight: number,
+      regionIndex: number,
+      regionCount: number
+    ) => void
+  ) {
+    this.connection.offReducer('start_generating_world', callback)
+  }
+
+  startOnboardingQuest(id: number) {
+    const __args = { id }
+    let __writer = new BinaryWriter(1024)
+    StartOnboardingQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'start_onboarding_quest',
+      __argsBuffer,
+      this.setCallReducerFlags.startOnboardingQuestFlags
+    )
+  }
+
+  onStartOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.onReducer('start_onboarding_quest', callback)
+  }
+
+  removeOnStartOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+    this.connection.offReducer('start_onboarding_quest', callback)
+  }
+
+  starvingAgentLoop(timer: StarvingLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    StarvingAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('starving_agent_loop', __argsBuffer, this.setCallReducerFlags.starvingAgentLoopFlags)
+  }
+
+  onStarvingAgentLoop(callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void) {
+    this.connection.onReducer('starving_agent_loop', callback)
+  }
+
+  removeOnStarvingAgentLoop(callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void) {
+    this.connection.offReducer('starving_agent_loop', callback)
+  }
+
+  stopAgents() {
+    this.connection.callReducer('stop_agents', new Uint8Array(0), this.setCallReducerFlags.stopAgentsFlags)
+  }
+
+  onStopAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer('stop_agents', callback)
+  }
+
+  removeOnStopAgents(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer('stop_agents', callback)
+  }
+
+  synchronizeTime(clientTime: number) {
+    const __args = { clientTime }
+    let __writer = new BinaryWriter(1024)
+    SynchronizeTime.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('synchronize_time', __argsBuffer, this.setCallReducerFlags.synchronizeTimeFlags)
+  }
+
+  onSynchronizeTime(callback: (ctx: ReducerEventContext, clientTime: number) => void) {
+    this.connection.onReducer('synchronize_time', callback)
+  }
+
+  removeOnSynchronizeTime(callback: (ctx: ReducerEventContext, clientTime: number) => void) {
+    this.connection.offReducer('synchronize_time', callback)
+  }
+
+  targetUpdate(request: TargetUpdateRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TargetUpdate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('target_update', __argsBuffer, this.setCallReducerFlags.targetUpdateFlags)
+  }
+
+  onTargetUpdate(callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void) {
+    this.connection.onReducer('target_update', callback)
+  }
+
+  removeOnTargetUpdate(callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void) {
+    this.connection.offReducer('target_update', callback)
+  }
+
+  teleportationEnergyRegenAgentLoop(timer: TeleportationEnergyRegenLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'teleportation_energy_regen_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.teleportationEnergyRegenAgentLoopFlags
+    )
+  }
+
+  onTeleportationEnergyRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TeleportationEnergyRegenLoopTimer) => void
+  ) {
+    this.connection.onReducer('teleportation_energy_regen_agent_loop', callback)
+  }
+
+  removeOnTeleportationEnergyRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TeleportationEnergyRegenLoopTimer) => void
+  ) {
+    this.connection.offReducer('teleportation_energy_regen_agent_loop', callback)
+  }
+
+  terraform(request: PlayerTerraformRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    Terraform.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('terraform', __argsBuffer, this.setCallReducerFlags.terraformFlags)
+  }
+
+  onTerraform(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+    this.connection.onReducer('terraform', callback)
+  }
+
+  removeOnTerraform(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+    this.connection.offReducer('terraform', callback)
+  }
+
+  terraformCancel(request: PlayerTerraformCancelRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TerraformCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('terraform_cancel', __argsBuffer, this.setCallReducerFlags.terraformCancelFlags)
+  }
+
+  onTerraformCancel(callback: (ctx: ReducerEventContext, request: PlayerTerraformCancelRequest) => void) {
+    this.connection.onReducer('terraform_cancel', callback)
+  }
+
+  removeOnTerraformCancel(callback: (ctx: ReducerEventContext, request: PlayerTerraformCancelRequest) => void) {
+    this.connection.offReducer('terraform_cancel', callback)
+  }
+
+  terraformSetFinalTarget(request: PlayerTerraformSetFinalTargetRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TerraformSetFinalTarget.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'terraform_set_final_target',
+      __argsBuffer,
+      this.setCallReducerFlags.terraformSetFinalTargetFlags
+    )
+  }
+
+  onTerraformSetFinalTarget(
+    callback: (ctx: ReducerEventContext, request: PlayerTerraformSetFinalTargetRequest) => void
+  ) {
+    this.connection.onReducer('terraform_set_final_target', callback)
+  }
+
+  removeOnTerraformSetFinalTarget(
+    callback: (ctx: ReducerEventContext, request: PlayerTerraformSetFinalTargetRequest) => void
+  ) {
+    this.connection.offReducer('terraform_set_final_target', callback)
+  }
+
+  terraformStart(request: PlayerTerraformRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TerraformStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('terraform_start', __argsBuffer, this.setCallReducerFlags.terraformStartFlags)
+  }
+
+  onTerraformStart(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+    this.connection.onReducer('terraform_start', callback)
+  }
+
+  removeOnTerraformStart(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+    this.connection.offReducer('terraform_start', callback)
+  }
+
+  tradeAccept(request: PlayerTradeAcceptRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeAccept.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_accept', __argsBuffer, this.setCallReducerFlags.tradeAcceptFlags)
+  }
+
+  onTradeAccept(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptRequest) => void) {
+    this.connection.onReducer('trade_accept', callback)
+  }
+
+  removeOnTradeAccept(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptRequest) => void) {
+    this.connection.offReducer('trade_accept', callback)
+  }
+
+  tradeAcceptSession(request: PlayerTradeAcceptSessionRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeAcceptSession.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_accept_session', __argsBuffer, this.setCallReducerFlags.tradeAcceptSessionFlags)
+  }
+
+  onTradeAcceptSession(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptSessionRequest) => void) {
+    this.connection.onReducer('trade_accept_session', callback)
+  }
+
+  removeOnTradeAcceptSession(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptSessionRequest) => void) {
+    this.connection.offReducer('trade_accept_session', callback)
+  }
+
+  tradeAddItem(request: PlayerTradeAddItemRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeAddItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_add_item', __argsBuffer, this.setCallReducerFlags.tradeAddItemFlags)
+  }
+
+  onTradeAddItem(callback: (ctx: ReducerEventContext, request: PlayerTradeAddItemRequest) => void) {
+    this.connection.onReducer('trade_add_item', callback)
+  }
+
+  removeOnTradeAddItem(callback: (ctx: ReducerEventContext, request: PlayerTradeAddItemRequest) => void) {
+    this.connection.offReducer('trade_add_item', callback)
+  }
+
+  tradeCancelServer(sessionEntityId: bigint, resolutionMessage: string) {
+    const __args = { sessionEntityId, resolutionMessage }
+    let __writer = new BinaryWriter(1024)
+    TradeCancelServer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_cancel_server', __argsBuffer, this.setCallReducerFlags.tradeCancelServerFlags)
+  }
+
+  onTradeCancelServer(
+    callback: (ctx: ReducerEventContext, sessionEntityId: bigint, resolutionMessage: string) => void
+  ) {
+    this.connection.onReducer('trade_cancel_server', callback)
+  }
+
+  removeOnTradeCancelServer(
+    callback: (ctx: ReducerEventContext, sessionEntityId: bigint, resolutionMessage: string) => void
+  ) {
+    this.connection.offReducer('trade_cancel_server', callback)
+  }
+
+  tradeDecline(request: PlayerTradeDeclineRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeDecline.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_decline', __argsBuffer, this.setCallReducerFlags.tradeDeclineFlags)
+  }
+
+  onTradeDecline(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineRequest) => void) {
+    this.connection.onReducer('trade_decline', callback)
+  }
+
+  removeOnTradeDecline(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineRequest) => void) {
+    this.connection.offReducer('trade_decline', callback)
+  }
+
+  tradeDeclineSession(request: PlayerTradeDeclineSessionRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeDeclineSession.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'trade_decline_session',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeDeclineSessionFlags
+    )
+  }
+
+  onTradeDeclineSession(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineSessionRequest) => void) {
+    this.connection.onReducer('trade_decline_session', callback)
+  }
+
+  removeOnTradeDeclineSession(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineSessionRequest) => void) {
+    this.connection.offReducer('trade_decline_session', callback)
+  }
+
+  tradeInitiateSession(request: PlayerTradeInitiateSessionRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeInitiateSession.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'trade_initiate_session',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeInitiateSessionFlags
+    )
+  }
+
+  onTradeInitiateSession(callback: (ctx: ReducerEventContext, request: PlayerTradeInitiateSessionRequest) => void) {
+    this.connection.onReducer('trade_initiate_session', callback)
+  }
+
+  removeOnTradeInitiateSession(
+    callback: (ctx: ReducerEventContext, request: PlayerTradeInitiateSessionRequest) => void
+  ) {
+    this.connection.offReducer('trade_initiate_session', callback)
+  }
+
+  tradeRemoveItem(request: PlayerTradeRemoveItemRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeRemoveItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_remove_item', __argsBuffer, this.setCallReducerFlags.tradeRemoveItemFlags)
+  }
+
+  onTradeRemoveItem(callback: (ctx: ReducerEventContext, request: PlayerTradeRemoveItemRequest) => void) {
+    this.connection.onReducer('trade_remove_item', callback)
+  }
+
+  removeOnTradeRemoveItem(callback: (ctx: ReducerEventContext, request: PlayerTradeRemoveItemRequest) => void) {
+    this.connection.offReducer('trade_remove_item', callback)
+  }
+
+  tradeSessionsAgentLoop(timer: TradeSessionLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'trade_sessions_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeSessionsAgentLoopFlags
+    )
+  }
+
+  onTradeSessionsAgentLoop(callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void) {
+    this.connection.onReducer('trade_sessions_agent_loop', callback)
+  }
+
+  removeOnTradeSessionsAgentLoop(callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void) {
+    this.connection.offReducer('trade_sessions_agent_loop', callback)
+  }
+
+  tradeSwapPockets(request: PlayerTradeSwapPocketsRequest) {
+    const __args = { request }
+    let __writer = new BinaryWriter(1024)
+    TradeSwapPockets.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer('trade_swap_pockets', __argsBuffer, this.setCallReducerFlags.tradeSwapPocketsFlags)
+  }
+
+  onTradeSwapPockets(callback: (ctx: ReducerEventContext, request: PlayerTradeSwapPocketsRequest) => void) {
+    this.connection.onReducer('trade_swap_pockets', callback)
+  }
+
+  removeOnTradeSwapPockets(callback: (ctx: ReducerEventContext, request: PlayerTradeSwapPocketsRequest) => void) {
+    this.connection.offReducer('trade_swap_pockets', callback)
+  }
+
+  transferPlayerDelayed(timer: TransferPlayerTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    TransferPlayerDelayed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'transfer_player_delayed',
+      __argsBuffer,
+      this.setCallReducerFlags.transferPlayerDelayedFlags
+    )
+  }
+
+  onTransferPlayerDelayed(callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void) {
+    this.connection.onReducer('transfer_player_delayed', callback)
+  }
+
+  removeOnTransferPlayerDelayed(callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void) {
+    this.connection.offReducer('transfer_player_delayed', callback)
+  }
+
+  travelerTaskAgentLoop(timer: TravelerTaskLoopTimer) {
+    const __args = { timer }
+    let __writer = new BinaryWriter(1024)
+    TravelerTaskAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    let __argsBuffer = __writer.getBuffer()
+    this.connection.callReducer(
+      'traveler_task_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.travelerTaskAgentLoopFlags
+    )
+  }
+
+  onTravelerTaskAgentLoop(callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void) {
+    this.connection.onReducer('traveler_task_agent_loop', callback)
+  }
+
+  removeOnTravelerTaskAgentLoop(callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void) {
+    this.connection.offReducer('traveler_task_agent_loop', callback)
   }
 
   updateScheduledTimersFromStaticData() {
@@ -11479,212 +19337,597 @@ export class RemoteReducers {
   removeOnUpdateScheduledTimersFromStaticData(callback: (ctx: ReducerEventContext) => void) {
     this.connection.offReducer('update_scheduled_timers_from_static_data', callback)
   }
-
-  userModerationClearAll(request: UserModerationCreateUserPolicyRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    UserModerationClearAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'user_moderation_clear_all',
-      __argsBuffer,
-      this.setCallReducerFlags.userModerationClearAllFlags
-    )
-  }
-
-  onUserModerationClearAll(
-    callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void
-  ) {
-    this.connection.onReducer('user_moderation_clear_all', callback)
-  }
-
-  removeOnUserModerationClearAll(
-    callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void
-  ) {
-    this.connection.offReducer('user_moderation_clear_all', callback)
-  }
-
-  userModerationCreate(request: UserModerationCreateUserPolicyRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    UserModerationCreate.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'user_moderation_create',
-      __argsBuffer,
-      this.setCallReducerFlags.userModerationCreateFlags
-    )
-  }
-
-  onUserModerationCreate(callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void) {
-    this.connection.onReducer('user_moderation_create', callback)
-  }
-
-  removeOnUserModerationCreate(
-    callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void
-  ) {
-    this.connection.offReducer('user_moderation_create', callback)
-  }
-
-  userModerationDelete(policyEntityId: bigint) {
-    const __args = { policyEntityId }
-    let __writer = new BinaryWriter(1024)
-    UserModerationDelete.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'user_moderation_delete',
-      __argsBuffer,
-      this.setCallReducerFlags.userModerationDeleteFlags
-    )
-  }
-
-  onUserModerationDelete(callback: (ctx: ReducerEventContext, policyEntityId: bigint) => void) {
-    this.connection.onReducer('user_moderation_delete', callback)
-  }
-
-  removeOnUserModerationDelete(callback: (ctx: ReducerEventContext, policyEntityId: bigint) => void) {
-    this.connection.offReducer('user_moderation_delete', callback)
-  }
-
-  userModerationListAll(request: UserModerationCreateUserPolicyRequest) {
-    const __args = { request }
-    let __writer = new BinaryWriter(1024)
-    UserModerationListAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
-    let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer(
-      'user_moderation_list_all',
-      __argsBuffer,
-      this.setCallReducerFlags.userModerationListAllFlags
-    )
-  }
-
-  onUserModerationListAll(
-    callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void
-  ) {
-    this.connection.onReducer('user_moderation_list_all', callback)
-  }
-
-  removeOnUserModerationListAll(
-    callback: (ctx: ReducerEventContext, request: UserModerationCreateUserPolicyRequest) => void
-  ) {
-    this.connection.offReducer('user_moderation_list_all', callback)
-  }
 }
 
 export class SetReducerFlags {
-  adminBroadcastMsgFlags: CallReducerFlags = 'FullUpdate'
-  adminBroadcastMsg(flags: CallReducerFlags) {
-    this.adminBroadcastMsgFlags = flags
+  achievementClaimFlags: CallReducerFlags = 'FullUpdate'
+  achievementClaim(flags: CallReducerFlags) {
+    this.achievementClaimFlags = flags
   }
 
-  adminGrantShardsFlags: CallReducerFlags = 'FullUpdate'
-  adminGrantShards(flags: CallReducerFlags) {
-    this.adminGrantShardsFlags = flags
+  acquireKnowledgeFromEntitiesFlags: CallReducerFlags = 'FullUpdate'
+  acquireKnowledgeFromEntities(flags: CallReducerFlags) {
+    this.acquireKnowledgeFromEntitiesFlags = flags
   }
 
-  adminMarkUserReportAsActionedFlags: CallReducerFlags = 'FullUpdate'
-  adminMarkUserReportAsActioned(flags: CallReducerFlags) {
-    this.adminMarkUserReportAsActionedFlags = flags
+  adminAlpha3CompleteOnboardingFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3CompleteOnboarding(flags: CallReducerFlags) {
+    this.adminAlpha3CompleteOnboardingFlags = flags
   }
 
-  adminNotifyPlayerFlags: CallReducerFlags = 'FullUpdate'
-  adminNotifyPlayer(flags: CallReducerFlags) {
-    this.adminNotifyPlayerFlags = flags
+  adminAlpha3ResetOnboardingToFifthTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFifthTempleQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToFifthTempleQuestFlags = flags
   }
 
-  adminNotifyPlayerByIdentityFlags: CallReducerFlags = 'FullUpdate'
-  adminNotifyPlayerByIdentity(flags: CallReducerFlags) {
-    this.adminNotifyPlayerByIdentityFlags = flags
+  adminAlpha3ResetOnboardingToFirstExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFirstExpandQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToFirstExpandQuestFlags = flags
   }
 
-  adminRenameEmpireFlags: CallReducerFlags = 'FullUpdate'
-  adminRenameEmpire(flags: CallReducerFlags) {
-    this.adminRenameEmpireFlags = flags
+  adminAlpha3ResetOnboardingToFirstTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFirstTempleQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToFirstTempleQuestFlags = flags
   }
 
-  adminRenameEmpireEntityFlags: CallReducerFlags = 'FullUpdate'
-  adminRenameEmpireEntity(flags: CallReducerFlags) {
-    this.adminRenameEmpireEntityFlags = flags
+  adminAlpha3ResetOnboardingToFourthExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFourthExpandQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToFourthExpandQuestFlags = flags
   }
 
-  adminRenameEmpireRankFlags: CallReducerFlags = 'FullUpdate'
-  adminRenameEmpireRank(flags: CallReducerFlags) {
-    this.adminRenameEmpireRankFlags = flags
+  adminAlpha3ResetOnboardingToFourthTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFourthTempleQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToFourthTempleQuestFlags = flags
   }
 
-  adminRenameEmpireRankEntityFlags: CallReducerFlags = 'FullUpdate'
-  adminRenameEmpireRankEntity(flags: CallReducerFlags) {
-    this.adminRenameEmpireRankEntityFlags = flags
+  adminAlpha3ResetOnboardingToSecondExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToSecondExpandQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToSecondExpandQuestFlags = flags
   }
 
-  adminRenamePlayerFlags: CallReducerFlags = 'FullUpdate'
-  adminRenamePlayer(flags: CallReducerFlags) {
-    this.adminRenamePlayerFlags = flags
+  adminAlpha3ResetOnboardingToSecondTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToSecondTempleQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToSecondTempleQuestFlags = flags
   }
 
-  adminRenamePlayerEntityFlags: CallReducerFlags = 'FullUpdate'
-  adminRenamePlayerEntity(flags: CallReducerFlags) {
-    this.adminRenamePlayerEntityFlags = flags
+  adminAlpha3ResetOnboardingToThirdExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToThirdExpandQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToThirdExpandQuestFlags = flags
   }
 
-  adminSignOutAllFlags: CallReducerFlags = 'FullUpdate'
-  adminSignOutAll(flags: CallReducerFlags) {
-    this.adminSignOutAllFlags = flags
+  adminAlpha3ResetOnboardingToThirdTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToThirdTempleQuest(flags: CallReducerFlags) {
+    this.adminAlpha3ResetOnboardingToThirdTempleQuestFlags = flags
   }
 
-  adminSkipQueueEntityFlags: CallReducerFlags = 'FullUpdate'
-  adminSkipQueueEntity(flags: CallReducerFlags) {
-    this.adminSkipQueueEntityFlags = flags
+  adminBroadcastMsgRegionFlags: CallReducerFlags = 'FullUpdate'
+  adminBroadcastMsgRegion(flags: CallReducerFlags) {
+    this.adminBroadcastMsgRegionFlags = flags
   }
 
-  adminSkipQueueIdentityFlags: CallReducerFlags = 'FullUpdate'
-  adminSkipQueueIdentity(flags: CallReducerFlags) {
-    this.adminSkipQueueIdentityFlags = flags
+  adminClearAllResourcesFlags: CallReducerFlags = 'FullUpdate'
+  adminClearAllResources(flags: CallReducerFlags) {
+    this.adminClearAllResourcesFlags = flags
   }
 
-  adminSkipQueueNameFlags: CallReducerFlags = 'FullUpdate'
-  adminSkipQueueName(flags: CallReducerFlags) {
-    this.adminSkipQueueNameFlags = flags
+  adminClearChunkResourcesFlags: CallReducerFlags = 'FullUpdate'
+  adminClearChunkResources(flags: CallReducerFlags) {
+    this.adminClearChunkResourcesFlags = flags
   }
 
-  adminUpdateGrantedHubItemStateFlags: CallReducerFlags = 'FullUpdate'
-  adminUpdateGrantedHubItemState(flags: CallReducerFlags) {
-    this.adminUpdateGrantedHubItemStateFlags = flags
+  adminCollapseRuinFlags: CallReducerFlags = 'FullUpdate'
+  adminCollapseRuin(flags: CallReducerFlags) {
+    this.adminCollapseRuinFlags = flags
   }
 
-  adminUpdateSignInParametersFlags: CallReducerFlags = 'FullUpdate'
-  adminUpdateSignInParameters(flags: CallReducerFlags) {
-    this.adminUpdateSignInParametersFlags = flags
+  adminCollapseRuinsFlags: CallReducerFlags = 'FullUpdate'
+  adminCollapseRuins(flags: CallReducerFlags) {
+    this.adminCollapseRuinsFlags = flags
   }
 
-  authenticateFlags: CallReducerFlags = 'FullUpdate'
-  authenticate(flags: CallReducerFlags) {
-    this.authenticateFlags = flags
+  adminCompleteAllPassiveCraftsFlags: CallReducerFlags = 'FullUpdate'
+  adminCompleteAllPassiveCrafts(flags: CallReducerFlags) {
+    this.adminCompleteAllPassiveCraftsFlags = flags
   }
 
-  blockIdentityFlags: CallReducerFlags = 'FullUpdate'
-  blockIdentity(flags: CallReducerFlags) {
-    this.blockIdentityFlags = flags
+  adminCountInventoryItemsFlags: CallReducerFlags = 'FullUpdate'
+  adminCountInventoryItems(flags: CallReducerFlags) {
+    this.adminCountInventoryItemsFlags = flags
   }
 
-  cheatEmpireSiegeAddSuppliesFlags: CallReducerFlags = 'FullUpdate'
-  cheatEmpireSiegeAddSupplies(flags: CallReducerFlags) {
-    this.cheatEmpireSiegeAddSuppliesFlags = flags
+  adminDeleteAllItemsOfTypeFlags: CallReducerFlags = 'FullUpdate'
+  adminDeleteAllItemsOfType(flags: CallReducerFlags) {
+    this.adminDeleteAllItemsOfTypeFlags = flags
   }
 
-  cheatEmpireSiegeCancelFlags: CallReducerFlags = 'FullUpdate'
-  cheatEmpireSiegeCancel(flags: CallReducerFlags) {
-    this.cheatEmpireSiegeCancelFlags = flags
+  adminDeleteChatMessageFlags: CallReducerFlags = 'FullUpdate'
+  adminDeleteChatMessage(flags: CallReducerFlags) {
+    this.adminDeleteChatMessageFlags = flags
   }
 
-  cheatPlayerSetNameFlags: CallReducerFlags = 'FullUpdate'
-  cheatPlayerSetName(flags: CallReducerFlags) {
-    this.cheatPlayerSetNameFlags = flags
+  adminDespawnOverworldEnemiesFlags: CallReducerFlags = 'FullUpdate'
+  adminDespawnOverworldEnemies(flags: CallReducerFlags) {
+    this.adminDespawnOverworldEnemiesFlags = flags
   }
 
-  cheatShardsGrantFlags: CallReducerFlags = 'FullUpdate'
-  cheatShardsGrant(flags: CallReducerFlags) {
-    this.cheatShardsGrantFlags = flags
+  adminGrantCollectiblesFlags: CallReducerFlags = 'FullUpdate'
+  adminGrantCollectibles(flags: CallReducerFlags) {
+    this.adminGrantCollectiblesFlags = flags
+  }
+
+  adminModifyChatMessageFlags: CallReducerFlags = 'FullUpdate'
+  adminModifyChatMessage(flags: CallReducerFlags) {
+    this.adminModifyChatMessageFlags = flags
+  }
+
+  adminRenameBuildingFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameBuilding(flags: CallReducerFlags) {
+    this.adminRenameBuildingFlags = flags
+  }
+
+  adminRenameBuildingCoordFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameBuildingCoord(flags: CallReducerFlags) {
+    this.adminRenameBuildingCoordFlags = flags
+  }
+
+  adminRenameBuildingEntityFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameBuildingEntity(flags: CallReducerFlags) {
+    this.adminRenameBuildingEntityFlags = flags
+  }
+
+  adminRenameClaimFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameClaim(flags: CallReducerFlags) {
+    this.adminRenameClaimFlags = flags
+  }
+
+  adminRenameClaimEntityFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameClaimEntity(flags: CallReducerFlags) {
+    this.adminRenameClaimEntityFlags = flags
+  }
+
+  adminRenameDeployableFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameDeployable(flags: CallReducerFlags) {
+    this.adminRenameDeployableFlags = flags
+  }
+
+  adminRenameDeployableEntityFlags: CallReducerFlags = 'FullUpdate'
+  adminRenameDeployableEntity(flags: CallReducerFlags) {
+    this.adminRenameDeployableEntityFlags = flags
+  }
+
+  adminResetAllHerdLocationsFlags: CallReducerFlags = 'FullUpdate'
+  adminResetAllHerdLocations(flags: CallReducerFlags) {
+    this.adminResetAllHerdLocationsFlags = flags
+  }
+
+  adminResetHerdLocationsFlags: CallReducerFlags = 'FullUpdate'
+  adminResetHerdLocations(flags: CallReducerFlags) {
+    this.adminResetHerdLocationsFlags = flags
+  }
+
+  adminResetOnboardingCompletelyFlags: CallReducerFlags = 'FullUpdate'
+  adminResetOnboardingCompletely(flags: CallReducerFlags) {
+    this.adminResetOnboardingCompletelyFlags = flags
+  }
+
+  adminRestoreAllCollapsedRuinsFlags: CallReducerFlags = 'FullUpdate'
+  adminRestoreAllCollapsedRuins(flags: CallReducerFlags) {
+    this.adminRestoreAllCollapsedRuinsFlags = flags
+  }
+
+  adminRestorePlayerStateFlags: CallReducerFlags = 'FullUpdate'
+  adminRestorePlayerState(flags: CallReducerFlags) {
+    this.adminRestorePlayerStateFlags = flags
+  }
+
+  adminRestorePlayerStateScheduledFlags: CallReducerFlags = 'FullUpdate'
+  adminRestorePlayerStateScheduled(flags: CallReducerFlags) {
+    this.adminRestorePlayerStateScheduledFlags = flags
+  }
+
+  adminSetSignTextFlags: CallReducerFlags = 'FullUpdate'
+  adminSetSignText(flags: CallReducerFlags) {
+    this.adminSetSignTextFlags = flags
+  }
+
+  adminSetSignTextCoordFlags: CallReducerFlags = 'FullUpdate'
+  adminSetSignTextCoord(flags: CallReducerFlags) {
+    this.adminSetSignTextCoordFlags = flags
+  }
+
+  adminSetSignTextEntityFlags: CallReducerFlags = 'FullUpdate'
+  adminSetSignTextEntity(flags: CallReducerFlags) {
+    this.adminSetSignTextEntityFlags = flags
+  }
+
+  adminSignOutFlags: CallReducerFlags = 'FullUpdate'
+  adminSignOut(flags: CallReducerFlags) {
+    this.adminSignOutFlags = flags
+  }
+
+  adminSignOutAllRegionFlags: CallReducerFlags = 'FullUpdate'
+  adminSignOutAllRegion(flags: CallReducerFlags) {
+    this.adminSignOutAllRegionFlags = flags
+  }
+
+  adminSignOutStringFlags: CallReducerFlags = 'FullUpdate'
+  adminSignOutString(flags: CallReducerFlags) {
+    this.adminSignOutStringFlags = flags
+  }
+
+  adminUpdateLightSourceStatesFlags: CallReducerFlags = 'FullUpdate'
+  adminUpdateLightSourceStates(flags: CallReducerFlags) {
+    this.adminUpdateLightSourceStatesFlags = flags
+  }
+
+  attackFlags: CallReducerFlags = 'FullUpdate'
+  attack(flags: CallReducerFlags) {
+    this.attackFlags = flags
+  }
+
+  attackImpactFlags: CallReducerFlags = 'FullUpdate'
+  attackImpact(flags: CallReducerFlags) {
+    this.attackImpactFlags = flags
+  }
+
+  attackScheduledFlags: CallReducerFlags = 'FullUpdate'
+  attackScheduled(flags: CallReducerFlags) {
+    this.attackScheduledFlags = flags
+  }
+
+  attackStartFlags: CallReducerFlags = 'FullUpdate'
+  attackStart(flags: CallReducerFlags) {
+    this.attackStartFlags = flags
+  }
+
+  autoLogoutLoopFlags: CallReducerFlags = 'FullUpdate'
+  autoLogoutLoop(flags: CallReducerFlags) {
+    this.autoLogoutLoopFlags = flags
+  }
+
+  barterStallOrderAcceptFlags: CallReducerFlags = 'FullUpdate'
+  barterStallOrderAccept(flags: CallReducerFlags) {
+    this.barterStallOrderAcceptFlags = flags
+  }
+
+  barterStallOrderCreateFlags: CallReducerFlags = 'FullUpdate'
+  barterStallOrderCreate(flags: CallReducerFlags) {
+    this.barterStallOrderCreateFlags = flags
+  }
+
+  barterStallOrderDeleteFlags: CallReducerFlags = 'FullUpdate'
+  barterStallOrderDelete(flags: CallReducerFlags) {
+    this.barterStallOrderDeleteFlags = flags
+  }
+
+  barterStallSetMarketModeEnabledFlags: CallReducerFlags = 'FullUpdate'
+  barterStallSetMarketModeEnabled(flags: CallReducerFlags) {
+    this.barterStallSetMarketModeEnabledFlags = flags
+  }
+
+  blueprintPlaceFlags: CallReducerFlags = 'FullUpdate'
+  blueprintPlace(flags: CallReducerFlags) {
+    this.blueprintPlaceFlags = flags
+  }
+
+  buildingDecayAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  buildingDecayAgentLoop(flags: CallReducerFlags) {
+    this.buildingDecayAgentLoopFlags = flags
+  }
+
+  buildingDeconstructFlags: CallReducerFlags = 'FullUpdate'
+  buildingDeconstruct(flags: CallReducerFlags) {
+    this.buildingDeconstructFlags = flags
+  }
+
+  buildingDeconstructStartFlags: CallReducerFlags = 'FullUpdate'
+  buildingDeconstructStart(flags: CallReducerFlags) {
+    this.buildingDeconstructStartFlags = flags
+  }
+
+  buildingDespawnFlags: CallReducerFlags = 'FullUpdate'
+  buildingDespawn(flags: CallReducerFlags) {
+    this.buildingDespawnFlags = flags
+  }
+
+  buildingMoveFlags: CallReducerFlags = 'FullUpdate'
+  buildingMove(flags: CallReducerFlags) {
+    this.buildingMoveFlags = flags
+  }
+
+  buildingRepairFlags: CallReducerFlags = 'FullUpdate'
+  buildingRepair(flags: CallReducerFlags) {
+    this.buildingRepairFlags = flags
+  }
+
+  buildingRepairStartFlags: CallReducerFlags = 'FullUpdate'
+  buildingRepairStart(flags: CallReducerFlags) {
+    this.buildingRepairStartFlags = flags
+  }
+
+  buildingSetNicknameFlags: CallReducerFlags = 'FullUpdate'
+  buildingSetNickname(flags: CallReducerFlags) {
+    this.buildingSetNicknameFlags = flags
+  }
+
+  buildingSetSignTextFlags: CallReducerFlags = 'FullUpdate'
+  buildingSetSignText(flags: CallReducerFlags) {
+    this.buildingSetSignTextFlags = flags
+  }
+
+  chatPostMessageFlags: CallReducerFlags = 'FullUpdate'
+  chatPostMessage(flags: CallReducerFlags) {
+    this.chatPostMessageFlags = flags
+  }
+
+  cheatBuildingMoveFlags: CallReducerFlags = 'FullUpdate'
+  cheatBuildingMove(flags: CallReducerFlags) {
+    this.cheatBuildingMoveFlags = flags
+  }
+
+  cheatBuildingPlaceFlags: CallReducerFlags = 'FullUpdate'
+  cheatBuildingPlace(flags: CallReducerFlags) {
+    this.cheatBuildingPlaceFlags = flags
+  }
+
+  cheatCargoGrantFlags: CallReducerFlags = 'FullUpdate'
+  cheatCargoGrant(flags: CallReducerFlags) {
+    this.cheatCargoGrantFlags = flags
+  }
+
+  cheatClaimTakeOwnershipFlags: CallReducerFlags = 'FullUpdate'
+  cheatClaimTakeOwnership(flags: CallReducerFlags) {
+    this.cheatClaimTakeOwnershipFlags = flags
+  }
+
+  cheatClaimTotemAddSuppliesFlags: CallReducerFlags = 'FullUpdate'
+  cheatClaimTotemAddSupplies(flags: CallReducerFlags) {
+    this.cheatClaimTotemAddSuppliesFlags = flags
+  }
+
+  cheatClaimTotemCompleteCurrentResearchFlags: CallReducerFlags = 'FullUpdate'
+  cheatClaimTotemCompleteCurrentResearch(flags: CallReducerFlags) {
+    this.cheatClaimTotemCompleteCurrentResearchFlags = flags
+  }
+
+  cheatClaimTotemResearchAllFlags: CallReducerFlags = 'FullUpdate'
+  cheatClaimTotemResearchAll(flags: CallReducerFlags) {
+    this.cheatClaimTotemResearchAllFlags = flags
+  }
+
+  cheatClearBuffsAndDebuffsFlags: CallReducerFlags = 'FullUpdate'
+  cheatClearBuffsAndDebuffs(flags: CallReducerFlags) {
+    this.cheatClearBuffsAndDebuffsFlags = flags
+  }
+
+  cheatCompendiumPlaceEnemyFlags: CallReducerFlags = 'FullUpdate'
+  cheatCompendiumPlaceEnemy(flags: CallReducerFlags) {
+    this.cheatCompendiumPlaceEnemyFlags = flags
+  }
+
+  cheatCompendiumPlaceResourceFlags: CallReducerFlags = 'FullUpdate'
+  cheatCompendiumPlaceResource(flags: CallReducerFlags) {
+    this.cheatCompendiumPlaceResourceFlags = flags
+  }
+
+  cheatDeleteItemFlags: CallReducerFlags = 'FullUpdate'
+  cheatDeleteItem(flags: CallReducerFlags) {
+    this.cheatDeleteItemFlags = flags
+  }
+
+  cheatDeployableStoreFlags: CallReducerFlags = 'FullUpdate'
+  cheatDeployableStore(flags: CallReducerFlags) {
+    this.cheatDeployableStoreFlags = flags
+  }
+
+  cheatDiscoverMapFlags: CallReducerFlags = 'FullUpdate'
+  cheatDiscoverMap(flags: CallReducerFlags) {
+    this.cheatDiscoverMapFlags = flags
+  }
+
+  cheatExperienceGrantFlags: CallReducerFlags = 'FullUpdate'
+  cheatExperienceGrant(flags: CallReducerFlags) {
+    this.cheatExperienceGrantFlags = flags
+  }
+
+  cheatGrantKnowledgeFlags: CallReducerFlags = 'FullUpdate'
+  cheatGrantKnowledge(flags: CallReducerFlags) {
+    this.cheatGrantKnowledgeFlags = flags
+  }
+
+  cheatGrantTeleportEnergyFlags: CallReducerFlags = 'FullUpdate'
+  cheatGrantTeleportEnergy(flags: CallReducerFlags) {
+    this.cheatGrantTeleportEnergyFlags = flags
+  }
+
+  cheatItemStackGrantFlags: CallReducerFlags = 'FullUpdate'
+  cheatItemStackGrant(flags: CallReducerFlags) {
+    this.cheatItemStackGrantFlags = flags
+  }
+
+  cheatItemStackGrantAndEquipFlags: CallReducerFlags = 'FullUpdate'
+  cheatItemStackGrantAndEquip(flags: CallReducerFlags) {
+    this.cheatItemStackGrantAndEquipFlags = flags
+  }
+
+  cheatKillFlags: CallReducerFlags = 'FullUpdate'
+  cheatKill(flags: CallReducerFlags) {
+    this.cheatKillFlags = flags
+  }
+
+  cheatPavingAddTileFlags: CallReducerFlags = 'FullUpdate'
+  cheatPavingAddTile(flags: CallReducerFlags) {
+    this.cheatPavingAddTileFlags = flags
+  }
+
+  cheatPavingDestroyFlags: CallReducerFlags = 'FullUpdate'
+  cheatPavingDestroy(flags: CallReducerFlags) {
+    this.cheatPavingDestroyFlags = flags
+  }
+
+  cheatPillarShapingAddPillarFlags: CallReducerFlags = 'FullUpdate'
+  cheatPillarShapingAddPillar(flags: CallReducerFlags) {
+    this.cheatPillarShapingAddPillarFlags = flags
+  }
+
+  cheatPillarShapingDestroyFlags: CallReducerFlags = 'FullUpdate'
+  cheatPillarShapingDestroy(flags: CallReducerFlags) {
+    this.cheatPillarShapingDestroyFlags = flags
+  }
+
+  cheatProjectSiteAddAllMaterialsFlags: CallReducerFlags = 'FullUpdate'
+  cheatProjectSiteAddAllMaterials(flags: CallReducerFlags) {
+    this.cheatProjectSiteAddAllMaterialsFlags = flags
+  }
+
+  cheatRemoveEntityBuildingFlags: CallReducerFlags = 'FullUpdate'
+  cheatRemoveEntityBuilding(flags: CallReducerFlags) {
+    this.cheatRemoveEntityBuildingFlags = flags
+  }
+
+  cheatRemoveEntityEnemyFlags: CallReducerFlags = 'FullUpdate'
+  cheatRemoveEntityEnemy(flags: CallReducerFlags) {
+    this.cheatRemoveEntityEnemyFlags = flags
+  }
+
+  cheatRemoveEntityResourceFlags: CallReducerFlags = 'FullUpdate'
+  cheatRemoveEntityResource(flags: CallReducerFlags) {
+    this.cheatRemoveEntityResourceFlags = flags
+  }
+
+  cheatSetAiDebugStateFlags: CallReducerFlags = 'FullUpdate'
+  cheatSetAiDebugState(flags: CallReducerFlags) {
+    this.cheatSetAiDebugStateFlags = flags
+  }
+
+  cheatSpawnLootChestFlags: CallReducerFlags = 'FullUpdate'
+  cheatSpawnLootChest(flags: CallReducerFlags) {
+    this.cheatSpawnLootChestFlags = flags
+  }
+
+  cheatTeleportFloatFlags: CallReducerFlags = 'FullUpdate'
+  cheatTeleportFloat(flags: CallReducerFlags) {
+    this.cheatTeleportFloatFlags = flags
+  }
+
+  cheatTerraformFlags: CallReducerFlags = 'FullUpdate'
+  cheatTerraform(flags: CallReducerFlags) {
+    this.cheatTerraformFlags = flags
+  }
+
+  cheatToggleActiveCollectibleFlags: CallReducerFlags = 'FullUpdate'
+  cheatToggleActiveCollectible(flags: CallReducerFlags) {
+    this.cheatToggleActiveCollectibleFlags = flags
+  }
+
+  cheatWarpFlags: CallReducerFlags = 'FullUpdate'
+  cheatWarp(flags: CallReducerFlags) {
+    this.cheatWarpFlags = flags
+  }
+
+  claimAddMemberFlags: CallReducerFlags = 'FullUpdate'
+  claimAddMember(flags: CallReducerFlags) {
+    this.claimAddMemberFlags = flags
+  }
+
+  claimAddRecruitmentFlags: CallReducerFlags = 'FullUpdate'
+  claimAddRecruitment(flags: CallReducerFlags) {
+    this.claimAddRecruitmentFlags = flags
+  }
+
+  claimAddTileFlags: CallReducerFlags = 'FullUpdate'
+  claimAddTile(flags: CallReducerFlags) {
+    this.claimAddTileFlags = flags
+  }
+
+  claimApplyForRecruitmentFlags: CallReducerFlags = 'FullUpdate'
+  claimApplyForRecruitment(flags: CallReducerFlags) {
+    this.claimApplyForRecruitmentFlags = flags
+  }
+
+  claimLeaveFlags: CallReducerFlags = 'FullUpdate'
+  claimLeave(flags: CallReducerFlags) {
+    this.claimLeaveFlags = flags
+  }
+
+  claimPurchaseSuppliesFromPlayerFlags: CallReducerFlags = 'FullUpdate'
+  claimPurchaseSuppliesFromPlayer(flags: CallReducerFlags) {
+    this.claimPurchaseSuppliesFromPlayerFlags = flags
+  }
+
+  claimRemoveMemberFlags: CallReducerFlags = 'FullUpdate'
+  claimRemoveMember(flags: CallReducerFlags) {
+    this.claimRemoveMemberFlags = flags
+  }
+
+  claimRemoveRecruitmentFlags: CallReducerFlags = 'FullUpdate'
+  claimRemoveRecruitment(flags: CallReducerFlags) {
+    this.claimRemoveRecruitmentFlags = flags
+  }
+
+  claimRemoveTileFlags: CallReducerFlags = 'FullUpdate'
+  claimRemoveTile(flags: CallReducerFlags) {
+    this.claimRemoveTileFlags = flags
+  }
+
+  claimRenameFlags: CallReducerFlags = 'FullUpdate'
+  claimRename(flags: CallReducerFlags) {
+    this.claimRenameFlags = flags
+  }
+
+  claimResupplyFlags: CallReducerFlags = 'FullUpdate'
+  claimResupply(flags: CallReducerFlags) {
+    this.claimResupplyFlags = flags
+  }
+
+  claimResupplyStartFlags: CallReducerFlags = 'FullUpdate'
+  claimResupplyStart(flags: CallReducerFlags) {
+    this.claimResupplyStartFlags = flags
+  }
+
+  claimSetMemberPermissionsFlags: CallReducerFlags = 'FullUpdate'
+  claimSetMemberPermissions(flags: CallReducerFlags) {
+    this.claimSetMemberPermissionsFlags = flags
+  }
+
+  claimSetPurchaseSupplyPriceFlags: CallReducerFlags = 'FullUpdate'
+  claimSetPurchaseSupplyPrice(flags: CallReducerFlags) {
+    this.claimSetPurchaseSupplyPriceFlags = flags
+  }
+
+  claimSetPurchaseSupplyThresholdFlags: CallReducerFlags = 'FullUpdate'
+  claimSetPurchaseSupplyThreshold(flags: CallReducerFlags) {
+    this.claimSetPurchaseSupplyThresholdFlags = flags
+  }
+
+  claimTakeOwnershipFlags: CallReducerFlags = 'FullUpdate'
+  claimTakeOwnership(flags: CallReducerFlags) {
+    this.claimTakeOwnershipFlags = flags
+  }
+
+  claimTechCancelFlags: CallReducerFlags = 'FullUpdate'
+  claimTechCancel(flags: CallReducerFlags) {
+    this.claimTechCancelFlags = flags
+  }
+
+  claimTechLearnFlags: CallReducerFlags = 'FullUpdate'
+  claimTechLearn(flags: CallReducerFlags) {
+    this.claimTechLearnFlags = flags
+  }
+
+  claimTechUnlockTechFlags: CallReducerFlags = 'FullUpdate'
+  claimTechUnlockTech(flags: CallReducerFlags) {
+    this.claimTechUnlockTechFlags = flags
+  }
+
+  claimTransferOwnershipFlags: CallReducerFlags = 'FullUpdate'
+  claimTransferOwnership(flags: CallReducerFlags) {
+    this.claimTransferOwnershipFlags = flags
+  }
+
+  claimWithdrawFromTreasuryFlags: CallReducerFlags = 'FullUpdate'
+  claimWithdrawFromTreasury(flags: CallReducerFlags) {
+    this.claimWithdrawFromTreasuryFlags = flags
   }
 
   clearStagedStaticDataFlags: CallReducerFlags = 'FullUpdate'
@@ -11692,9 +19935,79 @@ export class SetReducerFlags {
     this.clearStagedStaticDataFlags = flags
   }
 
+  closedListingCollectFlags: CallReducerFlags = 'FullUpdate'
+  closedListingCollect(flags: CallReducerFlags) {
+    this.closedListingCollectFlags = flags
+  }
+
+  collectStatsReducerFlags: CallReducerFlags = 'FullUpdate'
+  collectStatsReducer(flags: CallReducerFlags) {
+    this.collectStatsReducerFlags = flags
+  }
+
+  collectibleActivateFlags: CallReducerFlags = 'FullUpdate'
+  collectibleActivate(flags: CallReducerFlags) {
+    this.collectibleActivateFlags = flags
+  }
+
   commitStagedStaticDataFlags: CallReducerFlags = 'FullUpdate'
   commitStagedStaticData(flags: CallReducerFlags) {
     this.commitStagedStaticDataFlags = flags
+  }
+
+  completeOnboardingQuestFlags: CallReducerFlags = 'FullUpdate'
+  completeOnboardingQuest(flags: CallReducerFlags) {
+    this.completeOnboardingQuestFlags = flags
+  }
+
+  completeOnboardingStateFlags: CallReducerFlags = 'FullUpdate'
+  completeOnboardingState(flags: CallReducerFlags) {
+    this.completeOnboardingStateFlags = flags
+  }
+
+  convertCollectibleToDeedFlags: CallReducerFlags = 'FullUpdate'
+  convertCollectibleToDeed(flags: CallReducerFlags) {
+    this.convertCollectibleToDeedFlags = flags
+  }
+
+  convertDeedToCollectibleFlags: CallReducerFlags = 'FullUpdate'
+  convertDeedToCollectible(flags: CallReducerFlags) {
+    this.convertDeedToCollectibleFlags = flags
+  }
+
+  craftCancelFlags: CallReducerFlags = 'FullUpdate'
+  craftCancel(flags: CallReducerFlags) {
+    this.craftCancelFlags = flags
+  }
+
+  craftCollectFlags: CallReducerFlags = 'FullUpdate'
+  craftCollect(flags: CallReducerFlags) {
+    this.craftCollectFlags = flags
+  }
+
+  craftCollectAllFlags: CallReducerFlags = 'FullUpdate'
+  craftCollectAll(flags: CallReducerFlags) {
+    this.craftCollectAllFlags = flags
+  }
+
+  craftContinueFlags: CallReducerFlags = 'FullUpdate'
+  craftContinue(flags: CallReducerFlags) {
+    this.craftContinueFlags = flags
+  }
+
+  craftContinueStartFlags: CallReducerFlags = 'FullUpdate'
+  craftContinueStart(flags: CallReducerFlags) {
+    this.craftContinueStartFlags = flags
+  }
+
+  craftInitiateFlags: CallReducerFlags = 'FullUpdate'
+  craftInitiate(flags: CallReducerFlags) {
+    this.craftInitiateFlags = flags
+  }
+
+  craftInitiateStartFlags: CallReducerFlags = 'FullUpdate'
+  craftInitiateStart(flags: CallReducerFlags) {
+    this.craftInitiateStartFlags = flags
   }
 
   currentVersionFlags: CallReducerFlags = 'FullUpdate'
@@ -11702,104 +20015,274 @@ export class SetReducerFlags {
     this.currentVersionFlags = flags
   }
 
-  empireChangeEmblemFlags: CallReducerFlags = 'FullUpdate'
-  empireChangeEmblem(flags: CallReducerFlags) {
-    this.empireChangeEmblemFlags = flags
+  dayNightAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  dayNightAgentLoop(flags: CallReducerFlags) {
+    this.dayNightAgentLoopFlags = flags
   }
 
-  empireCraftSuppliesFlags: CallReducerFlags = 'FullUpdate'
-  empireCraftSupplies(flags: CallReducerFlags) {
-    this.empireCraftSuppliesFlags = flags
+  deleteAllNpcsFlags: CallReducerFlags = 'FullUpdate'
+  deleteAllNpcs(flags: CallReducerFlags) {
+    this.deleteAllNpcsFlags = flags
   }
 
-  empireCraftSuppliesScheduledFlags: CallReducerFlags = 'FullUpdate'
-  empireCraftSuppliesScheduled(flags: CallReducerFlags) {
-    this.empireCraftSuppliesScheduledFlags = flags
+  deployableDeployFlags: CallReducerFlags = 'FullUpdate'
+  deployableDeploy(flags: CallReducerFlags) {
+    this.deployableDeployFlags = flags
   }
 
-  empireDecayAgentLoopFlags: CallReducerFlags = 'FullUpdate'
-  empireDecayAgentLoop(flags: CallReducerFlags) {
-    this.empireDecayAgentLoopFlags = flags
+  deployableDeployStartFlags: CallReducerFlags = 'FullUpdate'
+  deployableDeployStart(flags: CallReducerFlags) {
+    this.deployableDeployStartFlags = flags
   }
 
-  empireDismantleFlags: CallReducerFlags = 'FullUpdate'
-  empireDismantle(flags: CallReducerFlags) {
-    this.empireDismantleFlags = flags
+  deployableDismountFlags: CallReducerFlags = 'FullUpdate'
+  deployableDismount(flags: CallReducerFlags) {
+    this.deployableDismountFlags = flags
   }
 
-  empireDonateShardsFlags: CallReducerFlags = 'FullUpdate'
-  empireDonateShards(flags: CallReducerFlags) {
-    this.empireDonateShardsFlags = flags
+  deployableDismountScheduledFlags: CallReducerFlags = 'FullUpdate'
+  deployableDismountScheduled(flags: CallReducerFlags) {
+    this.deployableDismountScheduledFlags = flags
   }
 
-  empireFormFlags: CallReducerFlags = 'FullUpdate'
-  empireForm(flags: CallReducerFlags) {
-    this.empireFormFlags = flags
+  deployableMountFlags: CallReducerFlags = 'FullUpdate'
+  deployableMount(flags: CallReducerFlags) {
+    this.deployableMountFlags = flags
   }
 
-  empireLeaveFlags: CallReducerFlags = 'FullUpdate'
-  empireLeave(flags: CallReducerFlags) {
-    this.empireLeaveFlags = flags
+  deployableMoveFlags: CallReducerFlags = 'FullUpdate'
+  deployableMove(flags: CallReducerFlags) {
+    this.deployableMoveFlags = flags
   }
 
-  empireMarkForExpansionFlags: CallReducerFlags = 'FullUpdate'
-  empireMarkForExpansion(flags: CallReducerFlags) {
-    this.empireMarkForExpansionFlags = flags
+  deployableMoveOffClaimFlags: CallReducerFlags = 'FullUpdate'
+  deployableMoveOffClaim(flags: CallReducerFlags) {
+    this.deployableMoveOffClaimFlags = flags
   }
 
-  empireMarkForSiegeFlags: CallReducerFlags = 'FullUpdate'
-  empireMarkForSiege(flags: CallReducerFlags) {
-    this.empireMarkForSiegeFlags = flags
+  deployableStoreFlags: CallReducerFlags = 'FullUpdate'
+  deployableStore(flags: CallReducerFlags) {
+    this.deployableStoreFlags = flags
   }
 
-  empirePlayerJoinFlags: CallReducerFlags = 'FullUpdate'
-  empirePlayerJoin(flags: CallReducerFlags) {
-    this.empirePlayerJoinFlags = flags
+  deployableStoreStartFlags: CallReducerFlags = 'FullUpdate'
+  deployableStoreStart(flags: CallReducerFlags) {
+    this.deployableStoreStartFlags = flags
   }
 
-  empirePlayerLeaveFlags: CallReducerFlags = 'FullUpdate'
-  empirePlayerLeave(flags: CallReducerFlags) {
-    this.empirePlayerLeaveFlags = flags
+  destroyDimensionNetworkFlags: CallReducerFlags = 'FullUpdate'
+  destroyDimensionNetwork(flags: CallReducerFlags) {
+    this.destroyDimensionNetworkFlags = flags
   }
 
-  empireSetDirectiveMessageFlags: CallReducerFlags = 'FullUpdate'
-  empireSetDirectiveMessage(flags: CallReducerFlags) {
-    this.empireSetDirectiveMessageFlags = flags
+  devDeleteWorldFlags: CallReducerFlags = 'FullUpdate'
+  devDeleteWorld(flags: CallReducerFlags) {
+    this.devDeleteWorldFlags = flags
   }
 
-  empireSetNobilityThresholdFlags: CallReducerFlags = 'FullUpdate'
-  empireSetNobilityThreshold(flags: CallReducerFlags) {
-    this.empireSetNobilityThresholdFlags = flags
+  discoverEntitiesFlags: CallReducerFlags = 'FullUpdate'
+  discoverEntities(flags: CallReducerFlags) {
+    this.discoverEntitiesFlags = flags
   }
 
-  empireSetPlayerRankFlags: CallReducerFlags = 'FullUpdate'
-  empireSetPlayerRank(flags: CallReducerFlags) {
-    this.empireSetPlayerRankFlags = flags
+  droppedInventoryDespawnFlags: CallReducerFlags = 'FullUpdate'
+  droppedInventoryDespawn(flags: CallReducerFlags) {
+    this.droppedInventoryDespawnFlags = flags
   }
 
-  empireSetRankTitleFlags: CallReducerFlags = 'FullUpdate'
-  empireSetRankTitle(flags: CallReducerFlags) {
-    this.empireSetRankTitleFlags = flags
+  droppedInventoryLoseOwnershipFlags: CallReducerFlags = 'FullUpdate'
+  droppedInventoryLoseOwnership(flags: CallReducerFlags) {
+    this.droppedInventoryLoseOwnershipFlags = flags
   }
 
-  empireSiegeAgentLoopFlags: CallReducerFlags = 'FullUpdate'
-  empireSiegeAgentLoop(flags: CallReducerFlags) {
-    this.empireSiegeAgentLoopFlags = flags
+  duelAgentTimerLoopFlags: CallReducerFlags = 'FullUpdate'
+  duelAgentTimerLoop(flags: CallReducerFlags) {
+    this.duelAgentTimerLoopFlags = flags
   }
 
-  empireSubmitFlags: CallReducerFlags = 'FullUpdate'
-  empireSubmit(flags: CallReducerFlags) {
-    this.empireSubmitFlags = flags
+  duelDespawnFlags: CallReducerFlags = 'FullUpdate'
+  duelDespawn(flags: CallReducerFlags) {
+    this.duelDespawnFlags = flags
   }
 
-  empireTransferEmperorshipFlags: CallReducerFlags = 'FullUpdate'
-  empireTransferEmperorship(flags: CallReducerFlags) {
-    this.empireTransferEmperorshipFlags = flags
+  eatFlags: CallReducerFlags = 'FullUpdate'
+  eat(flags: CallReducerFlags) {
+    this.eatFlags = flags
   }
 
-  empireUpdatePermissionsFlags: CallReducerFlags = 'FullUpdate'
-  empireUpdatePermissions(flags: CallReducerFlags) {
-    this.empireUpdatePermissionsFlags = flags
+  emoteFlags: CallReducerFlags = 'FullUpdate'
+  emote(flags: CallReducerFlags) {
+    this.emoteFlags = flags
+  }
+
+  emoteStartFlags: CallReducerFlags = 'FullUpdate'
+  emoteStart(flags: CallReducerFlags) {
+    this.emoteStartFlags = flags
+  }
+
+  empireAddSiegeSuppliesFlags: CallReducerFlags = 'FullUpdate'
+  empireAddSiegeSupplies(flags: CallReducerFlags) {
+    this.empireAddSiegeSuppliesFlags = flags
+  }
+
+  empireClaimJoinFlags: CallReducerFlags = 'FullUpdate'
+  empireClaimJoin(flags: CallReducerFlags) {
+    this.empireClaimJoinFlags = flags
+  }
+
+  empireCollectHexiteCapsuleFlags: CallReducerFlags = 'FullUpdate'
+  empireCollectHexiteCapsule(flags: CallReducerFlags) {
+    this.empireCollectHexiteCapsuleFlags = flags
+  }
+
+  empireDeploySiegeEngineFlags: CallReducerFlags = 'FullUpdate'
+  empireDeploySiegeEngine(flags: CallReducerFlags) {
+    this.empireDeploySiegeEngineFlags = flags
+  }
+
+  empireDeploySiegeEngineStartFlags: CallReducerFlags = 'FullUpdate'
+  empireDeploySiegeEngineStart(flags: CallReducerFlags) {
+    this.empireDeploySiegeEngineStartFlags = flags
+  }
+
+  empireQueueSuppliesFlags: CallReducerFlags = 'FullUpdate'
+  empireQueueSupplies(flags: CallReducerFlags) {
+    this.empireQueueSuppliesFlags = flags
+  }
+
+  empireResupplyNodeFlags: CallReducerFlags = 'FullUpdate'
+  empireResupplyNode(flags: CallReducerFlags) {
+    this.empireResupplyNodeFlags = flags
+  }
+
+  empireResupplyNodeStartFlags: CallReducerFlags = 'FullUpdate'
+  empireResupplyNodeStart(flags: CallReducerFlags) {
+    this.empireResupplyNodeStartFlags = flags
+  }
+
+  empireSiegeDepletedWatchtowerFlags: CallReducerFlags = 'FullUpdate'
+  empireSiegeDepletedWatchtower(flags: CallReducerFlags) {
+    this.empireSiegeDepletedWatchtowerFlags = flags
+  }
+
+  endGracePeriodFlags: CallReducerFlags = 'FullUpdate'
+  endGracePeriod(flags: CallReducerFlags) {
+    this.endGracePeriodFlags = flags
+  }
+
+  enemyClearAggroFlags: CallReducerFlags = 'FullUpdate'
+  enemyClearAggro(flags: CallReducerFlags) {
+    this.enemyClearAggroFlags = flags
+  }
+
+  enemyDespawnFlags: CallReducerFlags = 'FullUpdate'
+  enemyDespawn(flags: CallReducerFlags) {
+    this.enemyDespawnFlags = flags
+  }
+
+  enemyDespawnFromMobMonitorFlags: CallReducerFlags = 'FullUpdate'
+  enemyDespawnFromMobMonitor(flags: CallReducerFlags) {
+    this.enemyDespawnFromMobMonitorFlags = flags
+  }
+
+  enemyDespawnFromMobMonitorBatchFlags: CallReducerFlags = 'FullUpdate'
+  enemyDespawnFromMobMonitorBatch(flags: CallReducerFlags) {
+    this.enemyDespawnFromMobMonitorBatchFlags = flags
+  }
+
+  enemyMoveFlags: CallReducerFlags = 'FullUpdate'
+  enemyMove(flags: CallReducerFlags) {
+    this.enemyMoveFlags = flags
+  }
+
+  enemyMoveBatchFlags: CallReducerFlags = 'FullUpdate'
+  enemyMoveBatch(flags: CallReducerFlags) {
+    this.enemyMoveBatchFlags = flags
+  }
+
+  enemyRegenAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  enemyRegenAgentLoop(flags: CallReducerFlags) {
+    this.enemyRegenAgentLoopFlags = flags
+  }
+
+  enemySetHealthFlags: CallReducerFlags = 'FullUpdate'
+  enemySetHealth(flags: CallReducerFlags) {
+    this.enemySetHealthFlags = flags
+  }
+
+  enemySetHealthBatchFlags: CallReducerFlags = 'FullUpdate'
+  enemySetHealthBatch(flags: CallReducerFlags) {
+    this.enemySetHealthBatchFlags = flags
+  }
+
+  enemySpawnFlags: CallReducerFlags = 'FullUpdate'
+  enemySpawn(flags: CallReducerFlags) {
+    this.enemySpawnFlags = flags
+  }
+
+  enemySpawnBatchFlags: CallReducerFlags = 'FullUpdate'
+  enemySpawnBatch(flags: CallReducerFlags) {
+    this.enemySpawnBatchFlags = flags
+  }
+
+  enemySpawnLootFlags: CallReducerFlags = 'FullUpdate'
+  enemySpawnLoot(flags: CallReducerFlags) {
+    this.enemySpawnLootFlags = flags
+  }
+
+  environmentDebuffAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  environmentDebuffAgentLoop(flags: CallReducerFlags) {
+    this.environmentDebuffAgentLoopFlags = flags
+  }
+
+  equipmentAddFlags: CallReducerFlags = 'FullUpdate'
+  equipmentAdd(flags: CallReducerFlags) {
+    this.equipmentAddFlags = flags
+  }
+
+  equipmentRemoveFlags: CallReducerFlags = 'FullUpdate'
+  equipmentRemove(flags: CallReducerFlags) {
+    this.equipmentRemoveFlags = flags
+  }
+
+  extractFlags: CallReducerFlags = 'FullUpdate'
+  extract(flags: CallReducerFlags) {
+    this.extractFlags = flags
+  }
+
+  extractStartFlags: CallReducerFlags = 'FullUpdate'
+  extractStart(flags: CallReducerFlags) {
+    this.extractStartFlags = flags
+  }
+
+  forceStartAgentsFlags: CallReducerFlags = 'FullUpdate'
+  forceStartAgents(flags: CallReducerFlags) {
+    this.forceStartAgentsFlags = flags
+  }
+
+  generateDevIslandFlags: CallReducerFlags = 'FullUpdate'
+  generateDevIsland(flags: CallReducerFlags) {
+    this.generateDevIslandFlags = flags
+  }
+
+  generateFlatWorldFlags: CallReducerFlags = 'FullUpdate'
+  generateFlatWorld(flags: CallReducerFlags) {
+    this.generateFlatWorldFlags = flags
+  }
+
+  generateWorldFlags: CallReducerFlags = 'FullUpdate'
+  generateWorld(flags: CallReducerFlags) {
+    this.generateWorldFlags = flags
+  }
+
+  growthAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  growthAgentLoop(flags: CallReducerFlags) {
+    this.growthAgentLoopFlags = flags
+  }
+
+  hideDeployableFlags: CallReducerFlags = 'FullUpdate'
+  hideDeployable(flags: CallReducerFlags) {
+    this.hideDeployableFlags = flags
   }
 
   importAchievementDescFlags: CallReducerFlags = 'FullUpdate'
@@ -12032,6 +20515,11 @@ export class SetReducerFlags {
     this.importEmpireColorsDescFlags = flags
   }
 
+  importEmpireIconDescFlags: CallReducerFlags = 'FullUpdate'
+  importEmpireIconDesc(flags: CallReducerFlags) {
+    this.importEmpireIconDescFlags = flags
+  }
+
   importEmpireNotificationDescFlags: CallReducerFlags = 'FullUpdate'
   importEmpireNotificationDesc(flags: CallReducerFlags) {
     this.importEmpireNotificationDescFlags = flags
@@ -12147,6 +20635,11 @@ export class SetReducerFlags {
     this.importInteriorCollapseTriggerStateFlags = flags
   }
 
+  importInteriorEnvironmentDescFlags: CallReducerFlags = 'FullUpdate'
+  importInteriorEnvironmentDesc(flags: CallReducerFlags) {
+    this.importInteriorEnvironmentDescFlags = flags
+  }
+
   importInteriorInstanceDescFlags: CallReducerFlags = 'FullUpdate'
   importInteriorInstanceDesc(flags: CallReducerFlags) {
     this.importInteriorInstanceDescFlags = flags
@@ -12257,6 +20750,11 @@ export class SetReducerFlags {
     this.importKnowledgePavingStateFlags = flags
   }
 
+  importKnowledgePillarShapingStateFlags: CallReducerFlags = 'FullUpdate'
+  importKnowledgePillarShapingState(flags: CallReducerFlags) {
+    this.importKnowledgePillarShapingStateFlags = flags
+  }
+
   importKnowledgeResourcePlacementStateFlags: CallReducerFlags = 'FullUpdate'
   importKnowledgeResourcePlacementState(flags: CallReducerFlags) {
     this.importKnowledgeResourcePlacementStateFlags = flags
@@ -12295,6 +20793,11 @@ export class SetReducerFlags {
   importKnowledgeVaultStateFlags: CallReducerFlags = 'FullUpdate'
   importKnowledgeVaultState(flags: CallReducerFlags) {
     this.importKnowledgeVaultStateFlags = flags
+  }
+
+  importLocationCacheFlags: CallReducerFlags = 'FullUpdate'
+  importLocationCache(flags: CallReducerFlags) {
+    this.importLocationCacheFlags = flags
   }
 
   importLocationStateFlags: CallReducerFlags = 'FullUpdate'
@@ -12372,6 +20875,11 @@ export class SetReducerFlags {
     this.importPavingTileDescFlags = flags
   }
 
+  importPillarShapingDescFlags: CallReducerFlags = 'FullUpdate'
+  importPillarShapingDesc(flags: CallReducerFlags) {
+    this.importPillarShapingDescFlags = flags
+  }
+
   importPlayerActionDescFlags: CallReducerFlags = 'FullUpdate'
   importPlayerActionDesc(flags: CallReducerFlags) {
     this.importPlayerActionDescFlags = flags
@@ -12382,6 +20890,11 @@ export class SetReducerFlags {
     this.importPlayerActionStateFlags = flags
   }
 
+  importPlayerHousingDescFlags: CallReducerFlags = 'FullUpdate'
+  importPlayerHousingDesc(flags: CallReducerFlags) {
+    this.importPlayerHousingDescFlags = flags
+  }
+
   importPlayerPrefsStateFlags: CallReducerFlags = 'FullUpdate'
   importPlayerPrefsState(flags: CallReducerFlags) {
     this.importPlayerPrefsStateFlags = flags
@@ -12390,11 +20903,6 @@ export class SetReducerFlags {
   importPlayerStateFlags: CallReducerFlags = 'FullUpdate'
   importPlayerState(flags: CallReducerFlags) {
     this.importPlayerStateFlags = flags
-  }
-
-  importPlayerVoteStateFlags: CallReducerFlags = 'FullUpdate'
-  importPlayerVoteState(flags: CallReducerFlags) {
-    this.importPlayerVoteStateFlags = flags
   }
 
   importPortalStateFlags: CallReducerFlags = 'FullUpdate'
@@ -12417,19 +20925,14 @@ export class SetReducerFlags {
     this.importProjectSiteStateFlags = flags
   }
 
-  importRegionConnectionInfoFlags: CallReducerFlags = 'FullUpdate'
-  importRegionConnectionInfo(flags: CallReducerFlags) {
-    this.importRegionConnectionInfoFlags = flags
-  }
-
-  importRegionSignInParametersFlags: CallReducerFlags = 'FullUpdate'
-  importRegionSignInParameters(flags: CallReducerFlags) {
-    this.importRegionSignInParametersFlags = flags
-  }
-
   importRentStateFlags: CallReducerFlags = 'FullUpdate'
   importRentState(flags: CallReducerFlags) {
     this.importRentStateFlags = flags
+  }
+
+  importReservedNameDescFlags: CallReducerFlags = 'FullUpdate'
+  importReservedNameDesc(flags: CallReducerFlags) {
+    this.importReservedNameDescFlags = flags
   }
 
   importResourceClumpDescFlags: CallReducerFlags = 'FullUpdate'
@@ -12460,6 +20963,11 @@ export class SetReducerFlags {
   importResourceStateFlags: CallReducerFlags = 'FullUpdate'
   importResourceState(flags: CallReducerFlags) {
     this.importResourceStateFlags = flags
+  }
+
+  importResourcesLogFlags: CallReducerFlags = 'FullUpdate'
+  importResourcesLog(flags: CallReducerFlags) {
+    this.importResourcesLogFlags = flags
   }
 
   importSatiationStateFlags: CallReducerFlags = 'FullUpdate'
@@ -12592,19 +21100,114 @@ export class SetReducerFlags {
     this.importWorldRegionStateFlags = flags
   }
 
+  insertResourcesLogFlags: CallReducerFlags = 'FullUpdate'
+  insertResourcesLog(flags: CallReducerFlags) {
+    this.insertResourcesLogFlags = flags
+  }
+
+  insertTerrainChunkFlags: CallReducerFlags = 'FullUpdate'
+  insertTerrainChunk(flags: CallReducerFlags) {
+    this.insertTerrainChunkFlags = flags
+  }
+
+  interiorSetCollapsedFlags: CallReducerFlags = 'FullUpdate'
+  interiorSetCollapsed(flags: CallReducerFlags) {
+    this.interiorSetCollapsedFlags = flags
+  }
+
+  interiorSetCollapsedScheduledFlags: CallReducerFlags = 'FullUpdate'
+  interiorSetCollapsedScheduled(flags: CallReducerFlags) {
+    this.interiorSetCollapsedScheduledFlags = flags
+  }
+
+  inventoryCreatePersonalFlags: CallReducerFlags = 'FullUpdate'
+  inventoryCreatePersonal(flags: CallReducerFlags) {
+    this.inventoryCreatePersonalFlags = flags
+  }
+
+  inventorySortFlags: CallReducerFlags = 'FullUpdate'
+  inventorySort(flags: CallReducerFlags) {
+    this.inventorySortFlags = flags
+  }
+
+  itemConvertFlags: CallReducerFlags = 'FullUpdate'
+  itemConvert(flags: CallReducerFlags) {
+    this.itemConvertFlags = flags
+  }
+
+  itemConvertStartFlags: CallReducerFlags = 'FullUpdate'
+  itemConvertStart(flags: CallReducerFlags) {
+    this.itemConvertStartFlags = flags
+  }
+
+  itemDropFlags: CallReducerFlags = 'FullUpdate'
+  itemDrop(flags: CallReducerFlags) {
+    this.itemDropFlags = flags
+  }
+
+  itemPickUpFlags: CallReducerFlags = 'FullUpdate'
+  itemPickUp(flags: CallReducerFlags) {
+    this.itemPickUpFlags = flags
+  }
+
+  itemStackMoveFlags: CallReducerFlags = 'FullUpdate'
+  itemStackMove(flags: CallReducerFlags) {
+    this.itemStackMoveFlags = flags
+  }
+
+  itemStackMoveAllFlags: CallReducerFlags = 'FullUpdate'
+  itemStackMoveAll(flags: CallReducerFlags) {
+    this.itemStackMoveAllFlags = flags
+  }
+
+  itemStackSplitFlags: CallReducerFlags = 'FullUpdate'
+  itemStackSplit(flags: CallReducerFlags) {
+    this.itemStackSplitFlags = flags
+  }
+
+  itemUseFlags: CallReducerFlags = 'FullUpdate'
+  itemUse(flags: CallReducerFlags) {
+    this.itemUseFlags = flags
+  }
+
+  itemUseStartFlags: CallReducerFlags = 'FullUpdate'
+  itemUseStart(flags: CallReducerFlags) {
+    this.itemUseStartFlags = flags
+  }
+
   loadConfigFlags: CallReducerFlags = 'FullUpdate'
   loadConfig(flags: CallReducerFlags) {
     this.loadConfigFlags = flags
   }
 
-  logEmpireLeaderboardFlags: CallReducerFlags = 'FullUpdate'
-  logEmpireLeaderboard(flags: CallReducerFlags) {
-    this.logEmpireLeaderboardFlags = flags
+  logClaimMemberLeaderboardFlags: CallReducerFlags = 'FullUpdate'
+  logClaimMemberLeaderboard(flags: CallReducerFlags) {
+    this.logClaimMemberLeaderboardFlags = flags
   }
 
-  logPlayerWithFlags: CallReducerFlags = 'FullUpdate'
-  logPlayerWith(flags: CallReducerFlags) {
-    this.logPlayerWithFlags = flags
+  logClaimTierLeaderboardFlags: CallReducerFlags = 'FullUpdate'
+  logClaimTierLeaderboard(flags: CallReducerFlags) {
+    this.logClaimTierLeaderboardFlags = flags
+  }
+
+  lootChestDespawnFlags: CallReducerFlags = 'FullUpdate'
+  lootChestDespawn(flags: CallReducerFlags) {
+    this.lootChestDespawnFlags = flags
+  }
+
+  lootChestSpawnFlags: CallReducerFlags = 'FullUpdate'
+  lootChestSpawn(flags: CallReducerFlags) {
+    this.lootChestSpawnFlags = flags
+  }
+
+  npcAiAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  npcAiAgentLoop(flags: CallReducerFlags) {
+    this.npcAiAgentLoopFlags = flags
+  }
+
+  onDurabilityZeroFlags: CallReducerFlags = 'FullUpdate'
+  onDurabilityZero(flags: CallReducerFlags) {
+    this.onDurabilityZeroFlags = flags
   }
 
   onInterModuleMessageProcessedFlags: CallReducerFlags = 'FullUpdate'
@@ -12612,19 +21215,199 @@ export class SetReducerFlags {
     this.onInterModuleMessageProcessedFlags = flags
   }
 
-  playerClaimDailyShardsFlags: CallReducerFlags = 'FullUpdate'
-  playerClaimDailyShards(flags: CallReducerFlags) {
-    this.playerClaimDailyShardsFlags = flags
+  orderCancelFlags: CallReducerFlags = 'FullUpdate'
+  orderCancel(flags: CallReducerFlags) {
+    this.orderCancelFlags = flags
   }
 
-  playerCreateFlags: CallReducerFlags = 'FullUpdate'
-  playerCreate(flags: CallReducerFlags) {
-    this.playerCreateFlags = flags
+  orderCollectFlags: CallReducerFlags = 'FullUpdate'
+  orderCollect(flags: CallReducerFlags) {
+    this.orderCollectFlags = flags
   }
 
-  playerDismissNotificationFlags: CallReducerFlags = 'FullUpdate'
-  playerDismissNotification(flags: CallReducerFlags) {
-    this.playerDismissNotificationFlags = flags
+  orderEditBuyOrderFlags: CallReducerFlags = 'FullUpdate'
+  orderEditBuyOrder(flags: CallReducerFlags) {
+    this.orderEditBuyOrderFlags = flags
+  }
+
+  orderEditSellOrderFlags: CallReducerFlags = 'FullUpdate'
+  orderEditSellOrder(flags: CallReducerFlags) {
+    this.orderEditSellOrderFlags = flags
+  }
+
+  orderPostBuyOrderFlags: CallReducerFlags = 'FullUpdate'
+  orderPostBuyOrder(flags: CallReducerFlags) {
+    this.orderPostBuyOrderFlags = flags
+  }
+
+  orderPostSellOrderFlags: CallReducerFlags = 'FullUpdate'
+  orderPostSellOrder(flags: CallReducerFlags) {
+    this.orderPostSellOrderFlags = flags
+  }
+
+  passiveCraftCancelFlags: CallReducerFlags = 'FullUpdate'
+  passiveCraftCancel(flags: CallReducerFlags) {
+    this.passiveCraftCancelFlags = flags
+  }
+
+  passiveCraftCollectFlags: CallReducerFlags = 'FullUpdate'
+  passiveCraftCollect(flags: CallReducerFlags) {
+    this.passiveCraftCollectFlags = flags
+  }
+
+  passiveCraftCollectAllFlags: CallReducerFlags = 'FullUpdate'
+  passiveCraftCollectAll(flags: CallReducerFlags) {
+    this.passiveCraftCollectAllFlags = flags
+  }
+
+  passiveCraftProcessFlags: CallReducerFlags = 'FullUpdate'
+  passiveCraftProcess(flags: CallReducerFlags) {
+    this.passiveCraftProcessFlags = flags
+  }
+
+  passiveCraftQueueFlags: CallReducerFlags = 'FullUpdate'
+  passiveCraftQueue(flags: CallReducerFlags) {
+    this.passiveCraftQueueFlags = flags
+  }
+
+  pausePlayTimerFlags: CallReducerFlags = 'FullUpdate'
+  pausePlayTimer(flags: CallReducerFlags) {
+    this.pausePlayTimerFlags = flags
+  }
+
+  pavingDestroyTileFlags: CallReducerFlags = 'FullUpdate'
+  pavingDestroyTile(flags: CallReducerFlags) {
+    this.pavingDestroyTileFlags = flags
+  }
+
+  pavingDestroyTileStartFlags: CallReducerFlags = 'FullUpdate'
+  pavingDestroyTileStart(flags: CallReducerFlags) {
+    this.pavingDestroyTileStartFlags = flags
+  }
+
+  pavingPlaceTileFlags: CallReducerFlags = 'FullUpdate'
+  pavingPlaceTile(flags: CallReducerFlags) {
+    this.pavingPlaceTileFlags = flags
+  }
+
+  pavingPlaceTileStartFlags: CallReducerFlags = 'FullUpdate'
+  pavingPlaceTileStart(flags: CallReducerFlags) {
+    this.pavingPlaceTileStartFlags = flags
+  }
+
+  permissionEditFlags: CallReducerFlags = 'FullUpdate'
+  permissionEdit(flags: CallReducerFlags) {
+    this.permissionEditFlags = flags
+  }
+
+  pillarShapingDestroyFlags: CallReducerFlags = 'FullUpdate'
+  pillarShapingDestroy(flags: CallReducerFlags) {
+    this.pillarShapingDestroyFlags = flags
+  }
+
+  pillarShapingDestroyStartFlags: CallReducerFlags = 'FullUpdate'
+  pillarShapingDestroyStart(flags: CallReducerFlags) {
+    this.pillarShapingDestroyStartFlags = flags
+  }
+
+  pillarShapingPlacePillarFlags: CallReducerFlags = 'FullUpdate'
+  pillarShapingPlacePillar(flags: CallReducerFlags) {
+    this.pillarShapingPlacePillarFlags = flags
+  }
+
+  pillarShapingPlacePillarStartFlags: CallReducerFlags = 'FullUpdate'
+  pillarShapingPlacePillarStart(flags: CallReducerFlags) {
+    this.pillarShapingPlacePillarStartFlags = flags
+  }
+
+  playerActionCancelFlags: CallReducerFlags = 'FullUpdate'
+  playerActionCancel(flags: CallReducerFlags) {
+    this.playerActionCancelFlags = flags
+  }
+
+  playerCancelRegionTransferFlags: CallReducerFlags = 'FullUpdate'
+  playerCancelRegionTransfer(flags: CallReducerFlags) {
+    this.playerCancelRegionTransferFlags = flags
+  }
+
+  playerClearActionStateFlags: CallReducerFlags = 'FullUpdate'
+  playerClearActionState(flags: CallReducerFlags) {
+    this.playerClearActionStateFlags = flags
+  }
+
+  playerClimbFlags: CallReducerFlags = 'FullUpdate'
+  playerClimb(flags: CallReducerFlags) {
+    this.playerClimbFlags = flags
+  }
+
+  playerClimbStartFlags: CallReducerFlags = 'FullUpdate'
+  playerClimbStart(flags: CallReducerFlags) {
+    this.playerClimbStartFlags = flags
+  }
+
+  playerCompleteTaskFlags: CallReducerFlags = 'FullUpdate'
+  playerCompleteTask(flags: CallReducerFlags) {
+    this.playerCompleteTaskFlags = flags
+  }
+
+  playerDeathStartFlags: CallReducerFlags = 'FullUpdate'
+  playerDeathStart(flags: CallReducerFlags) {
+    this.playerDeathStartFlags = flags
+  }
+
+  playerDismissAlertFlags: CallReducerFlags = 'FullUpdate'
+  playerDismissAlert(flags: CallReducerFlags) {
+    this.playerDismissAlertFlags = flags
+  }
+
+  playerDuelInitiateFlags: CallReducerFlags = 'FullUpdate'
+  playerDuelInitiate(flags: CallReducerFlags) {
+    this.playerDuelInitiateFlags = flags
+  }
+
+  playerElevatorArriveFlags: CallReducerFlags = 'FullUpdate'
+  playerElevatorArrive(flags: CallReducerFlags) {
+    this.playerElevatorArriveFlags = flags
+  }
+
+  playerHousingChangeEntranceFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingChangeEntrance(flags: CallReducerFlags) {
+    this.playerHousingChangeEntranceFlags = flags
+  }
+
+  playerHousingEnterFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingEnter(flags: CallReducerFlags) {
+    this.playerHousingEnterFlags = flags
+  }
+
+  playerHousingEvictPlayerFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingEvictPlayer(flags: CallReducerFlags) {
+    this.playerHousingEvictPlayerFlags = flags
+  }
+
+  playerHousingEvictPlayerCompleteFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingEvictPlayerComplete(flags: CallReducerFlags) {
+    this.playerHousingEvictPlayerCompleteFlags = flags
+  }
+
+  playerHousingIncomeAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingIncomeAgentLoop(flags: CallReducerFlags) {
+    this.playerHousingIncomeAgentLoopFlags = flags
+  }
+
+  playerHousingRequestAccessFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingRequestAccess(flags: CallReducerFlags) {
+    this.playerHousingRequestAccessFlags = flags
+  }
+
+  playerHousingUpdateFlags: CallReducerFlags = 'FullUpdate'
+  playerHousingUpdate(flags: CallReducerFlags) {
+    this.playerHousingUpdateFlags = flags
+  }
+
+  playerMoveFlags: CallReducerFlags = 'FullUpdate'
+  playerMove(flags: CallReducerFlags) {
+    this.playerMoveFlags = flags
   }
 
   playerNotificationEventReducerFlags: CallReducerFlags = 'FullUpdate'
@@ -12632,9 +21415,69 @@ export class SetReducerFlags {
     this.playerNotificationEventReducerFlags = flags
   }
 
-  playerSetNameFlags: CallReducerFlags = 'FullUpdate'
-  playerSetName(flags: CallReducerFlags) {
-    this.playerSetNameFlags = flags
+  playerQueueJoinFlags: CallReducerFlags = 'FullUpdate'
+  playerQueueJoin(flags: CallReducerFlags) {
+    this.playerQueueJoinFlags = flags
+  }
+
+  playerQueueLeaveFlags: CallReducerFlags = 'FullUpdate'
+  playerQueueLeave(flags: CallReducerFlags) {
+    this.playerQueueLeaveFlags = flags
+  }
+
+  playerRegenAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  playerRegenAgentLoop(flags: CallReducerFlags) {
+    this.playerRegenAgentLoopFlags = flags
+  }
+
+  playerRegionCrossoverFlags: CallReducerFlags = 'FullUpdate'
+  playerRegionCrossover(flags: CallReducerFlags) {
+    this.playerRegionCrossoverFlags = flags
+  }
+
+  playerRegionTransferEventReducerFlags: CallReducerFlags = 'FullUpdate'
+  playerRegionTransferEventReducer(flags: CallReducerFlags) {
+    this.playerRegionTransferEventReducerFlags = flags
+  }
+
+  playerRespawnFlags: CallReducerFlags = 'FullUpdate'
+  playerRespawn(flags: CallReducerFlags) {
+    this.playerRespawnFlags = flags
+  }
+
+  playerSetDefaultDeployableFlags: CallReducerFlags = 'FullUpdate'
+  playerSetDefaultDeployable(flags: CallReducerFlags) {
+    this.playerSetDefaultDeployableFlags = flags
+  }
+
+  playerSetNameOutcomeEventReducerFlags: CallReducerFlags = 'FullUpdate'
+  playerSetNameOutcomeEventReducer(flags: CallReducerFlags) {
+    this.playerSetNameOutcomeEventReducerFlags = flags
+  }
+
+  playerTeleportHomeFlags: CallReducerFlags = 'FullUpdate'
+  playerTeleportHome(flags: CallReducerFlags) {
+    this.playerTeleportHomeFlags = flags
+  }
+
+  playerTeleportHomeStartFlags: CallReducerFlags = 'FullUpdate'
+  playerTeleportHomeStart(flags: CallReducerFlags) {
+    this.playerTeleportHomeStartFlags = flags
+  }
+
+  playerTeleportWaystoneFlags: CallReducerFlags = 'FullUpdate'
+  playerTeleportWaystone(flags: CallReducerFlags) {
+    this.playerTeleportWaystoneFlags = flags
+  }
+
+  playerTeleportWaystoneStartFlags: CallReducerFlags = 'FullUpdate'
+  playerTeleportWaystoneStart(flags: CallReducerFlags) {
+    this.playerTeleportWaystoneStartFlags = flags
+  }
+
+  playerUseElevatorFlags: CallReducerFlags = 'FullUpdate'
+  playerUseElevator(flags: CallReducerFlags) {
+    this.playerUseElevatorFlags = flags
   }
 
   playerVoteAnswerFlags: CallReducerFlags = 'FullUpdate'
@@ -12647,19 +21490,204 @@ export class SetReducerFlags {
     this.playerVoteConcludeFlags = flags
   }
 
+  pocketSwapContentsFlags: CallReducerFlags = 'FullUpdate'
+  pocketSwapContents(flags: CallReducerFlags) {
+    this.pocketSwapContentsFlags = flags
+  }
+
+  portalEnterFlags: CallReducerFlags = 'FullUpdate'
+  portalEnter(flags: CallReducerFlags) {
+    this.portalEnterFlags = flags
+  }
+
   processInterModuleMessageFlags: CallReducerFlags = 'FullUpdate'
   processInterModuleMessage(flags: CallReducerFlags) {
     this.processInterModuleMessageFlags = flags
   }
 
-  setRoleForIdentityFlags: CallReducerFlags = 'FullUpdate'
-  setRoleForIdentity(flags: CallReducerFlags) {
-    this.setRoleForIdentityFlags = flags
+  projectSiteAddMaterialsFlags: CallReducerFlags = 'FullUpdate'
+  projectSiteAddMaterials(flags: CallReducerFlags) {
+    this.projectSiteAddMaterialsFlags = flags
+  }
+
+  projectSiteAdvanceProjectFlags: CallReducerFlags = 'FullUpdate'
+  projectSiteAdvanceProject(flags: CallReducerFlags) {
+    this.projectSiteAdvanceProjectFlags = flags
+  }
+
+  projectSiteAdvanceProjectStartFlags: CallReducerFlags = 'FullUpdate'
+  projectSiteAdvanceProjectStart(flags: CallReducerFlags) {
+    this.projectSiteAdvanceProjectStartFlags = flags
+  }
+
+  projectSiteCancelFlags: CallReducerFlags = 'FullUpdate'
+  projectSiteCancel(flags: CallReducerFlags) {
+    this.projectSiteCancelFlags = flags
+  }
+
+  projectSitePlaceFlags: CallReducerFlags = 'FullUpdate'
+  projectSitePlace(flags: CallReducerFlags) {
+    this.projectSitePlaceFlags = flags
+  }
+
+  regionPopuplationAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  regionPopuplationAgentLoop(flags: CallReducerFlags) {
+    this.regionPopuplationAgentLoopFlags = flags
+  }
+
+  rentAddListingFlags: CallReducerFlags = 'FullUpdate'
+  rentAddListing(flags: CallReducerFlags) {
+    this.rentAddListingFlags = flags
+  }
+
+  rentAddTenantFlags: CallReducerFlags = 'FullUpdate'
+  rentAddTenant(flags: CallReducerFlags) {
+    this.rentAddTenantFlags = flags
+  }
+
+  rentCollectEvictionFeeFlags: CallReducerFlags = 'FullUpdate'
+  rentCollectEvictionFee(flags: CallReducerFlags) {
+    this.rentCollectEvictionFeeFlags = flags
+  }
+
+  rentCollectorAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  rentCollectorAgentLoop(flags: CallReducerFlags) {
+    this.rentCollectorAgentLoopFlags = flags
+  }
+
+  rentDepositCoinsFlags: CallReducerFlags = 'FullUpdate'
+  rentDepositCoins(flags: CallReducerFlags) {
+    this.rentDepositCoinsFlags = flags
+  }
+
+  rentEvictFlags: CallReducerFlags = 'FullUpdate'
+  rentEvict(flags: CallReducerFlags) {
+    this.rentEvictFlags = flags
+  }
+
+  rentEvictTermFlags: CallReducerFlags = 'FullUpdate'
+  rentEvictTerm(flags: CallReducerFlags) {
+    this.rentEvictTermFlags = flags
+  }
+
+  rentPurchaseFlags: CallReducerFlags = 'FullUpdate'
+  rentPurchase(flags: CallReducerFlags) {
+    this.rentPurchaseFlags = flags
+  }
+
+  rentRemoveTenantFlags: CallReducerFlags = 'FullUpdate'
+  rentRemoveTenant(flags: CallReducerFlags) {
+    this.rentRemoveTenantFlags = flags
+  }
+
+  rentSetDailyRateFlags: CallReducerFlags = 'FullUpdate'
+  rentSetDailyRate(flags: CallReducerFlags) {
+    this.rentSetDailyRateFlags = flags
+  }
+
+  rentTerminateFlags: CallReducerFlags = 'FullUpdate'
+  rentTerminate(flags: CallReducerFlags) {
+    this.rentTerminateFlags = flags
+  }
+
+  rentUnlistFlags: CallReducerFlags = 'FullUpdate'
+  rentUnlist(flags: CallReducerFlags) {
+    this.rentUnlistFlags = flags
+  }
+
+  reportChatMessageFlags: CallReducerFlags = 'FullUpdate'
+  reportChatMessage(flags: CallReducerFlags) {
+    this.reportChatMessageFlags = flags
+  }
+
+  reportPlayerFlags: CallReducerFlags = 'FullUpdate'
+  reportPlayer(flags: CallReducerFlags) {
+    this.reportPlayerFlags = flags
+  }
+
+  resetChunkIndexFlags: CallReducerFlags = 'FullUpdate'
+  resetChunkIndex(flags: CallReducerFlags) {
+    this.resetChunkIndexFlags = flags
+  }
+
+  resetChunkIndexWithDimensionFlags: CallReducerFlags = 'FullUpdate'
+  resetChunkIndexWithDimension(flags: CallReducerFlags) {
+    this.resetChunkIndexWithDimensionFlags = flags
+  }
+
+  resetMobileEntityPositionFlags: CallReducerFlags = 'FullUpdate'
+  resetMobileEntityPosition(flags: CallReducerFlags) {
+    this.resetMobileEntityPositionFlags = flags
+  }
+
+  resetOnboardingFlags: CallReducerFlags = 'FullUpdate'
+  resetOnboarding(flags: CallReducerFlags) {
+    this.resetOnboardingFlags = flags
+  }
+
+  resourceSpawnScheduledFlags: CallReducerFlags = 'FullUpdate'
+  resourceSpawnScheduled(flags: CallReducerFlags) {
+    this.resourceSpawnScheduledFlags = flags
+  }
+
+  resourcesRegenFlags: CallReducerFlags = 'FullUpdate'
+  resourcesRegen(flags: CallReducerFlags) {
+    this.resourcesRegenFlags = flags
+  }
+
+  respawnInteriorNpcsFlags: CallReducerFlags = 'FullUpdate'
+  respawnInteriorNpcs(flags: CallReducerFlags) {
+    this.respawnInteriorNpcsFlags = flags
+  }
+
+  respawnResourceInChunkFlags: CallReducerFlags = 'FullUpdate'
+  respawnResourceInChunk(flags: CallReducerFlags) {
+    this.respawnResourceInChunkFlags = flags
+  }
+
+  retrieveLostItemFlags: CallReducerFlags = 'FullUpdate'
+  retrieveLostItem(flags: CallReducerFlags) {
+    this.retrieveLostItemFlags = flags
+  }
+
+  scrollReadFlags: CallReducerFlags = 'FullUpdate'
+  scrollRead(flags: CallReducerFlags) {
+    this.scrollReadFlags = flags
+  }
+
+  searchForClosestBuildingFlags: CallReducerFlags = 'FullUpdate'
+  searchForClosestBuilding(flags: CallReducerFlags) {
+    this.searchForClosestBuildingFlags = flags
+  }
+
+  searchForClosestBuildingTypeFlags: CallReducerFlags = 'FullUpdate'
+  searchForClosestBuildingType(flags: CallReducerFlags) {
+    this.searchForClosestBuildingTypeFlags = flags
+  }
+
+  serverTeleportPlayerFlags: CallReducerFlags = 'FullUpdate'
+  serverTeleportPlayer(flags: CallReducerFlags) {
+    this.serverTeleportPlayerFlags = flags
+  }
+
+  setHomeFlags: CallReducerFlags = 'FullUpdate'
+  setHome(flags: CallReducerFlags) {
+    this.setHomeFlags = flags
   }
 
   signInFlags: CallReducerFlags = 'FullUpdate'
   signIn(flags: CallReducerFlags) {
     this.signInFlags = flags
+  }
+
+  signOutFlags: CallReducerFlags = 'FullUpdate'
+  signOut(flags: CallReducerFlags) {
+    this.signOutFlags = flags
+  }
+
+  sleepFlags: CallReducerFlags = 'FullUpdate'
+  sleep(flags: CallReducerFlags) {
+    this.sleepFlags = flags
   }
 
   stageAchievementDescFlags: CallReducerFlags = 'FullUpdate'
@@ -13072,34 +22100,129 @@ export class SetReducerFlags {
     this.stageWeaponTypeDescFlags = flags
   }
 
-  updateRoleForPlayerFlags: CallReducerFlags = 'FullUpdate'
-  updateRoleForPlayer(flags: CallReducerFlags) {
-    this.updateRoleForPlayerFlags = flags
+  startAgentsFlags: CallReducerFlags = 'FullUpdate'
+  startAgents(flags: CallReducerFlags) {
+    this.startAgentsFlags = flags
+  }
+
+  startGeneratingWorldFlags: CallReducerFlags = 'FullUpdate'
+  startGeneratingWorld(flags: CallReducerFlags) {
+    this.startGeneratingWorldFlags = flags
+  }
+
+  startOnboardingQuestFlags: CallReducerFlags = 'FullUpdate'
+  startOnboardingQuest(flags: CallReducerFlags) {
+    this.startOnboardingQuestFlags = flags
+  }
+
+  starvingAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  starvingAgentLoop(flags: CallReducerFlags) {
+    this.starvingAgentLoopFlags = flags
+  }
+
+  stopAgentsFlags: CallReducerFlags = 'FullUpdate'
+  stopAgents(flags: CallReducerFlags) {
+    this.stopAgentsFlags = flags
+  }
+
+  synchronizeTimeFlags: CallReducerFlags = 'FullUpdate'
+  synchronizeTime(flags: CallReducerFlags) {
+    this.synchronizeTimeFlags = flags
+  }
+
+  targetUpdateFlags: CallReducerFlags = 'FullUpdate'
+  targetUpdate(flags: CallReducerFlags) {
+    this.targetUpdateFlags = flags
+  }
+
+  teleportationEnergyRegenAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  teleportationEnergyRegenAgentLoop(flags: CallReducerFlags) {
+    this.teleportationEnergyRegenAgentLoopFlags = flags
+  }
+
+  terraformFlags: CallReducerFlags = 'FullUpdate'
+  terraform(flags: CallReducerFlags) {
+    this.terraformFlags = flags
+  }
+
+  terraformCancelFlags: CallReducerFlags = 'FullUpdate'
+  terraformCancel(flags: CallReducerFlags) {
+    this.terraformCancelFlags = flags
+  }
+
+  terraformSetFinalTargetFlags: CallReducerFlags = 'FullUpdate'
+  terraformSetFinalTarget(flags: CallReducerFlags) {
+    this.terraformSetFinalTargetFlags = flags
+  }
+
+  terraformStartFlags: CallReducerFlags = 'FullUpdate'
+  terraformStart(flags: CallReducerFlags) {
+    this.terraformStartFlags = flags
+  }
+
+  tradeAcceptFlags: CallReducerFlags = 'FullUpdate'
+  tradeAccept(flags: CallReducerFlags) {
+    this.tradeAcceptFlags = flags
+  }
+
+  tradeAcceptSessionFlags: CallReducerFlags = 'FullUpdate'
+  tradeAcceptSession(flags: CallReducerFlags) {
+    this.tradeAcceptSessionFlags = flags
+  }
+
+  tradeAddItemFlags: CallReducerFlags = 'FullUpdate'
+  tradeAddItem(flags: CallReducerFlags) {
+    this.tradeAddItemFlags = flags
+  }
+
+  tradeCancelServerFlags: CallReducerFlags = 'FullUpdate'
+  tradeCancelServer(flags: CallReducerFlags) {
+    this.tradeCancelServerFlags = flags
+  }
+
+  tradeDeclineFlags: CallReducerFlags = 'FullUpdate'
+  tradeDecline(flags: CallReducerFlags) {
+    this.tradeDeclineFlags = flags
+  }
+
+  tradeDeclineSessionFlags: CallReducerFlags = 'FullUpdate'
+  tradeDeclineSession(flags: CallReducerFlags) {
+    this.tradeDeclineSessionFlags = flags
+  }
+
+  tradeInitiateSessionFlags: CallReducerFlags = 'FullUpdate'
+  tradeInitiateSession(flags: CallReducerFlags) {
+    this.tradeInitiateSessionFlags = flags
+  }
+
+  tradeRemoveItemFlags: CallReducerFlags = 'FullUpdate'
+  tradeRemoveItem(flags: CallReducerFlags) {
+    this.tradeRemoveItemFlags = flags
+  }
+
+  tradeSessionsAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  tradeSessionsAgentLoop(flags: CallReducerFlags) {
+    this.tradeSessionsAgentLoopFlags = flags
+  }
+
+  tradeSwapPocketsFlags: CallReducerFlags = 'FullUpdate'
+  tradeSwapPockets(flags: CallReducerFlags) {
+    this.tradeSwapPocketsFlags = flags
+  }
+
+  transferPlayerDelayedFlags: CallReducerFlags = 'FullUpdate'
+  transferPlayerDelayed(flags: CallReducerFlags) {
+    this.transferPlayerDelayedFlags = flags
+  }
+
+  travelerTaskAgentLoopFlags: CallReducerFlags = 'FullUpdate'
+  travelerTaskAgentLoop(flags: CallReducerFlags) {
+    this.travelerTaskAgentLoopFlags = flags
   }
 
   updateScheduledTimersFromStaticDataFlags: CallReducerFlags = 'FullUpdate'
   updateScheduledTimersFromStaticData(flags: CallReducerFlags) {
     this.updateScheduledTimersFromStaticDataFlags = flags
-  }
-
-  userModerationClearAllFlags: CallReducerFlags = 'FullUpdate'
-  userModerationClearAll(flags: CallReducerFlags) {
-    this.userModerationClearAllFlags = flags
-  }
-
-  userModerationCreateFlags: CallReducerFlags = 'FullUpdate'
-  userModerationCreate(flags: CallReducerFlags) {
-    this.userModerationCreateFlags = flags
-  }
-
-  userModerationDeleteFlags: CallReducerFlags = 'FullUpdate'
-  userModerationDelete(flags: CallReducerFlags) {
-    this.userModerationDeleteFlags = flags
-  }
-
-  userModerationListAllFlags: CallReducerFlags = 'FullUpdate'
-  userModerationListAll(flags: CallReducerFlags) {
-    this.userModerationListAllFlags = flags
   }
 }
 
@@ -13136,6 +22259,22 @@ export class RemoteTables {
     )
   }
 
+  get adminClearResourceTimer(): AdminClearResourceTimerTableHandle {
+    return new AdminClearResourceTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<AdminClearResourceTimer>(
+        REMOTE_MODULE.tables.admin_clear_resource_timer
+      )
+    )
+  }
+
+  get adminRestorePlayerStateTimer(): AdminRestorePlayerStateTimerTableHandle {
+    return new AdminRestorePlayerStateTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<AdminRestorePlayerStateTimer>(
+        REMOTE_MODULE.tables.admin_restore_player_state_timer
+      )
+    )
+  }
+
   get alertDesc(): AlertDescTableHandle {
     return new AlertDescTableHandle(
       this.connection.clientCache.getOrCreateTable<AlertDesc>(REMOTE_MODULE.tables.alert_desc)
@@ -13154,15 +22293,33 @@ export class RemoteTables {
     )
   }
 
+  get attackImpactTimer(): AttackImpactTimerTableHandle {
+    return new AttackImpactTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<AttackImpactTimer>(REMOTE_MODULE.tables.attack_impact_timer)
+    )
+  }
+
   get attackOutcomeState(): AttackOutcomeStateTableHandle {
     return new AttackOutcomeStateTableHandle(
       this.connection.clientCache.getOrCreateTable<AttackOutcomeState>(REMOTE_MODULE.tables.attack_outcome_state)
     )
   }
 
+  get attackTimer(): AttackTimerTableHandle {
+    return new AttackTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<AttackTimer>(REMOTE_MODULE.tables.attack_timer)
+    )
+  }
+
   get autoClaimState(): AutoClaimStateTableHandle {
     return new AutoClaimStateTableHandle(
       this.connection.clientCache.getOrCreateTable<AutoClaimState>(REMOTE_MODULE.tables.auto_claim_state)
+    )
+  }
+
+  get autoLogoutLoopTimer(): AutoLogoutLoopTimerTableHandle {
+    return new AutoLogoutLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<AutoLogoutLoopTimer>(REMOTE_MODULE.tables.auto_logout_loop_timer)
     )
   }
 
@@ -13202,9 +22359,23 @@ export class RemoteTables {
     )
   }
 
+  get buildingDecayLoopTimer(): BuildingDecayLoopTimerTableHandle {
+    return new BuildingDecayLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<BuildingDecayLoopTimer>(
+        REMOTE_MODULE.tables.building_decay_loop_timer
+      )
+    )
+  }
+
   get buildingDesc(): BuildingDescTableHandle {
     return new BuildingDescTableHandle(
       this.connection.clientCache.getOrCreateTable<BuildingDesc>(REMOTE_MODULE.tables.building_desc)
+    )
+  }
+
+  get buildingDespawnTimer(): BuildingDespawnTimerTableHandle {
+    return new BuildingDespawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<BuildingDespawnTimer>(REMOTE_MODULE.tables.building_despawn_timer)
     )
   }
 
@@ -13324,6 +22495,12 @@ export class RemoteTables {
     )
   }
 
+  get claimTechUnlockTimer(): ClaimTechUnlockTimerTableHandle {
+    return new ClaimTechUnlockTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<ClaimTechUnlockTimer>(REMOTE_MODULE.tables.claim_tech_unlock_timer)
+    )
+  }
+
   get claimTileCost(): ClaimTileCostTableHandle {
     return new ClaimTileCostTableHandle(
       this.connection.clientCache.getOrCreateTable<ClaimTileCost>(REMOTE_MODULE.tables.claim_tile_cost)
@@ -13351,6 +22528,12 @@ export class RemoteTables {
   get clothingDesc(): ClothingDescTableHandle {
     return new ClothingDescTableHandle(
       this.connection.clientCache.getOrCreateTable<ClothingDesc>(REMOTE_MODULE.tables.clothing_desc)
+    )
+  }
+
+  get collectStatsTimer(): CollectStatsTimerTableHandle {
+    return new CollectStatsTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<CollectStatsTimer>(REMOTE_MODULE.tables.collect_stats_timer)
     )
   }
 
@@ -13390,6 +22573,12 @@ export class RemoteTables {
     )
   }
 
+  get dayNightLoopTimer(): DayNightLoopTimerTableHandle {
+    return new DayNightLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DayNightLoopTimer>(REMOTE_MODULE.tables.day_night_loop_timer)
+    )
+  }
+
   get deconstructionRecipeDesc(): DeconstructionRecipeDescTableHandle {
     return new DeconstructionRecipeDescTableHandle(
       this.connection.clientCache.getOrCreateTable<DeconstructionRecipeDesc>(
@@ -13412,9 +22601,25 @@ export class RemoteTables {
     )
   }
 
+  get deployableDismountTimer(): DeployableDismountTimerTableHandle {
+    return new DeployableDismountTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DeployableDismountTimer>(
+        REMOTE_MODULE.tables.deployable_dismount_timer
+      )
+    )
+  }
+
   get deployableState(): DeployableStateTableHandle {
     return new DeployableStateTableHandle(
       this.connection.clientCache.getOrCreateTable<DeployableState>(REMOTE_MODULE.tables.deployable_state)
+    )
+  }
+
+  get destroyDimensionNetworkTimer(): DestroyDimensionNetworkTimerTableHandle {
+    return new DestroyDimensionNetworkTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DestroyDimensionNetworkTimer>(
+        REMOTE_MODULE.tables.destroy_dimension_network_timer
+      )
     )
   }
 
@@ -13446,9 +22651,37 @@ export class RemoteTables {
     )
   }
 
+  get droppedInventoryDespawnTimer(): DroppedInventoryDespawnTimerTableHandle {
+    return new DroppedInventoryDespawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DroppedInventoryDespawnTimer>(
+        REMOTE_MODULE.tables.dropped_inventory_despawn_timer
+      )
+    )
+  }
+
+  get droppedInventoryOwnershipTimer(): DroppedInventoryOwnershipTimerTableHandle {
+    return new DroppedInventoryOwnershipTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DroppedInventoryOwnershipTimer>(
+        REMOTE_MODULE.tables.dropped_inventory_ownership_timer
+      )
+    )
+  }
+
   get droppedInventoryState(): DroppedInventoryStateTableHandle {
     return new DroppedInventoryStateTableHandle(
       this.connection.clientCache.getOrCreateTable<DroppedInventoryState>(REMOTE_MODULE.tables.dropped_inventory_state)
+    )
+  }
+
+  get duelAgentTimer(): DuelAgentTimerTableHandle {
+    return new DuelAgentTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DuelAgentTimer>(REMOTE_MODULE.tables.duel_agent_timer)
+    )
+  }
+
+  get duelDespawnTimer(): DuelDespawnTimerTableHandle {
+    return new DuelDespawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<DuelDespawnTimer>(REMOTE_MODULE.tables.duel_despawn_timer)
     )
   }
 
@@ -13482,53 +22715,15 @@ export class RemoteTables {
     )
   }
 
-  get empireCraftSuppliesTimer(): EmpireCraftSuppliesTimerTableHandle {
-    return new EmpireCraftSuppliesTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireCraftSuppliesTimer>(
-        REMOTE_MODULE.tables.empire_craft_supplies_timer
-      )
-    )
-  }
-
-  get empireDecayLoopTimer(): EmpireDecayLoopTimerTableHandle {
-    return new EmpireDecayLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireDecayLoopTimer>(REMOTE_MODULE.tables.empire_decay_loop_timer)
-    )
-  }
-
-  get empireDirectiveState(): EmpireDirectiveStateTableHandle {
-    return new EmpireDirectiveStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireDirectiveState>(REMOTE_MODULE.tables.empire_directive_state)
-    )
-  }
-
-  get empireEmblemState(): EmpireEmblemStateTableHandle {
-    return new EmpireEmblemStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireEmblemState>(REMOTE_MODULE.tables.empire_emblem_state)
-    )
-  }
-
   get empireExpansionState(): EmpireExpansionStateTableHandle {
     return new EmpireExpansionStateTableHandle(
       this.connection.clientCache.getOrCreateTable<EmpireExpansionState>(REMOTE_MODULE.tables.empire_expansion_state)
     )
   }
 
-  get empireFoundryState(): EmpireFoundryStateTableHandle {
-    return new EmpireFoundryStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireFoundryState>(REMOTE_MODULE.tables.empire_foundry_state)
-    )
-  }
-
   get empireIconDesc(): EmpireIconDescTableHandle {
     return new EmpireIconDescTableHandle(
       this.connection.clientCache.getOrCreateTable<EmpireIconDesc>(REMOTE_MODULE.tables.empire_icon_desc)
-    )
-  }
-
-  get empireLogState(): EmpireLogStateTableHandle {
-    return new EmpireLogStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireLogState>(REMOTE_MODULE.tables.empire_log_state)
     )
   }
 
@@ -13552,23 +22747,9 @@ export class RemoteTables {
     )
   }
 
-  get empireNotificationState(): EmpireNotificationStateTableHandle {
-    return new EmpireNotificationStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireNotificationState>(
-        REMOTE_MODULE.tables.empire_notification_state
-      )
-    )
-  }
-
   get empirePlayerDataState(): EmpirePlayerDataStateTableHandle {
     return new EmpirePlayerDataStateTableHandle(
       this.connection.clientCache.getOrCreateTable<EmpirePlayerDataState>(REMOTE_MODULE.tables.empire_player_data_state)
-    )
-  }
-
-  get empirePlayerLogState(): EmpirePlayerLogStateTableHandle {
-    return new EmpirePlayerLogStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpirePlayerLogState>(REMOTE_MODULE.tables.empire_player_log_state)
     )
   }
 
@@ -13590,20 +22771,6 @@ export class RemoteTables {
     )
   }
 
-  get empireSiegeEngineState(): EmpireSiegeEngineStateTableHandle {
-    return new EmpireSiegeEngineStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireSiegeEngineState>(
-        REMOTE_MODULE.tables.empire_siege_engine_state
-      )
-    )
-  }
-
-  get empireSiegeLoopTimer(): EmpireSiegeLoopTimerTableHandle {
-    return new EmpireSiegeLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireSiegeLoopTimer>(REMOTE_MODULE.tables.empire_siege_loop_timer)
-    )
-  }
-
   get empireState(): EmpireStateTableHandle {
     return new EmpireStateTableHandle(
       this.connection.clientCache.getOrCreateTable<EmpireState>(REMOTE_MODULE.tables.empire_state)
@@ -13622,6 +22789,12 @@ export class RemoteTables {
     )
   }
 
+  get endGracePeriodTimer(): EndGracePeriodTimerTableHandle {
+    return new EndGracePeriodTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<EndGracePeriodTimer>(REMOTE_MODULE.tables.end_grace_period_timer)
+    )
+  }
+
   get enemyAiParamsDesc(): EnemyAiParamsDescTableHandle {
     return new EnemyAiParamsDescTableHandle(
       this.connection.clientCache.getOrCreateTable<EnemyAiParamsDesc>(REMOTE_MODULE.tables.enemy_ai_params_desc)
@@ -13634,9 +22807,21 @@ export class RemoteTables {
     )
   }
 
+  get enemyDespawnTimer(): EnemyDespawnTimerTableHandle {
+    return new EnemyDespawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<EnemyDespawnTimer>(REMOTE_MODULE.tables.enemy_despawn_timer)
+    )
+  }
+
   get enemyMobMonitorState(): EnemyMobMonitorStateTableHandle {
     return new EnemyMobMonitorStateTableHandle(
       this.connection.clientCache.getOrCreateTable<EnemyMobMonitorState>(REMOTE_MODULE.tables.enemy_mob_monitor_state)
+    )
+  }
+
+  get enemyRegenLoopTimer(): EnemyRegenLoopTimerTableHandle {
+    return new EnemyRegenLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<EnemyRegenLoopTimer>(REMOTE_MODULE.tables.enemy_regen_loop_timer)
     )
   }
 
@@ -13649,6 +22834,14 @@ export class RemoteTables {
   get environmentDebuffDesc(): EnvironmentDebuffDescTableHandle {
     return new EnvironmentDebuffDescTableHandle(
       this.connection.clientCache.getOrCreateTable<EnvironmentDebuffDesc>(REMOTE_MODULE.tables.environment_debuff_desc)
+    )
+  }
+
+  get environmentDebuffLoopTimer(): EnvironmentDebuffLoopTimerTableHandle {
+    return new EnvironmentDebuffLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<EnvironmentDebuffLoopTimer>(
+        REMOTE_MODULE.tables.environment_debuff_loop_timer
+      )
     )
   }
 
@@ -13724,9 +22917,9 @@ export class RemoteTables {
     return new GlobalsTableHandle(this.connection.clientCache.getOrCreateTable<Globals>(REMOTE_MODULE.tables.globals))
   }
 
-  get grantedHubItemState(): GrantedHubItemStateTableHandle {
-    return new GrantedHubItemStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<GrantedHubItemState>(REMOTE_MODULE.tables.granted_hub_item_state)
+  get growthLoopTimer(): GrowthLoopTimerTableHandle {
+    return new GrowthLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<GrowthLoopTimer>(REMOTE_MODULE.tables.growth_loop_timer)
     )
   }
 
@@ -13753,6 +22946,12 @@ export class RemoteTables {
       this.connection.clientCache.getOrCreateTable<HexiteExchangeEntryDesc>(
         REMOTE_MODULE.tables.hexite_exchange_entry_desc
       )
+    )
+  }
+
+  get hideDeployableTimer(): HideDeployableTimerTableHandle {
+    return new HideDeployableTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<HideDeployableTimer>(REMOTE_MODULE.tables.hide_deployable_timer)
     )
   }
 
@@ -13816,6 +23015,14 @@ export class RemoteTables {
     return new InteriorPortalConnectionsDescTableHandle(
       this.connection.clientCache.getOrCreateTable<InteriorPortalConnectionsDesc>(
         REMOTE_MODULE.tables.interior_portal_connections_desc
+      )
+    )
+  }
+
+  get interiorSetCollapsedTimer(): InteriorSetCollapsedTimerTableHandle {
+    return new InteriorSetCollapsedTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<InteriorSetCollapsedTimer>(
+        REMOTE_MODULE.tables.interior_set_collapsed_timer
       )
     )
   }
@@ -14024,6 +23231,12 @@ export class RemoteTables {
     )
   }
 
+  get locationCache(): LocationCacheTableHandle {
+    return new LocationCacheTableHandle(
+      this.connection.clientCache.getOrCreateTable<LocationCache>(REMOTE_MODULE.tables.location_cache)
+    )
+  }
+
   get locationState(): LocationStateTableHandle {
     return new LocationStateTableHandle(
       this.connection.clientCache.getOrCreateTable<LocationState>(REMOTE_MODULE.tables.location_state)
@@ -14033,6 +23246,18 @@ export class RemoteTables {
   get lootChestDesc(): LootChestDescTableHandle {
     return new LootChestDescTableHandle(
       this.connection.clientCache.getOrCreateTable<LootChestDesc>(REMOTE_MODULE.tables.loot_chest_desc)
+    )
+  }
+
+  get lootChestDespawnTimer(): LootChestDespawnTimerTableHandle {
+    return new LootChestDespawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<LootChestDespawnTimer>(REMOTE_MODULE.tables.loot_chest_despawn_timer)
+    )
+  }
+
+  get lootChestSpawnTimer(): LootChestSpawnTimerTableHandle {
+    return new LootChestSpawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<LootChestSpawnTimer>(REMOTE_MODULE.tables.loot_chest_spawn_timer)
     )
   }
 
@@ -14080,6 +23305,12 @@ export class RemoteTables {
     )
   }
 
+  get npcAiLoopTimer(): NpcAiLoopTimerTableHandle {
+    return new NpcAiLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<NpcAiLoopTimer>(REMOTE_MODULE.tables.npc_ai_loop_timer)
+    )
+  }
+
   get npcDesc(): NpcDescTableHandle {
     return new NpcDescTableHandle(this.connection.clientCache.getOrCreateTable<NpcDesc>(REMOTE_MODULE.tables.npc_desc))
   }
@@ -14087,6 +23318,12 @@ export class RemoteTables {
   get npcState(): NpcStateTableHandle {
     return new NpcStateTableHandle(
       this.connection.clientCache.getOrCreateTable<NpcState>(REMOTE_MODULE.tables.npc_state)
+    )
+  }
+
+  get onDurabilityZeroTimer(): OnDurabilityZeroTimerTableHandle {
+    return new OnDurabilityZeroTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<OnDurabilityZeroTimer>(REMOTE_MODULE.tables.on_durability_zero_timer)
     )
   }
 
@@ -14119,6 +23356,12 @@ export class RemoteTables {
   get passiveCraftState(): PassiveCraftStateTableHandle {
     return new PassiveCraftStateTableHandle(
       this.connection.clientCache.getOrCreateTable<PassiveCraftState>(REMOTE_MODULE.tables.passive_craft_state)
+    )
+  }
+
+  get passiveCraftTimer(): PassiveCraftTimerTableHandle {
+    return new PassiveCraftTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PassiveCraftTimer>(REMOTE_MODULE.tables.passive_craft_timer)
     )
   }
 
@@ -14170,17 +23413,31 @@ export class RemoteTables {
     )
   }
 
-  get playerDeveloperNotificationState(): PlayerDeveloperNotificationStateTableHandle {
-    return new PlayerDeveloperNotificationStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerDeveloperNotificationState>(
-        REMOTE_MODULE.tables.player_developer_notification_state
-      )
+  get playerDeathTimer(): PlayerDeathTimerTableHandle {
+    return new PlayerDeathTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerDeathTimer>(REMOTE_MODULE.tables.player_death_timer)
     )
   }
 
   get playerHousingDesc(): PlayerHousingDescTableHandle {
     return new PlayerHousingDescTableHandle(
       this.connection.clientCache.getOrCreateTable<PlayerHousingDesc>(REMOTE_MODULE.tables.player_housing_desc)
+    )
+  }
+
+  get playerHousingEvictPlayerTimer(): PlayerHousingEvictPlayerTimerTableHandle {
+    return new PlayerHousingEvictPlayerTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerHousingEvictPlayerTimer>(
+        REMOTE_MODULE.tables.player_housing_evict_player_timer
+      )
+    )
+  }
+
+  get playerHousingIncomeLoopTimer(): PlayerHousingIncomeLoopTimerTableHandle {
+    return new PlayerHousingIncomeLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerHousingIncomeLoopTimer>(
+        REMOTE_MODULE.tables.player_housing_income_loop_timer
+      )
     )
   }
 
@@ -14224,6 +23481,20 @@ export class RemoteTables {
     )
   }
 
+  get playerRegenLoopTimer(): PlayerRegenLoopTimerTableHandle {
+    return new PlayerRegenLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerRegenLoopTimer>(REMOTE_MODULE.tables.player_regen_loop_timer)
+    )
+  }
+
+  get playerRegionTransferEvent(): PlayerRegionTransferEventTableHandle {
+    return new PlayerRegionTransferEventTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerRegionTransferEvent>(
+        REMOTE_MODULE.tables.player_region_transfer_event
+      )
+    )
+  }
+
   get playerReportState(): PlayerReportStateTableHandle {
     return new PlayerReportStateTableHandle(
       this.connection.clientCache.getOrCreateTable<PlayerReportState>(REMOTE_MODULE.tables.player_report_state)
@@ -14238,9 +23509,11 @@ export class RemoteTables {
     )
   }
 
-  get playerShardState(): PlayerShardStateTableHandle {
-    return new PlayerShardStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerShardState>(REMOTE_MODULE.tables.player_shard_state)
+  get playerSetNameOutcomeEvent(): PlayerSetNameOutcomeEventTableHandle {
+    return new PlayerSetNameOutcomeEventTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerSetNameOutcomeEvent>(
+        REMOTE_MODULE.tables.player_set_name_outcome_event
+      )
     )
   }
 
@@ -14253,6 +23526,14 @@ export class RemoteTables {
   get playerTimestampState(): PlayerTimestampStateTableHandle {
     return new PlayerTimestampStateTableHandle(
       this.connection.clientCache.getOrCreateTable<PlayerTimestampState>(REMOTE_MODULE.tables.player_timestamp_state)
+    )
+  }
+
+  get playerUseElevatorTimer(): PlayerUseElevatorTimerTableHandle {
+    return new PlayerUseElevatorTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<PlayerUseElevatorTimer>(
+        REMOTE_MODULE.tables.player_use_elevator_timer
+      )
     )
   }
 
@@ -14314,11 +23595,33 @@ export class RemoteTables {
     )
   }
 
+  get regionPopuplationLoopTimer(): RegionPopuplationLoopTimerTableHandle {
+    return new RegionPopuplationLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<RegionPopulationLoopTimer>(
+        REMOTE_MODULE.tables.region_popuplation_loop_timer
+      )
+    )
+  }
+
   get regionSignInParameters(): RegionSignInParametersTableHandle {
     return new RegionSignInParametersTableHandle(
       this.connection.clientCache.getOrCreateTable<RegionSignInParameters>(
         REMOTE_MODULE.tables.region_sign_in_parameters
       )
+    )
+  }
+
+  get rentCollectorLoopTimer(): RentCollectorLoopTimerTableHandle {
+    return new RentCollectorLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<RentCollectorLoopTimer>(
+        REMOTE_MODULE.tables.rent_collector_loop_timer
+      )
+    )
+  }
+
+  get rentEvictTimer(): RentEvictTimerTableHandle {
+    return new RentEvictTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<RentEvictTimer>(REMOTE_MODULE.tables.rent_evict_timer)
     )
   }
 
@@ -14331,6 +23634,20 @@ export class RemoteTables {
   get reservedNameDesc(): ReservedNameDescTableHandle {
     return new ReservedNameDescTableHandle(
       this.connection.clientCache.getOrCreateTable<ReservedNameDesc>(REMOTE_MODULE.tables.reserved_name_desc)
+    )
+  }
+
+  get resetChunkIndexTimer(): ResetChunkIndexTimerTableHandle {
+    return new ResetChunkIndexTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<ResetChunkIndexTimer>(REMOTE_MODULE.tables.reset_chunk_index_timer)
+    )
+  }
+
+  get resetMobileEntityTimer(): ResetMobileEntityTimerTableHandle {
+    return new ResetMobileEntityTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<ResetMobileEntityTimer>(
+        REMOTE_MODULE.tables.reset_mobile_entity_timer
+      )
     )
   }
 
@@ -14374,9 +23691,37 @@ export class RemoteTables {
     )
   }
 
+  get resourceSpawnTimer(): ResourceSpawnTimerTableHandle {
+    return new ResourceSpawnTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<ResourceSpawnTimer>(REMOTE_MODULE.tables.resource_spawn_timer)
+    )
+  }
+
   get resourceState(): ResourceStateTableHandle {
     return new ResourceStateTableHandle(
       this.connection.clientCache.getOrCreateTable<ResourceState>(REMOTE_MODULE.tables.resource_state)
+    )
+  }
+
+  get resourcesLog(): ResourcesLogTableHandle {
+    return new ResourcesLogTableHandle(
+      this.connection.clientCache.getOrCreateTable<ResourcesLog>(REMOTE_MODULE.tables.resources_log)
+    )
+  }
+
+  get resourcesRegenLoopTimer(): ResourcesRegenLoopTimerTableHandle {
+    return new ResourcesRegenLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<ResourcesRegenLoopTimer>(
+        REMOTE_MODULE.tables.resources_regen_loop_timer
+      )
+    )
+  }
+
+  get respawnResourceInChunkTimer(): RespawnResourceInChunkTimerTableHandle {
+    return new RespawnResourceInChunkTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<RespawnResourceInChunkTimer>(
+        REMOTE_MODULE.tables.respawn_resource_in_chunk_timer
+      )
     )
   }
 
@@ -14418,6 +23763,14 @@ export class RemoteTables {
     )
   }
 
+  get singleResourceClumpInfo(): SingleResourceClumpInfoTableHandle {
+    return new SingleResourceClumpInfoTableHandle(
+      this.connection.clientCache.getOrCreateTable<SingleResourceClumpInfo>(
+        REMOTE_MODULE.tables.single_resource_clump_info
+      )
+    )
+  }
+
   get singleResourceToClumpDesc(): SingleResourceToClumpDescTableHandle {
     return new SingleResourceToClumpDescTableHandle(
       this.connection.clientCache.getOrCreateTable<SingleResourceToClumpDesc>(
@@ -14441,6 +23794,12 @@ export class RemoteTables {
   get staminaState(): StaminaStateTableHandle {
     return new StaminaStateTableHandle(
       this.connection.clientCache.getOrCreateTable<StaminaState>(REMOTE_MODULE.tables.stamina_state)
+    )
+  }
+
+  get starvingLoopTimer(): StarvingLoopTimerTableHandle {
+    return new StarvingLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<StarvingLoopTimer>(REMOTE_MODULE.tables.starving_loop_timer)
     )
   }
 
@@ -14471,6 +23830,20 @@ export class RemoteTables {
   get teleportItemDesc(): TeleportItemDescTableHandle {
     return new TeleportItemDescTableHandle(
       this.connection.clientCache.getOrCreateTable<TeleportItemDesc>(REMOTE_MODULE.tables.teleport_item_desc)
+    )
+  }
+
+  get teleportPlayerTimer(): TeleportPlayerTimerTableHandle {
+    return new TeleportPlayerTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<TeleportPlayerTimer>(REMOTE_MODULE.tables.teleport_player_timer)
+    )
+  }
+
+  get teleportationEnergyRegenLoopTimer(): TeleportationEnergyRegenLoopTimerTableHandle {
+    return new TeleportationEnergyRegenLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<TeleportationEnergyRegenLoopTimer>(
+        REMOTE_MODULE.tables.teleportation_energy_regen_loop_timer
+      )
     )
   }
 
@@ -14540,15 +23913,33 @@ export class RemoteTables {
     )
   }
 
+  get tradeSessionLoopTimer(): TradeSessionLoopTimerTableHandle {
+    return new TradeSessionLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<TradeSessionLoopTimer>(REMOTE_MODULE.tables.trade_session_loop_timer)
+    )
+  }
+
   get tradeSessionState(): TradeSessionStateTableHandle {
     return new TradeSessionStateTableHandle(
       this.connection.clientCache.getOrCreateTable<TradeSessionState>(REMOTE_MODULE.tables.trade_session_state)
     )
   }
 
+  get transferPlayerTimer(): TransferPlayerTimerTableHandle {
+    return new TransferPlayerTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<TransferPlayerTimer>(REMOTE_MODULE.tables.transfer_player_timer)
+    )
+  }
+
   get travelerTaskDesc(): TravelerTaskDescTableHandle {
     return new TravelerTaskDescTableHandle(
       this.connection.clientCache.getOrCreateTable<TravelerTaskDesc>(REMOTE_MODULE.tables.traveler_task_desc)
+    )
+  }
+
+  get travelerTaskLoopTimer(): TravelerTaskLoopTimerTableHandle {
+    return new TravelerTaskLoopTimerTableHandle(
+      this.connection.clientCache.getOrCreateTable<TravelerTaskLoopTimer>(REMOTE_MODULE.tables.traveler_task_loop_timer)
     )
   }
 
@@ -14599,12 +23990,6 @@ export class RemoteTables {
       this.connection.clientCache.getOrCreateTable<UserPreviousRegionState>(
         REMOTE_MODULE.tables.user_previous_region_state
       )
-    )
-  }
-
-  get userRegionState(): UserRegionStateTableHandle {
-    return new UserRegionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<UserRegionState>(REMOTE_MODULE.tables.user_region_state)
     )
   }
 
