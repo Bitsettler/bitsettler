@@ -1,9 +1,9 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
-import { cleanIconAssetName, getServerIconPath } from '../../shared/assets'
-import type { SearchItem } from '../../shared/dtos/search-dtos'
-import { createSlug } from '../../shared/utils/entities'
-import { convertRarityToString } from '../../shared/utils/rarity'
-import { cargoCollections } from '../collections/cargo-tag-collections'
+import { cleanIconAssetName, getServerIconPath } from '../../../shared/assets'
+import type { SearchItem } from '../../../shared/dtos/search-dtos'
+import { createSlug } from '../../../shared/utils/entities'
+import { convertRarityToString } from '../../../shared/utils/rarity'
+import { cargoCollections } from '../../collections/cargo-tag-collections'
 
 /**
  * Get compendium href for a cargo item based on its tag

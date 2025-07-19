@@ -1,5 +1,5 @@
 import { cleanIconAssetName, getServerIconPath } from '../../../shared/assets'
-import { getAllItems } from '../../../utils'
+import { getAllItems } from './get-all-items'
 
 export interface ItemCategoryData {
   tag: string

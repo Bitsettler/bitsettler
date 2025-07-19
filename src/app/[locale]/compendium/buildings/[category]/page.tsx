@@ -35,23 +35,16 @@ export default async function BuildingsCategoryPage({ params }: BuildingsCategor
   let originalCategoryName: string
   let buildingsInCategory: BuildingWithItem[]
 
-  // Get all buildings grouped by category with error handling for build time
-  try {
-    const buildingsByCategory = await getBuildingsGroupedByCategory()
+  // Get all buildings grouped by category
+  const buildingsByCategory = await getBuildingsGroupedByCategory()
 
-    // Handle uncategorized case specially
-    if (category === 'uncategorized') {
-      originalCategoryName = 'Uncategorized'
-      buildingsInCategory = buildingsByCategory['Uncategorized'] || []
-    } else {
-      originalCategoryName = slugToCategoryName(category)
-      buildingsInCategory = buildingsByCategory[originalCategoryName]
-    }
-  } catch (error) {
-    console.warn('Failed to fetch live buildings data during build, using static fallback:', error)
-    // Fallback for build time
-    originalCategoryName = category === 'uncategorized' ? 'Uncategorized' : slugToCategoryName(category)
-    buildingsInCategory = []
+  // Handle uncategorized case specially
+  if (category === 'uncategorized') {
+    originalCategoryName = 'Uncategorized'
+    buildingsInCategory = buildingsByCategory['Uncategorized'] || []
+  } else {
+    originalCategoryName = slugToCategoryName(category)
+    buildingsInCategory = buildingsByCategory[originalCategoryName]
   }
 
   if (!buildingsInCategory || buildingsInCategory.length === 0) {
@@ -72,14 +65,9 @@ export default async function BuildingsCategoryPage({ params }: BuildingsCategor
 }
 
 export async function generateStaticParams() {
-  try {
-    const buildingsByCategory = await getBuildingsGroupedByCategory()
+  const buildingsByCategory = await getBuildingsGroupedByCategory()
 
-    return Object.keys(buildingsByCategory).map((categoryName) => ({
-      category: pascalToKebabCase(categoryName)
-    }))
-  } catch (error) {
-    console.warn('Failed to fetch buildings data for static params, returning empty array:', error)
-    return []
-  }
+  return Object.keys(buildingsByCategory).map((categoryName) => ({
+    category: pascalToKebabCase(categoryName)
+  }))
 }

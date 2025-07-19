@@ -7,10 +7,10 @@
 - [ ] Add individual item pages
 - [ ] Update translations for all pages missing translations
 - [ ] Update metadata for all pages !IMPORTANT also json page structure
-- [ ] Better calculator index page
 
 ### Calculator
 
+- [ ] Better calculator index page
 - [ ] Allow the removal of a recipe, this should collapse all children material recursively
 - [ ] Add a slider for users to be able to choose the depth of auto expansion
 - [ ] Save to image, save as csv

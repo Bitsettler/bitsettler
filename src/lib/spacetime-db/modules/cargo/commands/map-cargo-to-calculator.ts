@@ -1,8 +1,8 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
-import { cleanIconAssetName, getServerIconPath } from '../../shared/assets'
-import type { CalculatorItem } from '../../shared/dtos/calculator-dtos'
-import { createSlug } from '../../shared/utils/entities'
-import { convertRarityToString } from '../../shared/utils/rarity'
+import { cleanIconAssetName, getServerIconPath } from '../../../shared/assets'
+import type { CalculatorItem } from '../../../shared/dtos/calculator-dtos'
+import { createSlug } from '../../../shared/utils/entities'
+import { convertRarityToString } from '../../../shared/utils/rarity'
 
 /**
  * Map CargoDesc to CalculatorItem

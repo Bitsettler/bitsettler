@@ -45,27 +45,15 @@ export default async function CargoTagPage({ params }: PageProps) {
   const parentCargoCollection = findCargoTagCollection(tagName)
 
   // Handle cargo tags with the specialized component
-  try {
-    const cargoWithStats = await getCargoWithStats()
-    const cargoForThisTag = cargoWithStats.filter((cargoItem) => cargoItem.tag === tagName)
+  const cargoWithStats = await getCargoWithStats()
+  const cargoForThisTag = cargoWithStats.filter((cargoItem) => cargoItem.tag === tagName)
 
-    return (
-      <CargoIndividualTagPageView
-        tagName={tagName}
-        cargo={cargoForThisTag}
-        backLink={parentCargoCollection?.href || '/compendium/cargo'}
-        backLinkText={parentCargoCollection ? `← Back to ${parentCargoCollection.name}` : '← Back to Cargo'}
-      />
-    )
-  } catch (error) {
-    console.warn('Failed to fetch live cargo data during build, using static fallback:', error)
-    return (
-      <CargoIndividualTagPageView
-        tagName={tagName}
-        cargo={[]}
-        backLink={parentCargoCollection?.href || '/compendium/cargo'}
-        backLinkText={parentCargoCollection ? `← Back to ${parentCargoCollection.name}` : '← Back to Cargo'}
-      />
-    )
-  }
+  return (
+    <CargoIndividualTagPageView
+      tagName={tagName}
+      cargo={cargoForThisTag}
+      backLink={parentCargoCollection?.href || '/compendium/cargo'}
+      backLinkText={parentCargoCollection ? `← Back to ${parentCargoCollection.name}` : '← Back to Cargo'}
+    />
+  )
 }

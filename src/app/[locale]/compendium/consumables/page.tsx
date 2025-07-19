@@ -1,4 +1,5 @@
-import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
+import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
+import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
 import { getConsumableStatistics } from '@/lib/spacetime-db/modules/collections/consumables'
 import { ConsumablesView } from '@/views/consumables-views/consumables-index-page-view'
 

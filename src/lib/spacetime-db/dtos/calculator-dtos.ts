@@ -3,8 +3,8 @@ import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_ty
 import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_desc_type'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import { mapCargoToCalculatorItem } from '../modules/cargo/calculator'
-import { mapItemToCalculatorItem } from '../modules/items/calculator'
+import { mapCargoToCalculatorItem } from '../modules/cargo/cargo'
+import { mapItemToCalculatorItem } from '../modules/items/commands'
 import {
   mapCraftingRecipeToCalculatorRecipe,
   mapExtractionRecipeToCalculatorRecipe,

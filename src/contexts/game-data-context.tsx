@@ -1,6 +1,6 @@
 'use client'
 
-import type { CalculatorGameData } from '@/lib/spacetime-db'
+import type { CalculatorGameData } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
 import { createContext, useContext } from 'react'
 
 const GameDataContext = createContext<CalculatorGameData | null>(null)

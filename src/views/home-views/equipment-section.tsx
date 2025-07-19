@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link } from '@/i18n/navigation'
-import { getItemsByTags, tagCollections } from '@/lib/spacetime-db'
+import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
+import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
 
 interface EquipmentSectionProps {
   weapons: ItemDesc[]

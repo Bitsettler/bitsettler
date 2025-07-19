@@ -1,4 +1,4 @@
-import type { CalculatorItem, CalculatorRecipe } from '@/lib/spacetime-db'
+import type { CalculatorItem, CalculatorRecipe } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
 import { useCallback, useState } from 'react'
 
 interface UseItemSelectionProps {

@@ -7,15 +7,11 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
-import {
-  cleanIconAssetName,
-  convertRarityToString,
-  getRarityColor,
-  getServerIconPath,
-  getTierColor
-} from '@/lib/spacetime-db'
+import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useMemo, useState } from 'react'
 
 // Generic interfaces for the data
@@ -49,6 +45,18 @@ export interface TagPageViewProps {
   backLink?: string
   backLinkText?: string
   itemGroups: ItemGroup[]
+  enableItemLinks?: boolean
+  tagSlug?: string
+}
+
+// Convert item name to URL slug
+function itemNameToSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
 }
 
 export function TagPageView({
@@ -56,7 +64,9 @@ export function TagPageView({
   subtitle,
   backLink = '/compendium',
   backLinkText = '← Back to Compendium',
-  itemGroups
+  itemGroups,
+  enableItemLinks = false,
+  tagSlug
 }: TagPageViewProps) {
   // Sorting state for each group
   const [sortStates, setSortStates] = useState<Record<string, { key: string; direction: 'asc' | 'desc' } | null>>({})
@@ -233,19 +243,42 @@ export function TagPageView({
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {group.items.map((item, index) => (
-                        <TableRow key={item.id || index}>
-                          {group.columns.map((column) => (
-                            <TableCell key={column.key} className="text-center">
-                              {column.render
-                                ? column.render(item)
-                                : defaultRenders[column.key as keyof typeof defaultRenders]
-                                  ? defaultRenders[column.key as keyof typeof defaultRenders](item)
-                                  : String(getValue(item, column.key) || '')}
-                            </TableCell>
-                          ))}
-                        </TableRow>
-                      ))}
+                      {group.items.map((item, index) => {
+                        const itemSlug = itemNameToSlug(item.name)
+                        const itemLink = enableItemLinks && tagSlug ? `/compendium/${tagSlug}/${itemSlug}` : undefined
+                        
+                        if (itemLink) {
+                          return (
+                            <TableRow key={item.id || index} className="hover:bg-muted/50 cursor-pointer">
+                              {group.columns.map((column) => (
+                                <TableCell key={column.key} className="text-center p-0">
+                                  <Link href={itemLink} className="block w-full h-full p-2 text-inherit hover:text-inherit">
+                                    {column.render
+                                      ? column.render(item)
+                                      : defaultRenders[column.key as keyof typeof defaultRenders]
+                                        ? defaultRenders[column.key as keyof typeof defaultRenders](item)
+                                        : String(getValue(item, column.key) || '')}
+                                  </Link>
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          )
+                        } else {
+                          return (
+                            <TableRow key={item.id || index}>
+                              {group.columns.map((column) => (
+                                <TableCell key={column.key} className="text-center">
+                                  {column.render
+                                    ? column.render(item)
+                                    : defaultRenders[column.key as keyof typeof defaultRenders]
+                                      ? defaultRenders[column.key as keyof typeof defaultRenders](item)
+                                      : String(getValue(item, column.key) || '')}
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          )
+                        }
+                      })}
                     </TableBody>
                   </Table>
                 </div>

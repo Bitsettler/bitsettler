@@ -20,7 +20,7 @@ import {
   SidebarRail
 } from '@/components/ui/sidebar'
 import { SITE_CONFIG } from '@/config/site-config'
-import type { SearchData } from '@/lib/spacetime-db'
+import type { SearchData } from '@/lib/spacetime-db/shared/dtos/search-dtos'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { KofiWidget } from './kofi-widget'
@@ -50,7 +50,6 @@ import {
 
 // Navigation data with icons and descriptions
 const data = {
-  versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
   navMain: [
     {
       translationLabel: 'sidebar.navigation',

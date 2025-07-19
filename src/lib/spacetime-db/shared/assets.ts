@@ -24,13 +24,6 @@ export function assetExists(): boolean {
 }
 
 /**
- * Get fallback icon path for unknown assets
- */
-export function getFallbackIconPath(): string {
-  return '/assets/Unknown.webp'
-}
-
-/**
  * Clean icon asset name by removing redundant prefixes
  */
 export function cleanIconAssetName(iconAssetName: string): string {

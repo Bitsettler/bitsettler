@@ -2,7 +2,7 @@
 
 import { Container } from '@/components/container'
 import { useRouter } from '@/i18n/navigation'
-import type { CalculatorGameData } from '@/lib/spacetime-db'
+import type { CalculatorGameData } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
 import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
 
 interface CalculatorIndexClientProps {

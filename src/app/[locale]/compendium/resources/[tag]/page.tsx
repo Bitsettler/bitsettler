@@ -48,27 +48,15 @@ export default async function ResourceTagPage({ params }: PageProps) {
   const parentResourceCollection = findResourceTagCollection(tagName)
 
   // Handle resource tags with the specialized component
-  try {
-    const resourcesWithStats = await getResourcesWithStats()
-    const resourcesForThisTag = resourcesWithStats.filter((resourceItem) => resourceItem.tag === tagName)
+  const resourcesWithStats = await getResourcesWithStats()
+  const resourcesForThisTag = resourcesWithStats.filter((resourceItem) => resourceItem.tag === tagName)
 
-    return (
-      <ResourceIndividualTagPageView
-        tagName={tagName}
-        resources={resourcesForThisTag}
-        backLink={parentResourceCollection?.href || '/compendium/resources'}
-        backLinkText={parentResourceCollection ? `← Back to ${parentResourceCollection.name}` : '← Back to Resources'}
-      />
-    )
-  } catch (error) {
-    console.warn('Failed to fetch live resource data during build, using static fallback:', error)
-    return (
-      <ResourceIndividualTagPageView
-        tagName={tagName}
-        resources={[]}
-        backLink={parentResourceCollection?.href || '/compendium/resources'}
-        backLinkText={parentResourceCollection ? `← Back to ${parentResourceCollection.name}` : '← Back to Resources'}
-      />
-    )
-  }
+  return (
+    <ResourceIndividualTagPageView
+      tagName={tagName}
+      resources={resourcesForThisTag}
+      backLink={parentResourceCollection?.href || '/compendium/resources'}
+      backLinkText={parentResourceCollection ? `← Back to ${parentResourceCollection.name}` : '← Back to Resources'}
+    />
+  )
 }

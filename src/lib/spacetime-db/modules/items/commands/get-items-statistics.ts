@@ -1,4 +1,4 @@
-import { getAllItems } from '../../../utils'
+import { getAllItems } from './get-all-items'
 import { getItemsCategoriesCommand } from './get-items-categories'
 
 /**

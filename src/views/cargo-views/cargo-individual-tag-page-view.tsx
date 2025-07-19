@@ -14,18 +14,18 @@ export function CargoIndividualTagPageView({
   backLink = '/compendium/cargo',
   backLinkText = '← Back to Cargo'
 }: CargoIndividualTagPageViewProps) {
-  // Group by volume category for better organization
+  // Group by volume (raw game value) for better organization
   const cargoByVolume: Record<string, CargoWithStats[]> = {}
   cargo.forEach((item) => {
-    const volume = item.volumeCategory
+    const volume = item.volume.toString()
     if (!cargoByVolume[volume]) {
       cargoByVolume[volume] = []
     }
     cargoByVolume[volume].push(item)
   })
 
-  // Create item groups for each volume category
-  const itemGroups = Object.entries(cargoByVolume).map(([volumeCategory, cargoItems]) => {
+  // Create item groups for each volume
+  const itemGroups = Object.entries(cargoByVolume).map(([volume, cargoItems]) => {
     // Create base columns
     const baseColumns = [
       { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
@@ -35,10 +35,10 @@ export function CargoIndividualTagPageView({
       { key: 'volume', label: 'Volume', sortable: true, className: 'text-center' }
     ]
 
-    // Add cargo-specific columns
+    // Add cargo-specific columns (using raw game values)
     const cargoColumns = [
-      { key: 'pickupDifficulty', label: 'Pickup', sortable: true, className: 'text-center' },
-      { key: 'movementImpact', label: 'Movement', sortable: true, className: 'text-center' }
+      { key: 'pickUpTime', label: 'Pickup Time', sortable: true, className: 'text-center' },
+      { key: 'movementModifier', label: 'Movement Modifier', sortable: true, className: 'text-center' }
     ]
 
     // Add conditional columns based on cargo properties
@@ -56,18 +56,17 @@ export function CargoIndividualTagPageView({
     }))
 
     return {
-      name: `${volumeCategory} Volume`,
+      name: `Volume ${volume}`,
       items: enrichedItems,
       columns: [...baseColumns, ...cargoColumns, ...transportableColumn]
     }
   })
 
-  // Sort groups by volume category order (Small -> Medium -> Large -> Extra Large)
-  const volumeOrder = ['Small', 'Medium', 'Large', 'Extra Large']
+  // Sort groups by volume value (ascending)
   itemGroups.sort((a, b) => {
-    const aVolume = a.name.replace(' Volume', '')
-    const bVolume = b.name.replace(' Volume', '')
-    return volumeOrder.indexOf(aVolume) - volumeOrder.indexOf(bVolume)
+    const aVolume = parseInt(a.name.replace('Volume ', ''))
+    const bVolume = parseInt(b.name.replace('Volume ', ''))
+    return aVolume - bVolume
   })
 
   // Cargo statistics

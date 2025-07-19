@@ -82,111 +82,62 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
 
   // Handle equipment tags with the live component
   if (isEquipmentTag && items.length > 0) {
-    try {
-      const equipmentWithStats = await getEquipmentWithStats()
-      const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
+    const equipmentWithStats = await getEquipmentWithStats()
+    const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
 
-      return (
-        <EquipmentIndividualTagPageView
-          tagName={tagName}
-          equipment={equipmentForThisTag}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    } catch (error) {
-      console.warn('Failed to fetch live equipment data during build, using static fallback:', error)
-      // Fallback to empty data for build time
-      return (
-        <EquipmentIndividualTagPageView
-          tagName={tagName}
-          equipment={[]}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    }
+    return (
+      <EquipmentIndividualTagPageView
+        tagName={tagName}
+        equipment={equipmentForThisTag}
+        backLink={parentCollection?.href || '/compendium'}
+        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      />
+    )
   }
 
   // Handle tools tags with the new component
   if (isToolsTag && items.length > 0) {
-    try {
-      const toolsWithItems = await getToolsWithItems()
-      const toolsForThisTag = toolsWithItems.filter((tool) => tool.item.tag === tagName)
+    const toolsWithItems = await getToolsWithItems()
+    const toolsForThisTag = toolsWithItems.filter((tool) => tool.item.tag === tagName)
 
-      return (
-        <ToolsIndividualTagPageView
-          tagName={tagName}
-          tools={toolsForThisTag}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    } catch (error) {
-      console.warn('Failed to fetch live tools data during build, using static fallback:', error)
-      return (
-        <ToolsIndividualTagPageView
-          tagName={tagName}
-          tools={[]}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    }
+    return (
+      <ToolsIndividualTagPageView
+        tagName={tagName}
+        tools={toolsForThisTag}
+        backLink={parentCollection?.href || '/compendium'}
+        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      />
+    )
   }
 
   // Handle collectibles tags with the new component
   if (isCollectiblesTag && items.length > 0) {
-    try {
-      const collectiblesWithItems = await getCollectiblesWithItems()
-      const collectiblesForThisTag = collectiblesWithItems.filter((collectible) => collectible.item.tag === tagName)
+    const collectiblesWithItems = await getCollectiblesWithItems()
+    const collectiblesForThisTag = collectiblesWithItems.filter((collectible) => collectible.item.tag === tagName)
 
-      return (
-        <CollectiblesIndividualTagPageView
-          tagName={tagName}
-          collectibles={collectiblesForThisTag}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    } catch (error) {
-      console.warn('Failed to fetch live collectibles data during build, using static fallback:', error)
-      return (
-        <CollectiblesIndividualTagPageView
-          tagName={tagName}
-          collectibles={[]}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    }
+    return (
+      <CollectiblesIndividualTagPageView
+        tagName={tagName}
+        collectibles={collectiblesForThisTag}
+        backLink={parentCollection?.href || '/compendium'}
+        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      />
+    )
   }
 
   // Handle consumables tags with the new component
   if (isConsumablesTag && items.length > 0) {
-    try {
-      const consumablesWithStats = await getConsumablesWithStats()
-      const consumablesForThisTag = consumablesWithStats.filter((consumable) => consumable.tag === tagName)
+    const consumablesWithStats = await getConsumablesWithStats()
+    const consumablesForThisTag = consumablesWithStats.filter((consumable) => consumable.tag === tagName)
 
-      return (
-        <ConsumableIndividualTagPageView
-          tagName={tagName}
-          consumables={consumablesForThisTag}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    } catch (error) {
-      console.warn('Failed to fetch live consumables data during build, using static fallback:', error)
-      return (
-        <ConsumableIndividualTagPageView
-          tagName={tagName}
-          consumables={[]}
-          backLink={parentCollection?.href || '/compendium'}
-          backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-        />
-      )
-    }
+    return (
+      <ConsumableIndividualTagPageView
+        tagName={tagName}
+        consumables={consumablesForThisTag}
+        backLink={parentCollection?.href || '/compendium'}
+        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      />
+    )
   }
 
   // Handle non-equipment/tools tags (regular items, resources)
@@ -210,6 +161,8 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
       backLink={parentCollection?.href || '/compendium'}
       backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
       itemGroups={itemGroups}
+      enableItemLinks={true}
+      tagSlug={tag}
     />
   )
 }

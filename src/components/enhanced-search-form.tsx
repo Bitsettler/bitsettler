@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { SidebarGroup, SidebarGroupContent, SidebarInput } from '@/components/ui/sidebar'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import { useRouter } from '@/i18n/navigation'
-import type { SearchData, SearchItem } from '@/lib/spacetime-db'
+import type { SearchData, SearchItem } from '@/lib/spacetime-db/shared/dtos/search-dtos'
 import { Search } from 'lucide-react'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'

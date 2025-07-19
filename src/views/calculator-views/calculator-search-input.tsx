@@ -3,8 +3,9 @@
 import { Badge } from '@/components/ui/badge'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
-import type { CalculatorItem } from '@/lib/spacetime-db'
-import { getRarityColor, getTierColor } from '@/lib/spacetime-db/modules/items/item-utils'
+import type { CalculatorItem } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
+import { getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
