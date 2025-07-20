@@ -1,0 +1,600 @@
+[
+  {
+    "difference": 0,
+    "actionsCount": 1,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 1,
+    "actionsCount": 16,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 2,
+    "actionsCount": 30,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 3,
+    "actionsCount": 50,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 4,
+    "actionsCount": 75,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 5,
+    "actionsCount": 100,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 6,
+    "actionsCount": 130,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 7,
+    "actionsCount": 165,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 8,
+    "actionsCount": 200,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 9,
+    "actionsCount": 240,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 10,
+    "actionsCount": 285,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 11,
+    "actionsCount": 330,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 12,
+    "actionsCount": 385,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 13,
+    "actionsCount": 440,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 14,
+    "actionsCount": 500,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 15,
+    "actionsCount": 560,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 16,
+    "actionsCount": 625,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 17,
+    "actionsCount": 695,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 18,
+    "actionsCount": 770,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 19,
+    "actionsCount": 845,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 20,
+    "actionsCount": 925,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 21,
+    "actionsCount": 1000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 22,
+    "actionsCount": 1100,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 23,
+    "actionsCount": 1190,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 24,
+    "actionsCount": 1280,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 25,
+    "actionsCount": 1380,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 26,
+    "actionsCount": 1480,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 27,
+    "actionsCount": 1590,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 28,
+    "actionsCount": 1700,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 29,
+    "actionsCount": 1800,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 30,
+    "actionsCount": 2000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 31,
+    "actionsCount": 2250,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 32,
+    "actionsCount": 2500,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 33,
+    "actionsCount": 2750,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 34,
+    "actionsCount": 3000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 35,
+    "actionsCount": 3500,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 36,
+    "actionsCount": 4000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 37,
+    "actionsCount": 4500,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 38,
+    "actionsCount": 5000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 39,
+    "actionsCount": 6000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 40,
+    "actionsCount": 7000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 41,
+    "actionsCount": 8000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 42,
+    "actionsCount": 9000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 43,
+    "actionsCount": 10000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 44,
+    "actionsCount": 12500,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  },
+  {
+    "difference": 45,
+    "actionsCount": 15000,
+    "toolRequirement": {
+      "toolType": 14,
+      "level": 1,
+      "power": 1
+    },
+    "staminaPerAction": 2,
+    "timePerAction": 2,
+    "toolMeshIndex": 1,
+    "recipePerformanceId": 641
+  }
+]

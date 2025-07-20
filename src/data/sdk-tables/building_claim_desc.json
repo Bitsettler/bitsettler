@@ -1,0 +1,362 @@
+[
+  {
+    "buildingId": 1,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 20,
+    "tier": 0
+  },
+  {
+    "buildingId": 2,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 20,
+    "tier": 0
+  },
+  {
+    "buildingId": 3,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 20,
+    "tier": 0
+  },
+  {
+    "buildingId": 4,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 10,
+    "tier": 0
+  },
+  {
+    "buildingId": 5,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 10,
+    "tier": 0
+  },
+  {
+    "buildingId": 6,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 10,
+    "tier": 0
+  },
+  {
+    "buildingId": 7,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 404,
+    "claimType": {
+      "tag": "Source",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 405,
+    "claimType": {
+      "tag": "Source",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 1
+  },
+  {
+    "buildingId": 80001,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80002,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80003,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80004,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80005,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80006,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80007,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80008,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80009,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80014,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 80015,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 90000,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 2,
+    "tier": 0
+  },
+  {
+    "buildingId": 12598301,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 16,
+    "tier": 0
+  },
+  {
+    "buildingId": 253216585,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 280863630,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 292245080,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 64,
+    "tier": 10
+  },
+  {
+    "buildingId": 312420794,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 489406613,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 24,
+    "tier": 0
+  },
+  {
+    "buildingId": 696858550,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 790011334,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 858687284,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 1008368350,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 24,
+    "tier": 0
+  },
+  {
+    "buildingId": 1175813850,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 1440765680,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 1477951340,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 1662809355,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 24,
+    "tier": 0
+  },
+  {
+    "buildingId": 1752479333,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 24,
+    "tier": 0
+  },
+  {
+    "buildingId": 1828664180,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 42,
+    "tier": 0
+  },
+  {
+    "buildingId": 1845065396,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 1875067311,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 3,
+    "tier": 0
+  },
+  {
+    "buildingId": 2034914963,
+    "claimType": {
+      "tag": "Neutral",
+      "value": {}
+    },
+    "radius": 24,
+    "tier": 0
+  }
+]

@@ -1,0 +1,3957 @@
+[
+  {
+    "id": 2,
+    "buffTypeId": 8,
+    "description": "Freezing",
+    "priority": 0,
+    "duration": -1,
+    "warnTime": 0,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0018",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 3,
+    "buffTypeId": 0,
+    "description": "Teleportation Sickness",
+    "priority": 0,
+    "duration": 600,
+    "warnTime": 30,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0011",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 5,
+    "buffTypeId": 3,
+    "description": "Incapacitated",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": -0.4000000059604645,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": -0.4000000059604645,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": -0.4000000059604645,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 9,
+    "buffTypeId": 5,
+    "description": "Inner Light",
+    "priority": 0,
+    "duration": 1500,
+    "warnTime": 120,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0016",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 10,
+    "buffTypeId": 6,
+    "description": "Darkness",
+    "priority": 0,
+    "duration": -1,
+    "warnTime": 0,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0001",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 11,
+    "buffTypeId": 7,
+    "description": "Carrying Cargo",
+    "priority": 0,
+    "duration": -1,
+    "warnTime": 0,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0013",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 12,
+    "buffTypeId": 9,
+    "description": "Overheating",
+    "priority": 0,
+    "duration": -1,
+    "warnTime": 0,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0016",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 14,
+    "buffTypeId": 1,
+    "description": "Dazed",
+    "priority": 0,
+    "duration": 5,
+    "warnTime": 5,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.5,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 30,
+    "buffTypeId": 10,
+    "description": "Friend Warp Sickness",
+    "priority": 0,
+    "duration": 86400,
+    "warnTime": 30,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0001",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 31,
+    "buffTypeId": 2041496537,
+    "description": "Hot Tea",
+    "priority": 0,
+    "duration": 60,
+    "warnTime": 15,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0017",
+    "stats": [
+      {
+        "id": {
+          "tag": "ColdProtection",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 37,
+    "buffTypeId": 2041496537,
+    "description": "Chilling Tea",
+    "priority": 0,
+    "duration": 60,
+    "warnTime": 15,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0015",
+    "stats": [
+      {
+        "id": {
+          "tag": "HeatProtection",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 5887916,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.09200000017881393,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.09200000017881393,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 10271152,
+    "buffTypeId": 13,
+    "description": "Nearby Flame",
+    "priority": 0,
+    "duration": 0,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0016",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 10907170,
+    "buffTypeId": 755187973,
+    "description": "Magnificient Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.10199999809265137,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 31185922,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.09000000357627869,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 35180939,
+    "buffTypeId": 11955726,
+    "description": "Sword Flurry",
+    "priority": 1,
+    "duration": 5,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0065",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.20000000298023224,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 124291392,
+    "buffTypeId": 1204575210,
+    "description": "Infused Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 7,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 135323446,
+    "buffTypeId": 755187973,
+    "description": "Pristine Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.09300000220537186,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 137051511,
+    "buffTypeId": 755187973,
+    "description": "Fine Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.05700000002980232,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 159178631,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.08799999952316284,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.08799999952316284,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 179767139,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.08799999952316284,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 195290716,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04100000113248825,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 197061567,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 204013868,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.0820000022649765,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 257875307,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04500000178813934,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04500000178813934,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 283150588,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04399999976158142,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 285775040,
+    "buffTypeId": 345557092,
+    "description": "Leg Shot",
+    "priority": 0,
+    "duration": 5,
+    "warnTime": 1,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.5,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 289805356,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.041999999433755875,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 316166449,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.0860000029206276,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.0860000029206276,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 328649129,
+    "buffTypeId": 755187973,
+    "description": "Infused Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 347582187,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.09200000017881393,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 371306749,
+    "buffTypeId": 755187973,
+    "description": "Flawless Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.11100000143051147,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 385172406,
+    "buffTypeId": 755187973,
+    "description": "Flawless Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.11100000143051147,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 415681120,
+    "buffTypeId": 1204575210,
+    "description": "Peerless Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 425341826,
+    "buffTypeId": 1429042137,
+    "description": "Crushed Armor",
+    "priority": 1,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0062",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -10,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 436750411,
+    "buffTypeId": 12,
+    "description": "Recently Used Elevator",
+    "priority": 0,
+    "duration": 3,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0011",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 439160685,
+    "buffTypeId": 1204575210,
+    "description": "Simple Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 6,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 463234268,
+    "buffTypeId": 4,
+    "description": "Concussed",
+    "priority": 4,
+    "duration": 5400,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxHealth",
+          "value": {}
+        },
+        "value": -0.30000001192092896,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MaxStamina",
+          "value": {}
+        },
+        "value": -0.30000001192092896,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.30000001192092896,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 464108153,
+    "buffTypeId": 4,
+    "description": "Concussed",
+    "priority": 3,
+    "duration": 4500,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxHealth",
+          "value": {}
+        },
+        "value": -0.18000000715255737,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MaxStamina",
+          "value": {}
+        },
+        "value": -0.18000000715255737,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.18000000715255737,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 474711859,
+    "buffTypeId": 238577565,
+    "description": "Simple Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 13,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 478954807,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.09399999678134918,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.09399999678134918,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 541849230,
+    "buffTypeId": 1204575210,
+    "description": "Ornate Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 11,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 545380252,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04600000008940697,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 567143384,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04399999976158142,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04399999976158142,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 571903439,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04100000113248825,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 576620841,
+    "buffTypeId": 1204575210,
+    "description": "Fine Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 8,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 588466208,
+    "buffTypeId": 4,
+    "description": "Concussed",
+    "priority": 1,
+    "duration": 2700,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxHealth",
+          "value": {}
+        },
+        "value": -0.05000000074505806,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MaxStamina",
+          "value": {}
+        },
+        "value": -0.05000000074505806,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.05000000074505806,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 594147339,
+    "buffTypeId": 755187973,
+    "description": "Pristine Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.09300000220537186,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 596814665,
+    "buffTypeId": 723603793,
+    "description": "Combat Strength",
+    "priority": 1,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0065",
+    "stats": [
+      {
+        "id": {
+          "tag": "Strength",
+          "value": {}
+        },
+        "value": 0.20000000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 619646856,
+    "buffTypeId": 755187973,
+    "description": "Peerless Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.07500000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 670136642,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04699999839067459,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04699999839067459,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 677696308,
+    "buffTypeId": 238577565,
+    "description": "Basic Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 699031322,
+    "buffTypeId": 755187973,
+    "description": "Simple Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.039000000804662704,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 704566699,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.0430000014603138,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 718633663,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.09600000083446503,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 749675367,
+    "buffTypeId": 755187973,
+    "description": "Exquisite Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.06599999964237213,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 799462427,
+    "buffTypeId": 1966364417,
+    "description": "Exposed Weakness",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 2,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -0.15000000596046448,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 800188036,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.041999999433755875,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 804688612,
+    "buffTypeId": 755187973,
+    "description": "Simple Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.039000000804662704,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 821574386,
+    "buffTypeId": 238577565,
+    "description": "Ornate Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 28,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 827876701,
+    "buffTypeId": 238577565,
+    "description": "Magnificient Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 34,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 837625739,
+    "buffTypeId": 1654317143,
+    "description": "Parry Up",
+    "priority": 1,
+    "duration": 10,
+    "warnTime": 5,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0065",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": 0.20000000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "BothHands",
+      "value": {}
+    }
+  },
+  {
+    "id": 854022801,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.09000000357627869,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 855034153,
+    "buffTypeId": 1790361536,
+    "description": "Level 7 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 9,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 17,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 860016725,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.0820000022649765,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 902805361,
+    "buffTypeId": 1204575210,
+    "description": "Basic Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 5,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 914919140,
+    "buffTypeId": 1923969860,
+    "description": "Limb Slash",
+    "priority": 0,
+    "duration": 6,
+    "warnTime": 2,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Strength",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 926803956,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 939512353,
+    "buffTypeId": 220139041,
+    "description": "Shield Up",
+    "priority": 1,
+    "duration": 10,
+    "warnTime": 5,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0065",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": 0.20000000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1023844455,
+    "buffTypeId": 238577565,
+    "description": "Flawless Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 37,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1038897951,
+    "buffTypeId": 238577565,
+    "description": "Exquisite Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 22,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1043581193,
+    "buffTypeId": 1342545182,
+    "description": "Umbura's Fury",
+    "priority": 0,
+    "duration": 8,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0062",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -20,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.5,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1050787622,
+    "buffTypeId": 1790361536,
+    "description": "Level 2 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 4,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 7,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1057407144,
+    "buffTypeId": 755187973,
+    "description": "Simple Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.039000000804662704,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1066791695,
+    "buffTypeId": 755187973,
+    "description": "Exquisite Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.06599999964237213,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1100328253,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.0430000014603138,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1213011730,
+    "buffTypeId": 4,
+    "description": "Concussed",
+    "priority": 2,
+    "duration": 3600,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxHealth",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MaxStamina",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1241284693,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.09600000083446503,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1243862356,
+    "buffTypeId": 755187973,
+    "description": "Ornate Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1245173307,
+    "buffTypeId": 1398544390,
+    "description": "Smash Armor",
+    "priority": 0,
+    "duration": 4,
+    "warnTime": 1,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -0.30000001192092896,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1246635821,
+    "buffTypeId": 1204575210,
+    "description": "Pristine Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 12,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1249118438,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1249248521,
+    "buffTypeId": 1790361536,
+    "description": "Level 8 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 19,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1257118994,
+    "buffTypeId": 755187973,
+    "description": "Magnificient Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.10199999809265137,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1258657638,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.041999999433755875,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.041999999433755875,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1260299797,
+    "buffTypeId": 755187973,
+    "description": "Fine Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.05700000002980232,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1273790540,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.09200000017881393,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1280410544,
+    "buffTypeId": 755187973,
+    "description": "Infused Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1318138218,
+    "buffTypeId": 1204575210,
+    "description": "Magnificent Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 14,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1347325268,
+    "buffTypeId": 1790361536,
+    "description": "Level 5 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 7,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 13,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1369876541,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.0860000029206276,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1385090574,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04600000008940697,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1386622342,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.09399999678134918,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1396605584,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04100000113248825,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04100000113248825,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1399948075,
+    "buffTypeId": 1790361536,
+    "description": "Level 3 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 5,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 9,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1410212093,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.09600000083446503,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.09600000083446503,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1439414421,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.0430000014603138,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.0430000014603138,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1439415977,
+    "buffTypeId": 755187973,
+    "description": "Exquisite Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.06599999964237213,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1447762453,
+    "buffTypeId": 755187973,
+    "description": "Flawless Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.11100000143051147,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1453337769,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1468461954,
+    "buffTypeId": 755187973,
+    "description": "Peerless Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.07500000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1481441973,
+    "buffTypeId": 1790361536,
+    "description": "Level 6 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 8,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 15,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1509772875,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.08799999952316284,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1517521109,
+    "buffTypeId": 755187973,
+    "description": "Pristine Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.09300000220537186,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1520805889,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04500000178813934,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1529868230,
+    "buffTypeId": 1790361536,
+    "description": "Level 1 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 3,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 5,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1547415845,
+    "buffTypeId": 11,
+    "description": "Starving",
+    "priority": 0,
+    "duration": -1,
+    "warnTime": 0,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u008C",
+    "stats": [],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1556176707,
+    "buffTypeId": 755187973,
+    "description": "Peerless Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.07500000298023224,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1566165595,
+    "buffTypeId": 4,
+    "description": "Concussed",
+    "priority": 0,
+    "duration": 1800,
+    "warnTime": 30,
+    "onlineTimestamp": false,
+    "beneficial": false,
+    "iconAssetName": "\\u0014",
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxHealth",
+          "value": {}
+        },
+        "value": -0.02500000037252903,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MaxStamina",
+          "value": {}
+        },
+        "value": -0.02500000037252903,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.02500000037252903,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1575219793,
+    "buffTypeId": 755187973,
+    "description": "Fine Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.05700000002980232,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1579088613,
+    "buffTypeId": 861783812,
+    "description": "Level 4 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04399999976158142,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1590162583,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04699999839067459,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1631091910,
+    "buffTypeId": 1790361536,
+    "description": "Level 4 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 6,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 11,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1692241838,
+    "buffTypeId": 755187973,
+    "description": "Basic Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.029999999329447746,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1692642397,
+    "buffTypeId": 755187973,
+    "description": "Ornate Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1732058250,
+    "buffTypeId": 1686192242,
+    "description": "Bleed",
+    "priority": 1,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u006D",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": -2,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1772924204,
+    "buffTypeId": 861783812,
+    "description": "Level 8 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1784860197,
+    "buffTypeId": 1204575210,
+    "description": "Exquisite Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 9,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1793037679,
+    "buffTypeId": 755187973,
+    "description": "Infused Crafting Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04800000041723251,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1815674622,
+    "buffTypeId": 351703766,
+    "description": "AccuracyDown",
+    "priority": 1,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\u0084",
+    "stats": [
+      {
+        "id": {
+          "tag": "Accuracy",
+          "value": {}
+        },
+        "value": -80,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1848949061,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.09000000357627869,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.09000000357627869,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1853075244,
+    "buffTypeId": 238577565,
+    "description": "Pristine Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 31,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1858579409,
+    "buffTypeId": 861783812,
+    "description": "Level 3 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.0860000029206276,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1861631261,
+    "buffTypeId": 1790361536,
+    "description": "Level 9 Food Regen",
+    "priority": 1,
+    "duration": 900,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u008C",
+    "stats": [
+      {
+        "id": {
+          "tag": "PassiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 11,
+        "isPct": false
+      },
+      {
+        "id": {
+          "tag": "PassiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 20,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1876524841,
+    "buffTypeId": 755187973,
+    "description": "Basic Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.029999999329447746,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1881525764,
+    "buffTypeId": 238577565,
+    "description": "Fine Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 19,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1885593226,
+    "buffTypeId": 861783812,
+    "description": "Level 6 Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.04600000008940697,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.04600000008940697,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1927294623,
+    "buffTypeId": 2104428893,
+    "description": "Debilitating Strike",
+    "priority": 0,
+    "duration": 6,
+    "warnTime": 2,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Strength",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "Accuracy",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1928903599,
+    "buffTypeId": 755187973,
+    "description": "Ornate Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1935249643,
+    "buffTypeId": 861783812,
+    "description": "Level 2 Deluxe Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.08399999886751175,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1958258156,
+    "buffTypeId": 1204575210,
+    "description": "Flawless Healing Potion",
+    "priority": 0,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveHealthRegenRate",
+          "value": {}
+        },
+        "value": 15,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1980254979,
+    "buffTypeId": 755187973,
+    "description": "Magnificient Building Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.10199999809265137,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 1982977481,
+    "buffTypeId": 861783812,
+    "description": "Level 1 Deluxe Action Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u0035",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.0820000022649765,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.0820000022649765,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2029849276,
+    "buffTypeId": 1570841358,
+    "description": "Berserk",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 2,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -0.20000000298023224,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "Strength",
+          "value": {}
+        },
+        "value": 0.4000000059604645,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2084605653,
+    "buffTypeId": 490104816,
+    "description": "Sniper's Stance",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 3,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "",
+    "stats": [
+      {
+        "id": {
+          "tag": "Strength",
+          "value": {}
+        },
+        "value": 0.4000000059604645,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "Accuracy",
+          "value": {}
+        },
+        "value": 0.5,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.8999999761581421,
+        "isPct": true
+      },
+      {
+        "id": {
+          "tag": "Armor",
+          "value": {}
+        },
+        "value": -0.10000000149011612,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2088230928,
+    "buffTypeId": 1654451514,
+    "description": "MovementSpeedDown",
+    "priority": 1,
+    "duration": 15,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": false,
+    "iconAssetName": "\\uFFDA",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": -0.800000011920929,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2103320983,
+    "buffTypeId": 238577565,
+    "description": "Peerless Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 25,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2103902535,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Deluxe Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.09399999678134918,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2115603449,
+    "buffTypeId": 861783812,
+    "description": "Level 5 Combat Cooldown",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\uFFEB",
+    "stats": [
+      {
+        "id": {
+          "tag": "CooldownMultiplier",
+          "value": {}
+        },
+        "value": 0.04500000178813934,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2119591842,
+    "buffTypeId": 238577565,
+    "description": "Infused Stamina Potion",
+    "priority": 0,
+    "duration": 10,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "ActiveStaminaRegenRate",
+          "value": {}
+        },
+        "value": 16,
+        "isPct": false
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2134900809,
+    "buffTypeId": 861783812,
+    "description": "Level 7 Movement Speed",
+    "priority": 1,
+    "duration": 180,
+    "warnTime": 0,
+    "onlineTimestamp": true,
+    "beneficial": true,
+    "iconAssetName": "\\u003D",
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0.04699999839067459,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  },
+  {
+    "id": 2137093083,
+    "buffTypeId": 755187973,
+    "description": "Basic Gathering Speed Elixir",
+    "priority": 0,
+    "duration": 300,
+    "warnTime": 15,
+    "onlineTimestamp": false,
+    "beneficial": true,
+    "iconAssetName": "\\u00C8",
+    "stats": [
+      {
+        "id": {
+          "tag": "GatheringSpeed",
+          "value": {}
+        },
+        "value": 0.029999999329447746,
+        "isPct": true
+      }
+    ],
+    "vfx": "",
+    "vfxAttachmentPoint": {
+      "tag": "Origin",
+      "value": {}
+    }
+  }
+]

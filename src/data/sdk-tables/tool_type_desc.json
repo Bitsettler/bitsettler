@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Axe",
+    "skillId": 2
+  },
+  {
+    "id": 2,
+    "name": "Saw",
+    "skillId": 3
+  },
+  {
+    "id": 3,
+    "name": "Chisel",
+    "skillId": 4
+  },
+  {
+    "id": 4,
+    "name": "Pickaxe",
+    "skillId": 5
+  },
+  {
+    "id": 5,
+    "name": "Hammer",
+    "skillId": 6
+  },
+  {
+    "id": 6,
+    "name": "Knife",
+    "skillId": 8
+  },
+  {
+    "id": 7,
+    "name": "Bow",
+    "skillId": 9
+  },
+  {
+    "id": 8,
+    "name": "Scissors",
+    "skillId": 10
+  },
+  {
+    "id": 9,
+    "name": "Hoe",
+    "skillId": 11
+  },
+  {
+    "id": 10,
+    "name": "Rod",
+    "skillId": 12
+  },
+  {
+    "id": 11,
+    "name": "Pot",
+    "skillId": 13
+  },
+  {
+    "id": 12,
+    "name": "Machete",
+    "skillId": 14
+  },
+  {
+    "id": 13,
+    "name": "Quill",
+    "skillId": 7
+  },
+  {
+    "id": 14,
+    "name": "Mallet",
+    "skillId": 0
+  }
+]

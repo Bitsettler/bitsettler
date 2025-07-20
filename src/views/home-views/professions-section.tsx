@@ -1,18 +1,26 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { getAllProfessions, getProfessionsByType, type Profession } from '@/lib/spacetime-db/modules/professions/professions'
+import {
+  getAllSkills,
+  getSkillsByCategories,
+  getSkillsWithIcons,
+  type SkillWithIcon
+} from '@/lib/spacetime-db-new/modules/skills/commands'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import Image from 'next/image'
 
-function ProfessionCard({ profession }: { profession: Profession }) {
+function ProfessionCard({ profession }: { profession: SkillWithIcon }) {
+  console.log({ assetPath: profession.actualIconPath, iconPath: profession.iconAssetName })
+
   return (
-    <Link href={`/professions/${profession.slug}`} className="block h-full">
+    <Link href={`/professions/${createSlug(profession.name)}`} className="block h-full">
       <Card className="group flex h-full flex-col transition-all hover:scale-[1.02] hover:shadow-md">
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-muted flex h-12 w-12 items-center justify-center rounded-lg">
                 <Image
-                  src={`/assets/Skill/${profession.actualIconPath}.webp`}
+                  src={profession.actualIconPath}
                   alt={profession.name}
                   width={32}
                   height={32}
@@ -35,9 +43,13 @@ function ProfessionCard({ profession }: { profession: Profession }) {
 }
 
 export function ProfessionsSection() {
-  const professionSkills = getProfessionsByType('Profession')
-  const adventureSkills = getProfessionsByType('Adventure')
-  const allProfessions = getAllProfessions()
+  const allSkills = getAllSkills().filter((skill) => skill.name !== 'ANY')
+  const professionSkillsWithIcons = getSkillsWithIcons(
+    getSkillsByCategories(['Profession']).filter((skill) => skill.name !== 'ANY')
+  )
+  const adventureSkillsWithIcons = getSkillsWithIcons(
+    getSkillsByCategories(['Adventure']).filter((skill) => skill.name !== 'ANY')
+  )
 
   return (
     <div className="space-y-8">
@@ -47,23 +59,23 @@ export function ProfessionsSection() {
           Master various skills to craft, build, and explore in the world of Bitcraft
         </p>
         <div className="text-muted-foreground flex items-center gap-4 text-sm">
-          <span>{allProfessions.length} Total Skills</span>
+          <span>{allSkills.length} Total Skills</span>
           <span>•</span>
-          <span>{professionSkills.length} Profession Skills</span>
+          <span>{professionSkillsWithIcons.length} Profession Skills</span>
           <span>•</span>
-          <span>{adventureSkills.length} Adventure Skills</span>
+          <span>{adventureSkillsWithIcons.length} Adventure Skills</span>
         </div>
       </div>
 
       {/* Profession Skills */}
-      {professionSkills.length > 0 && (
+      {professionSkillsWithIcons.length > 0 && (
         <div className="space-y-4">
           <div className="space-y-1">
             <h3 className="text-xl font-semibold">Profession Skills</h3>
             <p className="text-muted-foreground text-sm">Craft and create items, structures, and consumables</p>
           </div>
           <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {professionSkills.map((profession) => (
+            {professionSkillsWithIcons.map((profession) => (
               <ProfessionCard key={profession.id} profession={profession} />
             ))}
           </div>
@@ -71,14 +83,14 @@ export function ProfessionsSection() {
       )}
 
       {/* Adventure Skills */}
-      {adventureSkills.length > 0 && (
+      {adventureSkillsWithIcons.length > 0 && (
         <div className="space-y-4">
           <div className="space-y-1">
             <h3 className="text-xl font-semibold">Adventure Skills</h3>
             <p className="text-muted-foreground text-sm">Explore, gather resources, and survive in the wilderness</p>
           </div>
           <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {adventureSkills.map((profession) => (
+            {adventureSkillsWithIcons.map((profession) => (
               <ProfessionCard key={profession.id} profession={profession} />
             ))}
           </div>
@@ -87,8 +99,8 @@ export function ProfessionsSection() {
 
       <div className="text-center">
         <p className="text-muted-foreground text-sm">
-          🎯 Each skill can be leveled up to {professionSkills[0]?.maxLevel || 110} for mastery bonuses and advanced
-          recipes!
+          🎯 Each skill can be leveled up to {professionSkillsWithIcons[0]?.maxLevel || 110} for mastery bonuses and
+          advanced recipes!
         </p>
       </div>
     </div>

@@ -1,0 +1,1465 @@
+[
+  {
+    "itemId": 1150001,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150003,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150004,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150005,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150007,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150008,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150009,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150010,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150011,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150012,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150013,
+    "mask": {
+      "tag": "None",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150014,
+    "mask": {
+      "tag": "None",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150015,
+    "mask": {
+      "tag": "None",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150016,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150017,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1150018,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1160000,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10020002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10030002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10040002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10050002,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10060002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10070002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10080002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10090002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10100002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10110002,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10120002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10130002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 10140002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12020002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12030002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12040002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12050002,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12060002,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12070002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12080002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12090002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12100002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12110002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12120002,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12130002,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 12140002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14020002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14030002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14040002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14050002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14060002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14070002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14080002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14090002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14100002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14110002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14120002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 14130002,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 32637744,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 48817510,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 50114119,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 87092643,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 114803167,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 140051956,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 143662070,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 152294380,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 214346223,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 224940800,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 234817911,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 237918607,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 238784591,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 273992794,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 276896360,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 294390191,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 297902644,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 399016534,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 408828726,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 408944502,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 411049737,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 421478316,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 432363443,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 436618207,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 455684901,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 465383621,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 468681437,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 493126081,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 510688290,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 513552618,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 519661477,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 525111323,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 531158232,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 538296512,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 572582019,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 574814526,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 595445411,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 598137965,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 600446125,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 607824857,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 621094921,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 645068925,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 668850826,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 693942070,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 694339120,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 701914583,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 707036562,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 710248451,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 711593731,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 784830667,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 791117238,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 793048261,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 795045103,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 811943916,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 812582683,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 852588952,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 882490918,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 898901137,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 922693453,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 928694408,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 931007873,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 936570952,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 948683704,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 969344987,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 974090701,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 980851367,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1005448492,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1017550176,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1019751065,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1020473762,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1025624401,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1033464894,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1034054663,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1059702923,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1075596142,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1081177210,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1091658961,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1098549703,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1099876928,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1125047999,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1140000500,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1142806710,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1166219520,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1174822693,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1177085970,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1195718176,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1240249958,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1249964058,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1263399444,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1278496139,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1297567298,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1324234962,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1325441541,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1362003595,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1366135093,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1366603575,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1367980575,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1383916610,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1431028469,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1474389962,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1476013283,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1476189186,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1491376775,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1501609923,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1505074164,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1509611093,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1509895069,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1517215335,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1538015673,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1543622460,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1608041758,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1661296503,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1662119728,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1662473714,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1663948560,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1715770651,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1719205000,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1730213607,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1754004451,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1763888265,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1787022174,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1802429552,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1856745386,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1879689739,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1880113899,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1887296056,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1915019623,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1915538301,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1947560492,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1949963852,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1951915597,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1958274715,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1975567889,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1992078150,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1994148278,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 1996367126,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2011139955,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2011866600,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2025710717,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2039156645,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2061951199,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2065851745,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2068154040,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2075141544,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2082968083,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2086908527,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2093043953,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2098478534,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2106845290,
+    "mask": {
+      "tag": "HairFront",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2107161781,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2128289827,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2131116765,
+    "mask": {
+      "tag": "HairFull",
+      "value": {}
+    }
+  },
+  {
+    "itemId": 2141934285,
+    "mask": {
+      "tag": "HairBottom",
+      "value": {}
+    }
+  }
+]

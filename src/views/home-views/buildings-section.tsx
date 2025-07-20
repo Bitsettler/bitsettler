@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { getBuildingStatistics } from '@/lib/spacetime-db/modules/buildings/buildings'
+import { getBuildingStatistics } from '@/lib/spacetime-db-new/modules/buildings/flows'
 
 interface BuildingCategory {
   id: string
@@ -37,7 +37,7 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
 }
 
 export async function BuildingsSection() {
-  const buildingStats = await getBuildingStatistics()
+  const buildingStats = getBuildingStatistics()
 
   const buildingCategories: BuildingCategory[] = [
     {

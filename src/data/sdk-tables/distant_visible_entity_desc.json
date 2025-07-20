@@ -1,0 +1,58 @@
+[
+  {
+    "id": 46903776,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 1752479333
+  },
+  {
+    "id": 60420011,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 1828664180
+  },
+  {
+    "id": 212175683,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 2034914963
+  },
+  {
+    "id": 265644973,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 201
+  },
+  {
+    "id": 1764502884,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 1008368350
+  },
+  {
+    "id": 2010982682,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 1662809355
+  },
+  {
+    "id": 2016656385,
+    "entityType": {
+      "tag": "Building",
+      "value": {}
+    },
+    "descriptionId": 489406613
+  }
+]

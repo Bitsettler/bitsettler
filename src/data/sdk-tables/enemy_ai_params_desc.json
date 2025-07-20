@@ -1,0 +1,1674 @@
+[
+  {
+    "id": 37478763,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.699999988079071,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 61108216,
+    "enemyType": {
+      "tag": "Umbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 90669214,
+    "enemyType": {
+      "tag": "Umbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 92465321,
+    "enemyType": {
+      "tag": "RockCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.699999988079071,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 105259271,
+    "enemyType": {
+      "tag": "DeerFemale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 121645569,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Dev",
+      "value": {}
+    },
+    "avgHerdSize": 4,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0,
+    "roamingDistance": 30,
+    "spawnEagerness": 0.6499999761581421,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 1
+  },
+  {
+    "id": 131245168,
+    "enemyType": {
+      "tag": "SwampToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 211119285,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.20000000298023224,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 235875188,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 283789974,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.30000001192092896,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 20,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 306527540,
+    "enemyType": {
+      "tag": "KingUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 316417653,
+    "enemyType": {
+      "tag": "DesertCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.30000001192092896,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 345936746,
+    "enemyType": {
+      "tag": "Umbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.4000000059604645,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 366508177,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.4000000059604645,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 20,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 444091190,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 456235942,
+    "enemyType": {
+      "tag": "RockCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Canyon",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 522421855,
+    "enemyType": {
+      "tag": "BoarElder",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 528770564,
+    "enemyType": {
+      "tag": "MountainGoat",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SnowyPeaks",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 538241450,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.4000000059604645,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 568516409,
+    "enemyType": {
+      "tag": "PlainsOx",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 584703727,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Swamp",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 596667597,
+    "enemyType": {
+      "tag": "FrostCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SnowyPeaks",
+      "value": {}
+    },
+    "avgHerdSize": 4,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 638724447,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 661460268,
+    "enemyType": {
+      "tag": "GrassBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 10
+  },
+  {
+    "id": 663247344,
+    "enemyType": {
+      "tag": "KingUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.30000001192092896,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 681708787,
+    "enemyType": {
+      "tag": "Queen",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 708293469,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.30000001192092896,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 715705419,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.30000001192092896,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 721259925,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 734695248,
+    "enemyType": {
+      "tag": "Goat",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.6000000238418579,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 740600287,
+    "enemyType": {
+      "tag": "DesertLargeBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.25,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 788089844,
+    "enemyType": {
+      "tag": "KingJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.07999999821186066,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 810310353,
+    "enemyType": {
+      "tag": "SwampToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 827786892,
+    "enemyType": {
+      "tag": "RockCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 4,
+    "varHerdSize": 1,
+    "herdsPerChunk": 1.25,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 828692193,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 854937091,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.6000000238418579,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 919978531,
+    "enemyType": {
+      "tag": "BoarFemale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 922349581,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SnowyPeaks",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.4000000059604645,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 941537079,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 981848948,
+    "enemyType": {
+      "tag": "RockCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Canyon",
+      "value": {}
+    },
+    "avgHerdSize": 4,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 982887229,
+    "enemyType": {
+      "tag": "BoarMale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1001682834,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1034899659,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1036318002,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1043147036,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1055278610,
+    "enemyType": {
+      "tag": "SwampBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Swamp",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1077710160,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1081683349,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1096421640,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SnowyPeaks",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.6499999761581421,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1114680734,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Canyon",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1126330243,
+    "enemyType": {
+      "tag": "SwampToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Swamp",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1133684346,
+    "enemyType": {
+      "tag": "BoarFemale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1277830090,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1357745697,
+    "enemyType": {
+      "tag": "DesertBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1363679101,
+    "enemyType": {
+      "tag": "GrassBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 10
+  },
+  {
+    "id": 1388689236,
+    "enemyType": {
+      "tag": "JungleLargeBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1411731806,
+    "enemyType": {
+      "tag": "DeerMale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1422469503,
+    "enemyType": {
+      "tag": "DeerMale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1473991888,
+    "enemyType": {
+      "tag": "GrassBird",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SafeMeadows",
+      "value": {}
+    },
+    "avgHerdSize": 3,
+    "varHerdSize": 1,
+    "herdsPerChunk": 1,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 7
+  },
+  {
+    "id": 1494494002,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.6000000238418579,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1512042892,
+    "enemyType": {
+      "tag": "DeerFemale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1524650688,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1532079704,
+    "enemyType": {
+      "tag": "Umbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1538128273,
+    "enemyType": {
+      "tag": "AlphaUmbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.6000000238418579,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1621233956,
+    "enemyType": {
+      "tag": "MountainGoat",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Canyon",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1633043007,
+    "enemyType": {
+      "tag": "FrostCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "SnowyPeaks",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1649398569,
+    "enemyType": {
+      "tag": "ForestToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1694667632,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Swamp",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1701060258,
+    "enemyType": {
+      "tag": "Elk",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.25,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1721181993,
+    "enemyType": {
+      "tag": "BoarMale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1723856999,
+    "enemyType": {
+      "tag": "BoarElder",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.05000000074505806,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1754414741,
+    "enemyType": {
+      "tag": "Goat",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1783440051,
+    "enemyType": {
+      "tag": "DeerMale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "AutumnForest",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1811684090,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1890468519,
+    "enemyType": {
+      "tag": "Soldier",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1912094505,
+    "enemyType": {
+      "tag": "DeerFemale",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Sapwoods",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.17499999701976776,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 1929597731,
+    "enemyType": {
+      "tag": "KingJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.4000000059604645,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1983563825,
+    "enemyType": {
+      "tag": "SwampToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Swamp",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 1999461463,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "BreezyPlains",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 2025376445,
+    "enemyType": {
+      "tag": "ForestToad",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 2042655311,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 2062119341,
+    "enemyType": {
+      "tag": "DesertCrab",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Desert",
+      "value": {}
+    },
+    "avgHerdSize": 4,
+    "varHerdSize": 1,
+    "herdsPerChunk": 1.25,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 2066393358,
+    "enemyType": {
+      "tag": "Drone",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Canyon",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 2070135174,
+    "enemyType": {
+      "tag": "Jakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.75,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 19,
+    "timeOfDayEnd": 1,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 2075584027,
+    "enemyType": {
+      "tag": "Queen",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Jungle",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.5,
+    "roamingDistance": 50,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 2102697539,
+    "enemyType": {
+      "tag": "AlphaJakyl",
+      "value": {}
+    },
+    "biome": {
+      "tag": "CalmForest",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 120
+  },
+  {
+    "id": 2130146773,
+    "enemyType": {
+      "tag": "Umbura",
+      "value": {}
+    },
+    "biome": {
+      "tag": "PineWoods",
+      "value": {}
+    },
+    "avgHerdSize": 1,
+    "varHerdSize": 0,
+    "herdsPerChunk": 0.10000000149011612,
+    "roamingDistance": 50,
+    "spawnEagerness": 1,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  },
+  {
+    "id": 2147390190,
+    "enemyType": {
+      "tag": "TundraOx",
+      "value": {}
+    },
+    "biome": {
+      "tag": "Tundra",
+      "value": {}
+    },
+    "avgHerdSize": 2,
+    "varHerdSize": 1,
+    "herdsPerChunk": 0.3499999940395355,
+    "roamingDistance": 25,
+    "spawnEagerness": 0.5,
+    "timeOfDayStart": 0,
+    "timeOfDayEnd": 0,
+    "spawnFrequencyMinutes": 15
+  }
+]

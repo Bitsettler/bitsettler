@@ -1,0 +1,3260 @@
+[
+  {
+    "id": 1,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 5,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 5,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.800000011920929
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.699999988079071
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.699999988079071
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "lootRarity": 1,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.699999988079071
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.699999988079071
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 20,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 5,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 6,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 5,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.03999999910593033
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "lootRarity": 2,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.8999999761581421
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.699999988079071
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "lootRarity": 3,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 4,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 6,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 4,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "lootRarity": 4,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "lootRarity": 5,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.25
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "lootRarity": 5,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.25
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "lootRarity": 5,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.25
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.8999999761581421
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "lootRarity": 9,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 20,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 25,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 14,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 18,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 20,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 25,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.05000000074505806
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.6000000238418579
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 6,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.03999999910593033
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "lootRarity": 6,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "lootRarity": 10,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 502,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "lootRarity": 10,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 503,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "lootRarity": 10,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 504,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "lootRarity": 10,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 505,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1180015,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "lootRarity": 11,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 506,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "lootRarity": 11,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1180013,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "lootRarity": 8,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "lootRarity": 12,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 20,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "lootRarity": 13,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "lootRarity": 19,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 15,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "lootRarity": 15,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "lootRarity": 20,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 25,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "lootRarity": 16,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "lootRarity": 16,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 601,
+          "quantity": 2,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "lootRarity": 16,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "lootRarity": 16,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 34,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 36,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "lootRarity": 21,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 100,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  },
+  {
+    "id": 30000,
+    "lootRarity": 22,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      }
+    ]
+  },
+  {
+    "id": 30001,
+    "lootRarity": 22,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 30002,
+    "lootRarity": 22,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 5,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      }
+    ]
+  },
+  {
+    "id": 30003,
+    "lootRarity": 22,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 3,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      }
+    ]
+  },
+  {
+    "id": 30004,
+    "lootRarity": 23,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.8999999761581421
+      }
+    ]
+  },
+  {
+    "id": 30005,
+    "lootRarity": 23,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 10,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.8999999761581421
+      }
+    ]
+  },
+  {
+    "id": 30006,
+    "lootRarity": 24,
+    "lootItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 25,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 33,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 4004,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ]
+  }
+]

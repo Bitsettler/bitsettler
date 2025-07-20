@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function ItemInfoTab({ params }: PageProps) {
   const { slug } = await params
-  
+
   // Get the item by slug (validation already done in layout)
   const item = getItemBySlugCommand(slug)
 
@@ -32,7 +32,8 @@ export default async function ItemInfoTab({ params }: PageProps) {
       <div className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>Item Information</h2>
         <p className="text-muted-foreground">
-          Detailed information about this item will be available soon. Use the tabs above to explore different aspects of {item.name}.
+          Detailed information about this item will be available soon. Use the tabs above to explore different aspects
+          of {item.name}.
         </p>
       </div>
     </div>

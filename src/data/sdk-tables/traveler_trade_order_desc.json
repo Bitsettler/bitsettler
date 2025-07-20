@@ -1,0 +1,5543 @@
+[
+  {
+    "id": 2,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 103,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 4,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 105,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 5,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 106,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 6,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 107,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 7,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 108,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 8,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 109,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 9,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 110,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 11,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 112,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 4672187,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1585016044,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 4080,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 90
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1193306099
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1698909790
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 5121293,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 4000,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 17654437,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1492526768,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      2400
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1692905720
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 56175024,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 131,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      1201,
+      7001
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      463829733
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 67066537,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 635789197,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 122694869,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1847577629,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2415,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 70
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1374810712
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      2069857725
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 129993328,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1537267704,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 143808603,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 938610077,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5300,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 100
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1698909790
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1296867343
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 164868375,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 255980691,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      247498648
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 167319848,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1692160990,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 845,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 30
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      865680811
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1396363569
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 186678426,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 130,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 196036893,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1550027041,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 248758844,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 4001,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 258126499,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [],
+    "offerCargoId": [
+      501736939
+    ],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 272237947,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 294428145,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 3135,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 80
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      2069857725
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      352936733
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 284601031,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 13338385,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      531350774
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 299615640,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 805422378,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 299921439,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1807155019,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 30
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1136805016
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 335900378,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 2141453790,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 21,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 421433074,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 2012639669,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 35
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      284141818
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 441358929,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 555274167,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1575435835
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 441491803,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 127656426,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 444772436,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1463057734,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 463873628,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1934679826,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 464575667,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1052058067,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 476348774,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1857742253,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 496971461,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 422814781,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 60000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1104720020
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 549646367,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1422053499,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 50,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 21,
+        "level": 1
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      147699549
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 552978759,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1118124564,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1012505575
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 582128575,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 805422378,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 602924421,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1486899324,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 40
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1396363569
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      745950734
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 646323103,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [],
+    "offerCargoId": [
+      1955158156
+    ],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 659328971,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 805422378,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 666015096,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1741713616,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 259426368,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      1202
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      978063319
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 687194787,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1223093023,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 742449390,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1307942768,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1430,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 50
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1848639773
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1595594410
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 756016288,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 420771857,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 763275751,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 2009471267,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 763686293,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1661840094,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 775313301,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 16914575,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5300,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 100
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      481239285
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1108478591
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 795146024,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1948497957,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1855,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 60
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      637569088
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1544455467
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 810788960,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 127,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 7500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      531350774
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 847968349,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 677257844,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 3135,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 80
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1496870093
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1193306099
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 864916846,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 321169560,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 3135,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 80
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      848401975
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      982130286
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 867159417,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1340407516,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 25,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 883824228,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 383280923,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1608390821
+    ],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 887576762,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1638188042,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      1205,
+      7005
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      811254925
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 903957487,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1857742253,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 908036277,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 97803777,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1430,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 50
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1954516355
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      76131923
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 933276669,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1480966810,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1430,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 50
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      745950734
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      637569088
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 942594321,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1850382229,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 40
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      2141686838
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1954516355
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 953572096,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1281883494,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 845,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 30
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      177204475
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      2141686838
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1003943985,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1885566540,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 4080,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 90
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      352936733
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      481239285
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1020112536,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1463057734,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1032149114,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1857742253,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1039704052,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 4002,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1048138389,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1168774134,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      85361069
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1057802508,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1686060207,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1551266896,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      },
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1062117123,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 889337473,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1062566499,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 148829439,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 5
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1078287741,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1463057734,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1096528521,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 259426368,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 128,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      1201
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      978063319
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1118292843,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [],
+    "offerCargoId": [
+      983297878
+    ],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1126725583,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1199909640,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1146582177,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1685784429,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 845,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 30
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      922161738
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1179490605
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1171507695,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1009634974,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1197340388,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1030786738,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 21,
+        "level": 80
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1717367019
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1205666837,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1061968498,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 15
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      9154362,
+      12345
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      899698659
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1269618212,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1258659186,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1492526768,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      2401
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1692905720
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1280335514,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 277992146,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 30000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      284141818
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1295705204,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 4003,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1309923921,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1382535079,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 19,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1398834
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1320044462,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 308894402,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1386554140,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1112071728,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1575435835
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1437535449,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 91116690,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 10000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 21,
+        "level": 50
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      811254925
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1446407671,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1008780724,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 5
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      12345
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      844511805
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1453969066,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 504777617,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 650,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      247498648
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      865680811
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1463897097,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1223093023,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1470260077,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1040471365,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 1
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      969337162
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1482290311,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 472672268,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 40
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1179490605
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1848639773
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1503200915,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 72520590,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1521611141,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1763886534,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 20,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1597567857,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1223093023,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1622768307,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1763886534,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 200,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1628229680,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1996765852,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1304432828
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1649988695,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1313504512,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 20000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 50
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1104720020
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1664961909,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 680592629,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1667990269,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1948484237,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1336925241,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      1203
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1608390821
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1693140624,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1863733456,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      1473504323,
+      392822871
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1717367019
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1707483642,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 484791099,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 650,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      85361069
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      922161738
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1715982093,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 349530101,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      1200
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1741821680,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 852054358,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1769671713,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1336925241,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 129,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      1202
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1608390821
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1770327716,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1827041111,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 650,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1012505575
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      177204475
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1781971555,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Tamer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1000905267,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 17,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1797800017,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1794622985,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 19,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1802616669,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [],
+    "offerCargoId": [
+      1290464936
+    ],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 100,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1846932448,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1927761865,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2415,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 70
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1544455467
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1496870093
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1848121013,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1763886534,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1851037692,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1798374700,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 5
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      949781814
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1864438736,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1302101606,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1867409787,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1883260586,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1899671242,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 555197904,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1919485039,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1645316769,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1949680002,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1257732800,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 11001,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      978063319
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 1961713579,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1471728350,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 1985281811,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Svim",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 244281069,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 21,
+        "level": 20
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      463829733
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2001943080,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 580374466,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 2007918787,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1519853280,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1855,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 60
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      76131923
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1897163274
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2019403022,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Heimlich",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1481975980,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1855,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 13,
+        "level": 60
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1595594410
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1374810712
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2032005511,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 876096677,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 4080,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 90
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      982130286
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      1941494853
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2052645416,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Slayer",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 130542853,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 18,
+        "level": 10
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1660161872
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2072478915,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1712579910,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 2075190611,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Twins",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1010996042,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5000,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 2100946887,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 453171119,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1258659186,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [
+      2403
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1692905720
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 2108020089,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 703101966,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 2415,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 70
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1897163274
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      848401975
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2108397818,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1859190999,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 15
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      844511805,
+      12345
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      9154362
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2112974368,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1455144221,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 5300,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 100
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1941494853
+    ],
+    "hideWithoutRequiredKnowledge": true,
+    "blockingKnowledges": [
+      565101671
+    ],
+    "hideWithBlockingKnowledges": true
+  },
+  {
+    "id": 2125675490,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Brico",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 129,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [],
+    "requiredCargoId": [
+      1201
+    ],
+    "levelRequirements": [],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [
+      1608390821
+    ],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [],
+    "hideWithBlockingKnowledges": false
+  },
+  {
+    "id": 2142815126,
+    "startingStock": 2147483647,
+    "alwaysOffered": true,
+    "traveler": {
+      "tag": "Rumbagh",
+      "value": {}
+    },
+    "offerItems": [
+      {
+        "itemId": 1331162242,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "offerCargoId": [],
+    "requiredItems": [
+      {
+        "itemId": 1,
+        "quantity": 500,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredCargoId": [],
+    "levelRequirements": [
+      {
+        "skillId": 19,
+        "level": 5
+      }
+    ],
+    "achievementRequirements": [],
+    "hideIfRequirementsAreNotMet": false,
+    "requiredKnowledges": [],
+    "hideWithoutRequiredKnowledge": false,
+    "blockingKnowledges": [
+      1692905720
+    ],
+    "hideWithBlockingKnowledges": true
+  }
+]

@@ -1,7 +1,7 @@
-import { getBuildingsWithConstructionInfo } from './get-buildings-with-construction-info'
-import { getBuildingsGroupedByCategory, getBuildingsGroupedByLocation } from './get-buildings-grouped'
-import { getConstructionRecipes, getWritItems } from '../commands/get-building-data'
 import { BUILDING_FUNCTION_TYPE_MAPPING } from '../building-utils'
+import { getConstructionRecipes, getWritItems } from '../commands/get-building-data'
+import { getBuildingsGroupedByCategory, getBuildingsGroupedByLocation } from './get-buildings-grouped'
+import { getBuildingsWithConstructionInfo } from './get-buildings-with-construction-info'
 
 /**
  * Get building statistics overview with enhanced analysis

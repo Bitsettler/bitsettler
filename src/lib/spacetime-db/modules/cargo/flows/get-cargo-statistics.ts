@@ -1,5 +1,5 @@
+import { getCargoGroupedByCategory, getCargoGroupedByTag, getCargoGroupedByVolume } from './get-cargo-grouped'
 import { getCargoWithStats } from './get-cargo-with-stats'
-import { getCargoGroupedByTag, getCargoGroupedByCategory, getCargoGroupedByVolume } from './get-cargo-grouped'
 
 /**
  * Get cargo statistics overview with enhanced analysis

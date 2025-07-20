@@ -1,0 +1,20 @@
+[
+  {
+    "secondaryKnowledgeId": 844511805,
+    "rank": 1,
+    "name": "PlayerHousing1",
+    "templateBuildingId": 70181493
+  },
+  {
+    "secondaryKnowledgeId": 899698659,
+    "rank": 3,
+    "name": "PlayerHousing3",
+    "templateBuildingId": 1899627609
+  },
+  {
+    "secondaryKnowledgeId": 9154362,
+    "rank": 2,
+    "name": "PlayerHousing2",
+    "templateBuildingId": 1005598626
+  }
+]

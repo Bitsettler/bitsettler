@@ -1,0 +1,26 @@
+[
+  {
+    "buffId": 2,
+    "resistanceType": {
+      "tag": "Cold",
+      "value": {}
+    },
+    "resistanceLevel": 10,
+    "groundDamage": 2,
+    "waterDamage": 2,
+    "resistanceUnmetText": "Freezing",
+    "resistanceMetText": "Comfortable"
+  },
+  {
+    "buffId": 12,
+    "resistanceType": {
+      "tag": "Heat",
+      "value": {}
+    },
+    "resistanceLevel": 10,
+    "groundDamage": 2,
+    "waterDamage": 0,
+    "resistanceUnmetText": "Overheating",
+    "resistanceMetText": "Comfortable"
+  }
+]

@@ -1,0 +1,1912 @@
+[
+  {
+    "id": 1,
+    "name": "Cart",
+    "deployFromCollectibleId": 128,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1375685503,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 13
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 12,
+    "stockpile": 1,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Cart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 2,
+    "name": "Wagon",
+    "deployFromCollectibleId": 129,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1030168975,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 10
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 12,
+    "stockpile": 6,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/LargeCart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 3,
+    "name": "Raft",
+    "deployFromCollectibleId": 130,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 1109261591,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 14
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 14
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 10
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 10
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 14
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 2,
+    "storage": 6,
+    "stockpile": 1,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/BoatRaft",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [
+      {
+        "skillId": 21,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 3
+  },
+  {
+    "id": 4,
+    "name": "Skiff",
+    "deployFromCollectibleId": 131,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 865980458,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 21
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 21
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 15
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 15
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 21
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 3,
+    "storage": 24,
+    "stockpile": 4,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Skiff",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": true,
+    "allowEmoteWhilePassenger": true,
+    "experiencePerProgress": [
+      {
+        "skillId": 21,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 5
+  },
+  {
+    "id": 6,
+    "name": "Rideable Deer",
+    "deployFromCollectibleId": 127,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Mount",
+      "value": {}
+    },
+    "pathfindingId": 309954853,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 25
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 0,
+    "stockpile": 1,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 18000,
+    "modelAddress": "Vehicles/DeerMount",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      2
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [
+      {
+        "skillId": 17,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 3
+  },
+  {
+    "id": 7,
+    "name": "Fisherman's Boat",
+    "deployFromCollectibleId": 132,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 1088877698,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 30
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 30
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 30
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 30
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 30
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 4,
+    "storage": 40,
+    "stockpile": 6,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 180000,
+    "modelAddress": "Vehicles/SmallVessel",
+    "stats": [
+      {
+        "id": {
+          "tag": "CraftingSpeed",
+          "value": {}
+        },
+        "value": 0.05000000074505806,
+        "isPct": true
+      }
+    ],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 8,
+    "name": "Cheater's Boat",
+    "deployFromCollectibleId": 133,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 691415579,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 75
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 75
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 75
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 75
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 75
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 2,
+    "storage": 0,
+    "stockpile": 0,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 6000,
+    "modelAddress": "Vehicles/Canoe",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 5
+  },
+  {
+    "id": 13,
+    "name": "Trader Cart",
+    "deployFromCollectibleId": 138,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 516255236,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 13
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 32,
+    "stockpile": 20,
+    "barter": 20,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 120000,
+    "modelAddress": "Vehicles/Cart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 86400,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 14,
+    "name": "Trader Stand",
+    "deployFromCollectibleId": 139,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Stall",
+      "value": {}
+    },
+    "pathfindingId": 1525146351,
+    "movementType": {
+      "tag": "None",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 0,
+    "storage": 10,
+    "stockpile": 4,
+    "barter": 10,
+    "itemSlotSize": 60000,
+    "cargoSlotSize": 600000,
+    "modelAddress": "Vehicles/TraderStand",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 86400,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1000,
+    "name": "Siege Engine",
+    "deployFromCollectibleId": 0,
+    "deployTime": 0,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1525146351,
+    "movementType": {
+      "tag": "None",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 0,
+    "storage": 0,
+    "stockpile": 0,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 0,
+    "modelAddress": "Vehicles/SiegeEngine",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 228937650,
+    "name": "Clipper",
+    "deployFromCollectibleId": 1142862651,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 1281875110,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 18
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 18
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 22
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 25
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 18
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 4,
+    "storage": 30,
+    "stockpile": 6,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Clipper",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": true,
+    "allowEmoteWhilePassenger": true,
+    "experiencePerProgress": [
+      {
+        "skillId": 21,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 5
+  },
+  {
+    "id": 571156212,
+    "name": "Advanced Cart",
+    "deployFromCollectibleId": 1083393330,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1375685503,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 15
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 24,
+    "stockpile": 3,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Cart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 634088959,
+    "name": "Massive Personal Cache",
+    "deployFromCollectibleId": 693157662,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Cache",
+      "value": {}
+    },
+    "pathfindingId": 1525146351,
+    "movementType": {
+      "tag": "None",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 0,
+    "storage": 72,
+    "stockpile": 24,
+    "barter": 0,
+    "itemSlotSize": 60000,
+    "cargoSlotSize": 600000,
+    "modelAddress": "Vehicles/PersonalCache",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 872518914,
+    "name": "Rideable Ox",
+    "deployFromCollectibleId": 1289105478,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Mount",
+      "value": {}
+    },
+    "pathfindingId": 1301654297,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 18
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 2,
+    "storage": 20,
+    "stockpile": 6,
+    "barter": 0,
+    "itemSlotSize": 60000,
+    "cargoSlotSize": 18000,
+    "modelAddress": "Vehicles/BisonMount",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      2,
+      2
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [
+      {
+        "skillId": 17,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1026286338,
+    "name": "Personal Cache",
+    "deployFromCollectibleId": 790337329,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Cache",
+      "value": {}
+    },
+    "pathfindingId": 1525146351,
+    "movementType": {
+      "tag": "None",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 0,
+    "storage": 32,
+    "stockpile": 8,
+    "barter": 0,
+    "itemSlotSize": 60000,
+    "cargoSlotSize": 600000,
+    "modelAddress": "Vehicles/CrudePersonalCache",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1125730891,
+    "name": "Rideable Goat",
+    "deployFromCollectibleId": 537052696,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Mount",
+      "value": {}
+    },
+    "pathfindingId": 668511654,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 22
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 0,
+    "stockpile": 2,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 18000,
+    "modelAddress": "Vehicles/GoatMount",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      2
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [
+      {
+        "skillId": 17,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1338380321,
+    "name": "Rideable Bird",
+    "deployFromCollectibleId": 1163358546,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Mount",
+      "value": {}
+    },
+    "pathfindingId": 1301654297,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 31
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 0,
+    "stockpile": 0,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 6000,
+    "modelAddress": "Vehicles/TerrorbirdMount",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      2
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [
+      {
+        "skillId": 17,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1357146109,
+    "name": "Cargo Ship",
+    "deployFromCollectibleId": 700235689,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Boat",
+      "value": {}
+    },
+    "pathfindingId": 1876455160,
+    "movementType": {
+      "tag": "Water",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 15
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 15
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 21
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 21
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 15
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": false,
+    "placeableInWater": true,
+    "capacity": 6,
+    "storage": 30,
+    "stockpile": 10,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/CargoShip",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1002,
+      1002
+    ],
+    "allowDriverExtract": true,
+    "allowPassengerExtract": true,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": true,
+    "allowEmoteWhilePassenger": true,
+    "experiencePerProgress": [
+      {
+        "skillId": 21,
+        "quantity": 0.25
+      }
+    ],
+    "mountingRadius": 5
+  },
+  {
+    "id": 1554573049,
+    "name": "Improved Wagon",
+    "deployFromCollectibleId": 1520209370,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1030168975,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 11
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 16,
+    "stockpile": 8,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/LargeCart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1596080513,
+    "name": "Improved Cart",
+    "deployFromCollectibleId": 684496199,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1375685503,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 14
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 18,
+    "stockpile": 2,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Cart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 1641732157,
+    "name": "Expanded Personal Cache",
+    "deployFromCollectibleId": 1226450761,
+    "deployTime": 3,
+    "deployableType": {
+      "tag": "Cache",
+      "value": {}
+    },
+    "pathfindingId": 1525146351,
+    "movementType": {
+      "tag": "None",
+      "value": {}
+    },
+    "canEnterPortals": false,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": false,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 0,
+    "storage": 48,
+    "stockpile": 16,
+    "barter": 0,
+    "itemSlotSize": 60000,
+    "cargoSlotSize": 600000,
+    "modelAddress": "Vehicles/PersonalCache",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 2045051661,
+    "name": "Advanced Wagon",
+    "deployFromCollectibleId": 381044074,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1030168975,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 12
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 1,
+    "storage": 20,
+    "stockpile": 10,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/LargeCart",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  },
+  {
+    "id": 2065423994,
+    "name": "Rickshaw Cart",
+    "deployFromCollectibleId": 1586159687,
+    "deployTime": 5,
+    "deployableType": {
+      "tag": "Cart",
+      "value": {}
+    },
+    "pathfindingId": 1375685503,
+    "movementType": {
+      "tag": "Ground",
+      "value": {}
+    },
+    "canEnterPortals": true,
+    "speed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 18
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 0
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 0
+      }
+    ],
+    "usePlayerSpeedModifier": true,
+    "placeableOnLand": true,
+    "placeableInWater": false,
+    "capacity": 2,
+    "storage": 12,
+    "stockpile": 0,
+    "barter": 0,
+    "itemSlotSize": 6000,
+    "cargoSlotSize": 60000,
+    "modelAddress": "Vehicles/Rickshaw",
+    "stats": [],
+    "playerAnimationsInDeployableSlots": [
+      1,
+      1000
+    ],
+    "allowDriverExtract": false,
+    "allowPassengerExtract": false,
+    "showForSecsAfterOwnerLogout": 0,
+    "allowEmoteWhileDriver": false,
+    "allowEmoteWhilePassenger": false,
+    "experiencePerProgress": [],
+    "mountingRadius": 3
+  }
+]

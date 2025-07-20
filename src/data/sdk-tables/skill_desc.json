@@ -1,0 +1,249 @@
+[
+  {
+    "id": 1,
+    "skillType": 1,
+    "name": "ANY",
+    "description": "",
+    "iconAssetName": "\\u019F",
+    "title": "",
+    "skillCategory": {
+      "tag": "None",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 2,
+    "skillType": 2,
+    "name": "Forestry",
+    "description": "",
+    "iconAssetName": "\\uFFEA",
+    "title": "Forester",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 3,
+    "skillType": 3,
+    "name": "Carpentry",
+    "description": "",
+    "iconAssetName": "\\uFFE5",
+    "title": "Carpenter",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 4,
+    "skillType": 4,
+    "name": "Masonry",
+    "description": "",
+    "iconAssetName": "\\uFFE4",
+    "title": "Mason",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 5,
+    "skillType": 5,
+    "name": "Mining",
+    "description": "",
+    "iconAssetName": "\\uFFED",
+    "title": "Miner",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 6,
+    "skillType": 6,
+    "name": "Smithing",
+    "description": "",
+    "iconAssetName": "\\uFFEF",
+    "title": "Smith",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 7,
+    "skillType": 7,
+    "name": "Scholar",
+    "description": "",
+    "iconAssetName": "\\uFFEE",
+    "title": "Scholar",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 8,
+    "skillType": 8,
+    "name": "Leatherworking",
+    "description": "",
+    "iconAssetName": "\\uFFEC",
+    "title": "Leatherworker",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 9,
+    "skillType": 9,
+    "name": "Hunting",
+    "description": "",
+    "iconAssetName": "\\uFFEB",
+    "title": "Hunter",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 10,
+    "skillType": 10,
+    "name": "Tailoring",
+    "description": "",
+    "iconAssetName": "\\uFFF0",
+    "title": "Tailor",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 11,
+    "skillType": 11,
+    "name": "Farming",
+    "description": "",
+    "iconAssetName": "\\uFFE7",
+    "title": "Farmer",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 12,
+    "skillType": 12,
+    "name": "Fishing",
+    "description": "",
+    "iconAssetName": "\\uFFE8",
+    "title": "Fisher",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 13,
+    "skillType": 13,
+    "name": "Cooking",
+    "description": "",
+    "iconAssetName": "\\uFFE6",
+    "title": "Cook",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 14,
+    "skillType": 14,
+    "name": "Foraging",
+    "description": "",
+    "iconAssetName": "\\uFFE9",
+    "title": "Forager",
+    "skillCategory": {
+      "tag": "Profession",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 15,
+    "skillType": 15,
+    "name": "Construction",
+    "description": "",
+    "iconAssetName": "\\uFFF6",
+    "title": "Builder",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 17,
+    "skillType": 17,
+    "name": "Taming",
+    "description": "",
+    "iconAssetName": "\\uFFAD",
+    "title": "Tamer",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 18,
+    "skillType": 18,
+    "name": "Slayer",
+    "description": "",
+    "iconAssetName": "\\uFFAE",
+    "title": "Slayer",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 19,
+    "skillType": 19,
+    "name": "Merchanting",
+    "description": "",
+    "iconAssetName": "\\uFFAF",
+    "title": "Merchant",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  },
+  {
+    "id": 21,
+    "skillType": 21,
+    "name": "Sailing",
+    "description": "",
+    "iconAssetName": "\\uFFD5",
+    "title": "Sailor",
+    "skillCategory": {
+      "tag": "Adventure",
+      "value": {}
+    },
+    "maxLevel": 110
+  }
+]

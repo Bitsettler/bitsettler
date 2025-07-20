@@ -1,0 +1,11 @@
+[
+  {
+    "buildingId": 1358633373,
+    "maxCliffHeight": 100,
+    "speed": 8,
+    "usableWithDeployable": false,
+    "topPlatformAddress": "c101b21decb040343abe88b86f9e4a82",
+    "basketAddress": "43bbf1ca7c6c46b4a8ebd8456211026c",
+    "bottomPlatformAddress": "a56493d77ac59aa429e7d30f84729bdc"
+  }
+]

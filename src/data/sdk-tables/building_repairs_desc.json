@@ -1,0 +1,258 @@
+[
+  {
+    "cargoId": 1200,
+    "repairValue": 100
+  },
+  {
+    "cargoId": 1201,
+    "repairValue": 130
+  },
+  {
+    "cargoId": 1202,
+    "repairValue": 340
+  },
+  {
+    "cargoId": 1203,
+    "repairValue": 440
+  },
+  {
+    "cargoId": 1204,
+    "repairValue": 855
+  },
+  {
+    "cargoId": 1205,
+    "repairValue": 1115
+  },
+  {
+    "cargoId": 2400,
+    "repairValue": 250
+  },
+  {
+    "cargoId": 2401,
+    "repairValue": 325
+  },
+  {
+    "cargoId": 2402,
+    "repairValue": 845
+  },
+  {
+    "cargoId": 2403,
+    "repairValue": 1100
+  },
+  {
+    "cargoId": 2404,
+    "repairValue": 2140
+  },
+  {
+    "cargoId": 2405,
+    "repairValue": 2785
+  },
+  {
+    "cargoId": 7000,
+    "repairValue": 250
+  },
+  {
+    "cargoId": 7001,
+    "repairValue": 325
+  },
+  {
+    "cargoId": 7002,
+    "repairValue": 845
+  },
+  {
+    "cargoId": 7003,
+    "repairValue": 1100
+  },
+  {
+    "cargoId": 7004,
+    "repairValue": 2140
+  },
+  {
+    "cargoId": 7005,
+    "repairValue": 2785
+  },
+  {
+    "cargoId": 15195543,
+    "repairValue": 845
+  },
+  {
+    "cargoId": 53658000,
+    "repairValue": 370
+  },
+  {
+    "cargoId": 302152262,
+    "repairValue": 4825
+  },
+  {
+    "cargoId": 338529773,
+    "repairValue": 285
+  },
+  {
+    "cargoId": 341301575,
+    "repairValue": 1100
+  },
+  {
+    "cargoId": 360403214,
+    "repairValue": 6275
+  },
+  {
+    "cargoId": 392822871,
+    "repairValue": 10195
+  },
+  {
+    "cargoId": 501736939,
+    "repairValue": 7500
+  },
+  {
+    "cargoId": 503195279,
+    "repairValue": 6275
+  },
+  {
+    "cargoId": 583106011,
+    "repairValue": 100
+  },
+  {
+    "cargoId": 631093405,
+    "repairValue": 13255
+  },
+  {
+    "cargoId": 715636845,
+    "repairValue": 6275
+  },
+  {
+    "cargoId": 741862367,
+    "repairValue": 2140
+  },
+  {
+    "cargoId": 884292413,
+    "repairValue": 1930
+  },
+  {
+    "cargoId": 888273394,
+    "repairValue": 10195
+  },
+  {
+    "cargoId": 897676087,
+    "repairValue": 4825
+  },
+  {
+    "cargoId": 898540348,
+    "repairValue": 10195
+  },
+  {
+    "cargoId": 960407828,
+    "repairValue": 625
+  },
+  {
+    "cargoId": 970827760,
+    "repairValue": 250
+  },
+  {
+    "cargoId": 983297878,
+    "repairValue": 375
+  },
+  {
+    "cargoId": 1026230335,
+    "repairValue": 220
+  },
+  {
+    "cargoId": 1044447676,
+    "repairValue": 325
+  },
+  {
+    "cargoId": 1080157951,
+    "repairValue": 2140
+  },
+  {
+    "cargoId": 1090747065,
+    "repairValue": 845
+  },
+  {
+    "cargoId": 1090785594,
+    "repairValue": 815
+  },
+  {
+    "cargoId": 1167304009,
+    "repairValue": 10195
+  },
+  {
+    "cargoId": 1219367849,
+    "repairValue": 4825
+  },
+  {
+    "cargoId": 1290464936,
+    "repairValue": 75
+  },
+  {
+    "cargoId": 1297204491,
+    "repairValue": 325
+  },
+  {
+    "cargoId": 1412406838,
+    "repairValue": 1060
+  },
+  {
+    "cargoId": 1473504323,
+    "repairValue": 4080
+  },
+  {
+    "cargoId": 1496962595,
+    "repairValue": 130
+  },
+  {
+    "cargoId": 1546723412,
+    "repairValue": 485
+  },
+  {
+    "cargoId": 1552106905,
+    "repairValue": 250
+  },
+  {
+    "cargoId": 1585122058,
+    "repairValue": 5300
+  },
+  {
+    "cargoId": 1654222357,
+    "repairValue": 6275
+  },
+  {
+    "cargoId": 1784593653,
+    "repairValue": 1100
+  },
+  {
+    "cargoId": 1791508890,
+    "repairValue": 4825
+  },
+  {
+    "cargoId": 1811266661,
+    "repairValue": 13255
+  },
+  {
+    "cargoId": 1836028490,
+    "repairValue": 13255
+  },
+  {
+    "cargoId": 1863123674,
+    "repairValue": 2785
+  },
+  {
+    "cargoId": 1935556465,
+    "repairValue": 13255
+  },
+  {
+    "cargoId": 1948570022,
+    "repairValue": 2510
+  },
+  {
+    "cargoId": 1955158156,
+    "repairValue": 750
+  },
+  {
+    "cargoId": 1989901185,
+    "repairValue": 2785
+  },
+  {
+    "cargoId": 2146702618,
+    "repairValue": 170
+  }
+]

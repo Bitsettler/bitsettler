@@ -12,7 +12,7 @@ export interface CollectibleStatistics {
  */
 export function getCollectibleStatistics(): CollectibleStatistics {
   const collectibles = getCollectiblesWithStats()
-  
+
   const groupedByTag: Record<string, number> = {}
   const groupedByRarity: Record<string, number> = {}
   const groupedByType: Record<string, number> = {}

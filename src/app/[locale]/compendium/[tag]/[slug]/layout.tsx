@@ -29,9 +29,5 @@ export default async function ItemDetailLayout({ children, params }: LayoutProps
     notFound()
   }
 
-  return (
-    <ItemDetailPageLayout item={item}>
-      {children}
-    </ItemDetailPageLayout>
-  )
+  return <ItemDetailPageLayout item={item}>{children}</ItemDetailPageLayout>
 }

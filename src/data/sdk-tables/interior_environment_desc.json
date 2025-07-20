@@ -1,0 +1,38 @@
+[
+  {
+    "id": 229709100,
+    "name": "AlesiHideout",
+    "skyboxMaterial": "Interiors_Sky",
+    "realtimeShadowColor": 4285233824,
+    "lightingSource": 3,
+    "lightingSkyboxIntensity": 0.6000000238418579,
+    "lightingGradientSkyColor": 4285233817,
+    "lightingGradientEquatorColor": 4280098850,
+    "lightingGradientGroundColor": 4278979337,
+    "lightingColorAmbientColor": 4285233817,
+    "fogEnable": false,
+    "fogColor": 4289850363,
+    "fogMode": 3,
+    "fogDensity": 0.0024999999441206455,
+    "fogStartDistance": 0,
+    "fogEndDistance": 300
+  },
+  {
+    "id": 1802146406,
+    "name": "Tower",
+    "skyboxMaterial": "Interiors_Sky",
+    "realtimeShadowColor": 4285233824,
+    "lightingSource": 3,
+    "lightingSkyboxIntensity": 0.6000000238418579,
+    "lightingGradientSkyColor": 4285233817,
+    "lightingGradientEquatorColor": 4280098850,
+    "lightingGradientGroundColor": 4278979337,
+    "lightingColorAmbientColor": 4282409088,
+    "fogEnable": false,
+    "fogColor": 4289850363,
+    "fogMode": 3,
+    "fogDensity": 0.0024999999441206455,
+    "fogStartDistance": 0,
+    "fogEndDistance": 300
+  }
+]

@@ -1,15 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import { Link } from '@/i18n/navigation'
-
-interface ItemsSectionProps {
-  consumables: ItemDesc[]
-  cargo: CargoDesc[]
-  resources: ResourceDesc[]
-  totalItems: number
-}
+import { getAllCargo } from '@/lib/spacetime-db-new/modules/cargo/commands'
+import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-tag-collections'
+import { getAllItems, getItemsByTags } from '@/lib/spacetime-db-new/modules/items/commands'
+import { getResourcesInCompendium } from '@/lib/spacetime-db-new/modules/resources/commands'
 
 interface ItemCategory {
   id: string
@@ -45,7 +39,12 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
   )
 }
 
-export function ItemsSection({ consumables, cargo, resources, totalItems }: ItemsSectionProps) {
+export function ItemsSection() {
+  const consumables = getItemsByTags(tagCollections.consumables.tags)
+  const cargo = getAllCargo()
+  const resources = getResourcesInCompendium()
+  const totalItems = getAllItems().filter((item) => item.compendiumEntry).length
+
   const itemCategories: ItemCategory[] = [
     {
       id: 'consumables',

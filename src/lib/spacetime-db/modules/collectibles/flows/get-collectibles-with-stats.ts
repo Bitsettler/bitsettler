@@ -15,10 +15,12 @@ export function getCollectiblesWithStats(): CollectibleWithItem[] {
   const stats = getCollectibleStats()
   const statsById = new Map(stats.map((stat) => [stat.itemDeedId, stat]))
 
-  return items.map((item) => ({
-    item,
-    stats: statsById.get(item.id)!
-  })).filter((collectible) => collectible.stats)
+  return items
+    .map((item) => ({
+      item,
+      stats: statsById.get(item.id)!
+    }))
+    .filter((collectible) => collectible.stats)
 }
 
 /**

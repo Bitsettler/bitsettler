@@ -1,0 +1,56 @@
+[
+  {
+    "id": 347237876,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 15750,
+    "baseShardAmount": 10000,
+    "name": "Hexite Shards",
+    "price": 19.989999771118164,
+    "eventName": "Beta Event"
+  },
+  {
+    "id": 388134995,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 49500,
+    "baseShardAmount": 30000,
+    "name": "Hexite Shards",
+    "price": 59.9900016784668,
+    "eventName": "Beta Event"
+  },
+  {
+    "id": 470650799,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 23963,
+    "baseShardAmount": 15000,
+    "name": "Hexite Shards",
+    "price": 29.989999771118164,
+    "eventName": "Beta Event"
+  },
+  {
+    "id": 520159025,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 86250,
+    "baseShardAmount": 50000,
+    "name": "Hexite Shards",
+    "price": 99.98999786376953,
+    "eventName": "Beta Event"
+  },
+  {
+    "id": 644200514,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 3750,
+    "baseShardAmount": 2500,
+    "name": "Hexite Shards",
+    "price": 4.989999771118164,
+    "eventName": "Beta Event"
+  },
+  {
+    "id": 873961400,
+    "imageAddress": "UI/hexite-shard",
+    "shardAmount": 7800,
+    "baseShardAmount": 5000,
+    "name": "Hexite Shards",
+    "price": 9.989999771118164,
+    "eventName": "Beta Event"
+  }
+]

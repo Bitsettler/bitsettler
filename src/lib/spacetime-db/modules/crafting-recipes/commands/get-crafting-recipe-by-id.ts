@@ -6,5 +6,5 @@ import { getAllCraftingRecipes } from './get-all-crafting-recipes'
  */
 export function getCraftingRecipeById(id: number): CraftingRecipeDesc | null {
   const craftingRecipes = getAllCraftingRecipes()
-  return craftingRecipes.find(recipe => recipe.id === id) || null
+  return craftingRecipes.find((recipe) => recipe.id === id) || null
 }

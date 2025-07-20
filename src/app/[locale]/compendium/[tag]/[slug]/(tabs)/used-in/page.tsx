@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function ItemUsedInTab({ params }: PageProps) {
   const { slug } = await params
-  
+
   // Get the item by slug (validation already done in layout)
   const item = getItemBySlugCommand(slug)
 
@@ -23,7 +23,8 @@ export default async function ItemUsedInTab({ params }: PageProps) {
       <div className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>What {item.name} is Used For</h2>
         <p className="text-muted-foreground">
-          Information about what this item is used for will be available soon. This may include crafting recipes that use this item as an ingredient, equipment stats, and other uses.
+          Information about what this item is used for will be available soon. This may include crafting recipes that
+          use this item as an ingredient, equipment stats, and other uses.
         </p>
       </div>
     </div>

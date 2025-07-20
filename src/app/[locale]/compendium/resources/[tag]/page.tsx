@@ -1,17 +1,12 @@
-import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import resourceDescData from '@/data/global/resource_desc.json'
-import {
-  findResourceTagCollection,
-  resourceCollections
-} from '@/lib/spacetime-db/modules/collections/resource-tag-collections'
-import { getResourcesWithStats } from '@/lib/spacetime-db/modules/resources/resources'
-import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
+import { getAllResourceTags, getResourcesByTags } from '@/lib/spacetime-db-new/modules/resources/commands'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
 // Generate static params for all possible resource tag combinations
 export function generateStaticParams() {
-  return resourceCollections.resources.tags.map((each) => ({ tag: each }))
+  const allTags = getAllResourceTags()
+  return allTags.map((tag) => ({ tag: createSlug(tag) }))
 }
 
 interface PageProps {
@@ -23,40 +18,31 @@ interface PageProps {
 export default async function ResourceTagPage({ params }: PageProps) {
   const { tag } = await params
 
-  // Convert slug back to tag name
+  // Convert slug back to tag name  
   const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 
-  // Convert snake_case JSON to camelCase and type properly
-  const resourceData = camelCaseDeep<ResourceDesc[]>(resourceDescData)
+  // Check if this tag is valid
+  const allTags = getAllResourceTags()
+  if (!allTags.includes(tagName)) {
+    notFound()
+  }
 
-  // Filter resource entries by tag
-  const resources = resourceData.filter((resource) => resource.tag === tagName)
+  // Get resources for this tag using SDK data
+  const resources = getResourcesByTags([tagName])
 
   // If no resources found for this tag, return 404
   if (resources.length === 0) {
     notFound()
   }
 
-  // Check if this tag is actually a valid resource tag
-  const isValidResourceTag = resourceCollections.resources.tags.some((tag) => tag === tagName)
-
-  if (!isValidResourceTag) {
-    notFound()
-  }
-
-  // Find the resource collection for navigation
-  const parentResourceCollection = findResourceTagCollection(tagName)
-
-  // Handle resource tags with the specialized component
-  const resourcesWithStats = await getResourcesWithStats()
-  const resourcesForThisTag = resourcesWithStats.filter((resourceItem) => resourceItem.tag === tagName)
+  // Note: Could use getResourceTagsMetadata() for additional navigation info if needed
 
   return (
     <ResourceIndividualTagPageView
       tagName={tagName}
-      resources={resourcesForThisTag}
-      backLink={parentResourceCollection?.href || '/compendium/resources'}
-      backLinkText={parentResourceCollection ? `← Back to ${parentResourceCollection.name}` : '← Back to Resources'}
+      resources={resources}
+      backLink="/compendium/resources"
+      backLinkText="← Back to Resources"
     />
   )
 }

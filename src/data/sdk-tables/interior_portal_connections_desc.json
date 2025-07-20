@@ -1,0 +1,1535 @@
+[
+  {
+    "id": 1,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 3,
+    "exitSpawnId": 2,
+    "exitPortalId": 1
+  },
+  {
+    "id": 2,
+    "entranceSpawnId": 2,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 3
+  },
+  {
+    "id": 3,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 4,
+    "exitSpawnId": 3,
+    "exitPortalId": 1
+  },
+  {
+    "id": 4,
+    "entranceSpawnId": 3,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 4
+  },
+  {
+    "id": 5,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 5,
+    "exitSpawnId": 4,
+    "exitPortalId": 1
+  },
+  {
+    "id": 6,
+    "entranceSpawnId": 4,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 5
+  },
+  {
+    "id": 7,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 500,
+    "exitSpawnId": 500,
+    "exitPortalId": 1
+  },
+  {
+    "id": 8,
+    "entranceSpawnId": 500,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 500
+  },
+  {
+    "id": 9,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 600,
+    "exitSpawnId": 600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 10,
+    "entranceSpawnId": 600,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 600
+  },
+  {
+    "id": 11,
+    "entranceSpawnId": 601,
+    "entrancePortalId": 1,
+    "exitSpawnId": 400,
+    "exitPortalId": 1
+  },
+  {
+    "id": 12,
+    "entranceSpawnId": 400,
+    "entrancePortalId": 1,
+    "exitSpawnId": 601,
+    "exitPortalId": 1
+  },
+  {
+    "id": 13,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 700,
+    "exitSpawnId": 1779674029,
+    "exitPortalId": 1
+  },
+  {
+    "id": 14,
+    "entranceSpawnId": 1779674029,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 700
+  },
+  {
+    "id": 15,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1000,
+    "exitSpawnId": 1550,
+    "exitPortalId": 1
+  },
+  {
+    "id": 16,
+    "entranceSpawnId": 1550,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 17,
+    "entranceSpawnId": 1551,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 18,
+    "entranceSpawnId": 1000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1551,
+    "exitPortalId": 1
+  },
+  {
+    "id": 19,
+    "entranceSpawnId": 1044,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1100,
+    "exitPortalId": 1
+  },
+  {
+    "id": 20,
+    "entranceSpawnId": 1100,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1044,
+    "exitPortalId": 1
+  },
+  {
+    "id": 21,
+    "entranceSpawnId": 1103,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 22,
+    "entranceSpawnId": 1200,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1048,
+    "exitPortalId": 1
+  },
+  {
+    "id": 23,
+    "entranceSpawnId": 1048,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1200,
+    "exitPortalId": 1
+  },
+  {
+    "id": 24,
+    "entranceSpawnId": 1300,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1049,
+    "exitPortalId": 1
+  },
+  {
+    "id": 25,
+    "entranceSpawnId": 1049,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1300,
+    "exitPortalId": 1
+  },
+  {
+    "id": 26,
+    "entranceSpawnId": 1400,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1211,
+    "exitPortalId": 1
+  },
+  {
+    "id": 27,
+    "entranceSpawnId": 1211,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1400,
+    "exitPortalId": 1
+  },
+  {
+    "id": 28,
+    "entranceSpawnId": 1051,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 29,
+    "entranceSpawnId": 1050,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 30,
+    "entranceSpawnId": 1406,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 31,
+    "entranceSpawnId": 1407,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 32,
+    "entranceSpawnId": 1408,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1000
+  },
+  {
+    "id": 33,
+    "entranceSpawnId": 1405,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1500,
+    "exitPortalId": 1
+  },
+  {
+    "id": 34,
+    "entranceSpawnId": 1500,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1405,
+    "exitPortalId": 1
+  },
+  {
+    "id": 35,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1600,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 36,
+    "entranceSpawnId": 1600,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1600
+  },
+  {
+    "id": 37,
+    "entranceSpawnId": 1609,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 38,
+    "entranceSpawnId": 1610,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 39,
+    "entranceSpawnId": 1608,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1700,
+    "exitPortalId": 1
+  },
+  {
+    "id": 40,
+    "entranceSpawnId": 1700,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1608,
+    "exitPortalId": 1
+  },
+  {
+    "id": 41,
+    "entranceSpawnId": 1707,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 42,
+    "entranceSpawnId": 1709,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 43,
+    "entranceSpawnId": 1708,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1800,
+    "exitPortalId": 1
+  },
+  {
+    "id": 44,
+    "entranceSpawnId": 1800,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1708,
+    "exitPortalId": 1
+  },
+  {
+    "id": 45,
+    "entranceSpawnId": 1807,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 46,
+    "entranceSpawnId": 1808,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 47,
+    "entranceSpawnId": 1809,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1900,
+    "exitPortalId": 1
+  },
+  {
+    "id": 48,
+    "entranceSpawnId": 1900,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1809,
+    "exitPortalId": 1
+  },
+  {
+    "id": 49,
+    "entranceSpawnId": 1907,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 50,
+    "entranceSpawnId": 1909,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 51,
+    "entranceSpawnId": 1908,
+    "entrancePortalId": 1,
+    "exitSpawnId": 2000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 52,
+    "entranceSpawnId": 2000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1908,
+    "exitPortalId": 1
+  },
+  {
+    "id": 53,
+    "entranceSpawnId": 2008,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 54,
+    "entranceSpawnId": 2009,
+    "entrancePortalId": 1,
+    "exitSpawnId": 1600,
+    "exitPortalId": 1
+  },
+  {
+    "id": 55,
+    "entranceSpawnId": 2007,
+    "entrancePortalId": 1,
+    "exitSpawnId": 2100,
+    "exitPortalId": 1
+  },
+  {
+    "id": 56,
+    "entranceSpawnId": 2100,
+    "entrancePortalId": 1,
+    "exitSpawnId": 2007,
+    "exitPortalId": 1
+  },
+  {
+    "id": 57,
+    "entranceSpawnId": 2101,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 1600
+  },
+  {
+    "id": 58,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 5000,
+    "exitSpawnId": 5000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 59,
+    "entranceSpawnId": 5000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 5000
+  },
+  {
+    "id": 60,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 5100,
+    "exitSpawnId": 5100,
+    "exitPortalId": 1
+  },
+  {
+    "id": 61,
+    "entranceSpawnId": 5100,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 5100
+  },
+  {
+    "id": 62,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 25000,
+    "exitSpawnId": 25000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 63,
+    "entranceSpawnId": 25000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 25000
+  },
+  {
+    "id": 64,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 25100,
+    "exitSpawnId": 25100,
+    "exitPortalId": 1
+  },
+  {
+    "id": 65,
+    "entranceSpawnId": 25100,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 25100
+  },
+  {
+    "id": 66,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 26000,
+    "exitSpawnId": 26000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 67,
+    "entranceSpawnId": 26000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 26000
+  },
+  {
+    "id": 68,
+    "entranceSpawnId": 26007,
+    "entrancePortalId": 10,
+    "exitSpawnId": 27000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 69,
+    "entranceSpawnId": 27000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 26007,
+    "exitPortalId": 10
+  },
+  {
+    "id": 70,
+    "entranceSpawnId": 26022,
+    "entrancePortalId": 1,
+    "exitSpawnId": 28000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 71,
+    "entranceSpawnId": 28000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 26022,
+    "exitPortalId": 1
+  },
+  {
+    "id": 72,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 100,
+    "exitSpawnId": 100,
+    "exitPortalId": 1
+  },
+  {
+    "id": 73,
+    "entranceSpawnId": 100,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 100
+  },
+  {
+    "id": 74,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 200,
+    "exitSpawnId": 200,
+    "exitPortalId": 1
+  },
+  {
+    "id": 75,
+    "entranceSpawnId": 200,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 200
+  },
+  {
+    "id": 76,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 300,
+    "exitSpawnId": 300,
+    "exitPortalId": 1
+  },
+  {
+    "id": 77,
+    "entranceSpawnId": 300,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 300
+  },
+  {
+    "id": 78,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 11,
+    "exitSpawnId": 5,
+    "exitPortalId": 1
+  },
+  {
+    "id": 79,
+    "entranceSpawnId": 5,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 11
+  },
+  {
+    "id": 80,
+    "entranceSpawnId": 6,
+    "entrancePortalId": 1,
+    "exitSpawnId": 9,
+    "exitPortalId": 1
+  },
+  {
+    "id": 81,
+    "entranceSpawnId": 9,
+    "entrancePortalId": 1,
+    "exitSpawnId": 6,
+    "exitPortalId": 1
+  },
+  {
+    "id": 82,
+    "entranceSpawnId": 7,
+    "entrancePortalId": 1,
+    "exitSpawnId": 10,
+    "exitPortalId": 1
+  },
+  {
+    "id": 83,
+    "entranceSpawnId": 10,
+    "entrancePortalId": 1,
+    "exitSpawnId": 7,
+    "exitPortalId": 1
+  },
+  {
+    "id": 84,
+    "entranceSpawnId": 8,
+    "entrancePortalId": 1,
+    "exitSpawnId": 11,
+    "exitPortalId": 1
+  },
+  {
+    "id": 85,
+    "entranceSpawnId": 11,
+    "entrancePortalId": 1,
+    "exitSpawnId": 8,
+    "exitPortalId": 1
+  },
+  {
+    "id": 86,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 12,
+    "exitSpawnId": 113,
+    "exitPortalId": 1
+  },
+  {
+    "id": 87,
+    "entranceSpawnId": 113,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 12
+  },
+  {
+    "id": 88,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 13,
+    "exitSpawnId": 114,
+    "exitPortalId": 1
+  },
+  {
+    "id": 89,
+    "entranceSpawnId": 114,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 13
+  },
+  {
+    "id": 90,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 14,
+    "exitSpawnId": 115,
+    "exitPortalId": 1
+  },
+  {
+    "id": 91,
+    "entranceSpawnId": 115,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 14
+  },
+  {
+    "id": 92,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 250,
+    "exitSpawnId": 250,
+    "exitPortalId": 1
+  },
+  {
+    "id": 93,
+    "entranceSpawnId": 250,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 250
+  },
+  {
+    "id": 94,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 8,
+    "exitSpawnId": 15,
+    "exitPortalId": 1
+  },
+  {
+    "id": 95,
+    "entranceSpawnId": 15,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 8
+  },
+  {
+    "id": 96,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 15,
+    "exitSpawnId": 66,
+    "exitPortalId": 1
+  },
+  {
+    "id": 97,
+    "entranceSpawnId": 66,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 15
+  },
+  {
+    "id": 98,
+    "entranceSpawnId": 67,
+    "entrancePortalId": 1,
+    "exitSpawnId": 19,
+    "exitPortalId": 1
+  },
+  {
+    "id": 99,
+    "entranceSpawnId": 19,
+    "entrancePortalId": 1,
+    "exitSpawnId": 67,
+    "exitPortalId": 1
+  },
+  {
+    "id": 100,
+    "entranceSpawnId": 68,
+    "entrancePortalId": 1,
+    "exitSpawnId": 71,
+    "exitPortalId": 1
+  },
+  {
+    "id": 101,
+    "entranceSpawnId": 71,
+    "entrancePortalId": 1,
+    "exitSpawnId": 68,
+    "exitPortalId": 1
+  },
+  {
+    "id": 102,
+    "entranceSpawnId": 72,
+    "entrancePortalId": 1,
+    "exitSpawnId": 73,
+    "exitPortalId": 1
+  },
+  {
+    "id": 103,
+    "entranceSpawnId": 73,
+    "entrancePortalId": 1,
+    "exitSpawnId": 72,
+    "exitPortalId": 1
+  },
+  {
+    "id": 104,
+    "entranceSpawnId": 82,
+    "entrancePortalId": 1,
+    "exitSpawnId": 83,
+    "exitPortalId": 1
+  },
+  {
+    "id": 105,
+    "entranceSpawnId": 83,
+    "entrancePortalId": 1,
+    "exitSpawnId": 82,
+    "exitPortalId": 1
+  },
+  {
+    "id": 106,
+    "entranceSpawnId": 86,
+    "entrancePortalId": 1,
+    "exitSpawnId": 20,
+    "exitPortalId": 1
+  },
+  {
+    "id": 107,
+    "entranceSpawnId": 20,
+    "entrancePortalId": 1,
+    "exitSpawnId": 86,
+    "exitPortalId": 1
+  },
+  {
+    "id": 108,
+    "entranceSpawnId": 94,
+    "entrancePortalId": 1,
+    "exitSpawnId": 95,
+    "exitPortalId": 1
+  },
+  {
+    "id": 109,
+    "entranceSpawnId": 95,
+    "entrancePortalId": 1,
+    "exitSpawnId": 94,
+    "exitPortalId": 1
+  },
+  {
+    "id": 110,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 19,
+    "exitSpawnId": 99,
+    "exitPortalId": 1
+  },
+  {
+    "id": 111,
+    "entranceSpawnId": 99,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 19
+  },
+  {
+    "id": 112,
+    "entranceSpawnId": 116,
+    "entrancePortalId": 1,
+    "exitSpawnId": 120,
+    "exitPortalId": 1
+  },
+  {
+    "id": 113,
+    "entranceSpawnId": 120,
+    "entrancePortalId": 1,
+    "exitSpawnId": 116,
+    "exitPortalId": 1
+  },
+  {
+    "id": 114,
+    "entranceSpawnId": 117,
+    "entrancePortalId": 1,
+    "exitSpawnId": 121,
+    "exitPortalId": 1
+  },
+  {
+    "id": 115,
+    "entranceSpawnId": 121,
+    "entrancePortalId": 1,
+    "exitSpawnId": 117,
+    "exitPortalId": 1
+  },
+  {
+    "id": 116,
+    "entranceSpawnId": 118,
+    "entrancePortalId": 1,
+    "exitSpawnId": 122,
+    "exitPortalId": 1
+  },
+  {
+    "id": 117,
+    "entranceSpawnId": 122,
+    "entrancePortalId": 1,
+    "exitSpawnId": 118,
+    "exitPortalId": 1
+  },
+  {
+    "id": 118,
+    "entranceSpawnId": 119,
+    "entrancePortalId": 1,
+    "exitSpawnId": 123,
+    "exitPortalId": 1
+  },
+  {
+    "id": 119,
+    "entranceSpawnId": 123,
+    "entrancePortalId": 1,
+    "exitSpawnId": 119,
+    "exitPortalId": 1
+  },
+  {
+    "id": 120,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 18,
+    "exitSpawnId": 124,
+    "exitPortalId": 1
+  },
+  {
+    "id": 121,
+    "entranceSpawnId": 124,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 18
+  },
+  {
+    "id": 122,
+    "entranceSpawnId": 125,
+    "entrancePortalId": 1,
+    "exitSpawnId": 131,
+    "exitPortalId": 1
+  },
+  {
+    "id": 123,
+    "entranceSpawnId": 131,
+    "entrancePortalId": 1,
+    "exitSpawnId": 125,
+    "exitPortalId": 1
+  },
+  {
+    "id": 124,
+    "entranceSpawnId": 126,
+    "entrancePortalId": 1,
+    "exitSpawnId": 132,
+    "exitPortalId": 1
+  },
+  {
+    "id": 125,
+    "entranceSpawnId": 132,
+    "entrancePortalId": 1,
+    "exitSpawnId": 126,
+    "exitPortalId": 1
+  },
+  {
+    "id": 126,
+    "entranceSpawnId": 127,
+    "entrancePortalId": 1,
+    "exitSpawnId": 133,
+    "exitPortalId": 1
+  },
+  {
+    "id": 127,
+    "entranceSpawnId": 133,
+    "entrancePortalId": 1,
+    "exitSpawnId": 127,
+    "exitPortalId": 1
+  },
+  {
+    "id": 128,
+    "entranceSpawnId": 128,
+    "entrancePortalId": 1,
+    "exitSpawnId": 134,
+    "exitPortalId": 1
+  },
+  {
+    "id": 129,
+    "entranceSpawnId": 134,
+    "entrancePortalId": 1,
+    "exitSpawnId": 128,
+    "exitPortalId": 1
+  },
+  {
+    "id": 130,
+    "entranceSpawnId": 129,
+    "entrancePortalId": 1,
+    "exitSpawnId": 135,
+    "exitPortalId": 1
+  },
+  {
+    "id": 131,
+    "entranceSpawnId": 135,
+    "entrancePortalId": 1,
+    "exitSpawnId": 129,
+    "exitPortalId": 1
+  },
+  {
+    "id": 132,
+    "entranceSpawnId": 130,
+    "entrancePortalId": 1,
+    "exitSpawnId": 136,
+    "exitPortalId": 1
+  },
+  {
+    "id": 133,
+    "entranceSpawnId": 136,
+    "entrancePortalId": 1,
+    "exitSpawnId": 130,
+    "exitPortalId": 1
+  },
+  {
+    "id": 134,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 17,
+    "exitSpawnId": 137,
+    "exitPortalId": 1
+  },
+  {
+    "id": 135,
+    "entranceSpawnId": 137,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 17
+  },
+  {
+    "id": 136,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 16,
+    "exitSpawnId": 235,
+    "exitPortalId": 1
+  },
+  {
+    "id": 137,
+    "entranceSpawnId": 235,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 16
+  },
+  {
+    "id": 138,
+    "entranceSpawnId": 238,
+    "entrancePortalId": 1,
+    "exitSpawnId": 241,
+    "exitPortalId": 1
+  },
+  {
+    "id": 139,
+    "entranceSpawnId": 241,
+    "entrancePortalId": 1,
+    "exitSpawnId": 238,
+    "exitPortalId": 1
+  },
+  {
+    "id": 140,
+    "entranceSpawnId": 240,
+    "entrancePortalId": 1,
+    "exitSpawnId": 242,
+    "exitPortalId": 1
+  },
+  {
+    "id": 141,
+    "entranceSpawnId": 242,
+    "entrancePortalId": 1,
+    "exitSpawnId": 240,
+    "exitPortalId": 1
+  },
+  {
+    "id": 142,
+    "entranceSpawnId": 239,
+    "entrancePortalId": 1,
+    "exitSpawnId": 243,
+    "exitPortalId": 1
+  },
+  {
+    "id": 143,
+    "entranceSpawnId": 243,
+    "entrancePortalId": 1,
+    "exitSpawnId": 239,
+    "exitPortalId": 1
+  },
+  {
+    "id": 144,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 20,
+    "exitSpawnId": 246,
+    "exitPortalId": 1
+  },
+  {
+    "id": 145,
+    "entranceSpawnId": 246,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 20
+  },
+  {
+    "id": 146,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 21,
+    "exitSpawnId": 245,
+    "exitPortalId": 1
+  },
+  {
+    "id": 147,
+    "entranceSpawnId": 245,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 21
+  },
+  {
+    "id": 148,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 22,
+    "exitSpawnId": 244,
+    "exitPortalId": 1
+  },
+  {
+    "id": 149,
+    "entranceSpawnId": 244,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 22
+  },
+  {
+    "id": 150,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 26,
+    "exitSpawnId": 247,
+    "exitPortalId": 1
+  },
+  {
+    "id": 151,
+    "entranceSpawnId": 247,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 26
+  },
+  {
+    "id": 152,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 24,
+    "exitSpawnId": 267,
+    "exitPortalId": 1
+  },
+  {
+    "id": 153,
+    "entranceSpawnId": 267,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 24
+  },
+  {
+    "id": 154,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 23,
+    "exitSpawnId": 112,
+    "exitPortalId": 1
+  },
+  {
+    "id": 155,
+    "entranceSpawnId": 112,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 23
+  },
+  {
+    "id": 156,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 27,
+    "exitSpawnId": 111,
+    "exitPortalId": 1
+  },
+  {
+    "id": 157,
+    "entranceSpawnId": 111,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 27
+  },
+  {
+    "id": 158,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 30,
+    "exitSpawnId": 273,
+    "exitPortalId": 1
+  },
+  {
+    "id": 159,
+    "entranceSpawnId": 273,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 30
+  },
+  {
+    "id": 160,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 28,
+    "exitSpawnId": 272,
+    "exitPortalId": 1
+  },
+  {
+    "id": 161,
+    "entranceSpawnId": 272,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 28
+  },
+  {
+    "id": 162,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 29,
+    "exitSpawnId": 271,
+    "exitPortalId": 1
+  },
+  {
+    "id": 163,
+    "entranceSpawnId": 271,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 29
+  },
+  {
+    "id": 164,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 31,
+    "exitSpawnId": 270,
+    "exitPortalId": 1
+  },
+  {
+    "id": 165,
+    "entranceSpawnId": 270,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 31
+  },
+  {
+    "id": 166,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 32,
+    "exitSpawnId": 266,
+    "exitPortalId": 1
+  },
+  {
+    "id": 167,
+    "entranceSpawnId": 266,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 32
+  },
+  {
+    "id": 168,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 33,
+    "exitSpawnId": 249,
+    "exitPortalId": 1
+  },
+  {
+    "id": 169,
+    "entranceSpawnId": 249,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 33
+  },
+  {
+    "id": 170,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 350,
+    "exitSpawnId": 30000,
+    "exitPortalId": 1
+  },
+  {
+    "id": 171,
+    "entranceSpawnId": 30000,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 350
+  },
+  {
+    "id": 172,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 2,
+    "exitSpawnId": 274,
+    "exitPortalId": 1
+  },
+  {
+    "id": 173,
+    "entranceSpawnId": 274,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 2
+  },
+  {
+    "id": 99998,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 99998,
+    "exitSpawnId": 99999,
+    "exitPortalId": 1
+  },
+  {
+    "id": 99999,
+    "entranceSpawnId": 99999,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 99999
+  },
+  {
+    "id": 4550035,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 67241718,
+    "exitSpawnId": 1319071123,
+    "exitPortalId": 42
+  },
+  {
+    "id": 26857651,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1278771798,
+    "exitSpawnId": 1086521015,
+    "exitPortalId": 42
+  },
+  {
+    "id": 90892303,
+    "entranceSpawnId": 2103087305,
+    "entrancePortalId": 44,
+    "exitSpawnId": 0,
+    "exitPortalId": 34
+  },
+  {
+    "id": 242042961,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 34,
+    "exitSpawnId": 2103087305,
+    "exitPortalId": 44
+  },
+  {
+    "id": 343118586,
+    "entranceSpawnId": 1716797867,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 40
+  },
+  {
+    "id": 346530634,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 40,
+    "exitSpawnId": 1716797867,
+    "exitPortalId": 42
+  },
+  {
+    "id": 356630977,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 43,
+    "exitSpawnId": 221293787,
+    "exitPortalId": 42
+  },
+  {
+    "id": 430182923,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 430182923,
+    "exitSpawnId": 12598301,
+    "exitPortalId": 1
+  },
+  {
+    "id": 437444013,
+    "entranceSpawnId": 1319071123,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 67241718
+  },
+  {
+    "id": 486026285,
+    "entranceSpawnId": 221293787,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 43
+  },
+  {
+    "id": 617583315,
+    "entranceSpawnId": 660403352,
+    "entrancePortalId": 1109832130,
+    "exitSpawnId": 0,
+    "exitPortalId": 776721501
+  },
+  {
+    "id": 715819916,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1933356503,
+    "exitSpawnId": 1133111706,
+    "exitPortalId": 42
+  },
+  {
+    "id": 726775088,
+    "entranceSpawnId": 564997994,
+    "entrancePortalId": 44,
+    "exitSpawnId": 0,
+    "exitPortalId": 37
+  },
+  {
+    "id": 825241045,
+    "entranceSpawnId": 883742798,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1423776088
+  },
+  {
+    "id": 1011924669,
+    "entranceSpawnId": 2121972127,
+    "entrancePortalId": 1109832130,
+    "exitSpawnId": 0,
+    "exitPortalId": 1123389139
+  },
+  {
+    "id": 1118868849,
+    "entranceSpawnId": 600701907,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 46
+  },
+  {
+    "id": 1136076954,
+    "entranceSpawnId": 208697589,
+    "entrancePortalId": 38,
+    "exitSpawnId": 937038385,
+    "exitPortalId": 41
+  },
+  {
+    "id": 1168142655,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 37,
+    "exitSpawnId": 564997994,
+    "exitPortalId": 44
+  },
+  {
+    "id": 1327123289,
+    "entranceSpawnId": 559231611,
+    "entrancePortalId": 44,
+    "exitSpawnId": 0,
+    "exitPortalId": 36
+  },
+  {
+    "id": 1335240853,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 203433793,
+    "exitSpawnId": 436148054,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1335640537,
+    "entranceSpawnId": 487167489,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1404699335
+  },
+  {
+    "id": 1337459068,
+    "entranceSpawnId": 1256299484,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1521553649
+  },
+  {
+    "id": 1373830329,
+    "entranceSpawnId": 12598301,
+    "entrancePortalId": 1,
+    "exitSpawnId": 0,
+    "exitPortalId": 430182923
+  },
+  {
+    "id": 1388128566,
+    "entranceSpawnId": 1745482826,
+    "entrancePortalId": 1109832130,
+    "exitSpawnId": 0,
+    "exitPortalId": 1165847204
+  },
+  {
+    "id": 1451435584,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1888693539,
+    "exitSpawnId": 318646356,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1488916357,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 25,
+    "exitSpawnId": 1441372541,
+    "exitPortalId": 44
+  },
+  {
+    "id": 1493029265,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 36,
+    "exitSpawnId": 559231611,
+    "exitPortalId": 44
+  },
+  {
+    "id": 1531720793,
+    "entranceSpawnId": 318646356,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1888693539
+  },
+  {
+    "id": 1560256850,
+    "entranceSpawnId": 1525981279,
+    "entrancePortalId": 44,
+    "exitSpawnId": 0,
+    "exitPortalId": 35
+  },
+  {
+    "id": 1605418632,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 46,
+    "exitSpawnId": 600701907,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1637381376,
+    "entranceSpawnId": 954362371,
+    "entrancePortalId": 38,
+    "exitSpawnId": 0,
+    "exitPortalId": 430182923
+  },
+  {
+    "id": 1658906422,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 517744617,
+    "exitSpawnId": 112952058,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1679037684,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 776721501,
+    "exitSpawnId": 660403352,
+    "exitPortalId": 1109832130
+  },
+  {
+    "id": 1688116293,
+    "entranceSpawnId": 112952058,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 517744617
+  },
+  {
+    "id": 1721758303,
+    "entranceSpawnId": 436148054,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 203433793
+  },
+  {
+    "id": 1767183184,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1165847204,
+    "exitSpawnId": 1745482826,
+    "exitPortalId": 1109832130
+  },
+  {
+    "id": 1805843064,
+    "entranceSpawnId": 1086521015,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1278771798
+  },
+  {
+    "id": 1829884269,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1521553649,
+    "exitSpawnId": 1256299484,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1983988375,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1404699335,
+    "exitSpawnId": 487167489,
+    "exitPortalId": 42
+  },
+  {
+    "id": 1987259499,
+    "entranceSpawnId": 1133111706,
+    "entrancePortalId": 42,
+    "exitSpawnId": 0,
+    "exitPortalId": 1933356503
+  },
+  {
+    "id": 2007008234,
+    "entranceSpawnId": 1441372541,
+    "entrancePortalId": 44,
+    "exitSpawnId": 0,
+    "exitPortalId": 25
+  },
+  {
+    "id": 2041119428,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 35,
+    "exitSpawnId": 1525981279,
+    "exitPortalId": 44
+  },
+  {
+    "id": 2077594376,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1423776088,
+    "exitSpawnId": 883742798,
+    "exitPortalId": 42
+  },
+  {
+    "id": 2092661866,
+    "entranceSpawnId": 0,
+    "entrancePortalId": 1123389139,
+    "exitSpawnId": 2121972127,
+    "exitPortalId": 1109832130
+  }
+]

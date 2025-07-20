@@ -1,3 +1,8 @@
-export { getCollectiblesWithStats, getCollectiblesWithItems } from './get-collectibles-with-stats'
-export { getCollectiblesGroupedByTag, getCollectiblesGroupedByType, getCollectiblesGroupedByRarity, getCollectiblesGroupedByCategory } from './get-collectibles-grouped'
 export { getCollectibleStatistics } from './get-collectible-statistics'
+export {
+  getCollectiblesGroupedByCategory,
+  getCollectiblesGroupedByRarity,
+  getCollectiblesGroupedByTag,
+  getCollectiblesGroupedByType
+} from './get-collectibles-grouped'
+export { getCollectiblesWithItems, getCollectiblesWithStats } from './get-collectibles-with-stats'

@@ -20,7 +20,7 @@ export function getCollectibleData() {
 export function getCollectibleItems(): ItemDesc[] {
   const { itemDesc, collectibleDesc } = getCollectibleData()
   const collectibleItemIds = new Set(collectibleDesc.map((collectible) => collectible.itemDeedId))
-  
+
   return itemDesc.filter((item) => item.compendiumEntry && collectibleItemIds.has(item.id))
 }
 

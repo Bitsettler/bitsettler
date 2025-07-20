@@ -1,0 +1,122 @@
+[
+  {
+    "biomeType": 5,
+    "name": "Autumn Forest",
+    "description": "A forest in perpetual autumn.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 4,
+    "name": "Breezy Grasslands",
+    "description": "Some breezy plains.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 1,
+    "name": "Calm Forest",
+    "description": "A calm forest.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 12,
+    "name": "Cave",
+    "description": "Cavey.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 7,
+    "name": "Desert Wasteland",
+    "description": "A desert.",
+    "hazardLevel": "Blazing Heat",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 0,
+    "name": "Dev",
+    "description": "This doesn't exist.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 13,
+    "name": "Jungle",
+    "description": "",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 6,
+    "name": "Misty Tundra",
+    "description": "A tundra.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 10,
+    "name": "Open Ocean",
+    "description": "Lots of water here.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 2,
+    "name": "Pine Woods",
+    "description": "A forest with a lot of pines.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 9,
+    "name": "Rocky Garden",
+    "description": "A canyon.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 11,
+    "name": "Safe Meadows",
+    "description": "A safe area where you awoke",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": true
+  },
+  {
+    "biomeType": 14,
+    "name": "Sapwoods",
+    "description": "",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 3,
+    "name": "Snowy Peaks",
+    "description": "High and snowy.",
+    "hazardLevel": "Freezing Cold",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  },
+  {
+    "biomeType": 8,
+    "name": "Swamp",
+    "description": "Muddy and soddy.",
+    "hazardLevel": "",
+    "iconAddress": "Items/HexiteGem",
+    "disallowPlayerBuild": false
+  }
+]

@@ -1,13 +1,13 @@
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
-import { getAllCargo } from '../commands/get-all-cargo'
-import { getCargoCategory } from '../commands/get-cargo-category'
 import {
   isAnimalType,
   isMaterialType,
-  isVehicleType,
   isPackageType,
-  isTradingGoodsType
+  isTradingGoodsType,
+  isVehicleType
 } from '../commands/check-cargo-types'
+import { getAllCargo } from '../commands/get-all-cargo'
+import { getCargoCategory } from '../commands/get-cargo-category'
 
 // Combined cargo data with computed properties
 export interface CargoWithStats extends CargoDesc {
@@ -20,7 +20,7 @@ export interface CargoWithStats extends CargoDesc {
   isTradingGoods: boolean
   // Note: Using raw game values instead of fake categories:
   // - volume: actual number from game data
-  // - movementModifier: actual number from game data  
+  // - movementModifier: actual number from game data
   // - pickUpTime: actual number from game data
   // - notPickupable: actual boolean from game data
 }
@@ -53,7 +53,7 @@ export function getCargoWithStats(): CargoWithStats[] {
       isTradingGoods
       // Raw game values are already available via CargoDesc properties:
       // - cargo.volume (number)
-      // - cargo.movementModifier (number) 
+      // - cargo.movementModifier (number)
       // - cargo.pickUpTime (number)
       // - cargo.notPickupable (boolean)
     })

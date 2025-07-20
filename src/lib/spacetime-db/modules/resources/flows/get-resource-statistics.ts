@@ -1,5 +1,9 @@
+import {
+  getResourcesGroupedByBiome,
+  getResourcesGroupedByCategory,
+  getResourcesGroupedByTag
+} from './get-resources-grouped'
 import { getResourcesWithStats } from './get-resources-with-stats'
-import { getResourcesGroupedByTag, getResourcesGroupedByCategory, getResourcesGroupedByBiome } from './get-resources-grouped'
 
 /**
  * Get resource statistics overview with enhanced analysis

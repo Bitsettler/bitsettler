@@ -1,0 +1,23 @@
+[
+  {
+    "actionTypeId": 1,
+    "layer": {
+      "tag": "UpperBody",
+      "value": {}
+    },
+    "allowedConcurrentActionIds": [
+      22
+    ]
+  },
+  {
+    "actionTypeId": 27,
+    "layer": {
+      "tag": "UpperBody",
+      "value": {}
+    },
+    "allowedConcurrentActionIds": [
+      22,
+      23
+    ]
+  }
+]

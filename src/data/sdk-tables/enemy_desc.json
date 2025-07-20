@@ -1,0 +1,2060 @@
+[
+  {
+    "enemyType": 6,
+    "name": "Yagi",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 370,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 25,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 30,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 25,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/GoatMountain",
+    "iconAddress": "GeneratedIcons/Other/Animals/MountainGoat",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 11,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 3
+      }
+    ],
+    "tier": 6,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 14,
+    "name": "Tundra Ox",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 815,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 5,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 5,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 3,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/TundraBison",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 870566793,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 3.5999999046325684
+      }
+    ],
+    "tier": 9,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 2,
+    "name": "Sagi Bird",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 5,
+    "maxSpeed": 15,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 100,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 0,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 16,
+    "daytimeAggroRange": 8,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 16,
+    "nighttimeAggroRange": 8,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 12,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/GrassBird",
+    "iconAddress": "GeneratedIcons/Other/Animals/GrassBird",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2
+      }
+    ],
+    "tier": 1,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 9,
+    "name": "Rangifer",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 220,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.800000011920929,
+    "daytimeDetectRange": 20,
+    "daytimeAggroRange": 15,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 20,
+    "nighttimeAggroRange": 15,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 15,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/RangiferMale",
+    "iconAddress": "GeneratedIcons/Other/Animals/DeerMale",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 8,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.5999999046325684
+      }
+    ],
+    "tier": 4,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 13,
+    "name": "Ox",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 285,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 5,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 5,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 3,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/Bison",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Bison",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 141869841,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.799999952316284
+      }
+    ],
+    "tier": 5,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 5,
+    "name": "Nubi Goat",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 130,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 5,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 5,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 3,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/Goat",
+    "iconAddress": "GeneratedIcons/Other/Animals/Goat",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 2,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.200000047683716
+      }
+    ],
+    "tier": 2,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 1,
+    "name": "Practice Dummy",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "A Practice Dummy",
+    "minSpeed": 0,
+    "maxSpeed": 0,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 500000,
+    "ignoreDamage": true,
+    "healthRegenQuantity": 1,
+    "armor": 0,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 0,
+    "daytimeAggroRange": 0,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 0,
+    "nighttimeAggroRange": 0,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/PracticeDummy",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/TargetDummy",
+    "extractedItemStacks": [],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 0
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 23,
+    "name": "Terratoad",
+    "pathfindingId": 601358492,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      747222397
+    ],
+    "description": "A weird creature that hoards shiny things in it's nest. This creature will shoot projectiles at you if you get close but won't leave it's nest. ",
+    "minSpeed": 0,
+    "maxSpeed": 0,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 360,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 900,
+    "accuracy": 1260,
+    "evasion": 216,
+    "strength": 0,
+    "minDamage": 25,
+    "maxDamage": 47,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/ForestToad",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terratoad",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1125718226,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 420864423,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.8200000524520874
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 11,
+    "name": "Male Scrofa",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 220,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1.2000000476837158,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 15,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 15,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 15,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/BoarMale",
+    "iconAddress": "GeneratedIcons/Other/Animals/BoarMale",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 6,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.5999999046325684
+      }
+    ],
+    "tier": 4,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 26,
+    "name": "Umbura",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      1453498302
+    ],
+    "description": "A massive, aggressive creature. Particularly aggressive at night. This creature will avoid light sources in player made towns.",
+    "minSpeed": 25,
+    "maxSpeed": 35,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 400,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 20,
+    "armor": 1000,
+    "accuracy": 1400,
+    "evasion": 240,
+    "strength": 0,
+    "minDamage": 28,
+    "maxDamage": 52,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/Umbura",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Umbura",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1665899831,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 617029534,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.9800000190734863
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 8,
+    "name": "Male Cervus",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 170,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 8,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 8,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 8,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/DeerMale",
+    "iconAddress": "GeneratedIcons/Other/Animals/DeerMale",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 4,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.4000000953674316
+      }
+    ],
+    "tier": 3,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 15,
+    "name": "Jungle Terrorbird",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 485,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 30,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 30,
+    "nighttimeAggroRange": 30,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 25,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/Terrorbird",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 2141814235,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 3.200000047683716
+      }
+    ],
+    "tier": 7,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 24,
+    "name": "Swamp Terratoad",
+    "pathfindingId": 601358492,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      747222397
+    ],
+    "description": "A weird creature that hoards shiny things in it's nest. This creature will shoot projectiles at you if you get close but won't leave it's nest. ",
+    "minSpeed": 0,
+    "maxSpeed": 0,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 480,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1200,
+    "accuracy": 1680,
+    "evasion": 288,
+    "strength": 0,
+    "minDamage": 34,
+    "maxDamage": 62,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/SwampToad",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terratoad",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1125718226,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 420864423,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.140000104904175
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 10,
+    "name": "Female Scrofa",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 220,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 10,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 10,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 10,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/BoarFemale",
+    "iconAddress": "GeneratedIcons/Other/Animals/BoarFemale",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 5,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.5999999046325684
+      }
+    ],
+    "tier": 4,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 7,
+    "name": "Female Cervus",
+    "pathfindingId": 959834809,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 170,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 5,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 5,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 5,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/DeerFemale",
+    "iconAddress": "GeneratedIcons/Other/Animals/DeerFemale",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 3,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.4000000953674316
+      }
+    ],
+    "tier": 3,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 30,
+    "name": "Soldier",
+    "pathfindingId": 690229665,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A vicious, insect like creature that will try to kill you. This creature can fly up and down cliffs and will avoid light sources made in towns.",
+    "minSpeed": 14,
+    "maxSpeed": 24,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 440,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1100,
+    "accuracy": 1540,
+    "evasion": 264,
+    "strength": 0,
+    "minDamage": 31,
+    "maxDamage": 57,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/WaspSoldier",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Wasp",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 344122023,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 711737334,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.9800000190734863
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 20,
+    "name": "Skitch",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A strange creature that hides under a rock hard shell. Not particularly threatening by itself but its friends are always nearby.",
+    "minSpeed": 10,
+    "maxSpeed": 20,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 60,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 600,
+    "accuracy": 840,
+    "evasion": 144,
+    "strength": 0,
+    "minDamage": 17,
+    "maxDamage": 31,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/SwarmCrab",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/SwarmCrab",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 540370053,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 209860372,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.03500000014901161
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.659999966621399
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 17,
+    "name": "Jakyl",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A vicious, dog like creature. These animals are particularly aggressive at night. They don't like the light.",
+    "minSpeed": 10,
+    "maxSpeed": 20,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 200,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 20,
+    "armor": 500,
+    "accuracy": 700,
+    "evasion": 120,
+    "strength": 0,
+    "minDamage": 14,
+    "maxDamage": 26,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 50,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/Jakyl",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Jakyl",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 225094001,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 767727086,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.5
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 12,
+    "name": "Elder Scrofa",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 625,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 1.2000000476837158,
+    "daytimeDetectRange": 15,
+    "daytimeAggroRange": 15,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 15,
+    "nighttimeAggroRange": 15,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 15,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/BoarElder",
+    "iconAddress": "GeneratedIcons/Other/Animals/BoarElder",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 7,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 3.4000000953674316
+      }
+    ],
+    "tier": 8,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 31,
+    "name": "Queen",
+    "pathfindingId": 690229665,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A vicious, insect like creature that will try to kill you. This creature can fly up and down cliffs and will avoid light sources made in towns.",
+    "minSpeed": 14,
+    "maxSpeed": 24,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 600,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1500,
+    "accuracy": 2100,
+    "evasion": 360,
+    "strength": 0,
+    "minDamage": 42,
+    "maxDamage": 78,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/WaspQueen",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Wasp",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 344122023,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 711737334,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.299999952316284
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 28,
+    "name": "King Umbura",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      1453498302
+    ],
+    "description": "A massive, aggressive creature. This creature looks like it's been through a fair amount of conflicts and seems particularly tough. Particularly aggressive at night. This creature will avoid light sources in player made towns.",
+    "minSpeed": 25,
+    "maxSpeed": 35,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 760,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 20,
+    "armor": 1900,
+    "accuracy": 2660,
+    "evasion": 456,
+    "strength": 0,
+    "minDamage": 53,
+    "maxDamage": 99,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/UmburaKing",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Umbura",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1665899831,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 617029534,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.619999885559082
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 3,
+    "name": "Dromai",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 285,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 30,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 30,
+    "nighttimeAggroRange": 30,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 25,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/DesertBird",
+    "iconAddress": "GeneratedIcons/Other/Animals/DesertBird",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 10,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.799999952316284
+      }
+    ],
+    "tier": 5,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 19,
+    "name": "King Jakyl",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A massive Jakyl. This Jakyl has scars from past encounters and looks particularly vicious. These animals will avoid light sources.",
+    "minSpeed": 12,
+    "maxSpeed": 24,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 680,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1700,
+    "accuracy": 2380,
+    "evasion": 408,
+    "strength": 0,
+    "minDamage": 48,
+    "maxDamage": 88,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/JakylKing",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/AlphaJakyl",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 225094001,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.30000001192092896
+      },
+      {
+        "itemStack": {
+          "itemId": 828731292,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.4600000381469727
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 22,
+    "name": "Frost Crab",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A strange creature that hides under a rock hard shell. Not particularly threatening by itself but its friends are always nearby.",
+    "minSpeed": 10,
+    "maxSpeed": 20,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 140,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1400,
+    "accuracy": 1960,
+    "evasion": 336,
+    "strength": 0,
+    "minDamage": 39,
+    "maxDamage": 73,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/SwarmCrab",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/SwarmCrab",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 540370053,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 209860372,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.05000000074505806
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.299999952316284
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 29,
+    "name": "Drone",
+    "pathfindingId": 690229665,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A vicious, insect like creature that will try to kill you. This creature can fly up and down cliffs and will avoid light sources made in towns.",
+    "minSpeed": 14,
+    "maxSpeed": 24,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 320,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 800,
+    "accuracy": 1120,
+    "evasion": 192,
+    "strength": 0,
+    "minDamage": 22,
+    "maxDamage": 42,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/Wasp",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Wasp",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 344122023,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      },
+      {
+        "itemStack": {
+          "itemId": 711737334,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.8200000524520874
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 21,
+    "name": "Desert Crab",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A strange creature that hides under a rock hard shell. Not particularly threatening by itself but its friends are always nearby.",
+    "minSpeed": 10,
+    "maxSpeed": 20,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 100,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0.10000000149011612,
+    "armor": 1000,
+    "accuracy": 1400,
+    "evasion": 240,
+    "strength": 0,
+    "minDamage": 28,
+    "maxDamage": 52,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/SwarmCrab",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/SwarmCrab",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 540370053,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.5
+      },
+      {
+        "itemStack": {
+          "itemId": 209860372,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.042500000447034836
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.9800000190734863
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 27,
+    "name": "Alpha Umbura",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      1453498302
+    ],
+    "description": "A massive, aggressive creature. This creature looks tougher than other Umburas you've seen. Particularly aggressive at night. This creature will avoid light sources in player made towns.",
+    "minSpeed": 25,
+    "maxSpeed": 35,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 560,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 20,
+    "armor": 1400,
+    "accuracy": 1960,
+    "evasion": 336,
+    "strength": 0,
+    "minDamage": 39,
+    "maxDamage": 73,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/UmburaAlpha",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Umbura",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1665899831,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      },
+      {
+        "itemStack": {
+          "itemId": 617029534,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.10000000149011612
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 2.140000104904175
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 16,
+    "name": "Desert Terrorbird",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 1060,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 30,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 30,
+    "nighttimeAggroRange": 30,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 25,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/TerrorbirdDesert",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/Terrorbird",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 1196702534,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 3.799999952316284
+      }
+    ],
+    "tier": 10,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  },
+  {
+    "enemyType": 18,
+    "name": "Alpha Jakyl",
+    "pathfindingId": 769231106,
+    "targetingMatrixId": 2,
+    "combatActionsIds": [
+      3
+    ],
+    "description": "A massive Jakyl. Much stronger than the others you've seen. These animals will avoid light sources.",
+    "minSpeed": 12,
+    "maxSpeed": 24,
+    "radius": 1,
+    "awarenessDestinationThreshold": 0.5,
+    "minAwarenessTickSec": 1,
+    "maxAwarenessTickSec": 5,
+    "maxHealth": 280,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 5,
+    "armor": 700,
+    "accuracy": 980,
+    "evasion": 168,
+    "strength": 0,
+    "minDamage": 20,
+    "maxDamage": 36,
+    "cooldownMultiplier": 1,
+    "daytimeDetectRange": 40,
+    "daytimeAggroRange": 20,
+    "daytimeDeaggroRange": 50,
+    "nighttimeDetectRange": 80,
+    "nighttimeAggroRange": 25,
+    "nighttimeDeaggroRange": 60,
+    "evadeRange": 0,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 5,
+    "defenseLevel": 5,
+    "prefabAddress": "Enemies/AlphaJakyl",
+    "iconAddress": "GeneratedIcons/Other/GeneratedIcons/Other/Animals/AlphaJakyl",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 225094001,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 0.20000000298023224
+      },
+      {
+        "itemStack": {
+          "itemId": 828731292,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Item",
+            "value": {}
+          },
+          "durability": 0
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 18,
+        "quantity": 1.659999966621399
+      }
+    ],
+    "tier": 1,
+    "tag": "Monster",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "huntable": false
+  },
+  {
+    "enemyType": 4,
+    "name": "Ardea",
+    "pathfindingId": 1159321119,
+    "targetingMatrixId": 5,
+    "combatActionsIds": [],
+    "description": "An animal which can be hunted by a hunter with the appropriate bow. Once killed, the animal can be brought to a hunter's workstation where it can be processed into hides, meat and rarely animal fur.",
+    "minSpeed": 7,
+    "maxSpeed": 11,
+    "radius": 0.5,
+    "awarenessDestinationThreshold": 0.0010000000474974513,
+    "minAwarenessTickSec": 10,
+    "maxAwarenessTickSec": 20,
+    "maxHealth": 220,
+    "ignoreDamage": false,
+    "healthRegenQuantity": 0,
+    "armor": 6,
+    "accuracy": 100,
+    "evasion": 100,
+    "strength": 0,
+    "minDamage": 0,
+    "maxDamage": 0,
+    "cooldownMultiplier": 0.8999999761581421,
+    "daytimeDetectRange": 30,
+    "daytimeAggroRange": 30,
+    "daytimeDeaggroRange": 0,
+    "nighttimeDetectRange": 30,
+    "nighttimeAggroRange": 30,
+    "nighttimeDeaggroRange": 0,
+    "evadeRange": 25,
+    "deaggroHealthThreshold": 0,
+    "attackLevel": 0,
+    "defenseLevel": 1,
+    "prefabAddress": "Enemies/SwampBird",
+    "iconAddress": "GeneratedIcons/Other/Animals/SwampBird",
+    "extractedItemStacks": [
+      {
+        "itemStack": {
+          "itemId": 9,
+          "quantity": 1,
+          "itemType": {
+            "tag": "Cargo",
+            "value": {}
+          }
+        },
+        "probability": 1
+      }
+    ],
+    "experiencePerDamageDealt": [
+      {
+        "skillId": 9,
+        "quantity": 2.5999999046325684
+      }
+    ],
+    "tier": 4,
+    "tag": "Huntable Animal",
+    "rarity": {
+      "tag": "Uncommon",
+      "value": {}
+    },
+    "huntable": true
+  }
+]

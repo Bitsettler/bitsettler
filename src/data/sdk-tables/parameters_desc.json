@@ -1,0 +1,155 @@
+[
+  {
+    "version": 0,
+    "defaultSpeed": [
+      {
+        "surfaceType": {
+          "tag": "Ground",
+          "value": {}
+        },
+        "speed": 13
+      },
+      {
+        "surfaceType": {
+          "tag": "Lake",
+          "value": {}
+        },
+        "speed": 8
+      },
+      {
+        "surfaceType": {
+          "tag": "River",
+          "value": {}
+        },
+        "speed": 8
+      },
+      {
+        "surfaceType": {
+          "tag": "Ocean",
+          "value": {}
+        },
+        "speed": 6
+      },
+      {
+        "surfaceType": {
+          "tag": "OceanBiome",
+          "value": {}
+        },
+        "speed": 4
+      },
+      {
+        "surfaceType": {
+          "tag": "Swamp",
+          "value": {}
+        },
+        "speed": 8
+      }
+    ],
+    "defaultNumInventoryPockets": 25,
+    "skillYieldPowerExponent": 32,
+    "skillYieldLogBase": 2,
+    "skillYieldCutoffPercent": 0.9900000095367432,
+    "techTimePowerExponent": 6,
+    "techTimeLogBase": 1.5,
+    "minSecondsToPassiveRegenHealth": 3,
+    "minSecondsToPassiveRegenStamina": 3,
+    "repairBuildingDuration": 2,
+    "repairBuildingMaxRepairPercent": 0.9900000095367432,
+    "repairBuildingShowDamagePercent": 0.699999988079071,
+    "environmentDebuffTickMillis": 1000,
+    "enemySpawnAgentWaitTime": 600000,
+    "discoveryRange": 6,
+    "maxBuildRange": 20,
+    "deconstructDefaultTime": 5,
+    "respawnSeconds": 15,
+    "playerClimbHeight": 6,
+    "playerJumpHeight": 2,
+    "playerSwimHeight": 2,
+    "daytime": 5700,
+    "nighttime": 1200,
+    "aggroRange": 5,
+    "maxCargoPerHex": 1,
+    "resourcesRegenLoops": 10,
+    "selectedTravelerOrderCount": 10,
+    "resourcesRegenTickMillis": 60000,
+    "buildingDecayTickMillis": 3600000,
+    "maxTradedItems": 6,
+    "maxTradeDistanceLargeTiles": 16,
+    "minDistanceBetweenClaims": 8,
+    "combatManagerTickMillis": 500,
+    "disengageRange": 18,
+    "disengageTimeMillis": 16000,
+    "actionSlots": 5,
+    "startingSupplies": 5000,
+    "showShieldBarPercent": 1,
+    "swimSprintSpeedMultiplier": 1.5,
+    "lootChestDespawnTimeSeconds": 1,
+    "deployableDisembarkMaxElevation": 5,
+    "defaultNumToolbeltPockets": 15,
+    "resourceGrowthTickRateMilliseconds": 1000,
+    "rentDepositDays": 2,
+    "rentCollectionTimeOfDay": 16,
+    "rentEvictionCompensation": 3,
+    "maxRentalDepositDays": 7,
+    "recommendedAchievements": 30,
+    "empireDecayTickMillis": 3600000,
+    "empireSiegeTickMillis": 600000,
+    "empireSiegeRaisePct": 0.75,
+    "empireDefaultNobilityThreshold": 1000,
+    "empireShardCost": 2500,
+    "empireStartingShards": 1000,
+    "empireNodeMaxEnergy": 10000,
+    "empireNodeStartingEnergy": 500,
+    "empireMinSiegeDistance": 5,
+    "empireMaxSiegeDistance": 9,
+    "dailyShards": 500,
+    "hexiteCapsuleSupplyCost": 500,
+    "hexiteCapsuleShardCost": 100,
+    "hexiteCapsuleCraftTimeSeconds": 1800,
+    "craftingLockDurationSecs": 300,
+    "numToolbars": 0,
+    "starvingTickMillis": 1000,
+    "starvingDamage": 1,
+    "claimStabilityParamM": -3.640000104904175,
+    "claimStabilityParamB": 21.360000610351562,
+    "playerRegenTickMillis": 1000,
+    "enemyRegenTickMillis": 10000,
+    "teleportationEnergyRegenTickMillis": 60000,
+    "autoRespawnAttempts": 20,
+    "playerPathfindingId": 100916428,
+    "nearbyFlameBuffId": 10271152,
+    "floatingOriginDistanceThreshold": 200,
+    "withdrawFromDeployablesRange": 10,
+    "depositToDeployablesRange": 10,
+    "signInAggroImmunity": 15,
+    "respawnAggroImmunity": 30,
+    "newUserAggroImmunity": 300,
+    "terraformExperiencePerProgress": 1,
+    "droppedInventoryOwnershipSeconds": 300,
+    "droppedInventoryDespawnSeconds": 3600,
+    "enemyLootOwnershipSeconds": 300,
+    "travelerTasksPerNpc": 3,
+    "travelerTasksTimesOfDay": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20
+    ],
+    "teleportChannelTimeHome": 7,
+    "teleportChannelTimeWaystone": 7,
+    "teleportationHomeEnergyCost": 1,
+    "teleportationBaseEnergyCost": 0,
+    "teleportationCostPerLargeTile": 0.004000000189989805,
+    "teleportationFullInventoryMultiplier": 10,
+    "regionCrossoverDistanceLargeTiles": 10,
+    "itemRecoveryRange": 1000000,
+    "quickBoardRange": 5,
+    "duelRange": 30,
+    "duelOutOfRangeGracePeriodMillis": 5000,
+    "playerHousingSameRegionMoveTimeMinutes": 720,
+    "playerHousingEvictionTimeMinutes": 1440,
+    "playerHousingIncomeTimeOfDay": 16
+  }
+]

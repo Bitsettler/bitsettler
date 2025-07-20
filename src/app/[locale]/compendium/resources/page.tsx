@@ -1,42 +1,32 @@
-import { resourceCollections } from '@/lib/spacetime-db/modules/collections/resource-tag-collections'
-import { getResourceStatistics, getResourcesGroupedByTag } from '@/lib/spacetime-db/modules/resources/resources'
+import { getResourceStatistics } from '@/lib/spacetime-db-new/modules/resources/flows'
+import { getResourceTagsMetadata } from '@/lib/spacetime-db-new/modules/resources/flows'
 import { ResourceIndexPageView } from '@/views/resource-views/resource-index-page-view'
 
 export default async function ResourcesPage() {
-  // Get resource categories from centralized metadata
-  const resourceCollection = resourceCollections.resources
-
-  // Get actual resource counts by tag
-  const resourcesByTag = await getResourcesGroupedByTag()
-
-  const resourceCategories = resourceCollection.tags
-    .map((tag) => {
-      const categoryMeta = resourceCollection.categories[tag]
-      const resourceItems = resourcesByTag[tag] || []
-
-      return {
-        id: categoryMeta.id,
-        name: categoryMeta.name,
-        description: categoryMeta.description,
-        icon: categoryMeta.icon,
-        tag,
-        category: categoryMeta.section,
-        href: categoryMeta.href,
-        count: resourceItems.length,
-        primaryBiomes: categoryMeta.primaryBiomes,
-        resourceCategory: categoryMeta.category
-      }
-    })
+  // Get resource metadata (includes count for each tag)
+  const resourceCategories = getResourceTagsMetadata()
     .filter((category) => category.count > 0) // Only show categories with items
+    .map((meta) => ({
+      id: meta.id,
+      name: meta.name,
+      description: meta.description,
+      icon: meta.icon,
+      tag: meta.name, // The actual tag name
+      category: meta.section,
+      href: meta.href,
+      count: meta.count,
+      primaryBiomes: [], // No biome data in SDK
+      resourceCategory: meta.category
+    }))
 
   // Get live resource statistics
-  const resourceStats = await getResourceStatistics()
+  const resourceStats = getResourceStatistics()
   const totalResources = resourceStats.total
 
   return (
     <ResourceIndexPageView
       title="Resources"
-      subtitle={`${totalResources} resources across ${resourceCategories.length} categories with biome location data`}
+      subtitle={`${totalResources} resources across ${resourceCategories.length} categories`}
       resourceCategories={resourceCategories}
     />
   )

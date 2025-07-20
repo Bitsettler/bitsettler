@@ -1,0 +1,795 @@
+[
+  {
+    "buildingId": 50,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      40
+    ]
+  },
+  {
+    "buildingId": 404,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      54
+    ]
+  },
+  {
+    "buildingId": 51000,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      2
+    ]
+  },
+  {
+    "buildingId": 51001,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      3
+    ]
+  },
+  {
+    "buildingId": 52000,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      4
+    ]
+  },
+  {
+    "buildingId": 52001,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      44
+    ]
+  },
+  {
+    "buildingId": 52002,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      45
+    ]
+  },
+  {
+    "buildingId": 52003,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      46
+    ]
+  },
+  {
+    "buildingId": 53000,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      5,
+      7,
+      6,
+      8
+    ]
+  },
+  {
+    "buildingId": 53001,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      12
+    ]
+  },
+  {
+    "buildingId": 53002,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      32
+    ]
+  },
+  {
+    "buildingId": 53003,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  {
+    "buildingId": 53004,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  {
+    "buildingId": 53005,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      37
+    ]
+  },
+  {
+    "buildingId": 53006,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      38
+    ]
+  },
+  {
+    "buildingId": 53007,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      39
+    ]
+  },
+  {
+    "buildingId": 54005,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      47
+    ]
+  },
+  {
+    "buildingId": 54006,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      48
+    ]
+  },
+  {
+    "buildingId": 54007,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      49
+    ]
+  },
+  {
+    "buildingId": 55005,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      41
+    ]
+  },
+  {
+    "buildingId": 55006,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      42
+    ]
+  },
+  {
+    "buildingId": 55007,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      43
+    ]
+  },
+  {
+    "buildingId": 55008,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      50
+    ]
+  },
+  {
+    "buildingId": 55009,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      51
+    ]
+  },
+  {
+    "buildingId": 55010,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      52
+    ]
+  },
+  {
+    "buildingId": 80001,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      600,
+      400
+    ]
+  },
+  {
+    "buildingId": 80002,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 120,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      700
+    ]
+  },
+  {
+    "buildingId": 80003,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 60,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      1050,
+      1000,
+      1300,
+      1100,
+      1200,
+      1400,
+      1500
+    ]
+  },
+  {
+    "buildingId": 80004,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 15,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      1600,
+      1700,
+      1800,
+      1900,
+      2000,
+      2100
+    ]
+  },
+  {
+    "buildingId": 80005,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      5000
+    ]
+  },
+  {
+    "buildingId": 80006,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      5100
+    ]
+  },
+  {
+    "buildingId": 80007,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      25000
+    ]
+  },
+  {
+    "buildingId": 80008,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      25100
+    ]
+  },
+  {
+    "buildingId": 80009,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      26000,
+      28000,
+      27000
+    ]
+  },
+  {
+    "buildingId": 80010,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      100
+    ]
+  },
+  {
+    "buildingId": 80011,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      200
+    ]
+  },
+  {
+    "buildingId": 80012,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      300
+    ]
+  },
+  {
+    "buildingId": 80013,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      250
+    ]
+  },
+  {
+    "buildingId": 80014,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 1800,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      14,
+      13,
+      15,
+      19,
+      18,
+      16,
+      17
+    ]
+  },
+  {
+    "buildingId": 80015,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      33,
+      34,
+      36,
+      35
+    ]
+  },
+  {
+    "buildingId": 80016,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      53
+    ]
+  },
+  {
+    "buildingId": 99999,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      99999
+    ]
+  },
+  {
+    "buildingId": 12598301,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      201,
+      61
+    ]
+  },
+  {
+    "buildingId": 70181493,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      64
+    ]
+  },
+  {
+    "buildingId": 253216585,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      3102249
+    ]
+  },
+  {
+    "buildingId": 280863630,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      582667513
+    ]
+  },
+  {
+    "buildingId": 312420794,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      670540954
+    ]
+  },
+  {
+    "buildingId": 489406613,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      55
+    ]
+  },
+  {
+    "buildingId": 696858550,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      328730464
+    ]
+  },
+  {
+    "buildingId": 790011334,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      62
+    ]
+  },
+  {
+    "buildingId": 858687284,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      326586210
+    ]
+  },
+  {
+    "buildingId": 1005598626,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      66
+    ]
+  },
+  {
+    "buildingId": 1008368350,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      60
+    ]
+  },
+  {
+    "buildingId": 1130862882,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      65
+    ]
+  },
+  {
+    "buildingId": 1175813850,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      814052750
+    ]
+  },
+  {
+    "buildingId": 1440765680,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      119654192
+    ]
+  },
+  {
+    "buildingId": 1477951340,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      155115958
+    ]
+  },
+  {
+    "buildingId": 1662809355,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      58
+    ]
+  },
+  {
+    "buildingId": 1752479333,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      57
+    ]
+  },
+  {
+    "buildingId": 1845065396,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      63
+    ]
+  },
+  {
+    "buildingId": 1875067311,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 180,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      1398669806
+    ]
+  },
+  {
+    "buildingId": 1899627609,
+    "dimensionType": {
+      "tag": "BuildingInterior",
+      "value": {}
+    },
+    "triggerCollapseTime": 30,
+    "respawnTime": 3600,
+    "childInteriorInstances": [
+      67
+    ]
+  },
+  {
+    "buildingId": 2034914963,
+    "dimensionType": {
+      "tag": "AncientRuin",
+      "value": {}
+    },
+    "triggerCollapseTime": 300,
+    "respawnTime": 14400,
+    "childInteriorInstances": [
+      59
+    ]
+  }
+]

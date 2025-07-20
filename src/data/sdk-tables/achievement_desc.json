@@ -1,0 +1,4858 @@
+[
+  {
+    "id": 1,
+    "name": "Carpenter's First Steps",
+    "description": "Acquire a Flint Saw and achieve level 2 in Carpentry.",
+    "requisites": [],
+    "skillId": 3,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11015
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 2,
+    "name": "Cook's First Steps",
+    "description": "Achieve level 2 in Cooking.",
+    "requisites": [],
+    "skillId": 13,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 3,
+    "name": "Farmer's First Steps",
+    "description": "Acquire a Flint Hoe and achieve level 2 in Farming.",
+    "requisites": [],
+    "skillId": 11,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11022
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 4,
+    "name": "Fisher's First Steps",
+    "description": "Acquire a Flint Rod and achieve level 2 in Fishing.",
+    "requisites": [],
+    "skillId": 12,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11023
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 5,
+    "name": "Forager's First Steps",
+    "description": "Acquire a Flint Machete and achieve level 2 in Foraging.",
+    "requisites": [],
+    "skillId": 14,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11025
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 6,
+    "name": "Forester's First Steps",
+    "description": "Acquire a Flint Axe and achieve level 2 in Forestry.",
+    "requisites": [],
+    "skillId": 2,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11014
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 7,
+    "name": "Hunter's First Steps",
+    "description": "Acquire a Flint Bow and achieve level 2 in Hunting.",
+    "requisites": [],
+    "skillId": 9,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11020
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 8,
+    "name": "Leatherworker's First Steps",
+    "description": "Acquire a Flint Knife and achieve level 2 in Leatherworking.",
+    "requisites": [],
+    "skillId": 8,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11019
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 9,
+    "name": "Mason's First Steps",
+    "description": "Acquire a Flint Chisel and achieve level 2 in Masonry.",
+    "requisites": [],
+    "skillId": 4,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11016
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 10,
+    "name": "Miner's First Steps",
+    "description": "Acquire a Flint Pickaxe and achieve level 2 in Mining.",
+    "requisites": [],
+    "skillId": 5,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11017
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 11,
+    "name": "Scholar's First Steps",
+    "description": "Acquire a Flint Quill and achieve level 2 in Scholar.",
+    "requisites": [],
+    "skillId": 7,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11026
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 12,
+    "name": "Smith's First Steps",
+    "description": "Acquire a Flint Hammer and achieve level 2 in Smithing.",
+    "requisites": [],
+    "skillId": 6,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11018
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 13,
+    "name": "Tailor's First Steps",
+    "description": "Acquire a Flint Scissors and achieve level 2 in Tailoring.",
+    "requisites": [],
+    "skillId": 10,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11021
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 14,
+    "name": "Beginner Carpenter",
+    "description": "Achieve level 10 in Carpentry",
+    "requisites": [],
+    "skillId": 3,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1010001,
+      1320886430,
+      1020003
+    ],
+    "collectibleRewards": [
+      16000100
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 15,
+    "name": "Novice Carpenter",
+    "description": "Achieve level 20 in Carpentry",
+    "requisites": [
+      14
+    ],
+    "skillId": 3,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1200
+    ],
+    "itemDisc": [
+      11006,
+      1355330989
+    ],
+    "collectibleRewards": [
+      16000101
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 16,
+    "name": "Apprentice Carpenter",
+    "description": "Achieve level 30 in Carpentry",
+    "requisites": [
+      15
+    ],
+    "skillId": 3,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      362614434,
+      2020003
+    ],
+    "collectibleRewards": [
+      16000102
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 17,
+    "name": "Journeyman Carpenter",
+    "description": "Achieve level 40 in Carpentry",
+    "requisites": [
+      16
+    ],
+    "skillId": 3,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1103116665,
+      3020003
+    ],
+    "collectibleRewards": [
+      16000103,
+      10030001,
+      10030002,
+      10030003,
+      10030004,
+      10030005,
+      10030006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 18,
+    "name": "Adept Carpenter",
+    "description": "Achieve level 50 in Carpentry",
+    "requisites": [
+      17
+    ],
+    "skillId": 3,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      585162700,
+      4020003
+    ],
+    "collectibleRewards": [
+      16000104
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 19,
+    "name": "Professional Carpenter",
+    "description": "Achieve level 60 in Carpentry",
+    "requisites": [
+      18
+    ],
+    "skillId": 3,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      902347969,
+      5020003
+    ],
+    "collectibleRewards": [
+      16000105,
+      12030005,
+      12030004,
+      12030002,
+      12030003,
+      12030001,
+      12030006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 20,
+    "name": "Expert Carpenter",
+    "description": "Achieve level 70 in Carpentry",
+    "requisites": [
+      19
+    ],
+    "skillId": 3,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1214031121,
+      6020003
+    ],
+    "collectibleRewards": [
+      16000106
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 21,
+    "name": "Master Carpenter",
+    "description": "Achieve level 80 in Carpentry",
+    "requisites": [
+      20
+    ],
+    "skillId": 3,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      420379216,
+      1639308227
+    ],
+    "collectibleRewards": [
+      16000107,
+      14030005,
+      14030004,
+      14030002,
+      14030003,
+      14030001,
+      14030006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 22,
+    "name": "Grandmaster Carpenter",
+    "description": "Achieve level 90 in Carpentry",
+    "requisites": [
+      21
+    ],
+    "skillId": 3,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      84913062,
+      28056473
+    ],
+    "collectibleRewards": [
+      16000108
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 23,
+    "name": "Legendary Carpenter",
+    "description": "Achieve level 100 in Carpentry",
+    "requisites": [
+      22
+    ],
+    "skillId": 3,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      859178162,
+      1227914325
+    ],
+    "collectibleRewards": [
+      16000109
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 24,
+    "name": "Beginner Cook",
+    "description": "Achieve level 10 in Cooking",
+    "requisites": [],
+    "skillId": 13,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001000
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 25,
+    "name": "Novice Cook",
+    "description": "Achieve level 20 in Cooking",
+    "requisites": [
+      24
+    ],
+    "skillId": 13,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001001
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 26,
+    "name": "Apprentice Cook",
+    "description": "Achieve level 30 in Cooking",
+    "requisites": [
+      25
+    ],
+    "skillId": 13,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001002
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 27,
+    "name": "Journeyman Cook",
+    "description": "Achieve level 40 in Cooking",
+    "requisites": [
+      26
+    ],
+    "skillId": 13,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001003,
+      10120001,
+      10120002,
+      10120003,
+      10120004,
+      10120005,
+      10120006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 28,
+    "name": "Adept Cook",
+    "description": "Achieve level 50 in Cooking",
+    "requisites": [
+      27
+    ],
+    "skillId": 13,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001004
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 29,
+    "name": "Professional Cook",
+    "description": "Achieve level 60 in Cooking",
+    "requisites": [
+      28
+    ],
+    "skillId": 13,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001005,
+      12120005,
+      12120004,
+      12120002,
+      12120003,
+      12120001,
+      12120006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 30,
+    "name": "Expert Cook",
+    "description": "Achieve level 70 in Cooking",
+    "requisites": [
+      29
+    ],
+    "skillId": 13,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001006
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 31,
+    "name": "Master Cook",
+    "description": "Achieve level 80 in Cooking",
+    "requisites": [
+      30
+    ],
+    "skillId": 13,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001007,
+      14120005,
+      14120004,
+      14120002,
+      14120003,
+      14120001,
+      14120006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 32,
+    "name": "Grandmaster Cook",
+    "description": "Achieve level 90 in Cooking",
+    "requisites": [
+      31
+    ],
+    "skillId": 13,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001008
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 33,
+    "name": "Legendary Cook",
+    "description": "Achieve level 100 in Cooking",
+    "requisites": [
+      32
+    ],
+    "skillId": 13,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      16001009
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 34,
+    "name": "Beginner Farmer",
+    "description": "Achieve level 10 in Farming",
+    "requisites": [],
+    "skillId": 11,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1100014,
+      1100002,
+      1100003,
+      1100001
+    ],
+    "collectibleRewards": [
+      16000800
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 35,
+    "name": "Novice Farmer",
+    "description": "Achieve level 20 in Farming",
+    "requisites": [
+      34
+    ],
+    "skillId": 11,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1100009,
+      1100016,
+      1100006,
+      1941090843,
+      1120006,
+      1100017,
+      273473901
+    ],
+    "collectibleRewards": [
+      16000801
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 36,
+    "name": "Apprentice Farmer",
+    "description": "Achieve level 30 in Farming",
+    "requisites": [
+      35
+    ],
+    "skillId": 11,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2100016,
+      2100006,
+      2100009,
+      2100001
+    ],
+    "collectibleRewards": [
+      16000802
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 37,
+    "name": "Journeyman Farmer",
+    "description": "Achieve level 40 in Farming",
+    "requisites": [
+      36
+    ],
+    "skillId": 11,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3100016,
+      3100006,
+      3100009,
+      3100001
+    ],
+    "collectibleRewards": [
+      16000803,
+      10100001,
+      10100002,
+      10100003,
+      10100004,
+      10100005,
+      10100006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 38,
+    "name": "Adept Farmer",
+    "description": "Achieve level 50 in Farming",
+    "requisites": [
+      37
+    ],
+    "skillId": 11,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4100016,
+      4100006,
+      4100009,
+      4100001
+    ],
+    "collectibleRewards": [
+      16000804
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 39,
+    "name": "Professional Farmer",
+    "description": "Achieve level 60 in Farming",
+    "requisites": [
+      38
+    ],
+    "skillId": 11,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5100016,
+      5100006,
+      5100009,
+      5100001
+    ],
+    "collectibleRewards": [
+      16000805,
+      12100005,
+      12100004,
+      12100002,
+      12100003,
+      12100001,
+      12100006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 40,
+    "name": "Expert Farmer",
+    "description": "Achieve level 70 in Farming",
+    "requisites": [
+      39
+    ],
+    "skillId": 11,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6100016,
+      6100006,
+      6100009,
+      6100001
+    ],
+    "collectibleRewards": [
+      16000806
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 41,
+    "name": "Master Farmer",
+    "description": "Achieve level 80 in Farming",
+    "requisites": [
+      40
+    ],
+    "skillId": 11,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      825594769,
+      810845550,
+      294983155,
+      18012337
+    ],
+    "collectibleRewards": [
+      16000807,
+      14100005,
+      14100004,
+      14100002,
+      14100003,
+      14100001,
+      14100006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 42,
+    "name": "Grandmaster Farmer",
+    "description": "Achieve level 90 in Farming",
+    "requisites": [
+      41
+    ],
+    "skillId": 11,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      91829627,
+      1971157573,
+      1490118433,
+      1895003720
+    ],
+    "collectibleRewards": [
+      16000808
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 43,
+    "name": "Legendary Farmer",
+    "description": "Achieve level 100 in Farming",
+    "requisites": [
+      42
+    ],
+    "skillId": 11,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      428286924,
+      600219259,
+      984024387,
+      1329815128
+    ],
+    "collectibleRewards": [
+      16000809
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 44,
+    "name": "Beginner Fisher",
+    "description": "Achieve level 10 in Fishing",
+    "requisites": [],
+    "skillId": 12,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1110016,
+      1110003,
+      1110017
+    ],
+    "collectibleRewards": [
+      16000900
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 45,
+    "name": "Novice Fisher",
+    "description": "Achieve level 20 in Fishing",
+    "requisites": [
+      44
+    ],
+    "skillId": 12,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1110020,
+      1110010,
+      1110026,
+      544541723
+    ],
+    "collectibleRewards": [
+      16000901
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 46,
+    "name": "Apprentice Fisher",
+    "description": "Achieve level 30 in Fishing",
+    "requisites": [
+      45
+    ],
+    "skillId": 12,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2110016,
+      2110017,
+      2110003
+    ],
+    "collectibleRewards": [
+      16000902
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 47,
+    "name": "Journeyman Fisher",
+    "description": "Achieve level 40 in Fishing",
+    "requisites": [
+      46
+    ],
+    "skillId": 12,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3110016,
+      3110017,
+      3110003
+    ],
+    "collectibleRewards": [
+      16000903,
+      10110001,
+      10110002,
+      10110003,
+      10110004,
+      10110005,
+      10110006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 48,
+    "name": "Adept Fisher",
+    "description": "Achieve level 50 in Fishing",
+    "requisites": [
+      47
+    ],
+    "skillId": 12,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4110016,
+      4110017,
+      4110003
+    ],
+    "collectibleRewards": [
+      16000904
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 49,
+    "name": "Professional Fisher",
+    "description": "Achieve level 60 in Fishing",
+    "requisites": [
+      48
+    ],
+    "skillId": 12,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5110016,
+      5110017,
+      5110003
+    ],
+    "collectibleRewards": [
+      16000905,
+      12110005,
+      12110004,
+      12110002,
+      12110003,
+      12110001,
+      12110006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 50,
+    "name": "Expert Fisher",
+    "description": "Achieve level 70 in Fishing",
+    "requisites": [
+      49
+    ],
+    "skillId": 12,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6110016,
+      6110017,
+      6110003
+    ],
+    "collectibleRewards": [
+      16000906
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 51,
+    "name": "Master Fisher",
+    "description": "Achieve level 80 in Fishing",
+    "requisites": [
+      50
+    ],
+    "skillId": 12,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      297634455,
+      750073180,
+      1997986205
+    ],
+    "collectibleRewards": [
+      16000907,
+      14110005,
+      14110004,
+      14110002,
+      14110003,
+      14110001,
+      14110006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 52,
+    "name": "Grandmaster Fisher",
+    "description": "Achieve level 90 in Fishing",
+    "requisites": [
+      51
+    ],
+    "skillId": 12,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      540806596,
+      126302392,
+      456832545
+    ],
+    "collectibleRewards": [
+      16000908
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 53,
+    "name": "Legendary Fisher",
+    "description": "Achieve level 100 in Fishing",
+    "requisites": [
+      52
+    ],
+    "skillId": 12,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1147002521,
+      1831764501,
+      1047327336
+    ],
+    "collectibleRewards": [
+      16000909
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 54,
+    "name": "Beginner Forager",
+    "description": "Achieve level 10 in Foraging",
+    "requisites": [],
+    "skillId": 14,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      652981079
+    ],
+    "itemDisc": [
+      1130003,
+      1130004,
+      1130001
+    ],
+    "collectibleRewards": [
+      16001100
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 55,
+    "name": "Novice Forager",
+    "description": "Achieve level 20 in Foraging",
+    "requisites": [
+      54
+    ],
+    "skillId": 14,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1990669797,
+      1160079203,
+      571682698
+    ],
+    "collectibleRewards": [
+      16001101
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 56,
+    "name": "Apprentice Forager",
+    "description": "Achieve level 30 in Foraging",
+    "requisites": [
+      55
+    ],
+    "skillId": 14,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2130001,
+      2130004,
+      2130005
+    ],
+    "collectibleRewards": [
+      16001102
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 57,
+    "name": "Journeyman Forager",
+    "description": "Achieve level 40 in Foraging",
+    "requisites": [
+      56
+    ],
+    "skillId": 14,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3130001,
+      3130004,
+      3130005
+    ],
+    "collectibleRewards": [
+      16001103,
+      10130001,
+      10130002,
+      10130003,
+      10130004,
+      10130005,
+      10130006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 58,
+    "name": "Adept Forager",
+    "description": "Achieve level 50 in Foraging",
+    "requisites": [
+      57
+    ],
+    "skillId": 14,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4130001,
+      4130004,
+      4130005
+    ],
+    "collectibleRewards": [
+      16001104
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 59,
+    "name": "Professional Forager",
+    "description": "Achieve level 60 in Foraging",
+    "requisites": [
+      58
+    ],
+    "skillId": 14,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5130001,
+      5130004,
+      5130005
+    ],
+    "collectibleRewards": [
+      16001105,
+      12130005,
+      12130004,
+      12130002,
+      12130003,
+      12130001,
+      12130006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 60,
+    "name": "Expert Forager",
+    "description": "Achieve level 70 in Foraging",
+    "requisites": [
+      59
+    ],
+    "skillId": 14,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6130001,
+      6130004,
+      6130005
+    ],
+    "collectibleRewards": [
+      16001106
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 61,
+    "name": "Master Forager",
+    "description": "Achieve level 80 in Foraging",
+    "requisites": [
+      60
+    ],
+    "skillId": 14,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1872328157,
+      1695618883,
+      418805707
+    ],
+    "collectibleRewards": [
+      16001107,
+      14130005,
+      14130004,
+      14130002,
+      14130003,
+      14130001,
+      14130006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 62,
+    "name": "Grandmaster Forager",
+    "description": "Achieve level 90 in Foraging",
+    "requisites": [
+      61
+    ],
+    "skillId": 14,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1921640057,
+      1971526319,
+      1935440864
+    ],
+    "collectibleRewards": [
+      16001108
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 63,
+    "name": "Legendary Forager",
+    "description": "Achieve level 100 in Foraging",
+    "requisites": [
+      62
+    ],
+    "skillId": 14,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1614190762,
+      1608154701,
+      1359045035
+    ],
+    "collectibleRewards": [
+      16001109
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 64,
+    "name": "Beginner Forester",
+    "description": "Achieve level 10 in Forestry",
+    "requisites": [],
+    "skillId": 2,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1000
+    ],
+    "itemDisc": [
+      1010002,
+      1010001
+    ],
+    "collectibleRewards": [
+      16000000
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 65,
+    "name": "Novice Forester",
+    "description": "Achieve level 20 in Forestry",
+    "requisites": [
+      64
+    ],
+    "skillId": 2,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1142832553,
+      1201067083
+    ],
+    "collectibleRewards": [
+      16000001
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 66,
+    "name": "Apprentice Forester",
+    "description": "Achieve level 30 in Forestry",
+    "requisites": [
+      65
+    ],
+    "skillId": 2,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1001
+    ],
+    "itemDisc": [
+      2010001
+    ],
+    "collectibleRewards": [
+      16000002
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 67,
+    "name": "Journeyman Forester",
+    "description": "Achieve level 40 in Forestry",
+    "requisites": [
+      66
+    ],
+    "skillId": 2,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1002
+    ],
+    "itemDisc": [
+      3010001
+    ],
+    "collectibleRewards": [
+      16000003,
+      10020001,
+      10020002,
+      10020003,
+      10020004,
+      10020005,
+      10020006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 68,
+    "name": "Adept Forester",
+    "description": "Achieve level 50 in Forestry",
+    "requisites": [
+      67
+    ],
+    "skillId": 2,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1003
+    ],
+    "itemDisc": [
+      4010001
+    ],
+    "collectibleRewards": [
+      16000004
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 69,
+    "name": "Professional Forester",
+    "description": "Achieve level 60 in Forestry",
+    "requisites": [
+      68
+    ],
+    "skillId": 2,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1004
+    ],
+    "itemDisc": [
+      5010001
+    ],
+    "collectibleRewards": [
+      16000005,
+      12020005,
+      12020004,
+      12020002,
+      12020003,
+      12020001,
+      12020006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 70,
+    "name": "Expert Forester",
+    "description": "Achieve level 70 in Forestry",
+    "requisites": [
+      69
+    ],
+    "skillId": 2,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1005
+    ],
+    "itemDisc": [
+      6010001
+    ],
+    "collectibleRewards": [
+      16000006
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 71,
+    "name": "Master Forester",
+    "description": "Achieve level 80 in Forestry",
+    "requisites": [
+      70
+    ],
+    "skillId": 2,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1872489539
+    ],
+    "itemDisc": [
+      1252723472
+    ],
+    "collectibleRewards": [
+      16000007,
+      14020005,
+      14020004,
+      14020002,
+      14020003,
+      14020001,
+      14020006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 72,
+    "name": "Grandmaster Forester",
+    "description": "Achieve level 90 in Forestry",
+    "requisites": [
+      71
+    ],
+    "skillId": 2,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      826930059
+    ],
+    "itemDisc": [
+      733657374
+    ],
+    "collectibleRewards": [
+      16000008
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 73,
+    "name": "Legendary Forester",
+    "description": "Achieve level 100 in Forestry",
+    "requisites": [
+      72
+    ],
+    "skillId": 2,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      827937528
+    ],
+    "itemDisc": [
+      200654583
+    ],
+    "collectibleRewards": [
+      16000009
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 74,
+    "name": "Beginner Hunter",
+    "description": "Achieve level 10 in Hunting",
+    "requisites": [],
+    "skillId": 9,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1
+    ],
+    "itemDisc": [
+      1080001
+    ],
+    "collectibleRewards": [
+      16000600
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 75,
+    "name": "Novice Hunter",
+    "description": "Achieve level 20 in Hunting",
+    "requisites": [
+      74
+    ],
+    "skillId": 9,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1966633278,
+      2054875237
+    ],
+    "collectibleRewards": [
+      16000601
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 76,
+    "name": "Apprentice Hunter",
+    "description": "Achieve level 30 in Hunting",
+    "requisites": [
+      75
+    ],
+    "skillId": 9,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2080001
+    ],
+    "collectibleRewards": [
+      16000602
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 77,
+    "name": "Journeyman Hunter",
+    "description": "Achieve level 40 in Hunting",
+    "requisites": [
+      76
+    ],
+    "skillId": 9,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3080001
+    ],
+    "collectibleRewards": [
+      16000603,
+      10080001,
+      10080002,
+      10080003,
+      10080004,
+      10080005,
+      10080006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 78,
+    "name": "Adept Hunter",
+    "description": "Achieve level 50 in Hunting",
+    "requisites": [
+      77
+    ],
+    "skillId": 9,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4080001
+    ],
+    "collectibleRewards": [
+      16000604
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 79,
+    "name": "Professional Hunter",
+    "description": "Achieve level 60 in Hunting",
+    "requisites": [
+      78
+    ],
+    "skillId": 9,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5080001
+    ],
+    "collectibleRewards": [
+      16000605,
+      12080005,
+      12080004,
+      12080002,
+      12080003,
+      12080001,
+      12080006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 80,
+    "name": "Expert Hunter",
+    "description": "Achieve level 70 in Hunting",
+    "requisites": [
+      79
+    ],
+    "skillId": 9,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6080001
+    ],
+    "collectibleRewards": [
+      16000606
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 81,
+    "name": "Master Hunter",
+    "description": "Achieve level 80 in Hunting",
+    "requisites": [
+      80
+    ],
+    "skillId": 9,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1440340964
+    ],
+    "collectibleRewards": [
+      16000607,
+      14080005,
+      14080004,
+      14080002,
+      14080003,
+      14080001,
+      14080006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 82,
+    "name": "Grandmaster Hunter",
+    "description": "Achieve level 90 in Hunting",
+    "requisites": [
+      81
+    ],
+    "skillId": 9,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      485174554
+    ],
+    "collectibleRewards": [
+      16000608
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 83,
+    "name": "Legendary Hunter",
+    "description": "Achieve level 100 in Hunting",
+    "requisites": [
+      82
+    ],
+    "skillId": 9,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      44066242
+    ],
+    "collectibleRewards": [
+      16000609
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 84,
+    "name": "Beginner Leatherworker",
+    "description": "Achieve level 10 in Leatherworking",
+    "requisites": [],
+    "skillId": 8,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1080001,
+      1070001,
+      1080017
+    ],
+    "collectibleRewards": [
+      16000500
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 85,
+    "name": "Novice Leatherworker",
+    "description": "Achieve level 20 in Leatherworking",
+    "requisites": [
+      84
+    ],
+    "skillId": 8,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      1552106905
+    ],
+    "itemDisc": [
+      120075914,
+      1070004,
+      1239191446,
+      1011965373,
+      1503159114
+    ],
+    "collectibleRewards": [
+      16000501
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 86,
+    "name": "Apprentice Leatherworker",
+    "description": "Achieve level 30 in Leatherworking",
+    "requisites": [
+      85
+    ],
+    "skillId": 8,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2070001,
+      2080018,
+      456959485,
+      2070004
+    ],
+    "collectibleRewards": [
+      16000502
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 87,
+    "name": "Journeyman Leatherworker",
+    "description": "Achieve level 40 in Leatherworking",
+    "requisites": [
+      86
+    ],
+    "skillId": 8,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3070001,
+      3080018,
+      1586800915,
+      3070004
+    ],
+    "collectibleRewards": [
+      16000503,
+      10070001,
+      10070002,
+      10070003,
+      10070004,
+      10070005,
+      10070006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 88,
+    "name": "Adept Leatherworker",
+    "description": "Achieve level 50 in Leatherworking",
+    "requisites": [
+      87
+    ],
+    "skillId": 8,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4070001,
+      4080018,
+      666651352,
+      4070004
+    ],
+    "collectibleRewards": [
+      16000504
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 89,
+    "name": "Professional Leatherworker",
+    "description": "Achieve level 60 in Leatherworking",
+    "requisites": [
+      88
+    ],
+    "skillId": 8,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5070001,
+      5080018,
+      809417326,
+      5070004
+    ],
+    "collectibleRewards": [
+      16000505,
+      12070005,
+      12070004,
+      12070002,
+      12070003,
+      12070001,
+      12070006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 90,
+    "name": "Expert Leatherworker",
+    "description": "Achieve level 70 in Leatherworking",
+    "requisites": [
+      89
+    ],
+    "skillId": 8,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6070001,
+      6080018,
+      1634118872,
+      6070004
+    ],
+    "collectibleRewards": [
+      16000506
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 91,
+    "name": "Master Leatherworker",
+    "description": "Achieve level 80 in Leatherworking",
+    "requisites": [
+      90
+    ],
+    "skillId": 8,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      445636674,
+      998153030,
+      458264753,
+      806992520
+    ],
+    "collectibleRewards": [
+      16000507,
+      14070005,
+      14070004,
+      14070002,
+      14070003,
+      14070001,
+      14070006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 92,
+    "name": "Grandmaster Leatherworker",
+    "description": "Achieve level 90 in Leatherworking",
+    "requisites": [
+      91
+    ],
+    "skillId": 8,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5068184,
+      1366659141,
+      1586947387,
+      1743778001
+    ],
+    "collectibleRewards": [
+      16000508
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 93,
+    "name": "Legendary Leatherworker",
+    "description": "Achieve level 100 in Leatherworking",
+    "requisites": [
+      92
+    ],
+    "skillId": 8,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1459943061,
+      1823166650,
+      288993092,
+      1580025475
+    ],
+    "collectibleRewards": [
+      16000509
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 94,
+    "name": "Beginner Mason",
+    "description": "Achieve level 10 in Masonry",
+    "requisites": [],
+    "skillId": 4,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1030001,
+      1130003,
+      894623392,
+      2044934693
+    ],
+    "collectibleRewards": [
+      16000200
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 95,
+    "name": "Novice Mason",
+    "description": "Achieve level 20 in Masonry",
+    "requisites": [
+      94
+    ],
+    "skillId": 4,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      2400
+    ],
+    "itemDisc": [
+      1990669797,
+      1909588525,
+      1030002,
+      1597970005,
+      1831352039
+    ],
+    "collectibleRewards": [
+      16000201
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 96,
+    "name": "Apprentice Mason",
+    "description": "Achieve level 30 in Masonry",
+    "requisites": [
+      95
+    ],
+    "skillId": 4,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      515896091,
+      2082692656,
+      2030002,
+      726306536
+    ],
+    "collectibleRewards": [
+      16000202
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 97,
+    "name": "Journeyman Mason",
+    "description": "Achieve level 40 in Masonry",
+    "requisites": [
+      96
+    ],
+    "skillId": 4,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      881820852,
+      812749346,
+      3030002,
+      1458853832
+    ],
+    "collectibleRewards": [
+      16000203,
+      10040001,
+      10040002,
+      10040003,
+      10040004,
+      10040005,
+      10040006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 98,
+    "name": "Adept Mason",
+    "description": "Achieve level 50 in Masonry",
+    "requisites": [
+      97
+    ],
+    "skillId": 4,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1849900279,
+      656215507,
+      4030002,
+      817475417
+    ],
+    "collectibleRewards": [
+      16000204
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 99,
+    "name": "Professional Mason",
+    "description": "Achieve level 60 in Masonry",
+    "requisites": [
+      98
+    ],
+    "skillId": 4,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1296478602,
+      1204752700,
+      5030002,
+      1686620338
+    ],
+    "collectibleRewards": [
+      16000205,
+      12040005,
+      12040004,
+      12040002,
+      12040003,
+      12040001,
+      12040006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 100,
+    "name": "Expert Mason",
+    "description": "Achieve level 70 in Masonry",
+    "requisites": [
+      99
+    ],
+    "skillId": 4,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      746630167,
+      570158556,
+      6030002,
+      987565502
+    ],
+    "collectibleRewards": [
+      16000206
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 101,
+    "name": "Master Mason",
+    "description": "Achieve level 80 in Masonry",
+    "requisites": [
+      100
+    ],
+    "skillId": 4,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1425039947,
+      2026606064,
+      813610254,
+      1569789324
+    ],
+    "collectibleRewards": [
+      16000207,
+      14040005,
+      14040004,
+      14040002,
+      14040003,
+      14040001,
+      14040006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 102,
+    "name": "Grandmaster Mason",
+    "description": "Achieve level 90 in Masonry",
+    "requisites": [
+      101
+    ],
+    "skillId": 4,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1532060493,
+      529328241,
+      1221137435,
+      528092341
+    ],
+    "collectibleRewards": [
+      16000208
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 103,
+    "name": "Legendary Mason",
+    "description": "Achieve level 100 in Masonry",
+    "requisites": [
+      102
+    ],
+    "skillId": 4,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      390845943,
+      539011668,
+      834413277,
+      624936134
+    ],
+    "collectibleRewards": [
+      16000209
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 104,
+    "name": "Beginner Miner",
+    "description": "Achieve level 10 in Mining",
+    "requisites": [],
+    "skillId": 5,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      2000,
+      3000
+    ],
+    "itemDisc": [
+      1030001,
+      1040002
+    ],
+    "collectibleRewards": [
+      16000300
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 105,
+    "name": "Novice Miner",
+    "description": "Achieve level 20 in Mining",
+    "requisites": [
+      104
+    ],
+    "skillId": 5,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1985074940,
+      1704711141
+    ],
+    "collectibleRewards": [
+      16000301
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 106,
+    "name": "Apprentice Miner",
+    "description": "Achieve level 30 in Mining",
+    "requisites": [
+      105
+    ],
+    "skillId": 5,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2030001,
+      2040002
+    ],
+    "collectibleRewards": [
+      16000302
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 107,
+    "name": "Journeyman Miner",
+    "description": "Achieve level 40 in Mining",
+    "requisites": [
+      106
+    ],
+    "skillId": 5,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3030001,
+      3040002
+    ],
+    "collectibleRewards": [
+      16000303,
+      10050001,
+      10050002,
+      10050003,
+      10050004,
+      10050005,
+      10050006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 108,
+    "name": "Adept Miner",
+    "description": "Achieve level 50 in Mining",
+    "requisites": [
+      107
+    ],
+    "skillId": 5,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4030001,
+      4040002
+    ],
+    "collectibleRewards": [
+      16000304
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 109,
+    "name": "Professional Miner",
+    "description": "Achieve level 60 in Mining",
+    "requisites": [
+      108
+    ],
+    "skillId": 5,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5030001,
+      5040002
+    ],
+    "collectibleRewards": [
+      16000305,
+      12050005,
+      12050004,
+      12050002,
+      12050003,
+      12050001,
+      12050006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 110,
+    "name": "Expert Miner",
+    "description": "Achieve level 70 in Mining",
+    "requisites": [
+      109
+    ],
+    "skillId": 5,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6030001,
+      6040002
+    ],
+    "collectibleRewards": [
+      16000306
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 111,
+    "name": "Master Miner",
+    "description": "Achieve level 80 in Mining",
+    "requisites": [
+      110
+    ],
+    "skillId": 5,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1801446403,
+      849366892
+    ],
+    "collectibleRewards": [
+      16000307,
+      14050005,
+      14050004,
+      14050002,
+      14050003,
+      14050001,
+      14050006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 112,
+    "name": "Grandmaster Miner",
+    "description": "Achieve level 90 in Mining",
+    "requisites": [
+      111
+    ],
+    "skillId": 5,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1100049618,
+      1703895269
+    ],
+    "collectibleRewards": [
+      16000308
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 113,
+    "name": "Legendary Miner",
+    "description": "Achieve level 100 in Mining",
+    "requisites": [
+      112
+    ],
+    "skillId": 5,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1112980365,
+      489081951
+    ],
+    "collectibleRewards": [
+      16000309
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 114,
+    "name": "Beginner Scholar",
+    "description": "Achieve level 10 in Scholarship",
+    "requisites": [],
+    "skillId": 7,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1010002,
+      1130005,
+      1110010,
+      1210037,
+      1210002,
+      1210003,
+      1210001,
+      1210004
+    ],
+    "collectibleRewards": [
+      16001200
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 115,
+    "name": "Novice Scholar",
+    "description": "Achieve level 20 in Scholarship",
+    "requisites": [
+      114
+    ],
+    "skillId": 7,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1688993945,
+      1858615467,
+      144125671,
+      530006562,
+      993974461,
+      319334286,
+      1005831193,
+      1835207370,
+      1385860989,
+      1024748948
+    ],
+    "collectibleRewards": [
+      16001201
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 116,
+    "name": "Apprentice Scholar",
+    "description": "Achieve level 30 in Scholarship",
+    "requisites": [
+      115
+    ],
+    "skillId": 7,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2210037,
+      2210002,
+      2210001,
+      2210004
+    ],
+    "collectibleRewards": [
+      16001202
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 117,
+    "name": "Journeyman Scholar",
+    "description": "Achieve level 40 in Scholarship",
+    "requisites": [
+      116
+    ],
+    "skillId": 7,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3210037,
+      3210002,
+      3210001,
+      3210004
+    ],
+    "collectibleRewards": [
+      16001203,
+      10140001,
+      10140002,
+      10140003,
+      10140004,
+      10140005,
+      10140006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 118,
+    "name": "Adept Scholar",
+    "description": "Achieve level 50 in Scholarship",
+    "requisites": [
+      117
+    ],
+    "skillId": 7,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4210037,
+      4210002,
+      4210001,
+      4210004
+    ],
+    "collectibleRewards": [
+      16001204
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 119,
+    "name": "Professional Scholar",
+    "description": "Achieve level 60 in Scholarship",
+    "requisites": [
+      118
+    ],
+    "skillId": 7,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5210037,
+      5210002,
+      5210001,
+      5210004
+    ],
+    "collectibleRewards": [
+      16001205,
+      12140005,
+      12140004,
+      12140002,
+      12140003,
+      12140001,
+      12140006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 120,
+    "name": "Expert Scholar",
+    "description": "Achieve level 70 in Scholarship",
+    "requisites": [
+      119
+    ],
+    "skillId": 7,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6210037,
+      6210002,
+      6210001,
+      6210004
+    ],
+    "collectibleRewards": [
+      16001206
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 121,
+    "name": "Master Scholar",
+    "description": "Achieve level 80 in Scholarship",
+    "requisites": [
+      120
+    ],
+    "skillId": 7,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      25316834,
+      113276733,
+      365949150,
+      83014486
+    ],
+    "collectibleRewards": [
+      16001207,
+      14140005,
+      14140004,
+      14140002,
+      14140003,
+      14140001,
+      14140006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 122,
+    "name": "Grandmaster Scholar",
+    "description": "Achieve level 90 in Scholarship",
+    "requisites": [
+      121
+    ],
+    "skillId": 7,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      531867890,
+      95989045,
+      398010040,
+      112245092
+    ],
+    "collectibleRewards": [
+      16001208
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 123,
+    "name": "Legendary Scholar",
+    "description": "Achieve level 100 in Scholarship",
+    "requisites": [
+      122
+    ],
+    "skillId": 7,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      825858774,
+      1987836568,
+      1429176413,
+      972335740
+    ],
+    "collectibleRewards": [
+      16001209
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 124,
+    "name": "Beginner Smith",
+    "description": "Achieve level 10 in Smithing",
+    "requisites": [],
+    "skillId": 6,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1040002,
+      1040003
+    ],
+    "collectibleRewards": [
+      16000400
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 125,
+    "name": "Novice Smith",
+    "description": "Achieve level 20 in Smithing",
+    "requisites": [
+      124
+    ],
+    "skillId": 6,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      970827760
+    ],
+    "itemDisc": [
+      1050003,
+      1050001,
+      181015293,
+      1669114499
+    ],
+    "collectibleRewards": [
+      16000401
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 126,
+    "name": "Apprentice Smith",
+    "description": "Achieve level 30 in Smithing",
+    "requisites": [
+      125
+    ],
+    "skillId": 6,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2040003,
+      2050003,
+      2050001
+    ],
+    "collectibleRewards": [
+      16000402
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 127,
+    "name": "Journeyman Smith",
+    "description": "Achieve level 40 in Smithing",
+    "requisites": [
+      126
+    ],
+    "skillId": 6,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3040003,
+      3050003,
+      3050001
+    ],
+    "collectibleRewards": [
+      16000403,
+      10060001,
+      10060002,
+      10060003,
+      10060004,
+      10060005,
+      10060006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 128,
+    "name": "Adept Smith",
+    "description": "Achieve level 50 in Smithing",
+    "requisites": [
+      127
+    ],
+    "skillId": 6,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4040003,
+      4050003,
+      4050001
+    ],
+    "collectibleRewards": [
+      16000404
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 129,
+    "name": "Professional Smith",
+    "description": "Achieve level 60 in Smithing",
+    "requisites": [
+      128
+    ],
+    "skillId": 6,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5040003,
+      5050003,
+      5050001
+    ],
+    "collectibleRewards": [
+      16000405,
+      12060005,
+      12060004,
+      12060002,
+      12060003,
+      12060001,
+      12060006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 130,
+    "name": "Expert Smith",
+    "description": "Achieve level 70 in Smithing",
+    "requisites": [
+      129
+    ],
+    "skillId": 6,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6040003,
+      6050003,
+      6050001
+    ],
+    "collectibleRewards": [
+      16000406
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 131,
+    "name": "Master Smith",
+    "description": "Achieve level 80 in Smithing",
+    "requisites": [
+      130
+    ],
+    "skillId": 6,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      523735180,
+      2049289900,
+      1899017490
+    ],
+    "collectibleRewards": [
+      16000407,
+      14060005,
+      14060004,
+      14060002,
+      14060003,
+      14060001,
+      14060006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 132,
+    "name": "Grandmaster Smith",
+    "description": "Achieve level 90 in Smithing",
+    "requisites": [
+      131
+    ],
+    "skillId": 6,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2145694365,
+      1969878034,
+      1464752960
+    ],
+    "collectibleRewards": [
+      16000408
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 133,
+    "name": "Legendary Smith",
+    "description": "Achieve level 100 in Smithing",
+    "requisites": [
+      132
+    ],
+    "skillId": 6,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1690423614,
+      1575963302,
+      445742898
+    ],
+    "collectibleRewards": [
+      16000409
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 134,
+    "name": "Beginner Tailor",
+    "description": "Achieve level 10 in Tailoring",
+    "requisites": [],
+    "skillId": 10,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1090008,
+      1464553255,
+      1090004,
+      1130001
+    ],
+    "collectibleRewards": [
+      16000700
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 135,
+    "name": "Novice Tailor",
+    "description": "Achieve level 20 in Tailoring",
+    "requisites": [
+      134
+    ],
+    "skillId": 10,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [
+      7000
+    ],
+    "itemDisc": [
+      1100017,
+      1090002,
+      542157866,
+      1125962328
+    ],
+    "collectibleRewards": [
+      16000701
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 136,
+    "name": "Apprentice Tailor",
+    "description": "Achieve level 30 in Tailoring",
+    "requisites": [
+      135
+    ],
+    "skillId": 10,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      2090008,
+      1537459864,
+      2090002,
+      2090004
+    ],
+    "collectibleRewards": [
+      16000702
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 137,
+    "name": "Journeyman Tailor",
+    "description": "Achieve level 40 in Tailoring",
+    "requisites": [
+      136
+    ],
+    "skillId": 10,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      3090008,
+      989485035,
+      3090002,
+      3090004
+    ],
+    "collectibleRewards": [
+      16000703,
+      10090001,
+      10090002,
+      10090003,
+      10090004,
+      10090005,
+      10090006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 138,
+    "name": "Adept Tailor",
+    "description": "Achieve level 50 in Tailoring",
+    "requisites": [
+      137
+    ],
+    "skillId": 10,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      4090008,
+      1442354536,
+      4090002,
+      4090004
+    ],
+    "collectibleRewards": [
+      16000704
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 139,
+    "name": "Professional Tailor",
+    "description": "Achieve level 60 in Tailoring",
+    "requisites": [
+      138
+    ],
+    "skillId": 10,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      5090008,
+      1481097878,
+      5090002,
+      5090004
+    ],
+    "collectibleRewards": [
+      16000705,
+      12090005,
+      12090004,
+      12090002,
+      12090003,
+      12090001,
+      12090006
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 140,
+    "name": "Expert Tailor",
+    "description": "Achieve level 70 in Tailoring",
+    "requisites": [
+      139
+    ],
+    "skillId": 10,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      6090008,
+      487923809,
+      6090002,
+      6090004
+    ],
+    "collectibleRewards": [
+      16000706
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 141,
+    "name": "Master Tailor",
+    "description": "Achieve level 80 in Tailoring",
+    "requisites": [
+      140
+    ],
+    "skillId": 10,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1676062861,
+      2049788179,
+      1610800379,
+      625147590
+    ],
+    "collectibleRewards": [
+      16000707,
+      14090005,
+      14090004,
+      14090002,
+      14090003,
+      14090001,
+      14090006
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 142,
+    "name": "Grandmaster Tailor",
+    "description": "Achieve level 90 in Tailoring",
+    "requisites": [
+      141
+    ],
+    "skillId": 10,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      796433278,
+      1568797710,
+      136406464,
+      1224328894
+    ],
+    "collectibleRewards": [
+      16000708
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 143,
+    "name": "Legendary Tailor",
+    "description": "Achieve level 100 in Tailoring",
+    "requisites": [
+      142
+    ],
+    "skillId": 10,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      1421785594,
+      2065775136,
+      282660928,
+      471802228
+    ],
+    "collectibleRewards": [
+      16000709
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 144,
+    "name": "Material Knowledge",
+    "description": "Unlock knowledge for the following items in your compendium.",
+    "requisites": [],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [
+      11001,
+      1130001,
+      1090008,
+      1010001,
+      1020003,
+      1030001,
+      1130003
+    ],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 15062927,
+    "name": "Journeyman Tamer",
+    "description": "Achieve level 40 in Taming",
+    "requisites": [
+      189601829
+    ],
+    "skillId": 17,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      354346521
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 49724064,
+    "name": "Grandmaster Builder",
+    "description": "Achieve level 90 in Construction",
+    "requisites": [
+      562272994
+    ],
+    "skillId": 15,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1468326237
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 68704729,
+    "name": "Novice Sailor",
+    "description": "Achieve level 20 in Sailing",
+    "requisites": [
+      1950555194
+    ],
+    "skillId": 21,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      528872200
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 141819081,
+    "name": "World Explorer II",
+    "description": "Uncover 2.5% of the world.",
+    "requisites": [
+      2049450102
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1861687868
+    ],
+    "pointsReward": 150,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 1440
+  },
+  {
+    "id": 169792435,
+    "name": "Expert Slayer",
+    "description": "Achieve level 70 in Slayer",
+    "requisites": [
+      859788892
+    ],
+    "skillId": 18,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      531000574
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 175317708,
+    "name": "World Explorer IV",
+    "description": "Uncover 10% of the world.",
+    "requisites": [
+      1467529962
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      370941841
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 5760
+  },
+  {
+    "id": 189601829,
+    "name": "Apprentice Tamer",
+    "description": "Achieve level 30 in Taming",
+    "requisites": [
+      1628420857
+    ],
+    "skillId": 17,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1368219645
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 191359619,
+    "name": "World Explorer IX",
+    "description": "Uncover 75% of the world.",
+    "requisites": [
+      665505788
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      818803517
+    ],
+    "pointsReward": 2500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 43200
+  },
+  {
+    "id": 259103783,
+    "name": "Builder's First Steps",
+    "description": "Achieve level 2 in Construction.",
+    "requisites": [],
+    "skillId": 15,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 334470353,
+    "name": "Grandmaster Sailor",
+    "description": "Achieve level 90 in Sailing",
+    "requisites": [
+      656061253
+    ],
+    "skillId": 21,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      173441730
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 370601523,
+    "name": "Novice Builder",
+    "description": "Achieve level 20 in Construction",
+    "requisites": [
+      848136409
+    ],
+    "skillId": 15,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1237475871
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 411246936,
+    "name": "Beginner Merchant",
+    "description": "Achieve level 10 in Merchanting",
+    "requisites": [],
+    "skillId": 19,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1421150946
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 463803478,
+    "name": "Adept Slayer",
+    "description": "Achieve level 50 in Slayer",
+    "requisites": [
+      1078321238
+    ],
+    "skillId": 18,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1271902118
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 559209800,
+    "name": "World Explorer X",
+    "description": "Uncover 100% of the world.",
+    "requisites": [
+      191359619
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1295129740
+    ],
+    "pointsReward": 5000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 57600
+  },
+  {
+    "id": 562272994,
+    "name": "Master Builder",
+    "description": "Achieve level 80 in Construction",
+    "requisites": [
+      832483846
+    ],
+    "skillId": 15,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      835187905
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 652316423,
+    "name": "World Explorer VI",
+    "description": "Uncover 30% of the world.",
+    "requisites": [
+      837001293
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      530334664
+    ],
+    "pointsReward": 1000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 17280
+  },
+  {
+    "id": 656061253,
+    "name": "Master Sailor",
+    "description": "Achieve level 80 in Sailing",
+    "requisites": [
+      1637719397
+    ],
+    "skillId": 21,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1621569781
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 665505788,
+    "name": "World Explorer VIII",
+    "description": "Uncover 50% of the world.",
+    "requisites": [
+      886884036
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      486394517
+    ],
+    "pointsReward": 1000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 28800
+  },
+  {
+    "id": 718790675,
+    "name": "Adept Tamer",
+    "description": "Achieve level 50 in Taming",
+    "requisites": [
+      15062927
+    ],
+    "skillId": 17,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1036213970
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 730415547,
+    "name": "Beginner Tamer",
+    "description": "Achieve level 10 in Taming",
+    "requisites": [],
+    "skillId": 17,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      2106665153
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 809009938,
+    "name": "Adept Sailor",
+    "description": "Achieve level 50 in Sailing",
+    "requisites": [
+      1442830641
+    ],
+    "skillId": 21,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1484745687
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 832483846,
+    "name": "Expert Builder",
+    "description": "Achieve level 70 in Construction",
+    "requisites": [
+      1218779091
+    ],
+    "skillId": 15,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1508601505
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 837001293,
+    "name": "World Explorer V",
+    "description": "Uncover 20% of the world.",
+    "requisites": [
+      175317708
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1231859218
+    ],
+    "pointsReward": 1000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 11520
+  },
+  {
+    "id": 848136409,
+    "name": "Beginner Builder",
+    "description": "Achieve level 10 in Construction",
+    "requisites": [],
+    "skillId": 15,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      360032662
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 859788892,
+    "name": "Professional Slayer",
+    "description": "Achieve level 60 in Slayer",
+    "requisites": [
+      1003885198
+    ],
+    "skillId": 18,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1717928679
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 886884036,
+    "name": "World Explorer VII",
+    "description": "Uncover 40% of the world.",
+    "requisites": [
+      652316423
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1793829065
+    ],
+    "pointsReward": 1000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 23040
+  },
+  {
+    "id": 930125163,
+    "name": "Adept Builder",
+    "description": "Achieve level 50 in Construction",
+    "requisites": [
+      995931703
+    ],
+    "skillId": 15,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      225217678
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 976021008,
+    "name": "Tamer's First Steps",
+    "description": "Achieve level 2 in Taming.",
+    "requisites": [],
+    "skillId": 17,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 995931703,
+    "name": "Journeyman Builder",
+    "description": "Achieve level 40 in Construction",
+    "requisites": [
+      1533825005
+    ],
+    "skillId": 15,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      218935418
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1003885198,
+    "name": "Apprentice Slayer",
+    "description": "Achieve level 30 in Slayer",
+    "requisites": [
+      1553429221
+    ],
+    "skillId": 18,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      830800195
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1019797258,
+    "name": "Master Slayer",
+    "description": "Achieve level 80 in Slayer",
+    "requisites": [
+      169792435
+    ],
+    "skillId": 18,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1498514596
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1078321238,
+    "name": "Journeyman Slayer",
+    "description": "Achieve level 40 in Slayer",
+    "requisites": [
+      1003885198
+    ],
+    "skillId": 18,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      817152349
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1085736945,
+    "name": "Legendary Slayer",
+    "description": "Achieve level 100 in Slayer",
+    "requisites": [
+      1104424296
+    ],
+    "skillId": 18,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1966927694
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1104424296,
+    "name": "Grandmaster Slayer",
+    "description": "Achieve level 90 in Slayer",
+    "requisites": [
+      1019797258
+    ],
+    "skillId": 18,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      690113072
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1218779091,
+    "name": "Professional Builder",
+    "description": "Achieve level 60 in Construction",
+    "requisites": [
+      1533825005
+    ],
+    "skillId": 15,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      895317401
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1222589720,
+    "name": "Expert Merchant",
+    "description": "Achieve level 70 in Merchanting",
+    "requisites": [
+      2040986204
+    ],
+    "skillId": 19,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      462257811
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1341675749,
+    "name": "Professional Tamer",
+    "description": "Achieve level 60 in Taming",
+    "requisites": [
+      189601829
+    ],
+    "skillId": 17,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      868381900
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1363845850,
+    "name": "Master Tamer",
+    "description": "Achieve level 80 in Taming",
+    "requisites": [
+      1992873563
+    ],
+    "skillId": 17,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1195043377
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1442830641,
+    "name": "Journeyman Sailor",
+    "description": "Achieve level 40 in Sailing",
+    "requisites": [
+      1608412631
+    ],
+    "skillId": 21,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      981156671
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1467529962,
+    "name": "World Explorer III",
+    "description": "Uncover 5% of the world.",
+    "requisites": [
+      141819081
+    ],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1616030221
+    ],
+    "pointsReward": 250,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 2880
+  },
+  {
+    "id": 1477655628,
+    "name": "Legendary Merchant",
+    "description": "Achieve level 100 in Merchanting",
+    "requisites": [
+      1691257195
+    ],
+    "skillId": 19,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      2088132657
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1494955959,
+    "name": "Journeyman Merchant",
+    "description": "Achieve level 40 in Merchanting",
+    "requisites": [
+      2029560354
+    ],
+    "skillId": 19,
+    "skillLevel": 40,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      891216006
+    ],
+    "pointsReward": 120,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1497280629,
+    "name": "Adept Merchant",
+    "description": "Achieve level 50 in Merchanting",
+    "requisites": [
+      1494955959
+    ],
+    "skillId": 19,
+    "skillLevel": 50,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1171581519
+    ],
+    "pointsReward": 300,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1533825005,
+    "name": "Apprentice Builder",
+    "description": "Achieve level 30 in Construction",
+    "requisites": [
+      370601523
+    ],
+    "skillId": 15,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      2098347075
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1553429221,
+    "name": "Novice Slayer",
+    "description": "Achieve level 20 in Slayer",
+    "requisites": [
+      2054569707
+    ],
+    "skillId": 18,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1949396385
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1608412631,
+    "name": "Apprentice Sailor",
+    "description": "Achieve level 30 in Sailing",
+    "requisites": [
+      68704729
+    ],
+    "skillId": 21,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1711427284
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1628420857,
+    "name": "Novice Tamer",
+    "description": "Achieve level 20 in Taming",
+    "requisites": [
+      730415547
+    ],
+    "skillId": 17,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1368266427
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1635828394,
+    "name": "Legendary Tamer",
+    "description": "Achieve level 100 in Taming",
+    "requisites": [
+      1661632500
+    ],
+    "skillId": 17,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1631390558
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1637719397,
+    "name": "Expert Sailor",
+    "description": "Achieve level 70 in Sailing",
+    "requisites": [
+      1889072607
+    ],
+    "skillId": 21,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1395598228
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1660876455,
+    "name": "Legendary Sailor",
+    "description": "Achieve level 100 in Sailing",
+    "requisites": [
+      334470353
+    ],
+    "skillId": 21,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      706735273
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1661632500,
+    "name": "Grandmaster Tamer",
+    "description": "Achieve level 90 in Taming",
+    "requisites": [
+      1363845850
+    ],
+    "skillId": 17,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      785850042
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1691257195,
+    "name": "Grandmaster Merchant",
+    "description": "Achieve level 90 in Merchanting",
+    "requisites": [
+      1763018190
+    ],
+    "skillId": 19,
+    "skillLevel": 90,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      808216776
+    ],
+    "pointsReward": 9000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1691786070,
+    "name": "Merchant's First Steps",
+    "description": "Achieve level 2 in Merchanting.",
+    "requisites": [],
+    "skillId": 19,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1707680466,
+    "name": "Legendary Builder",
+    "description": "Achieve level 100 in Construction",
+    "requisites": [
+      49724064
+    ],
+    "skillId": 15,
+    "skillLevel": 100,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1394867775
+    ],
+    "pointsReward": 25000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1763018190,
+    "name": "Master Merchant",
+    "description": "Achieve level 80 in Merchanting",
+    "requisites": [
+      1222589720
+    ],
+    "skillId": 19,
+    "skillLevel": 80,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1230789341
+    ],
+    "pointsReward": 3000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1889072607,
+    "name": "Professional Sailor",
+    "description": "Achieve level 60 in Sailing",
+    "requisites": [
+      1608412631
+    ],
+    "skillId": 21,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      868513304
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1904086492,
+    "name": "Slayer's First Steps",
+    "description": "Achieve level 2 in Slayer.",
+    "requisites": [],
+    "skillId": 18,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1927735522,
+    "name": "Sailor's First Steps",
+    "description": "Achieve level 2 in Sailing.",
+    "requisites": [],
+    "skillId": 21,
+    "skillLevel": 2,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [],
+    "pointsReward": 5,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1950555194,
+    "name": "Beginner Sailor",
+    "description": "Achieve level 10 in Sailing",
+    "requisites": [],
+    "skillId": 21,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      100704145
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 1992873563,
+    "name": "Expert Tamer",
+    "description": "Achieve level 70 in Taming",
+    "requisites": [
+      1341675749
+    ],
+    "skillId": 17,
+    "skillLevel": 70,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      163970183
+    ],
+    "pointsReward": 2000,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 2029560354,
+    "name": "Apprentice Merchant",
+    "description": "Achieve level 30 in Merchanting",
+    "requisites": [
+      2038482013
+    ],
+    "skillId": 19,
+    "skillLevel": 30,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      376291845
+    ],
+    "pointsReward": 50,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 2038482013,
+    "name": "Novice Merchant",
+    "description": "Achieve level 20 in Merchanting",
+    "requisites": [
+      411246936
+    ],
+    "skillId": 19,
+    "skillLevel": 20,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1257892315
+    ],
+    "pointsReward": 20,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 2040986204,
+    "name": "Professional Merchant",
+    "description": "Achieve level 60 in Merchanting",
+    "requisites": [
+      2029560354
+    ],
+    "skillId": 19,
+    "skillLevel": 60,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1183966748
+    ],
+    "pointsReward": 500,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  },
+  {
+    "id": 2049450102,
+    "name": "World Explorer I",
+    "description": "Uncover 1% of the world.",
+    "requisites": [],
+    "skillId": 0,
+    "skillLevel": 0,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      340356319
+    ],
+    "pointsReward": 100,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 576
+  },
+  {
+    "id": 2054569707,
+    "name": "Beginner Slayer",
+    "description": "Achieve level 10 in Slayer",
+    "requisites": [],
+    "skillId": 18,
+    "skillLevel": 10,
+    "resourceDisc": [],
+    "craftingDisc": [],
+    "cargoDisc": [],
+    "itemDisc": [],
+    "collectibleRewards": [
+      1457677811
+    ],
+    "pointsReward": 10,
+    "pctChunksDiscovered": 0,
+    "chunksDiscovered": 0
+  }
+]

@@ -1,4 +1,7 @@
+import { getEnrichedCraftingRecipesByOutputItemId } from '@/lib/spacetime-db/modules/crafting-recipes/flows'
+import { getEnrichedExtractionRecipesByOutputItemId } from '@/lib/spacetime-db/modules/extraction-recipes/flows'
 import { getItemBySlugCommand } from '@/lib/spacetime-db/modules/items/commands/get-item-by-slug'
+import { ItemIndividualObtainPageView } from '@/views/item-views/item-individual-obtain-page-view'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
@@ -10,7 +13,7 @@ interface PageProps {
 
 export default async function ItemObtainTab({ params }: PageProps) {
   const { slug } = await params
-  
+
   // Get the item by slug (validation already done in layout)
   const item = getItemBySlugCommand(slug)
 
@@ -18,14 +21,15 @@ export default async function ItemObtainTab({ params }: PageProps) {
     notFound()
   }
 
+  // Get enriched recipes that produce this item
+  const craftingRecipes = getEnrichedCraftingRecipesByOutputItemId(item.id)
+  const extractionRecipes = getEnrichedExtractionRecipesByOutputItemId(item.id)
+
   return (
-    <div className="space-y-6">
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
-        <h2>How to Obtain {item.name}</h2>
-        <p className="text-muted-foreground">
-          Information about how to obtain this item will be available soon. This may include crafting recipes, resource gathering, rewards, and other methods.
-        </p>
-      </div>
-    </div>
+    <ItemIndividualObtainPageView
+      craftingRecipes={craftingRecipes}
+      extractionRecipes={extractionRecipes}
+      itemName={item.name}
+    />
   )
 }

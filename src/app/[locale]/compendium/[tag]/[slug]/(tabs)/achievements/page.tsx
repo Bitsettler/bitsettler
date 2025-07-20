@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function ItemAchievementsTab({ params }: PageProps) {
   const { slug } = await params
-  
+
   // Get the item by slug (validation already done in layout)
   const item = getItemBySlugCommand(slug)
 
@@ -23,7 +23,8 @@ export default async function ItemAchievementsTab({ params }: PageProps) {
       <div className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>Achievements Related to {item.name}</h2>
         <p className="text-muted-foreground">
-          Information about achievements related to this item will be available soon. This may include collection achievements, crafting milestones, and usage accomplishments.
+          Information about achievements related to this item will be available soon. This may include collection
+          achievements, crafting milestones, and usage accomplishments.
         </p>
       </div>
     </div>

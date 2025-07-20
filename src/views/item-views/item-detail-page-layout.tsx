@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link, usePathname } from '@/i18n/navigation'
-import { createSlug } from '@/lib/spacetime-db/shared/utils/entities'
 import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
+import { createSlug } from '@/lib/spacetime-db/shared/utils/entities'
 import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
 import { ArrowLeft, Calculator, Package, Sparkles, Star } from 'lucide-react'
 import Image from 'next/image'
@@ -73,6 +73,7 @@ export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutPro
             {/* Item Info */}
             <div className="flex-1">
               <div className="mb-4">
+                {process.env.NEXT_PUBLIC_DEBUG && <span className="text-red-500">{item.id}</span>}
                 <h1 className="text-foreground text-4xl font-bold">{item.name}</h1>
                 <div className="mt-2 flex flex-wrap gap-2">
                   <Badge variant="outline" className="gap-1">

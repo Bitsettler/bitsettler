@@ -1,0 +1,4160 @@
+[
+  {
+    "id": 1305480,
+    "itemId": 1382861384,
+    "toolType": 13,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 4549805,
+    "itemId": 815301236,
+    "toolType": 12,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 7306375,
+    "itemId": 123469,
+    "toolType": 10,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 9152528,
+    "itemId": 9616252,
+    "toolType": 6,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 9448242,
+    "itemId": 123461,
+    "toolType": 3,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 18592807,
+    "itemId": 280763117,
+    "toolType": 10,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 22958485,
+    "itemId": 1879457441,
+    "toolType": 5,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 28509443,
+    "itemId": 1173969147,
+    "toolType": 3,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 29799528,
+    "itemId": 1474986505,
+    "toolType": 4,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 31529830,
+    "itemId": 991451810,
+    "toolType": 4,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 33492733,
+    "itemId": 1605904571,
+    "toolType": 1,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 36433568,
+    "itemId": 1126227875,
+    "toolType": 4,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 37095318,
+    "itemId": 623683709,
+    "toolType": 2,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 39470974,
+    "itemId": 1979045792,
+    "toolType": 10,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 42492818,
+    "itemId": 1771114282,
+    "toolType": 3,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 44283891,
+    "itemId": 725605566,
+    "toolType": 3,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 45420772,
+    "itemId": 123456,
+    "toolType": 13,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 47951958,
+    "itemId": 1700689396,
+    "toolType": 8,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 56484595,
+    "itemId": 2035915313,
+    "toolType": 3,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 61222088,
+    "itemId": 1825700521,
+    "toolType": 1,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 66064566,
+    "itemId": 343569714,
+    "toolType": 8,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 66647182,
+    "itemId": 1704105324,
+    "toolType": 4,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 73286159,
+    "itemId": 1229547048,
+    "toolType": 12,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 75254255,
+    "itemId": 1595223900,
+    "toolType": 9,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 77992630,
+    "itemId": 406878923,
+    "toolType": 12,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 83368567,
+    "itemId": 575969994,
+    "toolType": 4,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 95713169,
+    "itemId": 989354911,
+    "toolType": 7,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 101089892,
+    "itemId": 123456,
+    "toolType": 5,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 105357031,
+    "itemId": 2019414023,
+    "toolType": 4,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 107605101,
+    "itemId": 1540341681,
+    "toolType": 4,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 108128161,
+    "itemId": 217234902,
+    "toolType": 5,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 112532895,
+    "itemId": 1394009161,
+    "toolType": 8,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 113199219,
+    "itemId": 480868349,
+    "toolType": 1,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 114216174,
+    "itemId": 1545844636,
+    "toolType": 3,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 124720189,
+    "itemId": 1940964687,
+    "toolType": 12,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 127590209,
+    "itemId": 9666126,
+    "toolType": 4,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 135679931,
+    "itemId": 102113370,
+    "toolType": 3,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 145518147,
+    "itemId": 698704517,
+    "toolType": 1,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 149556482,
+    "itemId": 110205879,
+    "toolType": 9,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 153419463,
+    "itemId": 1119657353,
+    "toolType": 4,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 153656286,
+    "itemId": 273473901,
+    "toolType": 9,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 155776907,
+    "itemId": 1300041455,
+    "toolType": 8,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 158632880,
+    "itemId": 1042053819,
+    "toolType": 1,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 168204813,
+    "itemId": 429722226,
+    "toolType": 10,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 168661408,
+    "itemId": 1046280100,
+    "toolType": 4,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 174219648,
+    "itemId": 2064410424,
+    "toolType": 2,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 179098051,
+    "itemId": 219766720,
+    "toolType": 8,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 183938586,
+    "itemId": 1565007683,
+    "toolType": 5,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 186947943,
+    "itemId": 659015744,
+    "toolType": 4,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 187359793,
+    "itemId": 292695634,
+    "toolType": 4,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 188121020,
+    "itemId": 849875928,
+    "toolType": 6,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 188174964,
+    "itemId": 946042286,
+    "toolType": 2,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 192922043,
+    "itemId": 1695419495,
+    "toolType": 7,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 195883385,
+    "itemId": 255042680,
+    "toolType": 12,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 198112965,
+    "itemId": 2042058010,
+    "toolType": 10,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 202188512,
+    "itemId": 345684598,
+    "toolType": 5,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 202486175,
+    "itemId": 1857570617,
+    "toolType": 9,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 204651675,
+    "itemId": 2041434177,
+    "toolType": 13,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 206039221,
+    "itemId": 1831352039,
+    "toolType": 3,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 209123507,
+    "itemId": 217088790,
+    "toolType": 1,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 213873433,
+    "itemId": 144260400,
+    "toolType": 5,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 216550146,
+    "itemId": 200891090,
+    "toolType": 10,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 217601323,
+    "itemId": 123458,
+    "toolType": 2,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 219274321,
+    "itemId": 261763657,
+    "toolType": 1,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 221656217,
+    "itemId": 115197730,
+    "toolType": 5,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 226058692,
+    "itemId": 2003162600,
+    "toolType": 2,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 227033084,
+    "itemId": 361271161,
+    "toolType": 7,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 246150087,
+    "itemId": 518219336,
+    "toolType": 4,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 250164709,
+    "itemId": 1220940027,
+    "toolType": 6,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 252117241,
+    "itemId": 1891681591,
+    "toolType": 9,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 253260200,
+    "itemId": 1029227885,
+    "toolType": 1,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 255687621,
+    "itemId": 1145062834,
+    "toolType": 1,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 256874518,
+    "itemId": 2094143120,
+    "toolType": 7,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 258158374,
+    "itemId": 252555012,
+    "toolType": 2,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 258318545,
+    "itemId": 1622627516,
+    "toolType": 6,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 261905767,
+    "itemId": 1567440156,
+    "toolType": 13,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 267226817,
+    "itemId": 1493447286,
+    "toolType": 5,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 267331986,
+    "itemId": 1328307760,
+    "toolType": 9,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 275843365,
+    "itemId": 1802344432,
+    "toolType": 13,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 276514209,
+    "itemId": 2123113901,
+    "toolType": 6,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 277038786,
+    "itemId": 856252687,
+    "toolType": 10,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 284430882,
+    "itemId": 570309917,
+    "toolType": 3,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 295038960,
+    "itemId": 852901239,
+    "toolType": 2,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 297139518,
+    "itemId": 396103904,
+    "toolType": 10,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 301178096,
+    "itemId": 1527795841,
+    "toolType": 9,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 302781577,
+    "itemId": 123456,
+    "toolType": 14,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 304645786,
+    "itemId": 1010692103,
+    "toolType": 2,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 306516801,
+    "itemId": 1782266252,
+    "toolType": 9,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 309254920,
+    "itemId": 1645967297,
+    "toolType": 2,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 309681531,
+    "itemId": 1176307099,
+    "toolType": 3,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 324449602,
+    "itemId": 48557171,
+    "toolType": 6,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 329553317,
+    "itemId": 1421716234,
+    "toolType": 4,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 332285427,
+    "itemId": 282882254,
+    "toolType": 10,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 333411965,
+    "itemId": 964284329,
+    "toolType": 3,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 346420562,
+    "itemId": 1486054968,
+    "toolType": 1,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 350061796,
+    "itemId": 428362059,
+    "toolType": 8,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 361523145,
+    "itemId": 1135629244,
+    "toolType": 7,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 374437517,
+    "itemId": 803429716,
+    "toolType": 8,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 374683557,
+    "itemId": 948030230,
+    "toolType": 9,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 383017802,
+    "itemId": 1785535947,
+    "toolType": 5,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 388735163,
+    "itemId": 455440554,
+    "toolType": 1,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 391187068,
+    "itemId": 2015514055,
+    "toolType": 4,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 392418679,
+    "itemId": 702522874,
+    "toolType": 1,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 399379099,
+    "itemId": 664137750,
+    "toolType": 12,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 402853785,
+    "itemId": 1536765890,
+    "toolType": 4,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 403951008,
+    "itemId": 1460999060,
+    "toolType": 7,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 404988317,
+    "itemId": 1768585646,
+    "toolType": 12,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 407237118,
+    "itemId": 233054056,
+    "toolType": 1,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 417213375,
+    "itemId": 123462,
+    "toolType": 2,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 419600449,
+    "itemId": 28384916,
+    "toolType": 12,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 421353892,
+    "itemId": 90706334,
+    "toolType": 5,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 425756315,
+    "itemId": 1331356237,
+    "toolType": 3,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 429594851,
+    "itemId": 523814907,
+    "toolType": 6,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 431942812,
+    "itemId": 139781349,
+    "toolType": 6,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 437379216,
+    "itemId": 70255625,
+    "toolType": 2,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 440955565,
+    "itemId": 886806700,
+    "toolType": 13,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 445878371,
+    "itemId": 808171232,
+    "toolType": 12,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 449820674,
+    "itemId": 1627664381,
+    "toolType": 6,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 452055757,
+    "itemId": 1366011250,
+    "toolType": 6,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 452068010,
+    "itemId": 2054875237,
+    "toolType": 7,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 453056671,
+    "itemId": 1987257556,
+    "toolType": 5,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 457568102,
+    "itemId": 181836937,
+    "toolType": 12,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 474838608,
+    "itemId": 88367633,
+    "toolType": 12,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 479672917,
+    "itemId": 123458,
+    "toolType": 14,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 480176091,
+    "itemId": 624841678,
+    "toolType": 9,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 481477513,
+    "itemId": 1633076184,
+    "toolType": 8,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 484619829,
+    "itemId": 1620923680,
+    "toolType": 12,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 486134875,
+    "itemId": 2108432762,
+    "toolType": 7,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 495317268,
+    "itemId": 1357163910,
+    "toolType": 5,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 497194587,
+    "itemId": 1609786241,
+    "toolType": 13,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 498814170,
+    "itemId": 889534061,
+    "toolType": 6,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 499210918,
+    "itemId": 445668153,
+    "toolType": 1,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 503494227,
+    "itemId": 237861696,
+    "toolType": 13,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 519985132,
+    "itemId": 2560293,
+    "toolType": 1,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 521308658,
+    "itemId": 123458,
+    "toolType": 3,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 522378871,
+    "itemId": 230869317,
+    "toolType": 9,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 526898144,
+    "itemId": 2086853157,
+    "toolType": 9,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 527599164,
+    "itemId": 944972618,
+    "toolType": 5,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 530650150,
+    "itemId": 1094163061,
+    "toolType": 10,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 532985098,
+    "itemId": 1564448262,
+    "toolType": 8,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 539923429,
+    "itemId": 247800929,
+    "toolType": 3,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 544108020,
+    "itemId": 2012521546,
+    "toolType": 12,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 544284569,
+    "itemId": 2122350182,
+    "toolType": 3,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 544450952,
+    "itemId": 1216120144,
+    "toolType": 3,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 546369028,
+    "itemId": 1789861870,
+    "toolType": 12,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 550270109,
+    "itemId": 1701537811,
+    "toolType": 9,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 551613711,
+    "itemId": 1013131252,
+    "toolType": 9,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 551687101,
+    "itemId": 1908450289,
+    "toolType": 9,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 552052359,
+    "itemId": 1620383201,
+    "toolType": 4,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 555188738,
+    "itemId": 495177528,
+    "toolType": 5,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 562999244,
+    "itemId": 695348739,
+    "toolType": 7,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 566339280,
+    "itemId": 354891578,
+    "toolType": 1,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 567550552,
+    "itemId": 1373705240,
+    "toolType": 2,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 567566044,
+    "itemId": 530006562,
+    "toolType": 13,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 574374500,
+    "itemId": 1443781871,
+    "toolType": 9,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 578693383,
+    "itemId": 1787531987,
+    "toolType": 3,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 583497333,
+    "itemId": 11017,
+    "toolType": 4,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 586443441,
+    "itemId": 1176061468,
+    "toolType": 2,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 588395281,
+    "itemId": 191522893,
+    "toolType": 13,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 589116836,
+    "itemId": 1260359977,
+    "toolType": 10,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 594808554,
+    "itemId": 1943544311,
+    "toolType": 7,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 594969024,
+    "itemId": 1368325783,
+    "toolType": 5,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 597562688,
+    "itemId": 440128613,
+    "toolType": 13,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 598779236,
+    "itemId": 404233507,
+    "toolType": 2,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 599239475,
+    "itemId": 897896784,
+    "toolType": 9,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 601080611,
+    "itemId": 61609764,
+    "toolType": 6,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 610983408,
+    "itemId": 96513154,
+    "toolType": 4,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 614050444,
+    "itemId": 1428413909,
+    "toolType": 3,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 617922619,
+    "itemId": 1931953296,
+    "toolType": 7,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 621190045,
+    "itemId": 482209661,
+    "toolType": 8,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 621594810,
+    "itemId": 998985145,
+    "toolType": 8,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 622953496,
+    "itemId": 802439204,
+    "toolType": 9,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 623342758,
+    "itemId": 1255416131,
+    "toolType": 7,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 626043350,
+    "itemId": 1255644654,
+    "toolType": 3,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 626878128,
+    "itemId": 1908038292,
+    "toolType": 2,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 628413481,
+    "itemId": 926760374,
+    "toolType": 7,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 628544465,
+    "itemId": 11020,
+    "toolType": 7,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 629746341,
+    "itemId": 239386833,
+    "toolType": 6,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 630005073,
+    "itemId": 2058377523,
+    "toolType": 10,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 633227959,
+    "itemId": 1818981310,
+    "toolType": 9,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 637109542,
+    "itemId": 152498452,
+    "toolType": 10,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 641400884,
+    "itemId": 133998348,
+    "toolType": 4,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 642255514,
+    "itemId": 618237316,
+    "toolType": 7,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 644933550,
+    "itemId": 1273901448,
+    "toolType": 3,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 644977382,
+    "itemId": 1043267104,
+    "toolType": 9,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 646643826,
+    "itemId": 11021,
+    "toolType": 8,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 650536558,
+    "itemId": 1865227154,
+    "toolType": 7,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 654677970,
+    "itemId": 1694898363,
+    "toolType": 7,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 669083932,
+    "itemId": 1221634026,
+    "toolType": 13,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 683001455,
+    "itemId": 2017563700,
+    "toolType": 3,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 687970999,
+    "itemId": 1719789773,
+    "toolType": 1,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 689496290,
+    "itemId": 2096117982,
+    "toolType": 4,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 690153362,
+    "itemId": 843645212,
+    "toolType": 10,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 694411730,
+    "itemId": 1551615336,
+    "toolType": 5,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 694642153,
+    "itemId": 1297008737,
+    "toolType": 10,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 697032359,
+    "itemId": 1650026869,
+    "toolType": 2,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 697386703,
+    "itemId": 2065176870,
+    "toolType": 10,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 700273700,
+    "itemId": 1591602523,
+    "toolType": 2,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 709220873,
+    "itemId": 1644135836,
+    "toolType": 9,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 710570902,
+    "itemId": 1116693642,
+    "toolType": 2,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 718986656,
+    "itemId": 1088502865,
+    "toolType": 3,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 720054850,
+    "itemId": 888531724,
+    "toolType": 1,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 725959108,
+    "itemId": 482196569,
+    "toolType": 5,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 728756509,
+    "itemId": 429708710,
+    "toolType": 8,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 735962354,
+    "itemId": 4167737,
+    "toolType": 13,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 736870335,
+    "itemId": 1842291395,
+    "toolType": 5,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 739179824,
+    "itemId": 1507620367,
+    "toolType": 6,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 739979557,
+    "itemId": 571682698,
+    "toolType": 12,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 740406007,
+    "itemId": 1338046652,
+    "toolType": 13,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 740553373,
+    "itemId": 414853205,
+    "toolType": 13,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 742517384,
+    "itemId": 1849205716,
+    "toolType": 7,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 743494042,
+    "itemId": 35407562,
+    "toolType": 12,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 750320410,
+    "itemId": 555395604,
+    "toolType": 12,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 753544445,
+    "itemId": 1564315145,
+    "toolType": 10,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 754819024,
+    "itemId": 728775056,
+    "toolType": 3,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 760029517,
+    "itemId": 1184649771,
+    "toolType": 13,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 769631943,
+    "itemId": 500003016,
+    "toolType": 5,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 773603636,
+    "itemId": 11019,
+    "toolType": 6,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 775402910,
+    "itemId": 1699265042,
+    "toolType": 12,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 775826469,
+    "itemId": 2131376186,
+    "toolType": 8,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 777743180,
+    "itemId": 11023,
+    "toolType": 10,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 779987345,
+    "itemId": 510295769,
+    "toolType": 6,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 795017954,
+    "itemId": 842284155,
+    "toolType": 3,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 797992313,
+    "itemId": 1586177413,
+    "toolType": 1,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 800568845,
+    "itemId": 22776119,
+    "toolType": 7,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 808519634,
+    "itemId": 662990131,
+    "toolType": 2,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 812752964,
+    "itemId": 123456,
+    "toolType": 8,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 815952332,
+    "itemId": 1925654341,
+    "toolType": 6,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 821167085,
+    "itemId": 296986020,
+    "toolType": 10,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 821740232,
+    "itemId": 1412603101,
+    "toolType": 13,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 822244880,
+    "itemId": 598915758,
+    "toolType": 8,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 826851308,
+    "itemId": 1082666299,
+    "toolType": 6,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 832765181,
+    "itemId": 1338201161,
+    "toolType": 13,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 840462340,
+    "itemId": 1967177382,
+    "toolType": 1,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 843300293,
+    "itemId": 1033133550,
+    "toolType": 3,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 843553235,
+    "itemId": 1960640170,
+    "toolType": 6,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 844680538,
+    "itemId": 865807039,
+    "toolType": 4,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 850751034,
+    "itemId": 1422715144,
+    "toolType": 13,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 866369197,
+    "itemId": 881821057,
+    "toolType": 1,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 868607873,
+    "itemId": 1051472777,
+    "toolType": 12,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 868749425,
+    "itemId": 858533230,
+    "toolType": 13,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 873261961,
+    "itemId": 437150053,
+    "toolType": 3,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 873403550,
+    "itemId": 1713501272,
+    "toolType": 12,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 885801328,
+    "itemId": 123456,
+    "toolType": 10,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 896778923,
+    "itemId": 2147367716,
+    "toolType": 13,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 899770506,
+    "itemId": 344316277,
+    "toolType": 2,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 911753049,
+    "itemId": 1350007743,
+    "toolType": 5,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 911832254,
+    "itemId": 744219405,
+    "toolType": 2,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 914743016,
+    "itemId": 513104323,
+    "toolType": 4,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 915404613,
+    "itemId": 582320225,
+    "toolType": 8,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 920043831,
+    "itemId": 235108700,
+    "toolType": 5,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 924263922,
+    "itemId": 489724302,
+    "toolType": 1,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 925928979,
+    "itemId": 197953890,
+    "toolType": 12,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 925932299,
+    "itemId": 1219038577,
+    "toolType": 7,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 931563819,
+    "itemId": 1324193108,
+    "toolType": 1,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 932264575,
+    "itemId": 1930789220,
+    "toolType": 2,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 932751640,
+    "itemId": 123458,
+    "toolType": 13,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 935605577,
+    "itemId": 1494271405,
+    "toolType": 4,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 940106897,
+    "itemId": 2090523697,
+    "toolType": 2,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 941521257,
+    "itemId": 799622109,
+    "toolType": 12,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 941877888,
+    "itemId": 2047726553,
+    "toolType": 1,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 950147170,
+    "itemId": 725890912,
+    "toolType": 10,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 951323149,
+    "itemId": 247849960,
+    "toolType": 6,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 968278296,
+    "itemId": 800479208,
+    "toolType": 6,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 970925342,
+    "itemId": 1297341889,
+    "toolType": 6,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 974285947,
+    "itemId": 1431558369,
+    "toolType": 10,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 980464111,
+    "itemId": 1858500155,
+    "toolType": 10,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 981271057,
+    "itemId": 1272310113,
+    "toolType": 13,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 981653284,
+    "itemId": 508390063,
+    "toolType": 13,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 992320004,
+    "itemId": 1732522724,
+    "toolType": 9,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 997789856,
+    "itemId": 1103304424,
+    "toolType": 4,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1002433459,
+    "itemId": 966095599,
+    "toolType": 12,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1002752623,
+    "itemId": 838786240,
+    "toolType": 9,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1007715228,
+    "itemId": 543901453,
+    "toolType": 1,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 1009808648,
+    "itemId": 2088178310,
+    "toolType": 7,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 1013507893,
+    "itemId": 1816166424,
+    "toolType": 8,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1014936306,
+    "itemId": 1503159114,
+    "toolType": 6,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1018645182,
+    "itemId": 2015365728,
+    "toolType": 3,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 1023889367,
+    "itemId": 728445804,
+    "toolType": 12,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1024051904,
+    "itemId": 1125962328,
+    "toolType": 8,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1024600540,
+    "itemId": 1837748137,
+    "toolType": 10,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1033009453,
+    "itemId": 2140420099,
+    "toolType": 7,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 1033271010,
+    "itemId": 270820549,
+    "toolType": 6,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1037393515,
+    "itemId": 123456,
+    "toolType": 1,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1041335970,
+    "itemId": 412214433,
+    "toolType": 2,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 1041476697,
+    "itemId": 1970675407,
+    "toolType": 8,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1043805698,
+    "itemId": 430669890,
+    "toolType": 4,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1056376729,
+    "itemId": 1536392855,
+    "toolType": 12,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1058946129,
+    "itemId": 1203417340,
+    "toolType": 5,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1060708159,
+    "itemId": 1901286144,
+    "toolType": 10,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1060940083,
+    "itemId": 1112133034,
+    "toolType": 8,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 1067972732,
+    "itemId": 639413153,
+    "toolType": 5,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1069198717,
+    "itemId": 1341694099,
+    "toolType": 10,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 1074327585,
+    "itemId": 2031310807,
+    "toolType": 9,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1076422895,
+    "itemId": 1134503739,
+    "toolType": 2,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1077515318,
+    "itemId": 349868263,
+    "toolType": 7,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 1078235038,
+    "itemId": 971385983,
+    "toolType": 6,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 1082013347,
+    "itemId": 1834890983,
+    "toolType": 1,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 1082738983,
+    "itemId": 2041056465,
+    "toolType": 10,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1086093045,
+    "itemId": 1564313443,
+    "toolType": 8,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1095670412,
+    "itemId": 123458,
+    "toolType": 10,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1095824993,
+    "itemId": 512370694,
+    "toolType": 12,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1100545087,
+    "itemId": 567423166,
+    "toolType": 6,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1105683434,
+    "itemId": 2113809370,
+    "toolType": 12,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 1111522624,
+    "itemId": 1203201028,
+    "toolType": 3,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 1118338006,
+    "itemId": 1385921286,
+    "toolType": 8,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1120143197,
+    "itemId": 1592942687,
+    "toolType": 2,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 1120285750,
+    "itemId": 270646609,
+    "toolType": 2,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 1125566893,
+    "itemId": 851522677,
+    "toolType": 5,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1132550497,
+    "itemId": 309776773,
+    "toolType": 13,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1133892820,
+    "itemId": 1969764081,
+    "toolType": 7,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 1134062746,
+    "itemId": 1703771822,
+    "toolType": 4,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 1138087654,
+    "itemId": 123458,
+    "toolType": 8,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1146762289,
+    "itemId": 123464,
+    "toolType": 4,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1147554861,
+    "itemId": 268540371,
+    "toolType": 13,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 1150229389,
+    "itemId": 2091760431,
+    "toolType": 7,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 1150513880,
+    "itemId": 123458,
+    "toolType": 11,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1151820890,
+    "itemId": 1732455557,
+    "toolType": 3,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 1152156392,
+    "itemId": 1907385327,
+    "toolType": 5,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1153823257,
+    "itemId": 1964156945,
+    "toolType": 13,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1154807033,
+    "itemId": 1146806026,
+    "toolType": 5,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 1159560328,
+    "itemId": 27382551,
+    "toolType": 10,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 1160707597,
+    "itemId": 668985841,
+    "toolType": 7,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1163558726,
+    "itemId": 1851820806,
+    "toolType": 4,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1167543001,
+    "itemId": 1490739440,
+    "toolType": 9,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1168894133,
+    "itemId": 142248662,
+    "toolType": 5,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1173121322,
+    "itemId": 123456,
+    "toolType": 4,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1186332448,
+    "itemId": 1669114499,
+    "toolType": 5,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1191401275,
+    "itemId": 1899347170,
+    "toolType": 6,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1199219572,
+    "itemId": 1746769552,
+    "toolType": 3,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1199831273,
+    "itemId": 346277395,
+    "toolType": 1,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1201440037,
+    "itemId": 1064817069,
+    "toolType": 10,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 1201584824,
+    "itemId": 123465,
+    "toolType": 6,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1207130738,
+    "itemId": 936129881,
+    "toolType": 6,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1214079556,
+    "itemId": 322511878,
+    "toolType": 8,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 1215027114,
+    "itemId": 117061441,
+    "toolType": 13,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 1219042239,
+    "itemId": 1828085396,
+    "toolType": 8,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1226479987,
+    "itemId": 688829506,
+    "toolType": 9,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 1226563555,
+    "itemId": 81431425,
+    "toolType": 4,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 1233597844,
+    "itemId": 1044047269,
+    "toolType": 2,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1254866347,
+    "itemId": 1372910861,
+    "toolType": 8,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 1256128601,
+    "itemId": 2124079079,
+    "toolType": 4,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 1256867862,
+    "itemId": 2141068773,
+    "toolType": 1,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1258270475,
+    "itemId": 76019200,
+    "toolType": 1,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1260612495,
+    "itemId": 1912155932,
+    "toolType": 2,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1266593731,
+    "itemId": 714197853,
+    "toolType": 12,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 1267926113,
+    "itemId": 2048399774,
+    "toolType": 13,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1271857405,
+    "itemId": 324749347,
+    "toolType": 7,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 1275185265,
+    "itemId": 1623187136,
+    "toolType": 5,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1281986811,
+    "itemId": 11022,
+    "toolType": 9,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1285084114,
+    "itemId": 1437399042,
+    "toolType": 9,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 1285548101,
+    "itemId": 139776334,
+    "toolType": 13,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 1286693952,
+    "itemId": 2106911373,
+    "toolType": 7,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 1289055062,
+    "itemId": 1558793860,
+    "toolType": 13,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 1292196900,
+    "itemId": 11025,
+    "toolType": 12,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1297048225,
+    "itemId": 11014,
+    "toolType": 1,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1301228101,
+    "itemId": 1762935714,
+    "toolType": 8,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1301934144,
+    "itemId": 318446982,
+    "toolType": 5,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1302818463,
+    "itemId": 240995661,
+    "toolType": 6,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1309166017,
+    "itemId": 1870880007,
+    "toolType": 8,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1311104972,
+    "itemId": 337140750,
+    "toolType": 12,
+    "level": 11,
+    "power": 31
+  },
+  {
+    "id": 1315281512,
+    "itemId": 755142018,
+    "toolType": 10,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1318086633,
+    "itemId": 1239362512,
+    "toolType": 6,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1318876646,
+    "itemId": 290307051,
+    "toolType": 8,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1319422021,
+    "itemId": 123468,
+    "toolType": 9,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1319863792,
+    "itemId": 691592949,
+    "toolType": 3,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1329647017,
+    "itemId": 703313133,
+    "toolType": 4,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1331387434,
+    "itemId": 123471,
+    "toolType": 12,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1335011972,
+    "itemId": 123456,
+    "toolType": 9,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1335268379,
+    "itemId": 112913674,
+    "toolType": 6,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 1335932838,
+    "itemId": 1374018846,
+    "toolType": 12,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1351152211,
+    "itemId": 1751845829,
+    "toolType": 6,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 1354290013,
+    "itemId": 123458,
+    "toolType": 7,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1363077995,
+    "itemId": 1352289490,
+    "toolType": 3,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 1364196801,
+    "itemId": 1145000,
+    "toolType": 14,
+    "level": 1,
+    "power": 10
+  },
+  {
+    "id": 1364776780,
+    "itemId": 1337511485,
+    "toolType": 1,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1366918414,
+    "itemId": 409168781,
+    "toolType": 10,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 1372930245,
+    "itemId": 1908911516,
+    "toolType": 6,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1374729207,
+    "itemId": 11015,
+    "toolType": 2,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1383951056,
+    "itemId": 2034743388,
+    "toolType": 12,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1387018701,
+    "itemId": 123456,
+    "toolType": 3,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1390689758,
+    "itemId": 1728460315,
+    "toolType": 7,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1405833085,
+    "itemId": 123460,
+    "toolType": 1,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1411366946,
+    "itemId": 1201067083,
+    "toolType": 1,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1412044204,
+    "itemId": 601647103,
+    "toolType": 8,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 1417072432,
+    "itemId": 232626092,
+    "toolType": 5,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 1417174276,
+    "itemId": 1013839268,
+    "toolType": 7,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 1417668967,
+    "itemId": 1520298833,
+    "toolType": 7,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1423047521,
+    "itemId": 1591687260,
+    "toolType": 8,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 1428346818,
+    "itemId": 1720094105,
+    "toolType": 10,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 1431716654,
+    "itemId": 1677637105,
+    "toolType": 10,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1432279868,
+    "itemId": 123458,
+    "toolType": 4,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1434523666,
+    "itemId": 657331360,
+    "toolType": 6,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1438819739,
+    "itemId": 1194369380,
+    "toolType": 3,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 1441980493,
+    "itemId": 1499218801,
+    "toolType": 1,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1448477467,
+    "itemId": 11024,
+    "toolType": 11,
+    "level": 1,
+    "power": 10
+  },
+  {
+    "id": 1454011330,
+    "itemId": 748789527,
+    "toolType": 6,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1454998954,
+    "itemId": 1144166893,
+    "toolType": 7,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1455712633,
+    "itemId": 1260356897,
+    "toolType": 6,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1457594555,
+    "itemId": 1553438138,
+    "toolType": 4,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 1457717742,
+    "itemId": 1621360975,
+    "toolType": 13,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 1460350827,
+    "itemId": 489582777,
+    "toolType": 5,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 1462098880,
+    "itemId": 2041164201,
+    "toolType": 10,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 1465193550,
+    "itemId": 703977568,
+    "toolType": 10,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 1466795533,
+    "itemId": 1267936781,
+    "toolType": 4,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 1467094587,
+    "itemId": 123456,
+    "toolType": 12,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1481469338,
+    "itemId": 120117264,
+    "toolType": 4,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1486873247,
+    "itemId": 1403802785,
+    "toolType": 3,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1488965345,
+    "itemId": 229759252,
+    "toolType": 13,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 1492866252,
+    "itemId": 868473580,
+    "toolType": 4,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1496533823,
+    "itemId": 383402761,
+    "toolType": 4,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 1501664035,
+    "itemId": 869303789,
+    "toolType": 1,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 1501790043,
+    "itemId": 501066060,
+    "toolType": 10,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 1503300305,
+    "itemId": 613951128,
+    "toolType": 13,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 1508328437,
+    "itemId": 1749189589,
+    "toolType": 2,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 1510875546,
+    "itemId": 280268323,
+    "toolType": 5,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 1515289736,
+    "itemId": 123458,
+    "toolType": 6,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1515342018,
+    "itemId": 1926302459,
+    "toolType": 4,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1515802577,
+    "itemId": 25210268,
+    "toolType": 8,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1520042012,
+    "itemId": 1055656315,
+    "toolType": 3,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1526639987,
+    "itemId": 453408860,
+    "toolType": 9,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1529511357,
+    "itemId": 2055874292,
+    "toolType": 5,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1534106114,
+    "itemId": 1034184552,
+    "toolType": 7,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 1534441556,
+    "itemId": 1146337476,
+    "toolType": 5,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 1541424941,
+    "itemId": 630016518,
+    "toolType": 12,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 1544716388,
+    "itemId": 853217521,
+    "toolType": 4,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1546671907,
+    "itemId": 685138200,
+    "toolType": 4,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 1549300616,
+    "itemId": 563811772,
+    "toolType": 9,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1552609150,
+    "itemId": 1683252275,
+    "toolType": 4,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1558073418,
+    "itemId": 543576414,
+    "toolType": 5,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 1562647270,
+    "itemId": 1578150854,
+    "toolType": 2,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1564146753,
+    "itemId": 1761900748,
+    "toolType": 9,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1567908659,
+    "itemId": 1749833326,
+    "toolType": 8,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1568065966,
+    "itemId": 746345268,
+    "toolType": 8,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1569441984,
+    "itemId": 1747077511,
+    "toolType": 12,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 1570836289,
+    "itemId": 724409328,
+    "toolType": 1,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1576132611,
+    "itemId": 123458,
+    "toolType": 12,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1577623443,
+    "itemId": 481958960,
+    "toolType": 4,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1582511119,
+    "itemId": 1390375547,
+    "toolType": 12,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1582820450,
+    "itemId": 223757569,
+    "toolType": 12,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 1583647506,
+    "itemId": 11026,
+    "toolType": 13,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1587973039,
+    "itemId": 2138097685,
+    "toolType": 2,
+    "level": 9,
+    "power": 17
+  },
+  {
+    "id": 1595415579,
+    "itemId": 1294316834,
+    "toolType": 3,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1596767319,
+    "itemId": 905125849,
+    "toolType": 1,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1601360687,
+    "itemId": 1963145351,
+    "toolType": 10,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 1601753208,
+    "itemId": 1382100557,
+    "toolType": 6,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1604829976,
+    "itemId": 730668689,
+    "toolType": 13,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1606343175,
+    "itemId": 63218406,
+    "toolType": 5,
+    "level": 9,
+    "power": 34
+  },
+  {
+    "id": 1606850677,
+    "itemId": 824051531,
+    "toolType": 9,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 1607279150,
+    "itemId": 1507168971,
+    "toolType": 2,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1608935246,
+    "itemId": 1852171229,
+    "toolType": 8,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 1612529936,
+    "itemId": 1204436274,
+    "toolType": 7,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1618757606,
+    "itemId": 1943966691,
+    "toolType": 7,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 1621234594,
+    "itemId": 863928001,
+    "toolType": 1,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1622660655,
+    "itemId": 169314012,
+    "toolType": 3,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 1624236836,
+    "itemId": 377714204,
+    "toolType": 3,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1631891143,
+    "itemId": 155889080,
+    "toolType": 8,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 1634382774,
+    "itemId": 1845657486,
+    "toolType": 1,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1636462687,
+    "itemId": 2044354600,
+    "toolType": 9,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 1637562815,
+    "itemId": 123456,
+    "toolType": 6,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1649694959,
+    "itemId": 891693634,
+    "toolType": 9,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1654803586,
+    "itemId": 1706665906,
+    "toolType": 10,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1659508365,
+    "itemId": 123466,
+    "toolType": 7,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1669792445,
+    "itemId": 123458,
+    "toolType": 9,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1678669311,
+    "itemId": 1328366998,
+    "toolType": 6,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1687649171,
+    "itemId": 1704711141,
+    "toolType": 4,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1694802752,
+    "itemId": 683322490,
+    "toolType": 1,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1695386223,
+    "itemId": 1418411539,
+    "toolType": 9,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1696302351,
+    "itemId": 793793190,
+    "toolType": 6,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 1696620133,
+    "itemId": 1597311249,
+    "toolType": 7,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1698307501,
+    "itemId": 1342482833,
+    "toolType": 12,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 1698999675,
+    "itemId": 1850875532,
+    "toolType": 5,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1700722698,
+    "itemId": 1803029676,
+    "toolType": 1,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 1703580853,
+    "itemId": 123456,
+    "toolType": 11,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1705690424,
+    "itemId": 914845320,
+    "toolType": 3,
+    "level": 10,
+    "power": 30
+  },
+  {
+    "id": 1708204997,
+    "itemId": 1296222473,
+    "toolType": 6,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 1716686837,
+    "itemId": 265703470,
+    "toolType": 3,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1718830382,
+    "itemId": 775766159,
+    "toolType": 9,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1723166884,
+    "itemId": 1795603932,
+    "toolType": 2,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1723720497,
+    "itemId": 123458,
+    "toolType": 5,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1725447426,
+    "itemId": 534709859,
+    "toolType": 2,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1735608757,
+    "itemId": 1227974260,
+    "toolType": 12,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 1738720523,
+    "itemId": 710780423,
+    "toolType": 9,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 1739142047,
+    "itemId": 1134502760,
+    "toolType": 1,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1742893576,
+    "itemId": 1355330989,
+    "toolType": 2,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1744071079,
+    "itemId": 538664261,
+    "toolType": 13,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1751212441,
+    "itemId": 365922886,
+    "toolType": 9,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1759333897,
+    "itemId": 420653035,
+    "toolType": 13,
+    "level": 11,
+    "power": 26
+  },
+  {
+    "id": 1765398013,
+    "itemId": 749563560,
+    "toolType": 6,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 1768361841,
+    "itemId": 79211068,
+    "toolType": 1,
+    "level": 8,
+    "power": 31
+  },
+  {
+    "id": 1775150865,
+    "itemId": 606536097,
+    "toolType": 12,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 1779769986,
+    "itemId": 2014662030,
+    "toolType": 2,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1782164360,
+    "itemId": 2143108117,
+    "toolType": 13,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1783301607,
+    "itemId": 18726245,
+    "toolType": 7,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 1789345097,
+    "itemId": 1114637686,
+    "toolType": 10,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1795887827,
+    "itemId": 438003010,
+    "toolType": 3,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 1797747784,
+    "itemId": 705866832,
+    "toolType": 2,
+    "level": 7,
+    "power": 30
+  },
+  {
+    "id": 1802596103,
+    "itemId": 1598465065,
+    "toolType": 7,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1803438148,
+    "itemId": 123458,
+    "toolType": 1,
+    "level": 11,
+    "power": 1
+  },
+  {
+    "id": 1806008363,
+    "itemId": 789795936,
+    "toolType": 3,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1811788577,
+    "itemId": 882022228,
+    "toolType": 2,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 1816934684,
+    "itemId": 925940642,
+    "toolType": 12,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1821629095,
+    "itemId": 123456,
+    "toolType": 2,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1821718030,
+    "itemId": 268156651,
+    "toolType": 6,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 1821863370,
+    "itemId": 35241153,
+    "toolType": 8,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 1834918218,
+    "itemId": 711847037,
+    "toolType": 9,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 1841234972,
+    "itemId": 515140735,
+    "toolType": 7,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1847352724,
+    "itemId": 256269483,
+    "toolType": 9,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 1858734509,
+    "itemId": 95018448,
+    "toolType": 10,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1861612585,
+    "itemId": 903869568,
+    "toolType": 10,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1866305294,
+    "itemId": 783907612,
+    "toolType": 8,
+    "level": 6,
+    "power": 14
+  },
+  {
+    "id": 1872499476,
+    "itemId": 382339978,
+    "toolType": 5,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 1873175958,
+    "itemId": 1941748536,
+    "toolType": 12,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1873223337,
+    "itemId": 1975378037,
+    "toolType": 5,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 1875245263,
+    "itemId": 1043616593,
+    "toolType": 3,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 1878563803,
+    "itemId": 11016,
+    "toolType": 3,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 1881504759,
+    "itemId": 1801278403,
+    "toolType": 13,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1882278928,
+    "itemId": 855018787,
+    "toolType": 12,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1882726704,
+    "itemId": 878819349,
+    "toolType": 13,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1891991707,
+    "itemId": 123467,
+    "toolType": 8,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1894757526,
+    "itemId": 330213571,
+    "toolType": 10,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 1895794915,
+    "itemId": 1511783678,
+    "toolType": 7,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1900414687,
+    "itemId": 2102423504,
+    "toolType": 8,
+    "level": 9,
+    "power": 24
+  },
+  {
+    "id": 1902889315,
+    "itemId": 1709953729,
+    "toolType": 7,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 1903332959,
+    "itemId": 398791964,
+    "toolType": 5,
+    "level": 4,
+    "power": 12
+  },
+  {
+    "id": 1904630225,
+    "itemId": 1491113278,
+    "toolType": 7,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1906310996,
+    "itemId": 1165036582,
+    "toolType": 13,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 1910257338,
+    "itemId": 544541723,
+    "toolType": 10,
+    "level": 2,
+    "power": 10
+  },
+  {
+    "id": 1912694675,
+    "itemId": 1666431616,
+    "toolType": 1,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 1915200115,
+    "itemId": 1722663127,
+    "toolType": 5,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 1918605932,
+    "itemId": 168526448,
+    "toolType": 8,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 1921673521,
+    "itemId": 2137385733,
+    "toolType": 8,
+    "level": 7,
+    "power": 32
+  },
+  {
+    "id": 1927320615,
+    "itemId": 1316428000,
+    "toolType": 6,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 1928247222,
+    "itemId": 1074988608,
+    "toolType": 3,
+    "level": 10,
+    "power": 35
+  },
+  {
+    "id": 1931128212,
+    "itemId": 123456,
+    "toolType": 7,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1932828684,
+    "itemId": 509462729,
+    "toolType": 6,
+    "level": 9,
+    "power": 32
+  },
+  {
+    "id": 1934071468,
+    "itemId": 433291223,
+    "toolType": 9,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1938125728,
+    "itemId": 938917821,
+    "toolType": 2,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 1939418818,
+    "itemId": 123472,
+    "toolType": 13,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 1940103950,
+    "itemId": 1967818666,
+    "toolType": 2,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 1940811853,
+    "itemId": 1791030818,
+    "toolType": 12,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1942647287,
+    "itemId": 1125175444,
+    "toolType": 2,
+    "level": 10,
+    "power": 25
+  },
+  {
+    "id": 1943516184,
+    "itemId": 1532860049,
+    "toolType": 10,
+    "level": 11,
+    "power": 36
+  },
+  {
+    "id": 1944104730,
+    "itemId": 831568122,
+    "toolType": 5,
+    "level": 9,
+    "power": 20
+  },
+  {
+    "id": 1949143499,
+    "itemId": 1644054609,
+    "toolType": 3,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 1950330823,
+    "itemId": 659271654,
+    "toolType": 13,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 1963835537,
+    "itemId": 54671513,
+    "toolType": 2,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 1971846269,
+    "itemId": 413702311,
+    "toolType": 2,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 1979887654,
+    "itemId": 1727145041,
+    "toolType": 13,
+    "level": 7,
+    "power": 18
+  },
+  {
+    "id": 1981917214,
+    "itemId": 1674000473,
+    "toolType": 1,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 1982413540,
+    "itemId": 1413938165,
+    "toolType": 3,
+    "level": 3,
+    "power": 11
+  },
+  {
+    "id": 1987531251,
+    "itemId": 1572246248,
+    "toolType": 5,
+    "level": 6,
+    "power": 21
+  },
+  {
+    "id": 1991897742,
+    "itemId": 653390186,
+    "toolType": 8,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 1992553556,
+    "itemId": 48273978,
+    "toolType": 7,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 1996737427,
+    "itemId": 1606324183,
+    "toolType": 4,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 2007891651,
+    "itemId": 734826989,
+    "toolType": 9,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 2011196254,
+    "itemId": 980525508,
+    "toolType": 2,
+    "level": 7,
+    "power": 22
+  },
+  {
+    "id": 2012057270,
+    "itemId": 1733486247,
+    "toolType": 3,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 2014495377,
+    "itemId": 1378306886,
+    "toolType": 8,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 2015027403,
+    "itemId": 1826278986,
+    "toolType": 9,
+    "level": 8,
+    "power": 23
+  },
+  {
+    "id": 2023745337,
+    "itemId": 1742152709,
+    "toolType": 8,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 2025362077,
+    "itemId": 211315133,
+    "toolType": 6,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 2025395074,
+    "itemId": 124007770,
+    "toolType": 7,
+    "level": 3,
+    "power": 14
+  },
+  {
+    "id": 2030988972,
+    "itemId": 1047843413,
+    "toolType": 5,
+    "level": 8,
+    "power": 16
+  },
+  {
+    "id": 2040971595,
+    "itemId": 654478483,
+    "toolType": 4,
+    "level": 6,
+    "power": 29
+  },
+  {
+    "id": 2051810844,
+    "itemId": 123463,
+    "toolType": 5,
+    "level": 11,
+    "power": 10000
+  },
+  {
+    "id": 2058485358,
+    "itemId": 2024640963,
+    "toolType": 13,
+    "level": 7,
+    "power": 15
+  },
+  {
+    "id": 2059044257,
+    "itemId": 1911572067,
+    "toolType": 9,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 2064544083,
+    "itemId": 793975188,
+    "toolType": 1,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 2064548690,
+    "itemId": 555609069,
+    "toolType": 7,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 2068636686,
+    "itemId": 1129358002,
+    "toolType": 12,
+    "level": 11,
+    "power": 34
+  },
+  {
+    "id": 2070405204,
+    "itemId": 1088712906,
+    "toolType": 10,
+    "level": 6,
+    "power": 26
+  },
+  {
+    "id": 2072180879,
+    "itemId": 961121297,
+    "toolType": 10,
+    "level": 4,
+    "power": 15
+  },
+  {
+    "id": 2077300732,
+    "itemId": 1115966209,
+    "toolType": 2,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 2079439932,
+    "itemId": 11018,
+    "toolType": 5,
+    "level": 1,
+    "power": 8
+  },
+  {
+    "id": 2080845369,
+    "itemId": 1264098940,
+    "toolType": 8,
+    "level": 10,
+    "power": 18
+  },
+  {
+    "id": 2080867219,
+    "itemId": 1530334007,
+    "toolType": 10,
+    "level": 8,
+    "power": 33
+  },
+  {
+    "id": 2080926003,
+    "itemId": 735626470,
+    "toolType": 7,
+    "level": 5,
+    "power": 13
+  },
+  {
+    "id": 2088804470,
+    "itemId": 1682992816,
+    "toolType": 1,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 2098425447,
+    "itemId": 394376375,
+    "toolType": 12,
+    "level": 10,
+    "power": 33
+  },
+  {
+    "id": 2098522531,
+    "itemId": 1082110839,
+    "toolType": 13,
+    "level": 8,
+    "power": 19
+  },
+  {
+    "id": 2103275733,
+    "itemId": 239660917,
+    "toolType": 8,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 2103297222,
+    "itemId": 687436281,
+    "toolType": 6,
+    "level": 5,
+    "power": 16
+  },
+  {
+    "id": 2106031614,
+    "itemId": 503937521,
+    "toolType": 12,
+    "level": 8,
+    "power": 28
+  },
+  {
+    "id": 2111294440,
+    "itemId": 223672560,
+    "toolType": 10,
+    "level": 4,
+    "power": 19
+  },
+  {
+    "id": 2115826493,
+    "itemId": 611828737,
+    "toolType": 2,
+    "level": 11,
+    "power": 22
+  },
+  {
+    "id": 2117202058,
+    "itemId": 1064089120,
+    "toolType": 4,
+    "level": 9,
+    "power": 29
+  },
+  {
+    "id": 2123216426,
+    "itemId": 1344023712,
+    "toolType": 9,
+    "level": 5,
+    "power": 25
+  },
+  {
+    "id": 2126442075,
+    "itemId": 458161936,
+    "toolType": 13,
+    "level": 7,
+    "power": 27
+  },
+  {
+    "id": 2130611050,
+    "itemId": 838551025,
+    "toolType": 5,
+    "level": 6,
+    "power": 17
+  },
+  {
+    "id": 2133250430,
+    "itemId": 1524718882,
+    "toolType": 13,
+    "level": 5,
+    "power": 20
+  },
+  {
+    "id": 2133782426,
+    "itemId": 1101928704,
+    "toolType": 8,
+    "level": 10,
+    "power": 21
+  },
+  {
+    "id": 2138045281,
+    "itemId": 805993420,
+    "toolType": 9,
+    "level": 11,
+    "power": 19
+  },
+  {
+    "id": 2144824708,
+    "itemId": 567900652,
+    "toolType": 4,
+    "level": 4,
+    "power": 15
+  }
+]

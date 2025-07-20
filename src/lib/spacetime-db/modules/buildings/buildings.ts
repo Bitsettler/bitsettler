@@ -4,13 +4,23 @@ import type { ItemDesc } from '@/data/bindings/item_desc_type'
 export { type BuildingWithConstructionInfo, type BuildingWithItem } from './building-utils'
 
 // Export main functions for backward compatibility
-export { getBuildingsWithConstructionInfo } from './flows'
-export { getBuildingsGroupedByCategory, getBuildingsGroupedByLocation, getBuildingsGroupedByFunction } from './flows'
-export { getBuildingStatistics } from './flows'
+export {
+  getBuildingsGroupedByCategory,
+  getBuildingsGroupedByFunction,
+  getBuildingsGroupedByLocation,
+  getBuildingStatistics,
+  getBuildingsWithConstructionInfo
+} from './flows'
 
 // Export commands for direct access
-export { getAllBuildings, getBuildings } from './commands'
-export { getBuildingData, getConstructionRecipes, getDeconstructionRecipes, getWritItems } from './commands'
+export {
+  getAllBuildings,
+  getBuildingData,
+  getBuildings,
+  getConstructionRecipes,
+  getDeconstructionRecipes,
+  getWritItems
+} from './commands'
 
 // Legacy functions for backward compatibility
 export async function getDestructibleBuildings() {

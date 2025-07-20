@@ -1,6 +1,6 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import type { CalculatorItem } from '../../../shared/dtos/calculator-dtos'
 import { cleanIconAssetName, getServerIconPath } from '../../../shared/assets'
+import type { CalculatorItem } from '../../../shared/dtos/calculator-dtos'
 import { createSlug } from '../../../shared/utils/entities'
 import { convertRarityToString } from '../../../shared/utils/rarity'
 

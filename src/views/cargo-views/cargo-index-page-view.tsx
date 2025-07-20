@@ -1,13 +1,15 @@
 import { Container } from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface CargoCategory {
   id: string
   name: string
   description: string
-  icon: string
+  icon: string | undefined
   count: number
   category: string
   href: string
@@ -26,8 +28,13 @@ function CargoCategoryCard({ category }: { category: CargoCategory }) {
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-muted flex h-12 w-12 items-center justify-center rounded-lg">
-                <span className="text-2xl">{category.icon}</span>
+              <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
+                <Image
+                  src={getServerIconPath(cleanIconAssetName(category.icon))}
+                  alt={category.name}
+                  width={52}
+                  height={52}
+                />
               </div>
               <div>
                 <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>

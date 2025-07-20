@@ -1,0 +1,610 @@
+[
+  {
+    "id": 1,
+    "name": "LadderPortal",
+    "buildingId": 10001,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 2,
+    "name": "Campsite Portal 2",
+    "buildingId": 404,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 3,
+    "name": "SmallHutOutsidePortal",
+    "buildingId": 51000,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 2
+  },
+  {
+    "id": 4,
+    "name": "MediumHutOutsidePortal",
+    "buildingId": 51001,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 1
+  },
+  {
+    "id": 5,
+    "name": "LargeHutOutsidePortal",
+    "buildingId": 52000,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 2
+  },
+  {
+    "id": 6,
+    "name": "LadderPortal2",
+    "buildingId": 10002,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 7,
+    "name": "LadderPortal3",
+    "buildingId": 10003,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 8,
+    "name": "Windmill Portal 8",
+    "buildingId": 53001,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 1
+  },
+  {
+    "id": 9,
+    "name": "LadderPortal4",
+    "buildingId": 10004,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 10,
+    "name": "Trap Door",
+    "buildingId": 10006,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 11,
+    "name": "MultiroomHutOutside",
+    "buildingId": 53000,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 2
+  },
+  {
+    "id": 12,
+    "name": "T2SmallHutOutsidePortal",
+    "buildingId": 52001,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 2
+  },
+  {
+    "id": 13,
+    "name": "T2MediumHutOutsidePortal",
+    "buildingId": 52002,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 1
+  },
+  {
+    "id": 14,
+    "name": "T2LargeHutOutsidePortal",
+    "buildingId": 52003,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 2
+  },
+  {
+    "id": 15,
+    "name": "PoweredDoorRuin",
+    "buildingId": 80014,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 16,
+    "name": "DesertRuin",
+    "buildingId": 80015,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 17,
+    "name": "Small Sturdy House Portal 17",
+    "buildingId": 53002,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 2
+  },
+  {
+    "id": 18,
+    "name": "Large Sturdy Townhouse Portal 18",
+    "buildingId": 53004,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 6
+  },
+  {
+    "id": 19,
+    "name": "Small Sturdy Townhouse Portal 19",
+    "buildingId": 53003,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 4
+  },
+  {
+    "id": 20,
+    "name": "Large Sturdy Home Portal 18",
+    "buildingId": 53007,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 6
+  },
+  {
+    "id": 21,
+    "name": "Medium Sturdy Home Portal 19",
+    "buildingId": 53006,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 4
+  },
+  {
+    "id": 22,
+    "name": "Small Sturdy Home Portal 17",
+    "buildingId": 53005,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 2
+  },
+  {
+    "id": 23,
+    "name": "Medium Exquisite Home Portal 23",
+    "buildingId": 55006,
+    "allowDeployables": true,
+    "posX": -4,
+    "posZ": 3
+  },
+  {
+    "id": 24,
+    "name": "Large Exquisite Home Portal 24",
+    "buildingId": 55007,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 5
+  },
+  {
+    "id": 25,
+    "name": "Building_FirstTempleEntrance Portal 25",
+    "buildingId": 489406613,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 10
+  },
+  {
+    "id": 26,
+    "name": "Heimlich's House Portal 26",
+    "buildingId": 50,
+    "allowDeployables": true,
+    "posX": -2,
+    "posZ": 4
+  },
+  {
+    "id": 27,
+    "name": "Small Exquisite Home Portal 27",
+    "buildingId": 55005,
+    "allowDeployables": true,
+    "posX": 1,
+    "posZ": 2
+  },
+  {
+    "id": 28,
+    "name": "Medium Peerless Home Portal 23",
+    "buildingId": 55009,
+    "allowDeployables": true,
+    "posX": -4,
+    "posZ": 3
+  },
+  {
+    "id": 29,
+    "name": "Small Peerless Home Portal 27",
+    "buildingId": 55008,
+    "allowDeployables": true,
+    "posX": 1,
+    "posZ": 2
+  },
+  {
+    "id": 30,
+    "name": "Large Peerless Home Portal 24",
+    "buildingId": 55010,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 5
+  },
+  {
+    "id": 31,
+    "name": "Large Fine Home Portal 18",
+    "buildingId": 54007,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 6
+  },
+  {
+    "id": 32,
+    "name": "Medium Fine Home Portal 19",
+    "buildingId": 54006,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 4
+  },
+  {
+    "id": 33,
+    "name": "Small Fine Home Portal 17",
+    "buildingId": 54005,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 2
+  },
+  {
+    "id": 34,
+    "name": "Building_SecondTempleEntrance Portal 34",
+    "buildingId": 1752479333,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 10
+  },
+  {
+    "id": 35,
+    "name": "Building_ThirdTempleEntrance Portal 35",
+    "buildingId": 1662809355,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 10
+  },
+  {
+    "id": 36,
+    "name": "Building_FourthTempleEntrance Portal 36",
+    "buildingId": 2034914963,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 10
+  },
+  {
+    "id": 37,
+    "name": "Building_FifthTempleEntrance Portal 37",
+    "buildingId": 1008368350,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 10
+  },
+  {
+    "id": 38,
+    "name": "Building_CaveDoorway Portal 38",
+    "buildingId": 430182923,
+    "allowDeployables": true,
+    "posX": -1,
+    "posZ": 1
+  },
+  {
+    "id": 39,
+    "name": "Building_TowerExit Portal 39",
+    "buildingId": 1756754057,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 40,
+    "name": "Building_PyreliteCave Portal 40",
+    "buildingId": 790011334,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 41,
+    "name": "Building_CaveDoorwayCollapsed Portal 41",
+    "buildingId": 101794940,
+    "allowDeployables": true,
+    "posX": -2,
+    "posZ": 2
+  },
+  {
+    "id": 42,
+    "name": "Building_InvisibleCaveExit Portal 42",
+    "buildingId": 1593993049,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 43,
+    "name": "Building_LargePyreliteCave Portal 43",
+    "buildingId": 1845065396,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 44,
+    "name": "Building_InvisibleTowerExit Portal 44",
+    "buildingId": 188822876,
+    "allowDeployables": false,
+    "posX": 1,
+    "posZ": -1
+  },
+  {
+    "id": 46,
+    "name": "Building_Alesi'sHideout Portal 46",
+    "buildingId": 1130862882,
+    "allowDeployables": false,
+    "posX": 0,
+    "posZ": 1
+  },
+  {
+    "id": 100,
+    "name": "CopperCaveExterior",
+    "buildingId": 80010,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 200,
+    "name": "TinCaveExterior",
+    "buildingId": 80011,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 250,
+    "name": "IronCaveExterior",
+    "buildingId": 80013,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 300,
+    "name": "GeodeCaveExterior",
+    "buildingId": 80012,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 350,
+    "name": "MushroomCaveExterior",
+    "buildingId": 80016,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 500,
+    "name": "CollapsingRuinAExterior",
+    "buildingId": 2,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 600,
+    "name": "LargeRuinAExterior",
+    "buildingId": 80001,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 700,
+    "name": "PuzzleRuinAExterior",
+    "buildingId": 80002,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1000,
+    "name": "GreatHallRuinExterior",
+    "buildingId": 80003,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1600,
+    "name": "MazeRuinExterior",
+    "buildingId": 80004,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 5000,
+    "name": "PrefabRuinExterior1",
+    "buildingId": 80005,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 5100,
+    "name": "PrefabRuinExterior2",
+    "buildingId": 80006,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 25000,
+    "name": "T2PrefabRuinExterior1",
+    "buildingId": 80007,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 25100,
+    "name": "T2PrefabRuinExterior2",
+    "buildingId": 80008,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 26000,
+    "name": "T2LargeRuinExterior",
+    "buildingId": 80009,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 99998,
+    "name": "DevInteriorEntrance",
+    "buildingId": 99999,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": -1
+  },
+  {
+    "id": 99999,
+    "name": "DevInteriorExit",
+    "buildingId": 99999,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": -1
+  },
+  {
+    "id": 67241718,
+    "name": "Building_LargeT10Cave Portal 43",
+    "buildingId": 1175813850,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 203433793,
+    "name": "Building_LargeT9Cave Portal 43",
+    "buildingId": 858687284,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 430182923,
+    "name": "UmburaCaveExterior",
+    "buildingId": 12598301,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 517744617,
+    "name": "Building_LargeT5Cave Portal 43",
+    "buildingId": 312420794,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 776721501,
+    "name": "PlayerHousingInterior1Entrance",
+    "buildingId": 70181493,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1109832130,
+    "name": "DoorwayPortal",
+    "buildingId": 1845898524,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1123389139,
+    "name": "PlayerHousingInterior3Entrance",
+    "buildingId": 1899627609,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1165847204,
+    "name": "PlayerHousingInterior2Entrance",
+    "buildingId": 1005598626,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1278771798,
+    "name": "Building_LargeT6Cave Portal 43",
+    "buildingId": 1875067311,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1404699335,
+    "name": "Building_LargeT4Cave Portal 43",
+    "buildingId": 1440765680,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1423776088,
+    "name": "Building_LargeT3Cave Portal 43",
+    "buildingId": 696858550,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1521553649,
+    "name": "Building_LargeT2Cave Portal 43",
+    "buildingId": 280863630,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1888693539,
+    "name": "Building_LargeT7Cave Portal 43",
+    "buildingId": 253216585,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  },
+  {
+    "id": 1933356503,
+    "name": "Building_LargeT8Cave Portal 43",
+    "buildingId": 1477951340,
+    "allowDeployables": true,
+    "posX": 0,
+    "posZ": 0
+  }
+]

@@ -2774,7 +2774,6 @@ export { PlayerTradeRemoveItemRequest }
 export { PlayerTradeSwapPocketsRequest }
 export { PlayerUseElevatorTimer }
 export { PlayerUsernameState }
-export { PlayerVoteAnswer }
 export { PlayerVoteAnswerRequest }
 export { PlayerVoteConcludeTimer }
 export { PlayerVoteState }

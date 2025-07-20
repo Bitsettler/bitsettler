@@ -1,0 +1,418 @@
+[
+  {
+    "secondaryKnowledgeId": 100002,
+    "stats": [
+      {
+        "id": {
+          "tag": "MovementMultiplier",
+          "value": {}
+        },
+        "value": 0,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 85361069,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 922161738,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1179490605,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1848639773,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 481239285,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1595594410,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1374810712,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 2069857725,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 352936733,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1108478591,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxSatiation",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 247498648,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 865680811,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1396363569,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 745950734,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1698909790,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 637569088,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1544455467,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1496870093,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1193306099,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1296867343,
+    "stats": [
+      {
+        "id": {
+          "tag": "CookingPower",
+          "value": {}
+        },
+        "value": 2,
+        "isPct": false
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1012505575,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 177204475,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 2141686838,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1954516355,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1941494853,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 76131923,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 1897163274,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 848401975,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 982130286,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 565101671,
+    "stats": [
+      {
+        "id": {
+          "tag": "BuildingSpeed",
+          "value": {}
+        },
+        "value": 0.019999999552965164,
+        "isPct": true
+      }
+    ]
+  },
+  {
+    "secondaryKnowledgeId": 444086104,
+    "stats": [
+      {
+        "id": {
+          "tag": "MaxTeleportationEnergy",
+          "value": {}
+        },
+        "value": 10,
+        "isPct": false
+      }
+    ]
+  }
+]

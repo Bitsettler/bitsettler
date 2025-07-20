@@ -37,7 +37,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-
 export default async function LocaleLayout({
   children,
   params

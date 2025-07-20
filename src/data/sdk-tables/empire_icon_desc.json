@@ -1,0 +1,702 @@
+[
+  {
+    "id": 11159455,
+    "iconUnicode": "\\u00D4",
+    "isShape": false
+  },
+  {
+    "id": 39560580,
+    "iconUnicode": "\\uFF9C",
+    "isShape": true
+  },
+  {
+    "id": 63086001,
+    "iconUnicode": "\\uFF8D",
+    "isShape": true
+  },
+  {
+    "id": 103756600,
+    "iconUnicode": "\\u00D1",
+    "isShape": false
+  },
+  {
+    "id": 125612896,
+    "iconUnicode": "\\u0063",
+    "isShape": false
+  },
+  {
+    "id": 127941792,
+    "iconUnicode": "\\u0059",
+    "isShape": false
+  },
+  {
+    "id": 130269928,
+    "iconUnicode": "\\u005E",
+    "isShape": false
+  },
+  {
+    "id": 145197911,
+    "iconUnicode": "\\u0053",
+    "isShape": false
+  },
+  {
+    "id": 180328795,
+    "iconUnicode": "\\u0073",
+    "isShape": false
+  },
+  {
+    "id": 204895959,
+    "iconUnicode": "\\u0081",
+    "isShape": false
+  },
+  {
+    "id": 207450530,
+    "iconUnicode": "\\u0016",
+    "isShape": false
+  },
+  {
+    "id": 210074990,
+    "iconUnicode": "\\u00F3",
+    "isShape": false
+  },
+  {
+    "id": 215584466,
+    "iconUnicode": "\\u006F",
+    "isShape": false
+  },
+  {
+    "id": 221612839,
+    "iconUnicode": "\\u00CF",
+    "isShape": false
+  },
+  {
+    "id": 232638054,
+    "iconUnicode": "\\u00DF",
+    "isShape": false
+  },
+  {
+    "id": 237717518,
+    "iconUnicode": "\\u00C4",
+    "isShape": false
+  },
+  {
+    "id": 237728460,
+    "iconUnicode": "\\u00EB",
+    "isShape": false
+  },
+  {
+    "id": 249495108,
+    "iconUnicode": "\\u0040",
+    "isShape": false
+  },
+  {
+    "id": 250787536,
+    "iconUnicode": "\\u005F",
+    "isShape": false
+  },
+  {
+    "id": 254928790,
+    "iconUnicode": "\\uFF9D",
+    "isShape": true
+  },
+  {
+    "id": 259158809,
+    "iconUnicode": "\\u00C9",
+    "isShape": false
+  },
+  {
+    "id": 281033071,
+    "iconUnicode": "\\u0089",
+    "isShape": false
+  },
+  {
+    "id": 294044421,
+    "iconUnicode": "\\u00E9",
+    "isShape": false
+  },
+  {
+    "id": 303001942,
+    "iconUnicode": "\\uFF8F",
+    "isShape": true
+  },
+  {
+    "id": 360111928,
+    "iconUnicode": "\\uFF99",
+    "isShape": true
+  },
+  {
+    "id": 375007752,
+    "iconUnicode": "\\uFF8E",
+    "isShape": true
+  },
+  {
+    "id": 396690665,
+    "iconUnicode": "\\u0069",
+    "isShape": false
+  },
+  {
+    "id": 416208426,
+    "iconUnicode": "\\u0035",
+    "isShape": false
+  },
+  {
+    "id": 433423257,
+    "iconUnicode": "\\u0041",
+    "isShape": false
+  },
+  {
+    "id": 451328626,
+    "iconUnicode": "\\u00E4",
+    "isShape": false
+  },
+  {
+    "id": 458244239,
+    "iconUnicode": "\\u00EC",
+    "isShape": false
+  },
+  {
+    "id": 487679891,
+    "iconUnicode": "\\u005B",
+    "isShape": false
+  },
+  {
+    "id": 501590225,
+    "iconUnicode": "\\u00DE",
+    "isShape": false
+  },
+  {
+    "id": 501659610,
+    "iconUnicode": "\\u00F1",
+    "isShape": false
+  },
+  {
+    "id": 507420964,
+    "iconUnicode": "\\u0064",
+    "isShape": false
+  },
+  {
+    "id": 525194299,
+    "iconUnicode": "\\u005C",
+    "isShape": false
+  },
+  {
+    "id": 527799699,
+    "iconUnicode": "\\u006B",
+    "isShape": false
+  },
+  {
+    "id": 540396578,
+    "iconUnicode": "\\u0062",
+    "isShape": false
+  },
+  {
+    "id": 553082067,
+    "iconUnicode": "\\u00C5",
+    "isShape": false
+  },
+  {
+    "id": 570769386,
+    "iconUnicode": "\\u006C",
+    "isShape": false
+  },
+  {
+    "id": 590421544,
+    "iconUnicode": "\\u0018",
+    "isShape": false
+  },
+  {
+    "id": 617283220,
+    "iconUnicode": "\\u003B",
+    "isShape": false
+  },
+  {
+    "id": 623897994,
+    "iconUnicode": "\\u00EE",
+    "isShape": false
+  },
+  {
+    "id": 628087757,
+    "iconUnicode": "\\u00F8",
+    "isShape": false
+  },
+  {
+    "id": 638057245,
+    "iconUnicode": "\\u00EA",
+    "isShape": false
+  },
+  {
+    "id": 654523503,
+    "iconUnicode": "\\u00E3",
+    "isShape": false
+  },
+  {
+    "id": 690971421,
+    "iconUnicode": "\\u00F6",
+    "isShape": false
+  },
+  {
+    "id": 692070620,
+    "iconUnicode": "\\u00D8",
+    "isShape": false
+  },
+  {
+    "id": 716839479,
+    "iconUnicode": "\\u0014",
+    "isShape": false
+  },
+  {
+    "id": 730146928,
+    "iconUnicode": "\\uFF97",
+    "isShape": true
+  },
+  {
+    "id": 748493381,
+    "iconUnicode": "\\uFF92",
+    "isShape": true
+  },
+  {
+    "id": 774756853,
+    "iconUnicode": "\\u0065",
+    "isShape": false
+  },
+  {
+    "id": 780561185,
+    "iconUnicode": "\\u0013",
+    "isShape": false
+  },
+  {
+    "id": 821349066,
+    "iconUnicode": "\\uFF9E",
+    "isShape": true
+  },
+  {
+    "id": 831771455,
+    "iconUnicode": "\\u007C",
+    "isShape": false
+  },
+  {
+    "id": 847793116,
+    "iconUnicode": "\\u0060",
+    "isShape": false
+  },
+  {
+    "id": 869405558,
+    "iconUnicode": "\\u005A",
+    "isShape": false
+  },
+  {
+    "id": 871833969,
+    "iconUnicode": "\\u006E",
+    "isShape": false
+  },
+  {
+    "id": 883497192,
+    "iconUnicode": "\\u0045",
+    "isShape": false
+  },
+  {
+    "id": 898996701,
+    "iconUnicode": "\\u00F4",
+    "isShape": false
+  },
+  {
+    "id": 908899008,
+    "iconUnicode": "\\u00C7",
+    "isShape": false
+  },
+  {
+    "id": 919573007,
+    "iconUnicode": "\\u00C8",
+    "isShape": false
+  },
+  {
+    "id": 921167949,
+    "iconUnicode": "\\u0084",
+    "isShape": false
+  },
+  {
+    "id": 940357560,
+    "iconUnicode": "\\u0031",
+    "isShape": false
+  },
+  {
+    "id": 950892695,
+    "iconUnicode": "\\u00F7",
+    "isShape": false
+  },
+  {
+    "id": 973281675,
+    "iconUnicode": "\\u002C",
+    "isShape": false
+  },
+  {
+    "id": 974294858,
+    "iconUnicode": "\\uFF98",
+    "isShape": true
+  },
+  {
+    "id": 979968561,
+    "iconUnicode": "\\u0034",
+    "isShape": false
+  },
+  {
+    "id": 992729117,
+    "iconUnicode": "\\u00D7",
+    "isShape": false
+  },
+  {
+    "id": 1013517880,
+    "iconUnicode": "\\u00ED",
+    "isShape": false
+  },
+  {
+    "id": 1021096594,
+    "iconUnicode": "\\u0029",
+    "isShape": false
+  },
+  {
+    "id": 1071977086,
+    "iconUnicode": "\\u0052",
+    "isShape": false
+  },
+  {
+    "id": 1107518797,
+    "iconUnicode": "\\u0082",
+    "isShape": false
+  },
+  {
+    "id": 1108930419,
+    "iconUnicode": "\\u0087",
+    "isShape": false
+  },
+  {
+    "id": 1122585739,
+    "iconUnicode": "\\uFF8C",
+    "isShape": true
+  },
+  {
+    "id": 1123284443,
+    "iconUnicode": "\\u00F5",
+    "isShape": false
+  },
+  {
+    "id": 1123331523,
+    "iconUnicode": "\\u00FF",
+    "isShape": false
+  },
+  {
+    "id": 1142929235,
+    "iconUnicode": "\\u006A",
+    "isShape": false
+  },
+  {
+    "id": 1195204013,
+    "iconUnicode": "\\u0068",
+    "isShape": false
+  },
+  {
+    "id": 1207915082,
+    "iconUnicode": "\\u00F2",
+    "isShape": false
+  },
+  {
+    "id": 1245706872,
+    "iconUnicode": "\\u00D5",
+    "isShape": false
+  },
+  {
+    "id": 1271422229,
+    "iconUnicode": "\\u00CB",
+    "isShape": false
+  },
+  {
+    "id": 1307603300,
+    "iconUnicode": "\\u0048",
+    "isShape": false
+  },
+  {
+    "id": 1310584361,
+    "iconUnicode": "\\u00F9",
+    "isShape": false
+  },
+  {
+    "id": 1318564877,
+    "iconUnicode": "\\u00FC",
+    "isShape": false
+  },
+  {
+    "id": 1321015967,
+    "iconUnicode": "\\u0100",
+    "isShape": false
+  },
+  {
+    "id": 1353229769,
+    "iconUnicode": "\\u00C6",
+    "isShape": false
+  },
+  {
+    "id": 1360569509,
+    "iconUnicode": "\\u0074",
+    "isShape": false
+  },
+  {
+    "id": 1366937656,
+    "iconUnicode": "\\u0078",
+    "isShape": false
+  },
+  {
+    "id": 1379640934,
+    "iconUnicode": "\\u003D",
+    "isShape": false
+  },
+  {
+    "id": 1400147676,
+    "iconUnicode": "\\u00FB",
+    "isShape": false
+  },
+  {
+    "id": 1417206041,
+    "iconUnicode": "\\u0036",
+    "isShape": false
+  },
+  {
+    "id": 1431103862,
+    "iconUnicode": "\\u0076",
+    "isShape": false
+  },
+  {
+    "id": 1453874725,
+    "iconUnicode": "\\u0054",
+    "isShape": false
+  },
+  {
+    "id": 1487617193,
+    "iconUnicode": "\\u007D",
+    "isShape": false
+  },
+  {
+    "id": 1500905842,
+    "iconUnicode": "\\u0032",
+    "isShape": false
+  },
+  {
+    "id": 1508115937,
+    "iconUnicode": "\\u0011",
+    "isShape": false
+  },
+  {
+    "id": 1538165925,
+    "iconUnicode": "\\uFF96",
+    "isShape": true
+  },
+  {
+    "id": 1540168164,
+    "iconUnicode": "\\u005D",
+    "isShape": false
+  },
+  {
+    "id": 1548459520,
+    "iconUnicode": "\\uFF90",
+    "isShape": true
+  },
+  {
+    "id": 1553653410,
+    "iconUnicode": "\\u0079",
+    "isShape": false
+  },
+  {
+    "id": 1574236011,
+    "iconUnicode": "\\u008B",
+    "isShape": false
+  },
+  {
+    "id": 1594752475,
+    "iconUnicode": "\\u0047",
+    "isShape": false
+  },
+  {
+    "id": 1615171894,
+    "iconUnicode": "\\u00D6",
+    "isShape": false
+  },
+  {
+    "id": 1674357327,
+    "iconUnicode": "\\u00E6",
+    "isShape": false
+  },
+  {
+    "id": 1697792380,
+    "iconUnicode": "\\uFF95",
+    "isShape": true
+  },
+  {
+    "id": 1710477731,
+    "iconUnicode": "\\u00D9",
+    "isShape": false
+  },
+  {
+    "id": 1760810875,
+    "iconUnicode": "\\u006D",
+    "isShape": false
+  },
+  {
+    "id": 1762268270,
+    "iconUnicode": "\\u00F0",
+    "isShape": false
+  },
+  {
+    "id": 1762512261,
+    "iconUnicode": "\\u0046",
+    "isShape": false
+  },
+  {
+    "id": 1774418698,
+    "iconUnicode": "\\u003F",
+    "isShape": false
+  },
+  {
+    "id": 1804752934,
+    "iconUnicode": "\\u0075",
+    "isShape": false
+  },
+  {
+    "id": 1863838164,
+    "iconUnicode": "\\u0039",
+    "isShape": false
+  },
+  {
+    "id": 1892122318,
+    "iconUnicode": "\\u00EF",
+    "isShape": false
+  },
+  {
+    "id": 1897602399,
+    "iconUnicode": "\\uFF94",
+    "isShape": true
+  },
+  {
+    "id": 1901811663,
+    "iconUnicode": "\\u002B",
+    "isShape": false
+  },
+  {
+    "id": 1908114777,
+    "iconUnicode": "\\u0071",
+    "isShape": false
+  },
+  {
+    "id": 1938165182,
+    "iconUnicode": "\\u00D2",
+    "isShape": false
+  },
+  {
+    "id": 1972607704,
+    "iconUnicode": "\\uFF91",
+    "isShape": true
+  },
+  {
+    "id": 1983925650,
+    "iconUnicode": "\\u0086",
+    "isShape": false
+  },
+  {
+    "id": 1987776393,
+    "iconUnicode": "\\u0083",
+    "isShape": false
+  },
+  {
+    "id": 2003146584,
+    "iconUnicode": "\\u0030",
+    "isShape": false
+  },
+  {
+    "id": 2004779900,
+    "iconUnicode": "\\u0019",
+    "isShape": false
+  },
+  {
+    "id": 2033823413,
+    "iconUnicode": "\\u0058",
+    "isShape": false
+  },
+  {
+    "id": 2053623850,
+    "iconUnicode": "\\u0070",
+    "isShape": false
+  },
+  {
+    "id": 2058015868,
+    "iconUnicode": "\\u007E",
+    "isShape": false
+  },
+  {
+    "id": 2063952303,
+    "iconUnicode": "\\u00D3",
+    "isShape": false
+  },
+  {
+    "id": 2073795717,
+    "iconUnicode": "\\u008E",
+    "isShape": false
+  },
+  {
+    "id": 2092148595,
+    "iconUnicode": "\\u00FA",
+    "isShape": false
+  },
+  {
+    "id": 2092891455,
+    "iconUnicode": "\\u0044",
+    "isShape": false
+  },
+  {
+    "id": 2095307376,
+    "iconUnicode": "\\u0066",
+    "isShape": false
+  },
+  {
+    "id": 2098595316,
+    "iconUnicode": "\\uFF9B",
+    "isShape": true
+  },
+  {
+    "id": 2107319522,
+    "iconUnicode": "\\u007B",
+    "isShape": false
+  },
+  {
+    "id": 2111801578,
+    "iconUnicode": "\\uFF9F",
+    "isShape": true
+  },
+  {
+    "id": 2136116351,
+    "iconUnicode": "\\uFF93",
+    "isShape": true
+  },
+  {
+    "id": 2137624241,
+    "iconUnicode": "\\u0051",
+    "isShape": false
+  },
+  {
+    "id": 2138780113,
+    "iconUnicode": "\\u0055",
+    "isShape": false
+  },
+  {
+    "id": 2143488406,
+    "iconUnicode": "\\u004B",
+    "isShape": false
+  },
+  {
+    "id": 2144518196,
+    "iconUnicode": "\\u00CA",
+    "isShape": false
+  },
+  {
+    "id": 2146849295,
+    "iconUnicode": "\\uFF9A",
+    "isShape": true
+  }
+]

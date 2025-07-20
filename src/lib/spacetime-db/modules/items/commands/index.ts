@@ -1,5 +1,5 @@
 export { getAllItems } from './get-all-items'
-export { getItemBySlugCommand, getAllItemSlugsCommand } from './get-item-by-slug'
+export { getAllItemSlugsCommand, getItemBySlugCommand } from './get-item-by-slug'
 export { getItemsByTags } from './get-items-by-tags'
 export { getItemsCategoriesCommand } from './get-items-categories'
 export { getItemsStatisticsCommand } from './get-items-statistics'

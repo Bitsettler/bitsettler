@@ -15,8 +15,8 @@ import {
   getBiomesForResourceTag as getCommunityBiomesForTag,
   normalizeBiomeName
 } from '@/lib/integrations/google-sheets'
-import { ResourceTag } from '../resource-tags'
 import { camelCaseDeep } from '../../../shared/utils/case-utils'
+import { ResourceTag } from '../resource-tags'
 
 // Types for item and cargo data
 interface ItemDesc {

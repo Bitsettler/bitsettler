@@ -1,6 +1,6 @@
-import { getBuildingsWithConstructionInfo } from './get-buildings-with-construction-info'
 import type { BuildingWithConstructionInfo } from '../building-utils'
 import { BUILDING_FUNCTION_TYPE_MAPPING } from '../building-utils'
+import { getBuildingsWithConstructionInfo } from './get-buildings-with-construction-info'
 
 /**
  * Get buildings grouped by category

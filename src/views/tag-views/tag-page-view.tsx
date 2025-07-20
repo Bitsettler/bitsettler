@@ -7,11 +7,11 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
-import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
-import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
-import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
+import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
+import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import Image from 'next/image'
 import { useMemo, useState } from 'react'
 
 // Generic interfaces for the data
@@ -155,7 +155,7 @@ export function TagPageView({
   // Default render functions for common column types
   const defaultRenders = {
     icon: (item: BaseItem) => (
-      <div className="relative h-10 w-10">
+      <div className={`relative h-13 w-13 rounded border-2 p-1 ${getTierColor(item.tier)}`}>
         {/* <span>{getServerIconPath(cleanIconAssetName(item.iconAssetName))}</span> */}
         <Image
           src={getServerIconPath(cleanIconAssetName(item.iconAssetName))}
@@ -246,13 +246,16 @@ export function TagPageView({
                       {group.items.map((item, index) => {
                         const itemSlug = itemNameToSlug(item.name)
                         const itemLink = enableItemLinks && tagSlug ? `/compendium/${tagSlug}/${itemSlug}` : undefined
-                        
+
                         if (itemLink) {
                           return (
                             <TableRow key={item.id || index} className="hover:bg-muted/50 cursor-pointer">
                               {group.columns.map((column) => (
-                                <TableCell key={column.key} className="text-center p-0">
-                                  <Link href={itemLink} className="block w-full h-full p-2 text-inherit hover:text-inherit">
+                                <TableCell key={column.key} className="p-0 text-center">
+                                  <Link
+                                    href={itemLink}
+                                    className="block h-full w-full p-2 text-inherit hover:text-inherit"
+                                  >
                                     {column.render
                                       ? column.render(item)
                                       : defaultRenders[column.key as keyof typeof defaultRenders]

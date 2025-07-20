@@ -1,0 +1,1087 @@
+[
+  {
+    "id": 96230270,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 100916428,
+    "canWalkOnLand": true,
+    "canSwim": true,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 100,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "StepUp",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 6,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": -6,
+        "moveType": {
+          "tag": "Down1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 181653602,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 9,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 9,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -9,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 292566367,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 309954853,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 6,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 516255236,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 581410702,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 587005016,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 601358492,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 2,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": true,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 1,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -1,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 668511654,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 6,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 690229665,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 2,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": true,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 20,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -20,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 691415579,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 10,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 10,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -10,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 757939123,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 769231106,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 2,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": true,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 6,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": -6,
+        "moveType": {
+          "tag": "Down1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 780366573,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 865980458,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 959834809,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 2,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 8,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": -8,
+        "moveType": {
+          "tag": "Down1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1030168975,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1085002853,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1088877698,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 4,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 4,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -4,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1109261591,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1159321119,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 2,
+    "maxSwimHeightDelta": 2,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 6,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": -6,
+        "moveType": {
+          "tag": "Down1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1166925861,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 8,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 8,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -8,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1245556794,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1281875110,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1301654297,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 6,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1375685503,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1420522971,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1496395968,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 6,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 6,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -6,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1525146351,
+    "canWalkOnLand": false,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 0,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 1,
+        "moveType": {
+          "tag": "None",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -1,
+        "moveType": {
+          "tag": "None",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1810494375,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1876455160,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1939305002,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 5,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -5,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 1954427417,
+    "canWalkOnLand": false,
+    "canSwim": true,
+    "requiresTransitions": false,
+    "minWaterDepth": 1,
+    "maxWaterDepth": 2147483647,
+    "maxSwimHeightDelta": 7,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 7,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -7,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 2127231545,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": true,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 0,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": 4,
+        "moveType": {
+          "tag": "Hoist1",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -2,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      },
+      {
+        "maxElevationDifference": -4,
+        "moveType": {
+          "tag": "Down1",
+          "value": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": 2134736060,
+    "canWalkOnLand": true,
+    "canSwim": false,
+    "requiresTransitions": false,
+    "minWaterDepth": 0,
+    "maxWaterDepth": 0,
+    "maxSwimHeightDelta": 3,
+    "avoidLight": false,
+    "climbUpOptions": [
+      {
+        "maxElevationDifference": 3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ],
+    "climbDownOptions": [
+      {
+        "maxElevationDifference": -3,
+        "moveType": {
+          "tag": "Walk",
+          "value": {}
+        }
+      }
+    ]
+  }
+]

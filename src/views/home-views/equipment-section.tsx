@@ -1,13 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link } from '@/i18n/navigation'
-import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
-import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
-
-interface EquipmentSectionProps {
-  weapons: ItemDesc[]
-  tools: ItemDesc[]
-}
+import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-tag-collections'
+import { getItemsByTags } from '@/lib/spacetime-db-new/modules/items/commands'
 
 interface ItemCategory {
   id: string
@@ -43,13 +37,12 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
   )
 }
 
-export function EquipmentSection({ weapons, tools }: EquipmentSectionProps) {
-  // Calculate equipment count from all equipment categories
+export function EquipmentSection() {
+  const weaponsCount = getItemsByTags(tagCollections.weapons.tags).length
+  const toolsCount = getItemsByTags(tagCollections.tools.tags).length
   const equipmentCount = tagCollections.equipment.tags.reduce((total, tag) => {
     return total + getItemsByTags([tag]).length
   }, 0)
-
-  // Calculate collectibles count using the same method as the collectibles index page
   const collectiblesCount = tagCollections.collectibles.tags.reduce((total, tag) => {
     return total + getItemsByTags([tag]).length
   }, 0)
@@ -60,7 +53,7 @@ export function EquipmentSection({ weapons, tools }: EquipmentSectionProps) {
       name: 'Weapon',
       description: 'Weapons to gear up your character',
       icon: '⚔️',
-      count: weapons.length,
+      count: weaponsCount,
       href: '/compendium/weapon'
     },
     {
@@ -76,7 +69,7 @@ export function EquipmentSection({ weapons, tools }: EquipmentSectionProps) {
       name: 'Tools',
       description: 'Essential tools for crafting, gathering, and building',
       icon: '🔨',
-      count: tools.length,
+      count: toolsCount,
       href: '/compendium/tools'
     },
     {

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "interact": true,
+    "categoriesAttacked": [
+      2,
+      5
+    ],
+    "categoriesWeights": [
+      1,
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "interact": true,
+    "categoriesAttacked": [
+      1,
+      4
+    ],
+    "categoriesWeights": [
+      1,
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "interact": true,
+    "categoriesAttacked": [],
+    "categoriesWeights": []
+  },
+  {
+    "id": 4,
+    "interact": true,
+    "categoriesAttacked": [],
+    "categoriesWeights": []
+  },
+  {
+    "id": 5,
+    "interact": true,
+    "categoriesAttacked": [],
+    "categoriesWeights": []
+  },
+  {
+    "id": 103,
+    "interact": true,
+    "categoriesAttacked": [],
+    "categoriesWeights": []
+  },
+  {
+    "id": 104,
+    "interact": false,
+    "categoriesAttacked": [],
+    "categoriesWeights": []
+  },
+  {
+    "id": 999,
+    "interact": true,
+    "categoriesAttacked": [
+      1,
+      2,
+      3
+    ],
+    "categoriesWeights": [
+      1,
+      10,
+      100
+    ]
+  }
+]

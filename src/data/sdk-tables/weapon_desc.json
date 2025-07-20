@@ -1,0 +1,2882 @@
+[
+  {
+    "itemId": 11020,
+    "tier": 1,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 123456,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 0.25,
+    "staminaUseMultiplier": 0
+  },
+  {
+    "itemId": 123466,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 7529329,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 18528342,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 18726245,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 19282641,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 54,
+    "maxDamage": 82,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 19755314,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 22776119,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 26203299,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 19,
+    "maxDamage": 29,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 29052855,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 30045106,
+    "tier": 4,
+    "weaponType": 1757944562,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 48273978,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 57962874,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 11,
+    "maxDamage": 18,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 69932165,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 74995379,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 51,
+    "maxDamage": 77,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 93765896,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 54,
+    "maxDamage": 82,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 108271636,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 108844048,
+    "tier": 4,
+    "weaponType": 1187288045,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 113160687,
+    "tier": 4,
+    "weaponType": 1898106062,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 116980324,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 48,
+    "maxDamage": 72,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 122324286,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 124007770,
+    "tier": 3,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 134252987,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 42,
+    "maxDamage": 61,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 144598614,
+    "tier": 5,
+    "weaponType": 1,
+    "minDamage": 11,
+    "maxDamage": 17,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 146922064,
+    "tier": 5,
+    "weaponType": 1757944562,
+    "minDamage": 42,
+    "maxDamage": 62,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 167752783,
+    "tier": 5,
+    "weaponType": 1158805328,
+    "minDamage": 13,
+    "maxDamage": 21,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 174779229,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 191333054,
+    "tier": 4,
+    "weaponType": 1898106062,
+    "minDamage": 40,
+    "maxDamage": 60,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 194332661,
+    "tier": 1,
+    "weaponType": 1,
+    "minDamage": 8,
+    "maxDamage": 12,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 195985213,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 209149529,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 25,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 220377140,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 40,
+    "maxDamage": 60,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 231547938,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 235495704,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 11,
+    "maxDamage": 19,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 242951772,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 25,
+    "maxDamage": 37,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 246070958,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 14,
+    "maxDamage": 22,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 250239994,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 19,
+    "maxDamage": 32,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 252729537,
+    "tier": 1,
+    "weaponType": 1898106062,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 263007457,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 47,
+    "maxDamage": 68,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 290870823,
+    "tier": 2,
+    "weaponType": 1158805328,
+    "minDamage": 8,
+    "maxDamage": 14,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 305488039,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 38,
+    "maxDamage": 58,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 309222063,
+    "tier": 5,
+    "weaponType": 1757944562,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 322364100,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 11,
+    "maxDamage": 18,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 322719095,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 324749347,
+    "tier": 6,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 328373111,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 17,
+    "maxDamage": 25,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 331191340,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 50,
+    "maxDamage": 74,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 333188935,
+    "tier": 2,
+    "weaponType": 1,
+    "minDamage": 9,
+    "maxDamage": 13,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 334753370,
+    "tier": 2,
+    "weaponType": 1187288045,
+    "minDamage": 18,
+    "maxDamage": 27,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 337566759,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 28,
+    "maxDamage": 42,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 349868263,
+    "tier": 5,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 361271161,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 372905551,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 13,
+    "maxDamage": 22,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 405878343,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 38,
+    "maxDamage": 55,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 412987444,
+    "tier": 3,
+    "weaponType": 1158805328,
+    "minDamage": 7,
+    "maxDamage": 12,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 417383335,
+    "tier": 2,
+    "weaponType": 868029640,
+    "minDamage": 11,
+    "maxDamage": 17,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 417939400,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 450178430,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 461922586,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 35,
+    "maxDamage": 51,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 465856554,
+    "tier": 2,
+    "weaponType": 1158805328,
+    "minDamage": 7,
+    "maxDamage": 11,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 473776546,
+    "tier": 1,
+    "weaponType": 1,
+    "minDamage": 7,
+    "maxDamage": 10,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 480170023,
+    "tier": 3,
+    "weaponType": 1898106062,
+    "minDamage": 19,
+    "maxDamage": 29,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 480388619,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 17,
+    "maxDamage": 25,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 481201132,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 38,
+    "maxDamage": 58,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 491637070,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 46,
+    "maxDamage": 70,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 492146681,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 20,
+    "maxDamage": 28,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 496375118,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 58,
+    "maxDamage": 86,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 502541107,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 13,
+    "maxDamage": 19,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 511766745,
+    "tier": 5,
+    "weaponType": 1898106062,
+    "minDamage": 46,
+    "maxDamage": 70,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 515140735,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 516729137,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 20,
+    "maxDamage": 33,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 518504382,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 530131157,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 37,
+    "maxDamage": 55,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 533184370,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 21,
+    "maxDamage": 30,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 533567603,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 34,
+    "maxDamage": 50,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 534537216,
+    "tier": 5,
+    "weaponType": 1898106062,
+    "minDamage": 42,
+    "maxDamage": 62,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 535391969,
+    "tier": 5,
+    "weaponType": 1898106062,
+    "minDamage": 34,
+    "maxDamage": 50,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 542660177,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 25,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 553121338,
+    "tier": 5,
+    "weaponType": 1757944562,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 554291192,
+    "tier": 5,
+    "weaponType": 868029640,
+    "minDamage": 11,
+    "maxDamage": 17,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 555609069,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 27,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 558824246,
+    "tier": 2,
+    "weaponType": 1898106062,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 576104158,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 584881790,
+    "tier": 5,
+    "weaponType": 1187288045,
+    "minDamage": 34,
+    "maxDamage": 49,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 588718748,
+    "tier": 5,
+    "weaponType": 1158805328,
+    "minDamage": 10,
+    "maxDamage": 17,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 590784125,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 50,
+    "maxDamage": 74,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 601033684,
+    "tier": 4,
+    "weaponType": 868029640,
+    "minDamage": 20,
+    "maxDamage": 30,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 606588191,
+    "tier": 4,
+    "weaponType": 1158805328,
+    "minDamage": 15,
+    "maxDamage": 25,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 618237316,
+    "tier": 6,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 620198108,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 42,
+    "maxDamage": 61,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 620508449,
+    "tier": 2,
+    "weaponType": 1898106062,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 632569069,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 53,
+    "maxDamage": 79,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 640694275,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 42,
+    "maxDamage": 62,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 656938567,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 28,
+    "maxDamage": 42,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 661873332,
+    "tier": 3,
+    "weaponType": 1,
+    "minDamage": 12,
+    "maxDamage": 18,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 668985841,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 677726149,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 35,
+    "maxDamage": 53,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 690894779,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 26,
+    "maxDamage": 40,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 692705490,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 14,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 695348739,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 697548980,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 699077698,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 12,
+    "maxDamage": 18,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 704114220,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 51,
+    "maxDamage": 77,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 712131019,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 20,
+    "maxDamage": 34,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 714216955,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 13,
+    "maxDamage": 21,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 715250671,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 44,
+    "maxDamage": 65,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 719754596,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 14,
+    "maxDamage": 22,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 735626470,
+    "tier": 5,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 743131894,
+    "tier": 5,
+    "weaponType": 1,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 745640067,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 25,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 747689943,
+    "tier": 1,
+    "weaponType": 1158805328,
+    "minDamage": 6,
+    "maxDamage": 10,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 768811554,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 770161453,
+    "tier": 3,
+    "weaponType": 1757944562,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 788220253,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 43,
+    "maxDamage": 65,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 794469085,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 31,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 795859023,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 48,
+    "maxDamage": 72,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 805484336,
+    "tier": 3,
+    "weaponType": 1898106062,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 813863092,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 34,
+    "maxDamage": 50,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 815547998,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 830342287,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 21,
+    "maxDamage": 35,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 849188348,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 35,
+    "maxDamage": 53,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 869153923,
+    "tier": 5,
+    "weaponType": 1,
+    "minDamage": 14,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 872981981,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 45,
+    "maxDamage": 67,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 885073183,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 36,
+    "maxDamage": 53,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 894136413,
+    "tier": 2,
+    "weaponType": 1757944562,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 895964234,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 17,
+    "maxDamage": 29,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 902468102,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 43,
+    "maxDamage": 65,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 910989035,
+    "tier": 3,
+    "weaponType": 1187288045,
+    "minDamage": 25,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 926760374,
+    "tier": 6,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 936430736,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 948749878,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 40,
+    "maxDamage": 59,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 964065209,
+    "tier": 3,
+    "weaponType": 1158805328,
+    "minDamage": 9,
+    "maxDamage": 15,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 972931459,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 977876862,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 981973587,
+    "tier": 5,
+    "weaponType": 1158805328,
+    "minDamage": 17,
+    "maxDamage": 29,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 988443947,
+    "tier": 4,
+    "weaponType": 1,
+    "minDamage": 10,
+    "maxDamage": 16,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 989354911,
+    "tier": 4,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1002395423,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 10,
+    "maxDamage": 16,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1007370689,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 12,
+    "maxDamage": 20,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1013839268,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1016212950,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1018331232,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 53,
+    "maxDamage": 79,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1024048163,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 23,
+    "maxDamage": 35,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1034184552,
+    "tier": 3,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1044688172,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 40,
+    "maxDamage": 60,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1045626866,
+    "tier": 3,
+    "weaponType": 1,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1049757353,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 13,
+    "maxDamage": 22,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1059797059,
+    "tier": 4,
+    "weaponType": 868029640,
+    "minDamage": 13,
+    "maxDamage": 19,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1072017811,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1081089434,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 26,
+    "maxDamage": 40,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1091993887,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1093702298,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 14,
+    "maxDamage": 23,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1103880848,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1121082881,
+    "tier": 4,
+    "weaponType": 1898106062,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1133136157,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 29,
+    "maxDamage": 42,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1134539652,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1135629244,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 27,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1143890441,
+    "tier": 3,
+    "weaponType": 1,
+    "minDamage": 10,
+    "maxDamage": 14,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1144166893,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1145327846,
+    "tier": 3,
+    "weaponType": 1757944562,
+    "minDamage": 19,
+    "maxDamage": 29,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1145773301,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 18,
+    "maxDamage": 30,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1167900907,
+    "tier": 3,
+    "weaponType": 1898106062,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1176526661,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 14,
+    "maxDamage": 20,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1176798477,
+    "tier": 3,
+    "weaponType": 1187288045,
+    "minDamage": 16,
+    "maxDamage": 23,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1182348627,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1184634453,
+    "tier": 4,
+    "weaponType": 1187288045,
+    "minDamage": 17,
+    "maxDamage": 25,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1184973723,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1193216677,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 19,
+    "maxDamage": 29,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1198746680,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1204436274,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1212627254,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1215621897,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1219038577,
+    "tier": 4,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1223385301,
+    "tier": 4,
+    "weaponType": 1757944562,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1225395069,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 40,
+    "maxDamage": 59,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1228727651,
+    "tier": 3,
+    "weaponType": 1158805328,
+    "minDamage": 11,
+    "maxDamage": 19,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1242957888,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1248969768,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 22,
+    "maxDamage": 36,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1255416131,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1258567852,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 53,
+    "maxDamage": 79,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1267796929,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 25,
+    "maxDamage": 37,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1276050642,
+    "tier": 3,
+    "weaponType": 868029640,
+    "minDamage": 12,
+    "maxDamage": 18,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1303781363,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 16,
+    "maxDamage": 27,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1324569760,
+    "tier": 6,
+    "weaponType": 1158805328,
+    "minDamage": 9,
+    "maxDamage": 15,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1326355294,
+    "tier": 8,
+    "weaponType": 1187288045,
+    "minDamage": 44,
+    "maxDamage": 65,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1334196229,
+    "tier": 4,
+    "weaponType": 1158805328,
+    "minDamage": 12,
+    "maxDamage": 20,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1348969141,
+    "tier": 8,
+    "weaponType": 868029640,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1358197935,
+    "tier": 5,
+    "weaponType": 1158805328,
+    "minDamage": 16,
+    "maxDamage": 26,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1363329798,
+    "tier": 5,
+    "weaponType": 1187288045,
+    "minDamage": 38,
+    "maxDamage": 55,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1378756675,
+    "tier": 2,
+    "weaponType": 1,
+    "minDamage": 11,
+    "maxDamage": 17,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1396263623,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 18,
+    "maxDamage": 28,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1398272110,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1429957729,
+    "tier": 5,
+    "weaponType": 1757944562,
+    "minDamage": 46,
+    "maxDamage": 70,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1430000035,
+    "tier": 4,
+    "weaponType": 1187288045,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1443073474,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1445561519,
+    "tier": 3,
+    "weaponType": 1187288045,
+    "minDamage": 20,
+    "maxDamage": 28,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1460999060,
+    "tier": 5,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1471860856,
+    "tier": 1,
+    "weaponType": 1187288045,
+    "minDamage": 13,
+    "maxDamage": 19,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1491113278,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1498267384,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 14,
+    "maxDamage": 24,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1510958243,
+    "tier": 5,
+    "weaponType": 868029640,
+    "minDamage": 14,
+    "maxDamage": 20,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1511783678,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1512593047,
+    "tier": 2,
+    "weaponType": 1187288045,
+    "minDamage": 14,
+    "maxDamage": 21,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1512653845,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 19,
+    "maxDamage": 32,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1513750448,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1518942387,
+    "tier": 5,
+    "weaponType": 1187288045,
+    "minDamage": 27,
+    "maxDamage": 40,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1520298833,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1537925439,
+    "tier": 9,
+    "weaponType": 1898106062,
+    "minDamage": 56,
+    "maxDamage": 84,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1543164659,
+    "tier": 4,
+    "weaponType": 1,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1554284811,
+    "tier": 5,
+    "weaponType": 868029640,
+    "minDamage": 17,
+    "maxDamage": 25,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1557904884,
+    "tier": 5,
+    "weaponType": 868029640,
+    "minDamage": 23,
+    "maxDamage": 35,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1564839477,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 29,
+    "maxDamage": 42,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1574405051,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 37,
+    "maxDamage": 55,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1581833452,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 25,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1590006700,
+    "tier": 4,
+    "weaponType": 1757944562,
+    "minDamage": 40,
+    "maxDamage": 60,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1597311249,
+    "tier": 6,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1598024081,
+    "tier": 2,
+    "weaponType": 1757944562,
+    "minDamage": 18,
+    "maxDamage": 26,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1598465065,
+    "tier": 9,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1603018003,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 26,
+    "maxDamage": 40,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1608460541,
+    "tier": 4,
+    "weaponType": 1187288045,
+    "minDamage": 21,
+    "maxDamage": 30,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1611776313,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 17,
+    "maxDamage": 28,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1628314926,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 51,
+    "maxDamage": 77,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1641524052,
+    "tier": 7,
+    "weaponType": 868029640,
+    "minDamage": 13,
+    "maxDamage": 19,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1641533960,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 50,
+    "maxDamage": 74,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1656877127,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1659237680,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 35,
+    "maxDamage": 53,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1660457549,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 46,
+    "maxDamage": 70,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1661477111,
+    "tier": 4,
+    "weaponType": 868029640,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1665387210,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 58,
+    "maxDamage": 86,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1670031460,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 56,
+    "maxDamage": 84,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1674732197,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 19,
+    "maxDamage": 31,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1694898363,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1695419495,
+    "tier": 8,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1702042511,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 14,
+    "maxDamage": 22,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1704320467,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 12,
+    "maxDamage": 18,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1709953729,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1728460315,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 27,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1729160498,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 43,
+    "maxDamage": 63,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1741290355,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1744196359,
+    "tier": 9,
+    "weaponType": 1757944562,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1745202138,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 35,
+    "maxDamage": 53,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1764552742,
+    "tier": 9,
+    "weaponType": 868029640,
+    "minDamage": 20,
+    "maxDamage": 30,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1769933664,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 19,
+    "maxDamage": 31,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1787477613,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1792061518,
+    "tier": 6,
+    "weaponType": 868029640,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1799282598,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 20,
+    "maxDamage": 34,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1800053684,
+    "tier": 4,
+    "weaponType": 1158805328,
+    "minDamage": 8,
+    "maxDamage": 13,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1800349844,
+    "tier": 4,
+    "weaponType": 1898106062,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1800572877,
+    "tier": 4,
+    "weaponType": 868029640,
+    "minDamage": 10,
+    "maxDamage": 16,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1808828898,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 43,
+    "maxDamage": 63,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1809560712,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 23,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1823909616,
+    "tier": 1,
+    "weaponType": 1757944562,
+    "minDamage": 16,
+    "maxDamage": 24,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1826240904,
+    "tier": 1,
+    "weaponType": 868029640,
+    "minDamage": 8,
+    "maxDamage": 12,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1831022524,
+    "tier": 4,
+    "weaponType": 1,
+    "minDamage": 13,
+    "maxDamage": 19,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1839928237,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 42,
+    "maxDamage": 62,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1849205716,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 27,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1851662708,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 11,
+    "maxDamage": 19,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1851683626,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 20,
+    "maxDamage": 30,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1859973263,
+    "tier": 5,
+    "weaponType": 1757944562,
+    "minDamage": 34,
+    "maxDamage": 50,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1860384003,
+    "tier": 10,
+    "weaponType": 1,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1860499628,
+    "tier": 5,
+    "weaponType": 1187288045,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1865227154,
+    "tier": 5,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1873411518,
+    "tier": 5,
+    "weaponType": 1898106062,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1873618458,
+    "tier": 3,
+    "weaponType": 1757944562,
+    "minDamage": 24,
+    "maxDamage": 36,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1874558182,
+    "tier": 5,
+    "weaponType": 1898106062,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1882895315,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 23,
+    "maxDamage": 34,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1884891567,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 46,
+    "maxDamage": 66,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1885257544,
+    "tier": 6,
+    "weaponType": 1898106062,
+    "minDamage": 48,
+    "maxDamage": 72,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1887473857,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 22,
+    "maxDamage": 34,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1888091519,
+    "tier": 3,
+    "weaponType": 868029640,
+    "minDamage": 10,
+    "maxDamage": 14,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1893568154,
+    "tier": 4,
+    "weaponType": 1757944562,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1896328589,
+    "tier": 5,
+    "weaponType": 1,
+    "minDamage": 23,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1896472060,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 51,
+    "maxDamage": 77,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1897433561,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 18,
+    "maxDamage": 30,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1902834149,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 29,
+    "maxDamage": 43,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1902925744,
+    "tier": 10,
+    "weaponType": 868029640,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1906664931,
+    "tier": 3,
+    "weaponType": 868029640,
+    "minDamage": 15,
+    "maxDamage": 23,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 1910410426,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 27,
+    "maxDamage": 40,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1931070011,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 54,
+    "maxDamage": 82,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1931953296,
+    "tier": 4,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1933505478,
+    "tier": 10,
+    "weaponType": 1158805328,
+    "minDamage": 16,
+    "maxDamage": 26,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1943544311,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1943966691,
+    "tier": 10,
+    "weaponType": 6,
+    "minDamage": 17,
+    "maxDamage": 27,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1948004724,
+    "tier": 10,
+    "weaponType": 1187288045,
+    "minDamage": 34,
+    "maxDamage": 49,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1954020612,
+    "tier": 5,
+    "weaponType": 1,
+    "minDamage": 17,
+    "maxDamage": 25,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1956290361,
+    "tier": 6,
+    "weaponType": 1187288045,
+    "minDamage": 39,
+    "maxDamage": 57,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1969764081,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 25,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1971419019,
+    "tier": 6,
+    "weaponType": 1757944562,
+    "minDamage": 48,
+    "maxDamage": 72,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 1978666497,
+    "tier": 9,
+    "weaponType": 1158805328,
+    "minDamage": 15,
+    "maxDamage": 25,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 1980636557,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 26,
+    "maxDamage": 40,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 1999151730,
+    "tier": 8,
+    "weaponType": 1757944562,
+    "minDamage": 27,
+    "maxDamage": 41,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2001060480,
+    "tier": 9,
+    "weaponType": 1,
+    "minDamage": 14,
+    "maxDamage": 22,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2009995357,
+    "tier": 7,
+    "weaponType": 1158805328,
+    "minDamage": 20,
+    "maxDamage": 33,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 2010587273,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 30,
+    "maxDamage": 46,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2031950632,
+    "tier": 8,
+    "weaponType": 1898106062,
+    "minDamage": 32,
+    "maxDamage": 48,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2046785512,
+    "tier": 10,
+    "weaponType": 1757944562,
+    "minDamage": 50,
+    "maxDamage": 74,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2050792704,
+    "tier": 7,
+    "weaponType": 1898106062,
+    "minDamage": 45,
+    "maxDamage": 67,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2054875237,
+    "tier": 2,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2062592040,
+    "tier": 4,
+    "weaponType": 1,
+    "minDamage": 20,
+    "maxDamage": 30,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2069745282,
+    "tier": 8,
+    "weaponType": 1,
+    "minDamage": 23,
+    "maxDamage": 35,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2076275038,
+    "tier": 1,
+    "weaponType": 1,
+    "minDamage": 4,
+    "maxDamage": 6,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2079823995,
+    "tier": 9,
+    "weaponType": 1187288045,
+    "minDamage": 39,
+    "maxDamage": 57,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2084252589,
+    "tier": 5,
+    "weaponType": 1187288045,
+    "minDamage": 18,
+    "maxDamage": 27,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2084697281,
+    "tier": 4,
+    "weaponType": 1158805328,
+    "minDamage": 10,
+    "maxDamage": 16,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 2086183903,
+    "tier": 6,
+    "weaponType": 1,
+    "minDamage": 26,
+    "maxDamage": 38,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2088178310,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 27,
+    "maxDamage": 37,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2091760431,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2093139604,
+    "tier": 10,
+    "weaponType": 1898106062,
+    "minDamage": 54,
+    "maxDamage": 82,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2094143120,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 10,
+    "maxDamage": 20,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2098377887,
+    "tier": 2,
+    "weaponType": 868029640,
+    "minDamage": 9,
+    "maxDamage": 13,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 2104440124,
+    "tier": 7,
+    "weaponType": 1187288045,
+    "minDamage": 30,
+    "maxDamage": 44,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2106911373,
+    "tier": 11,
+    "weaponType": 6,
+    "minDamage": 22,
+    "maxDamage": 32,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2108432762,
+    "tier": 7,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2118322388,
+    "tier": 8,
+    "weaponType": 1158805328,
+    "minDamage": 10,
+    "maxDamage": 17,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 2126197692,
+    "tier": 5,
+    "weaponType": 1158805328,
+    "minDamage": 8,
+    "maxDamage": 14,
+    "cooldown": 0.800000011920929,
+    "staminaUseMultiplier": 0.800000011920929
+  },
+  {
+    "itemId": 2127006091,
+    "tier": 7,
+    "weaponType": 1,
+    "minDamage": 18,
+    "maxDamage": 28,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  },
+  {
+    "itemId": 2137486413,
+    "tier": 7,
+    "weaponType": 1757944562,
+    "minDamage": 53,
+    "maxDamage": 79,
+    "cooldown": 2,
+    "staminaUseMultiplier": 2
+  },
+  {
+    "itemId": 2139448600,
+    "tier": 5,
+    "weaponType": 868029640,
+    "minDamage": 21,
+    "maxDamage": 31,
+    "cooldown": 1.2000000476837158,
+    "staminaUseMultiplier": 1.2000000476837158
+  },
+  {
+    "itemId": 2140420099,
+    "tier": 6,
+    "weaponType": 6,
+    "minDamage": 13,
+    "maxDamage": 23,
+    "cooldown": 1,
+    "staminaUseMultiplier": 1
+  }
+]

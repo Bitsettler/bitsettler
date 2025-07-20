@@ -1,12 +1,12 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
-import { getBuildingData } from '../commands/get-building-data'
 import {
   type BuildingWithConstructionInfo,
   BUILDING_CATEGORY_MAPPING,
-  parseBuildingFunctions,
+  calculateTotalSlots,
   formatBuildingFunctions,
-  calculateTotalSlots
+  parseBuildingFunctions
 } from '../building-utils'
+import { getBuildingData } from '../commands/get-building-data'
 
 /**
  * Get buildings enriched with construction information and categories

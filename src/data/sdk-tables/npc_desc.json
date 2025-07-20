@@ -1,0 +1,98 @@
+[
+  {
+    "npcType": 6,
+    "name": "Alesi",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Alesi",
+    "iconAddress": "þ",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      17
+    ]
+  },
+  {
+    "npcType": 5,
+    "name": "Brico",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Brico",
+    "iconAddress": "\u001b",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      15
+    ]
+  },
+  {
+    "npcType": 3,
+    "name": "Heimlich",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Collector",
+    "iconAddress": "J",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      13
+    ]
+  },
+  {
+    "npcType": 7,
+    "name": "Ramparte",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Slayer",
+    "iconAddress": "ﾮ",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      18
+    ]
+  },
+  {
+    "npcType": 1,
+    "name": "Rumbagh",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Trader",
+    "iconAddress": "w",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      19
+    ]
+  },
+  {
+    "npcType": 2,
+    "name": "Svim",
+    "population": 0.05000000074505806,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Svim",
+    "iconAddress": "\u001c",
+    "forceMarketMode": false,
+    "taskSkillCheck": [
+      21
+    ]
+  },
+  {
+    "npcType": 4,
+    "name": "The Twins",
+    "population": 0.15000000596046448,
+    "speed": 12,
+    "minTimeAtRuin": 7200,
+    "maxTimeAtRuin": 20000,
+    "prefabAddress": "Travelers/Barber",
+    "iconAddress": "I",
+    "forceMarketMode": false,
+    "taskSkillCheck": []
+  }
+]

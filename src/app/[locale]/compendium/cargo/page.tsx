@@ -1,32 +1,24 @@
-import { getCargoGroupedByTag, getCargoStatistics } from '@/lib/spacetime-db/modules/cargo/cargo'
-import { cargoCollections } from '@/lib/spacetime-db/modules/collections/cargo-tag-collections'
+import { getCargoStatistics } from '@/lib/spacetime-db-new/modules/cargo/flows'
+import { getCargoTagsMetadata } from '@/lib/spacetime-db-new/modules/cargo/flows'
 import { CargoView } from '@/views/cargo-views/cargo-index-page-view'
 
 export default async function CargoPage() {
-  // Get cargo categories from centralized metadata
-  const cargoCollection = cargoCollections.cargo
-
-  // Get actual cargo counts by tag
-  const cargoByTag = await getCargoGroupedByTag()
-
-  const cargoCategories = cargoCollection.tags.map((tag) => {
-    const categoryMeta = cargoCollection.categories[tag]
-    const cargoItems = cargoByTag[tag] || []
-
-    return {
-      id: categoryMeta.id,
-      name: categoryMeta.name,
-      description: categoryMeta.description,
-      icon: categoryMeta.icon,
-      tag,
-      category: categoryMeta.section,
-      href: categoryMeta.href,
-      count: cargoItems.length
-    }
-  })
+  // Get cargo metadata (includes count for each tag)
+  const cargoCategories = getCargoTagsMetadata()
+    .filter((category) => category.count > 0) // Only show categories with items
+    .map((meta) => ({
+      id: meta.id,
+      name: meta.name,
+      description: meta.description,
+      icon: meta.icon,
+      tag: meta.name, // The actual tag name
+      category: meta.section,
+      href: meta.href,
+      count: meta.count
+    }))
 
   // Get live cargo statistics
-  const cargoStats = await getCargoStatistics()
+  const cargoStats = getCargoStatistics()
   const totalCargo = cargoStats.total
 
   return (

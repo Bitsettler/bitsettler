@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "notificationType": {
+      "tag": "NewMember",
+      "value": {}
+    },
+    "priority": 3,
+    "showOnLogin": false,
+    "text": "{} joined the empire."
+  },
+  {
+    "id": 2,
+    "notificationType": {
+      "tag": "MarkedForSiege",
+      "value": {}
+    },
+    "priority": 2,
+    "showOnLogin": false,
+    "text": "{} at {} is marked for siege."
+  },
+  {
+    "id": 3,
+    "notificationType": {
+      "tag": "StartedSiege",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": false,
+    "text": "Sieging {} at {}, please contribute!"
+  },
+  {
+    "id": 4,
+    "notificationType": {
+      "tag": "StartedDefense",
+      "value": {}
+    },
+    "priority": 0,
+    "showOnLogin": true,
+    "text": "{} at {} is under attack! Help defend!"
+  },
+  {
+    "id": 5,
+    "notificationType": {
+      "tag": "SuccessfulSiege",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": false,
+    "text": "{} at {} was successfully sieged! Congratulations!"
+  },
+  {
+    "id": 6,
+    "notificationType": {
+      "tag": "SuccessfulDefense",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": false,
+    "text": "{} at {} successfully repelled the attack! Congratulations!"
+  },
+  {
+    "id": 7,
+    "notificationType": {
+      "tag": "FailedSiege",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": false,
+    "text": "{} at {} repelled our attack, the siege was a failure."
+  },
+  {
+    "id": 8,
+    "notificationType": {
+      "tag": "FailedDefense",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": false,
+    "text": "{} at {} was taken over by the enemy."
+  },
+  {
+    "id": 9,
+    "notificationType": {
+      "tag": "MemberLeft",
+      "value": {}
+    },
+    "priority": 3,
+    "showOnLogin": false,
+    "text": "{} left the empire."
+  },
+  {
+    "id": 10,
+    "notificationType": {
+      "tag": "WatchtowerBuilt",
+      "value": {}
+    },
+    "priority": 2,
+    "showOnLogin": false,
+    "text": "Watchtower at {} finished building."
+  },
+  {
+    "id": 11,
+    "notificationType": {
+      "tag": "ClaimJoined",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": true,
+    "text": "Claim {} joined the empire!"
+  },
+  {
+    "id": 12,
+    "notificationType": {
+      "tag": "ClaimLeft",
+      "value": {}
+    },
+    "priority": 1,
+    "showOnLogin": true,
+    "text": "Claim {} left the empire!"
+  },
+  {
+    "id": 13,
+    "notificationType": {
+      "tag": "Donation",
+      "value": {}
+    },
+    "priority": 3,
+    "showOnLogin": false,
+    "text": "{} donated {} shards to the empire!"
+  },
+  {
+    "id": 14,
+    "notificationType": {
+      "tag": "DonationByProxy",
+      "value": {}
+    },
+    "priority": 3,
+    "showOnLogin": false,
+    "text": "{} donated {} shards on behalf of {}!"
+  }
+]

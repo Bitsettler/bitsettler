@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function ItemConstructionTab({ params }: PageProps) {
   const { slug } = await params
-  
+
   // Get the item by slug (validation already done in layout)
   const item = getItemBySlugCommand(slug)
 
@@ -23,7 +23,8 @@ export default async function ItemConstructionTab({ params }: PageProps) {
       <div className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>Construction with {item.name}</h2>
         <p className="text-muted-foreground">
-          Information about construction projects that use this item will be available soon. This may include building recipes, placement requirements, and construction details.
+          Information about construction projects that use this item will be available soon. This may include building
+          recipes, placement requirements, and construction details.
         </p>
       </div>
     </div>
