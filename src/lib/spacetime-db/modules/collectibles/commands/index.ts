@@ -1,1 +1,0 @@
-export { getCollectibleData, getCollectibleItems, getCollectibleStats } from './get-collectible-data'

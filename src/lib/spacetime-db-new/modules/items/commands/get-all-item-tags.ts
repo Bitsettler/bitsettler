@@ -6,13 +6,13 @@ import { getAllItems } from './get-all-items'
 export function getAllItemTags(): string[] {
   const items = getAllItems()
   const tagSet = new Set<string>()
-  
-  items.forEach(item => {
+
+  items.forEach((item) => {
     if (item.tag) {
       tagSet.add(item.tag)
     }
   })
-  
+
   return Array.from(tagSet).sort()
 }
 
@@ -21,5 +21,5 @@ export function getAllItemTags(): string[] {
  */
 export function isValidItemTag(tag: string): boolean {
   const items = getAllItems()
-  return items.some(item => item.tag === tag)
+  return items.some((item) => item.tag === tag)
 }

@@ -10,9 +10,9 @@ interface CargoStatistics {
  */
 export function getCargoStatistics(): CargoStatistics {
   const cargo = getAllCargo()
-  
-  const uniqueTags = new Set(cargo.map(c => c.tag).filter(Boolean)).size
-  
+
+  const uniqueTags = new Set(cargo.map((c) => c.tag).filter(Boolean)).size
+
   return {
     total: cargo.length,
     uniqueTags

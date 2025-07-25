@@ -10,8 +10,6 @@ import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import Image from 'next/image'
 
 function ProfessionCard({ profession }: { profession: SkillWithIcon }) {
-  console.log({ assetPath: profession.actualIconPath, iconPath: profession.iconAssetName })
-
   return (
     <Link href={`/professions/${createSlug(profession.name)}`} className="block h-full">
       <Card className="group flex h-full flex-col transition-all hover:scale-[1.02] hover:shadow-md">

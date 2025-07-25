@@ -1,5 +1,6 @@
-import { formatStatName, type EquipmentWithStats } from '@/lib/spacetime-db/modules/collections/equipments'
+import type { EquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
+import { camelCaseToSpaces } from '@/lib/utils'
 
 interface EquipmentIndividualTagPageViewProps {
   tagName: string
@@ -14,10 +15,11 @@ export function EquipmentIndividualTagPageView({
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: EquipmentIndividualTagPageViewProps) {
-  // Group by slot
+  // Group by slot using equipment data
   const equipmentBySlot: Record<string, EquipmentWithStats[]> = {}
   equipment.forEach((item) => {
-    item.slotNames.forEach((slotName) => {
+    item.equipmentData.slots.forEach((slot) => {
+      const slotName = slot.tag
       if (!equipmentBySlot[slotName]) {
         equipmentBySlot[slotName] = []
       }
@@ -44,8 +46,8 @@ export function EquipmentIndividualTagPageView({
     // Get all unique stats from this equipment group for columns
     const allStats = new Set<string>()
     equipmentList.forEach((equipment) => {
-      equipment.decodedStats.forEach((stat) => {
-        allStats.add(stat.name)
+      equipment.equipmentData.stats.forEach((stat) => {
+        allStats.add(stat.id.tag)
       })
     })
 
@@ -61,7 +63,7 @@ export function EquipmentIndividualTagPageView({
       .sort()
       .map((statName) => ({
         key: `stat_${statName}`,
-        label: formatStatName(statName),
+        label: camelCaseToSpaces(statName),
         sortable: true,
         className: 'text-center'
       }))
@@ -70,11 +72,16 @@ export function EquipmentIndividualTagPageView({
     const enrichedItems = equipmentList.map((equipment) => ({
       ...equipment.item,
       // Add stats as properties with stat_ prefix
-      ...Object.fromEntries(equipment.decodedStats.map((stat) => [`stat_${stat.name}`, stat.displayValue]))
+      ...Object.fromEntries(
+        equipment.equipmentData.stats.map((stat) => {
+          const displayValue = stat.isPct ? `${stat.value}%` : stat.value.toString()
+          return [`stat_${stat.id.tag}`, displayValue]
+        })
+      )
     }))
 
     return {
-      name: slotName.replace(/([A-Z])/g, ' $1').trim(),
+      name: camelCaseToSpaces(slotName),
       items: enrichedItems,
       columns: [...baseColumns, ...statColumns]
     }

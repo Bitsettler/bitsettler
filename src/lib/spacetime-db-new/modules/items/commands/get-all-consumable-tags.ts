@@ -6,20 +6,33 @@ import { getAllItems } from './get-all-items'
 export function getAllConsumableTags(): string[] {
   // Consumable tags based on the old collections
   const consumableTags = new Set([
-    'Basic Food', 'Bandage', 'Bait', 'Berry', 'Chum', 'Citric Berry', 
-    'Crafting Speed Elixir', 'Healing Potion', 'Meal', 'Mushroom', 
-    'Raw Meal', 'Recipe', 'Stamina Potion', 'Sugar', 'Tea', 'Vegetable', 
+    'Basic Food',
+    'Bandage',
+    'Bait',
+    'Berry',
+    'Chum',
+    'Citric Berry',
+    'Crafting Speed Elixir',
+    'Healing Potion',
+    'Meal',
+    'Mushroom',
+    'Raw Meal',
+    'Recipe',
+    'Stamina Potion',
+    'Sugar',
+    'Tea',
+    'Vegetable',
     'Wonder Fruit'
   ])
 
   const items = getAllItems()
   const actualTags = new Set<string>()
-  
-  items.forEach(item => {
+
+  items.forEach((item) => {
     if (item.tag && consumableTags.has(item.tag)) {
       actualTags.add(item.tag)
     }
   })
-  
+
   return Array.from(actualTags).sort()
 }

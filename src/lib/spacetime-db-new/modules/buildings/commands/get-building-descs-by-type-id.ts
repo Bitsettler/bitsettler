@@ -11,9 +11,9 @@ const buildingFunctionMappings = buildingFunctionMappingData as BuildingFunction
  * Only includes buildings that should be shown in compendium
  */
 export function getBuildingDescsByTypeId(typeId: number): BuildingDesc[] {
-  const mapping = buildingFunctionMappings.find(m => m.typeId === typeId)
+  const mapping = buildingFunctionMappings.find((m) => m.typeId === typeId)
   if (!mapping) return []
-  
+
   const compendiumBuildings = getAllBuildings()
-  return compendiumBuildings.filter(desc => mapping.descIds.includes(desc.id))
+  return compendiumBuildings.filter((desc) => mapping.descIds.includes(desc.id))
 }

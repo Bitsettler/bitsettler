@@ -1,14 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-tag-collections'
-import { getItemsByTags } from '@/lib/spacetime-db-new/modules/items/commands'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import Image from 'next/image'
 
 interface ItemCategory {
   id: string
   name: string
   description: string
-  icon: string
-  count: number
+  iconAssetName: string
   href: string
 }
 
@@ -19,12 +18,17 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-muted flex h-12 w-12 items-center justify-center rounded-lg">
-                <span className="text-2xl">{category.icon}</span>
+              <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
+                <Image
+                  src={getServerIconPath(cleanIconAssetName(category.iconAssetName))}
+                  alt={category.name}
+                  width={44}
+                  height={44}
+                  className="rounded"
+                />
               </div>
               <div>
                 <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
-                <p className="text-muted-foreground text-sm">{category.count} items</p>
               </div>
             </div>
           </div>
@@ -38,46 +42,33 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
 }
 
 export function EquipmentSection() {
-  const weaponsCount = getItemsByTags(tagCollections.weapons.tags).length
-  const toolsCount = getItemsByTags(tagCollections.tools.tags).length
-  const equipmentCount = tagCollections.equipment.tags.reduce((total, tag) => {
-    return total + getItemsByTags([tag]).length
-  }, 0)
-  const collectiblesCount = tagCollections.collectibles.tags.reduce((total, tag) => {
-    return total + getItemsByTags([tag]).length
-  }, 0)
-
   const equipmentCategories: ItemCategory[] = [
     {
       id: 'weapon',
       name: 'Weapon',
       description: 'Weapons to gear up your character',
-      icon: '⚔️',
-      count: weaponsCount,
+      iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/ClaymoreT1',
       href: '/compendium/weapon'
     },
     {
       id: 'equipment',
       name: 'Equipment',
       description: 'Armor, clothings, jewelry and more',
-      icon: '🛡️',
-      count: equipmentCount,
+      iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/MetalTorsoT1',
       href: '/compendium/equipment'
     },
     {
       id: 'tools',
       name: 'Tools',
       description: 'Essential tools for crafting, gathering, and building',
-      icon: '🔨',
-      count: toolsCount,
+      iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/Tools/RathiumHammer',
       href: '/compendium/tools'
     },
     {
       id: 'collectibles',
       name: 'Collectibles',
       description: 'Deeds, writs, and other special items',
-      icon: '📜',
-      count: collectiblesCount,
+      iconAssetName: 'GeneratedIcons/Other/Animals/DeerMale',
       href: '/compendium/collectibles'
     }
   ]

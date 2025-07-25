@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link, usePathname } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
-import { createSlug } from '@/lib/spacetime-db/shared/utils/entities'
-import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { ArrowLeft, Calculator, Package, Sparkles, Star } from 'lucide-react'
 import Image from 'next/image'
 
@@ -19,7 +19,7 @@ interface ItemDetailPageLayoutProps {
 
 export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutProps) {
   const pathname = usePathname()
-  const rarityString = convertRarityToString(item.rarity)
+  const rarityString = item.rarity.tag.toLowerCase()
   const rarityColor = getRarityColor(rarityString)
   const iconPath = getServerIconPath(cleanIconAssetName(item.iconAssetName))
   const itemSlug = createSlug(item.name)
@@ -80,9 +80,9 @@ export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutPro
                     <Star className="h-3 w-3" />
                     Tier {item.tier}
                   </Badge>
-                  <Badge variant="outline" className={`gap-1 ${rarityColor}`}>
+                  <Badge variant="outline" className={`gap-1 ${rarityColor} capitalize`}>
                     <Sparkles className="h-3 w-3" />
-                    {rarityString.charAt(0).toUpperCase() + rarityString.slice(1)}
+                    {rarityString}
                   </Badge>
                   <Badge variant="secondary" className="gap-1">
                     <Package className="h-3 w-3" />

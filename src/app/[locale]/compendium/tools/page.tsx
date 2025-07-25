@@ -1,42 +1,19 @@
-import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
-import { getToolStatistics } from '@/lib/spacetime-db/modules/collections/tools'
-import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
+import { getToolCategories, getToolStatistics } from '@/lib/spacetime-db-new/modules/tools/flows'
 import { ToolsView } from '@/views/tools-views/tools-index-page-view'
 
 export default async function ToolsPage() {
-  // Get tool categories from centralized metadata
-  const toolCollection = tagCollections.tools
-  const toolCategories = toolCollection.tags.map((tag) => {
-    const categoryMeta = toolCollection.categories[tag]
-    return {
-      id: categoryMeta.id,
-      name: categoryMeta.name,
-      description: categoryMeta.description,
-      icon: categoryMeta.icon,
-      tag,
-      category: categoryMeta.section,
-      href: categoryMeta.href
-    }
-  })
-
-  // Get item counts for each category
-  const categoriesWithCounts = toolCategories.map((category) => {
-    const items = getItemsByTags([category.tag])
-    return {
-      ...category,
-      count: items.length
-    }
-  })
-
+  // Get tool categories with counts from new SDK-based system
+  const toolCategories = getToolCategories()
+  
   // Get live tool statistics
-  const toolStats = await getToolStatistics()
+  const toolStats = getToolStatistics()
   const totalTools = toolStats.total
 
   return (
     <ToolsView
       title="Tools"
-      subtitle={`${totalTools} tools across ${categoriesWithCounts.length} categories`}
-      toolCategories={categoriesWithCounts}
+      subtitle={`${totalTools} tools across ${toolCategories.length} categories`}
+      toolCategories={toolCategories}
     />
   )
 }

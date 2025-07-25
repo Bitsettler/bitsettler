@@ -1,7 +1,6 @@
-import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import type { EnrichedCraftingRecipe } from '@/lib/spacetime-db/modules/crafting-recipes/flows'
-import type { EnrichedExtractionRecipe } from '@/lib/spacetime-db/modules/extraction-recipes/flows'
+import type { EnrichedCraftingRecipe } from '@/lib/spacetime-db-new/modules/crafting-recipes/flows'
+import type { EnrichedExtractionRecipe } from '@/lib/spacetime-db-new/modules/extraction-recipes/flows'
 
 interface ItemObtainRecipesTableProps {
   craftingRecipes: EnrichedCraftingRecipe[]
@@ -23,7 +22,6 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Type</TableHead>
             <TableHead>Recipe</TableHead>
             <TableHead>Location/Building</TableHead>
             <TableHead>Tools Required</TableHead>
@@ -36,27 +34,24 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
         <TableBody>
           {allRecipes.map((recipe) => (
             <TableRow key={`${recipe.type}-${recipe.id}`}>
-              <TableCell>
-                <Badge variant={recipe.type === 'crafting' ? 'default' : 'secondary'}>
-                  {recipe.type === 'crafting' ? 'Crafting' : 'Extraction'}
-                </Badge>
-              </TableCell>
               <TableCell className="font-medium">
-                {recipe.type === 'crafting' ? recipe.name : recipe.recipeName}
+                {recipe.type === 'crafting' ? recipe.resolvedRecipeName : `${recipe.verbPhrase} Recipe`}
               </TableCell>
               <TableCell>
                 {recipe.type === 'crafting' ? (
-                  <>
-                    {recipe.resolvedBuildingType?.name || 'Hand Crafted'}
-                    {recipe.buildingRequirement && (
-                      <div className="text-muted-foreground text-xs">Tier {recipe.buildingRequirement.tier}</div>
-                    )}
-                  </>
+                  recipe.buildingRequirement ? (
+                    <div className="text-sm">
+                      {recipe.resolvedBuildingType?.name || `Building ${recipe.buildingRequirement.buildingType}`}
+                      <span className="text-muted-foreground ml-1">(Tier {recipe.buildingRequirement.tier})</span>
+                    </div>
+                  ) : (
+                    <span className="text-muted-foreground text-sm">Hand Crafted</span>
+                  )
                 ) : (
-                  <span className="text-muted-foreground">
-                    {recipe.verbPhrase} Resource
-                    {recipe.range > 1 && <div className="text-xs">Range: {recipe.range}</div>}
-                  </span>
+                  <div className="text-sm">
+                    {recipe.resource?.name || 'Resource Node'}
+                    {recipe.range > 1 && <span className="text-muted-foreground ml-1">(Range: {recipe.range})</span>}
+                  </div>
                 )}
               </TableCell>
               <TableCell>
@@ -65,10 +60,11 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                 ) : (
                   <div className="space-y-1">
                     {recipe.enrichedToolRequirements.map((toolReq, index) => (
-                      // @TODO: fix this
                       <div key={index} className="text-sm">
-                        {/* {toolReq.tool?.name || `Tool Type ${toolReq.toolType}`}
-                        <span className="text-muted-foreground ml-1">(Level {toolReq.level})</span> */}
+                        {toolReq.toolTypeName}
+                        <span className="text-muted-foreground ml-1">
+                          (Tier {toolReq.toolItem?.tier || toolReq.level})
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -79,7 +75,7 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                   {recipe.enrichedLevelRequirements.map((levelReq, index) => {
                     return (
                       <div key={index} className="text-sm">
-                        {levelReq.profession?.name || `Skill ${levelReq.skillId}`}
+                        {levelReq.skill?.name || `Skill ${levelReq.skillId}`}
                         <span className="text-muted-foreground ml-1">Level {levelReq.level}</span>
                       </div>
                     )
@@ -105,7 +101,7 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                       ))
                     : recipe.enrichedExtractedItems.map((item, index) => (
                         <div key={index} className="text-sm font-medium">
-                          {item.quantity}x {item.item?.name || `Item ${item.itemId}`}
+                          {item.quantity}x {item.item?.name || item.cargo?.name || `ID ${item.itemId}`}
                           {item.probability < 1 && (
                             <span className="text-muted-foreground ml-1 text-xs">
                               ({Math.round(item.probability * 100)}%)
@@ -117,7 +113,7 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
               </TableCell>
               <TableCell>
                 <div className="text-sm">
-                  {recipe.timeRequirement}s
+                  {recipe.timeRequirement.toFixed(2)}s
                   {recipe.type === 'crafting' && recipe.actionsRequired > 1 && (
                     <div className="text-muted-foreground text-xs">{recipe.actionsRequired} actions</div>
                   )}

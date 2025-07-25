@@ -5,15 +5,18 @@ import { getAllResources } from './get-all-resources'
  * Get all resources grouped by their tag
  */
 export function getResourcesGroupedByTag(): Record<string, ResourceDesc[]> {
-  const resources = getAllResources().filter(resource => resource.compendiumEntry)
-  
-  return resources.reduce((groups, resource) => {
-    if (resource.tag) {
-      if (!groups[resource.tag]) {
-        groups[resource.tag] = []
+  const resources = getAllResources().filter((resource) => resource.compendiumEntry)
+
+  return resources.reduce(
+    (groups, resource) => {
+      if (resource.tag) {
+        if (!groups[resource.tag]) {
+          groups[resource.tag] = []
+        }
+        groups[resource.tag].push(resource)
       }
-      groups[resource.tag].push(resource)
-    }
-    return groups
-  }, {} as Record<string, ResourceDesc[]>)
+      return groups
+    },
+    {} as Record<string, ResourceDesc[]>
+  )
 }

@@ -8,5 +8,5 @@ const buildings = buildingDescData as BuildingDesc[]
  * Get all buildings from SDK data that should be shown in compendium
  */
 export function getAllBuildings(): BuildingDesc[] {
-  return buildings.filter(building => building.showInCompendium)
+  return buildings.filter((building) => building.showInCompendium)
 }

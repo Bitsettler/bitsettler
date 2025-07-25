@@ -1,5 +1,5 @@
-import type { EnrichedCraftingRecipe } from '@/lib/spacetime-db/modules/crafting-recipes/flows'
-import type { EnrichedExtractionRecipe } from '@/lib/spacetime-db/modules/extraction-recipes/flows'
+import type { EnrichedCraftingRecipe } from '@/lib/spacetime-db-new/modules/crafting-recipes/flows'
+import type { EnrichedExtractionRecipe } from '@/lib/spacetime-db-new/modules/extraction-recipes/flows'
 import { ItemObtainRecipesTable } from './item-obtain-recipes-table'
 
 interface ItemIndividualObtainPageViewProps {

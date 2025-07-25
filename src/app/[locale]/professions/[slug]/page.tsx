@@ -1,7 +1,10 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { getAllProfessions, getProfessionBySlug } from '@/lib/spacetime-db/modules/professions/professions'
+import { getSkillsByCategories } from '@/lib/spacetime-db-new/modules/skills/commands/get-skills-by-categories'
+import { getSkillIconPath } from '@/lib/spacetime-db-new/modules/skills/commands/get-skill-icon'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
+import type { SkillDesc } from '@/data/bindings/skill_desc_type'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -13,13 +16,16 @@ interface ProfessionPageProps {
 }
 
 export function generateStaticParams() {
-  const professions = getAllProfessions()
-  return professions.map((p) => ({ slug: p.slug }))
+  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None'])
+    .filter((skill) => skill.name !== 'ANY')
+  return skills.map((skill) => ({ slug: createSlug(skill.name) }))
 }
 
 export default async function ProfessionPage({ params }: ProfessionPageProps) {
   const { slug } = await params
-  const profession = getProfessionBySlug(slug)
+  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None'])
+    .filter((skill) => skill.name !== 'ANY')
+  const profession: SkillDesc | undefined = skills.find((skill) => createSlug(skill.name) === slug)
 
   if (!profession) {
     notFound()
@@ -33,7 +39,7 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
           <div className="flex items-center gap-6">
             <div className="bg-muted flex h-24 w-24 items-center justify-center rounded-xl">
               <Image
-                src={`/assets/Skill/${profession.actualIconPath}.webp`}
+                src={getSkillIconPath(profession.name)}
                 alt={profession.name}
                 width={64}
                 height={64}
@@ -43,7 +49,7 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <h1 className="text-4xl font-bold">{profession.name}</h1>
-                <Badge variant="outline" className={profession.color}>
+                <Badge variant="outline">
                   {profession.skillCategory.tag}
                 </Badge>
               </div>

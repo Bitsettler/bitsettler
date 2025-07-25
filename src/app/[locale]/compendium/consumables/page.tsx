@@ -1,5 +1,4 @@
-import { getConsumableStatistics } from '@/lib/spacetime-db-new/modules/items/flows'
-import { getConsumableTagsMetadata } from '@/lib/spacetime-db-new/modules/items/flows'
+import { getConsumableStatistics, getConsumableTagsMetadata } from '@/lib/spacetime-db-new/modules/items/flows'
 import { ConsumablesView } from '@/views/consumables-views/consumables-index-page-view'
 
 export default async function ConsumablesPage() {

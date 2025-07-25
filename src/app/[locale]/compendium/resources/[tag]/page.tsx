@@ -1,5 +1,5 @@
-import { getAllResourceTags, getResourcesByTags } from '@/lib/spacetime-db-new/modules/resources/commands'
-import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getAllResourceTags, getResourcesBySlug } from '@/lib/spacetime-db-new/modules/resources/commands'
+import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
@@ -18,17 +18,18 @@ interface PageProps {
 export default async function ResourceTagPage({ params }: PageProps) {
   const { tag } = await params
 
-  // Convert slug back to tag name  
-  const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  // Get resources for this tag using slug (handles special characters properly)
+  const resources = getResourcesBySlug(tag)
 
-  // Check if this tag is valid
-  const allTags = getAllResourceTags()
-  if (!allTags.includes(tagName)) {
+  // If no resources found for this tag, return 404
+  if (resources.length === 0) {
     notFound()
   }
 
-  // Get resources for this tag using SDK data
-  const resources = getResourcesByTags([tagName])
+  // Find the actual tag name for display
+  const allTags = getAllResourceTags()
+  const actualTag = allTags.find(tagName => createSlug(tagName) === tag)
+  const displayName = actualTag || slugToTitleCase(tag)
 
   // If no resources found for this tag, return 404
   if (resources.length === 0) {
@@ -39,7 +40,7 @@ export default async function ResourceTagPage({ params }: PageProps) {
 
   return (
     <ResourceIndividualTagPageView
-      tagName={tagName}
+      tagName={displayName}
       resources={resources}
       backLink="/compendium/resources"
       backLinkText="← Back to Resources"

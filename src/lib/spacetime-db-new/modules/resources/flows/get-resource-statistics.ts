@@ -10,9 +10,9 @@ interface ResourceStatistics {
  */
 export function getResourceStatistics(): ResourceStatistics {
   const resources = getResourcesInCompendium()
-  
-  const uniqueTags = new Set(resources.map(r => r.tag).filter(Boolean)).size
-  
+
+  const uniqueTags = new Set(resources.map((r) => r.tag).filter(Boolean)).size
+
   return {
     total: resources.length,
     uniqueTags

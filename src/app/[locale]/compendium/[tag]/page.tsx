@@ -1,33 +1,40 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import itemDescData from '@/data/global/item_desc.json'
-import { getCollectiblesWithItems } from '@/lib/spacetime-db/modules/collectibles/collectibles'
-import { getConsumablesWithStats } from '@/lib/spacetime-db/modules/collections/consumables'
-import { getEquipmentWithStats } from '@/lib/spacetime-db/modules/collections/equipments'
-import { findTagCollection, tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
-import { getToolsWithItems } from '@/lib/spacetime-db/modules/collections/tools'
-import { ItemTag } from '@/lib/spacetime-db/modules/items/item-tags'
-import { camelCaseDeep } from '@/lib/spacetime-db/shared/utils/case-utils'
-import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
+import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-tag-collections'
+import { getEquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
+import { getAllConsumables, getAllItems } from '@/lib/spacetime-db-new/modules/items/commands'
+import { getToolsWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
+import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
 import { EquipmentIndividualTagPageView } from '@/views/equipment-views/equipment-individual-tag-page-view'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 import { ToolsIndividualTagPageView } from '@/views/tools-views/tools-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
+// Helper function to find which collection a tag belongs to
+function findTagCollection(tagName: string) {
+  for (const [, collection] of Object.entries(tagCollections)) {
+    if ((collection.tags as readonly string[]).includes(tagName)) {
+      return collection
+    }
+  }
+  return null
+}
+
 type CompendiumEntity = ItemDesc | ResourceDesc
 
 // Generate static params for all possible tag combinations
 export function generateStaticParams() {
-  const tags = Object.values(ItemTag)
+  // Get all tags from all collections
+  const allTags = Object.values(tagCollections).flatMap((collection) => collection.tags)
 
   // Exclude tags that conflict with specific routes
   const conflictingRoutes = ['weapon'] // lowercase versions of specific routes
 
-  return tags
+  return allTags
     .filter((tag) => !conflictingRoutes.includes(tag.toLowerCase()))
     .map((tag) => ({
-      tag
+      tag: createSlug(tag)
     }))
 }
 
@@ -40,22 +47,17 @@ interface PageProps {
 export default async function CompendiumCategoryPage({ params }: PageProps) {
   const { tag } = await params
 
-  // Convert slug back to tag name
-  const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  // Convert slug back to tag name using standardized function
+  const tagName = slugToTitleCase(tag)
 
-  // Convert snake_case JSON to camelCase and type properly
-  const itemData = camelCaseDeep<ItemDesc[]>(itemDescData)
-  // const resourceData = camelCaseDeep<ResourceDesc[]>(resourceDescData)
+  // Get items using new SDK functions
+  const allItems = getAllItems()
 
   // Filter entries by tag
-  const items = itemData.filter((item) => item.compendiumEntry && item.tag === tagName)
-  // const resources = resourceData.filter((resource) => resource.compendiumEntry && resource.tag === tagName)
+  const items = allItems.filter((item) => item.compendiumEntry && item.tag === tagName)
 
-  // Combine all entities
-  const allEntities: CompendiumEntity[] = [
-    ...items
-    // ...resources
-  ]
+  // Combine all entities (currently just items, resources can be added later)
+  const allEntities: CompendiumEntity[] = [...items]
 
   // If no entities found, return 404
   if (allEntities.length === 0) {
@@ -71,9 +73,6 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Check if this tag is a tools tag
   const isToolsTag = tagCollections.tools.tags.some((tag) => tag === tagName)
 
-  // Check if this tag is a collectibles tag
-  const isCollectiblesTag = tagCollections.collectibles.tags.some((tag) => tag === tagName)
-
   // Check if this tag is a consumables tag
   const isConsumablesTag = tagCollections.consumables.tags.some((tag) => tag === tagName)
 
@@ -82,7 +81,7 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
 
   // Handle equipment tags with the live component
   if (isEquipmentTag && items.length > 0) {
-    const equipmentWithStats = await getEquipmentWithStats()
+    const equipmentWithStats = getEquipmentWithStats()
     const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
 
     return (
@@ -97,8 +96,8 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
 
   // Handle tools tags with the new component
   if (isToolsTag && items.length > 0) {
-    const toolsWithItems = await getToolsWithItems()
-    const toolsForThisTag = toolsWithItems.filter((tool) => tool.item.tag === tagName)
+    const toolsWithStats = getToolsWithStats()
+    const toolsForThisTag = toolsWithStats.filter((tool) => tool.item.tag === tagName)
 
     return (
       <ToolsIndividualTagPageView
@@ -110,25 +109,10 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
     )
   }
 
-  // Handle collectibles tags with the new component
-  if (isCollectiblesTag && items.length > 0) {
-    const collectiblesWithItems = await getCollectiblesWithItems()
-    const collectiblesForThisTag = collectiblesWithItems.filter((collectible) => collectible.item.tag === tagName)
-
-    return (
-      <CollectiblesIndividualTagPageView
-        tagName={tagName}
-        collectibles={collectiblesForThisTag}
-        backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
-      />
-    )
-  }
-
   // Handle consumables tags with the new component
   if (isConsumablesTag && items.length > 0) {
-    const consumablesWithStats = await getConsumablesWithStats()
-    const consumablesForThisTag = consumablesWithStats.filter((consumable) => consumable.tag === tagName)
+    const allConsumables = getAllConsumables()
+    const consumablesForThisTag = allConsumables.filter((consumable) => consumable.tag === tagName)
 
     return (
       <ConsumableIndividualTagPageView

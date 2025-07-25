@@ -1,5 +1,4 @@
-import { getCargoStatistics } from '@/lib/spacetime-db-new/modules/cargo/flows'
-import { getCargoTagsMetadata } from '@/lib/spacetime-db-new/modules/cargo/flows'
+import { getCargoStatistics, getCargoTagsMetadata } from '@/lib/spacetime-db-new/modules/cargo/flows'
 import { CargoView } from '@/views/cargo-views/cargo-index-page-view'
 
 export default async function CargoPage() {

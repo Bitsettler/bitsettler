@@ -1,13 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { getBuildingStatistics } from '@/lib/spacetime-db-new/modules/buildings/flows'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import Image from 'next/image'
 
 interface BuildingCategory {
   id: string
   name: string
   description: string
-  icon: string
-  count: number
+  iconAssetName: string
   href: string
 }
 
@@ -18,12 +18,17 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-muted flex h-12 w-12 items-center justify-center rounded-lg">
-                <span className="text-2xl">{category.icon}</span>
+              <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
+                <Image
+                  src={getServerIconPath(cleanIconAssetName(category.iconAssetName))}
+                  alt={category.name}
+                  width={44}
+                  height={44}
+                  className="rounded"
+                />
               </div>
               <div>
                 <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
-                <p className="text-muted-foreground text-sm">{category.count} items</p>
               </div>
             </div>
           </div>
@@ -36,24 +41,20 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
   )
 }
 
-export async function BuildingsSection() {
-  const buildingStats = getBuildingStatistics()
-
+export function BuildingsSection() {
   const buildingCategories: BuildingCategory[] = [
     {
       id: 'buildings',
       name: 'Buildings',
       description: 'Structures, facilities, and architectural constructions',
-      icon: '🏢',
-      count: buildingStats.totalBuildings,
+      iconAssetName: 'GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium',
       href: '/compendium/buildings'
     },
     {
       id: 'writs',
       name: 'Writs & Documents',
       description: 'Construction permits and building documents',
-      icon: '📋',
-      count: buildingStats.totalWrits,
+      iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/TownWrit',
       href: '/compendium/writ'
     }
   ]

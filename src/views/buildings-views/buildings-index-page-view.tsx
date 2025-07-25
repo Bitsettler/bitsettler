@@ -8,7 +8,7 @@ interface BuildingCategory {
   id: string
   name: string
   description: string
-  icon: string
+  icon: string | undefined
   count: number
   href: string
   category: string

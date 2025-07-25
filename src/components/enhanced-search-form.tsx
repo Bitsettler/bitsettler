@@ -5,9 +5,9 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { SidebarGroup, SidebarGroupContent, SidebarInput } from '@/components/ui/sidebar'
-import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import { useRouter } from '@/i18n/navigation'
-import type { SearchData, SearchItem } from '@/lib/spacetime-db/shared/dtos/search-dtos'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import type { SearchData, SearchItem } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
 import { Search } from 'lucide-react'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
@@ -80,10 +80,10 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
     >
       {(item.type === 'item' || item.type === 'cargo' || item.type === 'resource') && item.icon_asset_name && (
         <Image
-          src={item.icon_asset_name || `${DEFAULT_ICON_PATH}.webp`}
+          src={getServerIconPath(cleanIconAssetName(item.icon_asset_name))}
           alt={item.name}
-          width={24}
-          height={24}
+          width={40}
+          height={40}
           className="flex-shrink-0 rounded"
         />
       )}
@@ -102,7 +102,7 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
             </Badge>
           )}
           <Badge variant="secondary" className="text-xs">
-            {item.type === 'collection' ? 'Collection' : 'Guide'}
+            {item.type === 'collection' ? 'Collection' : item.type}
           </Badge>
         </div>
       </div>

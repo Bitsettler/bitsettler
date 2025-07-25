@@ -1,6 +1,6 @@
-import { getEnrichedCraftingRecipesByOutputItemId } from '@/lib/spacetime-db/modules/crafting-recipes/flows'
-import { getEnrichedExtractionRecipesByOutputItemId } from '@/lib/spacetime-db/modules/extraction-recipes/flows'
-import { getItemBySlugCommand } from '@/lib/spacetime-db/modules/items/commands/get-item-by-slug'
+import { getEnrichedCraftingRecipesByOutputItemId } from '@/lib/spacetime-db-new/modules/crafting-recipes/flows'
+import { getEnrichedExtractionRecipesByOutputItemId } from '@/lib/spacetime-db-new/modules/extraction-recipes/flows'
+import { getItemBySlugCommand } from '@/lib/spacetime-db-new/modules/items/commands/get-item-by-slug'
 import { ItemIndividualObtainPageView } from '@/views/item-views/item-individual-obtain-page-view'
 import { notFound } from 'next/navigation'
 

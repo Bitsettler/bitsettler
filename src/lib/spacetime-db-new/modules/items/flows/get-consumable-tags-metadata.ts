@@ -18,7 +18,18 @@ export interface ConsumableTagMetadata {
  * Based on the original consumable collections structure
  */
 const SECTIONS_TO_TAGS: Record<string, string[]> = {
-  'Food & Nutrition': ['Basic Food', 'Meal', 'Raw Meal', 'Berry', 'Citric Berry', 'Mushroom', 'Sugar', 'Tea', 'Vegetable', 'Wonder Fruit'],
+  'Food & Nutrition': [
+    'Basic Food',
+    'Meal',
+    'Raw Meal',
+    'Berry',
+    'Citric Berry',
+    'Mushroom',
+    'Sugar',
+    'Tea',
+    'Vegetable',
+    'Wonder Fruit'
+  ],
   'Potions & Medicine': ['Healing Potion', 'Stamina Potion', 'Crafting Speed Elixir', 'Bandage'],
   'Fishing Supplies': ['Bait', 'Chum'],
   'Crafting & Recipes': ['Recipe']
@@ -41,15 +52,15 @@ function getTagSection(tag: string): string {
  */
 export function getConsumableTagsMetadata(): ConsumableTagMetadata[] {
   const allTags = getAllConsumableTags()
-  
-  return allTags.map(tag => {
+
+  return allTags.map((tag) => {
     // Get first consumable of this tag for dynamic data
     const consumablesForTag = getConsumablesByTags([tag])
     const firstConsumable = consumablesForTag[0]
-    
+
     const section = getTagSection(tag)
     const slug = createSlug(tag)
-    
+
     return {
       id: slug,
       name: tag, // Use the tag as the display name

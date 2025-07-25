@@ -20,7 +20,7 @@ import {
   SidebarRail
 } from '@/components/ui/sidebar'
 import { SITE_CONFIG } from '@/config/site-config'
-import type { SearchData } from '@/lib/spacetime-db/shared/dtos/search-dtos'
+import type { SearchData } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { KofiWidget } from './kofi-widget'

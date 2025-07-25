@@ -7,12 +7,12 @@ import { getAllResources } from './get-all-resources'
 export function getAllResourceTags(): string[] {
   const resources = getAllResources()
   const tags = new Set<string>()
-  
-  resources.forEach(resource => {
+
+  resources.forEach((resource) => {
     if (resource.tag && resource.compendiumEntry) {
       tags.add(resource.tag)
     }
   })
-  
+
   return Array.from(tags).sort()
 }

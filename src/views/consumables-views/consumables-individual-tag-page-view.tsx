@@ -30,17 +30,19 @@ export function ConsumableIndividualTagPageView({
   }))
 
   // Create single item group with tag name as title
-  const itemGroups = [{
-    name: tagName,
-    items: enrichedItems,
-    columns: baseColumns
-  }]
+  const itemGroups = [
+    {
+      name: tagName,
+      items: enrichedItems,
+      columns: baseColumns
+    }
+  ]
 
   // Consumable statistics
   const totalConsumables = consumables.length
   // Simplified statistics based on tag patterns
-  const tiers = new Set(consumables.map(c => c.tier)).size
-  
+  const tiers = new Set(consumables.map((c) => c.tier)).size
+
   // Create subtitle with breakdown
   const subtitleParts = [`${totalConsumables} items`]
   if (tiers > 1) subtitleParts.push(`${tiers} tiers`)

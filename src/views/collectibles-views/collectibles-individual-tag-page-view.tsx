@@ -1,9 +1,14 @@
-import type { CollectibleWithItem } from '@/lib/spacetime-db/modules/collectibles/collectibles'
+'use client'
+
+import type { CollectibleWithDeed } from '@/lib/spacetime-db-new/modules/collectibles/flows'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import type { BaseItem } from '@/views/tag-views/tag-page-view'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
+import Image from 'next/image'
 
 interface CollectiblesIndividualTagPageViewProps {
   tagName: string
-  collectibles: CollectibleWithItem[]
+  collectibles: CollectibleWithDeed[]
   backLink?: string
   backLinkText?: string
 }
@@ -14,20 +19,23 @@ export function CollectiblesIndividualTagPageView({
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: CollectiblesIndividualTagPageViewProps) {
-  // Create enriched items with collectible data
-  const enrichedItems = collectibles.map((collectible) => ({
-    ...collectible.item,
-    // Override the iconAssetName for proper display
-    iconAssetName: collectible.item.iconAssetName,
-    // Add collectible-specific properties if needed
-    collectible: collectible
+  // Transform collectibles to BaseItem format for TagPageView
+  const transformedItems = collectibles.map((item) => ({
+    id: item.collectible.id,
+    name: item.collectible.name,
+    description: item.collectible.description,
+    iconAssetName: item.collectible.iconAssetName,
+    tier: -1, // Collectibles don't have tiers, using -1 for items without tiers
+    rarity: item.collectible.collectibleRarity,
+    // Add deed info for custom rendering
+    deedIconAssetName: item.deed?.iconAssetName
   }))
 
   // Create item groups
   const itemGroups = [
     {
       name: tagName,
-      items: enrichedItems,
+      items: transformedItems,
       columns: [
         {
           key: 'icon',
@@ -36,8 +44,25 @@ export function CollectiblesIndividualTagPageView({
           className: 'w-16'
         },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-        { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' }
+        { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
+        {
+          key: 'deedIconAssetName',
+          label: 'Deed',
+          sortable: false,
+          className: 'w-16',
+          render: (item: BaseItem & { deedIconAssetName?: string }) =>
+            item.deedIconAssetName ? (
+              <div className="bg-muted relative h-13 w-13 rounded p-1">
+                <Image
+                  src={getServerIconPath(cleanIconAssetName(item.deedIconAssetName))}
+                  alt="Deed"
+                  width={48}
+                  height={48}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ) : null
+        }
       ]
     }
   ]
@@ -45,8 +70,8 @@ export function CollectiblesIndividualTagPageView({
   // Collectibles statistics
   const totalCollectibles = collectibles.length
   const rarityDistribution: Record<string, number> = {}
-  collectibles.forEach((collectible) => {
-    const rarity = collectible.item.rarity?.tag || 'Common'
+  collectibles.forEach((item) => {
+    const rarity = item.collectible.collectibleRarity?.tag || 'Default'
     rarityDistribution[rarity] = (rarityDistribution[rarity] || 0) + 1
   })
 

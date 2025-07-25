@@ -10,9 +10,9 @@ interface ConsumableStatistics {
  */
 export function getConsumableStatistics(): ConsumableStatistics {
   const consumables = getAllConsumables()
-  
-  const uniqueTags = new Set(consumables.map(c => c.tag).filter(Boolean)).size
-  
+
+  const uniqueTags = new Set(consumables.map((c) => c.tag).filter(Boolean)).size
+
   return {
     total: consumables.length,
     uniqueTags

@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
-import { getSearchGameData } from '@/lib/spacetime-db/modules/search/flows'
+import { getSearchGameData } from '@/lib/spacetime-db-new/modules/search/flows'
 import { geistSans } from '@/styles/typography'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
@@ -45,20 +45,16 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
+  // Enable static rendering
+  setRequestLocale(locale)
 
   // Validate that the incoming `locale` parameter is valid
   if (!I18N_CONFIG.locales.includes(locale as Locale)) {
     notFound()
   }
 
-  // Enable static rendering
-  setRequestLocale(locale)
-
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages()
 
-  // Load search data for sidebar
   const searchData = await getSearchGameData()
 
   return (

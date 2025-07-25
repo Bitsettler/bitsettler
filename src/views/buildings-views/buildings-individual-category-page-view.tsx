@@ -1,9 +1,9 @@
-import type { BuildingWithConstructionInfo } from '@/lib/spacetime-db/modules/buildings/buildings'
+import type { BuildingDesc } from '@/data/bindings/building_desc_type'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface BuildingsIndividualCategoryPageViewProps {
   categoryName: string
-  buildings: BuildingWithConstructionInfo[]
+  buildings: BuildingDesc[]
   backLink?: string
   backLinkText?: string
 }
@@ -11,19 +11,23 @@ interface BuildingsIndividualCategoryPageViewProps {
 export function BuildingsIndividualCategoryPageView({
   categoryName,
   buildings,
-  backLink = '/compendium',
-  backLinkText = '← Back to Compendium'
+  backLink = '/compendium/buildings',
+  backLinkText = '← Back to Buildings'
 }: BuildingsIndividualCategoryPageViewProps) {
-  // Create enriched items for the table view - all data is already enriched from the data layer
+  // Create enriched items for the table view using SDK building data
   const enrichedItems = buildings.map((building) => ({
     ...building,
     // Add missing BaseItem properties for TagPageView compatibility
     tier: 1, // Buildings don't have tiers, default to 1
     rarity: { tag: 'Common' } as const, // Buildings don't have rarity, default to Common
-    // Add UI-specific properties for table display
-    buildingType: building.buildingType?.name || 'Unknown',
-    functions: building.formattedFunctions || 'None',
-    constructionRequired: building.constructionRecipe ? 'Yes' : 'No'
+    // Format functions for display
+    functions: building.functions?.map(f => f.functionType).join(', ') || 'None',
+    // Simplified health display
+    health: building.maxHealth === -1 ? 'Indestructible' : building.maxHealth.toString(),
+    // Defense level display
+    defense: building.defenseLevel.toString(),
+    // Light radius display
+    light: building.lightRadius > 0 ? building.lightRadius.toString() : 'None'
   }))
 
   // Create item groups for the table
@@ -39,12 +43,10 @@ export function BuildingsIndividualCategoryPageView({
           className: 'w-16'
         },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'buildingType', label: 'Type', sortable: true, className: 'text-center' },
-        { key: 'maxHealth', label: 'Health', sortable: true, className: 'text-center' },
-        { key: 'defenseLevel', label: 'Defense', sortable: true, className: 'text-center' },
-        { key: 'lightRadius', label: 'Light Radius', sortable: true, className: 'text-center' },
-        { key: 'functions', label: 'Functions', sortable: true, className: 'text-center' },
-        { key: 'constructionRequired', label: 'Construction', sortable: true, className: 'text-center' }
+        { key: 'health', label: 'Health', sortable: true, className: 'text-center' },
+        { key: 'defense', label: 'Defense', sortable: true, className: 'text-center' },
+        { key: 'light', label: 'Light', sortable: true, className: 'text-center' },
+        { key: 'functions', label: 'Functions', sortable: false, className: 'text-center' }
       ]
     }
   ]

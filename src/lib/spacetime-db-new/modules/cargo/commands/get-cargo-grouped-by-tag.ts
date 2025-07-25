@@ -6,14 +6,17 @@ import { getAllCargo } from './get-all-cargo'
  */
 export function getCargoGroupedByTag(): Record<string, CargoDesc[]> {
   const cargo = getAllCargo()
-  
-  return cargo.reduce((groups, cargoItem) => {
-    if (cargoItem.tag) {
-      if (!groups[cargoItem.tag]) {
-        groups[cargoItem.tag] = []
+
+  return cargo.reduce(
+    (groups, cargoItem) => {
+      if (cargoItem.tag) {
+        if (!groups[cargoItem.tag]) {
+          groups[cargoItem.tag] = []
+        }
+        groups[cargoItem.tag].push(cargoItem)
       }
-      groups[cargoItem.tag].push(cargoItem)
-    }
-    return groups
-  }, {} as Record<string, CargoDesc[]>)
+      return groups
+    },
+    {} as Record<string, CargoDesc[]>
+  )
 }

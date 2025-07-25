@@ -1,16 +1,18 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export interface CategoryData {
-  tag: string
+  id: string
+  name: string
   count: number
-  firstItem?: {
-    name: string
-    icon_asset_name: string
-  }
+  icon?: string
+  description: string
+  href: string
+  section: string
 }
 
 export interface CompendiumSection {
@@ -21,7 +23,7 @@ export interface CompendiumSection {
 
 export interface SpecialCollection {
   href: string
-  icon: string
+  icon?: string // Now optional iconAssetName instead of emoji
   title: string
   description: string
 }
@@ -31,26 +33,6 @@ export interface CompendiumIndexPageViewProps {
   subtitle: string
   specialCollections: SpecialCollection[]
   sections: CompendiumSection[]
-}
-
-function createSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
-}
-
-function getCompendiumPath(sectionTitle: string, categoryTag: string): string {
-  const slug = createSlug(categoryTag)
-  switch (sectionTitle) {
-    case 'Cargo':
-      return `/compendium/cargo/${slug}`
-    case 'Resources':
-      return `/compendium/resources/${slug}`
-    case 'Items':
-    default:
-      return `/compendium/${slug}`
-  }
 }
 
 export function CompendiumIndexPageView({
@@ -84,9 +66,23 @@ export function CompendiumIndexPageView({
                   <Link href={collection.href} className="group block">
                     <Card className="hover:bg-accent/50 transition-colors">
                       <CardTitle className="px-6">
-                        <span className="text-2xl">{collection.icon}</span>
-                        <div>
-                          <h3 className="group-hover:text-accent-foreground font-semibold">{collection.title}</h3>
+                        <div className="flex items-center gap-3">
+                          {collection.icon ? (
+                            <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
+                              <Image
+                                src={getServerIconPath(cleanIconAssetName(collection.icon))}
+                                alt={collection.title}
+                                width={44}
+                                height={44}
+                                className="rounded"
+                              />
+                            </div>
+                          ) : (
+                            <span className="text-2xl">📦</span>
+                          )}
+                          <div>
+                            <h3 className="group-hover:text-accent-foreground font-semibold">{collection.title}</h3>
+                          </div>
                         </div>
                       </CardTitle>
                       <CardContent className="">
@@ -120,24 +116,25 @@ export function CompendiumIndexPageView({
 
               <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5">
                 {section.categories.map((category) => (
-                  <li key={category.tag} className="h-full">
+                  <li key={category.id} className="h-full">
                     <Card className="hover:bg-accent/50 h-full p-0 transition-colors">
-                      <Link href={getCompendiumPath(section.title, category.tag)} className="group h-full p-4">
+                      <Link href={category.href} className="group h-full p-4">
                         <div className="flex items-center space-x-3">
-                          {category.firstItem && (
+                          {category.icon && (
                             <div className="flex-shrink-0">
                               <Image
-                                src={category.firstItem.icon_asset_name || '/assets/Unknown.webp'}
-                                alt={category.firstItem.name}
+                                src={getServerIconPath(cleanIconAssetName(category.icon))}
+                                alt={category.name}
                                 width={36}
                                 height={36}
                                 className="rounded"
-                                unoptimized
                               />
                             </div>
                           )}
                           <div className="flex-1 space-y-1">
-                            <div className="group-hover:text-accent-foreground text-sm font-medium">{category.tag}</div>
+                            <div className="group-hover:text-accent-foreground text-sm font-medium">
+                              {category.name}
+                            </div>
                             <Badge variant="secondary" className="text-muted-foreground text-xs">
                               {category.count}
                             </Badge>

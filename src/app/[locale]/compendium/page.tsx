@@ -1,58 +1,82 @@
-import { getCargoCategoriesCommand } from '@/lib/spacetime-db/modules/cargo/commands/get-cargo-categories'
-import { getItemsCategoriesCommand } from '@/lib/spacetime-db/modules/items/commands/get-items-categories'
-import { getItemsStatisticsCommand } from '@/lib/spacetime-db/modules/items/commands/get-items-statistics'
-import { getResourcesCategoriesCommand } from '@/lib/spacetime-db/modules/resources/commands/get-resources-categories'
+import { getCargoStatistics, getCargoTagsMetadata } from '@/lib/spacetime-db-new/modules/cargo/flows'
+import { getEquipmentCategories, getEquipmentStatistics } from '@/lib/spacetime-db-new/modules/equipment/flows'
+import {
+  getConsumableStatistics,
+  getConsumableTagsMetadata,
+  getItemStatistics,
+  getItemTagsMetadata
+} from '@/lib/spacetime-db-new/modules/items/flows'
+import { getResourceStatistics, getResourceTagsMetadata } from '@/lib/spacetime-db-new/modules/resources/flows'
+import { getToolCategories, getToolStatistics } from '@/lib/spacetime-db-new/modules/tools/flows'
+import { getWeaponCategories, getWeaponStatistics } from '@/lib/spacetime-db-new/modules/weapons/flows'
 import { CompendiumIndexPageView } from '@/views/compendium-views/compendium-index-page-view'
 
 export default function CompendiumPage() {
-  // Call individual module commands to get category data
-  const itemCategories = getItemsCategoriesCommand()
-  const itemStats = getItemsStatisticsCommand()
-  const cargoCategories = getCargoCategoriesCommand()
-  const resourceCategories = getResourcesCategoriesCommand()
+  // Get statistics for special collections
+  const weaponStats = getWeaponStatistics()
+  const equipmentStats = getEquipmentStatistics()
+  const toolStats = getToolStatistics()
+  const consumableStats = getConsumableStatistics()
 
-  // Prepare data for the view component
+  // Get category data for sections
+  const consumableCategories = getConsumableTagsMetadata()
+  const itemsCategories = getItemTagsMetadata()
+  const cargoCategories = getCargoTagsMetadata()
+  const resourceCategories = getResourceTagsMetadata()
+
+  // Get first items for special collection icons
+  const weaponCategoriesData = getWeaponCategories()
+  const equipmentCategoriesData = getEquipmentCategories()
+  const toolCategoriesData = getToolCategories()
+  const firstConsumable = consumableCategories[0]
+
+  // Prepare special collections with real icons and live stats
   const specialCollections = [
     {
       href: '/compendium/weapon',
-      icon: '⚔️',
+      icon: weaponCategoriesData[0]?.firstWeapon?.iconAssetName,
       title: 'Weapons',
-      description: 'All weapon types'
+      description: `${weaponStats.total} weapons across ${weaponStats.types} types`
     },
     {
       href: '/compendium/equipment',
-      icon: '🛡️',
+      icon: equipmentCategoriesData[0]?.firstEquipment?.iconAssetName,
       title: 'Equipment',
-      description: 'All equipment slots'
+      description: `${equipmentStats.total} equipment items`
     },
     {
       href: '/compendium/tools',
-      icon: '🔨',
+      icon: toolCategoriesData[0]?.firstTool?.iconAssetName,
       title: 'Tools',
-      description: 'All profession tools'
+      description: `${toolStats.total} profession tools`
     },
     {
       href: '/compendium/consumables',
-      icon: '🍎',
+      icon: firstConsumable?.icon,
       title: 'Consumables',
-      description: 'Food, potions & supplies'
+      description: `${consumableStats.total} consumable items`
     }
   ]
+
+  // Get statistics for sections
+  const itemStats = getItemStatistics()
+  const cargoStats = getCargoStatistics()
+  const resourceStats = getResourceStatistics()
 
   const sections = [
     {
       title: 'Items',
       totalCount: itemStats.total,
-      categories: itemCategories
+      categories: itemsCategories
     },
     {
       title: 'Cargo',
-      totalCount: cargoCategories.reduce((sum, cat) => sum + cat.count, 0),
+      totalCount: cargoStats.total,
       categories: cargoCategories
     },
     {
       title: 'Resources',
-      totalCount: resourceCategories.reduce((sum, cat) => sum + cat.count, 0),
+      totalCount: resourceStats.total,
       categories: resourceCategories
     }
   ]

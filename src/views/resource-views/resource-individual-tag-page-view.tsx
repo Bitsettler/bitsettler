@@ -35,17 +35,19 @@ export function ResourceIndividualTagPageView({
   }))
 
   // Create single item group with tag name as title
-  const itemGroups = [{
-    name: tagName,
-    items: enrichedItems,
-    columns: [...baseColumns, ...resourceColumns]
-  }]
+  const itemGroups = [
+    {
+      name: tagName,
+      items: enrichedItems,
+      columns: [...baseColumns, ...resourceColumns]
+    }
+  ]
 
   // Resource statistics based on SDK data
   const totalResources = resources.length
   const respawningCount = resources.filter((r) => !r.notRespawning).length
   const flattenableCount = resources.filter((r) => r.flattenable).length
-  const tiers = new Set(resources.map(r => r.tier)).size
+  const tiers = new Set(resources.map((r) => r.tier)).size
 
   // Create subtitle with breakdown
   const subtitleParts = [`${totalResources} resources`]

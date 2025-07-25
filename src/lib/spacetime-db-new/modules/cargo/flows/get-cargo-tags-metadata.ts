@@ -44,15 +44,15 @@ function getTagSection(tag: string): string {
  */
 export function getCargoTagsMetadata(): CargoTagMetadata[] {
   const allTags = getAllCargoTags()
-  
-  return allTags.map(tag => {
+
+  return allTags.map((tag) => {
     // Get first cargo of this tag for dynamic data
     const cargoForTag = getCargoByTags([tag])
     const firstCargo = cargoForTag[0]
-    
+
     const section = getTagSection(tag)
     const slug = createSlug(tag)
-    
+
     return {
       id: slug,
       name: tag, // Use the tag as the display name

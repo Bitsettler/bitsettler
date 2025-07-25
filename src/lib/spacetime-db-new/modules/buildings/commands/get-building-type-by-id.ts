@@ -8,7 +8,7 @@ const buildingTypes = buildingTypeDescData as BuildingTypeDesc[]
  * Get building type by ID
  */
 export function getBuildingTypeById(id: number): BuildingTypeDesc | undefined {
-  return buildingTypes.find(type => type.id === id)
+  return buildingTypes.find((type) => type.id === id)
 }
 
 /**

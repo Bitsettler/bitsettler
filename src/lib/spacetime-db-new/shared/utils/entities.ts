@@ -31,11 +31,20 @@ export function getTierColor(tier: number): string {
 }
 
 /**
- * Create a slug from a name
+ * Create a slug from a name (kebab-case)
+ * Example: "Raw Meal" -> "raw-meal"
  */
 export function createSlug(name: string): string {
   return name
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
+}
+
+/**
+ * Convert slug back to title case
+ * Example: "raw-meal" -> "Raw Meal"
+ */
+export function slugToTitleCase(slug: string): string {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }

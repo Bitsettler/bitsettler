@@ -1,9 +1,9 @@
-import type { ToolWithItem } from '@/lib/spacetime-db/modules/collections/tools'
+import type { ToolWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {
   tagName: string
-  tools: ToolWithItem[]
+  tools: ToolWithStats[]
   backLink?: string
   backLinkText?: string
 }
@@ -23,7 +23,7 @@ export function ToolsIndividualTagPageView({
       }
       return acc
     },
-    {} as Record<string, ToolWithItem>
+    {} as Record<string, ToolWithStats>
   )
 
   const toolsList = Object.values(deduplicatedTools)
@@ -35,9 +35,9 @@ export function ToolsIndividualTagPageView({
       items: toolsList.map((tool) => ({
         ...tool.item,
         // Add tool stats as properties
-        level: tool.level,
-        power: tool.power,
-        toolType: tool.toolTypeName
+        level: tool.toolData.level,
+        power: tool.toolData.power,
+        toolType: tool.toolType.name
       })),
       columns: [
         { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },

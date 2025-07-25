@@ -1,42 +1,34 @@
-import { getCollectibleStatistics } from '@/lib/spacetime-db/modules/collectibles/collectibles'
-import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
-import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
+import {
+  getCollectibleStatistics,
+  getCollectiblesGroupedByType
+} from '@/lib/spacetime-db-new/modules/collectibles/flows'
 import { CollectiblesView } from '@/views/collectibles-views/collectibles-index-page-view'
 
-export default async function CollectiblesPage() {
-  // Get collectible categories from centralized metadata
-  const collectibleCollection = tagCollections.collectibles
-  const collectibleCategories = collectibleCollection.tags.map((tag) => {
-    const categoryMeta = collectibleCollection.categories[tag]
-    return {
-      id: categoryMeta.id,
-      name: categoryMeta.name,
-      description: categoryMeta.description,
-      icon: categoryMeta.icon,
-      tag,
-      category: categoryMeta.section,
-      href: categoryMeta.href
-    }
-  })
+export default function CollectiblesPage() {
+  // Get collectible groups with actual data
+  const collectibleGroups = getCollectiblesGroupedByType()
 
-  // Get item counts for each category
-  const categoriesWithCounts = collectibleCategories.map((category) => {
-    const items = getItemsByTags([category.tag])
-    return {
-      ...category,
-      count: items.length
-    }
-  })
+  // Create categories from actual collectible data pointing to tag routes
+  const collectibleCategories = collectibleGroups.map((group) => ({
+    id: group.slug,
+    name: group.name,
+    description: `${group.count} ${group.name.toLowerCase()} collectibles`,
+    icon: group.iconAssetName,
+    tag: group.name,
+    category: 'Collectibles',
+    href: `/compendium/collectibles/${group.slug.toLowerCase()}`,
+    count: group.count
+  }))
 
   // Get live collectible statistics
-  const collectibleStats = await getCollectibleStatistics()
+  const collectibleStats = getCollectibleStatistics()
   const totalCollectibles = collectibleStats.total
 
   return (
     <CollectiblesView
       title="Collectibles"
-      subtitle={`${totalCollectibles} collectible items across ${categoriesWithCounts.length} categories`}
-      collectibleCategories={categoriesWithCounts}
+      subtitle={`${totalCollectibles} collectible items across ${collectibleStats.types} types`}
+      collectibleCategories={collectibleCategories}
     />
   )
 }

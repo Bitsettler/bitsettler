@@ -52,9 +52,11 @@ export function transformToCalculatorData(
   mapCargoToCalculatorItem: (cargo: CargoDesc) => CalculatorItem,
   mapResourceToCalculatorItem: (resource: ResourceDesc) => CalculatorItem,
   transformCraftingRecipesToCalculator: (recipes: CraftingRecipeDesc[]) => CalculatorRecipe[],
-  transformExtractionRecipesToCalculator: (recipes: ExtractionRecipeDesc[], lookup: Map<string, CalculatorItem>) => CalculatorRecipe[]
+  transformExtractionRecipesToCalculator: (
+    recipes: ExtractionRecipeDesc[],
+    lookup: Map<string, CalculatorItem>
+  ) => CalculatorRecipe[]
 ): CalculatorGameData {
-
   // Create unified lookup for all entities
   const unifiedLookup = createUnifiedLookup(
     items,

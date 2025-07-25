@@ -1,5 +1,4 @@
-import { getResourceStatistics } from '@/lib/spacetime-db-new/modules/resources/flows'
-import { getResourceTagsMetadata } from '@/lib/spacetime-db-new/modules/resources/flows'
+import { getResourceStatistics, getResourceTagsMetadata } from '@/lib/spacetime-db-new/modules/resources/flows'
 import { ResourceIndexPageView } from '@/views/resource-views/resource-index-page-view'
 
 export default async function ResourcesPage() {

@@ -85,7 +85,7 @@ export const tagCollections = {
         section: 'Armor & Clothing',
         href: '/compendium/cosmetic-clothes'
       },
-      'Jewelry': {
+      Jewelry: {
         id: 'jewelry',
         name: 'Jewelry',
         description: 'Rings, necklaces, and other precious accessories',
@@ -110,7 +110,7 @@ export const tagCollections = {
     href: '/compendium/weapon',
     name: 'Weapons',
     categories: {
-      'Weapon': {
+      Weapon: {
         id: 'weapon',
         name: 'Weapons',
         description: 'Combat weapons and tools for hunting and protection',
@@ -271,7 +271,7 @@ export const tagCollections = {
         section: 'Food & Nutrition',
         href: '/compendium/basic-food'
       },
-      'Meal': {
+      Meal: {
         id: 'meal',
         name: 'Prepared Meals',
         description: 'Cooked meals with high nutritional value',
@@ -284,17 +284,11 @@ export const tagCollections = {
 
   // Collectibles collection
   collectibles: {
-    tags: [
-      'Deed',
-      'Deployable Deed',
-      'Knowledge Scroll',
-      'Codex',
-      'Blueprint'
-    ] as const,
+    tags: ['Deed', 'Deployable Deed', 'Knowledge Scroll', 'Codex', 'Blueprint'] as const,
     href: '/compendium/collectibles',
     name: 'Collectibles',
     categories: {
-      'Deed': {
+      Deed: {
         id: 'deed',
         name: 'Deeds',
         description: 'Property deeds and ownership documents',

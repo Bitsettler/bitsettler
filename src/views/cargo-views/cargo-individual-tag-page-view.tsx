@@ -46,22 +46,25 @@ export function CargoIndividualTagPageView({
   }))
 
   // Create single item group with tag name as title
-  const itemGroups = [{
-    name: tagName,
-    items: enrichedItems,
-    columns: [...baseColumns, ...cargoColumns, ...transportableColumn]
-  }]
+  const itemGroups = [
+    {
+      name: tagName,
+      items: enrichedItems,
+      columns: [...baseColumns, ...cargoColumns, ...transportableColumn]
+    }
+  ]
 
   // Cargo statistics
   const totalCargo = cargo.length
   const transportableCount = cargo.filter((c) => !c.notPickupable).length
   // Simplified statistics - we can determine basic categories from tag patterns
   const animalCount = cargo.filter((c) => c.tag?.toLowerCase().includes('animal')).length
-  const materialCount = cargo.filter((c) => 
-    c.tag?.toLowerCase().includes('material') || 
-    c.tag?.toLowerCase().includes('wood') ||
-    c.tag?.toLowerCase().includes('stone') ||
-    c.tag?.toLowerCase().includes('metal')
+  const materialCount = cargo.filter(
+    (c) =>
+      c.tag?.toLowerCase().includes('material') ||
+      c.tag?.toLowerCase().includes('wood') ||
+      c.tag?.toLowerCase().includes('stone') ||
+      c.tag?.toLowerCase().includes('metal')
   ).length
   const vehicleCount = cargo.filter((c) => c.tag?.toLowerCase().includes('vehicle')).length
 

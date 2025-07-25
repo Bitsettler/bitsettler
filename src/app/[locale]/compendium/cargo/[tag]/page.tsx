@@ -1,13 +1,13 @@
-import { getAllCargoTags } from '@/lib/spacetime-db-new/modules/cargo/commands/get-all-cargo-tags'
-import { getCargoByTags } from '@/lib/spacetime-db-new/modules/cargo/commands/get-cargo-by-tags'
+import { getAllCargoTags, getCargoBySlug } from '@/lib/spacetime-db-new/modules/cargo/commands'
+import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { CargoIndividualTagPageView } from '@/views/cargo-views/cargo-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
 // Generate static params for all possible cargo tag combinations
 export function generateStaticParams() {
   const allTags = getAllCargoTags()
-  return allTags.map((tag) => ({ 
-    tag: tag.toLowerCase().replace(/\s+/g, '-') 
+  return allTags.map((tag) => ({
+    tag: createSlug(tag)
   }))
 }
 
@@ -20,17 +20,18 @@ interface PageProps {
 export default async function CargoTagPage({ params }: PageProps) {
   const { tag } = await params
 
-  // Convert slug back to tag name
-  const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  // Get cargo for this specific tag using slug (handles special characters properly)
+  const cargo = getCargoBySlug(tag)
 
-  // Validate tag exists
-  const allTags = getAllCargoTags()
-  if (!allTags.includes(tagName)) {
+  // If no cargo found for this tag, return 404
+  if (cargo.length === 0) {
     notFound()
   }
 
-  // Get cargo for this specific tag using SDK data
-  const cargo = getCargoByTags([tagName])
+  // Find the actual tag name for display
+  const allTags = getAllCargoTags()
+  const actualTag = allTags.find(tagName => createSlug(tagName) === tag)
+  const displayName = actualTag || slugToTitleCase(tag)
 
   // If no cargo found for this tag, return 404
   if (cargo.length === 0) {
@@ -39,7 +40,7 @@ export default async function CargoTagPage({ params }: PageProps) {
 
   return (
     <CargoIndividualTagPageView
-      tagName={tagName}
+      tagName={displayName}
       cargo={cargo}
       backLink="/compendium/cargo"
       backLinkText="← Back to Cargo"

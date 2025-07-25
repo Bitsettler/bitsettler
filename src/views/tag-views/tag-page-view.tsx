@@ -8,9 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
-import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
-import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
 
@@ -47,16 +47,6 @@ export interface TagPageViewProps {
   itemGroups: ItemGroup[]
   enableItemLinks?: boolean
   tagSlug?: string
-}
-
-// Convert item name to URL slug
-function itemNameToSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
-    .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
 }
 
 export function TagPageView({
@@ -120,13 +110,13 @@ export function TagPageView({
 
         // Handle special cases
         if (sortState.key === 'rarity' || sortState.key.includes('rarity')) {
-          // Convert the rarity value properly - it might be a Rarity object or need conversion
+          // Get the rarity tag directly - it might be a Rarity object with tag property
           const aRarity =
             typeof aValue === 'object' && aValue && 'tag' in aValue ? (aValue as Rarity) : ({ tag: 'Common' } as Rarity)
           const bRarity =
             typeof bValue === 'object' && bValue && 'tag' in bValue ? (bValue as Rarity) : ({ tag: 'Common' } as Rarity)
-          aValue = convertRarityToString(aRarity)
-          bValue = convertRarityToString(bRarity)
+          aValue = aRarity.tag.toLowerCase()
+          bValue = bRarity.tag.toLowerCase()
         } else if (sortState.key === 'name' || sortState.key.includes('name')) {
           aValue = String(aValue).toLowerCase()
           bValue = String(bValue).toLowerCase()
@@ -155,7 +145,7 @@ export function TagPageView({
   // Default render functions for common column types
   const defaultRenders = {
     icon: (item: BaseItem) => (
-      <div className={`relative h-13 w-13 rounded border-2 p-1 ${getTierColor(item.tier)}`}>
+      <div className={`bg-muted relative h-13 w-13 rounded p-1`}>
         {/* <span>{getServerIconPath(cleanIconAssetName(item.iconAssetName))}</span> */}
         <Image
           src={getServerIconPath(cleanIconAssetName(item.iconAssetName))}
@@ -176,10 +166,10 @@ export function TagPageView({
       </Badge>
     ),
     rarity: (item: BaseItem) => {
-      const rarityString = convertRarityToString(item.rarity)
+      const rarityTag = item.rarity.tag.toLowerCase()
       return (
-        <Badge variant="outline" className={getRarityColor(rarityString)}>
-          {rarityString.charAt(0).toUpperCase() + rarityString.slice(1)}
+        <Badge variant="outline" className={`capitalize ${getRarityColor(rarityTag)}`}>
+          {item.rarity.tag}
         </Badge>
       )
     }
@@ -208,7 +198,7 @@ export function TagPageView({
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <div>
-                    <div>{group.name}</div>
+                    <div className="capitalize">{group.name}</div>
                     {group.subtitle && (
                       <div className="text-muted-foreground mt-1 text-sm font-normal">{group.subtitle}</div>
                     )}
@@ -244,7 +234,7 @@ export function TagPageView({
                     </TableHeader>
                     <TableBody>
                       {group.items.map((item, index) => {
-                        const itemSlug = itemNameToSlug(item.name)
+                        const itemSlug = createSlug(item.name)
                         const itemLink = enableItemLinks && tagSlug ? `/compendium/${tagSlug}/${itemSlug}` : undefined
 
                         if (itemLink) {

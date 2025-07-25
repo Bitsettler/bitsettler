@@ -3,11 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { CraftingRecipeDesc, ExtractionRecipeDesc } from '@/data/bindings'
 import { Link } from '@/i18n/navigation'
-import { getCraftingRecipesByItemId } from '@/lib/spacetime-db/modules/crafting-recipes/commands/get-crafting-recipes-by-item-id'
-import { getExtractionRecipesByItemId } from '@/lib/spacetime-db/modules/extraction-recipes/commands/get-extraction-recipes-by-item-id'
-import { getItemBySlugCommand } from '@/lib/spacetime-db/modules/items/commands/get-item-by-slug'
-import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
-import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { getCraftingRecipesByItemId } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-crafting-recipes-by-item-id'
+import { getExtractionRecipesByItemId } from '@/lib/spacetime-db-new/modules/extraction-recipes/commands/get-extraction-recipes-by-item-id'
+import { getItemBySlugCommand } from '@/lib/spacetime-db-new/modules/items/commands/get-item-by-slug'
+import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { notFound } from 'next/navigation'
 
 // Generate static params for all items
@@ -71,7 +71,7 @@ export default async function ItemInfoPage({ params }: PageProps) {
     notFound()
   }
 
-  const rarityString = convertRarityToString(item.rarity)
+  const rarityString = item.rarity.tag.toLowerCase()
   const rarityColor = getRarityColor(rarityString)
   const tierColor = getTierColor(item.tier)
   const tagSlug = item.tag.toLowerCase().replace(/\s+/g, '-')
@@ -103,8 +103,8 @@ export default async function ItemInfoPage({ params }: PageProps) {
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Rarity</span>
-              <Badge variant="outline" className={rarityColor}>
-                {rarityString.charAt(0).toUpperCase() + rarityString.slice(1)}
+              <Badge variant="outline" className={`${rarityColor} capitalize`}>
+                {rarityString}
               </Badge>
             </div>
             <Separator />

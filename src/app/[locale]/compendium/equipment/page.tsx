@@ -1,42 +1,19 @@
-import { getEquipmentStatistics } from '@/lib/spacetime-db/modules/collections/equipments'
-import { tagCollections } from '@/lib/spacetime-db/modules/collections/item-tag-collections'
-import { getItemsByTags } from '@/lib/spacetime-db/modules/items/commands'
+import { getEquipmentCategories, getEquipmentStatistics } from '@/lib/spacetime-db-new/modules/equipment/flows'
 import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view'
 
 export default async function EquipmentPage() {
-  // Get equipment categories from centralized metadata
-  const equipmentCollection = tagCollections.equipment
-  const equipmentCategories = equipmentCollection.tags.map((tag) => {
-    const categoryMeta = equipmentCollection.categories[tag]
-    return {
-      id: categoryMeta.id,
-      name: categoryMeta.name,
-      description: categoryMeta.description,
-      icon: categoryMeta.icon,
-      tag,
-      category: categoryMeta.section,
-      href: categoryMeta.href
-    }
-  })
-
-  // Get item counts for each category using getItemsByTags for consistency
-  const categoriesWithCounts = equipmentCategories.map((category) => {
-    const items = getItemsByTags([category.tag])
-    return {
-      ...category,
-      count: items.length
-    }
-  })
-
+  // Get equipment categories with counts from the new system
+  const equipmentCategories = getEquipmentCategories()
+  
   // Get live equipment statistics
-  const equipmentStats = await getEquipmentStatistics()
+  const equipmentStats = getEquipmentStatistics()
   const totalEquipment = equipmentStats.total
 
   return (
     <EquipmentView
       title="Equipment"
-      subtitle={`${totalEquipment} equipment items across ${categoriesWithCounts.length} categories`}
-      equipmentCategories={categoriesWithCounts}
+      subtitle={`${totalEquipment} equipment items across ${equipmentCategories.length} categories`}
+      equipmentCategories={equipmentCategories}
     />
   )
 }
