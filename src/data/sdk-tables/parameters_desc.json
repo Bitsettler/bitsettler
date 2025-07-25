@@ -148,8 +148,8 @@
     "quickBoardRange": 5,
     "duelRange": 30,
     "duelOutOfRangeGracePeriodMillis": 5000,
-    "playerHousingSameRegionMoveTimeMinutes": 720,
-    "playerHousingEvictionTimeMinutes": 1440,
+    "playerHousingSameRegionMoveTimeMinutes": 2880,
+    "playerHousingEvictionTimeMinutes": 2880,
     "playerHousingIncomeTimeOfDay": 16
   }
 ]

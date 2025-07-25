@@ -28,7 +28,7 @@ export default async function ResourceTagPage({ params }: PageProps) {
 
   // Find the actual tag name for display
   const allTags = getAllResourceTags()
-  const actualTag = allTags.find(tagName => createSlug(tagName) === tag)
+  const actualTag = allTags.find((tagName) => createSlug(tagName) === tag)
   const displayName = actualTag || slugToTitleCase(tag)
 
   // If no resources found for this tag, return 404

@@ -1,7 +1,7 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 

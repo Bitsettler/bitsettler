@@ -1,5 +1,5 @@
 import type { BuildingDesc } from '@/data/bindings/building_desc_type'
-import { createSlug } from '@/lib/spacetime-db/shared/utils/entities'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getBuildingDescsByTypeId } from './get-building-descs-by-type-id'
 import { getAllBuildingTypes } from './get-building-type-by-id'
 

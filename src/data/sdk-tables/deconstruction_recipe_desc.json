@@ -107,16 +107,15 @@
     ],
     "outputItemStacks": [
       {
-        "itemId": 1686060207,
+        "itemId": 833769059,
         "quantity": 1,
         "itemType": {
-          "tag": "Item",
+          "tag": "Cargo",
           "value": {}
-        },
-        "durability": 0
+        }
       }
     ],
-    "outputCargoId": 0,
+    "outputCargoId": 833769059,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -257,17 +256,7 @@
         "power": 1
       }
     ],
-    "outputItemStacks": [
-      {
-        "itemId": 1,
-        "quantity": 1,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "durability": 0
-      }
-    ],
+    "outputItemStacks": [],
     "outputCargoId": 0,
     "experiencePerProgress": [
       {
@@ -7546,58 +7535,16 @@
     ],
     "outputItemStacks": [
       {
-        "itemId": 1210006,
-        "quantity": 10,
+        "itemId": 1,
+        "quantity": 1,
         "itemType": {
           "tag": "Item",
           "value": {}
         },
         "durability": 0
-      },
-      {
-        "itemId": 1070004,
-        "quantity": 6,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "durability": 0
-      },
-      {
-        "itemId": 1050002,
-        "quantity": 14,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "durability": 0
-      },
-      {
-        "itemId": 2400,
-        "quantity": 10,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        }
-      },
-      {
-        "itemId": 1200,
-        "quantity": 10,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        }
-      },
-      {
-        "itemId": 7000,
-        "quantity": 4,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        }
       }
     ],
-    "outputCargoId": 2400,
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -10066,6 +10013,60 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 14580478,
+    "timeRequirement": 2,
+    "consumedBuilding": 446001992,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1201,
+        "quantity": 7,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 2090004,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      },
+      {
+        "itemId": 2401,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      }
+    ],
+    "outputCargoId": 1201,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 19379846,
     "timeRequirement": 30,
     "consumedBuilding": 63007,
@@ -10202,6 +10203,120 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 43985552,
+    "timeRequirement": 2,
+    "consumedBuilding": 1805493003,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1065308494,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 69696544,
+    "timeRequirement": 2,
+    "consumedBuilding": 389279843,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 523158569,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 78761177,
+    "timeRequirement": 2,
+    "consumedBuilding": 1150881059,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 86547845,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 89818989,
     "timeRequirement": 60,
     "consumedBuilding": 1358633373,
@@ -10240,6 +10355,44 @@
       {
         "itemId": 1050002,
         "quantity": 4,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 146111176,
+    "timeRequirement": 2,
+    "consumedBuilding": 1920300482,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1861949411,
+        "quantity": 1,
         "itemType": {
           "tag": "Item",
           "value": {}
@@ -10384,16 +10537,15 @@
     ],
     "outputItemStacks": [
       {
-        "itemId": 1712579910,
+        "itemId": 549503000,
         "quantity": 1,
         "itemType": {
-          "tag": "Item",
+          "tag": "Cargo",
           "value": {}
-        },
-        "durability": 0
+        }
       }
     ],
-    "outputCargoId": 0,
+    "outputCargoId": 549503000,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -10630,16 +10782,15 @@
     ],
     "outputItemStacks": [
       {
-        "itemId": 580374466,
+        "itemId": 1768052462,
         "quantity": 1,
         "itemType": {
-          "tag": "Item",
+          "tag": "Cargo",
           "value": {}
-        },
-        "durability": 0
+        }
       }
     ],
-    "outputCargoId": 0,
+    "outputCargoId": 1768052462,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -10702,6 +10853,82 @@
       }
     ],
     "outputCargoId": 1003,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 322838809,
+    "timeRequirement": 2,
+    "consumedBuilding": 820487351,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1465781717,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 430519476,
+    "timeRequirement": 2,
+    "consumedBuilding": 2065403158,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 496583989,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -10920,6 +11147,75 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 564482742,
+    "timeRequirement": 2,
+    "consumedBuilding": 1726398716,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1201,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 2401,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 1044447676,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 7001,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 1297204491,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      }
+    ],
+    "outputCargoId": 1201,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 590670253,
     "timeRequirement": 2,
     "consumedBuilding": 102,
@@ -11120,6 +11416,82 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 637768445,
+    "timeRequirement": 2,
+    "consumedBuilding": 108518190,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 993169684,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 676761442,
+    "timeRequirement": 2,
+    "consumedBuilding": 544811609,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 539747299,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 731902236,
     "timeRequirement": 2,
     "consumedBuilding": 110,
@@ -11174,6 +11546,44 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 742811420,
+    "timeRequirement": 2,
+    "consumedBuilding": 1538521369,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1052307928,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 792382523,
     "timeRequirement": 2,
     "consumedBuilding": 1678953496,
@@ -11210,6 +11620,44 @@
       }
     ],
     "outputCargoId": 2000,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 800547982,
+    "timeRequirement": 2,
+    "consumedBuilding": 350733880,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1749391478,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -11381,6 +11829,44 @@
       }
     ],
     "outputCargoId": 2004,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 831123637,
+    "timeRequirement": 2,
+    "consumedBuilding": 1424317515,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1725069516,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -11728,6 +12214,52 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1033178672,
+    "timeRequirement": 2,
+    "consumedBuilding": 901795831,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1200,
+        "quantity": 2,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 1090002,
+        "quantity": 7,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 1200,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1062396334,
     "timeRequirement": 2,
     "consumedBuilding": 1495887643,
@@ -11772,6 +12304,44 @@
       }
     ],
     "outputCargoId": 1203,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1067473612,
+    "timeRequirement": 2,
+    "consumedBuilding": 1369848538,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1941474428,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -12145,6 +12715,82 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1249482991,
+    "timeRequirement": 2,
+    "consumedBuilding": 1671823359,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1427030012,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1258721884,
+    "timeRequirement": 2,
+    "consumedBuilding": 2057418039,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1261025188,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1321550225,
     "timeRequirement": 2,
     "consumedBuilding": 1829009496,
@@ -12254,6 +12900,82 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1330999905,
+    "timeRequirement": 2,
+    "consumedBuilding": 1448089378,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 930753750,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1348251800,
+    "timeRequirement": 2,
+    "consumedBuilding": 2062702457,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1851240100,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1349519095,
     "timeRequirement": 2,
     "consumedBuilding": 1577527367,
@@ -12343,6 +13065,44 @@
       }
     ],
     "outputCargoId": 1001,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1417397904,
+    "timeRequirement": 2,
+    "consumedBuilding": 572073165,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1221179611,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
     "experiencePerProgress": [
       {
         "skillId": 0,
@@ -12597,6 +13357,44 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1532163726,
+    "timeRequirement": 2,
+    "consumedBuilding": 2082568839,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1331808314,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1623014292,
     "timeRequirement": 2,
     "consumedBuilding": 528776647,
@@ -12643,6 +13441,136 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1692568806,
+    "timeRequirement": 2,
+    "consumedBuilding": 1037035044,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 630118880,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1694290547,
+    "timeRequirement": 2,
+    "consumedBuilding": 2045003491,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1201,
+        "quantity": 7,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      },
+      {
+        "itemId": 2090004,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      },
+      {
+        "itemId": 2401,
+        "quantity": 4,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        }
+      }
+    ],
+    "outputCargoId": 1201,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1734034573,
+    "timeRequirement": 2,
+    "consumedBuilding": 344328584,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1752726743,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1736848932,
     "timeRequirement": 60,
     "consumedBuilding": 458767412,
@@ -12662,6 +13590,82 @@
     "outputItemStacks": [
       {
         "itemId": 420771857,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1741003630,
+    "timeRequirement": 2,
+    "consumedBuilding": 182258364,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1171331819,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1765388343,
+    "timeRequirement": 2,
+    "consumedBuilding": 90343168,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1677518526,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -12843,6 +13847,44 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1849633748,
+    "timeRequirement": 2,
+    "consumedBuilding": 594989789,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 1678488664,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1890342110,
     "timeRequirement": 2,
     "consumedBuilding": 1031109297,
@@ -12973,6 +14015,44 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 2115323267,
+    "timeRequirement": 2,
+    "consumedBuilding": 1987048521,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 124624682,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 2126905739,
     "timeRequirement": 2,
     "consumedBuilding": 359099015,
@@ -12992,6 +14072,44 @@
     "outputItemStacks": [
       {
         "itemId": 1686060207,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "outputCargoId": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 0,
+        "quantity": 0
+      }
+    ],
+    "toolMeshIndex": 0,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 2145754313,
+    "timeRequirement": 2,
+    "consumedBuilding": 1052112899,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 0,
+        "power": 1
+      }
+    ],
+    "outputItemStacks": [
+      {
+        "itemId": 585975375,
         "quantity": 1,
         "itemType": {
           "tag": "Item",

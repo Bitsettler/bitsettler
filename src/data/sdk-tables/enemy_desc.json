@@ -809,7 +809,7 @@
           },
           "durability": 0
         },
-        "probability": 0.10000000149011612
+        "probability": 0.20000000298023224
       },
       {
         "itemStack": {
@@ -1010,7 +1010,7 @@
           },
           "durability": 0
         },
-        "probability": 0.10000000149011612
+        "probability": 0.20000000298023224
       },
       {
         "itemStack": {
@@ -1303,7 +1303,7 @@
           },
           "durability": 0
         },
-        "probability": 0.10000000149011612
+        "probability": 0.30000001192092896
       },
       {
         "itemStack": {
@@ -1839,7 +1839,7 @@
           },
           "durability": 0
         },
-        "probability": 0.10000000149011612
+        "probability": 0.20000000298023224
       }
     ],
     "experiencePerDamageDealt": [

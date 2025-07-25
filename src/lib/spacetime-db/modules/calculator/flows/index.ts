@@ -1,1 +1,0 @@
-export { getCalculatorGameData } from './get-calculator-game-data'

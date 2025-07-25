@@ -32,12 +32,12 @@
     "entranceSpawnId": 0,
     "entrancePortalId": 5,
     "exitSpawnId": 4,
-    "exitPortalId": 1
+    "exitPortalId": 1109832130
   },
   {
     "id": 6,
     "entranceSpawnId": 4,
-    "entrancePortalId": 1,
+    "entrancePortalId": 1109832130,
     "exitSpawnId": 0,
     "exitPortalId": 5
   },

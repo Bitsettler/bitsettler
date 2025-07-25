@@ -258,7 +258,7 @@
   },
   {
     "id": 473237479,
-    "description": "Unlock up to 6000 tiles",
+    "description": "Unlock up to 8000 tiles",
     "tier": 6,
     "suppliesCost": 10000,
     "researchTime": 18000,
@@ -268,7 +268,7 @@
     ],
     "input": [],
     "members": 0,
-    "area": 6000,
+    "area": 8000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },
@@ -306,8 +306,8 @@
   },
   {
     "id": 649819263,
-    "description": "Unlock 120000 Max Supplies",
-    "tier": 9,
+    "description": "Unlock 310000 Max Supplies",
+    "tier": 10,
     "suppliesCost": 20000,
     "researchTime": 21600,
     "requirements": [
@@ -317,12 +317,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 120000,
+    "supplies": 310000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 688169271,
-    "description": "Unlock 48000 Max Supplies",
+    "description": "Unlock 85000 Max Supplies",
     "tier": 4,
     "suppliesCost": 8000,
     "researchTime": 14400,
@@ -333,12 +333,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 48000,
+    "supplies": 85000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 728778297,
-    "description": "Unlock up to 7000 tiles",
+    "description": "Unlock up to 10000 tiles",
     "tier": 7,
     "suppliesCost": 12000,
     "researchTime": 18000,
@@ -348,13 +348,13 @@
     ],
     "input": [],
     "members": 0,
-    "area": 7000,
+    "area": 10000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },
   {
     "id": 733358069,
-    "description": "Unlock 60000 Max Supplies",
+    "description": "Unlock 115000 Max Supplies",
     "tier": 5,
     "suppliesCost": 10000,
     "researchTime": 18000,
@@ -365,7 +365,7 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 60000,
+    "supplies": 115000,
     "xpToMintHexCoin": 500
   },
   {
@@ -418,7 +418,7 @@
   },
   {
     "id": 906602291,
-    "description": "Unlock 72000 Max Supplies",
+    "description": "Unlock 150000 Max Supplies",
     "tier": 6,
     "suppliesCost": 12000,
     "researchTime": 21600,
@@ -429,12 +429,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 72000,
+    "supplies": 150000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 956489539,
-    "description": "Unlock up to 5000 tiles",
+    "description": "Unlock up to 6000 tiles",
     "tier": 5,
     "suppliesCost": 8000,
     "researchTime": 14400,
@@ -444,13 +444,13 @@
     ],
     "input": [],
     "members": 0,
-    "area": 5000,
+    "area": 6000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },
   {
     "id": 1157053499,
-    "description": "Unlock 36000 Max Supplies",
+    "description": "Unlock 50000 Max Supplies",
     "tier": 3,
     "suppliesCost": 6000,
     "researchTime": 10800,
@@ -461,7 +461,7 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 36000,
+    "supplies": 50000,
     "xpToMintHexCoin": 500
   },
   {
@@ -481,7 +481,7 @@
   },
   {
     "id": 1206083197,
-    "description": "Unlock 96000 Max Supplies",
+    "description": "Unlock 220000 Max Supplies",
     "tier": 8,
     "suppliesCost": 16000,
     "researchTime": 21600,
@@ -492,12 +492,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 96000,
+    "supplies": 220000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 1273121576,
-    "description": "Unlock 84000 Max Supplies",
+    "description": "Unlock 180000 Max Supplies",
     "tier": 7,
     "suppliesCost": 14000,
     "researchTime": 21600,
@@ -508,12 +508,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 84000,
+    "supplies": 180000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 1337780142,
-    "description": "Unlock up to 9000 tiles",
+    "description": "Unlock up to 16000 tiles",
     "tier": 9,
     "suppliesCost": 16000,
     "researchTime": 21600,
@@ -523,7 +523,7 @@
     ],
     "input": [],
     "members": 0,
-    "area": 9000,
+    "area": 16000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },
@@ -545,7 +545,7 @@
   },
   {
     "id": 1567647942,
-    "description": "Unlock 108000 Max Supplies",
+    "description": "Unlock 260000 Max Supplies",
     "tier": 9,
     "suppliesCost": 18000,
     "researchTime": 21600,
@@ -556,12 +556,12 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 108000,
+    "supplies": 260000,
     "xpToMintHexCoin": 500
   },
   {
     "id": 1617681454,
-    "description": "Unlock up to 8000 tiles",
+    "description": "Unlock up to 13000 tiles",
     "tier": 8,
     "suppliesCost": 14000,
     "researchTime": 21600,
@@ -571,7 +571,7 @@
     ],
     "input": [],
     "members": 0,
-    "area": 8000,
+    "area": 13000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },
@@ -593,7 +593,7 @@
   },
   {
     "id": 1826500486,
-    "description": "Unlock 24000 Max Supplies",
+    "description": "Unlock 30000 Max Supplies",
     "tier": 2,
     "suppliesCost": 4000,
     "researchTime": 7400,
@@ -603,7 +603,7 @@
     "input": [],
     "members": 0,
     "area": 0,
-    "supplies": 24000,
+    "supplies": 30000,
     "xpToMintHexCoin": 500
   },
   {
@@ -624,7 +624,7 @@
   },
   {
     "id": 2072167322,
-    "description": "Unlock up to 10000 tiles",
+    "description": "Unlock up to 20000 tiles",
     "tier": 10,
     "suppliesCost": 16000,
     "researchTime": 21600,
@@ -634,7 +634,7 @@
     ],
     "input": [],
     "members": 0,
-    "area": 10000,
+    "area": 20000,
     "supplies": 0,
     "xpToMintHexCoin": 500
   },

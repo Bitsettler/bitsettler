@@ -310,6 +310,16 @@
     "content": "A recipe which teaches how to cook a Ambrosial Fish and Bulbs"
   },
   {
+    "itemId": 56730351,
+    "scrollType": 2,
+    "secondaryKnowledgeId": 423318193,
+    "knownByDefault": false,
+    "autoCollect": true,
+    "title": "Wicker Furniture Set",
+    "tag": "Construction Knowledge",
+    "content": "Teaches your character how to craft a full wicker set of furniture at the construction workbench. Once crafted, this furniture can be placed in your house or sold to other players."
+  },
+  {
     "itemId": 69061011,
     "scrollType": 2,
     "secondaryKnowledgeId": 1747439171,
@@ -468,6 +478,16 @@
     "title": "Recipe: Zesty Deluxe Mushroom Stuffed Bulbs",
     "tag": "Food Recipes",
     "content": "A recipe which teaches how to cook a Zesty Deluxe Mushroom Stuffed Bulbs"
+  },
+  {
+    "itemId": 309254990,
+    "scrollType": 2,
+    "secondaryKnowledgeId": 1144259116,
+    "knownByDefault": false,
+    "autoCollect": true,
+    "title": "Talented Woodcraft Furniture Set",
+    "tag": "Construction Knowledge",
+    "content": "Teaches your character how to craft a full woodcraft set of furniture at the construction workbench. Once crafted, this furniture can be placed in your house or sold to other players."
   },
   {
     "itemId": 321169560,
@@ -1845,9 +1865,9 @@
     "secondaryKnowledgeId": 284141818,
     "knownByDefault": false,
     "autoCollect": true,
-    "title": "Yak Riding Training",
+    "title": "Ox Riding Training",
     "tag": "Skill Training",
-    "content": "A scroll containing important knowledge on how to ride a yak."
+    "content": "A scroll containing important knowledge on how to ride an Ox."
   },
   {
     "itemId": 2023712452,

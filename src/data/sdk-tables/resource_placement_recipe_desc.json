@@ -47,6 +47,14 @@
         "value": {}
       },
       {
+        "tag": "Sapwoods",
+        "value": {}
+      },
+      {
+        "tag": "AutumnForest",
+        "value": {}
+      },
+      {
         "tag": "SnowyPeaks",
         "value": {}
       }
@@ -103,6 +111,14 @@
     "requiredBiomes": [
       {
         "tag": "CalmForest",
+        "value": {}
+      },
+      {
+        "tag": "Sapwoods",
+        "value": {}
+      },
+      {
+        "tag": "PineWoods",
         "value": {}
       },
       {
@@ -165,7 +181,15 @@
         "value": {}
       },
       {
-        "tag": "BreezyPlains",
+        "tag": "Jungle",
+        "value": {}
+      },
+      {
+        "tag": "AutumnForest",
+        "value": {}
+      },
+      {
+        "tag": "Sapwoods",
         "value": {}
       }
     ],
@@ -332,6 +356,14 @@
       {
         "tag": "PineWoods",
         "value": {}
+      },
+      {
+        "tag": "Swamp",
+        "value": {}
+      },
+      {
+        "tag": "AutumnForest",
+        "value": {}
       }
     ],
     "fullDiscoveryScore": 1,
@@ -389,72 +421,17 @@
         "value": {}
       },
       {
-        "tag": "SnowyPeaks",
+        "tag": "Tundra",
         "value": {}
       },
       {
-        "tag": "AutumnForest",
+        "tag": "SnowyPeaks",
         "value": {}
       }
     ],
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 1,
     "resourceDescriptionId": 3010010,
-    "requiredPavingTier": -1,
-    "actionsRequired": 400,
-    "recipePerformanceId": 641
-  },
-  {
-    "id": 3010011,
-    "name": "Planted Willow Sapling",
-    "timeRequirement": 2,
-    "staminaRequirement": 0.75,
-    "consumedResource": 0,
-    "requiredInteriorTier": -1,
-    "levelRequirements": [
-      {
-        "skillId": 2,
-        "level": 30
-      }
-    ],
-    "toolRequirements": [
-      {
-        "toolType": 1,
-        "level": 3,
-        "power": 1
-      }
-    ],
-    "consumedItemStacks": [
-      {
-        "itemId": 3010015,
-        "quantity": 1,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      }
-    ],
-    "consumedCargoStacks": [],
-    "experiencePerProgress": [
-      {
-        "skillId": 2,
-        "quantity": 2
-      }
-    ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [],
-    "requiredClaimTechId": 0,
-    "requiredBiomes": [
-      {
-        "tag": "Swamp",
-        "value": {}
-      }
-    ],
-    "fullDiscoveryScore": 1,
-    "toolMeshIndex": 1,
-    "resourceDescriptionId": 3010011,
     "requiredPavingTier": -1,
     "actionsRequired": 400,
     "recipePerformanceId": 641

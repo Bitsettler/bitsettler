@@ -470,7 +470,7 @@
   {
     "statType": 53,
     "name": "Teleportation Energy Regen Rate",
-    "value": 0.023150000721216202,
+    "value": 0.017362499609589577,
     "minValue": 0,
     "maxValue": 200000,
     "suffix": "",

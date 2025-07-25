@@ -1,1 +1,0 @@
-export { getSearchGameData } from './get-search-game-data'

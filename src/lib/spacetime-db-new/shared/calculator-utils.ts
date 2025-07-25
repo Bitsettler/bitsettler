@@ -5,6 +5,18 @@ import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import { Edge, Node } from '@xyflow/react'
 import type { CalculatorItem, CalculatorRecipe } from './dtos/calculator-dtos'
 
+// More specific typings for the data object we store on each React Flow node
+export interface FlowNodeData {
+  [key: string]: unknown
+  itemId: string
+  category: string
+  quantity?: number
+  recipes?: CalculatorRecipe[]
+  selectedRecipe?: CalculatorRecipe | null
+  isDone?: boolean
+  isHovered?: boolean
+}
+
 /**
  * Check if an item should be filtered out (recipes, loot tables, etc.)
  */
@@ -212,7 +224,7 @@ export function calculateQuantitiesFromEdges(
   edges: Edge[],
   selectedItem: { id: string },
   targetQuantity: number
-): any[] {
+): Node[] {
   if (!selectedItem) return nodes
 
   // Create a map to accumulate quantities for each node
@@ -223,7 +235,7 @@ export function calculateQuantitiesFromEdges(
 
   // Find all nodes that have no incoming edges (root nodes)
   const incomingEdges = new Map<string, string[]>()
-  edges.forEach((edge: any) => {
+  edges.forEach((edge) => {
     if (!incomingEdges.has(edge.target)) {
       incomingEdges.set(edge.target, [])
     }
@@ -240,22 +252,23 @@ export function calculateQuantitiesFromEdges(
     if (processed.has(currentNodeId)) continue
     processed.add(currentNodeId)
 
-    const currentNode = nodes.find((n: any) => n.id === currentNodeId)
+    const currentNode = nodes.find((n) => n.id === currentNodeId)
     if (!currentNode) continue
 
-    const recipe = currentNode.data.selectedRecipe
-    if (!recipe || !recipe.requirements.materials) continue
+    const currentNodeData = currentNode.data as FlowNodeData
+    const recipe = currentNodeData.selectedRecipe
+    if (!recipe || !recipe.requirements?.materials) continue
 
     const currentQuantity = quantityMap.get(currentNodeId) || 0
     if (currentQuantity === 0) continue
 
     // Calculate how many times we need to run this recipe
-    const outputItem = recipe.output?.find((output: any) => output.item === currentNode.data.itemId)
+    const outputItem = recipe.output?.find((output) => output.item === currentNodeData.itemId)
     const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
     const recipeRuns = Math.ceil(currentQuantity / outputQty)
 
     // Process each material required by this recipe
-    recipe.requirements.materials.forEach((material: any) => {
+    recipe.requirements.materials.forEach((material) => {
       const materialId = material.id.toString()
       const materialQuantity = material.qty || 0
 
@@ -275,12 +288,13 @@ export function calculateQuantitiesFromEdges(
   }
 
   // Update all nodes with calculated quantities
-  return nodes.map((node: any) => {
+  return nodes.map((node) => {
     const nodeId = node.id
     const calculatedQuantity = quantityMap.get(nodeId)
 
     // For resources, don't show quantity
-    if (node.data.category === 'resources' || node.data.category === 'resource') {
+    const nodeData = (node.data as FlowNodeData) || {}
+    if (nodeData.category === 'resources' || nodeData.category === 'resource') {
       return {
         ...node,
         data: {
@@ -295,7 +309,7 @@ export function calculateQuantitiesFromEdges(
       ...node,
       data: {
         ...node.data,
-        quantity: calculatedQuantity !== undefined ? calculatedQuantity : node.data.quantity
+        quantity: calculatedQuantity !== undefined ? calculatedQuantity : nodeData.quantity
       }
     }
   })

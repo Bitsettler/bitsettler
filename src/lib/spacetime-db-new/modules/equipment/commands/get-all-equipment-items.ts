@@ -1,7 +1,7 @@
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { EquipmentDesc } from '@/data/bindings/equipment_desc_type'
-import itemDescData from '@/data/sdk-tables/item_desc.json'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import equipmentDescData from '@/data/sdk-tables/equipment_desc.json'
+import itemDescData from '@/data/sdk-tables/item_desc.json'
 
 // SDK data is already in camelCase format, no transformation needed
 const items = itemDescData as ItemDesc[]
@@ -10,7 +10,7 @@ const equipmentDescs = equipmentDescData as EquipmentDesc[]
 // Equipment tags from the tag collections
 const EQUIPMENT_TAGS = [
   'Metal Armor',
-  'Leather Clothing', 
+  'Leather Clothing',
   'Cloth Clothing',
   'Cosmetic Clothes',
   'Jewelry',
@@ -25,9 +25,5 @@ export function getAllEquipmentItems(): ItemDesc[] {
     .map((equipmentDesc) => {
       return items.find((item) => item.id === equipmentDesc.itemId)
     })
-    .filter((item): item is ItemDesc => 
-      item !== undefined && 
-      item.compendiumEntry && 
-      EQUIPMENT_TAGS.includes(item.tag)
-    )
+    .filter((item): item is ItemDesc => item !== undefined && item.compendiumEntry && EQUIPMENT_TAGS.includes(item.tag))
 }

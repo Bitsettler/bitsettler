@@ -186,19 +186,19 @@
         "power": 1
       }
     ],
-    "consumedItemStacks": [
+    "consumedItemStacks": [],
+    "consumedCargoStacks": [
       {
-        "itemId": 1686060207,
+        "itemId": 833769059,
         "quantity": 1,
         "itemType": {
-          "tag": "Item",
+          "tag": "Cargo",
           "value": {}
         },
         "discoveryScore": 1,
         "consumptionChance": 1
       }
     ],
-    "consumedCargoStacks": [],
     "consumedShards": 0,
     "experiencePerProgress": [
       {
@@ -371,59 +371,6 @@
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1003,
-    "requiredPavingTier": -1,
-    "actionsRequired": 25,
-    "instantlyBuilt": false,
-    "recipePerformanceId": 538
-  },
-  {
-    "id": 1001,
-    "name": "Wicker Basket",
-    "timeRequirement": 2,
-    "staminaRequirement": 0.75,
-    "consumedBuilding": 0,
-    "requiredInteriorTier": 1,
-    "levelRequirements": [
-      {
-        "skillId": 15,
-        "level": 1
-      }
-    ],
-    "toolRequirements": [
-      {
-        "toolType": 14,
-        "level": 1,
-        "power": 1
-      }
-    ],
-    "consumedItemStacks": [
-      {
-        "itemId": 1,
-        "quantity": 1,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      }
-    ],
-    "consumedCargoStacks": [],
-    "consumedShards": 0,
-    "experiencePerProgress": [
-      {
-        "skillId": 15,
-        "quantity": 1
-      }
-    ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
-    ],
-    "requiredClaimTechId": 0,
-    "fullDiscoveryScore": 1,
-    "toolMeshIndex": 0,
-    "buildingDescriptionId": 1004,
     "requiredPavingTier": -1,
     "actionsRequired": 25,
     "instantlyBuilt": false,
@@ -10125,14 +10072,14 @@
   },
   {
     "id": 51002,
-    "name": "Large Enterable Hut",
+    "name": "Simple Storehouse",
     "timeRequirement": 2,
     "staminaRequirement": 0.75,
     "consumedBuilding": 0,
     "requiredInteriorTier": -1,
     "levelRequirements": [
       {
-        "skillId": 4,
+        "skillId": 15,
         "level": 1
       }
     ],
@@ -10145,28 +10092,8 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1210006,
-        "quantity": 15,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
-        "itemId": 1070004,
-        "quantity": 8,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
-        "itemId": 1050002,
-        "quantity": 20,
+        "itemId": 1,
+        "quantity": 1,
         "itemType": {
           "tag": "Item",
           "value": {}
@@ -10175,38 +10102,7 @@
         "consumptionChance": 1
       }
     ],
-    "consumedCargoStacks": [
-      {
-        "itemId": 2400,
-        "quantity": 15,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
-        "itemId": 1200,
-        "quantity": 15,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
-        "itemId": 7000,
-        "quantity": 6,
-        "itemType": {
-          "tag": "Cargo",
-          "value": {}
-        },
-        "discoveryScore": 0,
-        "consumptionChance": 1
-      }
-    ],
+    "consumedCargoStacks": [],
     "consumedShards": 0,
     "experiencePerProgress": [
       {
@@ -16043,6 +15939,59 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 92262131,
+    "name": "Talented Woodcraft Chair",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 496583989,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 2065403158,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 93164297,
     "name": "Fine Foraging Station",
     "timeRequirement": 2,
@@ -16122,6 +16071,59 @@
     "requiredPavingTier": -1,
     "actionsRequired": 500,
     "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 133409917,
+    "name": "Talented Woodcraft Cargo Bin",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1861949411,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1920300482,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -16461,7 +16463,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1749391478,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -16479,17 +16481,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 350733880,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -16687,6 +16689,59 @@
     "requiredPavingTier": -1,
     "actionsRequired": 250,
     "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 245570803,
+    "name": "Talented Woodcraft Item Storage",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 523158569,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 389279843,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -17293,6 +17348,80 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 383019290,
+    "name": "Construction Station",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.8899999856948853,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 4,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 2090004,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1201,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 2401,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1365060029
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 200,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 446001992,
+    "requiredPavingTier": -1,
+    "actionsRequired": 250,
+    "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 397530094,
     "name": "Flawless Tanning Tub",
     "timeRequirement": 2,
@@ -17591,7 +17720,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1851240100,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -17609,17 +17738,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 2062702457,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -17932,6 +18061,59 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 444763550,
+    "name": "Talented Woodcraft Room Divider",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1065308494,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1805493003,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 447377925,
     "name": "Ancient Mining Station",
     "timeRequirement": 2,
@@ -18144,7 +18326,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 930753750,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -18162,17 +18344,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1448089378,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -19053,6 +19235,59 @@
     "requiredPavingTier": -1,
     "actionsRequired": 750,
     "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 581800279,
+    "name": "Talented Woodcraft Small Carpet",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1465781717,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 820487351,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -20072,7 +20307,7 @@
   },
   {
     "id": 784814706,
-    "name": "Wicker Cabinet",
+    "name": "Wicker Cargo Bin",
     "timeRequirement": 2,
     "staminaRequirement": 0.75,
     "consumedBuilding": 0,
@@ -20092,7 +20327,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1261025188,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -20110,17 +20345,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 2057418039,
     "requiredPavingTier": -1,
-    "actionsRequired": 200,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -20482,6 +20717,59 @@
     "requiredPavingTier": -1,
     "actionsRequired": 1125,
     "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 880758712,
+    "name": "Talented Woodcraft Side Table",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1052307928,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1538521369,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -20887,7 +21175,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 86547845,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -20905,17 +21193,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1150881059,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -21574,6 +21862,59 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1039890953,
+    "name": "Talented Woodcraft Bed",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 585975375,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1052112899,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1051200076,
     "name": "Large Ferralith Cave",
     "timeRequirement": 2,
@@ -21714,7 +22055,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 539747299,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -21732,16 +22073,224 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 544811609,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1120069267,
+    "name": "Rough Residential Hut",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1090002,
+        "quantity": 10,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1200,
+        "quantity": 3,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      844511805
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 200,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 901795831,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1000,
+    "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1140839629,
+    "name": "Talented Woodcraft Rug",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 993169684,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 108518190,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1145725628,
+    "name": "Sturdy Residential House",
+    "timeRequirement": 2,
+    "staminaRequirement": 1.0299999713897705,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1202,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 2402,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 15195543,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 7002,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 1090747065,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1.149999976158142
+      }
+    ],
+    "discoveryTriggers": [],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 300,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 778355971,
+    "requiredPavingTier": -1,
+    "actionsRequired": 3000,
     "instantlyBuilt": false,
     "recipePerformanceId": 538
   },
@@ -22094,6 +22643,97 @@
     "buildingDescriptionId": 1577527367,
     "requiredPavingTier": -1,
     "actionsRequired": 750,
+    "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1284436982,
+    "name": "Fine Residential House",
+    "timeRequirement": 2,
+    "staminaRequirement": 1.159999966621399,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1203,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 2403,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 341301575,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 7003,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 1784593653,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1.2999999523162842
+      }
+    ],
+    "discoveryTriggers": [],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 400,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1720409289,
+    "requiredPavingTier": -1,
+    "actionsRequired": 4000,
     "instantlyBuilt": false,
     "recipePerformanceId": 538
   },
@@ -22752,7 +23392,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 630118880,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -22770,17 +23410,70 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1037035044,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1494032306,
+    "name": "Wicker Item Storage",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1331808314,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      423318193
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 2082568839,
+    "requiredPavingTier": -1,
+    "actionsRequired": 200,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -23589,6 +24282,112 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1631497655,
+    "name": "Talented Woodcraft Carpet",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1752726743,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 344328584,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1637291634,
+    "name": "Talented Woodcraft Couch",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1677518526,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 90343168,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1642337379,
     "name": "Wicker Stool",
     "timeRequirement": 2,
@@ -23610,7 +24409,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1941474428,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -23628,17 +24427,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1369848538,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -23840,6 +24639,59 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1663285219,
+    "name": "Talented Woodcraft Accent Table",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1725069516,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1424317515,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1675931823,
     "name": "Rumbagh Camp",
     "timeRequirement": 2,
@@ -23973,7 +24825,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1171331819,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -23991,17 +24843,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 182258364,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -24409,7 +25261,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 124624682,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -24427,17 +25279,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 1987048521,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -25095,16 +25947,6 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1712579910,
-        "quantity": 1,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
         "itemId": 2050002,
         "quantity": 5,
         "itemType": {
@@ -25116,6 +25958,16 @@
       }
     ],
     "consumedCargoStacks": [
+      {
+        "itemId": 549503000,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
       {
         "itemId": 1201,
         "quantity": 10,
@@ -25369,6 +26221,97 @@
     "buildingDescriptionId": 607032053,
     "requiredPavingTier": -1,
     "actionsRequired": 1125,
+    "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1893698481,
+    "name": "Exquisite Residential House",
+    "timeRequirement": 2,
+    "staminaRequirement": 1.2799999713897705,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1204,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 2404,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 1080157951,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 7004,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 741862367,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1.4500000476837158
+      }
+    ],
+    "discoveryTriggers": [],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 500,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 154394148,
+    "requiredPavingTier": -1,
+    "actionsRequired": 5000,
     "instantlyBuilt": false,
     "recipePerformanceId": 538
   },
@@ -25716,6 +26659,99 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 1929615857,
+    "name": "Simple Residential House",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.8899999856948853,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": -1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [],
+    "consumedCargoStacks": [
+      {
+        "itemId": 1201,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 2401,
+        "quantity": 5,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 1044447676,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 7001,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
+      {
+        "itemId": 1297204491,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      844511805
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 200,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1726398716,
+    "requiredPavingTier": -1,
+    "actionsRequired": 2000,
+    "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 1939068152,
     "name": "Ornate Tanning Tub",
     "timeRequirement": 2,
@@ -25838,6 +26874,59 @@
     "requiredPavingTier": -1,
     "actionsRequired": 1,
     "instantlyBuilt": false,
+    "recipePerformanceId": 538
+  },
+  {
+    "id": 1968194807,
+    "name": "Talented Woodcraft Desk",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1221179611,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 572073165,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -26133,7 +27222,7 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 1,
+        "itemId": 1678488664,
         "quantity": 1,
         "itemType": {
           "tag": "Item",
@@ -26151,17 +27240,17 @@
         "quantity": 1
       }
     ],
-    "discoveryTriggers": [],
-    "requiredKnowledges": [
-      12345
+    "discoveryTriggers": [
+      423318193
     ],
+    "requiredKnowledges": [],
     "requiredClaimTechId": 0,
     "fullDiscoveryScore": 1,
     "toolMeshIndex": 0,
     "buildingDescriptionId": 594989789,
     "requiredPavingTier": -1,
-    "actionsRequired": 50,
-    "instantlyBuilt": false,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
     "recipePerformanceId": 538
   },
   {
@@ -26527,6 +27616,59 @@
     "recipePerformanceId": 538
   },
   {
+    "id": 2065556749,
+    "name": "Talented Woodcraft Coffee Table",
+    "timeRequirement": 2,
+    "staminaRequirement": 0.75,
+    "consumedBuilding": 0,
+    "requiredInteriorTier": 1,
+    "levelRequirements": [
+      {
+        "skillId": 15,
+        "level": 1
+      }
+    ],
+    "toolRequirements": [
+      {
+        "toolType": 14,
+        "level": 1,
+        "power": 1
+      }
+    ],
+    "consumedItemStacks": [
+      {
+        "itemId": 1427030012,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      }
+    ],
+    "consumedCargoStacks": [],
+    "consumedShards": 0,
+    "experiencePerProgress": [
+      {
+        "skillId": 15,
+        "quantity": 1
+      }
+    ],
+    "discoveryTriggers": [
+      1144259116
+    ],
+    "requiredKnowledges": [],
+    "requiredClaimTechId": 0,
+    "fullDiscoveryScore": 1,
+    "toolMeshIndex": 0,
+    "buildingDescriptionId": 1671823359,
+    "requiredPavingTier": -1,
+    "actionsRequired": 1,
+    "instantlyBuilt": true,
+    "recipePerformanceId": 538
+  },
+  {
     "id": 2076733684,
     "name": "Ornate Leatherworking Station",
     "timeRequirement": 2,
@@ -26630,16 +27772,6 @@
     ],
     "consumedItemStacks": [
       {
-        "itemId": 580374466,
-        "quantity": 1,
-        "itemType": {
-          "tag": "Item",
-          "value": {}
-        },
-        "discoveryScore": 1,
-        "consumptionChance": 1
-      },
-      {
         "itemId": 2050002,
         "quantity": 5,
         "itemType": {
@@ -26651,6 +27783,16 @@
       }
     ],
     "consumedCargoStacks": [
+      {
+        "itemId": 1768052462,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Cargo",
+          "value": {}
+        },
+        "discoveryScore": 1,
+        "consumptionChance": 1
+      },
       {
         "itemId": 1201,
         "quantity": 10,

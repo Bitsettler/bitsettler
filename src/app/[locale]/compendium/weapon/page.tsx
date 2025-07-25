@@ -4,7 +4,7 @@ import { WeaponsView } from '@/views/weapon-views/weapons-index-page-view'
 export default function WeaponsPage() {
   // Get weapons grouped by type for table display
   const weaponGroups = getWeaponsGroupedByType()
-  
+
   // Get live weapon statistics
   const weaponStats = getWeaponStatistics()
 

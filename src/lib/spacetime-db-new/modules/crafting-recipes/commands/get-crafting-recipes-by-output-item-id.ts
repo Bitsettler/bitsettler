@@ -6,8 +6,6 @@ import { getAllCraftingRecipes } from './get-all-crafting-recipes'
  */
 export function getCraftingRecipesByOutputItemId(itemId: number): CraftingRecipeDesc[] {
   const allRecipes = getAllCraftingRecipes()
-  
-  return allRecipes.filter(recipe => 
-    recipe.craftedItemStacks.some(stack => stack.itemId === itemId)
-  )
+
+  return allRecipes.filter((recipe) => recipe.craftedItemStacks.some((stack) => stack.itemId === itemId))
 }

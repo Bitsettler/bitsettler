@@ -1502,422 +1502,6 @@
     "id": 4,
     "footprint": [
       {
-        "x": 1,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 1,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -1,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -1,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -1,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 6,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 6,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 6,
-        "z": 3,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 2,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 1,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 1,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 1,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 1,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
         "x": 0,
         "z": 0,
         "footprintType": {
@@ -1926,7 +1510,63 @@
         }
       },
       {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
         "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
         "z": 1,
         "footprintType": {
           "tag": "Walkable",
@@ -1936,6 +1576,166 @@
       {
         "x": -1,
         "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 3,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 3,
         "footprintType": {
           "tag": "Walkable",
           "value": {}
@@ -1951,134 +1751,6 @@
       },
       {
         "x": -2,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -2,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -2,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -1,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": -1,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 0,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 1,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 2,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 3,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 4,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 9,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 5,
-        "z": 8,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 6,
-        "z": 7,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 6,
-        "z": 6,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 7,
-        "z": 5,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 7,
-        "z": 4,
-        "footprintType": {
-          "tag": "Walkable",
-          "value": {}
-        }
-      },
-      {
-        "x": 7,
         "z": 3,
         "footprintType": {
           "tag": "Walkable",
@@ -2086,7 +1758,7 @@
         }
       },
       {
-        "x": 6,
+        "x": -2,
         "z": 2,
         "footprintType": {
           "tag": "Walkable",
@@ -2094,7 +1766,7 @@
         }
       },
       {
-        "x": 6,
+        "x": -3,
         "z": 1,
         "footprintType": {
           "tag": "Walkable",
@@ -2102,7 +1774,7 @@
         }
       },
       {
-        "x": 5,
+        "x": -3,
         "z": 0,
         "footprintType": {
           "tag": "Walkable",
@@ -2110,7 +1782,63 @@
         }
       },
       {
-        "x": 4,
+        "x": -3,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
         "z": 0,
         "footprintType": {
           "tag": "Walkable",
@@ -2118,7 +1846,55 @@
         }
       },
       {
-        "x": 3,
+        "x": -5,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": 3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": 3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
         "z": 0,
         "footprintType": {
           "tag": "Walkable",
@@ -2126,8 +1902,32 @@
         }
       },
       {
-        "x": 2,
-        "z": 0,
+        "x": -4,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": -5,
         "footprintType": {
           "tag": "Walkable",
           "value": {}
@@ -2135,17 +1935,313 @@
       },
       {
         "x": 1,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": -5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": -5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": -5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -7,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -7,
         "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -7,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": 3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 5,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": -4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": -3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": -2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -6,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -5,
+        "z": 3,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -4,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -3,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 4,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 4,
         "footprintType": {
           "tag": "Walkable",
           "value": {}
         }
       }
     ],
-    "minX": -4,
-    "minZ": -1,
-    "sizeX": 11,
-    "sizeZ": 10
+    "minX": -8,
+    "minZ": -6,
+    "sizeX": 12,
+    "sizeZ": 11
   },
   {
     "id": 5,

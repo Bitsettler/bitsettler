@@ -1,4 +1,4 @@
-import { getItemBySlugCommand } from '@/lib/spacetime-db/modules/items/commands/get-item-by-slug'
+import { getItemBySlugCommand } from '@/lib/spacetime-db-new/modules/items/commands/get-item-by-slug'
 import { notFound } from 'next/navigation'
 
 interface PageProps {

@@ -13768,6 +13768,37 @@
     "recipePerformanceId": 1
   },
   {
+    "id": 339770557,
+    "name": "Convert Settlement Writ to Kit",
+    "timeCost": 2,
+    "staminaCost": 0,
+    "locationContext": 0,
+    "stringContext": "Convert",
+    "outputItem": {
+      "itemId": 833769059,
+      "quantity": 1,
+      "itemType": {
+        "tag": "Cargo",
+        "value": {}
+      }
+    },
+    "inputItems": [
+      {
+        "itemId": 1686060207,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredEquipmentId": 0,
+    "requiredEquipmentTier": 0,
+    "allowUseHands": true,
+    "recipePerformanceId": 103
+  },
+  {
     "id": 341781541,
     "name": "Resolve Item 341781541",
     "timeCost": 1,
@@ -17090,6 +17121,37 @@
     "requiredEquipmentTier": 0,
     "allowUseHands": true,
     "recipePerformanceId": 1
+  },
+  {
+    "id": 497251179,
+    "name": "Convert Trade Writ to Kit",
+    "timeCost": 2,
+    "staminaCost": 0,
+    "locationContext": 0,
+    "stringContext": "Convert",
+    "outputItem": {
+      "itemId": 549503000,
+      "quantity": 1,
+      "itemType": {
+        "tag": "Cargo",
+        "value": {}
+      }
+    },
+    "inputItems": [
+      {
+        "itemId": 1712579910,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredEquipmentId": 0,
+    "requiredEquipmentTier": 0,
+    "allowUseHands": true,
+    "recipePerformanceId": 103
   },
   {
     "id": 499035300,
@@ -55499,6 +55561,37 @@
     "requiredEquipmentTier": 0,
     "allowUseHands": true,
     "recipePerformanceId": 1
+  },
+  {
+    "id": 1905152107,
+    "name": "Convert Banking Writ to Kit",
+    "timeCost": 2,
+    "staminaCost": 0,
+    "locationContext": 0,
+    "stringContext": "Convert",
+    "outputItem": {
+      "itemId": 1768052462,
+      "quantity": 1,
+      "itemType": {
+        "tag": "Cargo",
+        "value": {}
+      }
+    },
+    "inputItems": [
+      {
+        "itemId": 580374466,
+        "quantity": 1,
+        "itemType": {
+          "tag": "Item",
+          "value": {}
+        },
+        "durability": 0
+      }
+    ],
+    "requiredEquipmentId": 0,
+    "requiredEquipmentTier": 0,
+    "allowUseHands": true,
+    "recipePerformanceId": 103
   },
   {
     "id": 1906391092,

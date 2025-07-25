@@ -82,16 +82,16 @@
   },
   {
     "id": 4,
-    "name": "SpawnedLargeInteriorExitLadder",
+    "name": "SimpleStorehouseDoorway",
     "interiorInstanceId": 4,
-    "spawnX": 0,
+    "spawnX": 4,
     "spawnZ": 0,
     "direction": 0,
     "spawnType": {
       "tag": "Building",
       "value": {}
     },
-    "buildingId": 10001,
+    "buildingId": 1845898524,
     "pavingId": 0,
     "lootChests": [],
     "resourceClumpId": 0,

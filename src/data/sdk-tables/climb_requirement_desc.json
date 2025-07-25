@@ -1,125 +1,125 @@
 [
   {
-    "id": 28680,
+    "id": 28734,
     "minElevation": 5,
     "maxElevation": 9,
     "staminaCost": 2,
     "minClimbProficiency": 0
   },
   {
-    "id": 28681,
+    "id": 28735,
     "minElevation": 10,
     "maxElevation": 19,
     "staminaCost": 5,
     "minClimbProficiency": 0
   },
   {
-    "id": 28682,
+    "id": 28736,
     "minElevation": 20,
     "maxElevation": 40,
     "staminaCost": 10,
     "minClimbProficiency": 0
   },
   {
-    "id": 28683,
+    "id": 28737,
     "minElevation": 41,
     "maxElevation": 80,
     "staminaCost": 15,
     "minClimbProficiency": 0
   },
   {
-    "id": 28684,
+    "id": 28738,
     "minElevation": 81,
     "maxElevation": 120,
     "staminaCost": 20,
     "minClimbProficiency": 0
   },
   {
-    "id": 28685,
+    "id": 28739,
     "minElevation": 121,
     "maxElevation": 160,
     "staminaCost": 25,
     "minClimbProficiency": 0
   },
   {
-    "id": 28686,
+    "id": 28740,
     "minElevation": 161,
     "maxElevation": 200,
     "staminaCost": 30,
     "minClimbProficiency": 0
   },
   {
-    "id": 28687,
+    "id": 28741,
     "minElevation": 201,
     "maxElevation": 300,
     "staminaCost": 35,
     "minClimbProficiency": 0
   },
   {
-    "id": 28688,
+    "id": 28742,
     "minElevation": 301,
     "maxElevation": 1000,
     "staminaCost": 45,
     "minClimbProficiency": 0
   },
   {
-    "id": 28689,
+    "id": 28743,
     "minElevation": -9,
     "maxElevation": -5,
     "staminaCost": 2,
     "minClimbProficiency": 0
   },
   {
-    "id": 28690,
+    "id": 28744,
     "minElevation": -19,
     "maxElevation": -10,
     "staminaCost": 5,
     "minClimbProficiency": 0
   },
   {
-    "id": 28691,
+    "id": 28745,
     "minElevation": -40,
     "maxElevation": -20,
     "staminaCost": 10,
     "minClimbProficiency": 0
   },
   {
-    "id": 28692,
+    "id": 28746,
     "minElevation": -80,
     "maxElevation": -41,
     "staminaCost": 15,
     "minClimbProficiency": 0
   },
   {
-    "id": 28693,
+    "id": 28747,
     "minElevation": -120,
     "maxElevation": -81,
     "staminaCost": 20,
     "minClimbProficiency": 0
   },
   {
-    "id": 28694,
+    "id": 28748,
     "minElevation": -160,
     "maxElevation": -121,
     "staminaCost": 25,
     "minClimbProficiency": 0
   },
   {
-    "id": 28695,
+    "id": 28749,
     "minElevation": -200,
     "maxElevation": -161,
     "staminaCost": 30,
     "minClimbProficiency": 0
   },
   {
-    "id": 28696,
+    "id": 28750,
     "minElevation": -300,
     "maxElevation": -201,
     "staminaCost": 35,
     "minClimbProficiency": 0
   },
   {
-    "id": 28697,
+    "id": 28751,
     "minElevation": -1000,
     "maxElevation": -301,
     "staminaCost": 45,

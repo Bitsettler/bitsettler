@@ -30,7 +30,7 @@ export default async function CargoTagPage({ params }: PageProps) {
 
   // Find the actual tag name for display
   const allTags = getAllCargoTags()
-  const actualTag = allTags.find(tagName => createSlug(tagName) === tag)
+  const actualTag = allTags.find((tagName) => createSlug(tagName) === tag)
   const displayName = actualTag || slugToTitleCase(tag)
 
   // If no cargo found for this tag, return 404

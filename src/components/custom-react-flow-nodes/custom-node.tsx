@@ -337,7 +337,9 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 {itemData.recipes.map((recipe) => {
                   return (
                     <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                      <div className="truncate">{resolveCalculatorRecipeName(recipe, items) || `Recipe #${recipe.id}`}</div>
+                      <div className="truncate">
+                        {resolveCalculatorRecipeName(recipe, items) || `Recipe #${recipe.id}`}
+                      </div>
                     </SelectItem>
                   )
                 })}

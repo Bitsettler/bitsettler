@@ -562,7 +562,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -648,7 +648,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -691,7 +691,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -734,7 +734,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -863,7 +863,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -1152,7 +1152,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -1195,7 +1195,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -1238,7 +1238,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -1281,7 +1281,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -1324,7 +1324,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -1647,7 +1647,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -1869,7 +1869,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -1976,7 +1976,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -2019,7 +2019,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -2134,7 +2134,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -2609,7 +2609,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -2844,7 +2844,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -3079,7 +3079,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -4684,7 +4684,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -4935,7 +4935,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -5154,7 +5154,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -5197,7 +5197,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -5488,7 +5488,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -5531,7 +5531,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -5734,7 +5734,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -5777,7 +5777,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6272,7 +6272,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -6331,7 +6331,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -6390,7 +6390,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6449,7 +6449,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6599,7 +6599,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -6649,7 +6649,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -6699,7 +6699,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6749,7 +6749,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6905,7 +6905,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -6949,7 +6949,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -7017,7 +7017,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -7061,7 +7061,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -7095,7 +7095,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -7139,7 +7139,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -7183,7 +7183,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -7227,7 +7227,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -7261,7 +7261,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -7305,7 +7305,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -7349,7 +7349,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -7393,7 +7393,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -7685,7 +7685,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -7729,7 +7729,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -7817,7 +7817,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -7861,7 +7861,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -7905,7 +7905,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -7949,7 +7949,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -7993,7 +7993,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8037,7 +8037,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -8081,7 +8081,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8169,7 +8169,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8213,7 +8213,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -8257,7 +8257,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -8291,7 +8291,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 900,
     "notRespawning": false
   },
   {
@@ -8377,7 +8377,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -8464,7 +8464,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -8507,7 +8507,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -8550,7 +8550,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -8675,7 +8675,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -8718,7 +8718,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8761,7 +8761,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8804,7 +8804,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -8848,7 +8848,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -8891,7 +8891,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -9023,7 +9023,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -9067,7 +9067,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -9111,7 +9111,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -9155,7 +9155,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -12529,7 +12529,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -13092,7 +13092,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -14505,7 +14505,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -15225,7 +15225,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -15956,7 +15956,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -16127,7 +16127,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -16171,7 +16171,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -16263,7 +16263,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -16345,7 +16345,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -16676,7 +16676,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17071,7 +17071,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17114,7 +17114,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17205,7 +17205,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17256,7 +17256,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17299,7 +17299,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17542,7 +17542,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17689,7 +17689,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17733,7 +17733,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17825,7 +17825,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -17907,7 +17907,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -18115,7 +18115,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -18166,7 +18166,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18529,7 +18529,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18596,7 +18596,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18640,7 +18640,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18732,7 +18732,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18814,7 +18814,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -18984,7 +18984,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -19076,7 +19076,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -19158,7 +19158,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -20012,7 +20012,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -20749,7 +20749,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -20885,7 +20885,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -20919,7 +20919,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -21713,7 +21713,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -21763,7 +21763,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 1800,
     "notRespawning": false
   },
   {
@@ -21979,7 +21979,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -22029,7 +22029,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -22155,7 +22155,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -22205,7 +22205,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -22337,7 +22337,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -22371,7 +22371,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -22415,7 +22415,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -22864,7 +22864,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -22898,7 +22898,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 7200,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -22990,7 +22990,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -23034,7 +23034,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -23286,7 +23286,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -23329,7 +23329,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -24089,7 +24089,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -24123,7 +24123,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -24274,7 +24274,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -25687,7 +25687,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -25721,7 +25721,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -25869,7 +25869,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -25912,7 +25912,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -26501,7 +26501,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 10800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -26931,7 +26931,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -27230,7 +27230,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -27529,7 +27529,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -27923,7 +27923,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -28137,7 +28137,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -28181,7 +28181,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -28707,7 +28707,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -28766,7 +28766,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -28816,7 +28816,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 0,
     "notRespawning": false
   },
   {
@@ -29057,7 +29057,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -29244,7 +29244,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -29523,7 +29523,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -29730,7 +29730,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -29857,7 +29857,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30047,7 +30047,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30156,7 +30156,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -30200,7 +30200,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30547,7 +30547,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30581,7 +30581,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30615,7 +30615,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -30821,7 +30821,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -31005,7 +31005,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 7200,
     "notRespawning": false
   },
   {
@@ -31247,7 +31247,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 600,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -31438,7 +31438,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -32193,7 +32193,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -32528,7 +32528,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -32683,7 +32683,7 @@
     },
     "compendiumEntry": false,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 1800,
+    "scheduledRespawnTime": 2700,
     "notRespawning": false
   },
   {
@@ -32726,7 +32726,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 3600,
     "notRespawning": false
   },
   {
@@ -32810,7 +32810,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -34048,7 +34048,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {
@@ -34126,7 +34126,7 @@
     },
     "compendiumEntry": true,
     "enemyParamsId": [],
-    "scheduledRespawnTime": 0,
+    "scheduledRespawnTime": 10800,
     "notRespawning": false
   },
   {

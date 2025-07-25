@@ -1,4 +1,4 @@
-import { getCalculatorGameData } from '@/lib/spacetime-db/modules/calculator/flows'
+import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows'
 import { FlowVisualizeView } from '@/views/calculator-views/calculator-view'
 import { notFound } from 'next/navigation'
 

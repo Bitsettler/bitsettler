@@ -20,23 +20,23 @@
     "costPerTile": 0.029999999329447746
   },
   {
-    "tileCount": 5001,
-    "costPerTile": 0.03500000014901161
+    "tileCount": 16001,
+    "costPerTile": 0.07000000029802322
   },
   {
-    "tileCount": 6001,
-    "costPerTile": 0.03999999910593033
+    "tileCount": 13001,
+    "costPerTile": 0.05999999865889549
   },
   {
-    "tileCount": 7001,
+    "tileCount": 10001,
     "costPerTile": 0.05000000074505806
   },
   {
     "tileCount": 8001,
-    "costPerTile": 0.05999999865889549
+    "costPerTile": 0.03999999910593033
   },
   {
-    "tileCount": 9001,
-    "costPerTile": 0.07000000029802322
+    "tileCount": 6001,
+    "costPerTile": 0.03500000014901161
   }
 ]

@@ -45,7 +45,7 @@ const equipmentCategoryMetadata: Record<string, Omit<EquipmentCategory, 'count' 
     category: 'Accessories',
     href: '/compendium/cosmetic-clothes'
   },
-  'Jewelry': {
+  Jewelry: {
     id: 'jewelry',
     name: 'Jewelry',
     description: 'Rings, necklaces, and other decorative accessories',
@@ -68,9 +68,9 @@ export function getEquipmentCategories(): EquipmentCategory[] {
   const equipmentItems = getAllEquipmentItems()
 
   // Group equipment by their tag
-  const equipmentByTag: Record<string, { count: number; firstEquipment?: typeof equipmentItems[0] }> = {}
+  const equipmentByTag: Record<string, { count: number; firstEquipment?: (typeof equipmentItems)[0] }> = {}
 
-  equipmentItems.forEach(equipment => {
+  equipmentItems.forEach((equipment) => {
     if (!equipmentByTag[equipment.tag]) {
       equipmentByTag[equipment.tag] = { count: 0, firstEquipment: equipment }
     }
@@ -82,14 +82,17 @@ export function getEquipmentCategories(): EquipmentCategory[] {
 
   Object.entries(equipmentCategoryMetadata).forEach(([tag, metadata]) => {
     const equipmentData = equipmentByTag[tag]
-    if (equipmentData && equipmentData.count > 0) { // Only include categories that have equipment
+    if (equipmentData && equipmentData.count > 0) {
+      // Only include categories that have equipment
       categories.push({
         ...metadata,
         count: equipmentData.count,
-        firstEquipment: equipmentData.firstEquipment ? {
-          name: equipmentData.firstEquipment.name,
-          iconAssetName: equipmentData.firstEquipment.iconAssetName
-        } : undefined
+        firstEquipment: equipmentData.firstEquipment
+          ? {
+              name: equipmentData.firstEquipment.name,
+              iconAssetName: equipmentData.firstEquipment.iconAssetName
+            }
+          : undefined
       })
     }
   })

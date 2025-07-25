@@ -4844,6 +4844,34 @@
     "notPickupable": false
   },
   {
+    "id": 549503000,
+    "name": "Market Kit",
+    "description": "This can be used to build a marketplace that players can buy and sell goods at.",
+    "volume": 6000,
+    "secondaryKnowledgeId": 0,
+    "modelAssetName": "Cargo/Package",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Barter/BarterStallT1",
+    "carriedModelAssetName": "Cargo/Carried/CargoPackSupplies",
+    "pickUpAnimationStart": "Gather-Start",
+    "pickUpAnimationEnd": "Gather-Finish",
+    "dropAnimationStart": "Gather-Start",
+    "dropAnimationEnd": "Gather-Finish",
+    "pickUpTime": 0.5,
+    "placeTime": 0.30000001192092896,
+    "animatorState": "",
+    "movementModifier": 0,
+    "blocksPath": false,
+    "onDestroyYieldCargos": [],
+    "despawnTime": 86400,
+    "tier": -1,
+    "tag": "Market Kit",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "notPickupable": false
+  },
+  {
     "id": 558591220,
     "name": "Refined Fine Leather Package",
     "description": "A package of Refined Leather",
@@ -5481,6 +5509,34 @@
     "despawnTime": 86400,
     "tier": 9,
     "tag": "Trunk",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "notPickupable": false
+  },
+  {
+    "id": 833769059,
+    "name": "Settlement Foundation Kit",
+    "description": "This can be used to build a Settlement Totem outside of the Safe Meadows. The owner of the claim can invite members to join their claim. Workstations, houses and other structures can be built on the claim by members with the proper permissions. The claim protects the structures and resources on it as long as it is properly supplied.",
+    "volume": 6000,
+    "secondaryKnowledgeId": 0,
+    "modelAssetName": "Cargo/Package",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Items/TownWrit",
+    "carriedModelAssetName": "Cargo/Carried/CargoPackSupplies",
+    "pickUpAnimationStart": "Gather-Start",
+    "pickUpAnimationEnd": "Gather-Finish",
+    "dropAnimationStart": "Gather-Start",
+    "dropAnimationEnd": "Gather-Finish",
+    "pickUpTime": 0.5,
+    "placeTime": 0.30000001192092896,
+    "animatorState": "",
+    "movementModifier": 0,
+    "blocksPath": false,
+    "onDestroyYieldCargos": [],
+    "despawnTime": 86400,
+    "tier": -1,
+    "tag": "Settlement Foundation Kit",
     "rarity": {
       "tag": "Common",
       "value": {}
@@ -7693,6 +7749,34 @@
     "despawnTime": 86400,
     "tier": 7,
     "tag": "Package",
+    "rarity": {
+      "tag": "Common",
+      "value": {}
+    },
+    "notPickupable": false
+  },
+  {
+    "id": 1768052462,
+    "name": "Banking Kit",
+    "description": "This can be used to build a bank in your settlement. Banks provide personal storage to players.",
+    "volume": 6000,
+    "secondaryKnowledgeId": 0,
+    "modelAssetName": "Cargo/Package",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/Crafting/Bank",
+    "carriedModelAssetName": "Cargo/Carried/CargoPackSupplies",
+    "pickUpAnimationStart": "Gather-Start",
+    "pickUpAnimationEnd": "Gather-Finish",
+    "dropAnimationStart": "Gather-Start",
+    "dropAnimationEnd": "Gather-Finish",
+    "pickUpTime": 0.5,
+    "placeTime": 0.30000001192092896,
+    "animatorState": "",
+    "movementModifier": 0,
+    "blocksPath": false,
+    "onDestroyYieldCargos": [],
+    "despawnTime": 86400,
+    "tier": -1,
+    "tag": "Banking Kit",
     "rarity": {
       "tag": "Common",
       "value": {}

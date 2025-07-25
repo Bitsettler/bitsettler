@@ -21,7 +21,7 @@ export default async function BuildingsCategoryPage({ params }: BuildingsCategor
 
   // Find the actual building type name to display
   const buildingTypes = getAllBuildingTypes()
-  const buildingType = buildingTypes.find(type => createSlug(type.name) === category)
+  const buildingType = buildingTypes.find((type) => createSlug(type.name) === category)
   const displayName = buildingType?.name || slugToTitleCase(category)
 
   return (

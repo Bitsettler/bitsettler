@@ -21,7 +21,7 @@ export function BuildingsIndividualCategoryPageView({
     tier: 1, // Buildings don't have tiers, default to 1
     rarity: { tag: 'Common' } as const, // Buildings don't have rarity, default to Common
     // Format functions for display
-    functions: building.functions?.map(f => f.functionType).join(', ') || 'None',
+    functions: building.functions?.map((f) => f.functionType).join(', ') || 'None',
     // Simplified health display
     health: building.maxHealth === -1 ? 'Indestructible' : building.maxHealth.toString(),
     // Defense level display

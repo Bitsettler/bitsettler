@@ -1,5 +1,5 @@
-export { getAllWeapons } from './get-all-weapons'
-export { getAllWeaponTypes } from './get-all-weapon-types'
 export { getAllWeaponDescs } from './get-all-weapon-descs'
+export { getAllWeaponTypes } from './get-all-weapon-types'
+export { getAllWeapons } from './get-all-weapons'
 export { getWeaponDescByItemId } from './get-weapon-desc-by-item-id'
 export { getWeaponTypeById } from './get-weapon-type-by-id'

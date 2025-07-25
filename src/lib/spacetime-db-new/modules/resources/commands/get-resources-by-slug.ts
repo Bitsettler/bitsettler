@@ -7,5 +7,7 @@ import { getAllResources } from './get-all-resources'
  */
 export function getResourcesBySlug(slug: string): ResourceDesc[] {
   const allResources = getAllResources()
-  return allResources.filter((resource) => resource.tag && createSlug(resource.tag) === slug && resource.compendiumEntry)
+  return allResources.filter(
+    (resource) => resource.tag && createSlug(resource.tag) === slug && resource.compendiumEntry
+  )
 }

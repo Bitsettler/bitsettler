@@ -1,6 +1,6 @@
 import type { EquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
-import { TagPageView } from '@/views/tag-views/tag-page-view'
 import { camelCaseToSpaces } from '@/lib/utils'
+import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface EquipmentIndividualTagPageViewProps {
   tagName: string

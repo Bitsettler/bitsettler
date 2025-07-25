@@ -5,7 +5,7 @@ import { GameDataProvider } from '@/contexts/game-data-context'
 import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
 import { useItemSelection } from '@/hooks/use-item-selection'
 import { usePathname, useRouter } from '@/i18n/navigation'
-import type { CalculatorGameData } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
+import type { CalculatorGameData, CalculatorItem } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { ReactFlowProvider } from '@xyflow/react'
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
@@ -24,7 +24,7 @@ function CalculatorLayoutClientContent({ children, gameData }: CalculatorLayoutC
 
   // Get the current slug from the pathname
   const slug = pathname.split('/').pop()
-  const selectedItem = slug ? gameData.items.find((item) => item.slug === slug) : undefined
+  const selectedItem = slug ? gameData.items.find((item: CalculatorItem) => item.slug === slug) : undefined
 
   // Check for saved state and use its quantity if available and no qty param in URL
   const savedState = slug ? loadCalculator(slug) : null

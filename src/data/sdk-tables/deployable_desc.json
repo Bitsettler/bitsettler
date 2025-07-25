@@ -243,7 +243,7 @@
     "experiencePerProgress": [
       {
         "skillId": 21,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 3
@@ -330,7 +330,7 @@
     "experiencePerProgress": [
       {
         "skillId": 21,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 5
@@ -416,7 +416,7 @@
     "experiencePerProgress": [
       {
         "skillId": 17,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 3
@@ -915,7 +915,7 @@
     "experiencePerProgress": [
       {
         "skillId": 21,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 5
@@ -1162,7 +1162,7 @@
     "experiencePerProgress": [
       {
         "skillId": 17,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 3
@@ -1327,7 +1327,7 @@
     "experiencePerProgress": [
       {
         "skillId": 17,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 3
@@ -1413,7 +1413,7 @@
     "experiencePerProgress": [
       {
         "skillId": 17,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 3
@@ -1500,7 +1500,7 @@
     "experiencePerProgress": [
       {
         "skillId": 21,
-        "quantity": 0.25
+        "quantity": 0
       }
     ],
     "mountingRadius": 5

@@ -93,7 +93,6 @@ export function getBuildingsTypeMetadata(): BuildingTypeMetadata[] {
       const firstBuilding = buildingDescs[0]
       const icon = firstBuilding?.iconAssetName || undefined
 
-
       return {
         id: slug,
         name: buildingType.name,

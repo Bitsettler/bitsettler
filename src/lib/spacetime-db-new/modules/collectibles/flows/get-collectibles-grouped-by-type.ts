@@ -14,9 +14,9 @@ export interface CollectibleGroup {
  */
 export function getCollectiblesGroupedByType(): CollectibleGroup[] {
   const collectibles = getCollectiblesForCompendium()
-  
+
   const groups = new Map<string, CollectibleWithDeed[]>()
-  
+
   collectibles.forEach((item) => {
     const type = item.collectible.collectibleType.tag
     if (!groups.has(type)) {
@@ -24,7 +24,7 @@ export function getCollectiblesGroupedByType(): CollectibleGroup[] {
     }
     groups.get(type)!.push(item)
   })
-  
+
   return Array.from(groups.entries()).map(([type, items]) => ({
     name: type,
     slug: type.toLowerCase().replace(/\s+/g, '-'),

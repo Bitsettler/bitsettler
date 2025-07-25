@@ -4,7 +4,7 @@ import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view
 export default async function EquipmentPage() {
   // Get equipment categories with counts from the new system
   const equipmentCategories = getEquipmentCategories()
-  
+
   // Get live equipment statistics
   const equipmentStats = getEquipmentStatistics()
   const totalEquipment = equipmentStats.total

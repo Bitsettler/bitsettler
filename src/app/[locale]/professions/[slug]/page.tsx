@@ -1,10 +1,10 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { getSkillsByCategories } from '@/lib/spacetime-db-new/modules/skills/commands/get-skills-by-categories'
-import { getSkillIconPath } from '@/lib/spacetime-db-new/modules/skills/commands/get-skill-icon'
-import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import type { SkillDesc } from '@/data/bindings/skill_desc_type'
+import { getSkillIconPath } from '@/lib/spacetime-db-new/modules/skills/commands/get-skill-icon'
+import { getSkillsByCategories } from '@/lib/spacetime-db-new/modules/skills/commands/get-skills-by-categories'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -16,15 +16,13 @@ interface ProfessionPageProps {
 }
 
 export function generateStaticParams() {
-  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None'])
-    .filter((skill) => skill.name !== 'ANY')
+  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None']).filter((skill) => skill.name !== 'ANY')
   return skills.map((skill) => ({ slug: createSlug(skill.name) }))
 }
 
 export default async function ProfessionPage({ params }: ProfessionPageProps) {
   const { slug } = await params
-  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None'])
-    .filter((skill) => skill.name !== 'ANY')
+  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None']).filter((skill) => skill.name !== 'ANY')
   const profession: SkillDesc | undefined = skills.find((skill) => createSlug(skill.name) === slug)
 
   if (!profession) {
@@ -49,9 +47,7 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <h1 className="text-4xl font-bold">{profession.name}</h1>
-                <Badge variant="outline">
-                  {profession.skillCategory.tag}
-                </Badge>
+                <Badge variant="outline">{profession.skillCategory.tag}</Badge>
               </div>
               <p className="text-muted-foreground text-xl">{profession.title}</p>
               <p className="text-lg">{profession.description}</p>

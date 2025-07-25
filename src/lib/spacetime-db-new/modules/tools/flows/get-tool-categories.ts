@@ -110,9 +110,9 @@ export function getToolCategories(): ToolCategory[] {
   const tools = getAllTools()
 
   // Group tools by their tag
-  const toolsByTag: Record<string, { count: number; firstTool?: typeof tools[0] }> = {}
-  
-  tools.forEach(tool => {
+  const toolsByTag: Record<string, { count: number; firstTool?: (typeof tools)[0] }> = {}
+
+  tools.forEach((tool) => {
     if (!toolsByTag[tool.tag]) {
       toolsByTag[tool.tag] = { count: 0, firstTool: tool }
     }
@@ -121,17 +121,20 @@ export function getToolCategories(): ToolCategory[] {
 
   // Create categories with actual counts and first tool icon
   const categories: ToolCategory[] = []
-  
+
   Object.entries(toolCategoryMetadata).forEach(([tag, metadata]) => {
     const toolData = toolsByTag[tag]
-    if (toolData && toolData.count > 0) { // Only include categories that have tools
+    if (toolData && toolData.count > 0) {
+      // Only include categories that have tools
       categories.push({
         ...metadata,
         count: toolData.count,
-        firstTool: toolData.firstTool ? {
-          name: toolData.firstTool.name,
-          iconAssetName: toolData.firstTool.iconAssetName
-        } : undefined
+        firstTool: toolData.firstTool
+          ? {
+              name: toolData.firstTool.name,
+              iconAssetName: toolData.firstTool.iconAssetName
+            }
+          : undefined
       })
     }
   })

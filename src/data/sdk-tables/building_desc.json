@@ -21539,7 +21539,7 @@
     "functions": [
       {
         "functionType": 999,
-        "level": 1,
+        "level": 2,
         "craftingSlots": 0,
         "storageSlots": 0,
         "cargoSlots": 0,
@@ -21556,8 +21556,8 @@
         "housingIncome": 0
       }
     ],
-    "name": "Large Enterable Hut",
-    "description": "An enterable home that can be lived in or rented out.",
+    "name": "Simple Storehouse",
+    "description": "An enterable building which acts as additional space within a settlement, Only settlement members can access.",
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/EnterableHut1",
@@ -36915,6 +36915,72 @@
     "notDeconstructible": false
   },
   {
+    "id": 90343168,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Couch",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftChair1",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftChair1",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 101794940,
     "functions": [
       {
@@ -37025,6 +37091,80 @@
     },
     "hasAction": true,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 108518190,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Rug",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftRug2",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftRug2",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },
@@ -37347,6 +37487,208 @@
     "notDeconstructible": false
   },
   {
+    "id": 154394148,
+    "functions": [
+      {
+        "functionType": 787619404,
+        "level": 5,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 5,
+        "housingIncome": 22
+      }
+    ],
+    "name": "Exquisite Residential House",
+    "description": "A residence building that could be used to setup houses in.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/ResidentialHouseT5",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium",
+    "unenterable": false,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 169590327,
     "functions": [],
     "name": "TownDecorRuinedBuilding8",
@@ -37532,7 +37874,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerRug2",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerRug2",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -54618,6 +54960,112 @@
     "notDeconstructible": false
   },
   {
+    "id": 344328584,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Carpet",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftRug1",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftRug1",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 350733880,
     "functions": [
       {
@@ -54644,7 +55092,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerPot1",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerPot1",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -55378,6 +55826,64 @@
       "value": {}
     },
     "hasAction": false,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 389279843,
+    "functions": [
+      {
+        "functionType": 3,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 36,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 60000,
+        "cargoSlotSize": 600000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Item Storage",
+    "description": "A cabinet for storing items, can only be built inside.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftWardrobe",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftWardrobe",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
     "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
@@ -59008,6 +59514,80 @@
       {
         "x": 1,
         "z": -3,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 446001992,
+    "functions": [
+      {
+        "functionType": 937867074,
+        "level": 1,
+        "craftingSlots": 12,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 1,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Construction Station",
+    "description": "A construction station where you could build furniture for your house.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/ConstructionWorkstation",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/Crafting/AncientCarpentryWorkstation",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
         "footprintType": {
           "tag": "Hitbox",
           "value": {}
@@ -63999,7 +64579,7 @@
       }
     ],
     "name": "Player Housing Catacombs",
-    "description": "A portal to player housing",
+    "description": "A deep tunnel system with nearly infinite rooms which could be turned into housing.",
     "restedBuffDuration": 0,
     "lightRadius": 6,
     "modelAssetName": "Buildings/PlayerHousingCatacombs",
@@ -64988,7 +65568,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerTable",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerTable",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -65130,6 +65710,72 @@
     },
     "hasAction": true,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 572073165,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Desk",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftDesk",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftDesk",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },
@@ -65321,7 +65967,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerRug3",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerRug3",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -65329,7 +65975,7 @@
         "x": 0,
         "z": 0,
         "footprintType": {
-          "tag": "Hitbox",
+          "tag": "Walkable",
           "value": {}
         }
       },
@@ -67014,6 +67660,208 @@
     "notDeconstructible": false
   },
   {
+    "id": 778355971,
+    "functions": [
+      {
+        "functionType": 787619404,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 5,
+        "housingIncome": 13
+      }
+    ],
+    "name": "Sturdy Residential House",
+    "description": "A residence building that could be used to setup houses in.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/ResidentialHouseT3",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium",
+    "unenterable": false,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 789573505,
     "functions": [
       {
@@ -67739,6 +68587,64 @@
     },
     "hasAction": false,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 820487351,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Small Carpet",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftRug3",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftRug3",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },
@@ -68631,6 +69537,120 @@
     "notDeconstructible": false
   },
   {
+    "id": 901795831,
+    "functions": [
+      {
+        "functionType": 787619404,
+        "level": 1,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 3,
+        "housingIncome": 5
+      }
+    ],
+    "name": "Rough Residential Hut",
+    "description": "A residence building that could be used to setup houses in.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/EnterableHut2",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Enterable/EnterableT1Small",
+    "unenterable": false,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": -1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 902399847,
     "functions": [],
     "name": "RuinDecorLights",
@@ -69002,7 +70022,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/TownMarketplace",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Barter/BarterStallT1",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/TownMarketplace",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -70177,7 +71197,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/PlayerBankChest",
-    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/Crafting/Bank",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/PlayerBank",
     "unenterable": false,
     "wilderness": false,
     "footprint": [
@@ -75442,7 +76462,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerHangingPot1",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerHangingPot1",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -75614,6 +76634,72 @@
       "value": {}
     },
     "hasAction": false,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 1052112899,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Bed",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftBed",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftBed",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
     "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
@@ -77832,7 +78918,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerChair3",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerChair3",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -80924,7 +82010,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerChar2",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerChar2",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -81870,6 +82956,64 @@
     "notDeconstructible": false
   },
   {
+    "id": 1424317515,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Accent Table",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftAccentTable",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftAccentTable",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 1429534535,
     "functions": [
       {
@@ -82393,7 +83537,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerRug1",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerRug1",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -83374,6 +84518,64 @@
     },
     "interactPermission": {
       "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 1538521369,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Side Table",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftSidetable",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftSidetable",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
       "value": {}
     },
     "hasAction": true,
@@ -91694,6 +92896,64 @@
     "notDeconstructible": false
   },
   {
+    "id": 1671823359,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Coffee Table",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftCoffeeTable",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftCoffeeTable",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 1678055861,
     "functions": [],
     "name": "RuinDecorBackWallTreasurePlatform",
@@ -92352,6 +93612,410 @@
     },
     "hasAction": false,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 1720409289,
+    "functions": [
+      {
+        "functionType": 787619404,
+        "level": 4,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 5,
+        "housingIncome": 17
+      }
+    ],
+    "name": "Fine Residential House",
+    "description": "A residence building that could be used to setup houses in.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/ResidentialHouseT4",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium",
+    "unenterable": false,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 1726398716,
+    "functions": [
+      {
+        "functionType": 787619404,
+        "level": 2,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 5,
+        "housingIncome": 10
+      }
+    ],
+    "name": "Simple Residential House",
+    "description": "A residence building that could be used to setup houses in.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/ResidentialHouseT2",
+    "iconAssetName": "GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium",
+    "unenterable": false,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Walkable",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 2,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": -1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -2,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": 120,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 1,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "All",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },
@@ -97235,7 +98899,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 2,
     "modelAssetName": "Buildings/T5Wall",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Walls/WallT1",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/Walls/WallT5",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -97301,6 +98965,72 @@
       "value": {}
     },
     "hasAction": false,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 1805493003,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Room Divider",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftRoomDivider",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftRoomDivider",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": -1,
+        "z": 1,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
     "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
@@ -109039,6 +110769,72 @@
     "notDeconstructible": false
   },
   {
+    "id": 1920300482,
+    "functions": [
+      {
+        "functionType": 3,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 24,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 60000,
+        "cargoSlotSize": 600000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Cargo Bin",
+    "description": "A bin for storing cargo, can only be built inside.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftCabinet",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftCabinet",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
     "id": 1930084091,
     "functions": [],
     "name": "TownDecorTownRuinsWallEndcap2",
@@ -109757,7 +111553,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 5,
     "modelAssetName": "Buildings/T5Gate",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Walls/T5Gate",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/Walls/GateT5",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -109847,7 +111643,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerBed",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerBed",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -116560,12 +118356,12 @@
         "functionType": 3,
         "level": 1,
         "craftingSlots": 0,
-        "storageSlots": 30,
-        "cargoSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 12,
         "refiningSlots": 0,
         "refiningCargoSlots": 0,
         "itemSlotSize": 60000,
-        "cargoSlotSize": 6000,
+        "cargoSlotSize": 600000,
         "tradeOrders": 0,
         "allowedItemIdPerSlot": [],
         "buffIds": [],
@@ -116575,12 +118371,12 @@
         "housingIncome": 0
       }
     ],
-    "name": "Wicker Cabinet",
-    "description": "A small cabinet for storage, can only be built inside",
+    "name": "Wicker Cargo Bin",
+    "description": "A bin for storing cargo, can only be built inside.",
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/WickerCabinet",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/WickerCabinet",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -116646,7 +118442,7 @@
     "restedBuffDuration": 0,
     "lightRadius": 0,
     "modelAssetName": "Buildings/DecoWickerDesk",
-    "iconAssetName": "GeneratedIcons/Other/Buildings/Storage/WickerBasket",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerDesk",
     "unenterable": true,
     "wilderness": true,
     "footprint": [
@@ -116713,6 +118509,64 @@
     },
     "hasAction": false,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 2065403158,
+    "functions": [
+      {
+        "functionType": 1002,
+        "level": 3,
+        "craftingSlots": 0,
+        "storageSlots": 0,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 6000,
+        "cargoSlotSize": 6000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Talented Woodcraft Chair",
+    "description": "",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWoodcraftChair2",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWoodcraftChair2",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },
@@ -124271,6 +126125,64 @@
     },
     "hasAction": false,
     "showInCompendium": false,
+    "isRuins": false,
+    "notDeconstructible": false
+  },
+  {
+    "id": 2082568839,
+    "functions": [
+      {
+        "functionType": 3,
+        "level": 1,
+        "craftingSlots": 0,
+        "storageSlots": 24,
+        "cargoSlots": 0,
+        "refiningSlots": 0,
+        "refiningCargoSlots": 0,
+        "itemSlotSize": 60000,
+        "cargoSlotSize": 600000,
+        "tradeOrders": 0,
+        "allowedItemIdPerSlot": [],
+        "buffIds": [],
+        "concurrentCraftsPerPlayer": 0,
+        "terraform": false,
+        "housingSlots": 0,
+        "housingIncome": 0
+      }
+    ],
+    "name": "Wicker Item Storage",
+    "description": "A cabinet for storing items, can only be built inside.",
+    "restedBuffDuration": 0,
+    "lightRadius": 0,
+    "modelAssetName": "Buildings/DecoWickerWardrobe",
+    "iconAssetName": "GeneratedIcons/Other/GeneratedIcons/Other/Buildings/DecoWickerWardrobe",
+    "unenterable": true,
+    "wilderness": true,
+    "footprint": [
+      {
+        "x": 0,
+        "z": 0,
+        "footprintType": {
+          "tag": "Hitbox",
+          "value": {}
+        }
+      }
+    ],
+    "maxHealth": -1,
+    "ignoreDamage": false,
+    "defenseLevel": 10000,
+    "decay": 0,
+    "maintenance": 0,
+    "buildPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "interactPermission": {
+      "tag": "Claim",
+      "value": {}
+    },
+    "hasAction": true,
+    "showInCompendium": true,
     "isRuins": false,
     "notDeconstructible": false
   },

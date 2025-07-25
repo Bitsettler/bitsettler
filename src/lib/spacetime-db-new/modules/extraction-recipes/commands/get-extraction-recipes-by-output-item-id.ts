@@ -6,8 +6,6 @@ import { getAllExtractionRecipes } from './get-all-extraction-recipes'
  */
 export function getExtractionRecipesByOutputItemId(itemId: number): ExtractionRecipeDesc[] {
   const allRecipes = getAllExtractionRecipes()
-  
-  return allRecipes.filter(recipe => 
-    recipe.extractedItemStacks.some(stack => stack.itemStack?.itemId === itemId)
-  )
+
+  return allRecipes.filter((recipe) => recipe.extractedItemStacks.some((stack) => stack.itemStack?.itemId === itemId))
 }

@@ -1,5 +1,5 @@
-import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { EquipmentDesc } from '@/data/bindings/equipment_desc_type'
+import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { getAllEquipmentItems, getEquipmentDescByItemId } from '../commands'
 
 export interface EquipmentWithStats {

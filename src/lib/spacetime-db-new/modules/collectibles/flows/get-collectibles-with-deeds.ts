@@ -12,7 +12,7 @@ export interface CollectibleWithDeed {
  */
 export function getCollectiblesWithDeeds(): CollectibleWithDeed[] {
   const collectibles = getAllCollectibles()
-  
+
   return collectibles.map((collectible) => ({
     collectible,
     deed: getCollectibleDeedById(collectible.itemDeedId)
