@@ -4,14 +4,14 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { resolveRecipeName } from '@/lib/spacetime-db/modules/recipes/recipe-utils'
-import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
+import { resolveCalculatorRecipeName } from '@/lib/spacetime-db-new/shared/calculator-utils'
+import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { Handle, NodeProps, Position, useReactFlow } from '@xyflow/react'
 import Image from 'next/image'
 import { memo, useCallback } from 'react'
 
 import { useGameData } from '@/contexts/game-data-context'
-import type { CalculatorRecipe } from '@/lib/spacetime-db/shared/dtos/calculator-dtos'
+import type { CalculatorRecipe } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 
 interface ItemData {
   label: string
@@ -337,7 +337,7 @@ export const CustomNode = memo(({ id, data }: NodeProps & { data: ItemData }) =>
                 {itemData.recipes.map((recipe) => {
                   return (
                     <SelectItem key={recipe.id} value={recipe.id.toString()}>
-                      <div className="truncate">{resolveRecipeName(recipe, items) || `Recipe #${recipe.id}`}</div>
+                      <div className="truncate">{resolveCalculatorRecipeName(recipe, items) || `Recipe #${recipe.id}`}</div>
                     </SelectItem>
                   )
                 })}

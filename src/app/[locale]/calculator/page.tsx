@@ -1,6 +1,6 @@
 import { SITE_CONFIG } from '@/config/site-config'
 import { I18N_CONFIG } from '@/i18n/config'
-import { getCalculatorGameData } from '@/lib/spacetime-db/modules/calculator/flows'
+import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows'
 import { CalculatorIndexClient } from '@/views/calculator-views/calculator-index-page-view'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
@@ -22,7 +22,7 @@ export default async function CalculatorIndexPage({ params }: { params: Promise<
   // Enable static rendering
   setRequestLocale(locale)
 
-  const gameData = await getCalculatorGameData()
+  const gameData = getCalculatorGameData()
 
   return <CalculatorIndexClient gameData={gameData} />
 }

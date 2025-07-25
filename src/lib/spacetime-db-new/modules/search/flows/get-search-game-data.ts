@@ -1,19 +1,20 @@
-import { getAllItems } from '../../items/commands/get-all-items'
-import { getAllCargo } from '../../cargo/commands/get-all-cargo'
-import { getAllResources } from '../../resources/commands/get-all-resources'
+import { CargoDesc, ItemDesc, ResourceDesc } from '@/data/bindings'
 import { transformToSearchData, type SearchData, type SearchItem } from '../../../shared/dtos/search-dtos'
 import { createSlug } from '../../../shared/utils/entities'
+import { getAllCargo } from '../../cargo/commands/get-all-cargo'
+import { getAllItems } from '../../items/commands/get-all-items'
+import { getAllResources } from '../../resources/commands/get-all-resources'
 
 /**
  * Transform items to search format
  */
-function transformItemsToSearch(items: any[]): SearchItem[] {
+function transformItemsToSearch(items: ItemDesc[]): SearchItem[] {
   return items
     .filter((item) => item.compendiumEntry)
     .map((item) => {
       const tagSlug = item.tag ? createSlug(item.tag) : 'items'
       const itemSlug = createSlug(item.name)
-      
+
       return {
         id: `item-${item.id}`,
         name: item.name,
@@ -32,11 +33,11 @@ function transformItemsToSearch(items: any[]): SearchItem[] {
 /**
  * Transform cargo to search format
  */
-function transformCargoToSearch(cargo: any[]): SearchItem[] {
+function transformCargoToSearch(cargo: CargoDesc[]): SearchItem[] {
   return cargo.map((item) => {
     const tagSlug = item.tag ? createSlug(item.tag) : 'general'
     const itemSlug = createSlug(item.name)
-    
+
     return {
       id: `cargo-${item.id}`,
       name: item.name,
@@ -55,13 +56,13 @@ function transformCargoToSearch(cargo: any[]): SearchItem[] {
 /**
  * Transform resources to search format
  */
-function transformResourcesToSearch(resources: any[]): SearchItem[] {
+function transformResourcesToSearch(resources: ResourceDesc[]): SearchItem[] {
   return resources
     .filter((resource) => resource.compendiumEntry)
     .map((resource) => {
       const tagSlug = resource.tag ? createSlug(resource.tag) : 'general'
       const itemSlug = createSlug(resource.name)
-      
+
       return {
         id: `resource-${resource.id}`,
         name: resource.name,

@@ -8,6 +8,7 @@ import { getSkillById } from '../../skills/commands/get-skill-by-id'
 import { getToolTypeById } from '../../tools/commands/get-tool-type-by-id'
 import { getToolByTypeAndLevel } from '../../tools/commands/get-tool-by-type-and-level'
 import { getCraftingRecipesByOutputItemId } from '../commands/get-crafting-recipes-by-output-item-id'
+import { resolveRecipeName } from '../../../shared/calculator-utils'
 
 export interface EnrichedItemStack {
   itemId: number
@@ -38,26 +39,6 @@ export interface EnrichedCraftingRecipe extends CraftingRecipeDesc {
   resolvedRecipeName: string
 }
 
-/**
- * Resolve recipe name placeholders with actual item names
- * Based on pattern analysis: {0} = first crafted item, {1} = first consumed item, etc.
- */
-function resolveRecipeName(recipeName: string, craftedItems: EnrichedItemStack[], consumedItems: EnrichedItemStack[]): string {
-  let resolvedName = recipeName
-  
-  // Create a combined array for placeholder replacement
-  // Index 0+ = crafted items, then consumed items
-  const allItems = [...craftedItems, ...consumedItems]
-  
-  // Replace all placeholders {0}, {1}, {2}, etc.
-  allItems.forEach((item, index) => {
-    const placeholder = `{${index}}`
-    const itemName = item.item?.name || `Item ${item.itemId}`
-    resolvedName = resolvedName.replace(placeholder, itemName)
-  })
-  
-  return resolvedName
-}
 
 /**
  * Get enriched crafting recipes that produce a specific item with item data resolved
