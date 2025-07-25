@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 import type { EquipmentCategory } from '@/lib/spacetime-db-new/modules/equipment/flows'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface EquipmentViewProps {

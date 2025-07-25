@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
 import type { ToolCategory } from '@/lib/spacetime-db-new/modules/tools/flows'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface ToolsViewProps {

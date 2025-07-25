@@ -8,9 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db/shared/assets'
-import { getTierColor } from '@/lib/spacetime-db/shared/utils/entities'
-import { convertRarityToString, getRarityColor } from '@/lib/spacetime-db/shared/utils/rarity'
+import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import type { WeaponGroup } from '@/lib/spacetime-db-new/modules/weapons/flows'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
@@ -172,10 +172,10 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
       </Badge>
     ),
     rarity: (item: WeaponItem) => {
-      const rarityString = convertRarityToString(item.rarity)
+      const rarityTag = item.rarity.tag.toLowerCase()
       return (
-        <Badge variant="outline" className={getRarityColor(rarityString)}>
-          {rarityString.charAt(0).toUpperCase() + rarityString.slice(1)}
+        <Badge variant="outline" className={`capitalize ${getRarityColor(rarityTag)}`}>
+          {item.rarity.tag}
         </Badge>
       )
     }
