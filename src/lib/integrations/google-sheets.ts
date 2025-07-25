@@ -413,7 +413,7 @@ function mapGameTagToCommunityResource(gameTag: string): string | null {
     'Monster Den': 'Monster',
     'Wonder Resource': 'Unique Resource',
     'Energy Font': 'Unique Resource',
-    Research: 'Unique Resource',
+    Research: 'Glyph',
     Note: 'Unique Resource',
     Bones: 'Unique Resource',
 

@@ -1,3 +1,4 @@
+import { fetchCommunityBiomeData } from '@/lib/integrations/google-sheets'
 import { getAllResourceTags, getResourcesBySlug } from '@/lib/spacetime-db-new/modules/resources/commands'
 import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
@@ -26,6 +27,14 @@ export default async function ResourceTagPage({ params }: PageProps) {
     notFound()
   }
 
+  // Fetch biome data for resource enrichment
+  let biomeData = {}
+  try {
+    biomeData = await fetchCommunityBiomeData()
+  } catch (error) {
+    console.warn('Failed to fetch biome data:', error)
+  }
+
   // Find the actual tag name for display
   const allTags = getAllResourceTags()
   const actualTag = allTags.find((tagName) => createSlug(tagName) === tag)
@@ -42,6 +51,7 @@ export default async function ResourceTagPage({ params }: PageProps) {
     <ResourceIndividualTagPageView
       tagName={displayName}
       resources={resources}
+      biomeData={biomeData}
       backLink="/compendium/resources"
       backLinkText="← Back to Resources"
     />

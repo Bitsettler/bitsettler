@@ -1,9 +1,11 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
+import { getBiomesForResourceTag } from '@/lib/integrations/google-sheets'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {
   tagName: string
   resources: ResourceDesc[]
+  biomeData?: Record<string, any>
   backLink?: string
   backLinkText?: string
 }
@@ -11,6 +13,7 @@ interface ResourceIndividualTagPageViewProps {
 export function ResourceIndividualTagPageView({
   tagName,
   resources,
+  biomeData = {},
   backLink = '/compendium/resources',
   backLinkText = '← Back to Resources'
 }: ResourceIndividualTagPageViewProps) {
@@ -24,14 +27,19 @@ export function ResourceIndividualTagPageView({
   ]
 
   // Add resource-specific columns
-  const resourceColumns = [{ key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' }]
+  const resourceColumns = [
+    { key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' },
+    { key: 'biomes', label: 'Biomes', sortable: true, className: 'text-center' }
+  ]
 
   // Create enriched items with proper rarity fallback and formatted data
   const enrichedItems = resources.map((resourceItem) => ({
     ...resourceItem,
     rarity: resourceItem.rarity || { tag: 'Common' },
     // Add yield description from maxHealth
-    yieldDescription: resourceItem.maxHealth ? `${resourceItem.maxHealth} HP` : 'Unknown'
+    yieldDescription: resourceItem.maxHealth ? `${resourceItem.maxHealth} HP` : 'Unknown',
+    // Add biome information
+    biomes: getBiomesForResourceTag(tagName, resourceItem.tier, biomeData).join(', ') || 'Unknown'
   }))
 
   // Create single item group with tag name as title
