@@ -5,7 +5,6 @@ import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import type { CalculatorItem } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
-import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -19,7 +18,13 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
   const t = useTranslations()
 
   // Convert items to combobox options
-  const itemOptions = items.map((item) => ({
+  const itemOptions = items
+    // Deduplicate by name - keep only the first occurrence of each name
+    .filter((item, index, array) => {
+      const normalizedName = item.name.toLowerCase().trim()
+      return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+    })
+    .map((item) => ({
     value: item.slug,
     label: item.name,
     keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
@@ -48,9 +53,6 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
               Tier {option.tier}
             </Badge>
           )}
-          <Badge variant="outline" className={getRarityColor(option.rarity || 'common')}>
-            {option.rarity || 'Common'}
-          </Badge>
           <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
             {option.category}
           </Badge>

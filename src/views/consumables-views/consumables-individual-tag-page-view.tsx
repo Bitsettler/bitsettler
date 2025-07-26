@@ -3,6 +3,7 @@ import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ConsumableIndividualTagPageViewProps {
   tagName: string
+  tagSlug: string
   consumables: ItemDesc[]
   backLink?: string
   backLinkText?: string
@@ -10,6 +11,7 @@ interface ConsumableIndividualTagPageViewProps {
 
 export function ConsumableIndividualTagPageView({
   tagName,
+  tagSlug,
   consumables,
   backLink = '/compendium/consumables',
   backLinkText = '← Back to Consumables'
@@ -56,6 +58,8 @@ export function ConsumableIndividualTagPageView({
       backLink={backLink}
       backLinkText={backLinkText}
       itemGroups={itemGroups}
+      enableItemLinks={true}
+      tagSlug={tagSlug}
     />
   )
 }

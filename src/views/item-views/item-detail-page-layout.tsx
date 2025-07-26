@@ -7,9 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link, usePathname } from '@/i18n/navigation'
 import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
-import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
-import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
-import { ArrowLeft, Calculator, Package, Sparkles, Star } from 'lucide-react'
+import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { ArrowLeft, Calculator, Package } from 'lucide-react'
 import Image from 'next/image'
 
 interface ItemDetailPageLayoutProps {
@@ -19,8 +18,7 @@ interface ItemDetailPageLayoutProps {
 
 export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutProps) {
   const pathname = usePathname()
-  const rarityString = item.rarity.tag.toLowerCase()
-  const rarityColor = getRarityColor(rarityString)
+  const tierColor = getTierColor(item.tier)
   const iconPath = getServerIconPath(cleanIconAssetName(item.iconAssetName))
   const itemSlug = createSlug(item.name)
   const tagSlug = item.tag.toLowerCase().replace(/\s+/g, '-')
@@ -76,18 +74,10 @@ export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutPro
                 {process.env.NEXT_PUBLIC_DEBUG && <span className="text-red-500">{item.id}</span>}
                 <h1 className="text-foreground text-4xl font-bold">{item.name}</h1>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <Badge variant="outline" className="gap-1">
-                    <Star className="h-3 w-3" />
-                    Tier {item.tier}
+                  <Badge variant="outline" className={tierColor}>
+                    Tier {item.tier > 0 ? item.tier : 'None'}
                   </Badge>
-                  <Badge variant="outline" className={`gap-1 ${rarityColor} capitalize`}>
-                    <Sparkles className="h-3 w-3" />
-                    {rarityString}
-                  </Badge>
-                  <Badge variant="secondary" className="gap-1">
-                    <Package className="h-3 w-3" />
-                    {item.tag}
-                  </Badge>
+                  <Badge variant="secondary">{item.tag}</Badge>
                 </div>
 
                 {/* Calculator Link */}

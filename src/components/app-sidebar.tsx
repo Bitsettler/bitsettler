@@ -44,7 +44,6 @@ import {
   HammerIcon,
   HouseIcon,
   InfoIcon,
-  ShuffleIcon,
   TwitterLogoIcon
 } from '@phosphor-icons/react'
 
@@ -55,8 +54,8 @@ const data = {
       translationLabel: 'sidebar.navigation',
       children: [
         { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
-        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon },
-        { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon }
+        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon }
+        // { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon, comingSoon: true }
         // { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
       ]
     },
@@ -72,7 +71,7 @@ const data = {
         { translationKey: 'sidebar.compendiumTools', href: '/compendium/tools' },
         { translationKey: 'sidebar.resources', href: '/compendium/resources' },
         { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
-        { translationKey: 'sidebar.deployables', href: '/compendium/deployable-deed' },
+        { translationKey: 'sidebar.deployables', href: '/compendium/collectibles/deployable' },
         { translationKey: 'sidebar.seeAll', href: '/compendium' }
       ]
     },

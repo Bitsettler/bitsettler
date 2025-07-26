@@ -3,166 +3,119 @@
 import { Badge } from '@/components/ui/badge'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { SidebarGroup, SidebarGroupContent, SidebarInput } from '@/components/ui/sidebar'
-import { useRouter } from '@/i18n/navigation'
+import { SidebarGroup, SidebarGroupContent } from '@/components/ui/sidebar'
+import { Link, useRouter } from '@/i18n/navigation'
 import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
-import type { SearchData, SearchItem } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
-import { Search } from 'lucide-react'
+import type { SearchData } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
+import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import Image from 'next/image'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
-interface EnhancedSearchFormProps extends React.ComponentProps<'form'> {
+interface EnhancedSearchFormProps extends React.ComponentProps<'div'> {
   searchData: SearchData
 }
 
 export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormProps) {
   const searchItems = searchData.items
-  const [open, setOpen] = useState(false)
+  const [, setOpen] = useState(false)
   const [search, setSearch] = useState('')
   const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Don't reload the page on form submission
-  }
+  // Convert search items to combobox options
+  const filteredItems =
+    search.length >= 2
+      ? searchItems
+          .filter(
+            (item) =>
+              item.name.toLowerCase().includes(search.toLowerCase()) ||
+              item.category.toLowerCase().includes(search.toLowerCase()) ||
+              (item.tag && item.tag.toLowerCase().includes(search.toLowerCase()))
+          )
+          // Deduplicate by name - keep only the first occurrence of each name
+          .filter((item, index, array) => {
+            const normalizedName = item.name.toLowerCase().trim()
+            return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+          })
+          .slice(0, 15)
+      : []
 
-  const filteredItems = useMemo(() => {
-    if (!search || search.length < 2) return []
-
-    const searchLower = search.toLowerCase()
-    let filtered = searchItems.filter(
-      (item) =>
-        item.name.toLowerCase().includes(searchLower) ||
-        item.category.toLowerCase().includes(searchLower) ||
-        (item.tag && item.tag.toLowerCase().includes(searchLower))
-    )
-
-    // Sort results: exact matches first, then starts with, then contains
-    filtered.sort((a, b) => {
-      const aName = a.name.toLowerCase()
-      const bName = b.name.toLowerCase()
-
-      // Exact match
-      if (aName === searchLower) return -1
-      if (bName === searchLower) return 1
-
-      // Starts with
-      if (aName.startsWith(searchLower) && !bName.startsWith(searchLower)) return -1
-      if (bName.startsWith(searchLower) && !aName.startsWith(searchLower)) return 1
-
-      // Collections should appear after items for better UX
-      if ((a.type === 'item' || a.type === 'cargo' || a.type === 'resource') && b.type === 'collection') return -1
-      if (a.type === 'collection' && (b.type === 'item' || b.type === 'cargo' || b.type === 'resource')) return 1
-
-      // Alphabetical
-      return aName.localeCompare(bName)
-    })
-
-    // Limit to 15 results to show more variety
-    filtered = filtered.slice(0, 15)
-
-    return filtered
-  }, [searchItems, search])
-
-  const handleSelect = (item: SearchItem) => {
-    setOpen(false)
-    setSearch('')
-    router.push(item.href)
-  }
-
-  const renderSearchItem = (item: SearchItem) => (
+  const renderSearchItem = (item: SearchData['items'][number]) => (
     <CommandItem
       key={item.id}
       value={item.id}
-      onSelect={() => handleSelect(item)}
+      onSelect={() => {
+        setOpen(false)
+        setSearch('')
+        router.push(item.href)
+      }}
       className="flex items-center gap-3 p-3"
     >
-      {(item.type === 'item' || item.type === 'cargo' || item.type === 'resource') && item.icon_asset_name && (
-        <Image
-          src={getServerIconPath(cleanIconAssetName(item.icon_asset_name))}
-          alt={item.name}
-          width={40}
-          height={40}
-          className="flex-shrink-0 rounded"
-        />
-      )}
-      <div className="flex min-w-0 flex-1 flex-col">
-        <div className="truncate font-medium">{item.name}</div>
-        <div className="text-muted-foreground flex items-center gap-2 text-xs">
-          <span>{item.category}</span>
-          {item.tier && item.tier > 0 && (
-            <Badge variant="outline" className="text-xs">
-              T{item.tier}
+      <Link href={item.href} className="flex w-full items-center gap-3">
+        {item.icon_asset_name && (
+          <Image
+            src={getServerIconPath(cleanIconAssetName(item.icon_asset_name))}
+            alt={item.name}
+            width={32}
+            height={32}
+            className="flex-shrink-0 rounded"
+          />
+        )}
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-y-1">
+          <div className="truncate font-medium">{item.name}</div>
+          <div className="flex items-center gap-1">
+            {item.tier && item.tier > 0 && (
+              <Badge variant="outline" className={getTierColor(item.tier)}>
+                Tier {item.tier}
+              </Badge>
+            )}
+            {item.rarity && (
+              <Badge variant="outline" className={getRarityColor(item.rarity)}>
+                {item.rarity}
+              </Badge>
+            )}
+            <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+              {item.category}
             </Badge>
-          )}
-          {item.rarity && (
-            <Badge variant="outline" className="text-xs">
-              {item.rarity}
-            </Badge>
-          )}
-          <Badge variant="secondary" className="text-xs">
-            {item.type === 'collection' ? 'Collection' : item.type}
-          </Badge>
+          </div>
         </div>
-      </div>
+      </Link>
     </CommandItem>
   )
 
   return (
-    <form {...props} onSubmit={handleSubmit}>
+    <div {...props}>
       <SidebarGroup className="py-0">
         <SidebarGroupContent className="relative">
           <Label htmlFor="search" className="sr-only">
             Search
           </Label>
-          <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-              <div className="relative">
-                <SidebarInput
-                  id="search"
-                  placeholder="Search items & guides..."
-                  className="pl-8"
-                  value={search}
-                  onChange={(e) => {
-                    setSearch(e.target.value)
-                    setOpen(e.target.value.length >= 2)
-                  }}
-                  onFocus={() => setOpen(search.length >= 2)}
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="none"
-                  spellCheck="false"
-                />
-                <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
-              </div>
-            </PopoverTrigger>
-            {search.length >= 2 && (
-              <PopoverContent
-                className="w-80 p-0"
-                side="bottom"
-                align="start"
-                onOpenAutoFocus={(e) => e.preventDefault()}
-              >
-                <Command>
-                  <CommandInput className="hidden" />
+          <div className="relative">
+            <Command shouldFilter={false}>
+              <CommandInput
+                placeholder="Search items & guides..."
+                value={search}
+                onValueChange={(value) => {
+                  setSearch(value)
+                  setOpen(value.length >= 2)
+                }}
+                wrapperClassname="border-none"
+              />
+              {search.length >= 2 && (
+                <div className="bg-popover absolute top-full left-0 z-50 mt-1 w-80 rounded-md border p-0 shadow-md">
                   <CommandList>
                     {filteredItems.length > 0 ? (
                       <CommandGroup>{filteredItems.map(renderSearchItem)}</CommandGroup>
                     ) : (
-                      <CommandEmpty>
-                        <div className="text-muted-foreground p-4 text-center text-sm">
-                          No results found for &quot;{search}&quot;
-                        </div>
-                      </CommandEmpty>
+                      <CommandEmpty>No results found.</CommandEmpty>
                     )}
                   </CommandList>
-                </Command>
-              </PopoverContent>
-            )}
-          </Popover>
+                </div>
+              )}
+            </Command>
+          </div>
         </SidebarGroupContent>
       </SidebarGroup>
-    </form>
+    </div>
   )
 }

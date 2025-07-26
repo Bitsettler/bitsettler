@@ -117,6 +117,7 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
     return (
       <ConsumableIndividualTagPageView
         tagName={tagName}
+        tagSlug={tag}
         consumables={consumablesForThisTag}
         backLink={parentCollection?.href || '/compendium'}
         backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}

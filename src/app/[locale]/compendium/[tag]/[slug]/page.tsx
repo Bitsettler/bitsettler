@@ -1,13 +1,5 @@
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { CraftingRecipeDesc, ExtractionRecipeDesc } from '@/data/bindings'
-import { Link } from '@/i18n/navigation'
-import { getCraftingRecipesByItemId } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-crafting-recipes-by-item-id'
-import { getExtractionRecipesByItemId } from '@/lib/spacetime-db-new/modules/extraction-recipes/commands/get-extraction-recipes-by-item-id'
 import { getItemBySlugCommand } from '@/lib/spacetime-db-new/modules/items/commands/get-item-by-slug'
-import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
-import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
+import { ItemIndividualInfoPageView } from '@/views/item-views/item-individual-info-page-view'
 import { notFound } from 'next/navigation'
 
 // Generate static params for all items
@@ -45,21 +37,6 @@ interface PageProps {
   }>
 }
 
-function getAllRecipesByItemId(itemId: number): {
-  craftingRecipes: (CraftingRecipeDesc | ExtractionRecipeDesc)[]
-  totalCount: number
-} {
-  const craftingRecipes = getCraftingRecipesByItemId(itemId)
-  const extractionRecipes = getExtractionRecipesByItemId(itemId)
-
-  // Combine both types as "crafting recipes" for UI
-  const allRecipes = [...craftingRecipes, ...extractionRecipes]
-
-  return {
-    craftingRecipes: allRecipes,
-    totalCount: allRecipes.length
-  }
-}
 
 export default async function ItemInfoPage({ params }: PageProps) {
   const { slug } = await params
@@ -71,106 +48,5 @@ export default async function ItemInfoPage({ params }: PageProps) {
     notFound()
   }
 
-  const rarityString = item.rarity.tag.toLowerCase()
-  const rarityColor = getRarityColor(rarityString)
-  const tierColor = getTierColor(item.tier)
-  const tagSlug = item.tag.toLowerCase().replace(/\s+/g, '-')
-
-  // Get recipe data for crafting summary
-  const recipeData = getAllRecipesByItemId(item.id)
-  return (
-    <div className="prose prose-neutral dark:prose-invert max-w-none">
-      {/* Item Description Section */}
-      {item.description && (
-        <div className="">
-          <h2 className="mt-0">Description</h2>
-          <p className="text-lg leading-relaxed">{item.description}</p>
-        </div>
-      )}
-
-      <h2>Properties</h2>
-
-      {/* Properties Card */}
-      <Card className="max-w-lg">
-        <CardContent>
-          <div className="space-y-0">
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Tier</span>
-              <Badge variant="outline" className={tierColor}>
-                {item.tier}
-              </Badge>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Rarity</span>
-              <Badge variant="outline" className={`${rarityColor} capitalize`}>
-                {rarityString}
-              </Badge>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Category</span>
-              <Link href={`/compendium/${tagSlug}`} className="text-primary text-sm hover:underline">
-                {item.tag}
-              </Link>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Volume</span>
-              <span className="text-muted-foreground text-sm">{item.volume}</span>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Durability</span>
-              <span className="text-muted-foreground text-sm">{item.durability > 0 ? item.durability : 'None'}</span>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Converts to on break</span>
-              <span className="text-muted-foreground text-sm">
-                {item.convertToOnDurabilityZero > 0 ? `Item #${item.convertToOnDurabilityZero}` : 'None'}
-              </span>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Secondary Knowledge</span>
-              <span className="text-muted-foreground text-sm">
-                {item.secondaryKnowledgeId > 0 ? `Knowledge #${item.secondaryKnowledgeId}` : 'None'}
-              </span>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between py-3">
-              <span className="text-sm font-medium">Model Asset</span>
-              <span
-                className="text-muted-foreground max-w-32 truncate text-right text-sm"
-                title={item.modelAssetName || 'None'}
-              >
-                {item.modelAssetName || 'None'}
-              </span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Crafting Summary Section */}
-      {recipeData.totalCount > 0 && (
-        <>
-          <h2>Crafting Summary</h2>
-          <Card className="max-w-lg">
-            <CardHeader>
-              <CardTitle className="text-lg">Recipe Availability</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-0">
-                <div className="flex items-center justify-between py-3">
-                  <span className="text-sm font-medium">Crafting Recipes</span>
-                  <Badge variant="secondary">{recipeData.totalCount}</Badge>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </>
-      )}
-    </div>
-  )
+  return <ItemIndividualInfoPageView item={item} />
 }

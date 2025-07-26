@@ -1,16 +1,4 @@
-/**
- * Google Sheets integration for community resource-biome data
- */
-
-// Interface for future use if needed
-// interface CommunityResourceData {
-//   resourceType: string
-//   biome: string
-//   tier: string
-//   available: boolean
-// }
-
-interface BiomeResourceMap {
+export interface BiomeResourceMap {
   [biome: string]: {
     [resourceType: string]: string[] // Available tiers
   }

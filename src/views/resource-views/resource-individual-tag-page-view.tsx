@@ -1,11 +1,11 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import { getBiomesForResourceTag } from '@/lib/integrations/google-sheets'
+import { getBiomesForResourceTag, type BiomeResourceMap } from '@/lib/integrations/google-sheets'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {
   tagName: string
   resources: ResourceDesc[]
-  biomeData?: Record<string, any>
+  biomeData?: BiomeResourceMap
   backLink?: string
   backLinkText?: string
 }

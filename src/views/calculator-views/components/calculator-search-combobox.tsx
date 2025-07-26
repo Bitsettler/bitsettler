@@ -4,7 +4,6 @@ import { Link } from '@/i18n/navigation'
 import { getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 import type { CalculatorItem } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
-import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
@@ -22,16 +21,22 @@ export async function CalculatorSearchCombobox({
   const t = await getTranslations()
 
   // Convert items to combobox options
-  const itemOptions = items.map((item) => ({
-    value: item.slug,
-    label: item.name,
-    keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
-    id: item.id,
-    tier: item.tier,
-    category: item.category,
-    rarity: item.rarity,
-    icon_asset_name: item.icon_asset_name
-  }))
+  const itemOptions = items
+    // Deduplicate by name - keep only the first occurrence of each name
+    .filter((item, index, array) => {
+      const normalizedName = item.name.toLowerCase().trim()
+      return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+    })
+    .map((item) => ({
+      value: item.slug,
+      label: item.name,
+      keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
+      id: item.id,
+      tier: item.tier,
+      category: item.category,
+      rarity: item.rarity,
+      icon_asset_name: item.icon_asset_name
+    }))
 
   const renderOption = (option: ComboboxOption) => (
     <Link href={`/calculator/${option.value}?qty=${currentQuantity}`} className="block w-full">
@@ -51,9 +56,6 @@ export async function CalculatorSearchCombobox({
                 Tier {option.tier}
               </Badge>
             )}
-            <Badge variant="outline" className={getRarityColor(option.rarity || 'common')}>
-              {option.rarity || 'Common'}
-            </Badge>
             <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
               {option.category}
             </Badge>

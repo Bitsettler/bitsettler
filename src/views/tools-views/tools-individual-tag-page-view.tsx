@@ -1,4 +1,5 @@
 import type { ToolWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {
@@ -52,6 +53,7 @@ export function ToolsIndividualTagPageView({
 
   // Tools statistics
   const totalTools = tools.length
+  const tagSlug = createSlug(tagName)
 
   return (
     <TagPageView
@@ -60,6 +62,8 @@ export function ToolsIndividualTagPageView({
       backLink={backLink}
       backLinkText={backLinkText}
       itemGroups={itemGroups}
+      enableItemLinks={true}
+      tagSlug={tagSlug}
     />
   )
 }

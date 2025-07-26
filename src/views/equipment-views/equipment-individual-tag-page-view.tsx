@@ -1,4 +1,5 @@
 import type { EquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { camelCaseToSpaces } from '@/lib/utils'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
@@ -74,7 +75,8 @@ export function EquipmentIndividualTagPageView({
       // Add stats as properties with stat_ prefix
       ...Object.fromEntries(
         equipment.equipmentData.stats.map((stat) => {
-          const displayValue = stat.isPct ? `${stat.value}%` : stat.value.toString()
+          const roundedValue = Math.round(stat.value * 100) / 100
+          const displayValue = stat.value < 1 ? `${(roundedValue * 100).toFixed(2)}%` : roundedValue.toString()
           return [`stat_${stat.id.tag}`, displayValue]
         })
       )
@@ -89,6 +91,7 @@ export function EquipmentIndividualTagPageView({
 
   // Equipment statistics
   const totalEquipment = equipment.length
+  const tagSlug = createSlug(tagName)
 
   return (
     <TagPageView
@@ -97,6 +100,8 @@ export function EquipmentIndividualTagPageView({
       backLink={backLink}
       backLinkText={backLinkText}
       itemGroups={itemGroups}
+      enableItemLinks={true}
+      tagSlug={tagSlug}
     />
   )
 }
