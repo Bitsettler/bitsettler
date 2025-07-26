@@ -8,7 +8,7 @@ export function getAllItemSlugsCommand(): { tag: string; slug: string }[] {
   const items = getAllItems()
 
   return items.map((item) => ({
-    tag: item.tag,
+    tag: createSlug(item.tag),
     slug: createSlug(item.name)
   }))
 }

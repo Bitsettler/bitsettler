@@ -46,5 +46,9 @@ export function createSlug(name: string): string {
  * Example: "raw-meal" -> "Raw Meal"
  */
 export function slugToTitleCase(slug: string): string {
+  if (!slug || typeof slug !== 'string') {
+    console.warn('slugToTitleCase received invalid input:', slug)
+    return ''
+  }
   return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }

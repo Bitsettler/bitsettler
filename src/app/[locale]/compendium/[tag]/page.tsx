@@ -4,14 +4,13 @@ import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-
 import { getEquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
 import { getAllConsumables, getAllItems } from '@/lib/spacetime-db-new/modules/items/commands'
 import { getToolsWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
-import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
 import { EquipmentIndividualTagPageView } from '@/views/equipment-views/equipment-individual-tag-page-view'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 import { ToolsIndividualTagPageView } from '@/views/tools-views/tools-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 
-// Helper function to find which collection a tag belongs to
 function findTagCollection(tagName: string) {
   for (const [, collection] of Object.entries(tagCollections)) {
     if ((collection.tags as readonly string[]).includes(tagName)) {
@@ -22,21 +21,6 @@ function findTagCollection(tagName: string) {
 }
 
 type CompendiumEntity = ItemDesc | ResourceDesc
-
-// Generate static params for all possible tag combinations
-export function generateStaticParams() {
-  // Get all tags from all collections
-  const allTags = Object.values(tagCollections).flatMap((collection) => collection.tags)
-
-  // Exclude tags that conflict with specific routes
-  const conflictingRoutes = ['weapon'] // lowercase versions of specific routes
-
-  return allTags
-    .filter((tag) => !conflictingRoutes.includes(tag.toLowerCase()))
-    .map((tag) => ({
-      tag: createSlug(tag)
-    }))
-}
 
 interface PageProps {
   params: Promise<{

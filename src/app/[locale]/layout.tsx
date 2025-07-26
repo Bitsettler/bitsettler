@@ -37,13 +37,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-export default async function LocaleLayout({
-  children,
-  params
-}: {
+export type LocaleLayoutProps = {
   children: React.ReactNode
   params: Promise<{ locale: string }>
-}) {
+}
+
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params
   // Enable static rendering
   setRequestLocale(locale)

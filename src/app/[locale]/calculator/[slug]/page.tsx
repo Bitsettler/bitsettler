@@ -2,7 +2,7 @@ import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator
 import { FlowVisualizeView } from '@/views/calculator-views/calculator-view'
 import { notFound } from 'next/navigation'
 
-interface PageProps {
+interface CalculatorPageProps {
   params: Promise<{
     locale: string
     slug: string
@@ -12,26 +12,15 @@ interface PageProps {
   }>
 }
 
-export function generateStaticParams() {
-  const gameData = getCalculatorGameData()
-
-  return gameData.items.map((each) => {
-    return { slug: each.slug }
-  })
-}
-
-export default async function Calculator({ params, searchParams }: PageProps) {
+export default async function Calculator({ params, searchParams }: CalculatorPageProps) {
   const { slug } = await params
   const { qty } = await searchParams
 
-  // Get game data from spacetime-db
   const gameData = getCalculatorGameData()
 
-  // Find the item by slug to validate it exists
   const selectedItem = gameData.items.find((item) => item.slug === slug)
   const quantity = parseInt(qty || '1')
 
-  // If item not found, show 404
   if (!selectedItem) {
     notFound()
   }

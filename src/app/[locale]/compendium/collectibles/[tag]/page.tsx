@@ -1,7 +1,18 @@
 import { getCollectiblesByTypeSlugs } from '@/lib/spacetime-db-new/modules/collectibles/commands'
+import { getAllCollectibleTypes } from '@/lib/spacetime-db-new/modules/collectibles/commands/get-all-collectible-types'
 import { getCollectiblesForCompendium } from '@/lib/spacetime-db-new/modules/collectibles/flows'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { CollectiblesIndividualTagPageView } from '@/views/collectibles-views/collectibles-individual-tag-page-view'
 import { notFound } from 'next/navigation'
+
+// Generate static params for all collectible types
+export function generateStaticParams() {
+  const collectibleTypes = getAllCollectibleTypes()
+  
+  return collectibleTypes.map((type) => ({
+    tag: createSlug(type)
+  }))
+}
 
 interface PageProps {
   params: Promise<{
