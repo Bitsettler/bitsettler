@@ -284,7 +284,7 @@ export const tagCollections = {
 
   // Collectibles collection
   collectibles: {
-    tags: ['Deed', 'Deployable Deed', 'Knowledge Scroll', 'Codex', 'Blueprint'] as const,
+    tags: ['Deed', 'Deployable Deed', 'Knowledge Scroll', 'Blueprint'] as const,
     href: '/compendium/collectibles',
     name: 'Collectibles',
     categories: {

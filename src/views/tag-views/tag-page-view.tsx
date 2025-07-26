@@ -245,6 +245,7 @@ export function TagPageView({
                                   <Link
                                     href={itemLink}
                                     className="block h-full w-full p-2 text-inherit hover:text-inherit"
+                                    scroll={true}
                                   >
                                     {column.render
                                       ? column.render(item)

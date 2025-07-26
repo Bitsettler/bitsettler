@@ -1,5 +1,6 @@
 import type { EquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
 import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getLowestRarity } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { camelCaseToSpaces } from '@/lib/utils'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
@@ -30,8 +31,16 @@ export function EquipmentIndividualTagPageView({
 
   // Create item groups for each slot
   const itemGroups = Object.entries(equipmentBySlot).map(([slotName, equipmentItems]) => {
-    // Deduplicate by tier (keep only one equipment per tier)
-    const deduplicatedEquipment = equipmentItems.reduce(
+    // Get the lowest available rarity for this slot, then filter by that rarity and volume > 0
+    const lowestRarity = getLowestRarity(equipmentItems)
+    const filteredEquipment = equipmentItems.filter(
+      (equipment) => 
+        equipment.item.rarity.tag === lowestRarity && 
+        equipment.item.volume > 0
+    )
+    
+    // Deduplicate by name+tier (keep only one equipment per name+tier combination)
+    const deduplicatedEquipment = filteredEquipment.reduce(
       (acc, equipment) => {
         const key = `${equipment.item.name}_T${equipment.item.tier}`
         if (!acc[key]) {
@@ -39,7 +48,7 @@ export function EquipmentIndividualTagPageView({
         }
         return acc
       },
-      {} as Record<string, (typeof equipmentItems)[0]>
+      {} as Record<string, (typeof filteredEquipment)[0]>
     )
 
     const equipmentList = Object.values(deduplicatedEquipment)
@@ -56,7 +65,8 @@ export function EquipmentIndividualTagPageView({
     const baseColumns = [
       { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
       { key: 'name', label: 'Name', sortable: true },
-      { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' }
+      { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
+      { key: 'levelRequirement', label: 'Level Req.', sortable: true, className: 'text-center' }
     ]
 
     // Add stat columns without render functions
@@ -72,6 +82,8 @@ export function EquipmentIndividualTagPageView({
     // Create enriched items with stats as properties
     const enrichedItems = equipmentList.map((equipment) => ({
       ...equipment.item,
+      // Add level requirement
+      levelRequirement: equipment.equipmentData.levelRequirement?.level || 1,
       // Add stats as properties with stat_ prefix
       ...Object.fromEntries(
         equipment.equipmentData.stats.map((stat) => {

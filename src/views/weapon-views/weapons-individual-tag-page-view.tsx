@@ -1,4 +1,5 @@
 import type { WeaponWithStats } from '@/lib/spacetime-db-new/modules/weapons/flows'
+import { getLowestRarity } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface WeaponsIndividualTagPageViewProps {
@@ -14,8 +15,16 @@ export function WeaponsIndividualTagPageView({
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: WeaponsIndividualTagPageViewProps) {
-  // Deduplicate by tier (keep only one weapon per tier)
-  const deduplicatedWeapons = weapons.reduce(
+  // Get the lowest available rarity for weapons, then filter by that rarity and volume > 0
+  const lowestRarity = getLowestRarity(weapons)
+  const filteredWeapons = weapons.filter(
+    (weapon) => 
+      weapon.item.rarity.tag === lowestRarity && 
+      weapon.item.volume > 0
+  )
+  
+  // Deduplicate by name+tier (keep only one weapon per name+tier combination)
+  const deduplicatedWeapons = filteredWeapons.reduce(
     (acc, weapon) => {
       const key = `${weapon.item.name}_T${weapon.item.tier}`
       if (!acc[key]) {

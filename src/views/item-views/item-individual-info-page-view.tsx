@@ -6,8 +6,8 @@ import { Link } from '@/i18n/navigation'
 import { getCraftingRecipesByItemId } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-crafting-recipes-by-item-id'
 import { getExtractionRecipesByItemId } from '@/lib/spacetime-db-new/modules/extraction-recipes/commands/get-extraction-recipes-by-item-id'
 import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
-import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { getRaritiesBySlug } from '@/lib/spacetime-db-new/shared/utils/get-rarities-by-slug'
+import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 
 interface ItemIndividualInfoPageViewProps {
   item: ItemDesc
@@ -39,7 +39,7 @@ export function ItemIndividualInfoPageView({ item }: ItemIndividualInfoPageViewP
   const recipeData = getAllRecipesByItemId(item.id)
 
   return (
-    <div className="prose prose-neutral dark:prose-invert max-w-none">
+    <div className="prose prose-neutral dark:prose-invert max-w-none -scroll-m-40">
       {/* Item Description Section */}
       {item.description && (
         <div className="">
@@ -63,7 +63,7 @@ export function ItemIndividualInfoPageView({ item }: ItemIndividualInfoPageViewP
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Rarity</span>
-              <div className="flex gap-1 flex-wrap">
+              <div className="flex flex-wrap gap-1">
                 {availableRarities.map((rarity) => {
                   const rarityColorClass = getRarityColor(rarity.toLowerCase())
                   return (

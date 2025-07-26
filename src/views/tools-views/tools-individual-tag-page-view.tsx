@@ -1,5 +1,6 @@
 import type { ToolWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
 import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { getLowestRarity } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {
@@ -15,8 +16,16 @@ export function ToolsIndividualTagPageView({
   backLink = '/compendium',
   backLinkText = '← Back to Compendium'
 }: ToolsIndividualTagPageViewProps) {
-  // Deduplicate by tier (keep only one tool per tier)
-  const deduplicatedTools = tools.reduce(
+  // Get the lowest available rarity for tools, then filter by that rarity and volume > 0
+  const lowestRarity = getLowestRarity(tools)
+  const filteredTools = tools.filter(
+    (tool) => 
+      tool.item.rarity.tag === lowestRarity && 
+      tool.item.volume > 0
+  )
+  
+  // Deduplicate by name+tier (keep only one tool per name+tier combination)
+  const deduplicatedTools = filteredTools.reduce(
     (acc, tool) => {
       const key = `${tool.item.name}_T${tool.item.tier}`
       if (!acc[key]) {

@@ -1,9 +1,6 @@
 import { getAllItems } from '@/lib/spacetime-db-new/modules/items/commands/get-all-items'
 import { createSlug } from './entities'
-
-// Rarity order from the Rarity namespace - this is the display order
-const RARITY_ORDER = ['Default', 'Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'] as const
-type RarityTag = typeof RARITY_ORDER[number]
+import { RARITY_ORDER, type RarityTag } from './rarity'
 
 /**
  * Get all available rarities for an item by its slug
