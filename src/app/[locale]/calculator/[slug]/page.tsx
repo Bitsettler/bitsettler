@@ -1,5 +1,5 @@
 import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows'
-import { FlowVisualizeView } from '@/views/calculator-views/calculator-view'
+import { CalcultorFlowView } from '@/views/calculator-views/calculator-flow-view'
 import { notFound } from 'next/navigation'
 
 interface CalculatorPageProps {
@@ -25,5 +25,5 @@ export default async function Calculator({ params, searchParams }: CalculatorPag
     notFound()
   }
 
-  return <FlowVisualizeView slug={slug} quantity={quantity} />
+  return <CalcultorFlowView slug={slug} quantity={quantity} />
 }

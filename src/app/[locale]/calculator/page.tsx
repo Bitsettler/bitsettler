@@ -1,13 +1,11 @@
 import { SITE_CONFIG } from '@/config/site-config'
-import { I18N_CONFIG } from '@/i18n/config'
 import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows'
 import { CalculatorIndexClient } from '@/views/calculator-views/calculator-index-page-view'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 
-export function generateStaticParams() {
-  return I18N_CONFIG.locales.map((locale) => ({ locale }))
-}
+export const dynamicParams = true
+export const revalidate = false
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

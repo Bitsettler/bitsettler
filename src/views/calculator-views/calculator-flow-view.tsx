@@ -20,7 +20,7 @@ interface FlowVisualizeViewProps {
 
 const AUTO_EXPAND_DEPTH = 4
 
-export function FlowVisualizeView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
+export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
   const { items, recipes } = gameData
   const { loadCalculator } = useCalculatorSaves()
