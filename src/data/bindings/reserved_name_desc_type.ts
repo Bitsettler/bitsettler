@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ReservedNameDesc = {
   name: string
 }
@@ -20,10 +25,15 @@ export namespace ReservedNameDesc {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('name', AlgebraicType.createStringType())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('name', AlgebraicType.createStringType())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ReservedNameDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ReservedNameDesc
+  ): void {
     ReservedNameDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

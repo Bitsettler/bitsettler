@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CollectibleDesc as __CollectibleDesc } from './collectible_desc_type'
 
@@ -24,15 +29,25 @@ export namespace ImportCollectibleDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__CollectibleDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __CollectibleDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportCollectibleDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportCollectibleDesc
+  ): void {
     ImportCollectibleDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportCollectibleDesc {
-    return ImportCollectibleDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportCollectibleDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimTechUnlockTimer as __ClaimTechUnlockTimer } from './claim_tech_unlock_timer_type'
 
@@ -24,11 +29,17 @@ export namespace ClaimTechUnlockTech {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __ClaimTechUnlockTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __ClaimTechUnlockTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimTechUnlockTech): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimTechUnlockTech
+  ): void {
     ClaimTechUnlockTech.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

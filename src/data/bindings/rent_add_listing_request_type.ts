@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type RentAddListingRequest = {
   rentEntityId: bigint
 }
@@ -20,14 +25,21 @@ export namespace RentAddListingRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('rentEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('rentEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RentAddListingRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RentAddListingRequest
+  ): void {
     RentAddListingRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RentAddListingRequest {
-    return RentAddListingRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return RentAddListingRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -16,7 +16,10 @@ export interface EquipmentCategory {
 /**
  * Equipment category metadata - maps item tags to UI categories
  */
-const equipmentCategoryMetadata: Record<string, Omit<EquipmentCategory, 'count' | 'firstEquipment'>> = {
+const equipmentCategoryMetadata: Record<
+  string,
+  Omit<EquipmentCategory, 'count' | 'firstEquipment'>
+> = {
   'Metal Armor': {
     id: 'metal-armor',
     name: 'Metal Armor',
@@ -68,7 +71,10 @@ export function getEquipmentCategories(): EquipmentCategory[] {
   const equipmentItems = getAllEquipmentItems()
 
   // Group equipment by their tag
-  const equipmentByTag: Record<string, { count: number; firstEquipment?: (typeof equipmentItems)[0] }> = {}
+  const equipmentByTag: Record<
+    string,
+    { count: number; firstEquipment?: (typeof equipmentItems)[0] }
+  > = {}
 
   equipmentItems.forEach((equipment) => {
     if (!equipmentByTag[equipment.tag]) {

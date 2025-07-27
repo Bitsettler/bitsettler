@@ -61,7 +61,9 @@ export class TravelerTaskStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: TravelerTaskState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: TravelerTaskState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class TravelerTaskStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: TravelerTaskState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: TravelerTaskState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TravelerTaskState, newRow: TravelerTaskState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TravelerTaskState,
+      newRow: TravelerTaskState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TravelerTaskState, newRow: TravelerTaskState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: TravelerTaskState,
+      newRow: TravelerTaskState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

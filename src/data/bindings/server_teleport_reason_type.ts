@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ServerTeleportReason {
   // These are the generated variant types for each variant of the tagged union.
@@ -16,8 +21,12 @@ export namespace ServerTeleportReason {
   export type InteriorDeconstructed = { tag: 'InteriorDeconstructed' }
   export type PlayerDied = { tag: 'PlayerDied' }
   export type TeleportItem = { tag: 'TeleportItem' }
-  export type PlayerHousingChangedLocation = { tag: 'PlayerHousingChangedLocation' }
-  export type PlayerHousingUnderMaintenance = { tag: 'PlayerHousingUnderMaintenance' }
+  export type PlayerHousingChangedLocation = {
+    tag: 'PlayerHousingChangedLocation'
+  }
+  export type PlayerHousingUnderMaintenance = {
+    tag: 'PlayerHousingUnderMaintenance'
+  }
   export type PlayerHousingDeconstructed = { tag: 'PlayerHousingDeconstructed' }
 
   // Helper functions for constructing each variant of the tagged union.
@@ -30,23 +39,44 @@ export namespace ServerTeleportReason {
   export const InteriorDeconstructed = { tag: 'InteriorDeconstructed' }
   export const PlayerDied = { tag: 'PlayerDied' }
   export const TeleportItem = { tag: 'TeleportItem' }
-  export const PlayerHousingChangedLocation = { tag: 'PlayerHousingChangedLocation' }
-  export const PlayerHousingUnderMaintenance = { tag: 'PlayerHousingUnderMaintenance' }
-  export const PlayerHousingDeconstructed = { tag: 'PlayerHousingDeconstructed' }
+  export const PlayerHousingChangedLocation = {
+    tag: 'PlayerHousingChangedLocation'
+  }
+  export const PlayerHousingUnderMaintenance = {
+    tag: 'PlayerHousingUnderMaintenance'
+  }
+  export const PlayerHousingDeconstructed = {
+    tag: 'PlayerHousingDeconstructed'
+  }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
       new SumTypeVariant('RuinCollapse', AlgebraicType.createProductType([])),
-      new SumTypeVariant('InteriorDeconstructed', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'InteriorDeconstructed',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('PlayerDied', AlgebraicType.createProductType([])),
       new SumTypeVariant('TeleportItem', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PlayerHousingChangedLocation', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PlayerHousingUnderMaintenance', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PlayerHousingDeconstructed', AlgebraicType.createProductType([]))
+      new SumTypeVariant(
+        'PlayerHousingChangedLocation',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'PlayerHousingUnderMaintenance',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'PlayerHousingDeconstructed',
+        AlgebraicType.createProductType([])
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ServerTeleportReason): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ServerTeleportReason
+  ): void {
     ServerTeleportReason.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AchievementDesc as __AchievementDesc } from './achievement_desc_type'
 
@@ -24,15 +29,25 @@ export namespace ImportAchievementDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__AchievementDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __AchievementDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportAchievementDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportAchievementDesc
+  ): void {
     ImportAchievementDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportAchievementDesc {
-    return ImportAchievementDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportAchievementDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

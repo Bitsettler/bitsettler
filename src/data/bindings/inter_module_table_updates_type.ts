@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BlockedIdentityOp as __BlockedIdentityOp } from './blocked_identity_op_type'
 import { BuildingNicknameStateOp as __BuildingNicknameStateOp } from './building_nickname_state_op_type'
 import { BuildingStateOp as __BuildingStateOp } from './building_state_op_type'
@@ -69,128 +74,204 @@ export namespace InterModuleTableUpdates {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'blockedIdentity',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__BlockedIdentityOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __BlockedIdentityOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'buildingNicknameState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__BuildingNicknameStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __BuildingNicknameStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'buildingState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__BuildingStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __BuildingStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'claimMemberState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ClaimMemberStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __ClaimMemberStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'claimState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ClaimStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __ClaimStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'empireChunkState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__EmpireChunkStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __EmpireChunkStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'empireExpansionState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__EmpireExpansionStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __EmpireExpansionStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'empireNodeSiegeState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__EmpireNodeSiegeStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __EmpireNodeSiegeStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'empireNodeState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__EmpireNodeStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __EmpireNodeStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'empirePlayerDataState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__EmpirePlayerDataStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __EmpirePlayerDataStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'empireRankState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__EmpireRankStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __EmpireRankStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'empireSettlementState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__EmpireSettlementStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __EmpireSettlementStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'empireState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__EmpireStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __EmpireStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'identityRole',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__IdentityRoleOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __IdentityRoleOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'locationState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__LocationStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __LocationStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'playerHousingState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__PlayerHousingStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __PlayerHousingStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'playerReportState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__PlayerReportStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __PlayerReportStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'regionConnectionInfo',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__RegionConnectionInfoOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __RegionConnectionInfoOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'regionPopulationInfo',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__RegionPopulationInfoOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __RegionPopulationInfoOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'regionSignInParameters',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__RegionSignInParametersOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __RegionSignInParametersOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'userAuthenticationState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__UserAuthenticationStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __UserAuthenticationStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'userModerationState',
         AlgebraicType.createOptionType(
-          AlgebraicType.createArrayType(__UserModerationStateOp.getTypeScriptAlgebraicType())
+          AlgebraicType.createArrayType(
+            __UserModerationStateOp.getTypeScriptAlgebraicType()
+          )
         )
       ),
       new ProductTypeElement(
         'userState',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__UserStateOp.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __UserStateOp.getTypeScriptAlgebraicType()
+          )
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InterModuleTableUpdates): void {
-    InterModuleTableUpdates.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InterModuleTableUpdates
+  ): void {
+    InterModuleTableUpdates.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): InterModuleTableUpdates {
-    return InterModuleTableUpdates.getTypeScriptAlgebraicType().deserialize(reader)
+    return InterModuleTableUpdates.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

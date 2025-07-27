@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerAcquireKnowledgeFromEntitiesRequest = {
   discoveredEntitiesId: bigint[]
 }
@@ -21,15 +26,28 @@ export namespace PlayerAcquireKnowledgeFromEntitiesRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('discoveredEntitiesId', AlgebraicType.createArrayType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'discoveredEntitiesId',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerAcquireKnowledgeFromEntitiesRequest): void {
-    PlayerAcquireKnowledgeFromEntitiesRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerAcquireKnowledgeFromEntitiesRequest
+  ): void {
+    PlayerAcquireKnowledgeFromEntitiesRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerAcquireKnowledgeFromEntitiesRequest {
-    return PlayerAcquireKnowledgeFromEntitiesRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerAcquireKnowledgeFromEntitiesRequest {
+    return PlayerAcquireKnowledgeFromEntitiesRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

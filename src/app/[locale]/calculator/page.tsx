@@ -14,7 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function CalculatorIndexPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function CalculatorIndexPage({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}) {
   const { locale } = await params
 
   // Enable static rendering

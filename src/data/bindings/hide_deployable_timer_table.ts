@@ -83,7 +83,9 @@ export class HideDeployableTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: HideDeployableTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: HideDeployableTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -91,16 +93,30 @@ export class HideDeployableTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: HideDeployableTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: HideDeployableTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: HideDeployableTimer, newRow: HideDeployableTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: HideDeployableTimer,
+      newRow: HideDeployableTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: HideDeployableTimer, newRow: HideDeployableTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: HideDeployableTimer,
+      newRow: HideDeployableTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

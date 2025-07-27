@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerRegionTransferEvent as __PlayerRegionTransferEvent } from './player_region_transfer_event_type'
 
@@ -24,15 +29,28 @@ export namespace PlayerRegionTransferEventReducer {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerRegionTransferEvent.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerRegionTransferEvent.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerRegionTransferEventReducer): void {
-    PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerRegionTransferEventReducer
+  ): void {
+    PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerRegionTransferEventReducer {
-    return PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerRegionTransferEventReducer {
+    return PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

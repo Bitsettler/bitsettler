@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type PlayerClaimRemoveTileRequest = {
@@ -23,15 +28,28 @@ export namespace PlayerClaimRemoveTileRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('coordinates', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'coordinates',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClaimRemoveTileRequest): void {
-    PlayerClaimRemoveTileRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClaimRemoveTileRequest
+  ): void {
+    PlayerClaimRemoveTileRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerClaimRemoveTileRequest {
-    return PlayerClaimRemoveTileRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerClaimRemoveTileRequest {
+    return PlayerClaimRemoveTileRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

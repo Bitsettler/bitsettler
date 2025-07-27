@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { PlayerHousingState as __PlayerHousingState } from './player_housing_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,30 @@ export namespace PlayerHousingStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __PlayerHousingState): PlayerHousingStateOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __PlayerHousingState
+  ): PlayerHousingStateOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __PlayerHousingState
+  ): PlayerHousingStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __PlayerHousingState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __PlayerHousingState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __PlayerHousingState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __PlayerHousingState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingStateOp
+  ): void {
     PlayerHousingStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +61,8 @@ export namespace PlayerHousingStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `PlayerHousingStateOp`.
-export type PlayerHousingStateOp = PlayerHousingStateOp.Insert | PlayerHousingStateOp.Delete
+export type PlayerHousingStateOp =
+  | PlayerHousingStateOp.Insert
+  | PlayerHousingStateOp.Delete
 
 export default PlayerHousingStateOp

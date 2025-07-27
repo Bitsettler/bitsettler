@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ClaimSetPurchaseSupplyPriceRequest = {
   buildingEntityId: bigint
   purchasePrice: number
@@ -27,11 +32,21 @@ export namespace ClaimSetPurchaseSupplyPriceRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimSetPurchaseSupplyPriceRequest): void {
-    ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimSetPurchaseSupplyPriceRequest
+  ): void {
+    ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ClaimSetPurchaseSupplyPriceRequest {
-    return ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ClaimSetPurchaseSupplyPriceRequest {
+    return ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerActionCancel = {
   clientCancel: boolean
@@ -21,10 +26,15 @@ export namespace PlayerActionCancel {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('clientCancel', AlgebraicType.createBoolType())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('clientCancel', AlgebraicType.createBoolType())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerActionCancel): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerActionCancel
+  ): void {
     PlayerActionCancel.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

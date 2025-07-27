@@ -14,7 +14,11 @@ interface LayoutProps {
 export const dynamicParams = true
 export const revalidate = false
 
-export async function generateMetadata({ params }: { params: Promise<{ tag: string; slug: string }> }) {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ tag: string; slug: string }>
+}) {
   const { slug } = await params
   const item = getItemBySlugCommand(slug)
 
@@ -27,11 +31,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 
   return {
     title: `${item.name} - BitCraft Guide`,
-    description: item.description || `Information about ${item.name} in BitCraft`
+    description:
+      item.description || `Information about ${item.name} in BitCraft`
   }
 }
 
-export default async function ItemDetailLayout({ children, params }: LayoutProps) {
+export default async function ItemDetailLayout({
+  children,
+  params
+}: LayoutProps) {
   const { tag, slug } = await params
 
   const item = getItemBySlugCommand(slug)

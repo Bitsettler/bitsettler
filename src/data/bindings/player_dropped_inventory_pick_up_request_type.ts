@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerDroppedInventoryPickUpRequest = {
   droppedInventoryEntityId: bigint
   itemId: number
@@ -24,18 +29,31 @@ export namespace PlayerDroppedInventoryPickUpRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('droppedInventoryEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'droppedInventoryEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type()),
       new ProductTypeElement('toDeployable', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDroppedInventoryPickUpRequest): void {
-    PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDroppedInventoryPickUpRequest
+  ): void {
+    PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerDroppedInventoryPickUpRequest {
-    return PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerDroppedInventoryPickUpRequest {
+    return PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

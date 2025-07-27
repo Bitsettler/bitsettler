@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EmpireTerritoryDesc as __EmpireTerritoryDesc } from './empire_territory_desc_type'
 
@@ -26,16 +31,26 @@ export namespace StageEmpireTerritoryDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__EmpireTerritoryDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireTerritoryDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageEmpireTerritoryDesc): void {
-    StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageEmpireTerritoryDesc
+  ): void {
+    StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): StageEmpireTerritoryDesc {
-    return StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

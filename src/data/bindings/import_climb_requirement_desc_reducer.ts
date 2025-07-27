@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClimbRequirementDesc as __ClimbRequirementDesc } from './climb_requirement_desc_type'
 
@@ -26,16 +31,28 @@ export namespace ImportClimbRequirementDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__ClimbRequirementDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ClimbRequirementDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportClimbRequirementDesc): void {
-    ImportClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportClimbRequirementDesc
+  ): void {
+    ImportClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportClimbRequirementDesc {
-    return ImportClimbRequirementDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportClimbRequirementDesc {
+    return ImportClimbRequirementDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

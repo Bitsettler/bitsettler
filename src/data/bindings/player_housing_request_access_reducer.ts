@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerHousingRequestAccessRequest as __PlayerHousingRequestAccessRequest } from './player_housing_request_access_request_type'
 
@@ -24,15 +29,28 @@ export namespace PlayerHousingRequestAccess {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerHousingRequestAccessRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerHousingRequestAccessRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingRequestAccess): void {
-    PlayerHousingRequestAccess.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingRequestAccess
+  ): void {
+    PlayerHousingRequestAccess.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingRequestAccess {
-    return PlayerHousingRequestAccess.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingRequestAccess {
+    return PlayerHousingRequestAccess.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

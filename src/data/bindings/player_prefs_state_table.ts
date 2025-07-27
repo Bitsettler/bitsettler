@@ -74,11 +74,23 @@ export class PlayerPrefsStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PlayerPrefsState, newRow: PlayerPrefsState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerPrefsState,
+      newRow: PlayerPrefsState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PlayerPrefsState, newRow: PlayerPrefsState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerPrefsState,
+      newRow: PlayerPrefsState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

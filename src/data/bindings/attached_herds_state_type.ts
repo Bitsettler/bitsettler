@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type AttachedHerdsState = {
   entityId: bigint
   herdsEntityIds: bigint[]
@@ -23,11 +28,17 @@ export namespace AttachedHerdsState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('herdsEntityIds', AlgebraicType.createArrayType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'herdsEntityIds',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AttachedHerdsState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AttachedHerdsState
+  ): void {
     AttachedHerdsState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

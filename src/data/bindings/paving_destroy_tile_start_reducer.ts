@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerPavingDestroyTileRequest as __PlayerPavingDestroyTileRequest } from './player_paving_destroy_tile_request_type'
 
@@ -24,15 +29,23 @@ export namespace PavingDestroyTileStart {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerPavingDestroyTileRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerPavingDestroyTileRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PavingDestroyTileStart): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PavingDestroyTileStart
+  ): void {
     PavingDestroyTileStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PavingDestroyTileStart {
-    return PavingDestroyTileStart.getTypeScriptAlgebraicType().deserialize(reader)
+    return PavingDestroyTileStart.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

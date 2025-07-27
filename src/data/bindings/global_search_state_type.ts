@@ -34,14 +34,20 @@ export namespace GlobalSearchState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('foundEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('foundEntityName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'foundEntityName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('x', AlgebraicType.createI32Type()),
       new ProductTypeElement('z', AlgebraicType.createI32Type()),
       new ProductTypeElement('timestamp', AlgebraicType.createTimestampType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: GlobalSearchState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: GlobalSearchState
+  ): void {
     GlobalSearchState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

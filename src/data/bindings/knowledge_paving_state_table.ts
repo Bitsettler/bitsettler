@@ -62,7 +62,9 @@ export class KnowledgePavingStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgePavingState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgePavingState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgePavingStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgePavingState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgePavingState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgePavingState, newRow: KnowledgePavingState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgePavingState,
+      newRow: KnowledgePavingState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgePavingState, newRow: KnowledgePavingState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgePavingState,
+      newRow: KnowledgePavingState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

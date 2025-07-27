@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { StarvingLoopTimer as __StarvingLoopTimer } from './starving_loop_timer_type'
 
@@ -24,11 +29,17 @@ export namespace StarvingAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __StarvingLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __StarvingLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StarvingAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StarvingAgentLoop
+  ): void {
     StarvingAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

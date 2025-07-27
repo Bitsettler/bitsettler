@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ActionCooldown as __ActionCooldown } from './action_cooldown_type'
 
 export type CombatState = {
@@ -27,11 +32,19 @@ export namespace CombatState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastAttackedTimestamp', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastPerformedActionEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'lastAttackedTimestamp',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'lastPerformedActionEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement(
         'globalCooldown',
-        AlgebraicType.createOptionType(__ActionCooldown.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __ActionCooldown.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }

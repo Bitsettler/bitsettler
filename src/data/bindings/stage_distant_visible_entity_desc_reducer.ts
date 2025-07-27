@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DistantVisibleEntityDesc as __DistantVisibleEntityDesc } from './distant_visible_entity_desc_type'
 
@@ -26,16 +31,28 @@ export namespace StageDistantVisibleEntityDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__DistantVisibleEntityDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DistantVisibleEntityDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageDistantVisibleEntityDesc): void {
-    StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageDistantVisibleEntityDesc
+  ): void {
+    StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): StageDistantVisibleEntityDesc {
-    return StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): StageDistantVisibleEntityDesc {
+    return StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Rarity as __Rarity } from './rarity_type'
 
 export type CargoDesc = {
@@ -49,20 +54,44 @@ export namespace CargoDesc {
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
       new ProductTypeElement('volume', AlgebraicType.createI32Type()),
-      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'secondaryKnowledgeId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'modelAssetName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('carriedModelAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('pickUpAnimationStart', AlgebraicType.createStringType()),
-      new ProductTypeElement('pickUpAnimationEnd', AlgebraicType.createStringType()),
-      new ProductTypeElement('dropAnimationStart', AlgebraicType.createStringType()),
-      new ProductTypeElement('dropAnimationEnd', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'carriedModelAssetName',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'pickUpAnimationStart',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'pickUpAnimationEnd',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'dropAnimationStart',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'dropAnimationEnd',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('pickUpTime', AlgebraicType.createF32Type()),
       new ProductTypeElement('placeTime', AlgebraicType.createF32Type()),
       new ProductTypeElement('animatorState', AlgebraicType.createStringType()),
       new ProductTypeElement('movementModifier', AlgebraicType.createF32Type()),
       new ProductTypeElement('blocksPath', AlgebraicType.createBoolType()),
-      new ProductTypeElement('onDestroyYieldCargos', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'onDestroyYieldCargos',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('despawnTime', AlgebraicType.createF32Type()),
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('tag', AlgebraicType.createStringType()),

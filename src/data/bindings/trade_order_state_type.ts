@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type TradeOrderState = {
@@ -33,15 +38,33 @@ export namespace TradeOrderState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('shopEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('remainingStock', AlgebraicType.createI32Type()),
-      new ProductTypeElement('offerItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('offerCargoId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('requiredCargoId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('travelerTradeOrderId', AlgebraicType.createOptionType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'offerItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'offerCargoId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'requiredCargoId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'travelerTradeOrderId',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeOrderState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeOrderState
+  ): void {
     TradeOrderState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

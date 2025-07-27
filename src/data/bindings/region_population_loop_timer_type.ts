@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type RegionPopulationLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
 }
 
 /**
@@ -30,15 +32,26 @@ export namespace RegionPopulationLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType())
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionPopulationLoopTimer): void {
-    RegionPopulationLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionPopulationLoopTimer
+  ): void {
+    RegionPopulationLoopTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): RegionPopulationLoopTimer {
-    return RegionPopulationLoopTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return RegionPopulationLoopTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

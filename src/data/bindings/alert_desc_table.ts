@@ -74,11 +74,15 @@ export class AlertDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AlertDesc, newRow: AlertDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: AlertDesc, newRow: AlertDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AlertDesc, newRow: AlertDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: AlertDesc, newRow: AlertDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

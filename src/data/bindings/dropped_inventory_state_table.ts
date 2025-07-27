@@ -61,7 +61,9 @@ export class DroppedInventoryStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: DroppedInventoryState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: DroppedInventoryState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class DroppedInventoryStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: DroppedInventoryState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: DroppedInventoryState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DroppedInventoryState, newRow: DroppedInventoryState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DroppedInventoryState,
+      newRow: DroppedInventoryState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DroppedInventoryState, newRow: DroppedInventoryState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: DroppedInventoryState,
+      newRow: DroppedInventoryState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

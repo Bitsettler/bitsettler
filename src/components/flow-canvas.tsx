@@ -2,7 +2,13 @@
 
 import { Card, CardContent } from '@/components/ui/card'
 import type { Edge, Node, NodeTypes } from '@xyflow/react'
-import { Background, Controls, ReactFlow, useEdgesState, useNodesState } from '@xyflow/react'
+import {
+  Background,
+  Controls,
+  ReactFlow,
+  useEdgesState,
+  useNodesState
+} from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 
 interface FlowCanvasProps {
@@ -39,7 +45,9 @@ function FlowCanvasInner({
           fitView
           fitViewOptions={{ padding: 0.1 }}
         >
-          {showControls && <Controls className="bg-background border-border border" />}
+          {showControls && (
+            <Controls className="bg-background border-border border" />
+          )}
           {showBackground && <Background />}
           {/* <MiniMap nodeStrokeWidth={3} position="top-right" /> */}
         </ReactFlow>

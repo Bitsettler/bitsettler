@@ -75,11 +75,15 @@ export class FoodDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: FoodDesc, newRow: FoodDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: FoodDesc, newRow: FoodDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: FoodDesc, newRow: FoodDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: FoodDesc, newRow: FoodDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

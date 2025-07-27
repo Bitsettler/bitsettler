@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerRetrieveLostItemRequest as __PlayerRetrieveLostItemRequest } from './player_retrieve_lost_item_request_type'
 
@@ -24,11 +29,17 @@ export namespace RetrieveLostItem {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerRetrieveLostItemRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerRetrieveLostItemRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RetrieveLostItem): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RetrieveLostItem
+  ): void {
     RetrieveLostItem.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

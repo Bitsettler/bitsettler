@@ -75,11 +75,15 @@ export class EnemyDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EnemyDesc, newRow: EnemyDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: EnemyDesc, newRow: EnemyDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EnemyDesc, newRow: EnemyDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: EnemyDesc, newRow: EnemyDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

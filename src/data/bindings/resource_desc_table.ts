@@ -75,11 +75,15 @@ export class ResourceDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ResourceDesc, newRow: ResourceDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ResourceDesc, newRow: ResourceDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ResourceDesc, newRow: ResourceDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ResourceDesc, newRow: ResourceDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

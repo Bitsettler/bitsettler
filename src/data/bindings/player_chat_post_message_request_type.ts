@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ChatChannel as __ChatChannel } from './chat_channel_type'
 
 export type PlayerChatPostMessageRequest = {
@@ -26,16 +31,29 @@ export namespace PlayerChatPostMessageRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('text', AlgebraicType.createStringType()),
-      new ProductTypeElement('channelId', __ChatChannel.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'channelId',
+        __ChatChannel.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('targetId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerChatPostMessageRequest): void {
-    PlayerChatPostMessageRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerChatPostMessageRequest
+  ): void {
+    PlayerChatPostMessageRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerChatPostMessageRequest {
-    return PlayerChatPostMessageRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerChatPostMessageRequest {
+    return PlayerChatPostMessageRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

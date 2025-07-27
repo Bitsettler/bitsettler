@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerCraftInitiateRequest = {
   recipeId: number
   buildingEntityId: bigint
@@ -31,11 +36,21 @@ export namespace PlayerCraftInitiateRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerCraftInitiateRequest): void {
-    PlayerCraftInitiateRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerCraftInitiateRequest
+  ): void {
+    PlayerCraftInitiateRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerCraftInitiateRequest {
-    return PlayerCraftInitiateRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerCraftInitiateRequest {
+    return PlayerCraftInitiateRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

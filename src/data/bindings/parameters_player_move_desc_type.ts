@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { MovementSpeed as __MovementSpeed } from './movement_speed_type'
 
 export type ParametersPlayerMoveDesc = {
@@ -27,16 +32,26 @@ export namespace ParametersPlayerMoveDesc {
       new ProductTypeElement('version', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'defaultSpeed',
-        AlgebraicType.createArrayType(__MovementSpeed.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __MovementSpeed.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ParametersPlayerMoveDesc): void {
-    ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ParametersPlayerMoveDesc
+  ): void {
+    ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ParametersPlayerMoveDesc {
-    return ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

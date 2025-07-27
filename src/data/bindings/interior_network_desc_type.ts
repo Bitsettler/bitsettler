@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { DimensionType as __DimensionType } from './dimension_type_type'
 
 export type InteriorNetworkDesc = {
@@ -28,14 +33,26 @@ export namespace InteriorNetworkDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('dimensionType', __DimensionType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('triggerCollapseTime', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'dimensionType',
+        __DimensionType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'triggerCollapseTime',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('respawnTime', AlgebraicType.createU32Type()),
-      new ProductTypeElement('childInteriorInstances', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'childInteriorInstances',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorNetworkDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorNetworkDesc
+  ): void {
     InteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

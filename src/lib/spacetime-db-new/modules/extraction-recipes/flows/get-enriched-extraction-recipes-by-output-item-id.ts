@@ -51,63 +51,71 @@ export interface EnrichedExtractionRecipe extends ExtractionRecipeDesc {
 /**
  * Get enriched extraction recipes that produce a specific item with item, cargo, and resource data resolved
  */
-export function getEnrichedExtractionRecipesByOutputItemId(itemId: number): EnrichedExtractionRecipe[] {
+export function getEnrichedExtractionRecipesByOutputItemId(
+  itemId: number
+): EnrichedExtractionRecipe[] {
   const extractionRecipes = getExtractionRecipesByOutputItemId(itemId)
   const allItems = getAllItems()
   const allCargo = getAllCargo()
   const allResources = getAllResources()
   const itemsMap = new Map(allItems.map((item) => [item.id, item]))
   const cargoMap = new Map(allCargo.map((cargo) => [cargo.id, cargo]))
-  const resourcesMap = new Map(allResources.map((resource) => [resource.id, resource]))
+  const resourcesMap = new Map(
+    allResources.map((resource) => [resource.id, resource])
+  )
 
   return extractionRecipes.map((recipe) => {
     // Resolve extracted items (probabilistic) - can be either items or cargo
-    const enrichedExtractedItems: EnrichedProbabilisticItemStack[] = recipe.extractedItemStacks.map((stack) => {
-      const itemId = stack.itemStack?.itemId || 0
-      const quantity = stack.itemStack?.quantity || 0
-      const itemType = stack.itemStack?.itemType?.tag as 'Item' | 'Cargo'
+    const enrichedExtractedItems: EnrichedProbabilisticItemStack[] =
+      recipe.extractedItemStacks.map((stack) => {
+        const itemId = stack.itemStack?.itemId || 0
+        const quantity = stack.itemStack?.quantity || 0
+        const itemType = stack.itemStack?.itemType?.tag as 'Item' | 'Cargo'
 
-      return {
-        itemId,
-        quantity,
-        probability: stack.probability,
-        itemType,
-        item: itemType === 'Item' ? itemsMap.get(itemId) : undefined,
-        cargo: itemType === 'Cargo' ? cargoMap.get(itemId) : undefined
-      }
-    })
+        return {
+          itemId,
+          quantity,
+          probability: stack.probability,
+          itemType,
+          item: itemType === 'Item' ? itemsMap.get(itemId) : undefined,
+          cargo: itemType === 'Cargo' ? cargoMap.get(itemId) : undefined
+        }
+      })
 
     // Resolve consumed items (these are always items, not cargo)
-    const enrichedConsumedItems: EnrichedItemStack[] = recipe.consumedItemStacks.map((stack) => ({
-      itemId: stack.itemId,
-      quantity: stack.quantity,
-      item: itemsMap.get(stack.itemId)
-    }))
+    const enrichedConsumedItems: EnrichedItemStack[] =
+      recipe.consumedItemStacks.map((stack) => ({
+        itemId: stack.itemId,
+        quantity: stack.quantity,
+        item: itemsMap.get(stack.itemId)
+      }))
 
     // Resolve tool requirements
-    const enrichedToolRequirements: EnrichedToolRequirement[] = recipe.toolRequirements.map((toolReq) => {
-      const toolType = getToolTypeById(toolReq.toolType)
-      const toolItem = getToolByTypeAndLevel(toolReq.toolType, toolReq.level)
+    const enrichedToolRequirements: EnrichedToolRequirement[] =
+      recipe.toolRequirements.map((toolReq) => {
+        const toolType = getToolTypeById(toolReq.toolType)
+        const toolItem = getToolByTypeAndLevel(toolReq.toolType, toolReq.level)
 
-      return {
-        toolType: toolReq.toolType,
-        level: toolReq.level,
-        power: toolReq.power,
-        toolTypeName: toolType?.name || `Tool Type ${toolReq.toolType}`,
-        toolItem
-      }
-    })
+        return {
+          toolType: toolReq.toolType,
+          level: toolReq.level,
+          power: toolReq.power,
+          toolTypeName: toolType?.name || `Tool Type ${toolReq.toolType}`,
+          toolItem
+        }
+      })
 
     // Resolve level requirements
-    const enrichedLevelRequirements: EnrichedLevelRequirement[] = recipe.levelRequirements.map((levelReq) => {
-      const skill = getSkillById(levelReq.skillId)
+    const enrichedLevelRequirements: EnrichedLevelRequirement[] =
+      recipe.levelRequirements.map((levelReq) => {
+        const skill = getSkillById(levelReq.skillId)
 
-      return {
-        skillId: levelReq.skillId,
-        level: levelReq.level,
-        skill
-      }
-    })
+        return {
+          skillId: levelReq.skillId,
+          level: levelReq.level,
+          skill
+        }
+      })
 
     // Resolve resource data
     const resource = resourcesMap.get(recipe.resourceId)

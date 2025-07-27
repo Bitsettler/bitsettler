@@ -61,7 +61,9 @@ export class EmpireSuppliesDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: EmpireSuppliesDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: EmpireSuppliesDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class EmpireSuppliesDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: EmpireSuppliesDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: EmpireSuppliesDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EmpireSuppliesDesc, newRow: EmpireSuppliesDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EmpireSuppliesDesc,
+      newRow: EmpireSuppliesDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EmpireSuppliesDesc, newRow: EmpireSuppliesDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EmpireSuppliesDesc,
+      newRow: EmpireSuppliesDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

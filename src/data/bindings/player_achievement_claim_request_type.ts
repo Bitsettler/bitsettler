@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerAchievementClaimRequest = {
   achievementId: number
 }
@@ -20,14 +25,26 @@ export namespace PlayerAchievementClaimRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('achievementId', AlgebraicType.createI32Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('achievementId', AlgebraicType.createI32Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerAchievementClaimRequest): void {
-    PlayerAchievementClaimRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerAchievementClaimRequest
+  ): void {
+    PlayerAchievementClaimRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerAchievementClaimRequest {
-    return PlayerAchievementClaimRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerAchievementClaimRequest {
+    return PlayerAchievementClaimRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

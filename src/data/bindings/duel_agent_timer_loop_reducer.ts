@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DuelAgentTimer as __DuelAgentTimer } from './duel_agent_timer_type'
 
@@ -24,11 +29,17 @@ export namespace DuelAgentTimerLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DuelAgentTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DuelAgentTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DuelAgentTimerLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DuelAgentTimerLoop
+  ): void {
     DuelAgentTimerLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

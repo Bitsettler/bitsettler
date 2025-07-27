@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerRespawn = {
   teleportHome: boolean
@@ -21,7 +26,9 @@ export namespace PlayerRespawn {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('teleportHome', AlgebraicType.createBoolType())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('teleportHome', AlgebraicType.createBoolType())
+    ])
   }
 
   export function serialize(writer: BinaryWriter, value: PlayerRespawn): void {

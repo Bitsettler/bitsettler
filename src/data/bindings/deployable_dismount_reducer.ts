@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerDeployableDismountRequest as __PlayerDeployableDismountRequest } from './player_deployable_dismount_request_type'
 
@@ -24,11 +29,17 @@ export namespace DeployableDismount {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerDeployableDismountRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerDeployableDismountRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeployableDismount): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeployableDismount
+  ): void {
     DeployableDismount.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -57,29 +57,47 @@ export class AdminClearResourceTimerTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: AdminClearResourceTimer) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: AdminClearResourceTimer) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: AdminClearResourceTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: AdminClearResourceTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: AdminClearResourceTimer) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: AdminClearResourceTimer) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: AdminClearResourceTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: AdminClearResourceTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AdminClearResourceTimer, newRow: AdminClearResourceTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AdminClearResourceTimer,
+      newRow: AdminClearResourceTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: AdminClearResourceTimer, newRow: AdminClearResourceTimer) => void
+    cb: (
+      ctx: EventContext,
+      onRow: AdminClearResourceTimer,
+      newRow: AdminClearResourceTimer
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

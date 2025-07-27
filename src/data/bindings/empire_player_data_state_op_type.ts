@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpirePlayerDataState as __EmpirePlayerDataState } from './empire_player_data_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,46 @@ export namespace EmpirePlayerDataStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpirePlayerDataState): EmpirePlayerDataStateOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __EmpirePlayerDataState
+  ): EmpirePlayerDataStateOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __EmpirePlayerDataState
+  ): EmpirePlayerDataStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __EmpirePlayerDataState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __EmpirePlayerDataState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __EmpirePlayerDataState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __EmpirePlayerDataState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpirePlayerDataStateOp): void {
-    EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpirePlayerDataStateOp
+  ): void {
+    EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): EmpirePlayerDataStateOp {
-    return EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpirePlayerDataStateOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `EmpirePlayerDataStateOp`.
-export type EmpirePlayerDataStateOp = EmpirePlayerDataStateOp.Insert | EmpirePlayerDataStateOp.Delete
+export type EmpirePlayerDataStateOp =
+  | EmpirePlayerDataStateOp.Insert
+  | EmpirePlayerDataStateOp.Delete
 
 export default EmpirePlayerDataStateOp

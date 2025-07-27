@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type CheatDeleteItem = {
   inventoryEntityId: bigint
@@ -23,12 +28,18 @@ export namespace CheatDeleteItem {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('inventoryEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'inventoryEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatDeleteItem): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatDeleteItem
+  ): void {
     CheatDeleteItem.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

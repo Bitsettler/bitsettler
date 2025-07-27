@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PortalState = {
   entityId: bigint
   targetBuildingEntityId: bigint
@@ -28,10 +33,16 @@ export namespace PortalState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('targetBuildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'targetBuildingEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('destinationX', AlgebraicType.createI32Type()),
       new ProductTypeElement('destinationZ', AlgebraicType.createI32Type()),
-      new ProductTypeElement('destinationDimension', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'destinationDimension',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('enabled', AlgebraicType.createBoolType()),
       new ProductTypeElement('allowDeployables', AlgebraicType.createBoolType())
     ])

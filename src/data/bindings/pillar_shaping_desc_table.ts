@@ -62,7 +62,9 @@ export class PillarShapingDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PillarShapingDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PillarShapingDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class PillarShapingDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PillarShapingDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PillarShapingDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PillarShapingDesc, newRow: PillarShapingDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PillarShapingDesc,
+      newRow: PillarShapingDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PillarShapingDesc, newRow: PillarShapingDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PillarShapingDesc,
+      newRow: PillarShapingDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

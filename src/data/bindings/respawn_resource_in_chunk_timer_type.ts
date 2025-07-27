@@ -18,7 +18,9 @@ import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_m
 
 export type RespawnResourceInChunkTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   chunkIndex: bigint
   resourceClumpId: number
   coord: __SmallHexTileMessage
@@ -35,18 +37,34 @@ export namespace RespawnResourceInChunkTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
       new ProductTypeElement('resourceClumpId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('coord', __SmallHexTileMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'coord',
+        __SmallHexTileMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RespawnResourceInChunkTimer): void {
-    RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: RespawnResourceInChunkTimer
+  ): void {
+    RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): RespawnResourceInChunkTimer {
-    return RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): RespawnResourceInChunkTimer {
+    return RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

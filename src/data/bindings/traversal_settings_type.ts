@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace TraversalSettings {
   // These are the generated variant types for each variant of the tagged union.
@@ -46,13 +51,19 @@ export namespace TraversalSettings {
       new SumTypeVariant('StepUp', AlgebraicType.createProductType([])),
       new SumTypeVariant('Hoist1', AlgebraicType.createProductType([])),
       new SumTypeVariant('Down1', AlgebraicType.createProductType([])),
-      new SumTypeVariant('WalkSwimTransition', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'WalkSwimTransition',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('SwimHoist', AlgebraicType.createProductType([])),
       new SumTypeVariant('Down1Swim', AlgebraicType.createProductType([]))
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TraversalSettings): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TraversalSettings
+  ): void {
     TraversalSettings.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

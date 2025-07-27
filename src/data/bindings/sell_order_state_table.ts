@@ -61,7 +61,9 @@ export class SellOrderStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: AuctionListingState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: AuctionListingState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class SellOrderStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: AuctionListingState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: AuctionListingState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AuctionListingState, newRow: AuctionListingState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AuctionListingState,
+      newRow: AuctionListingState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AuctionListingState, newRow: AuctionListingState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AuctionListingState,
+      newRow: AuctionListingState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -18,7 +18,9 @@ import { FloatHexTileMessage as __FloatHexTileMessage } from './float_hex_tile_m
 
 export type TransferPlayerTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   entityId: bigint
   destination: __FloatHexTileMessage
   newRegionIndex: number
@@ -37,16 +39,28 @@ export namespace TransferPlayerTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('destination', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'destination',
+        __FloatHexTileMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('newRegionIndex', AlgebraicType.createU8Type()),
       new ProductTypeElement('withVehicle', AlgebraicType.createBoolType()),
-      new ProductTypeElement('teleportEnergyCost', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'teleportEnergyCost',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TransferPlayerTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TransferPlayerTimer
+  ): void {
     TransferPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

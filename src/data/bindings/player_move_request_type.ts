@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerMoveRequest = {
@@ -31,11 +36,15 @@ export namespace PlayerMoveRequest {
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'destination',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'origin',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('duration', AlgebraicType.createF32Type()),
       new ProductTypeElement('moveType', AlgebraicType.createI32Type()),
@@ -43,7 +52,10 @@ export namespace PlayerMoveRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerMoveRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerMoveRequest
+  ): void {
     PlayerMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

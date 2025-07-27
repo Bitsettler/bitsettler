@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { InputItemStack as __InputItemStack } from './input_item_stack_type'
 import { LevelRequirement as __LevelRequirement } from './level_requirement_type'
@@ -47,40 +52,68 @@ export namespace ExtractionRecipeDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('resourceId', AlgebraicType.createI32Type()),
       new ProductTypeElement('cargoId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'discoveryTriggers',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('timeRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('staminaRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('toolDurabilityLost', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'staminaRequirement',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'toolDurabilityLost',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'extractedItemStacks',
-        AlgebraicType.createArrayType(__ProbabilisticItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ProbabilisticItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedItemStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('range', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'toolRequirements',
-        AlgebraicType.createArrayType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('allowUseHands', AlgebraicType.createBoolType()),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('verbPhrase', AlgebraicType.createStringType()),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ExtractionRecipeDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ExtractionRecipeDesc
+  ): void {
     ExtractionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

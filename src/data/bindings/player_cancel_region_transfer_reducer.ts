@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerCancelRegionTransfer = {}
 
@@ -22,11 +26,21 @@ export namespace PlayerCancelRegionTransfer {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerCancelRegionTransfer): void {
-    PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerCancelRegionTransfer
+  ): void {
+    PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerCancelRegionTransfer {
-    return PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerCancelRegionTransfer {
+    return PlayerCancelRegionTransfer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

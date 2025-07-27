@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerVoteConcludeTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   voteEntityId: bigint
 }
 
@@ -31,16 +33,27 @@ export namespace PlayerVoteConcludeTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('voteEntityId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerVoteConcludeTimer): void {
-    PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerVoteConcludeTimer
+  ): void {
+    PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerVoteConcludeTimer {
-    return PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

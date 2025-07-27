@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { WorldRegionNameState as __WorldRegionNameState } from './world_region_name_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportWorldRegionNameState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__WorldRegionNameState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldRegionNameState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportWorldRegionNameState): void {
-    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportWorldRegionNameState
+  ): void {
+    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportWorldRegionNameState {
-    return ImportWorldRegionNameState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportWorldRegionNameState {
+    return ImportWorldRegionNameState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

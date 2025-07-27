@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EmpireCollectHexiteCapsuleRequest as __EmpireCollectHexiteCapsuleRequest } from './empire_collect_hexite_capsule_request_type'
 
@@ -24,15 +29,28 @@ export namespace EmpireCollectHexiteCapsule {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __EmpireCollectHexiteCapsuleRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __EmpireCollectHexiteCapsuleRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireCollectHexiteCapsule): void {
-    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireCollectHexiteCapsule
+  ): void {
+    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): EmpireCollectHexiteCapsule {
-    return EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): EmpireCollectHexiteCapsule {
+    return EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

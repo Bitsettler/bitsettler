@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WorldGenNoiseSpecs = {
   seed: number
   scale: number
@@ -33,7 +38,10 @@ export namespace WorldGenNoiseSpecs {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenNoiseSpecs): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenNoiseSpecs
+  ): void {
     WorldGenNoiseSpecs.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatSetDebugAiStateRequest as __CheatSetDebugAiStateRequest } from './cheat_set_debug_ai_state_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatSetAiDebugState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatSetAiDebugState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatSetAiDebugState
+  ): void {
     CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

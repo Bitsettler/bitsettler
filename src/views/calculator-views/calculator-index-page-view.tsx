@@ -9,7 +9,9 @@ interface CalculatorIndexClientProps {
   gameData: CalculatorGameData
 }
 
-export function CalculatorIndexClient({ gameData }: CalculatorIndexClientProps) {
+export function CalculatorIndexClient({
+  gameData
+}: CalculatorIndexClientProps) {
   const router = useRouter()
 
   const handleItemSelect = (slug: string) => {
@@ -22,20 +24,29 @@ export function CalculatorIndexClient({ gameData }: CalculatorIndexClientProps) 
         <div className="mx-auto max-w-2xl text-center">
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-foreground mb-4 text-4xl font-bold">Recipe Calculator</h1>
+            <h1 className="text-foreground mb-4 text-4xl font-bold">
+              Recipe Calculator
+            </h1>
             <p className="text-muted-foreground text-lg">
-              Calculate exact material requirements and visualize crafting dependencies for any item in BitCraft.
+              Calculate exact material requirements and visualize crafting
+              dependencies for any item in BitCraft.
             </p>
           </div>
 
           {/* Search */}
           <div className="mb-8">
-            <CalculatorSearchInput items={gameData.items} onItemSelect={handleItemSelect} />
+            <CalculatorSearchInput
+              items={gameData.items}
+              onItemSelect={handleItemSelect}
+            />
           </div>
 
           {/* Instructions */}
           <div className="text-muted-foreground text-sm">
-            <p>Search for any item above to start calculating its recipe tree and material requirements.</p>
+            <p>
+              Search for any item above to start calculating its recipe tree and
+              material requirements.
+            </p>
           </div>
         </div>
       </Container>

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminSignOutString = {
   identity: string
@@ -21,10 +26,15 @@ export namespace AdminSignOutString {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('identity', AlgebraicType.createStringType())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('identity', AlgebraicType.createStringType())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminSignOutString): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminSignOutString
+  ): void {
     AdminSignOutString.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

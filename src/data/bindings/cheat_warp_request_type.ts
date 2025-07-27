@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type'
 
 export type CheatWarpRequest = {
@@ -24,12 +29,18 @@ export namespace CheatWarpRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('location', __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatWarpRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatWarpRequest
+  ): void {
     CheatWarpRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

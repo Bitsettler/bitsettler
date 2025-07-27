@@ -2940,7 +2940,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AiDebugState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AiDebugState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     achievement_desc: {
@@ -2949,7 +2951,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: AchievementDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AchievementDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     action_state: {
@@ -2958,7 +2962,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ActionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ActionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     active_buff_state: {
@@ -2967,7 +2973,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ActiveBuffState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ActiveBuffState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     admin_broadcast: {
@@ -2976,7 +2984,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: AdminBroadcast.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AdminBroadcast.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     admin_clear_resource_timer: {
@@ -2985,7 +2995,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: AdminClearResourceTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AdminClearResourceTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     admin_restore_player_state_timer: {
@@ -2994,7 +3006,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     alert_desc: {
@@ -3003,7 +3017,9 @@ const REMOTE_MODULE = {
       primaryKey: 'alertType',
       primaryKeyInfo: {
         colName: 'alertType',
-        colType: AlertDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AlertDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     alert_state: {
@@ -3012,7 +3028,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AlertState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AlertState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     attached_herds_state: {
@@ -3021,7 +3039,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AttachedHerdsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AttachedHerdsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     attack_impact_timer: {
@@ -3030,7 +3050,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: AttackImpactTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AttackImpactTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     attack_outcome_state: {
@@ -3039,7 +3061,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AttackOutcomeState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AttackOutcomeState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     attack_timer: {
@@ -3048,7 +3072,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: AttackTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AttackTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     auto_claim_state: {
@@ -3057,7 +3083,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AutoClaimState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AutoClaimState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     auto_logout_loop_timer: {
@@ -3066,7 +3094,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: AutoLogoutLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AutoLogoutLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     barter_stall_state: {
@@ -3075,7 +3105,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: BarterStallState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BarterStallState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     biome_desc: {
@@ -3084,7 +3116,9 @@ const REMOTE_MODULE = {
       primaryKey: 'biomeType',
       primaryKeyInfo: {
         colName: 'biomeType',
-        colType: BiomeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BiomeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     blocked_identity: {
@@ -3093,7 +3127,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: BlockedIdentity.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BlockedIdentity.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     buff_desc: {
@@ -3102,7 +3138,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuffDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuffDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     buff_type_desc: {
@@ -3111,7 +3149,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuffTypeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuffTypeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_claim_desc: {
@@ -3120,7 +3160,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingId',
       primaryKeyInfo: {
         colName: 'buildingId',
-        colType: BuildingClaimDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingClaimDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_decay_loop_timer: {
@@ -3129,7 +3171,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: BuildingDecayLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingDecayLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     building_desc: {
@@ -3138,7 +3182,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuildingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_despawn_timer: {
@@ -3147,7 +3193,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: BuildingDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingDespawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_function_type_mapping_desc: {
@@ -3156,7 +3204,9 @@ const REMOTE_MODULE = {
       primaryKey: 'typeId',
       primaryKeyInfo: {
         colName: 'typeId',
-        colType: BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     building_nickname_state: {
@@ -3165,7 +3215,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: BuildingNicknameState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingNicknameState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_portal_desc: {
@@ -3174,7 +3226,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuildingPortalDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingPortalDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_repairs_desc: {
@@ -3183,7 +3237,9 @@ const REMOTE_MODULE = {
       primaryKey: 'cargoId',
       primaryKeyInfo: {
         colName: 'cargoId',
-        colType: BuildingRepairsDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingRepairsDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_spawn_desc: {
@@ -3192,7 +3248,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuildingSpawnDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingSpawnDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_state: {
@@ -3201,7 +3259,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: BuildingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     building_type_desc: {
@@ -3210,7 +3270,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: BuildingTypeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          BuildingTypeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     buy_order_state: {
@@ -3219,7 +3281,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AuctionListingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AuctionListingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     cargo_desc: {
@@ -3228,7 +3292,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: CargoDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CargoDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     character_stat_desc: {
@@ -3237,7 +3303,9 @@ const REMOTE_MODULE = {
       primaryKey: 'statType',
       primaryKeyInfo: {
         colName: 'statType',
-        colType: CharacterStatDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CharacterStatDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     character_stats_state: {
@@ -3246,7 +3314,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: CharacterStatsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CharacterStatsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     chat_message_state: {
@@ -3255,7 +3325,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ChatMessageState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ChatMessageState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     chest_rarity_desc: {
@@ -3264,7 +3336,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ChestRarityDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ChestRarityDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_local_state: {
@@ -3273,7 +3347,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimLocalState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimLocalState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_member_state: {
@@ -3282,7 +3358,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimMemberState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimMemberState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_recruitment_state: {
@@ -3291,7 +3369,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimRecruitmentState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimRecruitmentState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_state: {
@@ -3300,7 +3380,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_tech_desc: {
@@ -3309,7 +3391,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ClaimTechDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimTechDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_tech_state: {
@@ -3318,7 +3402,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimTechState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimTechState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_tech_unlock_timer: {
@@ -3327,7 +3413,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: ClaimTechUnlockTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimTechUnlockTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_tile_cost: {
@@ -3336,7 +3424,9 @@ const REMOTE_MODULE = {
       primaryKey: 'tileCount',
       primaryKeyInfo: {
         colName: 'tileCount',
-        colType: ClaimTileCost.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimTileCost.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     claim_tile_state: {
@@ -3345,7 +3435,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClaimTileState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClaimTileState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     climb_requirement_desc: {
@@ -3354,7 +3446,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ClimbRequirementDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClimbRequirementDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     closed_listing_state: {
@@ -3363,7 +3457,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ClosedListingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClosedListingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     clothing_desc: {
@@ -3372,7 +3468,9 @@ const REMOTE_MODULE = {
       primaryKey: 'itemId',
       primaryKeyInfo: {
         colName: 'itemId',
-        colType: ClothingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ClothingDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     collect_stats_timer: {
@@ -3381,7 +3479,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: CollectStatsTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CollectStatsTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     collectible_desc: {
@@ -3390,7 +3490,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: CollectibleDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CollectibleDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     combat_action_desc: {
@@ -3399,7 +3501,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: CombatActionDesc.getTypeScriptAlgebraicType().product.elements[1].algebraicType
+        colType:
+          CombatActionDesc.getTypeScriptAlgebraicType().product.elements[1]
+            .algebraicType
       }
     },
     combat_state: {
@@ -3408,7 +3512,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: CombatState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CombatState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     config: {
@@ -3417,7 +3523,8 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: Config.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          Config.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     construction_recipe_desc: {
@@ -3426,7 +3533,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ConstructionRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ConstructionRecipeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     crafting_recipe_desc: {
@@ -3435,7 +3544,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: CraftingRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          CraftingRecipeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     day_night_loop_timer: {
@@ -3444,7 +3555,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DayNightLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DayNightLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     deconstruction_recipe_desc: {
@@ -3453,7 +3566,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: DeconstructionRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DeconstructionRecipeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     deployable_collectible_state: {
@@ -3462,7 +3577,9 @@ const REMOTE_MODULE = {
       primaryKey: 'deployableEntityId',
       primaryKeyInfo: {
         colName: 'deployableEntityId',
-        colType: DeployableCollectibleState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DeployableCollectibleState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     deployable_desc: {
@@ -3471,7 +3588,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: DeployableDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DeployableDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     deployable_dismount_timer: {
@@ -3480,7 +3599,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DeployableDismountTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DeployableDismountTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     deployable_state: {
@@ -3489,7 +3610,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DeployableState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DeployableState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     destroy_dimension_network_timer: {
@@ -3498,7 +3621,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     dimension_description_state: {
@@ -3507,7 +3632,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DimensionDescriptionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DimensionDescriptionState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     dimension_network_state: {
@@ -3516,7 +3643,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DimensionNetworkState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DimensionNetworkState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     distant_visible_entity: {
@@ -3525,7 +3654,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DistantVisibleEntity.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DistantVisibleEntity.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     distant_visible_entity_desc: {
@@ -3534,7 +3665,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: DistantVisibleEntityDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DistantVisibleEntityDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     dropped_inventory_despawn_timer: {
@@ -3543,7 +3676,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     dropped_inventory_ownership_timer: {
@@ -3552,7 +3687,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     dropped_inventory_state: {
@@ -3561,7 +3698,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DroppedInventoryState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DroppedInventoryState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     duel_agent_timer: {
@@ -3570,7 +3709,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DuelAgentTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DuelAgentTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     duel_despawn_timer: {
@@ -3579,7 +3720,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: DuelDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DuelDespawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     duel_state: {
@@ -3588,7 +3731,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: DuelState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          DuelState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     elevator_desc: {
@@ -3597,7 +3742,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingId',
       primaryKeyInfo: {
         colName: 'buildingId',
-        colType: ElevatorDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ElevatorDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     emote_desc: {
@@ -3606,7 +3753,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EmoteDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmoteDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_chunk_state: {
@@ -3615,7 +3764,9 @@ const REMOTE_MODULE = {
       primaryKey: 'chunkIndex',
       primaryKeyInfo: {
         colName: 'chunkIndex',
-        colType: EmpireChunkState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireChunkState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_color_desc: {
@@ -3624,7 +3775,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EmpireColorDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireColorDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_expansion_state: {
@@ -3633,7 +3786,9 @@ const REMOTE_MODULE = {
       primaryKey: 'chunkIndex',
       primaryKeyInfo: {
         colName: 'chunkIndex',
-        colType: EmpireExpansionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireExpansionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_icon_desc: {
@@ -3642,7 +3797,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EmpireIconDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireIconDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_node_siege_state: {
@@ -3651,7 +3808,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EmpireNodeSiegeState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireNodeSiegeState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_node_state: {
@@ -3660,7 +3819,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EmpireNodeState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireNodeState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_notification_desc: {
@@ -3669,7 +3830,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EmpireNotificationDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireNotificationDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     empire_player_data_state: {
@@ -3678,7 +3841,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EmpirePlayerDataState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpirePlayerDataState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_rank_desc: {
@@ -3687,7 +3852,9 @@ const REMOTE_MODULE = {
       primaryKey: 'rank',
       primaryKeyInfo: {
         colName: 'rank',
-        colType: EmpireRankDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireRankDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_rank_state: {
@@ -3696,7 +3863,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EmpireRankState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireRankState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_settlement_state: {
@@ -3705,7 +3874,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingEntityId',
       primaryKeyInfo: {
         colName: 'buildingEntityId',
-        colType: EmpireSettlementState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireSettlementState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_state: {
@@ -3714,7 +3885,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EmpireState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_supplies_desc: {
@@ -3723,7 +3896,9 @@ const REMOTE_MODULE = {
       primaryKey: 'cargoId',
       primaryKeyInfo: {
         colName: 'cargoId',
-        colType: EmpireSuppliesDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireSuppliesDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     empire_territory_desc: {
@@ -3732,7 +3907,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EmpireTerritoryDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EmpireTerritoryDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     end_grace_period_timer: {
@@ -3741,7 +3918,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: EndGracePeriodTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EndGracePeriodTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_ai_params_desc: {
@@ -3750,7 +3929,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: EnemyAiParamsDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyAiParamsDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_desc: {
@@ -3759,7 +3940,9 @@ const REMOTE_MODULE = {
       primaryKey: 'enemyType',
       primaryKeyInfo: {
         colName: 'enemyType',
-        colType: EnemyDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_despawn_timer: {
@@ -3768,7 +3951,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: EnemyDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyDespawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_mob_monitor_state: {
@@ -3777,7 +3962,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EnemyMobMonitorState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyMobMonitorState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_regen_loop_timer: {
@@ -3786,7 +3973,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: EnemyRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     enemy_state: {
@@ -3795,7 +3984,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EnemyState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnemyState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     environment_debuff_desc: {
@@ -3804,7 +3995,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buffId',
       primaryKeyInfo: {
         colName: 'buffId',
-        colType: EnvironmentDebuffDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnvironmentDebuffDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     environment_debuff_loop_timer: {
@@ -3813,7 +4006,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     equipment_desc: {
@@ -3822,7 +4017,9 @@ const REMOTE_MODULE = {
       primaryKey: 'itemId',
       primaryKeyInfo: {
         colName: 'itemId',
-        colType: EquipmentDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EquipmentDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     equipment_state: {
@@ -3831,7 +4028,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: EquipmentState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          EquipmentState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     experience_state: {
@@ -3840,7 +4039,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ExperienceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ExperienceState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     exploration_chunks_state: {
@@ -3849,7 +4050,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ExplorationChunksState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ExplorationChunksState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     extract_outcome_state: {
@@ -3858,7 +4061,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ExtractOutcomeState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ExtractOutcomeState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     extraction_recipe_desc: {
@@ -3867,7 +4072,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ExtractionRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ExtractionRecipeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     food_desc: {
@@ -3876,7 +4083,9 @@ const REMOTE_MODULE = {
       primaryKey: 'itemId',
       primaryKeyInfo: {
         colName: 'itemId',
-        colType: FoodDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          FoodDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     footprint_tile_state: {
@@ -3885,7 +4094,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: FootprintTileState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          FootprintTileState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     force_generate_types: {
@@ -3898,7 +4109,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingId',
       primaryKeyInfo: {
         colName: 'buildingId',
-        colType: GateDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          GateDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     global_search_state: {
@@ -3907,7 +4120,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: GlobalSearchState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          GlobalSearchState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     globals: {
@@ -3916,7 +4131,8 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: Globals.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          Globals.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     growth_loop_timer: {
@@ -3925,7 +4141,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: GrowthLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          GrowthLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     growth_state: {
@@ -3934,7 +4152,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: GrowthState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          GrowthState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     health_state: {
@@ -3943,7 +4163,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: HealthState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          HealthState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     herd_state: {
@@ -3952,7 +4174,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: HerdState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          HerdState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     hexite_exchange_entry_desc: {
@@ -3961,7 +4185,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     hide_deployable_timer: {
@@ -3970,7 +4196,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: HideDeployableTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          HideDeployableTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     identity_role: {
@@ -3979,7 +4207,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: IdentityRole.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          IdentityRole.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     inter_module_message: {
@@ -3988,7 +4218,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InterModuleMessage.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InterModuleMessage.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     inter_module_message_counter: {
@@ -3997,7 +4229,9 @@ const REMOTE_MODULE = {
       primaryKey: 'moduleId',
       primaryKeyInfo: {
         colName: 'moduleId',
-        colType: InterModuleMessageCounter.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InterModuleMessageCounter.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     inter_module_response_message_counter: {
@@ -4006,7 +4240,9 @@ const REMOTE_MODULE = {
       primaryKey: 'dstModuleId',
       primaryKeyInfo: {
         colName: 'dstModuleId',
-        colType: InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     interior_collapse_trigger_state: {
@@ -4015,7 +4251,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: InteriorCollapseTriggerState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorCollapseTriggerState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     interior_environment_desc: {
@@ -4024,7 +4262,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InteriorEnvironmentDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorEnvironmentDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     interior_instance_desc: {
@@ -4033,7 +4273,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InteriorInstanceDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorInstanceDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     interior_network_desc: {
@@ -4042,7 +4284,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingId',
       primaryKeyInfo: {
         colName: 'buildingId',
-        colType: InteriorNetworkDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorNetworkDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     interior_portal_connections_desc: {
@@ -4051,7 +4295,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     interior_set_collapsed_timer: {
@@ -4060,7 +4306,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     interior_shape_desc: {
@@ -4069,7 +4317,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InteriorShapeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorShapeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     interior_spawn_desc: {
@@ -4078,7 +4328,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: InteriorSpawnDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InteriorSpawnDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     inventory_state: {
@@ -4087,7 +4339,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: InventoryState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          InventoryState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     item_conversion_recipe_desc: {
@@ -4096,7 +4350,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ItemConversionRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ItemConversionRecipeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     item_desc: {
@@ -4105,7 +4361,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ItemDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ItemDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     item_list_desc: {
@@ -4114,7 +4372,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ItemListDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ItemListDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_achievement_state: {
@@ -4123,7 +4383,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeAchievementState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeAchievementState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_battle_action_state: {
@@ -4132,7 +4394,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeBattleActionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeBattleActionState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_building_state: {
@@ -4141,7 +4405,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeBuildingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeBuildingState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_cargo_state: {
@@ -4150,7 +4416,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeCargoState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeCargoState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_claim_state: {
@@ -4159,7 +4427,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeClaimState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeClaimState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_construction_state: {
@@ -4168,7 +4438,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeConstructionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeConstructionState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_craft_state: {
@@ -4177,7 +4449,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeCraftState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeCraftState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_deployable_state: {
@@ -4186,7 +4460,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeDeployableState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeDeployableState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_enemy_state: {
@@ -4195,7 +4471,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeEnemyState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeEnemyState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_extract_state: {
@@ -4204,7 +4482,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeExtractState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeExtractState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_item_state: {
@@ -4213,7 +4493,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeItemState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeItemState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_lore_state: {
@@ -4222,7 +4504,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeLoreState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeLoreState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_npc_state: {
@@ -4231,7 +4515,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeNpcState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeNpcState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_paving_state: {
@@ -4240,7 +4526,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgePavingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgePavingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_pillar_shaping_state: {
@@ -4249,7 +4537,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgePillarShapingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgePillarShapingState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_resource_placement_state: {
@@ -4258,7 +4548,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeResourcePlacementState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeResourcePlacementState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_resource_state: {
@@ -4267,7 +4559,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeResourceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeResourceState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_ruins_state: {
@@ -4276,7 +4570,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeRuinsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeRuinsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_scroll_desc: {
@@ -4285,7 +4581,9 @@ const REMOTE_MODULE = {
       primaryKey: 'itemId',
       primaryKeyInfo: {
         colName: 'itemId',
-        colType: KnowledgeScrollDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeScrollDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     knowledge_scroll_type_desc: {
@@ -4294,7 +4592,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: KnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_secondary_state: {
@@ -4303,7 +4603,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeSecondaryState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeSecondaryState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_stat_modifier_desc: {
@@ -4312,7 +4614,9 @@ const REMOTE_MODULE = {
       primaryKey: 'secondaryKnowledgeId',
       primaryKeyInfo: {
         colName: 'secondaryKnowledgeId',
-        colType: KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     knowledge_vault_state: {
@@ -4321,7 +4625,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: KnowledgeVaultState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          KnowledgeVaultState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     light_source_state: {
@@ -4330,7 +4636,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: LightSourceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LightSourceState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     location_cache: {
@@ -4339,7 +4647,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: LocationCache.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LocationCache.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     location_state: {
@@ -4348,7 +4658,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: LocationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LocationState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_chest_desc: {
@@ -4357,7 +4669,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: LootChestDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootChestDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_chest_despawn_timer: {
@@ -4366,7 +4680,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: LootChestDespawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootChestDespawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_chest_spawn_timer: {
@@ -4375,7 +4691,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: LootChestSpawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootChestSpawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_chest_state: {
@@ -4384,7 +4702,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: LootChestState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootChestState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_rarity_desc: {
@@ -4393,7 +4713,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: LootRarityDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootRarityDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     loot_table_desc: {
@@ -4402,7 +4724,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: LootTableDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LootTableDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     lost_items_state: {
@@ -4411,7 +4735,9 @@ const REMOTE_MODULE = {
       primaryKey: 'inventoryEntityId',
       primaryKeyInfo: {
         colName: 'inventoryEntityId',
-        colType: LostItemsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          LostItemsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     mobile_entity_state: {
@@ -4420,7 +4746,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: MobileEntityState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          MobileEntityState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     mounting_state: {
@@ -4429,7 +4757,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: MountingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          MountingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     move_validation_strike_counter_state: {
@@ -4438,7 +4768,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     npc_ai_loop_timer: {
@@ -4447,7 +4779,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: NpcAiLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          NpcAiLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     npc_desc: {
@@ -4456,7 +4790,8 @@ const REMOTE_MODULE = {
       primaryKey: 'npcType',
       primaryKeyInfo: {
         colName: 'npcType',
-        colType: NpcDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          NpcDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
       }
     },
     npc_state: {
@@ -4465,7 +4800,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: NpcState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          NpcState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     on_durability_zero_timer: {
@@ -4474,7 +4811,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: OnDurabilityZeroTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          OnDurabilityZeroTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     onboarding_reward_desc: {
@@ -4483,7 +4822,9 @@ const REMOTE_MODULE = {
       primaryKey: 'stateId',
       primaryKeyInfo: {
         colName: 'stateId',
-        colType: OnboardingRewardDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          OnboardingRewardDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     onboarding_state: {
@@ -4492,7 +4833,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: OnboardingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          OnboardingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     parameters_desc: {
@@ -4501,7 +4844,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: ParametersDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ParametersDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     parameters_player_move_desc: {
@@ -4510,7 +4855,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ParametersPlayerMoveDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     passive_craft_state: {
@@ -4519,7 +4866,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PassiveCraftState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PassiveCraftState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     passive_craft_timer: {
@@ -4528,7 +4877,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PassiveCraftTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PassiveCraftTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     pathfinding_desc: {
@@ -4537,7 +4888,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: PathfindingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PathfindingDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     paved_tile_state: {
@@ -4546,7 +4899,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PavedTileState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PavedTileState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     paving_tile_desc: {
@@ -4555,7 +4910,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: PavingTileDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PavingTileDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     permission_state: {
@@ -4564,7 +4921,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PermissionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PermissionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     pillar_shaping_desc: {
@@ -4573,7 +4932,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: PillarShapingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PillarShapingDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     pillar_shaping_state: {
@@ -4582,7 +4943,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PillarShapingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PillarShapingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_action_desc: {
@@ -4591,7 +4954,9 @@ const REMOTE_MODULE = {
       primaryKey: 'actionTypeId',
       primaryKeyInfo: {
         colName: 'actionTypeId',
-        colType: PlayerActionDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerActionDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_action_state: {
@@ -4600,7 +4965,9 @@ const REMOTE_MODULE = {
       primaryKey: 'autoId',
       primaryKeyInfo: {
         colName: 'autoId',
-        colType: PlayerActionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerActionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_death_timer: {
@@ -4609,7 +4976,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerDeathTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerDeathTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_housing_desc: {
@@ -4618,7 +4987,9 @@ const REMOTE_MODULE = {
       primaryKey: 'secondaryKnowledgeId',
       primaryKeyInfo: {
         colName: 'secondaryKnowledgeId',
-        colType: PlayerHousingDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerHousingDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_housing_evict_player_timer: {
@@ -4627,7 +4998,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_housing_income_loop_timer: {
@@ -4636,7 +5009,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_housing_state: {
@@ -4645,7 +5020,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerHousingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerHousingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_lowercase_username_state: {
@@ -4654,7 +5031,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_note_state: {
@@ -4663,7 +5042,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerNoteState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerNoteState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_notification_event: {
@@ -4672,7 +5053,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerNotificationEvent.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerNotificationEvent.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_prefs_state: {
@@ -4681,7 +5064,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerPrefsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerPrefsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_queue_state: {
@@ -4690,7 +5075,9 @@ const REMOTE_MODULE = {
       primaryKey: 'index',
       primaryKeyInfo: {
         colName: 'index',
-        colType: PlayerQueueState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerQueueState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_regen_loop_timer: {
@@ -4699,7 +5086,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_region_transfer_event: {
@@ -4708,7 +5097,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerRegionTransferEvent.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerRegionTransferEvent.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_report_state: {
@@ -4717,7 +5108,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerReportState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerReportState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_report_state_timestamp: {
@@ -4726,7 +5119,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerReportStateTimestamp.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerReportStateTimestamp.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_set_name_outcome_event: {
@@ -4735,7 +5130,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerSetNameOutcomeEvent.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerSetNameOutcomeEvent.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_state: {
@@ -4744,7 +5141,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerState.getTypeScriptAlgebraicType().product.elements[1].algebraicType
+        colType:
+          PlayerState.getTypeScriptAlgebraicType().product.elements[1]
+            .algebraicType
       }
     },
     player_timestamp_state: {
@@ -4753,7 +5152,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerTimestampState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerTimestampState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_use_elevator_timer: {
@@ -4762,7 +5163,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerUseElevatorTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerUseElevatorTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_username_state: {
@@ -4771,7 +5174,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerUsernameState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerUsernameState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     player_vote_conclude_timer: {
@@ -4780,7 +5185,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerVoteConcludeTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     player_vote_state: {
@@ -4789,7 +5196,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PlayerVoteState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PlayerVoteState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     portal_state: {
@@ -4798,7 +5207,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: PortalState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PortalState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     private_parameters_desc: {
@@ -4807,7 +5218,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: PrivateParametersDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          PrivateParametersDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     progressive_action_state: {
@@ -4816,7 +5229,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ProgressiveActionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ProgressiveActionState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     project_site_state: {
@@ -4825,7 +5240,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ProjectSiteState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ProjectSiteState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     region_connection_info: {
@@ -4834,7 +5251,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: RegionConnectionInfo.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RegionConnectionInfo.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     region_population_info: {
@@ -4843,7 +5262,9 @@ const REMOTE_MODULE = {
       primaryKey: 'regionId',
       primaryKeyInfo: {
         colName: 'regionId',
-        colType: RegionPopulationInfo.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RegionPopulationInfo.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     region_popuplation_loop_timer: {
@@ -4852,7 +5273,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: RegionPopulationLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RegionPopulationLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     region_sign_in_parameters: {
@@ -4861,7 +5284,9 @@ const REMOTE_MODULE = {
       primaryKey: 'regionId',
       primaryKeyInfo: {
         colName: 'regionId',
-        colType: RegionSignInParameters.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RegionSignInParameters.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     rent_collector_loop_timer: {
@@ -4870,7 +5295,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: RentCollectorLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RentCollectorLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     rent_evict_timer: {
@@ -4879,7 +5306,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: RentEvictTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RentEvictTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     rent_state: {
@@ -4888,7 +5317,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: RentState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RentState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     reserved_name_desc: {
@@ -4897,7 +5328,9 @@ const REMOTE_MODULE = {
       primaryKey: 'name',
       primaryKeyInfo: {
         colName: 'name',
-        colType: ReservedNameDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ReservedNameDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     reset_chunk_index_timer: {
@@ -4906,7 +5339,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: ResetChunkIndexTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResetChunkIndexTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     reset_mobile_entity_timer: {
@@ -4915,7 +5350,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: ResetMobileEntityTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResetMobileEntityTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     resource_clump_desc: {
@@ -4924,7 +5361,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ResourceClumpDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceClumpDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resource_count: {
@@ -4933,7 +5372,9 @@ const REMOTE_MODULE = {
       primaryKey: 'resourceId',
       primaryKeyInfo: {
         colName: 'resourceId',
-        colType: ResourceCount.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceCount.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resource_desc: {
@@ -4942,7 +5383,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ResourceDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resource_growth_recipe_desc: {
@@ -4951,7 +5394,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     resource_health_state: {
@@ -4960,7 +5405,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ResourceHealthState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceHealthState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resource_placement_recipe_desc: {
@@ -4969,7 +5416,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     resource_spawn_timer: {
@@ -4978,7 +5427,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: ResourceSpawnTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceSpawnTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resource_state: {
@@ -4987,7 +5438,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ResourceState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourceState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resources_log: {
@@ -4996,7 +5449,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: ResourcesLog.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourcesLog.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     resources_regen_loop_timer: {
@@ -5005,7 +5460,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: ResourcesRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ResourcesRegenLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     respawn_resource_in_chunk_timer: {
@@ -5014,7 +5471,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RespawnResourceInChunkTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     rez_sick_long_term_state: {
@@ -5023,7 +5482,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: RezSickLongTermState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          RezSickLongTermState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     satiation_state: {
@@ -5032,7 +5493,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: SatiationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SatiationState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     secondary_knowledge_desc: {
@@ -5041,7 +5504,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: SecondaryKnowledgeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SecondaryKnowledgeDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     sell_order_state: {
@@ -5050,7 +5515,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: AuctionListingState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          AuctionListingState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     server_identity: {
@@ -5059,7 +5526,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: ServerIdentity.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ServerIdentity.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     signed_in_player_state: {
@@ -5068,7 +5537,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: SignedInPlayerState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SignedInPlayerState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     single_resource_clump_info: {
@@ -5077,7 +5548,9 @@ const REMOTE_MODULE = {
       primaryKey: 'clumpId',
       primaryKeyInfo: {
         colName: 'clumpId',
-        colType: SingleResourceClumpInfo.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SingleResourceClumpInfo.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     single_resource_to_clump_desc: {
@@ -5086,7 +5559,9 @@ const REMOTE_MODULE = {
       primaryKey: 'resourceId',
       primaryKeyInfo: {
         colName: 'resourceId',
-        colType: SingleResourceToClumpDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SingleResourceToClumpDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     skill_desc: {
@@ -5095,7 +5570,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: SkillDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          SkillDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     staged_static_data: {
@@ -5104,7 +5581,9 @@ const REMOTE_MODULE = {
       primaryKey: 'version',
       primaryKeyInfo: {
         colName: 'version',
-        colType: StagedStaticData.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          StagedStaticData.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     stamina_state: {
@@ -5113,7 +5592,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: StaminaState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          StaminaState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     starving_loop_timer: {
@@ -5122,7 +5603,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: StarvingLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          StarvingLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     starving_player_state: {
@@ -5131,7 +5614,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: StarvingPlayerState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          StarvingPlayerState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     target_state: {
@@ -5140,7 +5625,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TargetState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TargetState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     targetable_state: {
@@ -5149,7 +5636,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TargetableState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TargetableState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     targeting_matrix_desc: {
@@ -5158,7 +5647,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: TargetingMatrixDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TargetingMatrixDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     teleport_item_desc: {
@@ -5167,7 +5658,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: TeleportItemDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TeleportItemDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     teleport_player_timer: {
@@ -5176,7 +5669,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: TeleportPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TeleportPlayerTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     teleportation_energy_regen_loop_timer: {
@@ -5185,7 +5680,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     teleportation_energy_state: {
@@ -5194,7 +5691,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TeleportationEnergyState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TeleportationEnergyState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     terraform_progress_state: {
@@ -5203,7 +5702,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TerraformProgressState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TerraformProgressState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     terraform_recipe_desc: {
@@ -5212,7 +5713,9 @@ const REMOTE_MODULE = {
       primaryKey: 'difference',
       primaryKeyInfo: {
         colName: 'difference',
-        colType: TerraformRecipeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TerraformRecipeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     terrain_chunk_state: {
@@ -5221,7 +5724,9 @@ const REMOTE_MODULE = {
       primaryKey: 'chunkIndex',
       primaryKeyInfo: {
         colName: 'chunkIndex',
-        colType: TerrainChunkState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TerrainChunkState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     the_great_placeholder_table: {
@@ -5230,7 +5735,9 @@ const REMOTE_MODULE = {
       primaryKey: 'placeholderId',
       primaryKeyInfo: {
         colName: 'placeholderId',
-        colType: TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     threat_state: {
@@ -5239,7 +5746,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ThreatState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ThreatState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     tool_desc: {
@@ -5248,7 +5757,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ToolDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ToolDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     tool_type_desc: {
@@ -5257,7 +5768,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: ToolTypeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ToolTypeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     toolbar_state: {
@@ -5266,7 +5779,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: ToolbarState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          ToolbarState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     trade_order_state: {
@@ -5275,7 +5790,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TradeOrderState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TradeOrderState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     trade_session_loop_timer: {
@@ -5284,7 +5801,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: TradeSessionLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TradeSessionLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     trade_session_state: {
@@ -5293,7 +5812,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TradeSessionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TradeSessionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     transfer_player_timer: {
@@ -5302,7 +5823,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: TransferPlayerTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TransferPlayerTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     traveler_task_desc: {
@@ -5311,7 +5834,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: TravelerTaskDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TravelerTaskDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     traveler_task_loop_timer: {
@@ -5320,7 +5845,9 @@ const REMOTE_MODULE = {
       primaryKey: 'scheduledId',
       primaryKeyInfo: {
         colName: 'scheduledId',
-        colType: TravelerTaskLoopTimer.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TravelerTaskLoopTimer.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     traveler_task_state: {
@@ -5329,7 +5856,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: TravelerTaskState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TravelerTaskState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     traveler_trade_order_desc: {
@@ -5338,7 +5867,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: TravelerTradeOrderDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          TravelerTradeOrderDesc.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     unclaimed_collectibles_state: {
@@ -5347,7 +5878,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: UnclaimedCollectiblesState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          UnclaimedCollectiblesState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     unclaimed_shards_state: {
@@ -5356,7 +5889,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: UnclaimedShardsState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          UnclaimedShardsState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     user_authentication_state: {
@@ -5365,7 +5900,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: UserAuthenticationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          UserAuthenticationState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     user_moderation_state: {
@@ -5374,7 +5911,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: UserModerationState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          UserModerationState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     user_previous_region_state: {
@@ -5383,7 +5922,9 @@ const REMOTE_MODULE = {
       primaryKey: 'identity',
       primaryKeyInfo: {
         colName: 'identity',
-        colType: UserPreviousRegionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          UserPreviousRegionState.getTypeScriptAlgebraicType().product
+            .elements[0].algebraicType
       }
     },
     user_state: {
@@ -5392,7 +5933,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: UserState.getTypeScriptAlgebraicType().product.elements[1].algebraicType
+        colType:
+          UserState.getTypeScriptAlgebraicType().product.elements[1]
+            .algebraicType
       }
     },
     vault_state: {
@@ -5401,7 +5944,9 @@ const REMOTE_MODULE = {
       primaryKey: 'entityId',
       primaryKeyInfo: {
         colName: 'entityId',
-        colType: VaultState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          VaultState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     wall_desc: {
@@ -5410,7 +5955,9 @@ const REMOTE_MODULE = {
       primaryKey: 'buildingId',
       primaryKeyInfo: {
         colName: 'buildingId',
-        colType: WallDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          WallDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     weapon_desc: {
@@ -5419,7 +5966,9 @@ const REMOTE_MODULE = {
       primaryKey: 'itemId',
       primaryKeyInfo: {
         colName: 'itemId',
-        colType: WeaponDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          WeaponDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     weapon_type_desc: {
@@ -5428,7 +5977,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: WeaponTypeDesc.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          WeaponTypeDesc.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     world_region_name_state: {
@@ -5437,7 +5988,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: WorldRegionNameState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          WorldRegionNameState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     },
     world_region_state: {
@@ -5446,7 +5999,9 @@ const REMOTE_MODULE = {
       primaryKey: 'id',
       primaryKeyInfo: {
         colName: 'id',
-        colType: WorldRegionState.getTypeScriptAlgebraicType().product.elements[0].algebraicType
+        colType:
+          WorldRegionState.getTypeScriptAlgebraicType().product.elements[0]
+            .algebraicType
       }
     }
   },
@@ -5465,39 +6020,48 @@ const REMOTE_MODULE = {
     },
     admin_alpha3_reset_onboarding_to_fifth_temple_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
-      argsType: AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_first_expand_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_first_expand_quest',
-      argsType: AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_first_temple_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_first_temple_quest',
-      argsType: AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_fourth_expand_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
-      argsType: AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_fourth_temple_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
-      argsType: AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_second_expand_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_second_expand_quest',
-      argsType: AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_second_temple_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_second_temple_quest',
-      argsType: AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_third_expand_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_third_expand_quest',
-      argsType: AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType()
     },
     admin_alpha3_reset_onboarding_to_third_temple_quest: {
       reducerName: 'admin_alpha3_reset_onboarding_to_third_temple_quest',
-      argsType: AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType()
+      argsType:
+        AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType()
     },
     admin_broadcast_msg_region: {
       reducerName: 'admin_broadcast_msg_region',
@@ -5729,7 +6293,8 @@ const REMOTE_MODULE = {
     },
     cheat_claim_totem_complete_current_research: {
       reducerName: 'cheat_claim_totem_complete_current_research',
-      argsType: CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType()
+      argsType:
+        CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType()
     },
     cheat_claim_totem_research_all: {
       reducerName: 'cheat_claim_totem_research_all',
@@ -6377,7 +6942,8 @@ const REMOTE_MODULE = {
     },
     import_dimension_network_description_state: {
       reducerName: 'import_dimension_network_description_state',
-      argsType: ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType()
+      argsType:
+        ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType()
     },
     import_distant_visible_entity_desc: {
       reducerName: 'import_distant_visible_entity_desc',
@@ -6593,7 +7159,8 @@ const REMOTE_MODULE = {
     },
     import_knowledge_resource_placement_state: {
       reducerName: 'import_knowledge_resource_placement_state',
-      argsType: ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType()
+      argsType:
+        ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType()
     },
     import_knowledge_resource_state: {
       reducerName: 'import_knowledge_resource_state',
@@ -7787,7 +8354,10 @@ const REMOTE_MODULE = {
   dbViewConstructor: (imp: DbConnectionImpl) => {
     return new RemoteTables(imp)
   },
-  reducersConstructor: (imp: DbConnectionImpl, setReducerFlags: SetReducerFlags) => {
+  reducersConstructor: (
+    imp: DbConnectionImpl,
+    setReducerFlags: SetReducerFlags
+  ) => {
     return new RemoteReducers(imp, setReducerFlags)
   },
   setReducerFlagsConstructor: () => {
@@ -7800,22 +8370,55 @@ export type Reducer =
   | never
   | { name: 'AchievementClaim'; args: AchievementClaim }
   | { name: 'AcquireKnowledgeFromEntities'; args: AcquireKnowledgeFromEntities }
-  | { name: 'AdminAlpha3CompleteOnboarding'; args: AdminAlpha3CompleteOnboarding }
-  | { name: 'AdminAlpha3ResetOnboardingToFifthTempleQuest'; args: AdminAlpha3ResetOnboardingToFifthTempleQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToFirstExpandQuest'; args: AdminAlpha3ResetOnboardingToFirstExpandQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToFirstTempleQuest'; args: AdminAlpha3ResetOnboardingToFirstTempleQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToFourthExpandQuest'; args: AdminAlpha3ResetOnboardingToFourthExpandQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToFourthTempleQuest'; args: AdminAlpha3ResetOnboardingToFourthTempleQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToSecondExpandQuest'; args: AdminAlpha3ResetOnboardingToSecondExpandQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToSecondTempleQuest'; args: AdminAlpha3ResetOnboardingToSecondTempleQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToThirdExpandQuest'; args: AdminAlpha3ResetOnboardingToThirdExpandQuest }
-  | { name: 'AdminAlpha3ResetOnboardingToThirdTempleQuest'; args: AdminAlpha3ResetOnboardingToThirdTempleQuest }
+  | {
+      name: 'AdminAlpha3CompleteOnboarding'
+      args: AdminAlpha3CompleteOnboarding
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToFifthTempleQuest'
+      args: AdminAlpha3ResetOnboardingToFifthTempleQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToFirstExpandQuest'
+      args: AdminAlpha3ResetOnboardingToFirstExpandQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToFirstTempleQuest'
+      args: AdminAlpha3ResetOnboardingToFirstTempleQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToFourthExpandQuest'
+      args: AdminAlpha3ResetOnboardingToFourthExpandQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToFourthTempleQuest'
+      args: AdminAlpha3ResetOnboardingToFourthTempleQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToSecondExpandQuest'
+      args: AdminAlpha3ResetOnboardingToSecondExpandQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToSecondTempleQuest'
+      args: AdminAlpha3ResetOnboardingToSecondTempleQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToThirdExpandQuest'
+      args: AdminAlpha3ResetOnboardingToThirdExpandQuest
+    }
+  | {
+      name: 'AdminAlpha3ResetOnboardingToThirdTempleQuest'
+      args: AdminAlpha3ResetOnboardingToThirdTempleQuest
+    }
   | { name: 'AdminBroadcastMsgRegion'; args: AdminBroadcastMsgRegion }
   | { name: 'AdminClearAllResources'; args: AdminClearAllResources }
   | { name: 'AdminClearChunkResources'; args: AdminClearChunkResources }
   | { name: 'AdminCollapseRuin'; args: AdminCollapseRuin }
   | { name: 'AdminCollapseRuins'; args: AdminCollapseRuins }
-  | { name: 'AdminCompleteAllPassiveCrafts'; args: AdminCompleteAllPassiveCrafts }
+  | {
+      name: 'AdminCompleteAllPassiveCrafts'
+      args: AdminCompleteAllPassiveCrafts
+    }
   | { name: 'AdminCountInventoryItems'; args: AdminCountInventoryItems }
   | { name: 'AdminDeleteAllItemsOfType'; args: AdminDeleteAllItemsOfType }
   | { name: 'AdminDeleteChatMessage'; args: AdminDeleteChatMessage }
@@ -7831,10 +8434,19 @@ export type Reducer =
   | { name: 'AdminRenameDeployableEntity'; args: AdminRenameDeployableEntity }
   | { name: 'AdminResetAllHerdLocations'; args: AdminResetAllHerdLocations }
   | { name: 'AdminResetHerdLocations'; args: AdminResetHerdLocations }
-  | { name: 'AdminResetOnboardingCompletely'; args: AdminResetOnboardingCompletely }
-  | { name: 'AdminRestoreAllCollapsedRuins'; args: AdminRestoreAllCollapsedRuins }
+  | {
+      name: 'AdminResetOnboardingCompletely'
+      args: AdminResetOnboardingCompletely
+    }
+  | {
+      name: 'AdminRestoreAllCollapsedRuins'
+      args: AdminRestoreAllCollapsedRuins
+    }
   | { name: 'AdminRestorePlayerState'; args: AdminRestorePlayerState }
-  | { name: 'AdminRestorePlayerStateScheduled'; args: AdminRestorePlayerStateScheduled }
+  | {
+      name: 'AdminRestorePlayerStateScheduled'
+      args: AdminRestorePlayerStateScheduled
+    }
   | { name: 'AdminSetSignText'; args: AdminSetSignText }
   | { name: 'AdminSetSignTextCoord'; args: AdminSetSignTextCoord }
   | { name: 'AdminSetSignTextEntity'; args: AdminSetSignTextEntity }
@@ -7850,7 +8462,10 @@ export type Reducer =
   | { name: 'BarterStallOrderAccept'; args: BarterStallOrderAccept }
   | { name: 'BarterStallOrderCreate'; args: BarterStallOrderCreate }
   | { name: 'BarterStallOrderDelete'; args: BarterStallOrderDelete }
-  | { name: 'BarterStallSetMarketModeEnabled'; args: BarterStallSetMarketModeEnabled }
+  | {
+      name: 'BarterStallSetMarketModeEnabled'
+      args: BarterStallSetMarketModeEnabled
+    }
   | { name: 'BlueprintPlace'; args: BlueprintPlace }
   | { name: 'BuildingDecayAgentLoop'; args: BuildingDecayAgentLoop }
   | { name: 'BuildingDeconstruct'; args: BuildingDeconstruct }
@@ -7867,7 +8482,10 @@ export type Reducer =
   | { name: 'CheatCargoGrant'; args: CheatCargoGrant }
   | { name: 'CheatClaimTakeOwnership'; args: CheatClaimTakeOwnership }
   | { name: 'CheatClaimTotemAddSupplies'; args: CheatClaimTotemAddSupplies }
-  | { name: 'CheatClaimTotemCompleteCurrentResearch'; args: CheatClaimTotemCompleteCurrentResearch }
+  | {
+      name: 'CheatClaimTotemCompleteCurrentResearch'
+      args: CheatClaimTotemCompleteCurrentResearch
+    }
   | { name: 'CheatClaimTotemResearchAll'; args: CheatClaimTotemResearchAll }
   | { name: 'CheatClearBuffsAndDebuffs'; args: CheatClearBuffsAndDebuffs }
   | { name: 'CheatCompendiumPlaceEnemy'; args: CheatCompendiumPlaceEnemy }
@@ -7885,7 +8503,10 @@ export type Reducer =
   | { name: 'CheatPavingDestroy'; args: CheatPavingDestroy }
   | { name: 'CheatPillarShapingAddPillar'; args: CheatPillarShapingAddPillar }
   | { name: 'CheatPillarShapingDestroy'; args: CheatPillarShapingDestroy }
-  | { name: 'CheatProjectSiteAddAllMaterials'; args: CheatProjectSiteAddAllMaterials }
+  | {
+      name: 'CheatProjectSiteAddAllMaterials'
+      args: CheatProjectSiteAddAllMaterials
+    }
   | { name: 'CheatRemoveEntityBuilding'; args: CheatRemoveEntityBuilding }
   | { name: 'CheatRemoveEntityEnemy'; args: CheatRemoveEntityEnemy }
   | { name: 'CheatRemoveEntityResource'; args: CheatRemoveEntityResource }
@@ -7900,7 +8521,10 @@ export type Reducer =
   | { name: 'ClaimAddTile'; args: ClaimAddTile }
   | { name: 'ClaimApplyForRecruitment'; args: ClaimApplyForRecruitment }
   | { name: 'ClaimLeave'; args: ClaimLeave }
-  | { name: 'ClaimPurchaseSuppliesFromPlayer'; args: ClaimPurchaseSuppliesFromPlayer }
+  | {
+      name: 'ClaimPurchaseSuppliesFromPlayer'
+      args: ClaimPurchaseSuppliesFromPlayer
+    }
   | { name: 'ClaimRemoveMember'; args: ClaimRemoveMember }
   | { name: 'ClaimRemoveRecruitment'; args: ClaimRemoveRecruitment }
   | { name: 'ClaimRemoveTile'; args: ClaimRemoveTile }
@@ -7909,7 +8533,10 @@ export type Reducer =
   | { name: 'ClaimResupplyStart'; args: ClaimResupplyStart }
   | { name: 'ClaimSetMemberPermissions'; args: ClaimSetMemberPermissions }
   | { name: 'ClaimSetPurchaseSupplyPrice'; args: ClaimSetPurchaseSupplyPrice }
-  | { name: 'ClaimSetPurchaseSupplyThreshold'; args: ClaimSetPurchaseSupplyThreshold }
+  | {
+      name: 'ClaimSetPurchaseSupplyThreshold'
+      args: ClaimSetPurchaseSupplyThreshold
+    }
   | { name: 'ClaimTakeOwnership'; args: ClaimTakeOwnership }
   | { name: 'ClaimTechCancel'; args: ClaimTechCancel }
   | { name: 'ClaimTechLearn'; args: ClaimTechLearn }
@@ -7948,7 +8575,10 @@ export type Reducer =
   | { name: 'DevDeleteWorld'; args: DevDeleteWorld }
   | { name: 'DiscoverEntities'; args: DiscoverEntities }
   | { name: 'DroppedInventoryDespawn'; args: DroppedInventoryDespawn }
-  | { name: 'DroppedInventoryLoseOwnership'; args: DroppedInventoryLoseOwnership }
+  | {
+      name: 'DroppedInventoryLoseOwnership'
+      args: DroppedInventoryLoseOwnership
+    }
   | { name: 'DuelAgentTimerLoop'; args: DuelAgentTimerLoop }
   | { name: 'DuelDespawn'; args: DuelDespawn }
   | { name: 'Eat'; args: Eat }
@@ -7962,12 +8592,18 @@ export type Reducer =
   | { name: 'EmpireQueueSupplies'; args: EmpireQueueSupplies }
   | { name: 'EmpireResupplyNode'; args: EmpireResupplyNode }
   | { name: 'EmpireResupplyNodeStart'; args: EmpireResupplyNodeStart }
-  | { name: 'EmpireSiegeDepletedWatchtower'; args: EmpireSiegeDepletedWatchtower }
+  | {
+      name: 'EmpireSiegeDepletedWatchtower'
+      args: EmpireSiegeDepletedWatchtower
+    }
   | { name: 'EndGracePeriod'; args: EndGracePeriod }
   | { name: 'EnemyClearAggro'; args: EnemyClearAggro }
   | { name: 'EnemyDespawn'; args: EnemyDespawn }
   | { name: 'EnemyDespawnFromMobMonitor'; args: EnemyDespawnFromMobMonitor }
-  | { name: 'EnemyDespawnFromMobMonitorBatch'; args: EnemyDespawnFromMobMonitorBatch }
+  | {
+      name: 'EnemyDespawnFromMobMonitorBatch'
+      args: EnemyDespawnFromMobMonitorBatch
+    }
   | { name: 'EnemyMove'; args: EnemyMove }
   | { name: 'EnemyMoveBatch'; args: EnemyMoveBatch }
   | { name: 'EnemyRegenAgentLoop'; args: EnemyRegenAgentLoop }
@@ -8025,12 +8661,24 @@ export type Reducer =
   | { name: 'ImportConfig'; args: ImportConfig }
   | { name: 'ImportConstructionRecipeDesc'; args: ImportConstructionRecipeDesc }
   | { name: 'ImportCraftingRecipeDesc'; args: ImportCraftingRecipeDesc }
-  | { name: 'ImportDeconstructionRecipeDesc'; args: ImportDeconstructionRecipeDesc }
+  | {
+      name: 'ImportDeconstructionRecipeDesc'
+      args: ImportDeconstructionRecipeDesc
+    }
   | { name: 'ImportDeployableDesc'; args: ImportDeployableDesc }
   | { name: 'ImportDeployableState'; args: ImportDeployableState }
-  | { name: 'ImportDimensionDescriptionState'; args: ImportDimensionDescriptionState }
-  | { name: 'ImportDimensionNetworkDescriptionState'; args: ImportDimensionNetworkDescriptionState }
-  | { name: 'ImportDistantVisibleEntityDesc'; args: ImportDistantVisibleEntityDesc }
+  | {
+      name: 'ImportDimensionDescriptionState'
+      args: ImportDimensionDescriptionState
+    }
+  | {
+      name: 'ImportDimensionNetworkDescriptionState'
+      args: ImportDimensionNetworkDescriptionState
+    }
+  | {
+      name: 'ImportDistantVisibleEntityDesc'
+      args: ImportDistantVisibleEntityDesc
+    }
   | { name: 'ImportDroppedInventoryState'; args: ImportDroppedInventoryState }
   | { name: 'ImportElevatorDesc'; args: ImportElevatorDesc }
   | { name: 'ImportEmoteDesc'; args: ImportEmoteDesc }
@@ -8056,40 +8704,82 @@ export type Reducer =
   | { name: 'ImportGrowthState'; args: ImportGrowthState }
   | { name: 'ImportHealthState'; args: ImportHealthState }
   | { name: 'ImportHerdCache'; args: ImportHerdCache }
-  | { name: 'ImportHexiteExchangeEntryDesc'; args: ImportHexiteExchangeEntryDesc }
+  | {
+      name: 'ImportHexiteExchangeEntryDesc'
+      args: ImportHexiteExchangeEntryDesc
+    }
   | { name: 'ImportIdentityRole'; args: ImportIdentityRole }
-  | { name: 'ImportInteriorCollapseTriggerState'; args: ImportInteriorCollapseTriggerState }
-  | { name: 'ImportInteriorEnvironmentDesc'; args: ImportInteriorEnvironmentDesc }
+  | {
+      name: 'ImportInteriorCollapseTriggerState'
+      args: ImportInteriorCollapseTriggerState
+    }
+  | {
+      name: 'ImportInteriorEnvironmentDesc'
+      args: ImportInteriorEnvironmentDesc
+    }
   | { name: 'ImportInteriorInstanceDesc'; args: ImportInteriorInstanceDesc }
   | { name: 'ImportInteriorNetworkDesc'; args: ImportInteriorNetworkDesc }
-  | { name: 'ImportInteriorPortalConnectionsDesc'; args: ImportInteriorPortalConnectionsDesc }
+  | {
+      name: 'ImportInteriorPortalConnectionsDesc'
+      args: ImportInteriorPortalConnectionsDesc
+    }
   | { name: 'ImportInteriorShapeDesc'; args: ImportInteriorShapeDesc }
   | { name: 'ImportInteriorSpawnDesc'; args: ImportInteriorSpawnDesc }
   | { name: 'ImportInventoryState'; args: ImportInventoryState }
-  | { name: 'ImportItemConversionRecipeDesc'; args: ImportItemConversionRecipeDesc }
+  | {
+      name: 'ImportItemConversionRecipeDesc'
+      args: ImportItemConversionRecipeDesc
+    }
   | { name: 'ImportItemDesc'; args: ImportItemDesc }
   | { name: 'ImportItemListDesc'; args: ImportItemListDesc }
-  | { name: 'ImportKnowledgeAchievementState'; args: ImportKnowledgeAchievementState }
-  | { name: 'ImportKnowledgeBattleActionState'; args: ImportKnowledgeBattleActionState }
+  | {
+      name: 'ImportKnowledgeAchievementState'
+      args: ImportKnowledgeAchievementState
+    }
+  | {
+      name: 'ImportKnowledgeBattleActionState'
+      args: ImportKnowledgeBattleActionState
+    }
   | { name: 'ImportKnowledgeBuildingState'; args: ImportKnowledgeBuildingState }
   | { name: 'ImportKnowledgeCargoState'; args: ImportKnowledgeCargoState }
-  | { name: 'ImportKnowledgeConstructionState'; args: ImportKnowledgeConstructionState }
+  | {
+      name: 'ImportKnowledgeConstructionState'
+      args: ImportKnowledgeConstructionState
+    }
   | { name: 'ImportKnowledgeCraftState'; args: ImportKnowledgeCraftState }
-  | { name: 'ImportKnowledgeDeployableState'; args: ImportKnowledgeDeployableState }
+  | {
+      name: 'ImportKnowledgeDeployableState'
+      args: ImportKnowledgeDeployableState
+    }
   | { name: 'ImportKnowledgeEnemyState'; args: ImportKnowledgeEnemyState }
   | { name: 'ImportKnowledgeExtractState'; args: ImportKnowledgeExtractState }
   | { name: 'ImportKnowledgeItemState'; args: ImportKnowledgeItemState }
   | { name: 'ImportKnowledgeLoreState'; args: ImportKnowledgeLoreState }
   | { name: 'ImportKnowledgeNpcState'; args: ImportKnowledgeNpcState }
   | { name: 'ImportKnowledgePavingState'; args: ImportKnowledgePavingState }
-  | { name: 'ImportKnowledgePillarShapingState'; args: ImportKnowledgePillarShapingState }
-  | { name: 'ImportKnowledgeResourcePlacementState'; args: ImportKnowledgeResourcePlacementState }
+  | {
+      name: 'ImportKnowledgePillarShapingState'
+      args: ImportKnowledgePillarShapingState
+    }
+  | {
+      name: 'ImportKnowledgeResourcePlacementState'
+      args: ImportKnowledgeResourcePlacementState
+    }
   | { name: 'ImportKnowledgeResourceState'; args: ImportKnowledgeResourceState }
   | { name: 'ImportKnowledgeRuinsState'; args: ImportKnowledgeRuinsState }
   | { name: 'ImportKnowledgeScrollDesc'; args: ImportKnowledgeScrollDesc }
-  | { name: 'ImportKnowledgeScrollTypeDesc'; args: ImportKnowledgeScrollTypeDesc }
-  | { name: 'ImportKnowledgeSecondaryState'; args: ImportKnowledgeSecondaryState }
-  | { name: 'ImportKnowledgeStatModifierDesc'; args: ImportKnowledgeStatModifierDesc }
+  | {
+      name: 'ImportKnowledgeScrollTypeDesc'
+      args: ImportKnowledgeScrollTypeDesc
+    }
+  | {
+      name: 'ImportKnowledgeSecondaryState'
+      args: ImportKnowledgeSecondaryState
+    }
+  | {
+      name: 'ImportKnowledgeStatModifierDesc'
+      args: ImportKnowledgeStatModifierDesc
+    }
   | { name: 'ImportKnowledgeVaultState'; args: ImportKnowledgeVaultState }
   | { name: 'ImportLocationCache'; args: ImportLocationCache }
   | { name: 'ImportLocationState'; args: ImportLocationState }
@@ -8122,8 +8812,14 @@ export type Reducer =
   | { name: 'ImportResourceClumpDesc'; args: ImportResourceClumpDesc }
   | { name: 'ImportResourceCount'; args: ImportResourceCount }
   | { name: 'ImportResourceDesc'; args: ImportResourceDesc }
-  | { name: 'ImportResourceGrowthRecipeDesc'; args: ImportResourceGrowthRecipeDesc }
-  | { name: 'ImportResourcePlacementRecipeDesc'; args: ImportResourcePlacementRecipeDesc }
+  | {
+      name: 'ImportResourceGrowthRecipeDesc'
+      args: ImportResourceGrowthRecipeDesc
+    }
+  | {
+      name: 'ImportResourcePlacementRecipeDesc'
+      args: ImportResourcePlacementRecipeDesc
+    }
   | { name: 'ImportResourceState'; args: ImportResourceState }
   | { name: 'ImportResourcesLog'; args: ImportResourcesLog }
   | { name: 'ImportSatiationState'; args: ImportSatiationState }
@@ -8155,7 +8851,10 @@ export type Reducer =
   | { name: 'InsertResourcesLog'; args: InsertResourcesLog }
   | { name: 'InsertTerrainChunk'; args: InsertTerrainChunk }
   | { name: 'InteriorSetCollapsed'; args: InteriorSetCollapsed }
-  | { name: 'InteriorSetCollapsedScheduled'; args: InteriorSetCollapsedScheduled }
+  | {
+      name: 'InteriorSetCollapsedScheduled'
+      args: InteriorSetCollapsedScheduled
+    }
   | { name: 'InventoryCreatePersonal'; args: InventoryCreatePersonal }
   | { name: 'InventorySort'; args: InventorySort }
   | { name: 'ItemConvert'; args: ItemConvert }
@@ -8174,7 +8873,10 @@ export type Reducer =
   | { name: 'LootChestSpawn'; args: LootChestSpawn }
   | { name: 'NpcAiAgentLoop'; args: NpcAiAgentLoop }
   | { name: 'OnDurabilityZero'; args: OnDurabilityZero }
-  | { name: 'OnInterModuleMessageProcessed'; args: OnInterModuleMessageProcessed }
+  | {
+      name: 'OnInterModuleMessageProcessed'
+      args: OnInterModuleMessageProcessed
+    }
   | { name: 'OrderCancel'; args: OrderCancel }
   | { name: 'OrderCollect'; args: OrderCollect }
   | { name: 'OrderEditBuyOrder'; args: OrderEditBuyOrder }
@@ -8195,7 +8897,10 @@ export type Reducer =
   | { name: 'PillarShapingDestroy'; args: PillarShapingDestroy }
   | { name: 'PillarShapingDestroyStart'; args: PillarShapingDestroyStart }
   | { name: 'PillarShapingPlacePillar'; args: PillarShapingPlacePillar }
-  | { name: 'PillarShapingPlacePillarStart'; args: PillarShapingPlacePillarStart }
+  | {
+      name: 'PillarShapingPlacePillarStart'
+      args: PillarShapingPlacePillarStart
+    }
   | { name: 'PlayerActionCancel'; args: PlayerActionCancel }
   | { name: 'PlayerCancelRegionTransfer'; args: PlayerCancelRegionTransfer }
   | { name: 'PlayerClearActionState'; args: PlayerClearActionState }
@@ -8209,20 +8914,32 @@ export type Reducer =
   | { name: 'PlayerHousingChangeEntrance'; args: PlayerHousingChangeEntrance }
   | { name: 'PlayerHousingEnter'; args: PlayerHousingEnter }
   | { name: 'PlayerHousingEvictPlayer'; args: PlayerHousingEvictPlayer }
-  | { name: 'PlayerHousingEvictPlayerComplete'; args: PlayerHousingEvictPlayerComplete }
+  | {
+      name: 'PlayerHousingEvictPlayerComplete'
+      args: PlayerHousingEvictPlayerComplete
+    }
   | { name: 'PlayerHousingIncomeAgentLoop'; args: PlayerHousingIncomeAgentLoop }
   | { name: 'PlayerHousingRequestAccess'; args: PlayerHousingRequestAccess }
   | { name: 'PlayerHousingUpdate'; args: PlayerHousingUpdate }
   | { name: 'PlayerMove'; args: PlayerMove }
-  | { name: 'PlayerNotificationEventReducer'; args: PlayerNotificationEventReducer }
+  | {
+      name: 'PlayerNotificationEventReducer'
+      args: PlayerNotificationEventReducer
+    }
   | { name: 'PlayerQueueJoin'; args: PlayerQueueJoin }
   | { name: 'PlayerQueueLeave'; args: PlayerQueueLeave }
   | { name: 'PlayerRegenAgentLoop'; args: PlayerRegenAgentLoop }
   | { name: 'PlayerRegionCrossover'; args: PlayerRegionCrossover }
-  | { name: 'PlayerRegionTransferEventReducer'; args: PlayerRegionTransferEventReducer }
+  | {
+      name: 'PlayerRegionTransferEventReducer'
+      args: PlayerRegionTransferEventReducer
+    }
   | { name: 'PlayerRespawn'; args: PlayerRespawn }
   | { name: 'PlayerSetDefaultDeployable'; args: PlayerSetDefaultDeployable }
-  | { name: 'PlayerSetNameOutcomeEventReducer'; args: PlayerSetNameOutcomeEventReducer }
+  | {
+      name: 'PlayerSetNameOutcomeEventReducer'
+      args: PlayerSetNameOutcomeEventReducer
+    }
   | { name: 'PlayerTeleportHome'; args: PlayerTeleportHome }
   | { name: 'PlayerTeleportHomeStart'; args: PlayerTeleportHomeStart }
   | { name: 'PlayerTeleportWaystone'; args: PlayerTeleportWaystone }
@@ -8235,7 +8952,10 @@ export type Reducer =
   | { name: 'ProcessInterModuleMessage'; args: ProcessInterModuleMessage }
   | { name: 'ProjectSiteAddMaterials'; args: ProjectSiteAddMaterials }
   | { name: 'ProjectSiteAdvanceProject'; args: ProjectSiteAdvanceProject }
-  | { name: 'ProjectSiteAdvanceProjectStart'; args: ProjectSiteAdvanceProjectStart }
+  | {
+      name: 'ProjectSiteAdvanceProjectStart'
+      args: ProjectSiteAdvanceProjectStart
+    }
   | { name: 'ProjectSiteCancel'; args: ProjectSiteCancel }
   | { name: 'ProjectSitePlace'; args: ProjectSitePlace }
   | { name: 'RegionPopuplationAgentLoop'; args: RegionPopuplationAgentLoop }
@@ -8292,9 +9012,15 @@ export type Reducer =
   | { name: 'StageCombatActionDesc'; args: StageCombatActionDesc }
   | { name: 'StageConstructionRecipeDesc'; args: StageConstructionRecipeDesc }
   | { name: 'StageCraftingRecipeDesc'; args: StageCraftingRecipeDesc }
-  | { name: 'StageDeconstructionRecipeDesc'; args: StageDeconstructionRecipeDesc }
+  | {
+      name: 'StageDeconstructionRecipeDesc'
+      args: StageDeconstructionRecipeDesc
+    }
   | { name: 'StageDeployableDesc'; args: StageDeployableDesc }
-  | { name: 'StageDistantVisibleEntityDesc'; args: StageDistantVisibleEntityDesc }
+  | {
+      name: 'StageDistantVisibleEntityDesc'
+      args: StageDistantVisibleEntityDesc
+    }
   | { name: 'StageElevatorDesc'; args: StageElevatorDesc }
   | { name: 'StageEmoteDesc'; args: StageEmoteDesc }
   | { name: 'StageEmpireColorsDesc'; args: StageEmpireColorsDesc }
@@ -8314,15 +9040,24 @@ export type Reducer =
   | { name: 'StageInteriorEnvironmentDesc'; args: StageInteriorEnvironmentDesc }
   | { name: 'StageInteriorInstanceDesc'; args: StageInteriorInstanceDesc }
   | { name: 'StageInteriorNetworkDesc'; args: StageInteriorNetworkDesc }
-  | { name: 'StageInteriorPortalConnectionsDesc'; args: StageInteriorPortalConnectionsDesc }
+  | {
+      name: 'StageInteriorPortalConnectionsDesc'
+      args: StageInteriorPortalConnectionsDesc
+    }
   | { name: 'StageInteriorShapeDesc'; args: StageInteriorShapeDesc }
   | { name: 'StageInteriorSpawnDesc'; args: StageInteriorSpawnDesc }
-  | { name: 'StageItemConversionRecipeDesc'; args: StageItemConversionRecipeDesc }
+  | {
+      name: 'StageItemConversionRecipeDesc'
+      args: StageItemConversionRecipeDesc
+    }
   | { name: 'StageItemDesc'; args: StageItemDesc }
   | { name: 'StageItemListDesc'; args: StageItemListDesc }
   | { name: 'StageKnowledgeScrollDesc'; args: StageKnowledgeScrollDesc }
   | { name: 'StageKnowledgeScrollTypeDesc'; args: StageKnowledgeScrollTypeDesc }
-  | { name: 'StageKnowledgeStatModifierDesc'; args: StageKnowledgeStatModifierDesc }
+  | {
+      name: 'StageKnowledgeStatModifierDesc'
+      args: StageKnowledgeStatModifierDesc
+    }
   | { name: 'StageLootChestDesc'; args: StageLootChestDesc }
   | { name: 'StageLootRarityDesc'; args: StageLootRarityDesc }
   | { name: 'StageLootTableDesc'; args: StageLootTableDesc }
@@ -8338,8 +9073,14 @@ export type Reducer =
   | { name: 'StageReservedNameDesc'; args: StageReservedNameDesc }
   | { name: 'StageResourceClumpDesc'; args: StageResourceClumpDesc }
   | { name: 'StageResourceDesc'; args: StageResourceDesc }
-  | { name: 'StageResourceGrowthRecipeDesc'; args: StageResourceGrowthRecipeDesc }
-  | { name: 'StageResourcePlacementRecipeDesc'; args: StageResourcePlacementRecipeDesc }
+  | {
+      name: 'StageResourceGrowthRecipeDesc'
+      args: StageResourceGrowthRecipeDesc
+    }
+  | {
+      name: 'StageResourcePlacementRecipeDesc'
+      args: StageResourcePlacementRecipeDesc
+    }
   | { name: 'StageSecondaryKnowledgeDesc'; args: StageSecondaryKnowledgeDesc }
   | { name: 'StageSkillDesc'; args: StageSkillDesc }
   | { name: 'StageTargetingMatrixDesc'; args: StageTargetingMatrixDesc }
@@ -8359,7 +9100,10 @@ export type Reducer =
   | { name: 'StopAgents'; args: StopAgents }
   | { name: 'SynchronizeTime'; args: SynchronizeTime }
   | { name: 'TargetUpdate'; args: TargetUpdate }
-  | { name: 'TeleportationEnergyRegenAgentLoop'; args: TeleportationEnergyRegenAgentLoop }
+  | {
+      name: 'TeleportationEnergyRegenAgentLoop'
+      args: TeleportationEnergyRegenAgentLoop
+    }
   | { name: 'Terraform'; args: Terraform }
   | { name: 'TerraformCancel'; args: TerraformCancel }
   | { name: 'TerraformSetFinalTarget'; args: TerraformSetFinalTarget }
@@ -8376,7 +9120,10 @@ export type Reducer =
   | { name: 'TradeSwapPockets'; args: TradeSwapPockets }
   | { name: 'TransferPlayerDelayed'; args: TransferPlayerDelayed }
   | { name: 'TravelerTaskAgentLoop'; args: TravelerTaskAgentLoop }
-  | { name: 'UpdateScheduledTimersFromStaticData'; args: UpdateScheduledTimersFromStaticData }
+  | {
+      name: 'UpdateScheduledTimersFromStaticData'
+      args: UpdateScheduledTimersFromStaticData
+    }
 
 export class RemoteReducers {
   constructor(
@@ -8389,21 +9136,40 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AchievementClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('achievement_claim', __argsBuffer, this.setCallReducerFlags.achievementClaimFlags)
+    this.connection.callReducer(
+      'achievement_claim',
+      __argsBuffer,
+      this.setCallReducerFlags.achievementClaimFlags
+    )
   }
 
-  onAchievementClaim(callback: (ctx: ReducerEventContext, request: PlayerAchievementClaimRequest) => void) {
+  onAchievementClaim(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerAchievementClaimRequest
+    ) => void
+  ) {
     this.connection.onReducer('achievement_claim', callback)
   }
 
-  removeOnAchievementClaim(callback: (ctx: ReducerEventContext, request: PlayerAchievementClaimRequest) => void) {
+  removeOnAchievementClaim(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerAchievementClaimRequest
+    ) => void
+  ) {
     this.connection.offReducer('achievement_claim', callback)
   }
 
-  acquireKnowledgeFromEntities(request: PlayerAcquireKnowledgeFromEntitiesRequest) {
+  acquireKnowledgeFromEntities(
+    request: PlayerAcquireKnowledgeFromEntitiesRequest
+  ) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    AcquireKnowledgeFromEntities.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AcquireKnowledgeFromEntities.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'acquire_knowledge_from_entities',
@@ -8413,13 +9179,19 @@ export class RemoteReducers {
   }
 
   onAcquireKnowledgeFromEntities(
-    callback: (ctx: ReducerEventContext, request: PlayerAcquireKnowledgeFromEntitiesRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerAcquireKnowledgeFromEntitiesRequest
+    ) => void
   ) {
     this.connection.onReducer('acquire_knowledge_from_entities', callback)
   }
 
   removeOnAcquireKnowledgeFromEntities(
-    callback: (ctx: ReducerEventContext, request: PlayerAcquireKnowledgeFromEntitiesRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerAcquireKnowledgeFromEntitiesRequest
+    ) => void
   ) {
     this.connection.offReducer('acquire_knowledge_from_entities', callback)
   }
@@ -8427,7 +9199,10 @@ export class RemoteReducers {
   adminAlpha3CompleteOnboarding(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3CompleteOnboarding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3CompleteOnboarding.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_complete_onboarding',
@@ -8436,18 +9211,25 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3CompleteOnboarding(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  onAdminAlpha3CompleteOnboarding(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.onReducer('admin_alpha3_complete_onboarding', callback)
   }
 
-  removeOnAdminAlpha3CompleteOnboarding(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  removeOnAdminAlpha3CompleteOnboarding(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.offReducer('admin_alpha3_complete_onboarding', callback)
   }
 
   adminAlpha3ResetOnboardingToFifthTempleQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToFifthTempleQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
@@ -8456,18 +9238,31 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3ResetOnboardingToFifthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fifth_temple_quest', callback)
+  onAdminAlpha3ResetOnboardingToFifthTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
+      callback
+    )
   }
 
-  removeOnAdminAlpha3ResetOnboardingToFifthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fifth_temple_quest', callback)
+  removeOnAdminAlpha3ResetOnboardingToFifthTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_fifth_temple_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToFirstExpandQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToFirstExpandQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_first_expand_quest',
@@ -8476,18 +9271,31 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3ResetOnboardingToFirstExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_first_expand_quest', callback)
+  onAdminAlpha3ResetOnboardingToFirstExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_first_expand_quest',
+      callback
+    )
   }
 
-  removeOnAdminAlpha3ResetOnboardingToFirstExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_first_expand_quest', callback)
+  removeOnAdminAlpha3ResetOnboardingToFirstExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_first_expand_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToFirstTempleQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToFirstTempleQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_first_temple_quest',
@@ -8496,106 +9304,167 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3ResetOnboardingToFirstTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_first_temple_quest', callback)
+  onAdminAlpha3ResetOnboardingToFirstTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_first_temple_quest',
+      callback
+    )
   }
 
-  removeOnAdminAlpha3ResetOnboardingToFirstTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_first_temple_quest', callback)
+  removeOnAdminAlpha3ResetOnboardingToFirstTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_first_temple_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToFourthExpandQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToFourthExpandQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
       __argsBuffer,
-      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFourthExpandQuestFlags
+      this.setCallReducerFlags
+        .adminAlpha3ResetOnboardingToFourthExpandQuestFlags
     )
   }
 
-  onAdminAlpha3ResetOnboardingToFourthExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fourth_expand_quest', callback)
+  onAdminAlpha3ResetOnboardingToFourthExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
+      callback
+    )
   }
 
   removeOnAdminAlpha3ResetOnboardingToFourthExpandQuest(
     callback: (ctx: ReducerEventContext, entityId: bigint) => void
   ) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fourth_expand_quest', callback)
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_expand_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToFourthTempleQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
       __argsBuffer,
-      this.setCallReducerFlags.adminAlpha3ResetOnboardingToFourthTempleQuestFlags
+      this.setCallReducerFlags
+        .adminAlpha3ResetOnboardingToFourthTempleQuestFlags
     )
   }
 
-  onAdminAlpha3ResetOnboardingToFourthTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_fourth_temple_quest', callback)
+  onAdminAlpha3ResetOnboardingToFourthTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
+      callback
+    )
   }
 
   removeOnAdminAlpha3ResetOnboardingToFourthTempleQuest(
     callback: (ctx: ReducerEventContext, entityId: bigint) => void
   ) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_fourth_temple_quest', callback)
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_fourth_temple_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToSecondExpandQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToSecondExpandQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_second_expand_quest',
       __argsBuffer,
-      this.setCallReducerFlags.adminAlpha3ResetOnboardingToSecondExpandQuestFlags
+      this.setCallReducerFlags
+        .adminAlpha3ResetOnboardingToSecondExpandQuestFlags
     )
   }
 
-  onAdminAlpha3ResetOnboardingToSecondExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_second_expand_quest', callback)
+  onAdminAlpha3ResetOnboardingToSecondExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_second_expand_quest',
+      callback
+    )
   }
 
   removeOnAdminAlpha3ResetOnboardingToSecondExpandQuest(
     callback: (ctx: ReducerEventContext, entityId: bigint) => void
   ) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_second_expand_quest', callback)
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_second_expand_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToSecondTempleQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToSecondTempleQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_second_temple_quest',
       __argsBuffer,
-      this.setCallReducerFlags.adminAlpha3ResetOnboardingToSecondTempleQuestFlags
+      this.setCallReducerFlags
+        .adminAlpha3ResetOnboardingToSecondTempleQuestFlags
     )
   }
 
-  onAdminAlpha3ResetOnboardingToSecondTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_second_temple_quest', callback)
+  onAdminAlpha3ResetOnboardingToSecondTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_second_temple_quest',
+      callback
+    )
   }
 
   removeOnAdminAlpha3ResetOnboardingToSecondTempleQuest(
     callback: (ctx: ReducerEventContext, entityId: bigint) => void
   ) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_second_temple_quest', callback)
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_second_temple_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToThirdExpandQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToThirdExpandQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_third_expand_quest',
@@ -8604,18 +9473,31 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3ResetOnboardingToThirdExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_third_expand_quest', callback)
+  onAdminAlpha3ResetOnboardingToThirdExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_third_expand_quest',
+      callback
+    )
   }
 
-  removeOnAdminAlpha3ResetOnboardingToThirdExpandQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_third_expand_quest', callback)
+  removeOnAdminAlpha3ResetOnboardingToThirdExpandQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_third_expand_quest',
+      callback
+    )
   }
 
   adminAlpha3ResetOnboardingToThirdTempleQuest(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminAlpha3ResetOnboardingToThirdTempleQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_alpha3_reset_onboarding_to_third_temple_quest',
@@ -8624,18 +9506,31 @@ export class RemoteReducers {
     )
   }
 
-  onAdminAlpha3ResetOnboardingToThirdTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.onReducer('admin_alpha3_reset_onboarding_to_third_temple_quest', callback)
+  onAdminAlpha3ResetOnboardingToThirdTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'admin_alpha3_reset_onboarding_to_third_temple_quest',
+      callback
+    )
   }
 
-  removeOnAdminAlpha3ResetOnboardingToThirdTempleQuest(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
-    this.connection.offReducer('admin_alpha3_reset_onboarding_to_third_temple_quest', callback)
+  removeOnAdminAlpha3ResetOnboardingToThirdTempleQuest(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'admin_alpha3_reset_onboarding_to_third_temple_quest',
+      callback
+    )
   }
 
   adminBroadcastMsgRegion(title: string, message: string) {
     const __args = { title, message }
     let __writer = new BinaryWriter(1024)
-    AdminBroadcastMsgRegion.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminBroadcastMsgRegion.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_broadcast_msg_region',
@@ -8644,11 +9539,15 @@ export class RemoteReducers {
     )
   }
 
-  onAdminBroadcastMsgRegion(callback: (ctx: ReducerEventContext, title: string, message: string) => void) {
+  onAdminBroadcastMsgRegion(
+    callback: (ctx: ReducerEventContext, title: string, message: string) => void
+  ) {
     this.connection.onReducer('admin_broadcast_msg_region', callback)
   }
 
-  removeOnAdminBroadcastMsgRegion(callback: (ctx: ReducerEventContext, title: string, message: string) => void) {
+  removeOnAdminBroadcastMsgRegion(
+    callback: (ctx: ReducerEventContext, title: string, message: string) => void
+  ) {
     this.connection.offReducer('admin_broadcast_msg_region', callback)
   }
 
@@ -8671,7 +9570,10 @@ export class RemoteReducers {
   adminClearChunkResources(timer: AdminClearResourceTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    AdminClearChunkResources.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminClearChunkResources.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_clear_chunk_resources',
@@ -8680,11 +9582,15 @@ export class RemoteReducers {
     )
   }
 
-  onAdminClearChunkResources(callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void) {
+  onAdminClearChunkResources(
+    callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void
+  ) {
     this.connection.onReducer('admin_clear_chunk_resources', callback)
   }
 
-  removeOnAdminClearChunkResources(callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void) {
+  removeOnAdminClearChunkResources(
+    callback: (ctx: ReducerEventContext, timer: AdminClearResourceTimer) => void
+  ) {
     this.connection.offReducer('admin_clear_chunk_resources', callback)
   }
 
@@ -8693,14 +9599,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AdminCollapseRuin.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_collapse_ruin', __argsBuffer, this.setCallReducerFlags.adminCollapseRuinFlags)
+    this.connection.callReducer(
+      'admin_collapse_ruin',
+      __argsBuffer,
+      this.setCallReducerFlags.adminCollapseRuinFlags
+    )
   }
 
-  onAdminCollapseRuin(callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void) {
+  onAdminCollapseRuin(
+    callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('admin_collapse_ruin', callback)
   }
 
-  removeOnAdminCollapseRuin(callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void) {
+  removeOnAdminCollapseRuin(
+    callback: (ctx: ReducerEventContext, ruinBuildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('admin_collapse_ruin', callback)
   }
 
@@ -8728,18 +9642,25 @@ export class RemoteReducers {
     )
   }
 
-  onAdminCompleteAllPassiveCrafts(callback: (ctx: ReducerEventContext) => void) {
+  onAdminCompleteAllPassiveCrafts(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.onReducer('admin_complete_all_passive_crafts', callback)
   }
 
-  removeOnAdminCompleteAllPassiveCrafts(callback: (ctx: ReducerEventContext) => void) {
+  removeOnAdminCompleteAllPassiveCrafts(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('admin_complete_all_passive_crafts', callback)
   }
 
   adminCountInventoryItems(itemId: number, limit: number) {
     const __args = { itemId, limit }
     let __writer = new BinaryWriter(1024)
-    AdminCountInventoryItems.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminCountInventoryItems.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_count_inventory_items',
@@ -8748,18 +9669,29 @@ export class RemoteReducers {
     )
   }
 
-  onAdminCountInventoryItems(callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void) {
+  onAdminCountInventoryItems(
+    callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void
+  ) {
     this.connection.onReducer('admin_count_inventory_items', callback)
   }
 
-  removeOnAdminCountInventoryItems(callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void) {
+  removeOnAdminCountInventoryItems(
+    callback: (ctx: ReducerEventContext, itemId: number, limit: number) => void
+  ) {
     this.connection.offReducer('admin_count_inventory_items', callback)
   }
 
-  adminDeleteAllItemsOfType(playerUsername: string, itemId: number, isCargo: boolean) {
+  adminDeleteAllItemsOfType(
+    playerUsername: string,
+    itemId: number,
+    isCargo: boolean
+  ) {
     const __args = { playerUsername, itemId, isCargo }
     let __writer = new BinaryWriter(1024)
-    AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_delete_all_items_of_type',
@@ -8769,13 +9701,23 @@ export class RemoteReducers {
   }
 
   onAdminDeleteAllItemsOfType(
-    callback: (ctx: ReducerEventContext, playerUsername: string, itemId: number, isCargo: boolean) => void
+    callback: (
+      ctx: ReducerEventContext,
+      playerUsername: string,
+      itemId: number,
+      isCargo: boolean
+    ) => void
   ) {
     this.connection.onReducer('admin_delete_all_items_of_type', callback)
   }
 
   removeOnAdminDeleteAllItemsOfType(
-    callback: (ctx: ReducerEventContext, playerUsername: string, itemId: number, isCargo: boolean) => void
+    callback: (
+      ctx: ReducerEventContext,
+      playerUsername: string,
+      itemId: number,
+      isCargo: boolean
+    ) => void
   ) {
     this.connection.offReducer('admin_delete_all_items_of_type', callback)
   }
@@ -8783,7 +9725,10 @@ export class RemoteReducers {
   adminDeleteChatMessage(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminDeleteChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminDeleteChatMessage.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_delete_chat_message',
@@ -8792,11 +9737,15 @@ export class RemoteReducers {
     )
   }
 
-  onAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  onAdminDeleteChatMessage(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.onReducer('admin_delete_chat_message', callback)
   }
 
-  removeOnAdminDeleteChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  removeOnAdminDeleteChatMessage(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.offReducer('admin_delete_chat_message', callback)
   }
 
@@ -8812,14 +9761,19 @@ export class RemoteReducers {
     this.connection.onReducer('admin_despawn_overworld_enemies', callback)
   }
 
-  removeOnAdminDespawnOverworldEnemies(callback: (ctx: ReducerEventContext) => void) {
+  removeOnAdminDespawnOverworldEnemies(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('admin_despawn_overworld_enemies', callback)
   }
 
   adminGrantCollectibles(identity: string, collectibles: number[]) {
     const __args = { identity, collectibles }
     let __writer = new BinaryWriter(1024)
-    AdminGrantCollectibles.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminGrantCollectibles.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_grant_collectibles',
@@ -8828,12 +9782,22 @@ export class RemoteReducers {
     )
   }
 
-  onAdminGrantCollectibles(callback: (ctx: ReducerEventContext, identity: string, collectibles: number[]) => void) {
+  onAdminGrantCollectibles(
+    callback: (
+      ctx: ReducerEventContext,
+      identity: string,
+      collectibles: number[]
+    ) => void
+  ) {
     this.connection.onReducer('admin_grant_collectibles', callback)
   }
 
   removeOnAdminGrantCollectibles(
-    callback: (ctx: ReducerEventContext, identity: string, collectibles: number[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      identity: string,
+      collectibles: number[]
+    ) => void
   ) {
     this.connection.offReducer('admin_grant_collectibles', callback)
   }
@@ -8841,7 +9805,10 @@ export class RemoteReducers {
   adminModifyChatMessage(entityId: bigint, newMessageText: string) {
     const __args = { entityId, newMessageText }
     let __writer = new BinaryWriter(1024)
-    AdminModifyChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminModifyChatMessage.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_modify_chat_message',
@@ -8850,12 +9817,22 @@ export class RemoteReducers {
     )
   }
 
-  onAdminModifyChatMessage(callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void) {
+  onAdminModifyChatMessage(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newMessageText: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_modify_chat_message', callback)
   }
 
   removeOnAdminModifyChatMessage(
-    callback: (ctx: ReducerEventContext, entityId: bigint, newMessageText: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newMessageText: string
+    ) => void
   ) {
     this.connection.offReducer('admin_modify_chat_message', callback)
   }
@@ -8872,18 +9849,36 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRenameBuilding(callback: (ctx: ReducerEventContext, buildingName: string, newName: string) => void) {
+  onAdminRenameBuilding(
+    callback: (
+      ctx: ReducerEventContext,
+      buildingName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_building', callback)
   }
 
-  removeOnAdminRenameBuilding(callback: (ctx: ReducerEventContext, buildingName: string, newName: string) => void) {
+  removeOnAdminRenameBuilding(
+    callback: (
+      ctx: ReducerEventContext,
+      buildingName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_building', callback)
   }
 
-  adminRenameBuildingCoord(coord: OffsetCoordinatesSmallMessage, newName: string) {
+  adminRenameBuildingCoord(
+    coord: OffsetCoordinatesSmallMessage,
+    newName: string
+  ) {
     const __args = { coord, newName }
     let __writer = new BinaryWriter(1024)
-    AdminRenameBuildingCoord.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRenameBuildingCoord.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_rename_building_coord',
@@ -8893,13 +9888,21 @@ export class RemoteReducers {
   }
 
   onAdminRenameBuildingCoord(
-    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      coord: OffsetCoordinatesSmallMessage,
+      newName: string
+    ) => void
   ) {
     this.connection.onReducer('admin_rename_building_coord', callback)
   }
 
   removeOnAdminRenameBuildingCoord(
-    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      coord: OffsetCoordinatesSmallMessage,
+      newName: string
+    ) => void
   ) {
     this.connection.offReducer('admin_rename_building_coord', callback)
   }
@@ -8907,7 +9910,10 @@ export class RemoteReducers {
   adminRenameBuildingEntity(entityId: bigint, newName: string) {
     const __args = { entityId, newName }
     let __writer = new BinaryWriter(1024)
-    AdminRenameBuildingEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRenameBuildingEntity.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_rename_building_entity',
@@ -8916,11 +9922,23 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRenameBuildingEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  onAdminRenameBuildingEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_building_entity', callback)
   }
 
-  removeOnAdminRenameBuildingEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  removeOnAdminRenameBuildingEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_building_entity', callback)
   }
 
@@ -8929,21 +9947,40 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AdminRenameClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_rename_claim', __argsBuffer, this.setCallReducerFlags.adminRenameClaimFlags)
+    this.connection.callReducer(
+      'admin_rename_claim',
+      __argsBuffer,
+      this.setCallReducerFlags.adminRenameClaimFlags
+    )
   }
 
-  onAdminRenameClaim(callback: (ctx: ReducerEventContext, claimName: string, newName: string) => void) {
+  onAdminRenameClaim(
+    callback: (
+      ctx: ReducerEventContext,
+      claimName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_claim', callback)
   }
 
-  removeOnAdminRenameClaim(callback: (ctx: ReducerEventContext, claimName: string, newName: string) => void) {
+  removeOnAdminRenameClaim(
+    callback: (
+      ctx: ReducerEventContext,
+      claimName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_claim', callback)
   }
 
   adminRenameClaimEntity(entityId: bigint, newName: string) {
     const __args = { entityId, newName }
     let __writer = new BinaryWriter(1024)
-    AdminRenameClaimEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRenameClaimEntity.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_rename_claim_entity',
@@ -8952,18 +9989,33 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRenameClaimEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  onAdminRenameClaimEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_claim_entity', callback)
   }
 
-  removeOnAdminRenameClaimEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  removeOnAdminRenameClaimEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_claim_entity', callback)
   }
 
   adminRenameDeployable(deployableName: string, newName: string) {
     const __args = { deployableName, newName }
     let __writer = new BinaryWriter(1024)
-    AdminRenameDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRenameDeployable.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_rename_deployable',
@@ -8972,18 +10024,33 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRenameDeployable(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+  onAdminRenameDeployable(
+    callback: (
+      ctx: ReducerEventContext,
+      deployableName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_deployable', callback)
   }
 
-  removeOnAdminRenameDeployable(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+  removeOnAdminRenameDeployable(
+    callback: (
+      ctx: ReducerEventContext,
+      deployableName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_deployable', callback)
   }
 
   adminRenameDeployableEntity(entityId: bigint, newName: string) {
     const __args = { entityId, newName }
     let __writer = new BinaryWriter(1024)
-    AdminRenameDeployableEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRenameDeployableEntity.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_rename_deployable_entity',
@@ -8992,11 +10059,23 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRenameDeployableEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  onAdminRenameDeployableEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_rename_deployable_entity', callback)
   }
 
-  removeOnAdminRenameDeployableEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  removeOnAdminRenameDeployableEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_rename_deployable_entity', callback)
   }
 
@@ -9012,14 +10091,19 @@ export class RemoteReducers {
     this.connection.onReducer('admin_reset_all_herd_locations', callback)
   }
 
-  removeOnAdminResetAllHerdLocations(callback: (ctx: ReducerEventContext) => void) {
+  removeOnAdminResetAllHerdLocations(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('admin_reset_all_herd_locations', callback)
   }
 
   adminResetHerdLocations(enemyAiParamsDescId: number) {
     const __args = { enemyAiParamsDescId }
     let __writer = new BinaryWriter(1024)
-    AdminResetHerdLocations.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminResetHerdLocations.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_reset_herd_locations',
@@ -9028,18 +10112,25 @@ export class RemoteReducers {
     )
   }
 
-  onAdminResetHerdLocations(callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void) {
+  onAdminResetHerdLocations(
+    callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void
+  ) {
     this.connection.onReducer('admin_reset_herd_locations', callback)
   }
 
-  removeOnAdminResetHerdLocations(callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void) {
+  removeOnAdminResetHerdLocations(
+    callback: (ctx: ReducerEventContext, enemyAiParamsDescId: number) => void
+  ) {
     this.connection.offReducer('admin_reset_herd_locations', callback)
   }
 
   adminResetOnboardingCompletely(entityId: bigint) {
     const __args = { entityId }
     let __writer = new BinaryWriter(1024)
-    AdminResetOnboardingCompletely.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminResetOnboardingCompletely.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_reset_onboarding_completely',
@@ -9048,11 +10139,15 @@ export class RemoteReducers {
     )
   }
 
-  onAdminResetOnboardingCompletely(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  onAdminResetOnboardingCompletely(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.onReducer('admin_reset_onboarding_completely', callback)
   }
 
-  removeOnAdminResetOnboardingCompletely(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  removeOnAdminResetOnboardingCompletely(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.offReducer('admin_reset_onboarding_completely', callback)
   }
 
@@ -9064,11 +10159,15 @@ export class RemoteReducers {
     )
   }
 
-  onAdminRestoreAllCollapsedRuins(callback: (ctx: ReducerEventContext) => void) {
+  onAdminRestoreAllCollapsedRuins(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.onReducer('admin_restore_all_collapsed_ruins', callback)
   }
 
-  removeOnAdminRestoreAllCollapsedRuins(callback: (ctx: ReducerEventContext) => void) {
+  removeOnAdminRestoreAllCollapsedRuins(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('admin_restore_all_collapsed_ruins', callback)
   }
 
@@ -9093,7 +10192,10 @@ export class RemoteReducers {
       clearToolbelt
     }
     let __writer = new BinaryWriter(1024)
-    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_restore_player_state',
@@ -9137,7 +10239,10 @@ export class RemoteReducers {
   adminRestorePlayerStateScheduled(timer: AdminRestorePlayerStateTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_restore_player_state_scheduled',
@@ -9147,13 +10252,19 @@ export class RemoteReducers {
   }
 
   onAdminRestorePlayerStateScheduled(
-    callback: (ctx: ReducerEventContext, timer: AdminRestorePlayerStateTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: AdminRestorePlayerStateTimer
+    ) => void
   ) {
     this.connection.onReducer('admin_restore_player_state_scheduled', callback)
   }
 
   removeOnAdminRestorePlayerStateScheduled(
-    callback: (ctx: ReducerEventContext, timer: AdminRestorePlayerStateTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: AdminRestorePlayerStateTimer
+    ) => void
   ) {
     this.connection.offReducer('admin_restore_player_state_scheduled', callback)
   }
@@ -9163,21 +10274,40 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AdminSetSignText.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_set_sign_text', __argsBuffer, this.setCallReducerFlags.adminSetSignTextFlags)
+    this.connection.callReducer(
+      'admin_set_sign_text',
+      __argsBuffer,
+      this.setCallReducerFlags.adminSetSignTextFlags
+    )
   }
 
-  onAdminSetSignText(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+  onAdminSetSignText(
+    callback: (
+      ctx: ReducerEventContext,
+      deployableName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_set_sign_text', callback)
   }
 
-  removeOnAdminSetSignText(callback: (ctx: ReducerEventContext, deployableName: string, newName: string) => void) {
+  removeOnAdminSetSignText(
+    callback: (
+      ctx: ReducerEventContext,
+      deployableName: string,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_set_sign_text', callback)
   }
 
   adminSetSignTextCoord(coord: OffsetCoordinatesSmallMessage, newName: string) {
     const __args = { coord, newName }
     let __writer = new BinaryWriter(1024)
-    AdminSetSignTextCoord.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminSetSignTextCoord.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_set_sign_text_coord',
@@ -9187,13 +10317,21 @@ export class RemoteReducers {
   }
 
   onAdminSetSignTextCoord(
-    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      coord: OffsetCoordinatesSmallMessage,
+      newName: string
+    ) => void
   ) {
     this.connection.onReducer('admin_set_sign_text_coord', callback)
   }
 
   removeOnAdminSetSignTextCoord(
-    callback: (ctx: ReducerEventContext, coord: OffsetCoordinatesSmallMessage, newName: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      coord: OffsetCoordinatesSmallMessage,
+      newName: string
+    ) => void
   ) {
     this.connection.offReducer('admin_set_sign_text_coord', callback)
   }
@@ -9201,7 +10339,10 @@ export class RemoteReducers {
   adminSetSignTextEntity(entityId: bigint, newName: string) {
     const __args = { entityId, newName }
     let __writer = new BinaryWriter(1024)
-    AdminSetSignTextEntity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    AdminSetSignTextEntity.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'admin_set_sign_text_entity',
@@ -9210,11 +10351,23 @@ export class RemoteReducers {
     )
   }
 
-  onAdminSetSignTextEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  onAdminSetSignTextEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.onReducer('admin_set_sign_text_entity', callback)
   }
 
-  removeOnAdminSetSignTextEntity(callback: (ctx: ReducerEventContext, entityId: bigint, newName: string) => void) {
+  removeOnAdminSetSignTextEntity(
+    callback: (
+      ctx: ReducerEventContext,
+      entityId: bigint,
+      newName: string
+    ) => void
+  ) {
     this.connection.offReducer('admin_set_sign_text_entity', callback)
   }
 
@@ -9223,14 +10376,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AdminSignOut.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_sign_out', __argsBuffer, this.setCallReducerFlags.adminSignOutFlags)
+    this.connection.callReducer(
+      'admin_sign_out',
+      __argsBuffer,
+      this.setCallReducerFlags.adminSignOutFlags
+    )
   }
 
-  onAdminSignOut(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
+  onAdminSignOut(
+    callback: (ctx: ReducerEventContext, identity: Identity) => void
+  ) {
     this.connection.onReducer('admin_sign_out', callback)
   }
 
-  removeOnAdminSignOut(callback: (ctx: ReducerEventContext, identity: Identity) => void) {
+  removeOnAdminSignOut(
+    callback: (ctx: ReducerEventContext, identity: Identity) => void
+  ) {
     this.connection.offReducer('admin_sign_out', callback)
   }
 
@@ -9255,14 +10416,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AdminSignOutString.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('admin_sign_out_string', __argsBuffer, this.setCallReducerFlags.adminSignOutStringFlags)
+    this.connection.callReducer(
+      'admin_sign_out_string',
+      __argsBuffer,
+      this.setCallReducerFlags.adminSignOutStringFlags
+    )
   }
 
-  onAdminSignOutString(callback: (ctx: ReducerEventContext, identity: string) => void) {
+  onAdminSignOutString(
+    callback: (ctx: ReducerEventContext, identity: string) => void
+  ) {
     this.connection.onReducer('admin_sign_out_string', callback)
   }
 
-  removeOnAdminSignOutString(callback: (ctx: ReducerEventContext, identity: string) => void) {
+  removeOnAdminSignOutString(
+    callback: (ctx: ReducerEventContext, identity: string) => void
+  ) {
     this.connection.offReducer('admin_sign_out_string', callback)
   }
 
@@ -9278,7 +10447,9 @@ export class RemoteReducers {
     this.connection.onReducer('admin_update_light_source_states', callback)
   }
 
-  removeOnAdminUpdateLightSourceStates(callback: (ctx: ReducerEventContext) => void) {
+  removeOnAdminUpdateLightSourceStates(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('admin_update_light_source_states', callback)
   }
 
@@ -9287,14 +10458,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Attack.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('attack', __argsBuffer, this.setCallReducerFlags.attackFlags)
+    this.connection.callReducer(
+      'attack',
+      __argsBuffer,
+      this.setCallReducerFlags.attackFlags
+    )
   }
 
-  onAttack(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+  onAttack(
+    callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void
+  ) {
     this.connection.onReducer('attack', callback)
   }
 
-  removeOnAttack(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+  removeOnAttack(
+    callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void
+  ) {
     this.connection.offReducer('attack', callback)
   }
 
@@ -9303,14 +10482,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AttackImpact.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('attack_impact', __argsBuffer, this.setCallReducerFlags.attackImpactFlags)
+    this.connection.callReducer(
+      'attack_impact',
+      __argsBuffer,
+      this.setCallReducerFlags.attackImpactFlags
+    )
   }
 
-  onAttackImpact(callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void) {
+  onAttackImpact(
+    callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void
+  ) {
     this.connection.onReducer('attack_impact', callback)
   }
 
-  removeOnAttackImpact(callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void) {
+  removeOnAttackImpact(
+    callback: (ctx: ReducerEventContext, timer: AttackImpactTimer) => void
+  ) {
     this.connection.offReducer('attack_impact', callback)
   }
 
@@ -9319,14 +10506,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AttackScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('attack_scheduled', __argsBuffer, this.setCallReducerFlags.attackScheduledFlags)
+    this.connection.callReducer(
+      'attack_scheduled',
+      __argsBuffer,
+      this.setCallReducerFlags.attackScheduledFlags
+    )
   }
 
-  onAttackScheduled(callback: (ctx: ReducerEventContext, timer: AttackTimer) => void) {
+  onAttackScheduled(
+    callback: (ctx: ReducerEventContext, timer: AttackTimer) => void
+  ) {
     this.connection.onReducer('attack_scheduled', callback)
   }
 
-  removeOnAttackScheduled(callback: (ctx: ReducerEventContext, timer: AttackTimer) => void) {
+  removeOnAttackScheduled(
+    callback: (ctx: ReducerEventContext, timer: AttackTimer) => void
+  ) {
     this.connection.offReducer('attack_scheduled', callback)
   }
 
@@ -9335,14 +10530,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AttackStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('attack_start', __argsBuffer, this.setCallReducerFlags.attackStartFlags)
+    this.connection.callReducer(
+      'attack_start',
+      __argsBuffer,
+      this.setCallReducerFlags.attackStartFlags
+    )
   }
 
-  onAttackStart(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+  onAttackStart(
+    callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void
+  ) {
     this.connection.onReducer('attack_start', callback)
   }
 
-  removeOnAttackStart(callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void) {
+  removeOnAttackStart(
+    callback: (ctx: ReducerEventContext, request: EntityAttackRequest) => void
+  ) {
     this.connection.offReducer('attack_start', callback)
   }
 
@@ -9351,21 +10554,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     AutoLogoutLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('auto_logout_loop', __argsBuffer, this.setCallReducerFlags.autoLogoutLoopFlags)
+    this.connection.callReducer(
+      'auto_logout_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.autoLogoutLoopFlags
+    )
   }
 
-  onAutoLogoutLoop(callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void) {
+  onAutoLogoutLoop(
+    callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void
+  ) {
     this.connection.onReducer('auto_logout_loop', callback)
   }
 
-  removeOnAutoLogoutLoop(callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void) {
+  removeOnAutoLogoutLoop(
+    callback: (ctx: ReducerEventContext, timer: AutoLogoutLoopTimer) => void
+  ) {
     this.connection.offReducer('auto_logout_loop', callback)
   }
 
   barterStallOrderAccept(request: PlayerBarterStallOrderAccept) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    BarterStallOrderAccept.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BarterStallOrderAccept.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'barter_stall_order_accept',
@@ -9374,18 +10588,31 @@ export class RemoteReducers {
     )
   }
 
-  onBarterStallOrderAccept(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderAccept) => void) {
+  onBarterStallOrderAccept(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderAccept
+    ) => void
+  ) {
     this.connection.onReducer('barter_stall_order_accept', callback)
   }
 
-  removeOnBarterStallOrderAccept(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderAccept) => void) {
+  removeOnBarterStallOrderAccept(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderAccept
+    ) => void
+  ) {
     this.connection.offReducer('barter_stall_order_accept', callback)
   }
 
   barterStallOrderCreate(request: PlayerBarterStallOrderCreateRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    BarterStallOrderCreate.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BarterStallOrderCreate.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'barter_stall_order_create',
@@ -9394,12 +10621,20 @@ export class RemoteReducers {
     )
   }
 
-  onBarterStallOrderCreate(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderCreateRequest) => void) {
+  onBarterStallOrderCreate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderCreateRequest
+    ) => void
+  ) {
     this.connection.onReducer('barter_stall_order_create', callback)
   }
 
   removeOnBarterStallOrderCreate(
-    callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderCreateRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderCreateRequest
+    ) => void
   ) {
     this.connection.offReducer('barter_stall_order_create', callback)
   }
@@ -9407,7 +10642,10 @@ export class RemoteReducers {
   barterStallOrderDelete(request: PlayerBarterStallOrderDeleteRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    BarterStallOrderDelete.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BarterStallOrderDelete.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'barter_stall_order_delete',
@@ -9416,20 +10654,33 @@ export class RemoteReducers {
     )
   }
 
-  onBarterStallOrderDelete(callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderDeleteRequest) => void) {
+  onBarterStallOrderDelete(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderDeleteRequest
+    ) => void
+  ) {
     this.connection.onReducer('barter_stall_order_delete', callback)
   }
 
   removeOnBarterStallOrderDelete(
-    callback: (ctx: ReducerEventContext, request: PlayerBarterStallOrderDeleteRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBarterStallOrderDeleteRequest
+    ) => void
   ) {
     this.connection.offReducer('barter_stall_order_delete', callback)
   }
 
-  barterStallSetMarketModeEnabled(request: BarterStallSetMarketModeEnabledRequest) {
+  barterStallSetMarketModeEnabled(
+    request: BarterStallSetMarketModeEnabledRequest
+  ) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'barter_stall_set_market_mode_enabled',
@@ -9439,13 +10690,19 @@ export class RemoteReducers {
   }
 
   onBarterStallSetMarketModeEnabled(
-    callback: (ctx: ReducerEventContext, request: BarterStallSetMarketModeEnabledRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: BarterStallSetMarketModeEnabledRequest
+    ) => void
   ) {
     this.connection.onReducer('barter_stall_set_market_mode_enabled', callback)
   }
 
   removeOnBarterStallSetMarketModeEnabled(
-    callback: (ctx: ReducerEventContext, request: BarterStallSetMarketModeEnabledRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: BarterStallSetMarketModeEnabledRequest
+    ) => void
   ) {
     this.connection.offReducer('barter_stall_set_market_mode_enabled', callback)
   }
@@ -9457,11 +10714,21 @@ export class RemoteReducers {
     rotation: number,
     elevationOffset: number
   ) {
-    const __args = { center, blueprintJson, settingsJson, rotation, elevationOffset }
+    const __args = {
+      center,
+      blueprintJson,
+      settingsJson,
+      rotation,
+      elevationOffset
+    }
     let __writer = new BinaryWriter(1024)
     BlueprintPlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('blueprint_place', __argsBuffer, this.setCallReducerFlags.blueprintPlaceFlags)
+    this.connection.callReducer(
+      'blueprint_place',
+      __argsBuffer,
+      this.setCallReducerFlags.blueprintPlaceFlags
+    )
   }
 
   onBlueprintPlace(
@@ -9493,7 +10760,10 @@ export class RemoteReducers {
   buildingDecayAgentLoop(timer: BuildingDecayLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    BuildingDecayAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BuildingDecayAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'building_decay_agent_loop',
@@ -9502,11 +10772,15 @@ export class RemoteReducers {
     )
   }
 
-  onBuildingDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void) {
+  onBuildingDecayAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void
+  ) {
     this.connection.onReducer('building_decay_agent_loop', callback)
   }
 
-  removeOnBuildingDecayAgentLoop(callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void) {
+  removeOnBuildingDecayAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: BuildingDecayLoopTimer) => void
+  ) {
     this.connection.offReducer('building_decay_agent_loop', callback)
   }
 
@@ -9515,21 +10789,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     BuildingDeconstruct.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('building_deconstruct', __argsBuffer, this.setCallReducerFlags.buildingDeconstructFlags)
+    this.connection.callReducer(
+      'building_deconstruct',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingDeconstructFlags
+    )
   }
 
-  onBuildingDeconstruct(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+  onBuildingDeconstruct(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingDeconstructRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_deconstruct', callback)
   }
 
-  removeOnBuildingDeconstruct(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+  removeOnBuildingDeconstruct(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingDeconstructRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_deconstruct', callback)
   }
 
   buildingDeconstructStart(request: PlayerBuildingDeconstructRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    BuildingDeconstructStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    BuildingDeconstructStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'building_deconstruct_start',
@@ -9538,12 +10829,20 @@ export class RemoteReducers {
     )
   }
 
-  onBuildingDeconstructStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void) {
+  onBuildingDeconstructStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingDeconstructRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_deconstruct_start', callback)
   }
 
   removeOnBuildingDeconstructStart(
-    callback: (ctx: ReducerEventContext, request: PlayerBuildingDeconstructRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingDeconstructRequest
+    ) => void
   ) {
     this.connection.offReducer('building_deconstruct_start', callback)
   }
@@ -9553,14 +10852,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     BuildingDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('building_despawn', __argsBuffer, this.setCallReducerFlags.buildingDespawnFlags)
+    this.connection.callReducer(
+      'building_despawn',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingDespawnFlags
+    )
   }
 
-  onBuildingDespawn(callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void) {
+  onBuildingDespawn(
+    callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void
+  ) {
     this.connection.onReducer('building_despawn', callback)
   }
 
-  removeOnBuildingDespawn(callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void) {
+  removeOnBuildingDespawn(
+    callback: (ctx: ReducerEventContext, timer: BuildingDespawnTimer) => void
+  ) {
     this.connection.offReducer('building_despawn', callback)
   }
 
@@ -9569,14 +10876,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     BuildingMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('building_move', __argsBuffer, this.setCallReducerFlags.buildingMoveFlags)
+    this.connection.callReducer(
+      'building_move',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingMoveFlags
+    )
   }
 
-  onBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+  onBuildingMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingMoveRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_move', callback)
   }
 
-  removeOnBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+  removeOnBuildingMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingMoveRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_move', callback)
   }
 
@@ -9585,14 +10906,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     BuildingRepair.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('building_repair', __argsBuffer, this.setCallReducerFlags.buildingRepairFlags)
+    this.connection.callReducer(
+      'building_repair',
+      __argsBuffer,
+      this.setCallReducerFlags.buildingRepairFlags
+    )
   }
 
-  onBuildingRepair(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+  onBuildingRepair(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingRepairRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_repair', callback)
   }
 
-  removeOnBuildingRepair(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+  removeOnBuildingRepair(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingRepairRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_repair', callback)
   }
 
@@ -9608,11 +10943,21 @@ export class RemoteReducers {
     )
   }
 
-  onBuildingRepairStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+  onBuildingRepairStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingRepairRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_repair_start', callback)
   }
 
-  removeOnBuildingRepairStart(callback: (ctx: ReducerEventContext, request: PlayerBuildingRepairRequest) => void) {
+  removeOnBuildingRepairStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingRepairRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_repair_start', callback)
   }
 
@@ -9628,11 +10973,21 @@ export class RemoteReducers {
     )
   }
 
-  onBuildingSetNickname(callback: (ctx: ReducerEventContext, request: PlayerBuildingSetNicknameRequest) => void) {
+  onBuildingSetNickname(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingSetNicknameRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_set_nickname', callback)
   }
 
-  removeOnBuildingSetNickname(callback: (ctx: ReducerEventContext, request: PlayerBuildingSetNicknameRequest) => void) {
+  removeOnBuildingSetNickname(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingSetNicknameRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_set_nickname', callback)
   }
 
@@ -9648,11 +11003,21 @@ export class RemoteReducers {
     )
   }
 
-  onBuildingSetSignText(callback: (ctx: ReducerEventContext, request: BuildingSetSignTextRequest) => void) {
+  onBuildingSetSignText(
+    callback: (
+      ctx: ReducerEventContext,
+      request: BuildingSetSignTextRequest
+    ) => void
+  ) {
     this.connection.onReducer('building_set_sign_text', callback)
   }
 
-  removeOnBuildingSetSignText(callback: (ctx: ReducerEventContext, request: BuildingSetSignTextRequest) => void) {
+  removeOnBuildingSetSignText(
+    callback: (
+      ctx: ReducerEventContext,
+      request: BuildingSetSignTextRequest
+    ) => void
+  ) {
     this.connection.offReducer('building_set_sign_text', callback)
   }
 
@@ -9661,14 +11026,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ChatPostMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('chat_post_message', __argsBuffer, this.setCallReducerFlags.chatPostMessageFlags)
+    this.connection.callReducer(
+      'chat_post_message',
+      __argsBuffer,
+      this.setCallReducerFlags.chatPostMessageFlags
+    )
   }
 
-  onChatPostMessage(callback: (ctx: ReducerEventContext, request: PlayerChatPostMessageRequest) => void) {
+  onChatPostMessage(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerChatPostMessageRequest
+    ) => void
+  ) {
     this.connection.onReducer('chat_post_message', callback)
   }
 
-  removeOnChatPostMessage(callback: (ctx: ReducerEventContext, request: PlayerChatPostMessageRequest) => void) {
+  removeOnChatPostMessage(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerChatPostMessageRequest
+    ) => void
+  ) {
     this.connection.offReducer('chat_post_message', callback)
   }
 
@@ -9677,14 +11056,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatBuildingMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_building_move', __argsBuffer, this.setCallReducerFlags.cheatBuildingMoveFlags)
+    this.connection.callReducer(
+      'cheat_building_move',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatBuildingMoveFlags
+    )
   }
 
-  onCheatBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+  onCheatBuildingMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingMoveRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_building_move', callback)
   }
 
-  removeOnCheatBuildingMove(callback: (ctx: ReducerEventContext, request: PlayerBuildingMoveRequest) => void) {
+  removeOnCheatBuildingMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerBuildingMoveRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_building_move', callback)
   }
 
@@ -9693,14 +11086,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatBuildingPlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_building_place', __argsBuffer, this.setCallReducerFlags.cheatBuildingPlaceFlags)
+    this.connection.callReducer(
+      'cheat_building_place',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatBuildingPlaceFlags
+    )
   }
 
-  onCheatBuildingPlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+  onCheatBuildingPlace(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSitePlaceRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_building_place', callback)
   }
 
-  removeOnCheatBuildingPlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+  removeOnCheatBuildingPlace(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSitePlaceRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_building_place', callback)
   }
 
@@ -9709,21 +11116,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatCargoGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_cargo_grant', __argsBuffer, this.setCallReducerFlags.cheatCargoGrantFlags)
+    this.connection.callReducer(
+      'cheat_cargo_grant',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatCargoGrantFlags
+    )
   }
 
-  onCheatCargoGrant(callback: (ctx: ReducerEventContext, request: CheatCargoGrantRequest) => void) {
+  onCheatCargoGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCargoGrantRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_cargo_grant', callback)
   }
 
-  removeOnCheatCargoGrant(callback: (ctx: ReducerEventContext, request: CheatCargoGrantRequest) => void) {
+  removeOnCheatCargoGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCargoGrantRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_cargo_grant', callback)
   }
 
   cheatClaimTakeOwnership(claimEntityId: bigint) {
     const __args = { claimEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_claim_take_ownership',
@@ -9732,18 +11156,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatClaimTakeOwnership(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+  onCheatClaimTakeOwnership(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_claim_take_ownership', callback)
   }
 
-  removeOnCheatClaimTakeOwnership(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+  removeOnCheatClaimTakeOwnership(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_claim_take_ownership', callback)
   }
 
   cheatClaimTotemAddSupplies(claimEntityId: bigint, amount: number) {
     const __args = { claimEntityId, amount }
     let __writer = new BinaryWriter(1024)
-    CheatClaimTotemAddSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatClaimTotemAddSupplies.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_claim_totem_add_supplies',
@@ -9752,12 +11183,22 @@ export class RemoteReducers {
     )
   }
 
-  onCheatClaimTotemAddSupplies(callback: (ctx: ReducerEventContext, claimEntityId: bigint, amount: number) => void) {
+  onCheatClaimTotemAddSupplies(
+    callback: (
+      ctx: ReducerEventContext,
+      claimEntityId: bigint,
+      amount: number
+    ) => void
+  ) {
     this.connection.onReducer('cheat_claim_totem_add_supplies', callback)
   }
 
   removeOnCheatClaimTotemAddSupplies(
-    callback: (ctx: ReducerEventContext, claimEntityId: bigint, amount: number) => void
+    callback: (
+      ctx: ReducerEventContext,
+      claimEntityId: bigint,
+      amount: number
+    ) => void
   ) {
     this.connection.offReducer('cheat_claim_totem_add_supplies', callback)
   }
@@ -9765,7 +11206,10 @@ export class RemoteReducers {
   cheatClaimTotemCompleteCurrentResearch(claimEntityId: bigint) {
     const __args = { claimEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatClaimTotemCompleteCurrentResearch.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_claim_totem_complete_current_research',
@@ -9774,18 +11218,31 @@ export class RemoteReducers {
     )
   }
 
-  onCheatClaimTotemCompleteCurrentResearch(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
-    this.connection.onReducer('cheat_claim_totem_complete_current_research', callback)
+  onCheatClaimTotemCompleteCurrentResearch(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
+    this.connection.onReducer(
+      'cheat_claim_totem_complete_current_research',
+      callback
+    )
   }
 
-  removeOnCheatClaimTotemCompleteCurrentResearch(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
-    this.connection.offReducer('cheat_claim_totem_complete_current_research', callback)
+  removeOnCheatClaimTotemCompleteCurrentResearch(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
+    this.connection.offReducer(
+      'cheat_claim_totem_complete_current_research',
+      callback
+    )
   }
 
   cheatClaimTotemResearchAll(claimEntityId: bigint) {
     const __args = { claimEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatClaimTotemResearchAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatClaimTotemResearchAll.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_claim_totem_research_all',
@@ -9794,18 +11251,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatClaimTotemResearchAll(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+  onCheatClaimTotemResearchAll(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_claim_totem_research_all', callback)
   }
 
-  removeOnCheatClaimTotemResearchAll(callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void) {
+  removeOnCheatClaimTotemResearchAll(
+    callback: (ctx: ReducerEventContext, claimEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_claim_totem_research_all', callback)
   }
 
   cheatClearBuffsAndDebuffs(playerEntityId: bigint) {
     const __args = { playerEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatClearBuffsAndDebuffs.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatClearBuffsAndDebuffs.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_clear_buffs_and_debuffs',
@@ -9814,18 +11278,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatClearBuffsAndDebuffs(callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void) {
+  onCheatClearBuffsAndDebuffs(
+    callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_clear_buffs_and_debuffs', callback)
   }
 
-  removeOnCheatClearBuffsAndDebuffs(callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void) {
+  removeOnCheatClearBuffsAndDebuffs(
+    callback: (ctx: ReducerEventContext, playerEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_clear_buffs_and_debuffs', callback)
   }
 
   cheatCompendiumPlaceEnemy(request: CheatCompendiumEnemyPlaceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatCompendiumPlaceEnemy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatCompendiumPlaceEnemy.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_compendium_place_enemy',
@@ -9834,12 +11305,20 @@ export class RemoteReducers {
     )
   }
 
-  onCheatCompendiumPlaceEnemy(callback: (ctx: ReducerEventContext, request: CheatCompendiumEnemyPlaceRequest) => void) {
+  onCheatCompendiumPlaceEnemy(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCompendiumEnemyPlaceRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_compendium_place_enemy', callback)
   }
 
   removeOnCheatCompendiumPlaceEnemy(
-    callback: (ctx: ReducerEventContext, request: CheatCompendiumEnemyPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCompendiumEnemyPlaceRequest
+    ) => void
   ) {
     this.connection.offReducer('cheat_compendium_place_enemy', callback)
   }
@@ -9847,7 +11326,10 @@ export class RemoteReducers {
   cheatCompendiumPlaceResource(request: CheatCompendiumItemPlaceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_compendium_place_resource',
@@ -9857,13 +11339,19 @@ export class RemoteReducers {
   }
 
   onCheatCompendiumPlaceResource(
-    callback: (ctx: ReducerEventContext, request: CheatCompendiumItemPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCompendiumItemPlaceRequest
+    ) => void
   ) {
     this.connection.onReducer('cheat_compendium_place_resource', callback)
   }
 
   removeOnCheatCompendiumPlaceResource(
-    callback: (ctx: ReducerEventContext, request: CheatCompendiumItemPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatCompendiumItemPlaceRequest
+    ) => void
   ) {
     this.connection.offReducer('cheat_compendium_place_resource', callback)
   }
@@ -9873,15 +11361,29 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatDeleteItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_delete_item', __argsBuffer, this.setCallReducerFlags.cheatDeleteItemFlags)
+    this.connection.callReducer(
+      'cheat_delete_item',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatDeleteItemFlags
+    )
   }
 
-  onCheatDeleteItem(callback: (ctx: ReducerEventContext, inventoryEntityId: bigint, pocketIndex: number) => void) {
+  onCheatDeleteItem(
+    callback: (
+      ctx: ReducerEventContext,
+      inventoryEntityId: bigint,
+      pocketIndex: number
+    ) => void
+  ) {
     this.connection.onReducer('cheat_delete_item', callback)
   }
 
   removeOnCheatDeleteItem(
-    callback: (ctx: ReducerEventContext, inventoryEntityId: bigint, pocketIndex: number) => void
+    callback: (
+      ctx: ReducerEventContext,
+      inventoryEntityId: bigint,
+      pocketIndex: number
+    ) => void
   ) {
     this.connection.offReducer('cheat_delete_item', callback)
   }
@@ -9889,7 +11391,10 @@ export class RemoteReducers {
   cheatDeployableStore(deployableEntityId: bigint) {
     const __args = { deployableEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatDeployableStore.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatDeployableStore.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_deployable_store',
@@ -9898,11 +11403,15 @@ export class RemoteReducers {
     )
   }
 
-  onCheatDeployableStore(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+  onCheatDeployableStore(
+    callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_deployable_store', callback)
   }
 
-  removeOnCheatDeployableStore(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+  removeOnCheatDeployableStore(
+    callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_deployable_store', callback)
   }
 
@@ -9911,21 +11420,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatDiscoverMap.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_discover_map', __argsBuffer, this.setCallReducerFlags.cheatDiscoverMapFlags)
+    this.connection.callReducer(
+      'cheat_discover_map',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatDiscoverMapFlags
+    )
   }
 
-  onCheatDiscoverMap(callback: (ctx: ReducerEventContext, request: CheatDiscoverMapRequest) => void) {
+  onCheatDiscoverMap(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatDiscoverMapRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_discover_map', callback)
   }
 
-  removeOnCheatDiscoverMap(callback: (ctx: ReducerEventContext, request: CheatDiscoverMapRequest) => void) {
+  removeOnCheatDiscoverMap(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatDiscoverMapRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_discover_map', callback)
   }
 
   cheatExperienceGrant(request: CheatExperienceGrantRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatExperienceGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatExperienceGrant.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_experience_grant',
@@ -9934,11 +11460,21 @@ export class RemoteReducers {
     )
   }
 
-  onCheatExperienceGrant(callback: (ctx: ReducerEventContext, request: CheatExperienceGrantRequest) => void) {
+  onCheatExperienceGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatExperienceGrantRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_experience_grant', callback)
   }
 
-  removeOnCheatExperienceGrant(callback: (ctx: ReducerEventContext, request: CheatExperienceGrantRequest) => void) {
+  removeOnCheatExperienceGrant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatExperienceGrantRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_experience_grant', callback)
   }
 
@@ -9954,18 +11490,31 @@ export class RemoteReducers {
     )
   }
 
-  onCheatGrantKnowledge(callback: (ctx: ReducerEventContext, request: CheatGrantKnowledgeRequest) => void) {
+  onCheatGrantKnowledge(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatGrantKnowledgeRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_grant_knowledge', callback)
   }
 
-  removeOnCheatGrantKnowledge(callback: (ctx: ReducerEventContext, request: CheatGrantKnowledgeRequest) => void) {
+  removeOnCheatGrantKnowledge(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatGrantKnowledgeRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_grant_knowledge', callback)
   }
 
   cheatGrantTeleportEnergy(playerEntityId: bigint, amount: number) {
     const __args = { playerEntityId, amount }
     let __writer = new BinaryWriter(1024)
-    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_grant_teleport_energy',
@@ -9974,17 +11523,32 @@ export class RemoteReducers {
     )
   }
 
-  onCheatGrantTeleportEnergy(callback: (ctx: ReducerEventContext, playerEntityId: bigint, amount: number) => void) {
+  onCheatGrantTeleportEnergy(
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      amount: number
+    ) => void
+  ) {
     this.connection.onReducer('cheat_grant_teleport_energy', callback)
   }
 
   removeOnCheatGrantTeleportEnergy(
-    callback: (ctx: ReducerEventContext, playerEntityId: bigint, amount: number) => void
+    callback: (
+      ctx: ReducerEventContext,
+      playerEntityId: bigint,
+      amount: number
+    ) => void
   ) {
     this.connection.offReducer('cheat_grant_teleport_energy', callback)
   }
 
-  cheatItemStackGrant(playerEntityId: bigint, itemId: number, quantity: number, isCargo: boolean) {
+  cheatItemStackGrant(
+    playerEntityId: bigint,
+    itemId: number,
+    quantity: number,
+    isCargo: boolean
+  ) {
     const __args = { playerEntityId, itemId, quantity, isCargo }
     let __writer = new BinaryWriter(1024)
     CheatItemStackGrant.getTypeScriptAlgebraicType().serialize(__writer, __args)
@@ -10020,10 +11584,18 @@ export class RemoteReducers {
     this.connection.offReducer('cheat_item_stack_grant', callback)
   }
 
-  cheatItemStackGrantAndEquip(playerEntityId: bigint, itemId: number, quantity: number, isCargo: boolean) {
+  cheatItemStackGrantAndEquip(
+    playerEntityId: bigint,
+    itemId: number,
+    quantity: number,
+    isCargo: boolean
+  ) {
     const __args = { playerEntityId, itemId, quantity, isCargo }
     let __writer = new BinaryWriter(1024)
-    CheatItemStackGrantAndEquip.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatItemStackGrantAndEquip.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_item_stack_grant_and_equip',
@@ -10061,14 +11633,20 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatKill.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_kill', __argsBuffer, this.setCallReducerFlags.cheatKillFlags)
+    this.connection.callReducer(
+      'cheat_kill',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatKillFlags
+    )
   }
 
   onCheatKill(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
     this.connection.onReducer('cheat_kill', callback)
   }
 
-  removeOnCheatKill(callback: (ctx: ReducerEventContext, entityId: bigint) => void) {
+  removeOnCheatKill(
+    callback: (ctx: ReducerEventContext, entityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_kill', callback)
   }
 
@@ -10077,14 +11655,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatPavingAddTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_paving_add_tile', __argsBuffer, this.setCallReducerFlags.cheatPavingAddTileFlags)
+    this.connection.callReducer(
+      'cheat_paving_add_tile',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatPavingAddTileFlags
+    )
   }
 
-  onCheatPavingAddTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  onCheatPavingAddTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_paving_add_tile', callback)
   }
 
-  removeOnCheatPavingAddTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  removeOnCheatPavingAddTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_paving_add_tile', callback)
   }
 
@@ -10093,21 +11685,42 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatPavingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_paving_destroy', __argsBuffer, this.setCallReducerFlags.cheatPavingDestroyFlags)
+    this.connection.callReducer(
+      'cheat_paving_destroy',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatPavingDestroyFlags
+    )
   }
 
-  onCheatPavingDestroy(callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number) => void) {
+  onCheatPavingDestroy(
+    callback: (
+      ctx: ReducerEventContext,
+      x: number,
+      z: number,
+      dimension: number
+    ) => void
+  ) {
     this.connection.onReducer('cheat_paving_destroy', callback)
   }
 
-  removeOnCheatPavingDestroy(callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number) => void) {
+  removeOnCheatPavingDestroy(
+    callback: (
+      ctx: ReducerEventContext,
+      x: number,
+      z: number,
+      dimension: number
+    ) => void
+  ) {
     this.connection.offReducer('cheat_paving_destroy', callback)
   }
 
   cheatPillarShapingAddPillar(request: PlayerPillarShapingPlaceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_pillar_shaping_add_pillar',
@@ -10117,13 +11730,19 @@ export class RemoteReducers {
   }
 
   onCheatPillarShapingAddPillar(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
   ) {
     this.connection.onReducer('cheat_pillar_shaping_add_pillar', callback)
   }
 
   removeOnCheatPillarShapingAddPillar(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
   ) {
     this.connection.offReducer('cheat_pillar_shaping_add_pillar', callback)
   }
@@ -10131,7 +11750,10 @@ export class RemoteReducers {
   cheatPillarShapingDestroy(request: PlayerPillarShapingDestroyRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatPillarShapingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatPillarShapingDestroy.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_pillar_shaping_destroy',
@@ -10141,13 +11763,19 @@ export class RemoteReducers {
   }
 
   onCheatPillarShapingDestroy(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
   ) {
     this.connection.onReducer('cheat_pillar_shaping_destroy', callback)
   }
 
   removeOnCheatPillarShapingDestroy(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
   ) {
     this.connection.offReducer('cheat_pillar_shaping_destroy', callback)
   }
@@ -10155,7 +11783,10 @@ export class RemoteReducers {
   cheatProjectSiteAddAllMaterials(projectSiteEntityId: bigint) {
     const __args = { projectSiteEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_project_site_add_all_materials',
@@ -10164,18 +11795,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatProjectSiteAddAllMaterials(callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void) {
+  onCheatProjectSiteAddAllMaterials(
+    callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_project_site_add_all_materials', callback)
   }
 
-  removeOnCheatProjectSiteAddAllMaterials(callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void) {
+  removeOnCheatProjectSiteAddAllMaterials(
+    callback: (ctx: ReducerEventContext, projectSiteEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_project_site_add_all_materials', callback)
   }
 
   cheatRemoveEntityBuilding(buildingEntityId: bigint) {
     const __args = { buildingEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatRemoveEntityBuilding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatRemoveEntityBuilding.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_remove_entity_building',
@@ -10184,18 +11822,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatRemoveEntityBuilding(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  onCheatRemoveEntityBuilding(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_remove_entity_building', callback)
   }
 
-  removeOnCheatRemoveEntityBuilding(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  removeOnCheatRemoveEntityBuilding(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_remove_entity_building', callback)
   }
 
   cheatRemoveEntityEnemy(enemyEntityId: bigint) {
     const __args = { enemyEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatRemoveEntityEnemy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatRemoveEntityEnemy.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_remove_entity_enemy',
@@ -10204,18 +11849,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatRemoveEntityEnemy(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+  onCheatRemoveEntityEnemy(
+    callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_remove_entity_enemy', callback)
   }
 
-  removeOnCheatRemoveEntityEnemy(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+  removeOnCheatRemoveEntityEnemy(
+    callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_remove_entity_enemy', callback)
   }
 
   cheatRemoveEntityResource(targetEntityId: bigint) {
     const __args = { targetEntityId }
     let __writer = new BinaryWriter(1024)
-    CheatRemoveEntityResource.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatRemoveEntityResource.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_remove_entity_resource',
@@ -10224,18 +11876,25 @@ export class RemoteReducers {
     )
   }
 
-  onCheatRemoveEntityResource(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+  onCheatRemoveEntityResource(
+    callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void
+  ) {
     this.connection.onReducer('cheat_remove_entity_resource', callback)
   }
 
-  removeOnCheatRemoveEntityResource(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+  removeOnCheatRemoveEntityResource(
+    callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void
+  ) {
     this.connection.offReducer('cheat_remove_entity_resource', callback)
   }
 
   cheatSetAiDebugState(request: CheatSetDebugAiStateRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatSetAiDebugState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_set_ai_debug_state',
@@ -10244,11 +11903,21 @@ export class RemoteReducers {
     )
   }
 
-  onCheatSetAiDebugState(callback: (ctx: ReducerEventContext, request: CheatSetDebugAiStateRequest) => void) {
+  onCheatSetAiDebugState(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatSetDebugAiStateRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_set_ai_debug_state', callback)
   }
 
-  removeOnCheatSetAiDebugState(callback: (ctx: ReducerEventContext, request: CheatSetDebugAiStateRequest) => void) {
+  removeOnCheatSetAiDebugState(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatSetDebugAiStateRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_set_ai_debug_state', callback)
   }
 
@@ -10264,11 +11933,21 @@ export class RemoteReducers {
     )
   }
 
-  onCheatSpawnLootChest(callback: (ctx: ReducerEventContext, request: CheatSpawnLootChestRequest) => void) {
+  onCheatSpawnLootChest(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatSpawnLootChestRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_spawn_loot_chest', callback)
   }
 
-  removeOnCheatSpawnLootChest(callback: (ctx: ReducerEventContext, request: CheatSpawnLootChestRequest) => void) {
+  removeOnCheatSpawnLootChest(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatSpawnLootChestRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_spawn_loot_chest', callback)
   }
 
@@ -10277,14 +11956,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatTeleportFloat.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_teleport_float', __argsBuffer, this.setCallReducerFlags.cheatTeleportFloatFlags)
+    this.connection.callReducer(
+      'cheat_teleport_float',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatTeleportFloatFlags
+    )
   }
 
-  onCheatTeleportFloat(callback: (ctx: ReducerEventContext, request: CheatTeleportFloatRequest) => void) {
+  onCheatTeleportFloat(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatTeleportFloatRequest
+    ) => void
+  ) {
     this.connection.onReducer('cheat_teleport_float', callback)
   }
 
-  removeOnCheatTeleportFloat(callback: (ctx: ReducerEventContext, request: CheatTeleportFloatRequest) => void) {
+  removeOnCheatTeleportFloat(
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatTeleportFloatRequest
+    ) => void
+  ) {
     this.connection.offReducer('cheat_teleport_float', callback)
   }
 
@@ -10293,17 +11986,33 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatTerraform.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_terraform', __argsBuffer, this.setCallReducerFlags.cheatTerraformFlags)
+    this.connection.callReducer(
+      'cheat_terraform',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatTerraformFlags
+    )
   }
 
   onCheatTerraform(
-    callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number, delta: number) => void
+    callback: (
+      ctx: ReducerEventContext,
+      x: number,
+      z: number,
+      dimension: number,
+      delta: number
+    ) => void
   ) {
     this.connection.onReducer('cheat_terraform', callback)
   }
 
   removeOnCheatTerraform(
-    callback: (ctx: ReducerEventContext, x: number, z: number, dimension: number, delta: number) => void
+    callback: (
+      ctx: ReducerEventContext,
+      x: number,
+      z: number,
+      dimension: number,
+      delta: number
+    ) => void
   ) {
     this.connection.offReducer('cheat_terraform', callback)
   }
@@ -10311,7 +12020,10 @@ export class RemoteReducers {
   cheatToggleActiveCollectible(request: CheatToggleActiveCollectibleRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    CheatToggleActiveCollectible.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CheatToggleActiveCollectible.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'cheat_toggle_active_collectible',
@@ -10321,13 +12033,19 @@ export class RemoteReducers {
   }
 
   onCheatToggleActiveCollectible(
-    callback: (ctx: ReducerEventContext, request: CheatToggleActiveCollectibleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatToggleActiveCollectibleRequest
+    ) => void
   ) {
     this.connection.onReducer('cheat_toggle_active_collectible', callback)
   }
 
   removeOnCheatToggleActiveCollectible(
-    callback: (ctx: ReducerEventContext, request: CheatToggleActiveCollectibleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: CheatToggleActiveCollectibleRequest
+    ) => void
   ) {
     this.connection.offReducer('cheat_toggle_active_collectible', callback)
   }
@@ -10337,14 +12055,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CheatWarp.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('cheat_warp', __argsBuffer, this.setCallReducerFlags.cheatWarpFlags)
+    this.connection.callReducer(
+      'cheat_warp',
+      __argsBuffer,
+      this.setCallReducerFlags.cheatWarpFlags
+    )
   }
 
-  onCheatWarp(callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void) {
+  onCheatWarp(
+    callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void
+  ) {
     this.connection.onReducer('cheat_warp', callback)
   }
 
-  removeOnCheatWarp(callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void) {
+  removeOnCheatWarp(
+    callback: (ctx: ReducerEventContext, request: CheatWarpRequest) => void
+  ) {
     this.connection.offReducer('cheat_warp', callback)
   }
 
@@ -10353,14 +12079,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimAddMember.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_add_member', __argsBuffer, this.setCallReducerFlags.claimAddMemberFlags)
+    this.connection.callReducer(
+      'claim_add_member',
+      __argsBuffer,
+      this.setCallReducerFlags.claimAddMemberFlags
+    )
   }
 
-  onClaimAddMember(callback: (ctx: ReducerEventContext, request: PlayerClaimAddMemberRequest) => void) {
+  onClaimAddMember(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddMemberRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_add_member', callback)
   }
 
-  removeOnClaimAddMember(callback: (ctx: ReducerEventContext, request: PlayerClaimAddMemberRequest) => void) {
+  removeOnClaimAddMember(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddMemberRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_add_member', callback)
   }
 
@@ -10376,11 +12116,21 @@ export class RemoteReducers {
     )
   }
 
-  onClaimAddRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimAddRecruitmentRequest) => void) {
+  onClaimAddRecruitment(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddRecruitmentRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_add_recruitment', callback)
   }
 
-  removeOnClaimAddRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimAddRecruitmentRequest) => void) {
+  removeOnClaimAddRecruitment(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddRecruitmentRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_add_recruitment', callback)
   }
 
@@ -10389,21 +12139,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimAddTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_add_tile', __argsBuffer, this.setCallReducerFlags.claimAddTileFlags)
+    this.connection.callReducer(
+      'claim_add_tile',
+      __argsBuffer,
+      this.setCallReducerFlags.claimAddTileFlags
+    )
   }
 
-  onClaimAddTile(callback: (ctx: ReducerEventContext, request: PlayerClaimAddTileRequest) => void) {
+  onClaimAddTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_add_tile', callback)
   }
 
-  removeOnClaimAddTile(callback: (ctx: ReducerEventContext, request: PlayerClaimAddTileRequest) => void) {
+  removeOnClaimAddTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimAddTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_add_tile', callback)
   }
 
   claimApplyForRecruitment(request: PlayerClaimApplyForRecruitmentRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimApplyForRecruitment.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimApplyForRecruitment.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_apply_for_recruitment',
@@ -10413,13 +12180,19 @@ export class RemoteReducers {
   }
 
   onClaimApplyForRecruitment(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimApplyForRecruitmentRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimApplyForRecruitmentRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_apply_for_recruitment', callback)
   }
 
   removeOnClaimApplyForRecruitment(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimApplyForRecruitmentRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimApplyForRecruitmentRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_apply_for_recruitment', callback)
   }
@@ -10429,21 +12202,40 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimLeave.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_leave', __argsBuffer, this.setCallReducerFlags.claimLeaveFlags)
+    this.connection.callReducer(
+      'claim_leave',
+      __argsBuffer,
+      this.setCallReducerFlags.claimLeaveFlags
+    )
   }
 
-  onClaimLeave(callback: (ctx: ReducerEventContext, request: PlayerClaimLeaveRequest) => void) {
+  onClaimLeave(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimLeaveRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_leave', callback)
   }
 
-  removeOnClaimLeave(callback: (ctx: ReducerEventContext, request: PlayerClaimLeaveRequest) => void) {
+  removeOnClaimLeave(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimLeaveRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_leave', callback)
   }
 
-  claimPurchaseSuppliesFromPlayer(request: ClaimPurchaseSuppliesFromPlayerRequest) {
+  claimPurchaseSuppliesFromPlayer(
+    request: ClaimPurchaseSuppliesFromPlayerRequest
+  ) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimPurchaseSuppliesFromPlayer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_purchase_supplies_from_player',
@@ -10453,13 +12245,19 @@ export class RemoteReducers {
   }
 
   onClaimPurchaseSuppliesFromPlayer(
-    callback: (ctx: ReducerEventContext, request: ClaimPurchaseSuppliesFromPlayerRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimPurchaseSuppliesFromPlayerRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_purchase_supplies_from_player', callback)
   }
 
   removeOnClaimPurchaseSuppliesFromPlayer(
-    callback: (ctx: ReducerEventContext, request: ClaimPurchaseSuppliesFromPlayerRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimPurchaseSuppliesFromPlayerRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_purchase_supplies_from_player', callback)
   }
@@ -10469,21 +12267,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimRemoveMember.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_remove_member', __argsBuffer, this.setCallReducerFlags.claimRemoveMemberFlags)
+    this.connection.callReducer(
+      'claim_remove_member',
+      __argsBuffer,
+      this.setCallReducerFlags.claimRemoveMemberFlags
+    )
   }
 
-  onClaimRemoveMember(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveMemberRequest) => void) {
+  onClaimRemoveMember(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveMemberRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_remove_member', callback)
   }
 
-  removeOnClaimRemoveMember(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveMemberRequest) => void) {
+  removeOnClaimRemoveMember(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveMemberRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_remove_member', callback)
   }
 
   claimRemoveRecruitment(request: PlayerClaimRemoveRecruitmentRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimRemoveRecruitment.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimRemoveRecruitment.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_remove_recruitment',
@@ -10492,12 +12307,20 @@ export class RemoteReducers {
     )
   }
 
-  onClaimRemoveRecruitment(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveRecruitmentRequest) => void) {
+  onClaimRemoveRecruitment(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveRecruitmentRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_remove_recruitment', callback)
   }
 
   removeOnClaimRemoveRecruitment(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveRecruitmentRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveRecruitmentRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_remove_recruitment', callback)
   }
@@ -10507,14 +12330,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimRemoveTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_remove_tile', __argsBuffer, this.setCallReducerFlags.claimRemoveTileFlags)
+    this.connection.callReducer(
+      'claim_remove_tile',
+      __argsBuffer,
+      this.setCallReducerFlags.claimRemoveTileFlags
+    )
   }
 
-  onClaimRemoveTile(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveTileRequest) => void) {
+  onClaimRemoveTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_remove_tile', callback)
   }
 
-  removeOnClaimRemoveTile(callback: (ctx: ReducerEventContext, request: PlayerClaimRemoveTileRequest) => void) {
+  removeOnClaimRemoveTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRemoveTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_remove_tile', callback)
   }
 
@@ -10523,14 +12360,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimRename.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_rename', __argsBuffer, this.setCallReducerFlags.claimRenameFlags)
+    this.connection.callReducer(
+      'claim_rename',
+      __argsBuffer,
+      this.setCallReducerFlags.claimRenameFlags
+    )
   }
 
-  onClaimRename(callback: (ctx: ReducerEventContext, request: PlayerClaimRenameRequest) => void) {
+  onClaimRename(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRenameRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_rename', callback)
   }
 
-  removeOnClaimRename(callback: (ctx: ReducerEventContext, request: PlayerClaimRenameRequest) => void) {
+  removeOnClaimRename(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimRenameRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_rename', callback)
   }
 
@@ -10539,14 +12390,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimResupply.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_resupply', __argsBuffer, this.setCallReducerFlags.claimResupplyFlags)
+    this.connection.callReducer(
+      'claim_resupply',
+      __argsBuffer,
+      this.setCallReducerFlags.claimResupplyFlags
+    )
   }
 
-  onClaimResupply(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+  onClaimResupply(
+    callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void
+  ) {
     this.connection.onReducer('claim_resupply', callback)
   }
 
-  removeOnClaimResupply(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+  removeOnClaimResupply(
+    callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void
+  ) {
     this.connection.offReducer('claim_resupply', callback)
   }
 
@@ -10555,21 +12414,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimResupplyStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_resupply_start', __argsBuffer, this.setCallReducerFlags.claimResupplyStartFlags)
+    this.connection.callReducer(
+      'claim_resupply_start',
+      __argsBuffer,
+      this.setCallReducerFlags.claimResupplyStartFlags
+    )
   }
 
-  onClaimResupplyStart(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+  onClaimResupplyStart(
+    callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void
+  ) {
     this.connection.onReducer('claim_resupply_start', callback)
   }
 
-  removeOnClaimResupplyStart(callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void) {
+  removeOnClaimResupplyStart(
+    callback: (ctx: ReducerEventContext, request: ClaimResupplyRequest) => void
+  ) {
     this.connection.offReducer('claim_resupply_start', callback)
   }
 
   claimSetMemberPermissions(request: PlayerClaimSetMemberPermissionsRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimSetMemberPermissions.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimSetMemberPermissions.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_set_member_permissions',
@@ -10579,13 +12449,19 @@ export class RemoteReducers {
   }
 
   onClaimSetMemberPermissions(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimSetMemberPermissionsRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimSetMemberPermissionsRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_set_member_permissions', callback)
   }
 
   removeOnClaimSetMemberPermissions(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimSetMemberPermissionsRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimSetMemberPermissionsRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_set_member_permissions', callback)
   }
@@ -10593,7 +12469,10 @@ export class RemoteReducers {
   claimSetPurchaseSupplyPrice(request: ClaimSetPurchaseSupplyPriceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_set_purchase_supply_price',
@@ -10603,21 +12482,32 @@ export class RemoteReducers {
   }
 
   onClaimSetPurchaseSupplyPrice(
-    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyPriceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimSetPurchaseSupplyPriceRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_set_purchase_supply_price', callback)
   }
 
   removeOnClaimSetPurchaseSupplyPrice(
-    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyPriceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimSetPurchaseSupplyPriceRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_set_purchase_supply_price', callback)
   }
 
-  claimSetPurchaseSupplyThreshold(request: ClaimSetPurchaseSupplyThresholdRequest) {
+  claimSetPurchaseSupplyThreshold(
+    request: ClaimSetPurchaseSupplyThresholdRequest
+  ) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_set_purchase_supply_threshold',
@@ -10627,13 +12517,19 @@ export class RemoteReducers {
   }
 
   onClaimSetPurchaseSupplyThreshold(
-    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyThresholdRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimSetPurchaseSupplyThresholdRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_set_purchase_supply_threshold', callback)
   }
 
   removeOnClaimSetPurchaseSupplyThreshold(
-    callback: (ctx: ReducerEventContext, request: ClaimSetPurchaseSupplyThresholdRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: ClaimSetPurchaseSupplyThresholdRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_set_purchase_supply_threshold', callback)
   }
@@ -10643,14 +12539,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimTakeOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_take_ownership', __argsBuffer, this.setCallReducerFlags.claimTakeOwnershipFlags)
+    this.connection.callReducer(
+      'claim_take_ownership',
+      __argsBuffer,
+      this.setCallReducerFlags.claimTakeOwnershipFlags
+    )
   }
 
-  onClaimTakeOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTakeOwnershipRequest) => void) {
+  onClaimTakeOwnership(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTakeOwnershipRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_take_ownership', callback)
   }
 
-  removeOnClaimTakeOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTakeOwnershipRequest) => void) {
+  removeOnClaimTakeOwnership(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTakeOwnershipRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_take_ownership', callback)
   }
 
@@ -10659,14 +12569,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimTechCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_tech_cancel', __argsBuffer, this.setCallReducerFlags.claimTechCancelFlags)
+    this.connection.callReducer(
+      'claim_tech_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.claimTechCancelFlags
+    )
   }
 
-  onClaimTechCancel(callback: (ctx: ReducerEventContext, request: PlayerClaimTechCancelRequest) => void) {
+  onClaimTechCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTechCancelRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_tech_cancel', callback)
   }
 
-  removeOnClaimTechCancel(callback: (ctx: ReducerEventContext, request: PlayerClaimTechCancelRequest) => void) {
+  removeOnClaimTechCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTechCancelRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_tech_cancel', callback)
   }
 
@@ -10675,14 +12599,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ClaimTechLearn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('claim_tech_learn', __argsBuffer, this.setCallReducerFlags.claimTechLearnFlags)
+    this.connection.callReducer(
+      'claim_tech_learn',
+      __argsBuffer,
+      this.setCallReducerFlags.claimTechLearnFlags
+    )
   }
 
-  onClaimTechLearn(callback: (ctx: ReducerEventContext, request: PlayerClaimTechLearnRequest) => void) {
+  onClaimTechLearn(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTechLearnRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_tech_learn', callback)
   }
 
-  removeOnClaimTechLearn(callback: (ctx: ReducerEventContext, request: PlayerClaimTechLearnRequest) => void) {
+  removeOnClaimTechLearn(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTechLearnRequest
+    ) => void
+  ) {
     this.connection.offReducer('claim_tech_learn', callback)
   }
 
@@ -10698,18 +12636,25 @@ export class RemoteReducers {
     )
   }
 
-  onClaimTechUnlockTech(callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void) {
+  onClaimTechUnlockTech(
+    callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void
+  ) {
     this.connection.onReducer('claim_tech_unlock_tech', callback)
   }
 
-  removeOnClaimTechUnlockTech(callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void) {
+  removeOnClaimTechUnlockTech(
+    callback: (ctx: ReducerEventContext, timer: ClaimTechUnlockTimer) => void
+  ) {
     this.connection.offReducer('claim_tech_unlock_tech', callback)
   }
 
   claimTransferOwnership(request: PlayerClaimTransferOwnershipRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimTransferOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimTransferOwnership.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_transfer_ownership',
@@ -10718,12 +12663,20 @@ export class RemoteReducers {
     )
   }
 
-  onClaimTransferOwnership(callback: (ctx: ReducerEventContext, request: PlayerClaimTransferOwnershipRequest) => void) {
+  onClaimTransferOwnership(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTransferOwnershipRequest
+    ) => void
+  ) {
     this.connection.onReducer('claim_transfer_ownership', callback)
   }
 
   removeOnClaimTransferOwnership(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimTransferOwnershipRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimTransferOwnershipRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_transfer_ownership', callback)
   }
@@ -10731,7 +12684,10 @@ export class RemoteReducers {
   claimWithdrawFromTreasury(request: PlayerClaimWithdrawFromTreasuryRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClaimWithdrawFromTreasury.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClaimWithdrawFromTreasury.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'claim_withdraw_from_treasury',
@@ -10741,13 +12697,19 @@ export class RemoteReducers {
   }
 
   onClaimWithdrawFromTreasury(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimWithdrawFromTreasuryRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimWithdrawFromTreasuryRequest
+    ) => void
   ) {
     this.connection.onReducer('claim_withdraw_from_treasury', callback)
   }
 
   removeOnClaimWithdrawFromTreasury(
-    callback: (ctx: ReducerEventContext, request: PlayerClaimWithdrawFromTreasuryRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClaimWithdrawFromTreasuryRequest
+    ) => void
   ) {
     this.connection.offReducer('claim_withdraw_from_treasury', callback)
   }
@@ -10771,7 +12733,10 @@ export class RemoteReducers {
   closedListingCollect(request: PlayerClosedListingCollectRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ClosedListingCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ClosedListingCollect.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'closed_listing_collect',
@@ -10780,12 +12745,20 @@ export class RemoteReducers {
     )
   }
 
-  onClosedListingCollect(callback: (ctx: ReducerEventContext, request: PlayerClosedListingCollectRequest) => void) {
+  onClosedListingCollect(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClosedListingCollectRequest
+    ) => void
+  ) {
     this.connection.onReducer('closed_listing_collect', callback)
   }
 
   removeOnClosedListingCollect(
-    callback: (ctx: ReducerEventContext, request: PlayerClosedListingCollectRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerClosedListingCollectRequest
+    ) => void
   ) {
     this.connection.offReducer('closed_listing_collect', callback)
   }
@@ -10802,11 +12775,15 @@ export class RemoteReducers {
     )
   }
 
-  onCollectStatsReducer(callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void) {
+  onCollectStatsReducer(
+    callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void
+  ) {
     this.connection.onReducer('collect_stats_reducer', callback)
   }
 
-  removeOnCollectStatsReducer(callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void) {
+  removeOnCollectStatsReducer(
+    callback: (ctx: ReducerEventContext, timer: CollectStatsTimer) => void
+  ) {
     this.connection.offReducer('collect_stats_reducer', callback)
   }
 
@@ -10815,14 +12792,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CollectibleActivate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('collectible_activate', __argsBuffer, this.setCallReducerFlags.collectibleActivateFlags)
+    this.connection.callReducer(
+      'collectible_activate',
+      __argsBuffer,
+      this.setCallReducerFlags.collectibleActivateFlags
+    )
   }
 
-  onCollectibleActivate(callback: (ctx: ReducerEventContext, request: PlayerCollectibleActivateRequest) => void) {
+  onCollectibleActivate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCollectibleActivateRequest
+    ) => void
+  ) {
     this.connection.onReducer('collectible_activate', callback)
   }
 
-  removeOnCollectibleActivate(callback: (ctx: ReducerEventContext, request: PlayerCollectibleActivateRequest) => void) {
+  removeOnCollectibleActivate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCollectibleActivateRequest
+    ) => void
+  ) {
     this.connection.offReducer('collectible_activate', callback)
   }
 
@@ -10845,7 +12836,10 @@ export class RemoteReducers {
   completeOnboardingQuest(id: number) {
     const __args = { id }
     let __writer = new BinaryWriter(1024)
-    CompleteOnboardingQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CompleteOnboardingQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'complete_onboarding_quest',
@@ -10854,18 +12848,25 @@ export class RemoteReducers {
     )
   }
 
-  onCompleteOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+  onCompleteOnboardingQuest(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.onReducer('complete_onboarding_quest', callback)
   }
 
-  removeOnCompleteOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+  removeOnCompleteOnboardingQuest(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.offReducer('complete_onboarding_quest', callback)
   }
 
   completeOnboardingState(id: number) {
     const __args = { id }
     let __writer = new BinaryWriter(1024)
-    CompleteOnboardingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    CompleteOnboardingState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'complete_onboarding_state',
@@ -10874,18 +12875,25 @@ export class RemoteReducers {
     )
   }
 
-  onCompleteOnboardingState(callback: (ctx: ReducerEventContext, id: number) => void) {
+  onCompleteOnboardingState(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.onReducer('complete_onboarding_state', callback)
   }
 
-  removeOnCompleteOnboardingState(callback: (ctx: ReducerEventContext, id: number) => void) {
+  removeOnCompleteOnboardingState(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.offReducer('complete_onboarding_state', callback)
   }
 
   convertCollectibleToDeed(request: PlayerConvertCollectibleToDeedRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'convert_collectible_to_deed',
@@ -10895,13 +12903,19 @@ export class RemoteReducers {
   }
 
   onConvertCollectibleToDeed(
-    callback: (ctx: ReducerEventContext, request: PlayerConvertCollectibleToDeedRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerConvertCollectibleToDeedRequest
+    ) => void
   ) {
     this.connection.onReducer('convert_collectible_to_deed', callback)
   }
 
   removeOnConvertCollectibleToDeed(
-    callback: (ctx: ReducerEventContext, request: PlayerConvertCollectibleToDeedRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerConvertCollectibleToDeedRequest
+    ) => void
   ) {
     this.connection.offReducer('convert_collectible_to_deed', callback)
   }
@@ -10909,7 +12923,10 @@ export class RemoteReducers {
   convertDeedToCollectible(request: PlayerConvertDeedToCollectibleRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ConvertDeedToCollectible.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ConvertDeedToCollectible.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'convert_deed_to_collectible',
@@ -10919,13 +12936,19 @@ export class RemoteReducers {
   }
 
   onConvertDeedToCollectible(
-    callback: (ctx: ReducerEventContext, request: PlayerConvertDeedToCollectibleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerConvertDeedToCollectibleRequest
+    ) => void
   ) {
     this.connection.onReducer('convert_deed_to_collectible', callback)
   }
 
   removeOnConvertDeedToCollectible(
-    callback: (ctx: ReducerEventContext, request: PlayerConvertDeedToCollectibleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerConvertDeedToCollectibleRequest
+    ) => void
   ) {
     this.connection.offReducer('convert_deed_to_collectible', callback)
   }
@@ -10935,14 +12958,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_cancel', __argsBuffer, this.setCallReducerFlags.craftCancelFlags)
+    this.connection.callReducer(
+      'craft_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.craftCancelFlags
+    )
   }
 
-  onCraftCancel(callback: (ctx: ReducerEventContext, request: PlayerCraftCancelRequest) => void) {
+  onCraftCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCancelRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_cancel', callback)
   }
 
-  removeOnCraftCancel(callback: (ctx: ReducerEventContext, request: PlayerCraftCancelRequest) => void) {
+  removeOnCraftCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCancelRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_cancel', callback)
   }
 
@@ -10951,14 +12988,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_collect', __argsBuffer, this.setCallReducerFlags.craftCollectFlags)
+    this.connection.callReducer(
+      'craft_collect',
+      __argsBuffer,
+      this.setCallReducerFlags.craftCollectFlags
+    )
   }
 
-  onCraftCollect(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectRequest) => void) {
+  onCraftCollect(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCollectRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_collect', callback)
   }
 
-  removeOnCraftCollect(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectRequest) => void) {
+  removeOnCraftCollect(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCollectRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_collect', callback)
   }
 
@@ -10967,14 +13018,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftCollectAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_collect_all', __argsBuffer, this.setCallReducerFlags.craftCollectAllFlags)
+    this.connection.callReducer(
+      'craft_collect_all',
+      __argsBuffer,
+      this.setCallReducerFlags.craftCollectAllFlags
+    )
   }
 
-  onCraftCollectAll(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectAllRequest) => void) {
+  onCraftCollectAll(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCollectAllRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_collect_all', callback)
   }
 
-  removeOnCraftCollectAll(callback: (ctx: ReducerEventContext, request: PlayerCraftCollectAllRequest) => void) {
+  removeOnCraftCollectAll(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftCollectAllRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_collect_all', callback)
   }
 
@@ -10983,14 +13048,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftContinue.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_continue', __argsBuffer, this.setCallReducerFlags.craftContinueFlags)
+    this.connection.callReducer(
+      'craft_continue',
+      __argsBuffer,
+      this.setCallReducerFlags.craftContinueFlags
+    )
   }
 
-  onCraftContinue(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+  onCraftContinue(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftContinueRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_continue', callback)
   }
 
-  removeOnCraftContinue(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+  removeOnCraftContinue(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftContinueRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_continue', callback)
   }
 
@@ -10999,14 +13078,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftContinueStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_continue_start', __argsBuffer, this.setCallReducerFlags.craftContinueStartFlags)
+    this.connection.callReducer(
+      'craft_continue_start',
+      __argsBuffer,
+      this.setCallReducerFlags.craftContinueStartFlags
+    )
   }
 
-  onCraftContinueStart(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+  onCraftContinueStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftContinueRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_continue_start', callback)
   }
 
-  removeOnCraftContinueStart(callback: (ctx: ReducerEventContext, request: PlayerCraftContinueRequest) => void) {
+  removeOnCraftContinueStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftContinueRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_continue_start', callback)
   }
 
@@ -11015,14 +13108,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftInitiate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_initiate', __argsBuffer, this.setCallReducerFlags.craftInitiateFlags)
+    this.connection.callReducer(
+      'craft_initiate',
+      __argsBuffer,
+      this.setCallReducerFlags.craftInitiateFlags
+    )
   }
 
-  onCraftInitiate(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+  onCraftInitiate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftInitiateRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_initiate', callback)
   }
 
-  removeOnCraftInitiate(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+  removeOnCraftInitiate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftInitiateRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_initiate', callback)
   }
 
@@ -11031,19 +13138,37 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     CraftInitiateStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('craft_initiate_start', __argsBuffer, this.setCallReducerFlags.craftInitiateStartFlags)
+    this.connection.callReducer(
+      'craft_initiate_start',
+      __argsBuffer,
+      this.setCallReducerFlags.craftInitiateStartFlags
+    )
   }
 
-  onCraftInitiateStart(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+  onCraftInitiateStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftInitiateRequest
+    ) => void
+  ) {
     this.connection.onReducer('craft_initiate_start', callback)
   }
 
-  removeOnCraftInitiateStart(callback: (ctx: ReducerEventContext, request: PlayerCraftInitiateRequest) => void) {
+  removeOnCraftInitiateStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCraftInitiateRequest
+    ) => void
+  ) {
     this.connection.offReducer('craft_initiate_start', callback)
   }
 
   currentVersion() {
-    this.connection.callReducer('current_version', new Uint8Array(0), this.setCallReducerFlags.currentVersionFlags)
+    this.connection.callReducer(
+      'current_version',
+      new Uint8Array(0),
+      this.setCallReducerFlags.currentVersionFlags
+    )
   }
 
   onCurrentVersion(callback: (ctx: ReducerEventContext) => void) {
@@ -11059,19 +13184,31 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DayNightAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('day_night_agent_loop', __argsBuffer, this.setCallReducerFlags.dayNightAgentLoopFlags)
+    this.connection.callReducer(
+      'day_night_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.dayNightAgentLoopFlags
+    )
   }
 
-  onDayNightAgentLoop(callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void) {
+  onDayNightAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void
+  ) {
     this.connection.onReducer('day_night_agent_loop', callback)
   }
 
-  removeOnDayNightAgentLoop(callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void) {
+  removeOnDayNightAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: DayNightLoopTimer) => void
+  ) {
     this.connection.offReducer('day_night_agent_loop', callback)
   }
 
   deleteAllNpcs() {
-    this.connection.callReducer('delete_all_npcs', new Uint8Array(0), this.setCallReducerFlags.deleteAllNpcsFlags)
+    this.connection.callReducer(
+      'delete_all_npcs',
+      new Uint8Array(0),
+      this.setCallReducerFlags.deleteAllNpcsFlags
+    )
   }
 
   onDeleteAllNpcs(callback: (ctx: ReducerEventContext) => void) {
@@ -11087,21 +13224,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DeployableDeploy.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('deployable_deploy', __argsBuffer, this.setCallReducerFlags.deployableDeployFlags)
+    this.connection.callReducer(
+      'deployable_deploy',
+      __argsBuffer,
+      this.setCallReducerFlags.deployableDeployFlags
+    )
   }
 
-  onDeployableDeploy(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+  onDeployableDeploy(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableDeployRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_deploy', callback)
   }
 
-  removeOnDeployableDeploy(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+  removeOnDeployableDeploy(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableDeployRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_deploy', callback)
   }
 
   deployableDeployStart(request: DeployableDeployRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    DeployableDeployStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableDeployStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'deployable_deploy_start',
@@ -11110,11 +13264,21 @@ export class RemoteReducers {
     )
   }
 
-  onDeployableDeployStart(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+  onDeployableDeployStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableDeployRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_deploy_start', callback)
   }
 
-  removeOnDeployableDeployStart(callback: (ctx: ReducerEventContext, request: DeployableDeployRequest) => void) {
+  removeOnDeployableDeployStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableDeployRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_deploy_start', callback)
   }
 
@@ -11123,21 +13287,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DeployableDismount.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('deployable_dismount', __argsBuffer, this.setCallReducerFlags.deployableDismountFlags)
+    this.connection.callReducer(
+      'deployable_dismount',
+      __argsBuffer,
+      this.setCallReducerFlags.deployableDismountFlags
+    )
   }
 
-  onDeployableDismount(callback: (ctx: ReducerEventContext, request: PlayerDeployableDismountRequest) => void) {
+  onDeployableDismount(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableDismountRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_dismount', callback)
   }
 
-  removeOnDeployableDismount(callback: (ctx: ReducerEventContext, request: PlayerDeployableDismountRequest) => void) {
+  removeOnDeployableDismount(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableDismountRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_dismount', callback)
   }
 
   deployableDismountScheduled(timer: DeployableDismountTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    DeployableDismountScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableDismountScheduled.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'deployable_dismount_scheduled',
@@ -11146,11 +13327,15 @@ export class RemoteReducers {
     )
   }
 
-  onDeployableDismountScheduled(callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void) {
+  onDeployableDismountScheduled(
+    callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void
+  ) {
     this.connection.onReducer('deployable_dismount_scheduled', callback)
   }
 
-  removeOnDeployableDismountScheduled(callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void) {
+  removeOnDeployableDismountScheduled(
+    callback: (ctx: ReducerEventContext, timer: DeployableDismountTimer) => void
+  ) {
     this.connection.offReducer('deployable_dismount_scheduled', callback)
   }
 
@@ -11159,14 +13344,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DeployableMount.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('deployable_mount', __argsBuffer, this.setCallReducerFlags.deployableMountFlags)
+    this.connection.callReducer(
+      'deployable_mount',
+      __argsBuffer,
+      this.setCallReducerFlags.deployableMountFlags
+    )
   }
 
-  onDeployableMount(callback: (ctx: ReducerEventContext, request: PlayerDeployableMountRequest) => void) {
+  onDeployableMount(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableMountRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_mount', callback)
   }
 
-  removeOnDeployableMount(callback: (ctx: ReducerEventContext, request: PlayerDeployableMountRequest) => void) {
+  removeOnDeployableMount(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableMountRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_mount', callback)
   }
 
@@ -11175,21 +13374,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DeployableMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('deployable_move', __argsBuffer, this.setCallReducerFlags.deployableMoveFlags)
+    this.connection.callReducer(
+      'deployable_move',
+      __argsBuffer,
+      this.setCallReducerFlags.deployableMoveFlags
+    )
   }
 
-  onDeployableMove(callback: (ctx: ReducerEventContext, request: PlayerDeployableMoveRequest) => void) {
+  onDeployableMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableMoveRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_move', callback)
   }
 
-  removeOnDeployableMove(callback: (ctx: ReducerEventContext, request: PlayerDeployableMoveRequest) => void) {
+  removeOnDeployableMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDeployableMoveRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_move', callback)
   }
 
   deployableMoveOffClaim(deployableEntityId: bigint) {
     const __args = { deployableEntityId }
     let __writer = new BinaryWriter(1024)
-    DeployableMoveOffClaim.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableMoveOffClaim.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'deployable_move_off_claim',
@@ -11198,11 +13414,15 @@ export class RemoteReducers {
     )
   }
 
-  onDeployableMoveOffClaim(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+  onDeployableMoveOffClaim(
+    callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void
+  ) {
     this.connection.onReducer('deployable_move_off_claim', callback)
   }
 
-  removeOnDeployableMoveOffClaim(callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void) {
+  removeOnDeployableMoveOffClaim(
+    callback: (ctx: ReducerEventContext, deployableEntityId: bigint) => void
+  ) {
     this.connection.offReducer('deployable_move_off_claim', callback)
   }
 
@@ -11211,21 +13431,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DeployableStore.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('deployable_store', __argsBuffer, this.setCallReducerFlags.deployableStoreFlags)
+    this.connection.callReducer(
+      'deployable_store',
+      __argsBuffer,
+      this.setCallReducerFlags.deployableStoreFlags
+    )
   }
 
-  onDeployableStore(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+  onDeployableStore(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableStoreRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_store', callback)
   }
 
-  removeOnDeployableStore(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+  removeOnDeployableStore(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableStoreRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_store', callback)
   }
 
   deployableStoreStart(request: DeployableStoreRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    DeployableStoreStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DeployableStoreStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'deployable_store_start',
@@ -11234,18 +13471,31 @@ export class RemoteReducers {
     )
   }
 
-  onDeployableStoreStart(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+  onDeployableStoreStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableStoreRequest
+    ) => void
+  ) {
     this.connection.onReducer('deployable_store_start', callback)
   }
 
-  removeOnDeployableStoreStart(callback: (ctx: ReducerEventContext, request: DeployableStoreRequest) => void) {
+  removeOnDeployableStoreStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: DeployableStoreRequest
+    ) => void
+  ) {
     this.connection.offReducer('deployable_store_start', callback)
   }
 
   destroyDimensionNetwork(timer: DestroyDimensionNetworkTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    DestroyDimensionNetwork.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DestroyDimensionNetwork.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'destroy_dimension_network',
@@ -11254,16 +13504,30 @@ export class RemoteReducers {
     )
   }
 
-  onDestroyDimensionNetwork(callback: (ctx: ReducerEventContext, timer: DestroyDimensionNetworkTimer) => void) {
+  onDestroyDimensionNetwork(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DestroyDimensionNetworkTimer
+    ) => void
+  ) {
     this.connection.onReducer('destroy_dimension_network', callback)
   }
 
-  removeOnDestroyDimensionNetwork(callback: (ctx: ReducerEventContext, timer: DestroyDimensionNetworkTimer) => void) {
+  removeOnDestroyDimensionNetwork(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DestroyDimensionNetworkTimer
+    ) => void
+  ) {
     this.connection.offReducer('destroy_dimension_network', callback)
   }
 
   devDeleteWorld() {
-    this.connection.callReducer('dev_delete_world', new Uint8Array(0), this.setCallReducerFlags.devDeleteWorldFlags)
+    this.connection.callReducer(
+      'dev_delete_world',
+      new Uint8Array(0),
+      this.setCallReducerFlags.devDeleteWorldFlags
+    )
   }
 
   onDevDeleteWorld(callback: (ctx: ReducerEventContext) => void) {
@@ -11279,21 +13543,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DiscoverEntities.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('discover_entities', __argsBuffer, this.setCallReducerFlags.discoverEntitiesFlags)
+    this.connection.callReducer(
+      'discover_entities',
+      __argsBuffer,
+      this.setCallReducerFlags.discoverEntitiesFlags
+    )
   }
 
-  onDiscoverEntities(callback: (ctx: ReducerEventContext, request: PlayerDiscoverEntitiesRequest) => void) {
+  onDiscoverEntities(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDiscoverEntitiesRequest
+    ) => void
+  ) {
     this.connection.onReducer('discover_entities', callback)
   }
 
-  removeOnDiscoverEntities(callback: (ctx: ReducerEventContext, request: PlayerDiscoverEntitiesRequest) => void) {
+  removeOnDiscoverEntities(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDiscoverEntitiesRequest
+    ) => void
+  ) {
     this.connection.offReducer('discover_entities', callback)
   }
 
   droppedInventoryDespawn(timer: DroppedInventoryDespawnTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    DroppedInventoryDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DroppedInventoryDespawn.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'dropped_inventory_despawn',
@@ -11302,18 +13583,31 @@ export class RemoteReducers {
     )
   }
 
-  onDroppedInventoryDespawn(callback: (ctx: ReducerEventContext, timer: DroppedInventoryDespawnTimer) => void) {
+  onDroppedInventoryDespawn(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DroppedInventoryDespawnTimer
+    ) => void
+  ) {
     this.connection.onReducer('dropped_inventory_despawn', callback)
   }
 
-  removeOnDroppedInventoryDespawn(callback: (ctx: ReducerEventContext, timer: DroppedInventoryDespawnTimer) => void) {
+  removeOnDroppedInventoryDespawn(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DroppedInventoryDespawnTimer
+    ) => void
+  ) {
     this.connection.offReducer('dropped_inventory_despawn', callback)
   }
 
   droppedInventoryLoseOwnership(timer: DroppedInventoryOwnershipTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'dropped_inventory_lose_ownership',
@@ -11322,12 +13616,20 @@ export class RemoteReducers {
     )
   }
 
-  onDroppedInventoryLoseOwnership(callback: (ctx: ReducerEventContext, timer: DroppedInventoryOwnershipTimer) => void) {
+  onDroppedInventoryLoseOwnership(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DroppedInventoryOwnershipTimer
+    ) => void
+  ) {
     this.connection.onReducer('dropped_inventory_lose_ownership', callback)
   }
 
   removeOnDroppedInventoryLoseOwnership(
-    callback: (ctx: ReducerEventContext, timer: DroppedInventoryOwnershipTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: DroppedInventoryOwnershipTimer
+    ) => void
   ) {
     this.connection.offReducer('dropped_inventory_lose_ownership', callback)
   }
@@ -11337,14 +13639,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DuelAgentTimerLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('duel_agent_timer_loop', __argsBuffer, this.setCallReducerFlags.duelAgentTimerLoopFlags)
+    this.connection.callReducer(
+      'duel_agent_timer_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.duelAgentTimerLoopFlags
+    )
   }
 
-  onDuelAgentTimerLoop(callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void) {
+  onDuelAgentTimerLoop(
+    callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void
+  ) {
     this.connection.onReducer('duel_agent_timer_loop', callback)
   }
 
-  removeOnDuelAgentTimerLoop(callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void) {
+  removeOnDuelAgentTimerLoop(
+    callback: (ctx: ReducerEventContext, timer: DuelAgentTimer) => void
+  ) {
     this.connection.offReducer('duel_agent_timer_loop', callback)
   }
 
@@ -11353,14 +13663,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     DuelDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('duel_despawn', __argsBuffer, this.setCallReducerFlags.duelDespawnFlags)
+    this.connection.callReducer(
+      'duel_despawn',
+      __argsBuffer,
+      this.setCallReducerFlags.duelDespawnFlags
+    )
   }
 
-  onDuelDespawn(callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void) {
+  onDuelDespawn(
+    callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void
+  ) {
     this.connection.onReducer('duel_despawn', callback)
   }
 
-  removeOnDuelDespawn(callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void) {
+  removeOnDuelDespawn(
+    callback: (ctx: ReducerEventContext, timer: DuelDespawnTimer) => void
+  ) {
     this.connection.offReducer('duel_despawn', callback)
   }
 
@@ -11369,14 +13687,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Eat.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('eat', __argsBuffer, this.setCallReducerFlags.eatFlags)
+    this.connection.callReducer(
+      'eat',
+      __argsBuffer,
+      this.setCallReducerFlags.eatFlags
+    )
   }
 
-  onEat(callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void) {
+  onEat(
+    callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void
+  ) {
     this.connection.onReducer('eat', callback)
   }
 
-  removeOnEat(callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void) {
+  removeOnEat(
+    callback: (ctx: ReducerEventContext, request: PlayerEatRequest) => void
+  ) {
     this.connection.offReducer('eat', callback)
   }
 
@@ -11385,14 +13711,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Emote.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('emote', __argsBuffer, this.setCallReducerFlags.emoteFlags)
+    this.connection.callReducer(
+      'emote',
+      __argsBuffer,
+      this.setCallReducerFlags.emoteFlags
+    )
   }
 
-  onEmote(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+  onEmote(
+    callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void
+  ) {
     this.connection.onReducer('emote', callback)
   }
 
-  removeOnEmote(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+  removeOnEmote(
+    callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void
+  ) {
     this.connection.offReducer('emote', callback)
   }
 
@@ -11401,21 +13735,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EmoteStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('emote_start', __argsBuffer, this.setCallReducerFlags.emoteStartFlags)
+    this.connection.callReducer(
+      'emote_start',
+      __argsBuffer,
+      this.setCallReducerFlags.emoteStartFlags
+    )
   }
 
-  onEmoteStart(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+  onEmoteStart(
+    callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void
+  ) {
     this.connection.onReducer('emote_start', callback)
   }
 
-  removeOnEmoteStart(callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void) {
+  removeOnEmoteStart(
+    callback: (ctx: ReducerEventContext, request: PlayerEmoteRequest) => void
+  ) {
     this.connection.offReducer('emote_start', callback)
   }
 
   empireAddSiegeSupplies(request: EmpireAddSiegeSuppliesRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireAddSiegeSupplies.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_add_siege_supplies',
@@ -11424,11 +13769,21 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireAddSiegeSupplies(callback: (ctx: ReducerEventContext, request: EmpireAddSiegeSuppliesRequest) => void) {
+  onEmpireAddSiegeSupplies(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireAddSiegeSuppliesRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_add_siege_supplies', callback)
   }
 
-  removeOnEmpireAddSiegeSupplies(callback: (ctx: ReducerEventContext, request: EmpireAddSiegeSuppliesRequest) => void) {
+  removeOnEmpireAddSiegeSupplies(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireAddSiegeSuppliesRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_add_siege_supplies', callback)
   }
 
@@ -11437,15 +13792,29 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EmpireClaimJoin.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_claim_join', __argsBuffer, this.setCallReducerFlags.empireClaimJoinFlags)
+    this.connection.callReducer(
+      'empire_claim_join',
+      __argsBuffer,
+      this.setCallReducerFlags.empireClaimJoinFlags
+    )
   }
 
-  onEmpireClaimJoin(callback: (ctx: ReducerEventContext, buildingEntityId: bigint, empireEntityId: bigint) => void) {
+  onEmpireClaimJoin(
+    callback: (
+      ctx: ReducerEventContext,
+      buildingEntityId: bigint,
+      empireEntityId: bigint
+    ) => void
+  ) {
     this.connection.onReducer('empire_claim_join', callback)
   }
 
   removeOnEmpireClaimJoin(
-    callback: (ctx: ReducerEventContext, buildingEntityId: bigint, empireEntityId: bigint) => void
+    callback: (
+      ctx: ReducerEventContext,
+      buildingEntityId: bigint,
+      empireEntityId: bigint
+    ) => void
   ) {
     this.connection.offReducer('empire_claim_join', callback)
   }
@@ -11453,7 +13822,10 @@ export class RemoteReducers {
   empireCollectHexiteCapsule(request: EmpireCollectHexiteCapsuleRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireCollectHexiteCapsule.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_collect_hexite_capsule',
@@ -11463,13 +13835,19 @@ export class RemoteReducers {
   }
 
   onEmpireCollectHexiteCapsule(
-    callback: (ctx: ReducerEventContext, request: EmpireCollectHexiteCapsuleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireCollectHexiteCapsuleRequest
+    ) => void
   ) {
     this.connection.onReducer('empire_collect_hexite_capsule', callback)
   }
 
   removeOnEmpireCollectHexiteCapsule(
-    callback: (ctx: ReducerEventContext, request: EmpireCollectHexiteCapsuleRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireCollectHexiteCapsuleRequest
+    ) => void
   ) {
     this.connection.offReducer('empire_collect_hexite_capsule', callback)
   }
@@ -11477,7 +13855,10 @@ export class RemoteReducers {
   empireDeploySiegeEngine(request: EmpireStartSiegeRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireDeploySiegeEngine.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireDeploySiegeEngine.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_deploy_siege_engine',
@@ -11486,18 +13867,31 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireDeploySiegeEngine(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+  onEmpireDeploySiegeEngine(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_deploy_siege_engine', callback)
   }
 
-  removeOnEmpireDeploySiegeEngine(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+  removeOnEmpireDeploySiegeEngine(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_deploy_siege_engine', callback)
   }
 
   empireDeploySiegeEngineStart(request: EmpireStartSiegeRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireDeploySiegeEngineStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireDeploySiegeEngineStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_deploy_siege_engine_start',
@@ -11506,11 +13900,21 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireDeploySiegeEngineStart(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+  onEmpireDeploySiegeEngineStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_deploy_siege_engine_start', callback)
   }
 
-  removeOnEmpireDeploySiegeEngineStart(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+  removeOnEmpireDeploySiegeEngineStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_deploy_siege_engine_start', callback)
   }
 
@@ -11526,11 +13930,21 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireQueueSupplies(callback: (ctx: ReducerEventContext, request: EmpireQueueSuppliesRequest) => void) {
+  onEmpireQueueSupplies(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireQueueSuppliesRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_queue_supplies', callback)
   }
 
-  removeOnEmpireQueueSupplies(callback: (ctx: ReducerEventContext, request: EmpireQueueSuppliesRequest) => void) {
+  removeOnEmpireQueueSupplies(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireQueueSuppliesRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_queue_supplies', callback)
   }
 
@@ -11539,21 +13953,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EmpireResupplyNode.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('empire_resupply_node', __argsBuffer, this.setCallReducerFlags.empireResupplyNodeFlags)
+    this.connection.callReducer(
+      'empire_resupply_node',
+      __argsBuffer,
+      this.setCallReducerFlags.empireResupplyNodeFlags
+    )
   }
 
-  onEmpireResupplyNode(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+  onEmpireResupplyNode(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireResupplyNodeRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_resupply_node', callback)
   }
 
-  removeOnEmpireResupplyNode(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+  removeOnEmpireResupplyNode(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireResupplyNodeRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_resupply_node', callback)
   }
 
   empireResupplyNodeStart(request: EmpireResupplyNodeRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireResupplyNodeStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireResupplyNodeStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_resupply_node_start',
@@ -11562,18 +13993,31 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireResupplyNodeStart(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+  onEmpireResupplyNodeStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireResupplyNodeRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_resupply_node_start', callback)
   }
 
-  removeOnEmpireResupplyNodeStart(callback: (ctx: ReducerEventContext, request: EmpireResupplyNodeRequest) => void) {
+  removeOnEmpireResupplyNodeStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireResupplyNodeRequest
+    ) => void
+  ) {
     this.connection.offReducer('empire_resupply_node_start', callback)
   }
 
   empireSiegeDepletedWatchtower(request: EmpireStartSiegeRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    EmpireSiegeDepletedWatchtower.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EmpireSiegeDepletedWatchtower.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'empire_siege_depleted_watchtower',
@@ -11582,12 +14026,20 @@ export class RemoteReducers {
     )
   }
 
-  onEmpireSiegeDepletedWatchtower(callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void) {
+  onEmpireSiegeDepletedWatchtower(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
+  ) {
     this.connection.onReducer('empire_siege_depleted_watchtower', callback)
   }
 
   removeOnEmpireSiegeDepletedWatchtower(
-    callback: (ctx: ReducerEventContext, request: EmpireStartSiegeRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: EmpireStartSiegeRequest
+    ) => void
   ) {
     this.connection.offReducer('empire_siege_depleted_watchtower', callback)
   }
@@ -11597,14 +14049,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EndGracePeriod.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('end_grace_period', __argsBuffer, this.setCallReducerFlags.endGracePeriodFlags)
+    this.connection.callReducer(
+      'end_grace_period',
+      __argsBuffer,
+      this.setCallReducerFlags.endGracePeriodFlags
+    )
   }
 
-  onEndGracePeriod(callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void) {
+  onEndGracePeriod(
+    callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void
+  ) {
     this.connection.onReducer('end_grace_period', callback)
   }
 
-  removeOnEndGracePeriod(callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void) {
+  removeOnEndGracePeriod(
+    callback: (ctx: ReducerEventContext, timer: EndGracePeriodTimer) => void
+  ) {
     this.connection.offReducer('end_grace_period', callback)
   }
 
@@ -11613,14 +14073,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemyClearAggro.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_clear_aggro', __argsBuffer, this.setCallReducerFlags.enemyClearAggroFlags)
+    this.connection.callReducer(
+      'enemy_clear_aggro',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyClearAggroFlags
+    )
   }
 
-  onEnemyClearAggro(callback: (ctx: ReducerEventContext, request: EnemyClearAggroRequest) => void) {
+  onEnemyClearAggro(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EnemyClearAggroRequest
+    ) => void
+  ) {
     this.connection.onReducer('enemy_clear_aggro', callback)
   }
 
-  removeOnEnemyClearAggro(callback: (ctx: ReducerEventContext, request: EnemyClearAggroRequest) => void) {
+  removeOnEnemyClearAggro(
+    callback: (
+      ctx: ReducerEventContext,
+      request: EnemyClearAggroRequest
+    ) => void
+  ) {
     this.connection.offReducer('enemy_clear_aggro', callback)
   }
 
@@ -11629,21 +14103,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemyDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_despawn', __argsBuffer, this.setCallReducerFlags.enemyDespawnFlags)
+    this.connection.callReducer(
+      'enemy_despawn',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyDespawnFlags
+    )
   }
 
-  onEnemyDespawn(callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void) {
+  onEnemyDespawn(
+    callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void
+  ) {
     this.connection.onReducer('enemy_despawn', callback)
   }
 
-  removeOnEnemyDespawn(callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void) {
+  removeOnEnemyDespawn(
+    callback: (ctx: ReducerEventContext, timer: EnemyDespawnTimer) => void
+  ) {
     this.connection.offReducer('enemy_despawn', callback)
   }
 
   enemyDespawnFromMobMonitor(enemyEntityId: bigint) {
     const __args = { enemyEntityId }
     let __writer = new BinaryWriter(1024)
-    EnemyDespawnFromMobMonitor.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EnemyDespawnFromMobMonitor.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'enemy_despawn_from_mob_monitor',
@@ -11652,18 +14137,25 @@ export class RemoteReducers {
     )
   }
 
-  onEnemyDespawnFromMobMonitor(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+  onEnemyDespawnFromMobMonitor(
+    callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void
+  ) {
     this.connection.onReducer('enemy_despawn_from_mob_monitor', callback)
   }
 
-  removeOnEnemyDespawnFromMobMonitor(callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void) {
+  removeOnEnemyDespawnFromMobMonitor(
+    callback: (ctx: ReducerEventContext, enemyEntityId: bigint) => void
+  ) {
     this.connection.offReducer('enemy_despawn_from_mob_monitor', callback)
   }
 
   enemyDespawnFromMobMonitorBatch(enemyEntityIds: bigint[]) {
     const __args = { enemyEntityIds }
     let __writer = new BinaryWriter(1024)
-    EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'enemy_despawn_from_mob_monitor_batch',
@@ -11672,11 +14164,15 @@ export class RemoteReducers {
     )
   }
 
-  onEnemyDespawnFromMobMonitorBatch(callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void) {
+  onEnemyDespawnFromMobMonitorBatch(
+    callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void
+  ) {
     this.connection.onReducer('enemy_despawn_from_mob_monitor_batch', callback)
   }
 
-  removeOnEnemyDespawnFromMobMonitorBatch(callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void) {
+  removeOnEnemyDespawnFromMobMonitorBatch(
+    callback: (ctx: ReducerEventContext, enemyEntityIds: bigint[]) => void
+  ) {
     this.connection.offReducer('enemy_despawn_from_mob_monitor_batch', callback)
   }
 
@@ -11685,14 +14181,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemyMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_move', __argsBuffer, this.setCallReducerFlags.enemyMoveFlags)
+    this.connection.callReducer(
+      'enemy_move',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyMoveFlags
+    )
   }
 
-  onEnemyMove(callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void) {
+  onEnemyMove(
+    callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void
+  ) {
     this.connection.onReducer('enemy_move', callback)
   }
 
-  removeOnEnemyMove(callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void) {
+  removeOnEnemyMove(
+    callback: (ctx: ReducerEventContext, request: EnemyMoveRequest) => void
+  ) {
     this.connection.offReducer('enemy_move', callback)
   }
 
@@ -11701,14 +14205,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemyMoveBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_move_batch', __argsBuffer, this.setCallReducerFlags.enemyMoveBatchFlags)
+    this.connection.callReducer(
+      'enemy_move_batch',
+      __argsBuffer,
+      this.setCallReducerFlags.enemyMoveBatchFlags
+    )
   }
 
-  onEnemyMoveBatch(callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void) {
+  onEnemyMoveBatch(
+    callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void
+  ) {
     this.connection.onReducer('enemy_move_batch', callback)
   }
 
-  removeOnEnemyMoveBatch(callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void) {
+  removeOnEnemyMoveBatch(
+    callback: (ctx: ReducerEventContext, requests: EnemyMoveRequest[]) => void
+  ) {
     this.connection.offReducer('enemy_move_batch', callback)
   }
 
@@ -11724,11 +14236,15 @@ export class RemoteReducers {
     )
   }
 
-  onEnemyRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void) {
+  onEnemyRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void
+  ) {
     this.connection.onReducer('enemy_regen_agent_loop', callback)
   }
 
-  removeOnEnemyRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void) {
+  removeOnEnemyRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: EnemyRegenLoopTimer) => void
+  ) {
     this.connection.offReducer('enemy_regen_agent_loop', callback)
   }
 
@@ -11737,14 +14253,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemySetHealth.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_set_health', __argsBuffer, this.setCallReducerFlags.enemySetHealthFlags)
+    this.connection.callReducer(
+      'enemy_set_health',
+      __argsBuffer,
+      this.setCallReducerFlags.enemySetHealthFlags
+    )
   }
 
-  onEnemySetHealth(callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void) {
+  onEnemySetHealth(
+    callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void
+  ) {
     this.connection.onReducer('enemy_set_health', callback)
   }
 
-  removeOnEnemySetHealth(callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void) {
+  removeOnEnemySetHealth(
+    callback: (ctx: ReducerEventContext, request: EnemySetHealthRequest) => void
+  ) {
     this.connection.offReducer('enemy_set_health', callback)
   }
 
@@ -11760,11 +14284,21 @@ export class RemoteReducers {
     )
   }
 
-  onEnemySetHealthBatch(callback: (ctx: ReducerEventContext, requests: EnemySetHealthRequest[]) => void) {
+  onEnemySetHealthBatch(
+    callback: (
+      ctx: ReducerEventContext,
+      requests: EnemySetHealthRequest[]
+    ) => void
+  ) {
     this.connection.onReducer('enemy_set_health_batch', callback)
   }
 
-  removeOnEnemySetHealthBatch(callback: (ctx: ReducerEventContext, requests: EnemySetHealthRequest[]) => void) {
+  removeOnEnemySetHealthBatch(
+    callback: (
+      ctx: ReducerEventContext,
+      requests: EnemySetHealthRequest[]
+    ) => void
+  ) {
     this.connection.offReducer('enemy_set_health_batch', callback)
   }
 
@@ -11773,14 +14307,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemySpawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_spawn', __argsBuffer, this.setCallReducerFlags.enemySpawnFlags)
+    this.connection.callReducer(
+      'enemy_spawn',
+      __argsBuffer,
+      this.setCallReducerFlags.enemySpawnFlags
+    )
   }
 
-  onEnemySpawn(callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void) {
+  onEnemySpawn(
+    callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void
+  ) {
     this.connection.onReducer('enemy_spawn', callback)
   }
 
-  removeOnEnemySpawn(callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void) {
+  removeOnEnemySpawn(
+    callback: (ctx: ReducerEventContext, request: EnemySpawnRequest) => void
+  ) {
     this.connection.offReducer('enemy_spawn', callback)
   }
 
@@ -11789,14 +14331,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemySpawnBatch.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_spawn_batch', __argsBuffer, this.setCallReducerFlags.enemySpawnBatchFlags)
+    this.connection.callReducer(
+      'enemy_spawn_batch',
+      __argsBuffer,
+      this.setCallReducerFlags.enemySpawnBatchFlags
+    )
   }
 
-  onEnemySpawnBatch(callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void) {
+  onEnemySpawnBatch(
+    callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void
+  ) {
     this.connection.onReducer('enemy_spawn_batch', callback)
   }
 
-  removeOnEnemySpawnBatch(callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void) {
+  removeOnEnemySpawnBatch(
+    callback: (ctx: ReducerEventContext, requests: EnemySpawnRequest[]) => void
+  ) {
     this.connection.offReducer('enemy_spawn_batch', callback)
   }
 
@@ -11805,21 +14355,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EnemySpawnLoot.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('enemy_spawn_loot', __argsBuffer, this.setCallReducerFlags.enemySpawnLootFlags)
+    this.connection.callReducer(
+      'enemy_spawn_loot',
+      __argsBuffer,
+      this.setCallReducerFlags.enemySpawnLootFlags
+    )
   }
 
-  onEnemySpawnLoot(callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void) {
+  onEnemySpawnLoot(
+    callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void
+  ) {
     this.connection.onReducer('enemy_spawn_loot', callback)
   }
 
-  removeOnEnemySpawnLoot(callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void) {
+  removeOnEnemySpawnLoot(
+    callback: (ctx: ReducerEventContext, request: EnemySpawnLootRequest) => void
+  ) {
     this.connection.offReducer('enemy_spawn_loot', callback)
   }
 
   environmentDebuffAgentLoop(timer: EnvironmentDebuffLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'environment_debuff_agent_loop',
@@ -11828,11 +14389,21 @@ export class RemoteReducers {
     )
   }
 
-  onEnvironmentDebuffAgentLoop(callback: (ctx: ReducerEventContext, timer: EnvironmentDebuffLoopTimer) => void) {
+  onEnvironmentDebuffAgentLoop(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: EnvironmentDebuffLoopTimer
+    ) => void
+  ) {
     this.connection.onReducer('environment_debuff_agent_loop', callback)
   }
 
-  removeOnEnvironmentDebuffAgentLoop(callback: (ctx: ReducerEventContext, timer: EnvironmentDebuffLoopTimer) => void) {
+  removeOnEnvironmentDebuffAgentLoop(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: EnvironmentDebuffLoopTimer
+    ) => void
+  ) {
     this.connection.offReducer('environment_debuff_agent_loop', callback)
   }
 
@@ -11841,14 +14412,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EquipmentAdd.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('equipment_add', __argsBuffer, this.setCallReducerFlags.equipmentAddFlags)
+    this.connection.callReducer(
+      'equipment_add',
+      __argsBuffer,
+      this.setCallReducerFlags.equipmentAddFlags
+    )
   }
 
-  onEquipmentAdd(callback: (ctx: ReducerEventContext, request: PlayerEquipmentAddRequest) => void) {
+  onEquipmentAdd(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEquipmentAddRequest
+    ) => void
+  ) {
     this.connection.onReducer('equipment_add', callback)
   }
 
-  removeOnEquipmentAdd(callback: (ctx: ReducerEventContext, request: PlayerEquipmentAddRequest) => void) {
+  removeOnEquipmentAdd(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEquipmentAddRequest
+    ) => void
+  ) {
     this.connection.offReducer('equipment_add', callback)
   }
 
@@ -11857,14 +14442,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     EquipmentRemove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('equipment_remove', __argsBuffer, this.setCallReducerFlags.equipmentRemoveFlags)
+    this.connection.callReducer(
+      'equipment_remove',
+      __argsBuffer,
+      this.setCallReducerFlags.equipmentRemoveFlags
+    )
   }
 
-  onEquipmentRemove(callback: (ctx: ReducerEventContext, request: PlayerEquipmentRemoveRequest) => void) {
+  onEquipmentRemove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEquipmentRemoveRequest
+    ) => void
+  ) {
     this.connection.onReducer('equipment_remove', callback)
   }
 
-  removeOnEquipmentRemove(callback: (ctx: ReducerEventContext, request: PlayerEquipmentRemoveRequest) => void) {
+  removeOnEquipmentRemove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEquipmentRemoveRequest
+    ) => void
+  ) {
     this.connection.offReducer('equipment_remove', callback)
   }
 
@@ -11873,14 +14472,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Extract.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('extract', __argsBuffer, this.setCallReducerFlags.extractFlags)
+    this.connection.callReducer(
+      'extract',
+      __argsBuffer,
+      this.setCallReducerFlags.extractFlags
+    )
   }
 
-  onExtract(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+  onExtract(
+    callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void
+  ) {
     this.connection.onReducer('extract', callback)
   }
 
-  removeOnExtract(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+  removeOnExtract(
+    callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void
+  ) {
     this.connection.offReducer('extract', callback)
   }
 
@@ -11889,19 +14496,31 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ExtractStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('extract_start', __argsBuffer, this.setCallReducerFlags.extractStartFlags)
+    this.connection.callReducer(
+      'extract_start',
+      __argsBuffer,
+      this.setCallReducerFlags.extractStartFlags
+    )
   }
 
-  onExtractStart(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+  onExtractStart(
+    callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void
+  ) {
     this.connection.onReducer('extract_start', callback)
   }
 
-  removeOnExtractStart(callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void) {
+  removeOnExtractStart(
+    callback: (ctx: ReducerEventContext, request: PlayerExtractRequest) => void
+  ) {
     this.connection.offReducer('extract_start', callback)
   }
 
   forceStartAgents() {
-    this.connection.callReducer('force_start_agents', new Uint8Array(0), this.setCallReducerFlags.forceStartAgentsFlags)
+    this.connection.callReducer(
+      'force_start_agents',
+      new Uint8Array(0),
+      this.setCallReducerFlags.forceStartAgentsFlags
+    )
   }
 
   onForceStartAgents(callback: (ctx: ReducerEventContext) => void) {
@@ -11949,14 +14568,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     GenerateWorld.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('generate_world', __argsBuffer, this.setCallReducerFlags.generateWorldFlags)
+    this.connection.callReducer(
+      'generate_world',
+      __argsBuffer,
+      this.setCallReducerFlags.generateWorldFlags
+    )
   }
 
-  onGenerateWorld(callback: (ctx: ReducerEventContext, worldDefinition: WorldGenWorldDefinition) => void) {
+  onGenerateWorld(
+    callback: (
+      ctx: ReducerEventContext,
+      worldDefinition: WorldGenWorldDefinition
+    ) => void
+  ) {
     this.connection.onReducer('generate_world', callback)
   }
 
-  removeOnGenerateWorld(callback: (ctx: ReducerEventContext, worldDefinition: WorldGenWorldDefinition) => void) {
+  removeOnGenerateWorld(
+    callback: (
+      ctx: ReducerEventContext,
+      worldDefinition: WorldGenWorldDefinition
+    ) => void
+  ) {
     this.connection.offReducer('generate_world', callback)
   }
 
@@ -11965,14 +14598,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     GrowthAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('growth_agent_loop', __argsBuffer, this.setCallReducerFlags.growthAgentLoopFlags)
+    this.connection.callReducer(
+      'growth_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.growthAgentLoopFlags
+    )
   }
 
-  onGrowthAgentLoop(callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void) {
+  onGrowthAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void
+  ) {
     this.connection.onReducer('growth_agent_loop', callback)
   }
 
-  removeOnGrowthAgentLoop(callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void) {
+  removeOnGrowthAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: GrowthLoopTimer) => void
+  ) {
     this.connection.offReducer('growth_agent_loop', callback)
   }
 
@@ -11981,14 +14622,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     HideDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('hide_deployable', __argsBuffer, this.setCallReducerFlags.hideDeployableFlags)
+    this.connection.callReducer(
+      'hide_deployable',
+      __argsBuffer,
+      this.setCallReducerFlags.hideDeployableFlags
+    )
   }
 
-  onHideDeployable(callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void) {
+  onHideDeployable(
+    callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void
+  ) {
     this.connection.onReducer('hide_deployable', callback)
   }
 
-  removeOnHideDeployable(callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void) {
+  removeOnHideDeployable(
+    callback: (ctx: ReducerEventContext, timer: HideDeployableTimer) => void
+  ) {
     this.connection.offReducer('hide_deployable', callback)
   }
 
@@ -12011,7 +14660,10 @@ export class RemoteReducers {
   importAchievementDesc(records: AchievementDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportAchievementDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportAchievementDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_achievement_desc',
@@ -12020,18 +14672,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportAchievementDesc(callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void) {
+  onImportAchievementDesc(
+    callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void
+  ) {
     this.connection.onReducer('import_achievement_desc', callback)
   }
 
-  removeOnImportAchievementDesc(callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void) {
+  removeOnImportAchievementDesc(
+    callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void
+  ) {
     this.connection.offReducer('import_achievement_desc', callback)
   }
 
   importActiveBuffState(records: ActiveBuffState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportActiveBuffState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportActiveBuffState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_active_buff_state',
@@ -12040,18 +14699,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportActiveBuffState(callback: (ctx: ReducerEventContext, records: ActiveBuffState[]) => void) {
+  onImportActiveBuffState(
+    callback: (ctx: ReducerEventContext, records: ActiveBuffState[]) => void
+  ) {
     this.connection.onReducer('import_active_buff_state', callback)
   }
 
-  removeOnImportActiveBuffState(callback: (ctx: ReducerEventContext, records: ActiveBuffState[]) => void) {
+  removeOnImportActiveBuffState(
+    callback: (ctx: ReducerEventContext, records: ActiveBuffState[]) => void
+  ) {
     this.connection.offReducer('import_active_buff_state', callback)
   }
 
   importAdminBroadcast(records: AdminBroadcast[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportAdminBroadcast.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportAdminBroadcast.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_admin_broadcast',
@@ -12060,11 +14726,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportAdminBroadcast(callback: (ctx: ReducerEventContext, records: AdminBroadcast[]) => void) {
+  onImportAdminBroadcast(
+    callback: (ctx: ReducerEventContext, records: AdminBroadcast[]) => void
+  ) {
     this.connection.onReducer('import_admin_broadcast', callback)
   }
 
-  removeOnImportAdminBroadcast(callback: (ctx: ReducerEventContext, records: AdminBroadcast[]) => void) {
+  removeOnImportAdminBroadcast(
+    callback: (ctx: ReducerEventContext, records: AdminBroadcast[]) => void
+  ) {
     this.connection.offReducer('import_admin_broadcast', callback)
   }
 
@@ -12073,14 +14743,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportAlertDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_alert_desc', __argsBuffer, this.setCallReducerFlags.importAlertDescFlags)
+    this.connection.callReducer(
+      'import_alert_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importAlertDescFlags
+    )
   }
 
-  onImportAlertDesc(callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void) {
+  onImportAlertDesc(
+    callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void
+  ) {
     this.connection.onReducer('import_alert_desc', callback)
   }
 
-  removeOnImportAlertDesc(callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void) {
+  removeOnImportAlertDesc(
+    callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void
+  ) {
     this.connection.offReducer('import_alert_desc', callback)
   }
 
@@ -12089,21 +14767,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportAlertState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_alert_state', __argsBuffer, this.setCallReducerFlags.importAlertStateFlags)
+    this.connection.callReducer(
+      'import_alert_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importAlertStateFlags
+    )
   }
 
-  onImportAlertState(callback: (ctx: ReducerEventContext, records: AlertState[]) => void) {
+  onImportAlertState(
+    callback: (ctx: ReducerEventContext, records: AlertState[]) => void
+  ) {
     this.connection.onReducer('import_alert_state', callback)
   }
 
-  removeOnImportAlertState(callback: (ctx: ReducerEventContext, records: AlertState[]) => void) {
+  removeOnImportAlertState(
+    callback: (ctx: ReducerEventContext, records: AlertState[]) => void
+  ) {
     this.connection.offReducer('import_alert_state', callback)
   }
 
   importAttackOutcomeState(records: AttackOutcomeState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportAttackOutcomeState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportAttackOutcomeState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_attack_outcome_state',
@@ -12112,11 +14801,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportAttackOutcomeState(callback: (ctx: ReducerEventContext, records: AttackOutcomeState[]) => void) {
+  onImportAttackOutcomeState(
+    callback: (ctx: ReducerEventContext, records: AttackOutcomeState[]) => void
+  ) {
     this.connection.onReducer('import_attack_outcome_state', callback)
   }
 
-  removeOnImportAttackOutcomeState(callback: (ctx: ReducerEventContext, records: AttackOutcomeState[]) => void) {
+  removeOnImportAttackOutcomeState(
+    callback: (ctx: ReducerEventContext, records: AttackOutcomeState[]) => void
+  ) {
     this.connection.offReducer('import_attack_outcome_state', callback)
   }
 
@@ -12125,14 +14818,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportBiomeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_biome_desc', __argsBuffer, this.setCallReducerFlags.importBiomeDescFlags)
+    this.connection.callReducer(
+      'import_biome_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importBiomeDescFlags
+    )
   }
 
-  onImportBiomeDesc(callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void) {
+  onImportBiomeDesc(
+    callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void
+  ) {
     this.connection.onReducer('import_biome_desc', callback)
   }
 
-  removeOnImportBiomeDesc(callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void) {
+  removeOnImportBiomeDesc(
+    callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void
+  ) {
     this.connection.offReducer('import_biome_desc', callback)
   }
 
@@ -12141,14 +14842,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportBuffDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_buff_desc', __argsBuffer, this.setCallReducerFlags.importBuffDescFlags)
+    this.connection.callReducer(
+      'import_buff_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importBuffDescFlags
+    )
   }
 
-  onImportBuffDesc(callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void) {
+  onImportBuffDesc(
+    callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void
+  ) {
     this.connection.onReducer('import_buff_desc', callback)
   }
 
-  removeOnImportBuffDesc(callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void) {
+  removeOnImportBuffDesc(
+    callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void
+  ) {
     this.connection.offReducer('import_buff_desc', callback)
   }
 
@@ -12157,21 +14866,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportBuffTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_buff_type_desc', __argsBuffer, this.setCallReducerFlags.importBuffTypeDescFlags)
+    this.connection.callReducer(
+      'import_buff_type_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importBuffTypeDescFlags
+    )
   }
 
-  onImportBuffTypeDesc(callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void) {
+  onImportBuffTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void
+  ) {
     this.connection.onReducer('import_buff_type_desc', callback)
   }
 
-  removeOnImportBuffTypeDesc(callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void) {
+  removeOnImportBuffTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void
+  ) {
     this.connection.offReducer('import_buff_type_desc', callback)
   }
 
   importBuildingClaimDesc(records: BuildingClaimDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_building_claim_desc',
@@ -12180,11 +14900,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingClaimDesc(callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void) {
+  onImportBuildingClaimDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_claim_desc', callback)
   }
 
-  removeOnImportBuildingClaimDesc(callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void) {
+  removeOnImportBuildingClaimDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_claim_desc', callback)
   }
 
@@ -12193,21 +14917,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportBuildingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_building_desc', __argsBuffer, this.setCallReducerFlags.importBuildingDescFlags)
+    this.connection.callReducer(
+      'import_building_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importBuildingDescFlags
+    )
   }
 
-  onImportBuildingDesc(callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void) {
+  onImportBuildingDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_desc', callback)
   }
 
-  removeOnImportBuildingDesc(callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void) {
+  removeOnImportBuildingDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_desc', callback)
   }
 
   importBuildingPortalDesc(records: BuildingPortalDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportBuildingPortalDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportBuildingPortalDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_building_portal_desc',
@@ -12216,18 +14951,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingPortalDesc(callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void) {
+  onImportBuildingPortalDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_portal_desc', callback)
   }
 
-  removeOnImportBuildingPortalDesc(callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void) {
+  removeOnImportBuildingPortalDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_portal_desc', callback)
   }
 
   importBuildingRepairsDesc(records: BuildingRepairsDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportBuildingRepairsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportBuildingRepairsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_building_repairs_desc',
@@ -12236,18 +14978,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingRepairsDesc(callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void) {
+  onImportBuildingRepairsDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_repairs_desc', callback)
   }
 
-  removeOnImportBuildingRepairsDesc(callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void) {
+  removeOnImportBuildingRepairsDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_repairs_desc', callback)
   }
 
   importBuildingSpawnDesc(records: BuildingSpawnDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportBuildingSpawnDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportBuildingSpawnDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_building_spawn_desc',
@@ -12256,11 +15005,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingSpawnDesc(callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void) {
+  onImportBuildingSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_spawn_desc', callback)
   }
 
-  removeOnImportBuildingSpawnDesc(callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void) {
+  removeOnImportBuildingSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_spawn_desc', callback)
   }
 
@@ -12276,18 +15029,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingState(callback: (ctx: ReducerEventContext, records: BuildingState[]) => void) {
+  onImportBuildingState(
+    callback: (ctx: ReducerEventContext, records: BuildingState[]) => void
+  ) {
     this.connection.onReducer('import_building_state', callback)
   }
 
-  removeOnImportBuildingState(callback: (ctx: ReducerEventContext, records: BuildingState[]) => void) {
+  removeOnImportBuildingState(
+    callback: (ctx: ReducerEventContext, records: BuildingState[]) => void
+  ) {
     this.connection.offReducer('import_building_state', callback)
   }
 
   importBuildingTypeDesc(records: BuildingTypeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_building_type_desc',
@@ -12296,11 +15056,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportBuildingTypeDesc(callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void) {
+  onImportBuildingTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void
+  ) {
     this.connection.onReducer('import_building_type_desc', callback)
   }
 
-  removeOnImportBuildingTypeDesc(callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void) {
+  removeOnImportBuildingTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void
+  ) {
     this.connection.offReducer('import_building_type_desc', callback)
   }
 
@@ -12309,21 +15073,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportCargoDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_cargo_desc', __argsBuffer, this.setCallReducerFlags.importCargoDescFlags)
+    this.connection.callReducer(
+      'import_cargo_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importCargoDescFlags
+    )
   }
 
-  onImportCargoDesc(callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void) {
+  onImportCargoDesc(
+    callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void
+  ) {
     this.connection.onReducer('import_cargo_desc', callback)
   }
 
-  removeOnImportCargoDesc(callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void) {
+  removeOnImportCargoDesc(
+    callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void
+  ) {
     this.connection.offReducer('import_cargo_desc', callback)
   }
 
   importCharacterStatDesc(records: CharacterStatDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportCharacterStatDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportCharacterStatDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_character_stat_desc',
@@ -12332,18 +15107,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportCharacterStatDesc(callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void) {
+  onImportCharacterStatDesc(
+    callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void
+  ) {
     this.connection.onReducer('import_character_stat_desc', callback)
   }
 
-  removeOnImportCharacterStatDesc(callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void) {
+  removeOnImportCharacterStatDesc(
+    callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void
+  ) {
     this.connection.offReducer('import_character_stat_desc', callback)
   }
 
   importCharacterStatsState(records: CharacterStatsState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportCharacterStatsState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportCharacterStatsState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_character_stats_state',
@@ -12352,18 +15134,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportCharacterStatsState(callback: (ctx: ReducerEventContext, records: CharacterStatsState[]) => void) {
+  onImportCharacterStatsState(
+    callback: (ctx: ReducerEventContext, records: CharacterStatsState[]) => void
+  ) {
     this.connection.onReducer('import_character_stats_state', callback)
   }
 
-  removeOnImportCharacterStatsState(callback: (ctx: ReducerEventContext, records: CharacterStatsState[]) => void) {
+  removeOnImportCharacterStatsState(
+    callback: (ctx: ReducerEventContext, records: CharacterStatsState[]) => void
+  ) {
     this.connection.offReducer('import_character_stats_state', callback)
   }
 
   importChatMessageState(records: ChatMessageState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportChatMessageState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportChatMessageState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_chat_message_state',
@@ -12372,18 +15161,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportChatMessageState(callback: (ctx: ReducerEventContext, records: ChatMessageState[]) => void) {
+  onImportChatMessageState(
+    callback: (ctx: ReducerEventContext, records: ChatMessageState[]) => void
+  ) {
     this.connection.onReducer('import_chat_message_state', callback)
   }
 
-  removeOnImportChatMessageState(callback: (ctx: ReducerEventContext, records: ChatMessageState[]) => void) {
+  removeOnImportChatMessageState(
+    callback: (ctx: ReducerEventContext, records: ChatMessageState[]) => void
+  ) {
     this.connection.offReducer('import_chat_message_state', callback)
   }
 
   importChestRarityDesc(records: ChestRarityDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportChestRarityDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportChestRarityDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_chest_rarity_desc',
@@ -12392,18 +15188,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportChestRarityDesc(callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void) {
+  onImportChestRarityDesc(
+    callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void
+  ) {
     this.connection.onReducer('import_chest_rarity_desc', callback)
   }
 
-  removeOnImportChestRarityDesc(callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void) {
+  removeOnImportChestRarityDesc(
+    callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void
+  ) {
     this.connection.offReducer('import_chest_rarity_desc', callback)
   }
 
   importClaimLocalState(records: ClaimLocalState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportClaimLocalState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportClaimLocalState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_claim_local_state',
@@ -12412,18 +15215,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimLocalState(callback: (ctx: ReducerEventContext, records: ClaimLocalState[]) => void) {
+  onImportClaimLocalState(
+    callback: (ctx: ReducerEventContext, records: ClaimLocalState[]) => void
+  ) {
     this.connection.onReducer('import_claim_local_state', callback)
   }
 
-  removeOnImportClaimLocalState(callback: (ctx: ReducerEventContext, records: ClaimLocalState[]) => void) {
+  removeOnImportClaimLocalState(
+    callback: (ctx: ReducerEventContext, records: ClaimLocalState[]) => void
+  ) {
     this.connection.offReducer('import_claim_local_state', callback)
   }
 
   importClaimRecruitmentState(records: ClaimRecruitmentState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_claim_recruitment_state',
@@ -12432,11 +15242,21 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimRecruitmentState(callback: (ctx: ReducerEventContext, records: ClaimRecruitmentState[]) => void) {
+  onImportClaimRecruitmentState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClaimRecruitmentState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_claim_recruitment_state', callback)
   }
 
-  removeOnImportClaimRecruitmentState(callback: (ctx: ReducerEventContext, records: ClaimRecruitmentState[]) => void) {
+  removeOnImportClaimRecruitmentState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClaimRecruitmentState[]
+    ) => void
+  ) {
     this.connection.offReducer('import_claim_recruitment_state', callback)
   }
 
@@ -12445,14 +15265,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportClaimState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_claim_state', __argsBuffer, this.setCallReducerFlags.importClaimStateFlags)
+    this.connection.callReducer(
+      'import_claim_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importClaimStateFlags
+    )
   }
 
-  onImportClaimState(callback: (ctx: ReducerEventContext, records: ClaimState[]) => void) {
+  onImportClaimState(
+    callback: (ctx: ReducerEventContext, records: ClaimState[]) => void
+  ) {
     this.connection.onReducer('import_claim_state', callback)
   }
 
-  removeOnImportClaimState(callback: (ctx: ReducerEventContext, records: ClaimState[]) => void) {
+  removeOnImportClaimState(
+    callback: (ctx: ReducerEventContext, records: ClaimState[]) => void
+  ) {
     this.connection.offReducer('import_claim_state', callback)
   }
 
@@ -12468,18 +15296,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimTechDesc(callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void) {
+  onImportClaimTechDesc(
+    callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void
+  ) {
     this.connection.onReducer('import_claim_tech_desc', callback)
   }
 
-  removeOnImportClaimTechDesc(callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void) {
+  removeOnImportClaimTechDesc(
+    callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void
+  ) {
     this.connection.offReducer('import_claim_tech_desc', callback)
   }
 
   importClaimTechState(records: ClaimTechState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportClaimTechState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportClaimTechState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_claim_tech_state',
@@ -12488,11 +15323,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimTechState(callback: (ctx: ReducerEventContext, records: ClaimTechState[]) => void) {
+  onImportClaimTechState(
+    callback: (ctx: ReducerEventContext, records: ClaimTechState[]) => void
+  ) {
     this.connection.onReducer('import_claim_tech_state', callback)
   }
 
-  removeOnImportClaimTechState(callback: (ctx: ReducerEventContext, records: ClaimTechState[]) => void) {
+  removeOnImportClaimTechState(
+    callback: (ctx: ReducerEventContext, records: ClaimTechState[]) => void
+  ) {
     this.connection.offReducer('import_claim_tech_state', callback)
   }
 
@@ -12508,18 +15347,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimTileCost(callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void) {
+  onImportClaimTileCost(
+    callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void
+  ) {
     this.connection.onReducer('import_claim_tile_cost', callback)
   }
 
-  removeOnImportClaimTileCost(callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void) {
+  removeOnImportClaimTileCost(
+    callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void
+  ) {
     this.connection.offReducer('import_claim_tile_cost', callback)
   }
 
   importClaimTileState(records: ClaimTileState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportClaimTileState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportClaimTileState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_claim_tile_state',
@@ -12528,18 +15374,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportClaimTileState(callback: (ctx: ReducerEventContext, records: ClaimTileState[]) => void) {
+  onImportClaimTileState(
+    callback: (ctx: ReducerEventContext, records: ClaimTileState[]) => void
+  ) {
     this.connection.onReducer('import_claim_tile_state', callback)
   }
 
-  removeOnImportClaimTileState(callback: (ctx: ReducerEventContext, records: ClaimTileState[]) => void) {
+  removeOnImportClaimTileState(
+    callback: (ctx: ReducerEventContext, records: ClaimTileState[]) => void
+  ) {
     this.connection.offReducer('import_claim_tile_state', callback)
   }
 
   importClimbRequirementDesc(records: ClimbRequirementDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_climb_requirement_desc',
@@ -12548,11 +15401,21 @@ export class RemoteReducers {
     )
   }
 
-  onImportClimbRequirementDesc(callback: (ctx: ReducerEventContext, records: ClimbRequirementDesc[]) => void) {
+  onImportClimbRequirementDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClimbRequirementDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_climb_requirement_desc', callback)
   }
 
-  removeOnImportClimbRequirementDesc(callback: (ctx: ReducerEventContext, records: ClimbRequirementDesc[]) => void) {
+  removeOnImportClimbRequirementDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClimbRequirementDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_climb_requirement_desc', callback)
   }
 
@@ -12561,21 +15424,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportClothingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_clothing_desc', __argsBuffer, this.setCallReducerFlags.importClothingDescFlags)
+    this.connection.callReducer(
+      'import_clothing_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importClothingDescFlags
+    )
   }
 
-  onImportClothingDesc(callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void) {
+  onImportClothingDesc(
+    callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void
+  ) {
     this.connection.onReducer('import_clothing_desc', callback)
   }
 
-  removeOnImportClothingDesc(callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void) {
+  removeOnImportClothingDesc(
+    callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void
+  ) {
     this.connection.offReducer('import_clothing_desc', callback)
   }
 
   importCollectibleDesc(records: CollectibleDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportCollectibleDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportCollectibleDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_collectible_desc',
@@ -12584,18 +15458,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportCollectibleDesc(callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void) {
+  onImportCollectibleDesc(
+    callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void
+  ) {
     this.connection.onReducer('import_collectible_desc', callback)
   }
 
-  removeOnImportCollectibleDesc(callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void) {
+  removeOnImportCollectibleDesc(
+    callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void
+  ) {
     this.connection.offReducer('import_collectible_desc', callback)
   }
 
   importCombatActionDesc(records: CombatActionDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportCombatActionDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportCombatActionDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_combat_action_desc',
@@ -12604,11 +15485,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportCombatActionDesc(callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void) {
+  onImportCombatActionDesc(
+    callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void
+  ) {
     this.connection.onReducer('import_combat_action_desc', callback)
   }
 
-  removeOnImportCombatActionDesc(callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void) {
+  removeOnImportCombatActionDesc(
+    callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void
+  ) {
     this.connection.offReducer('import_combat_action_desc', callback)
   }
 
@@ -12617,14 +15502,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportCombatState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_combat_state', __argsBuffer, this.setCallReducerFlags.importCombatStateFlags)
+    this.connection.callReducer(
+      'import_combat_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importCombatStateFlags
+    )
   }
 
-  onImportCombatState(callback: (ctx: ReducerEventContext, records: CombatState[]) => void) {
+  onImportCombatState(
+    callback: (ctx: ReducerEventContext, records: CombatState[]) => void
+  ) {
     this.connection.onReducer('import_combat_state', callback)
   }
 
-  removeOnImportCombatState(callback: (ctx: ReducerEventContext, records: CombatState[]) => void) {
+  removeOnImportCombatState(
+    callback: (ctx: ReducerEventContext, records: CombatState[]) => void
+  ) {
     this.connection.offReducer('import_combat_state', callback)
   }
 
@@ -12633,21 +15526,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportConfig.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_config', __argsBuffer, this.setCallReducerFlags.importConfigFlags)
+    this.connection.callReducer(
+      'import_config',
+      __argsBuffer,
+      this.setCallReducerFlags.importConfigFlags
+    )
   }
 
-  onImportConfig(callback: (ctx: ReducerEventContext, records: Config[]) => void) {
+  onImportConfig(
+    callback: (ctx: ReducerEventContext, records: Config[]) => void
+  ) {
     this.connection.onReducer('import_config', callback)
   }
 
-  removeOnImportConfig(callback: (ctx: ReducerEventContext, records: Config[]) => void) {
+  removeOnImportConfig(
+    callback: (ctx: ReducerEventContext, records: Config[]) => void
+  ) {
     this.connection.offReducer('import_config', callback)
   }
 
   importConstructionRecipeDesc(records: ConstructionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportConstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportConstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_construction_recipe_desc',
@@ -12656,12 +15560,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportConstructionRecipeDesc(callback: (ctx: ReducerEventContext, records: ConstructionRecipeDesc[]) => void) {
+  onImportConstructionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ConstructionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_construction_recipe_desc', callback)
   }
 
   removeOnImportConstructionRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ConstructionRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ConstructionRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_construction_recipe_desc', callback)
   }
@@ -12669,7 +15581,10 @@ export class RemoteReducers {
   importCraftingRecipeDesc(records: CraftingRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportCraftingRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportCraftingRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_crafting_recipe_desc',
@@ -12678,18 +15593,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportCraftingRecipeDesc(callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void) {
+  onImportCraftingRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void
+  ) {
     this.connection.onReducer('import_crafting_recipe_desc', callback)
   }
 
-  removeOnImportCraftingRecipeDesc(callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void) {
+  removeOnImportCraftingRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void
+  ) {
     this.connection.offReducer('import_crafting_recipe_desc', callback)
   }
 
   importDeconstructionRecipeDesc(records: DeconstructionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_deconstruction_recipe_desc',
@@ -12698,12 +15620,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportDeconstructionRecipeDesc(callback: (ctx: ReducerEventContext, records: DeconstructionRecipeDesc[]) => void) {
+  onImportDeconstructionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DeconstructionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_deconstruction_recipe_desc', callback)
   }
 
   removeOnImportDeconstructionRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: DeconstructionRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DeconstructionRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_deconstruction_recipe_desc', callback)
   }
@@ -12711,7 +15641,10 @@ export class RemoteReducers {
   importDeployableDesc(records: DeployableDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDeployableDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDeployableDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_deployable_desc',
@@ -12720,18 +15653,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportDeployableDesc(callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void) {
+  onImportDeployableDesc(
+    callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void
+  ) {
     this.connection.onReducer('import_deployable_desc', callback)
   }
 
-  removeOnImportDeployableDesc(callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void) {
+  removeOnImportDeployableDesc(
+    callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void
+  ) {
     this.connection.offReducer('import_deployable_desc', callback)
   }
 
   importDeployableState(records: DeployableState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDeployableState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDeployableState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_deployable_state',
@@ -12740,18 +15680,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportDeployableState(callback: (ctx: ReducerEventContext, records: DeployableState[]) => void) {
+  onImportDeployableState(
+    callback: (ctx: ReducerEventContext, records: DeployableState[]) => void
+  ) {
     this.connection.onReducer('import_deployable_state', callback)
   }
 
-  removeOnImportDeployableState(callback: (ctx: ReducerEventContext, records: DeployableState[]) => void) {
+  removeOnImportDeployableState(
+    callback: (ctx: ReducerEventContext, records: DeployableState[]) => void
+  ) {
     this.connection.offReducer('import_deployable_state', callback)
   }
 
   importDimensionDescriptionState(records: DimensionDescriptionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDimensionDescriptionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDimensionDescriptionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_dimension_description_state',
@@ -12761,13 +15708,19 @@ export class RemoteReducers {
   }
 
   onImportDimensionDescriptionState(
-    callback: (ctx: ReducerEventContext, records: DimensionDescriptionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DimensionDescriptionState[]
+    ) => void
   ) {
     this.connection.onReducer('import_dimension_description_state', callback)
   }
 
   removeOnImportDimensionDescriptionState(
-    callback: (ctx: ReducerEventContext, records: DimensionDescriptionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DimensionDescriptionState[]
+    ) => void
   ) {
     this.connection.offReducer('import_dimension_description_state', callback)
   }
@@ -12775,7 +15728,10 @@ export class RemoteReducers {
   importDimensionNetworkDescriptionState(records: DimensionNetworkState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_dimension_network_description_state',
@@ -12785,21 +15741,36 @@ export class RemoteReducers {
   }
 
   onImportDimensionNetworkDescriptionState(
-    callback: (ctx: ReducerEventContext, records: DimensionNetworkState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DimensionNetworkState[]
+    ) => void
   ) {
-    this.connection.onReducer('import_dimension_network_description_state', callback)
+    this.connection.onReducer(
+      'import_dimension_network_description_state',
+      callback
+    )
   }
 
   removeOnImportDimensionNetworkDescriptionState(
-    callback: (ctx: ReducerEventContext, records: DimensionNetworkState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DimensionNetworkState[]
+    ) => void
   ) {
-    this.connection.offReducer('import_dimension_network_description_state', callback)
+    this.connection.offReducer(
+      'import_dimension_network_description_state',
+      callback
+    )
   }
 
   importDistantVisibleEntityDesc(records: DistantVisibleEntityDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_distant_visible_entity_desc',
@@ -12808,12 +15779,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportDistantVisibleEntityDesc(callback: (ctx: ReducerEventContext, records: DistantVisibleEntityDesc[]) => void) {
+  onImportDistantVisibleEntityDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DistantVisibleEntityDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_distant_visible_entity_desc', callback)
   }
 
   removeOnImportDistantVisibleEntityDesc(
-    callback: (ctx: ReducerEventContext, records: DistantVisibleEntityDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DistantVisibleEntityDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_distant_visible_entity_desc', callback)
   }
@@ -12821,7 +15800,10 @@ export class RemoteReducers {
   importDroppedInventoryState(records: DroppedInventoryState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_dropped_inventory_state',
@@ -12830,11 +15812,21 @@ export class RemoteReducers {
     )
   }
 
-  onImportDroppedInventoryState(callback: (ctx: ReducerEventContext, records: DroppedInventoryState[]) => void) {
+  onImportDroppedInventoryState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DroppedInventoryState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_dropped_inventory_state', callback)
   }
 
-  removeOnImportDroppedInventoryState(callback: (ctx: ReducerEventContext, records: DroppedInventoryState[]) => void) {
+  removeOnImportDroppedInventoryState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DroppedInventoryState[]
+    ) => void
+  ) {
     this.connection.offReducer('import_dropped_inventory_state', callback)
   }
 
@@ -12843,14 +15835,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportElevatorDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_elevator_desc', __argsBuffer, this.setCallReducerFlags.importElevatorDescFlags)
+    this.connection.callReducer(
+      'import_elevator_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importElevatorDescFlags
+    )
   }
 
-  onImportElevatorDesc(callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void) {
+  onImportElevatorDesc(
+    callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void
+  ) {
     this.connection.onReducer('import_elevator_desc', callback)
   }
 
-  removeOnImportElevatorDesc(callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void) {
+  removeOnImportElevatorDesc(
+    callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void
+  ) {
     this.connection.offReducer('import_elevator_desc', callback)
   }
 
@@ -12859,21 +15859,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportEmoteDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_emote_desc', __argsBuffer, this.setCallReducerFlags.importEmoteDescFlags)
+    this.connection.callReducer(
+      'import_emote_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importEmoteDescFlags
+    )
   }
 
-  onImportEmoteDesc(callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void) {
+  onImportEmoteDesc(
+    callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void
+  ) {
     this.connection.onReducer('import_emote_desc', callback)
   }
 
-  removeOnImportEmoteDesc(callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void) {
+  removeOnImportEmoteDesc(
+    callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void
+  ) {
     this.connection.offReducer('import_emote_desc', callback)
   }
 
   importEmpireColorsDesc(records: EmpireColorDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireColorsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireColorsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_colors_desc',
@@ -12882,18 +15893,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireColorsDesc(callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void) {
+  onImportEmpireColorsDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void
+  ) {
     this.connection.onReducer('import_empire_colors_desc', callback)
   }
 
-  removeOnImportEmpireColorsDesc(callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void) {
+  removeOnImportEmpireColorsDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void
+  ) {
     this.connection.offReducer('import_empire_colors_desc', callback)
   }
 
   importEmpireIconDesc(records: EmpireIconDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireIconDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireIconDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_icon_desc',
@@ -12902,18 +15920,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+  onImportEmpireIconDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void
+  ) {
     this.connection.onReducer('import_empire_icon_desc', callback)
   }
 
-  removeOnImportEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+  removeOnImportEmpireIconDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void
+  ) {
     this.connection.offReducer('import_empire_icon_desc', callback)
   }
 
   importEmpireNotificationDesc(records: EmpireNotificationDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_notification_desc',
@@ -12922,12 +15947,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireNotificationDesc(callback: (ctx: ReducerEventContext, records: EmpireNotificationDesc[]) => void) {
+  onImportEmpireNotificationDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EmpireNotificationDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_empire_notification_desc', callback)
   }
 
   removeOnImportEmpireNotificationDesc(
-    callback: (ctx: ReducerEventContext, records: EmpireNotificationDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: EmpireNotificationDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_empire_notification_desc', callback)
   }
@@ -12935,7 +15968,10 @@ export class RemoteReducers {
   importEmpireRankDesc(records: EmpireRankDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireRankDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireRankDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_rank_desc',
@@ -12944,18 +15980,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireRankDesc(callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void) {
+  onImportEmpireRankDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void
+  ) {
     this.connection.onReducer('import_empire_rank_desc', callback)
   }
 
-  removeOnImportEmpireRankDesc(callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void) {
+  removeOnImportEmpireRankDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void
+  ) {
     this.connection.offReducer('import_empire_rank_desc', callback)
   }
 
   importEmpireSuppliesDesc(records: EmpireSuppliesDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireSuppliesDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireSuppliesDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_supplies_desc',
@@ -12964,18 +16007,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireSuppliesDesc(callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void) {
+  onImportEmpireSuppliesDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void
+  ) {
     this.connection.onReducer('import_empire_supplies_desc', callback)
   }
 
-  removeOnImportEmpireSuppliesDesc(callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void) {
+  removeOnImportEmpireSuppliesDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void
+  ) {
     this.connection.offReducer('import_empire_supplies_desc', callback)
   }
 
   importEmpireTerritoryDesc(records: EmpireTerritoryDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_empire_territory_desc',
@@ -12984,18 +16034,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEmpireTerritoryDesc(callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void) {
+  onImportEmpireTerritoryDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void
+  ) {
     this.connection.onReducer('import_empire_territory_desc', callback)
   }
 
-  removeOnImportEmpireTerritoryDesc(callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void) {
+  removeOnImportEmpireTerritoryDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void
+  ) {
     this.connection.offReducer('import_empire_territory_desc', callback)
   }
 
   importEnemyAiParamsDesc(records: EnemyAiParamsDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_enemy_ai_params_desc',
@@ -13004,11 +16061,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportEnemyAiParamsDesc(callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void) {
+  onImportEnemyAiParamsDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void
+  ) {
     this.connection.onReducer('import_enemy_ai_params_desc', callback)
   }
 
-  removeOnImportEnemyAiParamsDesc(callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void) {
+  removeOnImportEnemyAiParamsDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void
+  ) {
     this.connection.offReducer('import_enemy_ai_params_desc', callback)
   }
 
@@ -13017,14 +16078,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportEnemyDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_enemy_desc', __argsBuffer, this.setCallReducerFlags.importEnemyDescFlags)
+    this.connection.callReducer(
+      'import_enemy_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importEnemyDescFlags
+    )
   }
 
-  onImportEnemyDesc(callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void) {
+  onImportEnemyDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void
+  ) {
     this.connection.onReducer('import_enemy_desc', callback)
   }
 
-  removeOnImportEnemyDesc(callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void) {
+  removeOnImportEnemyDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void
+  ) {
     this.connection.offReducer('import_enemy_desc', callback)
   }
 
@@ -13033,21 +16102,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportEnemyState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_enemy_state', __argsBuffer, this.setCallReducerFlags.importEnemyStateFlags)
+    this.connection.callReducer(
+      'import_enemy_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importEnemyStateFlags
+    )
   }
 
-  onImportEnemyState(callback: (ctx: ReducerEventContext, records: EnemyState[]) => void) {
+  onImportEnemyState(
+    callback: (ctx: ReducerEventContext, records: EnemyState[]) => void
+  ) {
     this.connection.onReducer('import_enemy_state', callback)
   }
 
-  removeOnImportEnemyState(callback: (ctx: ReducerEventContext, records: EnemyState[]) => void) {
+  removeOnImportEnemyState(
+    callback: (ctx: ReducerEventContext, records: EnemyState[]) => void
+  ) {
     this.connection.offReducer('import_enemy_state', callback)
   }
 
   importEnvironmentDebuffDesc(records: EnvironmentDebuffDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_environment_debuff_desc',
@@ -13056,11 +16136,21 @@ export class RemoteReducers {
     )
   }
 
-  onImportEnvironmentDebuffDesc(callback: (ctx: ReducerEventContext, records: EnvironmentDebuffDesc[]) => void) {
+  onImportEnvironmentDebuffDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EnvironmentDebuffDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_environment_debuff_desc', callback)
   }
 
-  removeOnImportEnvironmentDebuffDesc(callback: (ctx: ReducerEventContext, records: EnvironmentDebuffDesc[]) => void) {
+  removeOnImportEnvironmentDebuffDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EnvironmentDebuffDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_environment_debuff_desc', callback)
   }
 
@@ -13076,18 +16166,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEquipmentDesc(callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void) {
+  onImportEquipmentDesc(
+    callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void
+  ) {
     this.connection.onReducer('import_equipment_desc', callback)
   }
 
-  removeOnImportEquipmentDesc(callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void) {
+  removeOnImportEquipmentDesc(
+    callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void
+  ) {
     this.connection.offReducer('import_equipment_desc', callback)
   }
 
   importEquipmentState(records: EquipmentState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportEquipmentState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportEquipmentState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_equipment_state',
@@ -13096,18 +16193,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportEquipmentState(callback: (ctx: ReducerEventContext, records: EquipmentState[]) => void) {
+  onImportEquipmentState(
+    callback: (ctx: ReducerEventContext, records: EquipmentState[]) => void
+  ) {
     this.connection.onReducer('import_equipment_state', callback)
   }
 
-  removeOnImportEquipmentState(callback: (ctx: ReducerEventContext, records: EquipmentState[]) => void) {
+  removeOnImportEquipmentState(
+    callback: (ctx: ReducerEventContext, records: EquipmentState[]) => void
+  ) {
     this.connection.offReducer('import_equipment_state', callback)
   }
 
   importExperienceState(records: ExperienceState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportExperienceState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportExperienceState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_experience_state',
@@ -13116,18 +16220,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportExperienceState(callback: (ctx: ReducerEventContext, records: ExperienceState[]) => void) {
+  onImportExperienceState(
+    callback: (ctx: ReducerEventContext, records: ExperienceState[]) => void
+  ) {
     this.connection.onReducer('import_experience_state', callback)
   }
 
-  removeOnImportExperienceState(callback: (ctx: ReducerEventContext, records: ExperienceState[]) => void) {
+  removeOnImportExperienceState(
+    callback: (ctx: ReducerEventContext, records: ExperienceState[]) => void
+  ) {
     this.connection.offReducer('import_experience_state', callback)
   }
 
   importExplorationChunksState(records: ExplorationChunksState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportExplorationChunksState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportExplorationChunksState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_exploration_chunks_state',
@@ -13136,12 +16247,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportExplorationChunksState(callback: (ctx: ReducerEventContext, records: ExplorationChunksState[]) => void) {
+  onImportExplorationChunksState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExplorationChunksState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_exploration_chunks_state', callback)
   }
 
   removeOnImportExplorationChunksState(
-    callback: (ctx: ReducerEventContext, records: ExplorationChunksState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExplorationChunksState[]
+    ) => void
   ) {
     this.connection.offReducer('import_exploration_chunks_state', callback)
   }
@@ -13149,7 +16268,10 @@ export class RemoteReducers {
   importExtractionRecipeDesc(records: ExtractionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportExtractionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportExtractionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_extraction_recipe_desc',
@@ -13158,11 +16280,21 @@ export class RemoteReducers {
     )
   }
 
-  onImportExtractionRecipeDesc(callback: (ctx: ReducerEventContext, records: ExtractionRecipeDesc[]) => void) {
+  onImportExtractionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExtractionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_extraction_recipe_desc', callback)
   }
 
-  removeOnImportExtractionRecipeDesc(callback: (ctx: ReducerEventContext, records: ExtractionRecipeDesc[]) => void) {
+  removeOnImportExtractionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExtractionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_extraction_recipe_desc', callback)
   }
 
@@ -13171,21 +16303,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportFoodDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_food_desc', __argsBuffer, this.setCallReducerFlags.importFoodDescFlags)
+    this.connection.callReducer(
+      'import_food_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importFoodDescFlags
+    )
   }
 
-  onImportFoodDesc(callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void) {
+  onImportFoodDesc(
+    callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void
+  ) {
     this.connection.onReducer('import_food_desc', callback)
   }
 
-  removeOnImportFoodDesc(callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void) {
+  removeOnImportFoodDesc(
+    callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void
+  ) {
     this.connection.offReducer('import_food_desc', callback)
   }
 
   importFootprintTileState(records: FootprintTileState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportFootprintTileState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportFootprintTileState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_footprint_tile_state',
@@ -13194,11 +16337,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportFootprintTileState(callback: (ctx: ReducerEventContext, records: FootprintTileState[]) => void) {
+  onImportFootprintTileState(
+    callback: (ctx: ReducerEventContext, records: FootprintTileState[]) => void
+  ) {
     this.connection.onReducer('import_footprint_tile_state', callback)
   }
 
-  removeOnImportFootprintTileState(callback: (ctx: ReducerEventContext, records: FootprintTileState[]) => void) {
+  removeOnImportFootprintTileState(
+    callback: (ctx: ReducerEventContext, records: FootprintTileState[]) => void
+  ) {
     this.connection.offReducer('import_footprint_tile_state', callback)
   }
 
@@ -13207,14 +16354,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportGateDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_gate_desc', __argsBuffer, this.setCallReducerFlags.importGateDescFlags)
+    this.connection.callReducer(
+      'import_gate_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importGateDescFlags
+    )
   }
 
-  onImportGateDesc(callback: (ctx: ReducerEventContext, records: GateDesc[]) => void) {
+  onImportGateDesc(
+    callback: (ctx: ReducerEventContext, records: GateDesc[]) => void
+  ) {
     this.connection.onReducer('import_gate_desc', callback)
   }
 
-  removeOnImportGateDesc(callback: (ctx: ReducerEventContext, records: GateDesc[]) => void) {
+  removeOnImportGateDesc(
+    callback: (ctx: ReducerEventContext, records: GateDesc[]) => void
+  ) {
     this.connection.offReducer('import_gate_desc', callback)
   }
 
@@ -13223,14 +16378,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportGlobals.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_globals', __argsBuffer, this.setCallReducerFlags.importGlobalsFlags)
+    this.connection.callReducer(
+      'import_globals',
+      __argsBuffer,
+      this.setCallReducerFlags.importGlobalsFlags
+    )
   }
 
-  onImportGlobals(callback: (ctx: ReducerEventContext, records: Globals[]) => void) {
+  onImportGlobals(
+    callback: (ctx: ReducerEventContext, records: Globals[]) => void
+  ) {
     this.connection.onReducer('import_globals', callback)
   }
 
-  removeOnImportGlobals(callback: (ctx: ReducerEventContext, records: Globals[]) => void) {
+  removeOnImportGlobals(
+    callback: (ctx: ReducerEventContext, records: Globals[]) => void
+  ) {
     this.connection.offReducer('import_globals', callback)
   }
 
@@ -13239,14 +16402,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportGrowthState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_growth_state', __argsBuffer, this.setCallReducerFlags.importGrowthStateFlags)
+    this.connection.callReducer(
+      'import_growth_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importGrowthStateFlags
+    )
   }
 
-  onImportGrowthState(callback: (ctx: ReducerEventContext, records: GrowthState[]) => void) {
+  onImportGrowthState(
+    callback: (ctx: ReducerEventContext, records: GrowthState[]) => void
+  ) {
     this.connection.onReducer('import_growth_state', callback)
   }
 
-  removeOnImportGrowthState(callback: (ctx: ReducerEventContext, records: GrowthState[]) => void) {
+  removeOnImportGrowthState(
+    callback: (ctx: ReducerEventContext, records: GrowthState[]) => void
+  ) {
     this.connection.offReducer('import_growth_state', callback)
   }
 
@@ -13255,14 +16426,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportHealthState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_health_state', __argsBuffer, this.setCallReducerFlags.importHealthStateFlags)
+    this.connection.callReducer(
+      'import_health_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importHealthStateFlags
+    )
   }
 
-  onImportHealthState(callback: (ctx: ReducerEventContext, records: HealthState[]) => void) {
+  onImportHealthState(
+    callback: (ctx: ReducerEventContext, records: HealthState[]) => void
+  ) {
     this.connection.onReducer('import_health_state', callback)
   }
 
-  removeOnImportHealthState(callback: (ctx: ReducerEventContext, records: HealthState[]) => void) {
+  removeOnImportHealthState(
+    callback: (ctx: ReducerEventContext, records: HealthState[]) => void
+  ) {
     this.connection.offReducer('import_health_state', callback)
   }
 
@@ -13271,21 +16450,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportHerdCache.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_herd_cache', __argsBuffer, this.setCallReducerFlags.importHerdCacheFlags)
+    this.connection.callReducer(
+      'import_herd_cache',
+      __argsBuffer,
+      this.setCallReducerFlags.importHerdCacheFlags
+    )
   }
 
-  onImportHerdCache(callback: (ctx: ReducerEventContext, records: HerdState[]) => void) {
+  onImportHerdCache(
+    callback: (ctx: ReducerEventContext, records: HerdState[]) => void
+  ) {
     this.connection.onReducer('import_herd_cache', callback)
   }
 
-  removeOnImportHerdCache(callback: (ctx: ReducerEventContext, records: HerdState[]) => void) {
+  removeOnImportHerdCache(
+    callback: (ctx: ReducerEventContext, records: HerdState[]) => void
+  ) {
     this.connection.offReducer('import_herd_cache', callback)
   }
 
   importHexiteExchangeEntryDesc(records: HexiteExchangeEntryDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_hexite_exchange_entry_desc',
@@ -13294,12 +16484,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportHexiteExchangeEntryDesc(callback: (ctx: ReducerEventContext, records: HexiteExchangeEntryDesc[]) => void) {
+  onImportHexiteExchangeEntryDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: HexiteExchangeEntryDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_hexite_exchange_entry_desc', callback)
   }
 
   removeOnImportHexiteExchangeEntryDesc(
-    callback: (ctx: ReducerEventContext, records: HexiteExchangeEntryDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: HexiteExchangeEntryDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_hexite_exchange_entry_desc', callback)
   }
@@ -13309,21 +16507,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportIdentityRole.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_identity_role', __argsBuffer, this.setCallReducerFlags.importIdentityRoleFlags)
+    this.connection.callReducer(
+      'import_identity_role',
+      __argsBuffer,
+      this.setCallReducerFlags.importIdentityRoleFlags
+    )
   }
 
-  onImportIdentityRole(callback: (ctx: ReducerEventContext, records: IdentityRole[]) => void) {
+  onImportIdentityRole(
+    callback: (ctx: ReducerEventContext, records: IdentityRole[]) => void
+  ) {
     this.connection.onReducer('import_identity_role', callback)
   }
 
-  removeOnImportIdentityRole(callback: (ctx: ReducerEventContext, records: IdentityRole[]) => void) {
+  removeOnImportIdentityRole(
+    callback: (ctx: ReducerEventContext, records: IdentityRole[]) => void
+  ) {
     this.connection.offReducer('import_identity_role', callback)
   }
 
   importInteriorCollapseTriggerState(records: InteriorCollapseTriggerState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_collapse_trigger_state',
@@ -13333,21 +16542,36 @@ export class RemoteReducers {
   }
 
   onImportInteriorCollapseTriggerState(
-    callback: (ctx: ReducerEventContext, records: InteriorCollapseTriggerState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorCollapseTriggerState[]
+    ) => void
   ) {
-    this.connection.onReducer('import_interior_collapse_trigger_state', callback)
+    this.connection.onReducer(
+      'import_interior_collapse_trigger_state',
+      callback
+    )
   }
 
   removeOnImportInteriorCollapseTriggerState(
-    callback: (ctx: ReducerEventContext, records: InteriorCollapseTriggerState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorCollapseTriggerState[]
+    ) => void
   ) {
-    this.connection.offReducer('import_interior_collapse_trigger_state', callback)
+    this.connection.offReducer(
+      'import_interior_collapse_trigger_state',
+      callback
+    )
   }
 
   importInteriorEnvironmentDesc(records: InteriorEnvironmentDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_environment_desc',
@@ -13356,12 +16580,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportInteriorEnvironmentDesc(callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void) {
+  onImportInteriorEnvironmentDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorEnvironmentDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_interior_environment_desc', callback)
   }
 
   removeOnImportInteriorEnvironmentDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorEnvironmentDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_interior_environment_desc', callback)
   }
@@ -13369,7 +16601,10 @@ export class RemoteReducers {
   importInteriorInstanceDesc(records: InteriorInstanceDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorInstanceDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorInstanceDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_instance_desc',
@@ -13378,18 +16613,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportInteriorInstanceDesc(callback: (ctx: ReducerEventContext, records: InteriorInstanceDesc[]) => void) {
+  onImportInteriorInstanceDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorInstanceDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_interior_instance_desc', callback)
   }
 
-  removeOnImportInteriorInstanceDesc(callback: (ctx: ReducerEventContext, records: InteriorInstanceDesc[]) => void) {
+  removeOnImportInteriorInstanceDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorInstanceDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_interior_instance_desc', callback)
   }
 
   importInteriorNetworkDesc(records: InteriorNetworkDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_network_desc',
@@ -13398,18 +16646,27 @@ export class RemoteReducers {
     )
   }
 
-  onImportInteriorNetworkDesc(callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void) {
+  onImportInteriorNetworkDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void
+  ) {
     this.connection.onReducer('import_interior_network_desc', callback)
   }
 
-  removeOnImportInteriorNetworkDesc(callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void) {
+  removeOnImportInteriorNetworkDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void
+  ) {
     this.connection.offReducer('import_interior_network_desc', callback)
   }
 
-  importInteriorPortalConnectionsDesc(records: InteriorPortalConnectionsDesc[]) {
+  importInteriorPortalConnectionsDesc(
+    records: InteriorPortalConnectionsDesc[]
+  ) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_portal_connections_desc',
@@ -13419,21 +16676,36 @@ export class RemoteReducers {
   }
 
   onImportInteriorPortalConnectionsDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorPortalConnectionsDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorPortalConnectionsDesc[]
+    ) => void
   ) {
-    this.connection.onReducer('import_interior_portal_connections_desc', callback)
+    this.connection.onReducer(
+      'import_interior_portal_connections_desc',
+      callback
+    )
   }
 
   removeOnImportInteriorPortalConnectionsDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorPortalConnectionsDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorPortalConnectionsDesc[]
+    ) => void
   ) {
-    this.connection.offReducer('import_interior_portal_connections_desc', callback)
+    this.connection.offReducer(
+      'import_interior_portal_connections_desc',
+      callback
+    )
   }
 
   importInteriorShapeDesc(records: InteriorShapeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorShapeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorShapeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_shape_desc',
@@ -13442,18 +16714,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportInteriorShapeDesc(callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void) {
+  onImportInteriorShapeDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void
+  ) {
     this.connection.onReducer('import_interior_shape_desc', callback)
   }
 
-  removeOnImportInteriorShapeDesc(callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void) {
+  removeOnImportInteriorShapeDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void
+  ) {
     this.connection.offReducer('import_interior_shape_desc', callback)
   }
 
   importInteriorSpawnDesc(records: InteriorSpawnDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInteriorSpawnDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInteriorSpawnDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_interior_spawn_desc',
@@ -13462,18 +16741,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportInteriorSpawnDesc(callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void) {
+  onImportInteriorSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void
+  ) {
     this.connection.onReducer('import_interior_spawn_desc', callback)
   }
 
-  removeOnImportInteriorSpawnDesc(callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void) {
+  removeOnImportInteriorSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void
+  ) {
     this.connection.offReducer('import_interior_spawn_desc', callback)
   }
 
   importInventoryState(records: InventoryState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportInventoryState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportInventoryState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_inventory_state',
@@ -13482,18 +16768,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportInventoryState(callback: (ctx: ReducerEventContext, records: InventoryState[]) => void) {
+  onImportInventoryState(
+    callback: (ctx: ReducerEventContext, records: InventoryState[]) => void
+  ) {
     this.connection.onReducer('import_inventory_state', callback)
   }
 
-  removeOnImportInventoryState(callback: (ctx: ReducerEventContext, records: InventoryState[]) => void) {
+  removeOnImportInventoryState(
+    callback: (ctx: ReducerEventContext, records: InventoryState[]) => void
+  ) {
     this.connection.offReducer('import_inventory_state', callback)
   }
 
   importItemConversionRecipeDesc(records: ItemConversionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_item_conversion_recipe_desc',
@@ -13502,12 +16795,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportItemConversionRecipeDesc(callback: (ctx: ReducerEventContext, records: ItemConversionRecipeDesc[]) => void) {
+  onImportItemConversionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ItemConversionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_item_conversion_recipe_desc', callback)
   }
 
   removeOnImportItemConversionRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ItemConversionRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ItemConversionRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_item_conversion_recipe_desc', callback)
   }
@@ -13517,14 +16818,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportItemDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_item_desc', __argsBuffer, this.setCallReducerFlags.importItemDescFlags)
+    this.connection.callReducer(
+      'import_item_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importItemDescFlags
+    )
   }
 
-  onImportItemDesc(callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void) {
+  onImportItemDesc(
+    callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void
+  ) {
     this.connection.onReducer('import_item_desc', callback)
   }
 
-  removeOnImportItemDesc(callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void) {
+  removeOnImportItemDesc(
+    callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void
+  ) {
     this.connection.offReducer('import_item_desc', callback)
   }
 
@@ -13533,21 +16842,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportItemListDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_item_list_desc', __argsBuffer, this.setCallReducerFlags.importItemListDescFlags)
+    this.connection.callReducer(
+      'import_item_list_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importItemListDescFlags
+    )
   }
 
-  onImportItemListDesc(callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void) {
+  onImportItemListDesc(
+    callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void
+  ) {
     this.connection.onReducer('import_item_list_desc', callback)
   }
 
-  removeOnImportItemListDesc(callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void) {
+  removeOnImportItemListDesc(
+    callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void
+  ) {
     this.connection.offReducer('import_item_list_desc', callback)
   }
 
   importKnowledgeAchievementState(records: KnowledgeAchievementState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_achievement_state',
@@ -13557,13 +16877,19 @@ export class RemoteReducers {
   }
 
   onImportKnowledgeAchievementState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeAchievementState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeAchievementState[]
+    ) => void
   ) {
     this.connection.onReducer('import_knowledge_achievement_state', callback)
   }
 
   removeOnImportKnowledgeAchievementState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeAchievementState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeAchievementState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_achievement_state', callback)
   }
@@ -13571,7 +16897,10 @@ export class RemoteReducers {
   importKnowledgeBattleActionState(records: KnowledgeBattleActionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_battle_action_state',
@@ -13581,13 +16910,19 @@ export class RemoteReducers {
   }
 
   onImportKnowledgeBattleActionState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeBattleActionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeBattleActionState[]
+    ) => void
   ) {
     this.connection.onReducer('import_knowledge_battle_action_state', callback)
   }
 
   removeOnImportKnowledgeBattleActionState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeBattleActionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeBattleActionState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_battle_action_state', callback)
   }
@@ -13595,7 +16930,10 @@ export class RemoteReducers {
   importKnowledgeBuildingState(records: KnowledgeBuildingState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeBuildingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeBuildingState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_building_state',
@@ -13604,12 +16942,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeBuildingState(callback: (ctx: ReducerEventContext, records: KnowledgeBuildingState[]) => void) {
+  onImportKnowledgeBuildingState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeBuildingState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_building_state', callback)
   }
 
   removeOnImportKnowledgeBuildingState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeBuildingState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeBuildingState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_building_state', callback)
   }
@@ -13617,7 +16963,10 @@ export class RemoteReducers {
   importKnowledgeCargoState(records: KnowledgeCargoState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeCargoState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeCargoState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_cargo_state',
@@ -13626,18 +16975,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeCargoState(callback: (ctx: ReducerEventContext, records: KnowledgeCargoState[]) => void) {
+  onImportKnowledgeCargoState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeCargoState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_cargo_state', callback)
   }
 
-  removeOnImportKnowledgeCargoState(callback: (ctx: ReducerEventContext, records: KnowledgeCargoState[]) => void) {
+  removeOnImportKnowledgeCargoState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeCargoState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_cargo_state', callback)
   }
 
   importKnowledgeConstructionState(records: KnowledgeConstructionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeConstructionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeConstructionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_construction_state',
@@ -13647,13 +17003,19 @@ export class RemoteReducers {
   }
 
   onImportKnowledgeConstructionState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeConstructionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeConstructionState[]
+    ) => void
   ) {
     this.connection.onReducer('import_knowledge_construction_state', callback)
   }
 
   removeOnImportKnowledgeConstructionState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeConstructionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeConstructionState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_construction_state', callback)
   }
@@ -13661,7 +17023,10 @@ export class RemoteReducers {
   importKnowledgeCraftState(records: KnowledgeCraftState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeCraftState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeCraftState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_craft_state',
@@ -13670,18 +17035,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeCraftState(callback: (ctx: ReducerEventContext, records: KnowledgeCraftState[]) => void) {
+  onImportKnowledgeCraftState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeCraftState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_craft_state', callback)
   }
 
-  removeOnImportKnowledgeCraftState(callback: (ctx: ReducerEventContext, records: KnowledgeCraftState[]) => void) {
+  removeOnImportKnowledgeCraftState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeCraftState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_craft_state', callback)
   }
 
   importKnowledgeDeployableState(records: KnowledgeDeployableState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeDeployableState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeDeployableState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_deployable_state',
@@ -13690,12 +17062,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeDeployableState(callback: (ctx: ReducerEventContext, records: KnowledgeDeployableState[]) => void) {
+  onImportKnowledgeDeployableState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeDeployableState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_deployable_state', callback)
   }
 
   removeOnImportKnowledgeDeployableState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeDeployableState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeDeployableState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_deployable_state', callback)
   }
@@ -13703,7 +17083,10 @@ export class RemoteReducers {
   importKnowledgeEnemyState(records: KnowledgeEnemyState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_enemy_state',
@@ -13712,18 +17095,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeEnemyState(callback: (ctx: ReducerEventContext, records: KnowledgeEnemyState[]) => void) {
+  onImportKnowledgeEnemyState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeEnemyState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_enemy_state', callback)
   }
 
-  removeOnImportKnowledgeEnemyState(callback: (ctx: ReducerEventContext, records: KnowledgeEnemyState[]) => void) {
+  removeOnImportKnowledgeEnemyState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeEnemyState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_enemy_state', callback)
   }
 
   importKnowledgeExtractState(records: KnowledgeExtractState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeExtractState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeExtractState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_extract_state',
@@ -13732,18 +17122,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeExtractState(callback: (ctx: ReducerEventContext, records: KnowledgeExtractState[]) => void) {
+  onImportKnowledgeExtractState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeExtractState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_extract_state', callback)
   }
 
-  removeOnImportKnowledgeExtractState(callback: (ctx: ReducerEventContext, records: KnowledgeExtractState[]) => void) {
+  removeOnImportKnowledgeExtractState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeExtractState[]
+    ) => void
+  ) {
     this.connection.offReducer('import_knowledge_extract_state', callback)
   }
 
   importKnowledgeItemState(records: KnowledgeItemState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeItemState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeItemState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_item_state',
@@ -13752,18 +17155,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeItemState(callback: (ctx: ReducerEventContext, records: KnowledgeItemState[]) => void) {
+  onImportKnowledgeItemState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeItemState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_item_state', callback)
   }
 
-  removeOnImportKnowledgeItemState(callback: (ctx: ReducerEventContext, records: KnowledgeItemState[]) => void) {
+  removeOnImportKnowledgeItemState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeItemState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_item_state', callback)
   }
 
   importKnowledgeLoreState(records: KnowledgeLoreState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeLoreState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeLoreState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_lore_state',
@@ -13772,18 +17182,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeLoreState(callback: (ctx: ReducerEventContext, records: KnowledgeLoreState[]) => void) {
+  onImportKnowledgeLoreState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeLoreState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_lore_state', callback)
   }
 
-  removeOnImportKnowledgeLoreState(callback: (ctx: ReducerEventContext, records: KnowledgeLoreState[]) => void) {
+  removeOnImportKnowledgeLoreState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeLoreState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_lore_state', callback)
   }
 
   importKnowledgeNpcState(records: KnowledgeNpcState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeNpcState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeNpcState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_npc_state',
@@ -13792,18 +17209,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeNpcState(callback: (ctx: ReducerEventContext, records: KnowledgeNpcState[]) => void) {
+  onImportKnowledgeNpcState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeNpcState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_npc_state', callback)
   }
 
-  removeOnImportKnowledgeNpcState(callback: (ctx: ReducerEventContext, records: KnowledgeNpcState[]) => void) {
+  removeOnImportKnowledgeNpcState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeNpcState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_npc_state', callback)
   }
 
   importKnowledgePavingState(records: KnowledgePavingState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgePavingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgePavingState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_paving_state',
@@ -13812,18 +17236,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgePavingState(callback: (ctx: ReducerEventContext, records: KnowledgePavingState[]) => void) {
+  onImportKnowledgePavingState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgePavingState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_paving_state', callback)
   }
 
-  removeOnImportKnowledgePavingState(callback: (ctx: ReducerEventContext, records: KnowledgePavingState[]) => void) {
+  removeOnImportKnowledgePavingState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgePavingState[]
+    ) => void
+  ) {
     this.connection.offReducer('import_knowledge_paving_state', callback)
   }
 
   importKnowledgePillarShapingState(records: KnowledgePillarShapingState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_pillar_shaping_state',
@@ -13833,21 +17270,35 @@ export class RemoteReducers {
   }
 
   onImportKnowledgePillarShapingState(
-    callback: (ctx: ReducerEventContext, records: KnowledgePillarShapingState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgePillarShapingState[]
+    ) => void
   ) {
     this.connection.onReducer('import_knowledge_pillar_shaping_state', callback)
   }
 
   removeOnImportKnowledgePillarShapingState(
-    callback: (ctx: ReducerEventContext, records: KnowledgePillarShapingState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgePillarShapingState[]
+    ) => void
   ) {
-    this.connection.offReducer('import_knowledge_pillar_shaping_state', callback)
+    this.connection.offReducer(
+      'import_knowledge_pillar_shaping_state',
+      callback
+    )
   }
 
-  importKnowledgeResourcePlacementState(records: KnowledgeResourcePlacementState[]) {
+  importKnowledgeResourcePlacementState(
+    records: KnowledgeResourcePlacementState[]
+  ) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeResourcePlacementState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_resource_placement_state',
@@ -13857,21 +17308,36 @@ export class RemoteReducers {
   }
 
   onImportKnowledgeResourcePlacementState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeResourcePlacementState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeResourcePlacementState[]
+    ) => void
   ) {
-    this.connection.onReducer('import_knowledge_resource_placement_state', callback)
+    this.connection.onReducer(
+      'import_knowledge_resource_placement_state',
+      callback
+    )
   }
 
   removeOnImportKnowledgeResourcePlacementState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeResourcePlacementState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeResourcePlacementState[]
+    ) => void
   ) {
-    this.connection.offReducer('import_knowledge_resource_placement_state', callback)
+    this.connection.offReducer(
+      'import_knowledge_resource_placement_state',
+      callback
+    )
   }
 
   importKnowledgeResourceState(records: KnowledgeResourceState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeResourceState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeResourceState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_resource_state',
@@ -13880,12 +17346,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeResourceState(callback: (ctx: ReducerEventContext, records: KnowledgeResourceState[]) => void) {
+  onImportKnowledgeResourceState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeResourceState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_resource_state', callback)
   }
 
   removeOnImportKnowledgeResourceState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeResourceState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeResourceState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_resource_state', callback)
   }
@@ -13893,7 +17367,10 @@ export class RemoteReducers {
   importKnowledgeRuinsState(records: KnowledgeRuinsState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeRuinsState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeRuinsState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_ruins_state',
@@ -13902,18 +17379,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeRuinsState(callback: (ctx: ReducerEventContext, records: KnowledgeRuinsState[]) => void) {
+  onImportKnowledgeRuinsState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeRuinsState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_ruins_state', callback)
   }
 
-  removeOnImportKnowledgeRuinsState(callback: (ctx: ReducerEventContext, records: KnowledgeRuinsState[]) => void) {
+  removeOnImportKnowledgeRuinsState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeRuinsState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_ruins_state', callback)
   }
 
   importKnowledgeScrollDesc(records: KnowledgeScrollDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_scroll_desc',
@@ -13922,18 +17406,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeScrollDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void) {
+  onImportKnowledgeScrollDesc(
+    callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_scroll_desc', callback)
   }
 
-  removeOnImportKnowledgeScrollDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void) {
+  removeOnImportKnowledgeScrollDesc(
+    callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_scroll_desc', callback)
   }
 
   importKnowledgeScrollTypeDesc(records: KnowledgeScrollTypeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_scroll_type_desc',
@@ -13942,12 +17433,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeScrollTypeDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollTypeDesc[]) => void) {
+  onImportKnowledgeScrollTypeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeScrollTypeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_scroll_type_desc', callback)
   }
 
   removeOnImportKnowledgeScrollTypeDesc(
-    callback: (ctx: ReducerEventContext, records: KnowledgeScrollTypeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeScrollTypeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_scroll_type_desc', callback)
   }
@@ -13955,7 +17454,10 @@ export class RemoteReducers {
   importKnowledgeSecondaryState(records: KnowledgeSecondaryState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeSecondaryState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeSecondaryState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_secondary_state',
@@ -13964,12 +17466,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeSecondaryState(callback: (ctx: ReducerEventContext, records: KnowledgeSecondaryState[]) => void) {
+  onImportKnowledgeSecondaryState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeSecondaryState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_knowledge_secondary_state', callback)
   }
 
   removeOnImportKnowledgeSecondaryState(
-    callback: (ctx: ReducerEventContext, records: KnowledgeSecondaryState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeSecondaryState[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_secondary_state', callback)
   }
@@ -13977,7 +17487,10 @@ export class RemoteReducers {
   importKnowledgeStatModifierDesc(records: KnowledgeStatModifierDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_stat_modifier_desc',
@@ -13987,13 +17500,19 @@ export class RemoteReducers {
   }
 
   onImportKnowledgeStatModifierDesc(
-    callback: (ctx: ReducerEventContext, records: KnowledgeStatModifierDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeStatModifierDesc[]
+    ) => void
   ) {
     this.connection.onReducer('import_knowledge_stat_modifier_desc', callback)
   }
 
   removeOnImportKnowledgeStatModifierDesc(
-    callback: (ctx: ReducerEventContext, records: KnowledgeStatModifierDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeStatModifierDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_knowledge_stat_modifier_desc', callback)
   }
@@ -14001,7 +17520,10 @@ export class RemoteReducers {
   importKnowledgeVaultState(records: KnowledgeVaultState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportKnowledgeVaultState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportKnowledgeVaultState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_knowledge_vault_state',
@@ -14010,11 +17532,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportKnowledgeVaultState(callback: (ctx: ReducerEventContext, records: KnowledgeVaultState[]) => void) {
+  onImportKnowledgeVaultState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeVaultState[]) => void
+  ) {
     this.connection.onReducer('import_knowledge_vault_state', callback)
   }
 
-  removeOnImportKnowledgeVaultState(callback: (ctx: ReducerEventContext, records: KnowledgeVaultState[]) => void) {
+  removeOnImportKnowledgeVaultState(
+    callback: (ctx: ReducerEventContext, records: KnowledgeVaultState[]) => void
+  ) {
     this.connection.offReducer('import_knowledge_vault_state', callback)
   }
 
@@ -14030,11 +17556,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportLocationCache(callback: (ctx: ReducerEventContext, records: LocationCache[]) => void) {
+  onImportLocationCache(
+    callback: (ctx: ReducerEventContext, records: LocationCache[]) => void
+  ) {
     this.connection.onReducer('import_location_cache', callback)
   }
 
-  removeOnImportLocationCache(callback: (ctx: ReducerEventContext, records: LocationCache[]) => void) {
+  removeOnImportLocationCache(
+    callback: (ctx: ReducerEventContext, records: LocationCache[]) => void
+  ) {
     this.connection.offReducer('import_location_cache', callback)
   }
 
@@ -14050,11 +17580,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportLocationState(callback: (ctx: ReducerEventContext, records: LocationState[]) => void) {
+  onImportLocationState(
+    callback: (ctx: ReducerEventContext, records: LocationState[]) => void
+  ) {
     this.connection.onReducer('import_location_state', callback)
   }
 
-  removeOnImportLocationState(callback: (ctx: ReducerEventContext, records: LocationState[]) => void) {
+  removeOnImportLocationState(
+    callback: (ctx: ReducerEventContext, records: LocationState[]) => void
+  ) {
     this.connection.offReducer('import_location_state', callback)
   }
 
@@ -14070,18 +17604,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportLootChestDesc(callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void) {
+  onImportLootChestDesc(
+    callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void
+  ) {
     this.connection.onReducer('import_loot_chest_desc', callback)
   }
 
-  removeOnImportLootChestDesc(callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void) {
+  removeOnImportLootChestDesc(
+    callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void
+  ) {
     this.connection.offReducer('import_loot_chest_desc', callback)
   }
 
   importLootChestState(records: LootChestState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportLootChestState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportLootChestState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_loot_chest_state',
@@ -14090,18 +17631,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportLootChestState(callback: (ctx: ReducerEventContext, records: LootChestState[]) => void) {
+  onImportLootChestState(
+    callback: (ctx: ReducerEventContext, records: LootChestState[]) => void
+  ) {
     this.connection.onReducer('import_loot_chest_state', callback)
   }
 
-  removeOnImportLootChestState(callback: (ctx: ReducerEventContext, records: LootChestState[]) => void) {
+  removeOnImportLootChestState(
+    callback: (ctx: ReducerEventContext, records: LootChestState[]) => void
+  ) {
     this.connection.offReducer('import_loot_chest_state', callback)
   }
 
   importLootRarityDesc(records: LootRarityDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportLootRarityDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportLootRarityDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_loot_rarity_desc',
@@ -14110,11 +17658,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportLootRarityDesc(callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void) {
+  onImportLootRarityDesc(
+    callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void
+  ) {
     this.connection.onReducer('import_loot_rarity_desc', callback)
   }
 
-  removeOnImportLootRarityDesc(callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void) {
+  removeOnImportLootRarityDesc(
+    callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void
+  ) {
     this.connection.offReducer('import_loot_rarity_desc', callback)
   }
 
@@ -14130,18 +17682,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportLootTableDesc(callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void) {
+  onImportLootTableDesc(
+    callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void
+  ) {
     this.connection.onReducer('import_loot_table_desc', callback)
   }
 
-  removeOnImportLootTableDesc(callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void) {
+  removeOnImportLootTableDesc(
+    callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void
+  ) {
     this.connection.offReducer('import_loot_table_desc', callback)
   }
 
   importMobileEntityState(records: MobileEntityState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportMobileEntityState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportMobileEntityState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_mobile_entity_state',
@@ -14150,11 +17709,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportMobileEntityState(callback: (ctx: ReducerEventContext, records: MobileEntityState[]) => void) {
+  onImportMobileEntityState(
+    callback: (ctx: ReducerEventContext, records: MobileEntityState[]) => void
+  ) {
     this.connection.onReducer('import_mobile_entity_state', callback)
   }
 
-  removeOnImportMobileEntityState(callback: (ctx: ReducerEventContext, records: MobileEntityState[]) => void) {
+  removeOnImportMobileEntityState(
+    callback: (ctx: ReducerEventContext, records: MobileEntityState[]) => void
+  ) {
     this.connection.offReducer('import_mobile_entity_state', callback)
   }
 
@@ -14170,11 +17733,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportMountingState(callback: (ctx: ReducerEventContext, records: MountingState[]) => void) {
+  onImportMountingState(
+    callback: (ctx: ReducerEventContext, records: MountingState[]) => void
+  ) {
     this.connection.onReducer('import_mounting_state', callback)
   }
 
-  removeOnImportMountingState(callback: (ctx: ReducerEventContext, records: MountingState[]) => void) {
+  removeOnImportMountingState(
+    callback: (ctx: ReducerEventContext, records: MountingState[]) => void
+  ) {
     this.connection.offReducer('import_mounting_state', callback)
   }
 
@@ -14183,14 +17750,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportNpcDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_npc_desc', __argsBuffer, this.setCallReducerFlags.importNpcDescFlags)
+    this.connection.callReducer(
+      'import_npc_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importNpcDescFlags
+    )
   }
 
-  onImportNpcDesc(callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void) {
+  onImportNpcDesc(
+    callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void
+  ) {
     this.connection.onReducer('import_npc_desc', callback)
   }
 
-  removeOnImportNpcDesc(callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void) {
+  removeOnImportNpcDesc(
+    callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void
+  ) {
     this.connection.offReducer('import_npc_desc', callback)
   }
 
@@ -14199,21 +17774,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportNpcState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_npc_state', __argsBuffer, this.setCallReducerFlags.importNpcStateFlags)
+    this.connection.callReducer(
+      'import_npc_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importNpcStateFlags
+    )
   }
 
-  onImportNpcState(callback: (ctx: ReducerEventContext, records: NpcState[]) => void) {
+  onImportNpcState(
+    callback: (ctx: ReducerEventContext, records: NpcState[]) => void
+  ) {
     this.connection.onReducer('import_npc_state', callback)
   }
 
-  removeOnImportNpcState(callback: (ctx: ReducerEventContext, records: NpcState[]) => void) {
+  removeOnImportNpcState(
+    callback: (ctx: ReducerEventContext, records: NpcState[]) => void
+  ) {
     this.connection.offReducer('import_npc_state', callback)
   }
 
   importOnboardingRewardDesc(records: OnboardingRewardDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_onboarding_reward_desc',
@@ -14222,18 +17808,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportOnboardingRewardDesc(callback: (ctx: ReducerEventContext, records: OnboardingRewardDesc[]) => void) {
+  onImportOnboardingRewardDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: OnboardingRewardDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_onboarding_reward_desc', callback)
   }
 
-  removeOnImportOnboardingRewardDesc(callback: (ctx: ReducerEventContext, records: OnboardingRewardDesc[]) => void) {
+  removeOnImportOnboardingRewardDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: OnboardingRewardDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_onboarding_reward_desc', callback)
   }
 
   importOnboardingState(records: OnboardingState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportOnboardingState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportOnboardingState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_onboarding_state',
@@ -14242,18 +17841,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportOnboardingState(callback: (ctx: ReducerEventContext, records: OnboardingState[]) => void) {
+  onImportOnboardingState(
+    callback: (ctx: ReducerEventContext, records: OnboardingState[]) => void
+  ) {
     this.connection.onReducer('import_onboarding_state', callback)
   }
 
-  removeOnImportOnboardingState(callback: (ctx: ReducerEventContext, records: OnboardingState[]) => void) {
+  removeOnImportOnboardingState(
+    callback: (ctx: ReducerEventContext, records: OnboardingState[]) => void
+  ) {
     this.connection.offReducer('import_onboarding_state', callback)
   }
 
   importParametersDesc(records: ParametersDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportParametersDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportParametersDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_parameters_desc',
@@ -14262,18 +17868,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportParametersDesc(callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void) {
+  onImportParametersDesc(
+    callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void
+  ) {
     this.connection.onReducer('import_parameters_desc', callback)
   }
 
-  removeOnImportParametersDesc(callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void) {
+  removeOnImportParametersDesc(
+    callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void
+  ) {
     this.connection.offReducer('import_parameters_desc', callback)
   }
 
   importPathfindingDesc(records: PathfindingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPathfindingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPathfindingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_pathfinding_desc',
@@ -14282,18 +17895,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPathfindingDesc(callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void) {
+  onImportPathfindingDesc(
+    callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void
+  ) {
     this.connection.onReducer('import_pathfinding_desc', callback)
   }
 
-  removeOnImportPathfindingDesc(callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void) {
+  removeOnImportPathfindingDesc(
+    callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void
+  ) {
     this.connection.offReducer('import_pathfinding_desc', callback)
   }
 
   importPavedTileState(records: PavedTileState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPavedTileState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPavedTileState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_paved_tile_state',
@@ -14302,18 +17922,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPavedTileState(callback: (ctx: ReducerEventContext, records: PavedTileState[]) => void) {
+  onImportPavedTileState(
+    callback: (ctx: ReducerEventContext, records: PavedTileState[]) => void
+  ) {
     this.connection.onReducer('import_paved_tile_state', callback)
   }
 
-  removeOnImportPavedTileState(callback: (ctx: ReducerEventContext, records: PavedTileState[]) => void) {
+  removeOnImportPavedTileState(
+    callback: (ctx: ReducerEventContext, records: PavedTileState[]) => void
+  ) {
     this.connection.offReducer('import_paved_tile_state', callback)
   }
 
   importPavingTileDesc(records: PavingTileDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPavingTileDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPavingTileDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_paving_tile_desc',
@@ -14322,18 +17949,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPavingTileDesc(callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void) {
+  onImportPavingTileDesc(
+    callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void
+  ) {
     this.connection.onReducer('import_paving_tile_desc', callback)
   }
 
-  removeOnImportPavingTileDesc(callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void) {
+  removeOnImportPavingTileDesc(
+    callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void
+  ) {
     this.connection.offReducer('import_paving_tile_desc', callback)
   }
 
   importPillarShapingDesc(records: PillarShapingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPillarShapingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPillarShapingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_pillar_shaping_desc',
@@ -14342,18 +17976,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+  onImportPillarShapingDesc(
+    callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void
+  ) {
     this.connection.onReducer('import_pillar_shaping_desc', callback)
   }
 
-  removeOnImportPillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+  removeOnImportPillarShapingDesc(
+    callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void
+  ) {
     this.connection.offReducer('import_pillar_shaping_desc', callback)
   }
 
   importPlayerActionDesc(records: PlayerActionDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPlayerActionDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPlayerActionDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_player_action_desc',
@@ -14362,18 +18003,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPlayerActionDesc(callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void) {
+  onImportPlayerActionDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void
+  ) {
     this.connection.onReducer('import_player_action_desc', callback)
   }
 
-  removeOnImportPlayerActionDesc(callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void) {
+  removeOnImportPlayerActionDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void
+  ) {
     this.connection.offReducer('import_player_action_desc', callback)
   }
 
   importPlayerActionState(records: PlayerActionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPlayerActionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPlayerActionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_player_action_state',
@@ -14382,18 +18030,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPlayerActionState(callback: (ctx: ReducerEventContext, records: PlayerActionState[]) => void) {
+  onImportPlayerActionState(
+    callback: (ctx: ReducerEventContext, records: PlayerActionState[]) => void
+  ) {
     this.connection.onReducer('import_player_action_state', callback)
   }
 
-  removeOnImportPlayerActionState(callback: (ctx: ReducerEventContext, records: PlayerActionState[]) => void) {
+  removeOnImportPlayerActionState(
+    callback: (ctx: ReducerEventContext, records: PlayerActionState[]) => void
+  ) {
     this.connection.offReducer('import_player_action_state', callback)
   }
 
   importPlayerHousingDesc(records: PlayerHousingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPlayerHousingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPlayerHousingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_player_housing_desc',
@@ -14402,18 +18057,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportPlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+  onImportPlayerHousingDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void
+  ) {
     this.connection.onReducer('import_player_housing_desc', callback)
   }
 
-  removeOnImportPlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+  removeOnImportPlayerHousingDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void
+  ) {
     this.connection.offReducer('import_player_housing_desc', callback)
   }
 
   importPlayerPrefsState(records: PlayerPrefsState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPlayerPrefsState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPlayerPrefsState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_player_prefs_state',
@@ -14422,11 +18084,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportPlayerPrefsState(callback: (ctx: ReducerEventContext, records: PlayerPrefsState[]) => void) {
+  onImportPlayerPrefsState(
+    callback: (ctx: ReducerEventContext, records: PlayerPrefsState[]) => void
+  ) {
     this.connection.onReducer('import_player_prefs_state', callback)
   }
 
-  removeOnImportPlayerPrefsState(callback: (ctx: ReducerEventContext, records: PlayerPrefsState[]) => void) {
+  removeOnImportPlayerPrefsState(
+    callback: (ctx: ReducerEventContext, records: PlayerPrefsState[]) => void
+  ) {
     this.connection.offReducer('import_player_prefs_state', callback)
   }
 
@@ -14435,14 +18101,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportPlayerState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_player_state', __argsBuffer, this.setCallReducerFlags.importPlayerStateFlags)
+    this.connection.callReducer(
+      'import_player_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importPlayerStateFlags
+    )
   }
 
-  onImportPlayerState(callback: (ctx: ReducerEventContext, records: PlayerState[]) => void) {
+  onImportPlayerState(
+    callback: (ctx: ReducerEventContext, records: PlayerState[]) => void
+  ) {
     this.connection.onReducer('import_player_state', callback)
   }
 
-  removeOnImportPlayerState(callback: (ctx: ReducerEventContext, records: PlayerState[]) => void) {
+  removeOnImportPlayerState(
+    callback: (ctx: ReducerEventContext, records: PlayerState[]) => void
+  ) {
     this.connection.offReducer('import_player_state', callback)
   }
 
@@ -14451,21 +18125,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportPortalState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_portal_state', __argsBuffer, this.setCallReducerFlags.importPortalStateFlags)
+    this.connection.callReducer(
+      'import_portal_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importPortalStateFlags
+    )
   }
 
-  onImportPortalState(callback: (ctx: ReducerEventContext, records: PortalState[]) => void) {
+  onImportPortalState(
+    callback: (ctx: ReducerEventContext, records: PortalState[]) => void
+  ) {
     this.connection.onReducer('import_portal_state', callback)
   }
 
-  removeOnImportPortalState(callback: (ctx: ReducerEventContext, records: PortalState[]) => void) {
+  removeOnImportPortalState(
+    callback: (ctx: ReducerEventContext, records: PortalState[]) => void
+  ) {
     this.connection.offReducer('import_portal_state', callback)
   }
 
   importPrivateParametersDesc(records: PrivateParametersDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportPrivateParametersDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportPrivateParametersDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_private_parameters_desc',
@@ -14474,18 +18159,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportPrivateParametersDesc(callback: (ctx: ReducerEventContext, records: PrivateParametersDesc[]) => void) {
+  onImportPrivateParametersDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: PrivateParametersDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_private_parameters_desc', callback)
   }
 
-  removeOnImportPrivateParametersDesc(callback: (ctx: ReducerEventContext, records: PrivateParametersDesc[]) => void) {
+  removeOnImportPrivateParametersDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: PrivateParametersDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('import_private_parameters_desc', callback)
   }
 
   importProgressiveActionState(records: ProgressiveActionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportProgressiveActionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportProgressiveActionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_progressive_action_state',
@@ -14494,12 +18192,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportProgressiveActionState(callback: (ctx: ReducerEventContext, records: ProgressiveActionState[]) => void) {
+  onImportProgressiveActionState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ProgressiveActionState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_progressive_action_state', callback)
   }
 
   removeOnImportProgressiveActionState(
-    callback: (ctx: ReducerEventContext, records: ProgressiveActionState[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ProgressiveActionState[]
+    ) => void
   ) {
     this.connection.offReducer('import_progressive_action_state', callback)
   }
@@ -14507,7 +18213,10 @@ export class RemoteReducers {
   importProjectSiteState(records: ProjectSiteState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportProjectSiteState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportProjectSiteState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_project_site_state',
@@ -14516,11 +18225,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportProjectSiteState(callback: (ctx: ReducerEventContext, records: ProjectSiteState[]) => void) {
+  onImportProjectSiteState(
+    callback: (ctx: ReducerEventContext, records: ProjectSiteState[]) => void
+  ) {
     this.connection.onReducer('import_project_site_state', callback)
   }
 
-  removeOnImportProjectSiteState(callback: (ctx: ReducerEventContext, records: ProjectSiteState[]) => void) {
+  removeOnImportProjectSiteState(
+    callback: (ctx: ReducerEventContext, records: ProjectSiteState[]) => void
+  ) {
     this.connection.offReducer('import_project_site_state', callback)
   }
 
@@ -14529,21 +18242,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportRentState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_rent_state', __argsBuffer, this.setCallReducerFlags.importRentStateFlags)
+    this.connection.callReducer(
+      'import_rent_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importRentStateFlags
+    )
   }
 
-  onImportRentState(callback: (ctx: ReducerEventContext, records: RentState[]) => void) {
+  onImportRentState(
+    callback: (ctx: ReducerEventContext, records: RentState[]) => void
+  ) {
     this.connection.onReducer('import_rent_state', callback)
   }
 
-  removeOnImportRentState(callback: (ctx: ReducerEventContext, records: RentState[]) => void) {
+  removeOnImportRentState(
+    callback: (ctx: ReducerEventContext, records: RentState[]) => void
+  ) {
     this.connection.offReducer('import_rent_state', callback)
   }
 
   importReservedNameDesc(records: ReservedNameDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportReservedNameDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportReservedNameDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_reserved_name_desc',
@@ -14552,18 +18276,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+  onImportReservedNameDesc(
+    callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void
+  ) {
     this.connection.onReducer('import_reserved_name_desc', callback)
   }
 
-  removeOnImportReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+  removeOnImportReservedNameDesc(
+    callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void
+  ) {
     this.connection.offReducer('import_reserved_name_desc', callback)
   }
 
   importResourceClumpDesc(records: ResourceClumpDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportResourceClumpDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportResourceClumpDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_resource_clump_desc',
@@ -14572,11 +18303,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportResourceClumpDesc(callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void) {
+  onImportResourceClumpDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void
+  ) {
     this.connection.onReducer('import_resource_clump_desc', callback)
   }
 
-  removeOnImportResourceClumpDesc(callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void) {
+  removeOnImportResourceClumpDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void
+  ) {
     this.connection.offReducer('import_resource_clump_desc', callback)
   }
 
@@ -14592,11 +18327,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportResourceCount(callback: (ctx: ReducerEventContext, records: ResourceCount[]) => void) {
+  onImportResourceCount(
+    callback: (ctx: ReducerEventContext, records: ResourceCount[]) => void
+  ) {
     this.connection.onReducer('import_resource_count', callback)
   }
 
-  removeOnImportResourceCount(callback: (ctx: ReducerEventContext, records: ResourceCount[]) => void) {
+  removeOnImportResourceCount(
+    callback: (ctx: ReducerEventContext, records: ResourceCount[]) => void
+  ) {
     this.connection.offReducer('import_resource_count', callback)
   }
 
@@ -14605,21 +18344,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportResourceDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_resource_desc', __argsBuffer, this.setCallReducerFlags.importResourceDescFlags)
+    this.connection.callReducer(
+      'import_resource_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importResourceDescFlags
+    )
   }
 
-  onImportResourceDesc(callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void) {
+  onImportResourceDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void
+  ) {
     this.connection.onReducer('import_resource_desc', callback)
   }
 
-  removeOnImportResourceDesc(callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void) {
+  removeOnImportResourceDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void
+  ) {
     this.connection.offReducer('import_resource_desc', callback)
   }
 
   importResourceGrowthRecipeDesc(records: ResourceGrowthRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_resource_growth_recipe_desc',
@@ -14628,12 +18378,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportResourceGrowthRecipeDesc(callback: (ctx: ReducerEventContext, records: ResourceGrowthRecipeDesc[]) => void) {
+  onImportResourceGrowthRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourceGrowthRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_resource_growth_recipe_desc', callback)
   }
 
   removeOnImportResourceGrowthRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourceGrowthRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourceGrowthRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_resource_growth_recipe_desc', callback)
   }
@@ -14641,7 +18399,10 @@ export class RemoteReducers {
   importResourcePlacementRecipeDesc(records: ResourcePlacementRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_resource_placement_recipe_desc',
@@ -14651,15 +18412,24 @@ export class RemoteReducers {
   }
 
   onImportResourcePlacementRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourcePlacementRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourcePlacementRecipeDesc[]
+    ) => void
   ) {
     this.connection.onReducer('import_resource_placement_recipe_desc', callback)
   }
 
   removeOnImportResourcePlacementRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourcePlacementRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourcePlacementRecipeDesc[]
+    ) => void
   ) {
-    this.connection.offReducer('import_resource_placement_recipe_desc', callback)
+    this.connection.offReducer(
+      'import_resource_placement_recipe_desc',
+      callback
+    )
   }
 
   importResourceState(records: ResourceState[]) {
@@ -14674,11 +18444,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportResourceState(callback: (ctx: ReducerEventContext, records: ResourceState[]) => void) {
+  onImportResourceState(
+    callback: (ctx: ReducerEventContext, records: ResourceState[]) => void
+  ) {
     this.connection.onReducer('import_resource_state', callback)
   }
 
-  removeOnImportResourceState(callback: (ctx: ReducerEventContext, records: ResourceState[]) => void) {
+  removeOnImportResourceState(
+    callback: (ctx: ReducerEventContext, records: ResourceState[]) => void
+  ) {
     this.connection.offReducer('import_resource_state', callback)
   }
 
@@ -14687,21 +18461,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportResourcesLog.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_resources_log', __argsBuffer, this.setCallReducerFlags.importResourcesLogFlags)
+    this.connection.callReducer(
+      'import_resources_log',
+      __argsBuffer,
+      this.setCallReducerFlags.importResourcesLogFlags
+    )
   }
 
-  onImportResourcesLog(callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void) {
+  onImportResourcesLog(
+    callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void
+  ) {
     this.connection.onReducer('import_resources_log', callback)
   }
 
-  removeOnImportResourcesLog(callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void) {
+  removeOnImportResourcesLog(
+    callback: (ctx: ReducerEventContext, records: ResourcesLog[]) => void
+  ) {
     this.connection.offReducer('import_resources_log', callback)
   }
 
   importSatiationState(records: SatiationState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportSatiationState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportSatiationState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_satiation_state',
@@ -14710,18 +18495,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportSatiationState(callback: (ctx: ReducerEventContext, records: SatiationState[]) => void) {
+  onImportSatiationState(
+    callback: (ctx: ReducerEventContext, records: SatiationState[]) => void
+  ) {
     this.connection.onReducer('import_satiation_state', callback)
   }
 
-  removeOnImportSatiationState(callback: (ctx: ReducerEventContext, records: SatiationState[]) => void) {
+  removeOnImportSatiationState(
+    callback: (ctx: ReducerEventContext, records: SatiationState[]) => void
+  ) {
     this.connection.offReducer('import_satiation_state', callback)
   }
 
   importSecondaryKnowledgeDesc(records: SecondaryKnowledgeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportSecondaryKnowledgeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportSecondaryKnowledgeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_secondary_knowledge_desc',
@@ -14730,12 +18522,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportSecondaryKnowledgeDesc(callback: (ctx: ReducerEventContext, records: SecondaryKnowledgeDesc[]) => void) {
+  onImportSecondaryKnowledgeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: SecondaryKnowledgeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_secondary_knowledge_desc', callback)
   }
 
   removeOnImportSecondaryKnowledgeDesc(
-    callback: (ctx: ReducerEventContext, records: SecondaryKnowledgeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: SecondaryKnowledgeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_secondary_knowledge_desc', callback)
   }
@@ -14743,7 +18543,10 @@ export class RemoteReducers {
   importServerIdentity(records: ServerIdentity[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportServerIdentity.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportServerIdentity.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_server_identity',
@@ -14752,18 +18555,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportServerIdentity(callback: (ctx: ReducerEventContext, records: ServerIdentity[]) => void) {
+  onImportServerIdentity(
+    callback: (ctx: ReducerEventContext, records: ServerIdentity[]) => void
+  ) {
     this.connection.onReducer('import_server_identity', callback)
   }
 
-  removeOnImportServerIdentity(callback: (ctx: ReducerEventContext, records: ServerIdentity[]) => void) {
+  removeOnImportServerIdentity(
+    callback: (ctx: ReducerEventContext, records: ServerIdentity[]) => void
+  ) {
     this.connection.offReducer('import_server_identity', callback)
   }
 
   importSignedInPlayerState(records: SignedInPlayerState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportSignedInPlayerState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportSignedInPlayerState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_signed_in_player_state',
@@ -14772,11 +18582,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportSignedInPlayerState(callback: (ctx: ReducerEventContext, records: SignedInPlayerState[]) => void) {
+  onImportSignedInPlayerState(
+    callback: (ctx: ReducerEventContext, records: SignedInPlayerState[]) => void
+  ) {
     this.connection.onReducer('import_signed_in_player_state', callback)
   }
 
-  removeOnImportSignedInPlayerState(callback: (ctx: ReducerEventContext, records: SignedInPlayerState[]) => void) {
+  removeOnImportSignedInPlayerState(
+    callback: (ctx: ReducerEventContext, records: SignedInPlayerState[]) => void
+  ) {
     this.connection.offReducer('import_signed_in_player_state', callback)
   }
 
@@ -14785,14 +18599,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportSkillDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_skill_desc', __argsBuffer, this.setCallReducerFlags.importSkillDescFlags)
+    this.connection.callReducer(
+      'import_skill_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importSkillDescFlags
+    )
   }
 
-  onImportSkillDesc(callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void) {
+  onImportSkillDesc(
+    callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void
+  ) {
     this.connection.onReducer('import_skill_desc', callback)
   }
 
-  removeOnImportSkillDesc(callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void) {
+  removeOnImportSkillDesc(
+    callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void
+  ) {
     this.connection.offReducer('import_skill_desc', callback)
   }
 
@@ -14801,14 +18623,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportStaminaState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_stamina_state', __argsBuffer, this.setCallReducerFlags.importStaminaStateFlags)
+    this.connection.callReducer(
+      'import_stamina_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importStaminaStateFlags
+    )
   }
 
-  onImportStaminaState(callback: (ctx: ReducerEventContext, records: StaminaState[]) => void) {
+  onImportStaminaState(
+    callback: (ctx: ReducerEventContext, records: StaminaState[]) => void
+  ) {
     this.connection.onReducer('import_stamina_state', callback)
   }
 
-  removeOnImportStaminaState(callback: (ctx: ReducerEventContext, records: StaminaState[]) => void) {
+  removeOnImportStaminaState(
+    callback: (ctx: ReducerEventContext, records: StaminaState[]) => void
+  ) {
     this.connection.offReducer('import_stamina_state', callback)
   }
 
@@ -14817,21 +18647,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportTargetState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_target_state', __argsBuffer, this.setCallReducerFlags.importTargetStateFlags)
+    this.connection.callReducer(
+      'import_target_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importTargetStateFlags
+    )
   }
 
-  onImportTargetState(callback: (ctx: ReducerEventContext, records: TargetState[]) => void) {
+  onImportTargetState(
+    callback: (ctx: ReducerEventContext, records: TargetState[]) => void
+  ) {
     this.connection.onReducer('import_target_state', callback)
   }
 
-  removeOnImportTargetState(callback: (ctx: ReducerEventContext, records: TargetState[]) => void) {
+  removeOnImportTargetState(
+    callback: (ctx: ReducerEventContext, records: TargetState[]) => void
+  ) {
     this.connection.offReducer('import_target_state', callback)
   }
 
   importTargetableState(records: TargetableState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTargetableState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTargetableState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_targetable_state',
@@ -14840,18 +18681,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTargetableState(callback: (ctx: ReducerEventContext, records: TargetableState[]) => void) {
+  onImportTargetableState(
+    callback: (ctx: ReducerEventContext, records: TargetableState[]) => void
+  ) {
     this.connection.onReducer('import_targetable_state', callback)
   }
 
-  removeOnImportTargetableState(callback: (ctx: ReducerEventContext, records: TargetableState[]) => void) {
+  removeOnImportTargetableState(
+    callback: (ctx: ReducerEventContext, records: TargetableState[]) => void
+  ) {
     this.connection.offReducer('import_targetable_state', callback)
   }
 
   importTargetingMatrixDesc(records: TargetingMatrixDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_targeting_matrix_desc',
@@ -14860,18 +18708,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTargetingMatrixDesc(callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void) {
+  onImportTargetingMatrixDesc(
+    callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void
+  ) {
     this.connection.onReducer('import_targeting_matrix_desc', callback)
   }
 
-  removeOnImportTargetingMatrixDesc(callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void) {
+  removeOnImportTargetingMatrixDesc(
+    callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void
+  ) {
     this.connection.offReducer('import_targeting_matrix_desc', callback)
   }
 
   importTeleportItemDesc(records: TeleportItemDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTeleportItemDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTeleportItemDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_teleport_item_desc',
@@ -14880,18 +18735,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTeleportItemDesc(callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void) {
+  onImportTeleportItemDesc(
+    callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void
+  ) {
     this.connection.onReducer('import_teleport_item_desc', callback)
   }
 
-  removeOnImportTeleportItemDesc(callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void) {
+  removeOnImportTeleportItemDesc(
+    callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void
+  ) {
     this.connection.offReducer('import_teleport_item_desc', callback)
   }
 
   importTerraformRecipeDesc(records: TerraformRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTerraformRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTerraformRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_terraform_recipe_desc',
@@ -14900,18 +18762,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTerraformRecipeDesc(callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void) {
+  onImportTerraformRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void
+  ) {
     this.connection.onReducer('import_terraform_recipe_desc', callback)
   }
 
-  removeOnImportTerraformRecipeDesc(callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void) {
+  removeOnImportTerraformRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void
+  ) {
     this.connection.offReducer('import_terraform_recipe_desc', callback)
   }
 
   importTerrainChunkState(records: TerrainChunkState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTerrainChunkState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTerrainChunkState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_terrain_chunk_state',
@@ -14920,11 +18789,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportTerrainChunkState(callback: (ctx: ReducerEventContext, records: TerrainChunkState[]) => void) {
+  onImportTerrainChunkState(
+    callback: (ctx: ReducerEventContext, records: TerrainChunkState[]) => void
+  ) {
     this.connection.onReducer('import_terrain_chunk_state', callback)
   }
 
-  removeOnImportTerrainChunkState(callback: (ctx: ReducerEventContext, records: TerrainChunkState[]) => void) {
+  removeOnImportTerrainChunkState(
+    callback: (ctx: ReducerEventContext, records: TerrainChunkState[]) => void
+  ) {
     this.connection.offReducer('import_terrain_chunk_state', callback)
   }
 
@@ -14933,14 +18806,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportToolDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_tool_desc', __argsBuffer, this.setCallReducerFlags.importToolDescFlags)
+    this.connection.callReducer(
+      'import_tool_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importToolDescFlags
+    )
   }
 
-  onImportToolDesc(callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void) {
+  onImportToolDesc(
+    callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void
+  ) {
     this.connection.onReducer('import_tool_desc', callback)
   }
 
-  removeOnImportToolDesc(callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void) {
+  removeOnImportToolDesc(
+    callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void
+  ) {
     this.connection.offReducer('import_tool_desc', callback)
   }
 
@@ -14949,21 +18830,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportToolTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_tool_type_desc', __argsBuffer, this.setCallReducerFlags.importToolTypeDescFlags)
+    this.connection.callReducer(
+      'import_tool_type_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importToolTypeDescFlags
+    )
   }
 
-  onImportToolTypeDesc(callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void) {
+  onImportToolTypeDesc(
+    callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void
+  ) {
     this.connection.onReducer('import_tool_type_desc', callback)
   }
 
-  removeOnImportToolTypeDesc(callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void) {
+  removeOnImportToolTypeDesc(
+    callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void
+  ) {
     this.connection.offReducer('import_tool_type_desc', callback)
   }
 
   importTradeOrderState(records: TradeOrderState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTradeOrderState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTradeOrderState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_trade_order_state',
@@ -14972,18 +18864,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTradeOrderState(callback: (ctx: ReducerEventContext, records: TradeOrderState[]) => void) {
+  onImportTradeOrderState(
+    callback: (ctx: ReducerEventContext, records: TradeOrderState[]) => void
+  ) {
     this.connection.onReducer('import_trade_order_state', callback)
   }
 
-  removeOnImportTradeOrderState(callback: (ctx: ReducerEventContext, records: TradeOrderState[]) => void) {
+  removeOnImportTradeOrderState(
+    callback: (ctx: ReducerEventContext, records: TradeOrderState[]) => void
+  ) {
     this.connection.offReducer('import_trade_order_state', callback)
   }
 
   importTradeSessionState(records: TradeSessionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTradeSessionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTradeSessionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_trade_session_state',
@@ -14992,18 +18891,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTradeSessionState(callback: (ctx: ReducerEventContext, records: TradeSessionState[]) => void) {
+  onImportTradeSessionState(
+    callback: (ctx: ReducerEventContext, records: TradeSessionState[]) => void
+  ) {
     this.connection.onReducer('import_trade_session_state', callback)
   }
 
-  removeOnImportTradeSessionState(callback: (ctx: ReducerEventContext, records: TradeSessionState[]) => void) {
+  removeOnImportTradeSessionState(
+    callback: (ctx: ReducerEventContext, records: TradeSessionState[]) => void
+  ) {
     this.connection.offReducer('import_trade_session_state', callback)
   }
 
   importTravelerTaskDesc(records: TravelerTaskDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_traveler_task_desc',
@@ -15012,18 +18918,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportTravelerTaskDesc(callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void) {
+  onImportTravelerTaskDesc(
+    callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void
+  ) {
     this.connection.onReducer('import_traveler_task_desc', callback)
   }
 
-  removeOnImportTravelerTaskDesc(callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void) {
+  removeOnImportTravelerTaskDesc(
+    callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void
+  ) {
     this.connection.offReducer('import_traveler_task_desc', callback)
   }
 
   importTravelerTradeOrderDesc(records: TravelerTradeOrderDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_traveler_trade_order_desc',
@@ -15032,12 +18945,20 @@ export class RemoteReducers {
     )
   }
 
-  onImportTravelerTradeOrderDesc(callback: (ctx: ReducerEventContext, records: TravelerTradeOrderDesc[]) => void) {
+  onImportTravelerTradeOrderDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: TravelerTradeOrderDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('import_traveler_trade_order_desc', callback)
   }
 
   removeOnImportTravelerTradeOrderDesc(
-    callback: (ctx: ReducerEventContext, records: TravelerTradeOrderDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: TravelerTradeOrderDesc[]
+    ) => void
   ) {
     this.connection.offReducer('import_traveler_trade_order_desc', callback)
   }
@@ -15045,7 +18966,10 @@ export class RemoteReducers {
   importUserModerationState(records: UserModerationState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportUserModerationState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportUserModerationState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_user_moderation_state',
@@ -15054,11 +18978,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportUserModerationState(callback: (ctx: ReducerEventContext, records: UserModerationState[]) => void) {
+  onImportUserModerationState(
+    callback: (ctx: ReducerEventContext, records: UserModerationState[]) => void
+  ) {
     this.connection.onReducer('import_user_moderation_state', callback)
   }
 
-  removeOnImportUserModerationState(callback: (ctx: ReducerEventContext, records: UserModerationState[]) => void) {
+  removeOnImportUserModerationState(
+    callback: (ctx: ReducerEventContext, records: UserModerationState[]) => void
+  ) {
     this.connection.offReducer('import_user_moderation_state', callback)
   }
 
@@ -15067,14 +18995,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportUserState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_user_state', __argsBuffer, this.setCallReducerFlags.importUserStateFlags)
+    this.connection.callReducer(
+      'import_user_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importUserStateFlags
+    )
   }
 
-  onImportUserState(callback: (ctx: ReducerEventContext, records: UserState[]) => void) {
+  onImportUserState(
+    callback: (ctx: ReducerEventContext, records: UserState[]) => void
+  ) {
     this.connection.onReducer('import_user_state', callback)
   }
 
-  removeOnImportUserState(callback: (ctx: ReducerEventContext, records: UserState[]) => void) {
+  removeOnImportUserState(
+    callback: (ctx: ReducerEventContext, records: UserState[]) => void
+  ) {
     this.connection.offReducer('import_user_state', callback)
   }
 
@@ -15083,14 +19019,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportVaultState.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_vault_state', __argsBuffer, this.setCallReducerFlags.importVaultStateFlags)
+    this.connection.callReducer(
+      'import_vault_state',
+      __argsBuffer,
+      this.setCallReducerFlags.importVaultStateFlags
+    )
   }
 
-  onImportVaultState(callback: (ctx: ReducerEventContext, records: VaultState[]) => void) {
+  onImportVaultState(
+    callback: (ctx: ReducerEventContext, records: VaultState[]) => void
+  ) {
     this.connection.onReducer('import_vault_state', callback)
   }
 
-  removeOnImportVaultState(callback: (ctx: ReducerEventContext, records: VaultState[]) => void) {
+  removeOnImportVaultState(
+    callback: (ctx: ReducerEventContext, records: VaultState[]) => void
+  ) {
     this.connection.offReducer('import_vault_state', callback)
   }
 
@@ -15099,14 +19043,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportWallDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_wall_desc', __argsBuffer, this.setCallReducerFlags.importWallDescFlags)
+    this.connection.callReducer(
+      'import_wall_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importWallDescFlags
+    )
   }
 
-  onImportWallDesc(callback: (ctx: ReducerEventContext, records: WallDesc[]) => void) {
+  onImportWallDesc(
+    callback: (ctx: ReducerEventContext, records: WallDesc[]) => void
+  ) {
     this.connection.onReducer('import_wall_desc', callback)
   }
 
-  removeOnImportWallDesc(callback: (ctx: ReducerEventContext, records: WallDesc[]) => void) {
+  removeOnImportWallDesc(
+    callback: (ctx: ReducerEventContext, records: WallDesc[]) => void
+  ) {
     this.connection.offReducer('import_wall_desc', callback)
   }
 
@@ -15115,21 +19067,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ImportWeaponDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('import_weapon_desc', __argsBuffer, this.setCallReducerFlags.importWeaponDescFlags)
+    this.connection.callReducer(
+      'import_weapon_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.importWeaponDescFlags
+    )
   }
 
-  onImportWeaponDesc(callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void) {
+  onImportWeaponDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void
+  ) {
     this.connection.onReducer('import_weapon_desc', callback)
   }
 
-  removeOnImportWeaponDesc(callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void) {
+  removeOnImportWeaponDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void
+  ) {
     this.connection.offReducer('import_weapon_desc', callback)
   }
 
   importWeaponTypeDesc(records: WeaponTypeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportWeaponTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportWeaponTypeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_weapon_type_desc',
@@ -15138,18 +19101,25 @@ export class RemoteReducers {
     )
   }
 
-  onImportWeaponTypeDesc(callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void) {
+  onImportWeaponTypeDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void
+  ) {
     this.connection.onReducer('import_weapon_type_desc', callback)
   }
 
-  removeOnImportWeaponTypeDesc(callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void) {
+  removeOnImportWeaponTypeDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void
+  ) {
     this.connection.offReducer('import_weapon_type_desc', callback)
   }
 
   importWorldRegionNameState(records: WorldRegionNameState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportWorldRegionNameState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_world_region_name_state',
@@ -15158,18 +19128,31 @@ export class RemoteReducers {
     )
   }
 
-  onImportWorldRegionNameState(callback: (ctx: ReducerEventContext, records: WorldRegionNameState[]) => void) {
+  onImportWorldRegionNameState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: WorldRegionNameState[]
+    ) => void
+  ) {
     this.connection.onReducer('import_world_region_name_state', callback)
   }
 
-  removeOnImportWorldRegionNameState(callback: (ctx: ReducerEventContext, records: WorldRegionNameState[]) => void) {
+  removeOnImportWorldRegionNameState(
+    callback: (
+      ctx: ReducerEventContext,
+      records: WorldRegionNameState[]
+    ) => void
+  ) {
     this.connection.offReducer('import_world_region_name_state', callback)
   }
 
   importWorldRegionState(records: WorldRegionState[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    ImportWorldRegionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ImportWorldRegionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'import_world_region_state',
@@ -15178,11 +19161,15 @@ export class RemoteReducers {
     )
   }
 
-  onImportWorldRegionState(callback: (ctx: ReducerEventContext, records: WorldRegionState[]) => void) {
+  onImportWorldRegionState(
+    callback: (ctx: ReducerEventContext, records: WorldRegionState[]) => void
+  ) {
     this.connection.onReducer('import_world_region_state', callback)
   }
 
-  removeOnImportWorldRegionState(callback: (ctx: ReducerEventContext, records: WorldRegionState[]) => void) {
+  removeOnImportWorldRegionState(
+    callback: (ctx: ReducerEventContext, records: WorldRegionState[]) => void
+  ) {
     this.connection.offReducer('import_world_region_state', callback)
   }
 
@@ -15191,14 +19178,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     InsertResourcesLog.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('insert_resources_log', __argsBuffer, this.setCallReducerFlags.insertResourcesLogFlags)
+    this.connection.callReducer(
+      'insert_resources_log',
+      __argsBuffer,
+      this.setCallReducerFlags.insertResourcesLogFlags
+    )
   }
 
-  onInsertResourcesLog(callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void) {
+  onInsertResourcesLog(
+    callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void
+  ) {
     this.connection.onReducer('insert_resources_log', callback)
   }
 
-  removeOnInsertResourcesLog(callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void) {
+  removeOnInsertResourcesLog(
+    callback: (ctx: ReducerEventContext, resourcesLog: ResourcesLog) => void
+  ) {
     this.connection.offReducer('insert_resources_log', callback)
   }
 
@@ -15211,7 +19206,11 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     InsertTerrainChunk.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('insert_terrain_chunk', __argsBuffer, this.setCallReducerFlags.insertTerrainChunkFlags)
+    this.connection.callReducer(
+      'insert_terrain_chunk',
+      __argsBuffer,
+      this.setCallReducerFlags.insertTerrainChunkFlags
+    )
   }
 
   onInsertTerrainChunk(
@@ -15239,7 +19238,10 @@ export class RemoteReducers {
   interiorSetCollapsed(dimensionNetworkEntityId: bigint, isCollapsed: boolean) {
     const __args = { dimensionNetworkEntityId, isCollapsed }
     let __writer = new BinaryWriter(1024)
-    InteriorSetCollapsed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    InteriorSetCollapsed.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'interior_set_collapsed',
@@ -15249,13 +19251,21 @@ export class RemoteReducers {
   }
 
   onInteriorSetCollapsed(
-    callback: (ctx: ReducerEventContext, dimensionNetworkEntityId: bigint, isCollapsed: boolean) => void
+    callback: (
+      ctx: ReducerEventContext,
+      dimensionNetworkEntityId: bigint,
+      isCollapsed: boolean
+    ) => void
   ) {
     this.connection.onReducer('interior_set_collapsed', callback)
   }
 
   removeOnInteriorSetCollapsed(
-    callback: (ctx: ReducerEventContext, dimensionNetworkEntityId: bigint, isCollapsed: boolean) => void
+    callback: (
+      ctx: ReducerEventContext,
+      dimensionNetworkEntityId: bigint,
+      isCollapsed: boolean
+    ) => void
   ) {
     this.connection.offReducer('interior_set_collapsed', callback)
   }
@@ -15263,7 +19273,10 @@ export class RemoteReducers {
   interiorSetCollapsedScheduled(timer: InteriorSetCollapsedTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'interior_set_collapsed_scheduled',
@@ -15272,12 +19285,20 @@ export class RemoteReducers {
     )
   }
 
-  onInteriorSetCollapsedScheduled(callback: (ctx: ReducerEventContext, timer: InteriorSetCollapsedTimer) => void) {
+  onInteriorSetCollapsedScheduled(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: InteriorSetCollapsedTimer
+    ) => void
+  ) {
     this.connection.onReducer('interior_set_collapsed_scheduled', callback)
   }
 
   removeOnInteriorSetCollapsedScheduled(
-    callback: (ctx: ReducerEventContext, timer: InteriorSetCollapsedTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: InteriorSetCollapsedTimer
+    ) => void
   ) {
     this.connection.offReducer('interior_set_collapsed_scheduled', callback)
   }
@@ -15285,7 +19306,10 @@ export class RemoteReducers {
   inventoryCreatePersonal(buildingEntityId: bigint) {
     const __args = { buildingEntityId }
     let __writer = new BinaryWriter(1024)
-    InventoryCreatePersonal.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    InventoryCreatePersonal.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'inventory_create_personal',
@@ -15294,11 +19318,15 @@ export class RemoteReducers {
     )
   }
 
-  onInventoryCreatePersonal(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  onInventoryCreatePersonal(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('inventory_create_personal', callback)
   }
 
-  removeOnInventoryCreatePersonal(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  removeOnInventoryCreatePersonal(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('inventory_create_personal', callback)
   }
 
@@ -15307,14 +19335,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     InventorySort.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('inventory_sort', __argsBuffer, this.setCallReducerFlags.inventorySortFlags)
+    this.connection.callReducer(
+      'inventory_sort',
+      __argsBuffer,
+      this.setCallReducerFlags.inventorySortFlags
+    )
   }
 
-  onInventorySort(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+  onInventorySort(
+    callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void
+  ) {
     this.connection.onReducer('inventory_sort', callback)
   }
 
-  removeOnInventorySort(callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void) {
+  removeOnInventorySort(
+    callback: (ctx: ReducerEventContext, targetEntityId: bigint) => void
+  ) {
     this.connection.offReducer('inventory_sort', callback)
   }
 
@@ -15323,14 +19359,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemConvert.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_convert', __argsBuffer, this.setCallReducerFlags.itemConvertFlags)
+    this.connection.callReducer(
+      'item_convert',
+      __argsBuffer,
+      this.setCallReducerFlags.itemConvertFlags
+    )
   }
 
-  onItemConvert(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+  onItemConvert(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemConvertRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_convert', callback)
   }
 
-  removeOnItemConvert(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+  removeOnItemConvert(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemConvertRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_convert', callback)
   }
 
@@ -15339,14 +19389,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemConvertStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_convert_start', __argsBuffer, this.setCallReducerFlags.itemConvertStartFlags)
+    this.connection.callReducer(
+      'item_convert_start',
+      __argsBuffer,
+      this.setCallReducerFlags.itemConvertStartFlags
+    )
   }
 
-  onItemConvertStart(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+  onItemConvertStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemConvertRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_convert_start', callback)
   }
 
-  removeOnItemConvertStart(callback: (ctx: ReducerEventContext, request: PlayerItemConvertRequest) => void) {
+  removeOnItemConvertStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemConvertRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_convert_start', callback)
   }
 
@@ -15355,14 +19419,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemDrop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_drop', __argsBuffer, this.setCallReducerFlags.itemDropFlags)
+    this.connection.callReducer(
+      'item_drop',
+      __argsBuffer,
+      this.setCallReducerFlags.itemDropFlags
+    )
   }
 
-  onItemDrop(callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void) {
+  onItemDrop(
+    callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void
+  ) {
     this.connection.onReducer('item_drop', callback)
   }
 
-  removeOnItemDrop(callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void) {
+  removeOnItemDrop(
+    callback: (ctx: ReducerEventContext, request: PlayerItemDropRequest) => void
+  ) {
     this.connection.offReducer('item_drop', callback)
   }
 
@@ -15371,14 +19443,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemPickUp.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_pick_up', __argsBuffer, this.setCallReducerFlags.itemPickUpFlags)
+    this.connection.callReducer(
+      'item_pick_up',
+      __argsBuffer,
+      this.setCallReducerFlags.itemPickUpFlags
+    )
   }
 
-  onItemPickUp(callback: (ctx: ReducerEventContext, request: PlayerDroppedInventoryPickUpRequest) => void) {
+  onItemPickUp(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDroppedInventoryPickUpRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_pick_up', callback)
   }
 
-  removeOnItemPickUp(callback: (ctx: ReducerEventContext, request: PlayerDroppedInventoryPickUpRequest) => void) {
+  removeOnItemPickUp(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDroppedInventoryPickUpRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_pick_up', callback)
   }
 
@@ -15387,14 +19473,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemStackMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_stack_move', __argsBuffer, this.setCallReducerFlags.itemStackMoveFlags)
+    this.connection.callReducer(
+      'item_stack_move',
+      __argsBuffer,
+      this.setCallReducerFlags.itemStackMoveFlags
+    )
   }
 
-  onItemStackMove(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveRequest) => void) {
+  onItemStackMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackMoveRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_stack_move', callback)
   }
 
-  removeOnItemStackMove(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveRequest) => void) {
+  removeOnItemStackMove(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackMoveRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_stack_move', callback)
   }
 
@@ -15403,14 +19503,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemStackMoveAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_stack_move_all', __argsBuffer, this.setCallReducerFlags.itemStackMoveAllFlags)
+    this.connection.callReducer(
+      'item_stack_move_all',
+      __argsBuffer,
+      this.setCallReducerFlags.itemStackMoveAllFlags
+    )
   }
 
-  onItemStackMoveAll(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveAllRequest) => void) {
+  onItemStackMoveAll(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackMoveAllRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_stack_move_all', callback)
   }
 
-  removeOnItemStackMoveAll(callback: (ctx: ReducerEventContext, request: PlayerItemStackMoveAllRequest) => void) {
+  removeOnItemStackMoveAll(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackMoveAllRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_stack_move_all', callback)
   }
 
@@ -15419,14 +19533,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemStackSplit.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_stack_split', __argsBuffer, this.setCallReducerFlags.itemStackSplitFlags)
+    this.connection.callReducer(
+      'item_stack_split',
+      __argsBuffer,
+      this.setCallReducerFlags.itemStackSplitFlags
+    )
   }
 
-  onItemStackSplit(callback: (ctx: ReducerEventContext, request: PlayerItemStackSplitRequest) => void) {
+  onItemStackSplit(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackSplitRequest
+    ) => void
+  ) {
     this.connection.onReducer('item_stack_split', callback)
   }
 
-  removeOnItemStackSplit(callback: (ctx: ReducerEventContext, request: PlayerItemStackSplitRequest) => void) {
+  removeOnItemStackSplit(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerItemStackSplitRequest
+    ) => void
+  ) {
     this.connection.offReducer('item_stack_split', callback)
   }
 
@@ -15435,14 +19563,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemUse.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_use', __argsBuffer, this.setCallReducerFlags.itemUseFlags)
+    this.connection.callReducer(
+      'item_use',
+      __argsBuffer,
+      this.setCallReducerFlags.itemUseFlags
+    )
   }
 
-  onItemUse(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+  onItemUse(
+    callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void
+  ) {
     this.connection.onReducer('item_use', callback)
   }
 
-  removeOnItemUse(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+  removeOnItemUse(
+    callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void
+  ) {
     this.connection.offReducer('item_use', callback)
   }
 
@@ -15451,14 +19587,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ItemUseStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('item_use_start', __argsBuffer, this.setCallReducerFlags.itemUseStartFlags)
+    this.connection.callReducer(
+      'item_use_start',
+      __argsBuffer,
+      this.setCallReducerFlags.itemUseStartFlags
+    )
   }
 
-  onItemUseStart(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+  onItemUseStart(
+    callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void
+  ) {
     this.connection.onReducer('item_use_start', callback)
   }
 
-  removeOnItemUseStart(callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void) {
+  removeOnItemUseStart(
+    callback: (ctx: ReducerEventContext, request: PlayerItemUseRequest) => void
+  ) {
     this.connection.offReducer('item_use_start', callback)
   }
 
@@ -15467,14 +19611,30 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     LoadConfig.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('load_config', __argsBuffer, this.setCallReducerFlags.loadConfigFlags)
+    this.connection.callReducer(
+      'load_config',
+      __argsBuffer,
+      this.setCallReducerFlags.loadConfigFlags
+    )
   }
 
-  onLoadConfig(callback: (ctx: ReducerEventContext, environmentNames: string[], contents: string[]) => void) {
+  onLoadConfig(
+    callback: (
+      ctx: ReducerEventContext,
+      environmentNames: string[],
+      contents: string[]
+    ) => void
+  ) {
     this.connection.onReducer('load_config', callback)
   }
 
-  removeOnLoadConfig(callback: (ctx: ReducerEventContext, environmentNames: string[], contents: string[]) => void) {
+  removeOnLoadConfig(
+    callback: (
+      ctx: ReducerEventContext,
+      environmentNames: string[],
+      contents: string[]
+    ) => void
+  ) {
     this.connection.offReducer('load_config', callback)
   }
 
@@ -15490,7 +19650,9 @@ export class RemoteReducers {
     this.connection.onReducer('log_claim_member_leaderboard', callback)
   }
 
-  removeOnLogClaimMemberLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+  removeOnLogClaimMemberLeaderboard(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('log_claim_member_leaderboard', callback)
   }
 
@@ -15506,7 +19668,9 @@ export class RemoteReducers {
     this.connection.onReducer('log_claim_tier_leaderboard', callback)
   }
 
-  removeOnLogClaimTierLeaderboard(callback: (ctx: ReducerEventContext) => void) {
+  removeOnLogClaimTierLeaderboard(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('log_claim_tier_leaderboard', callback)
   }
 
@@ -15515,14 +19679,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     LootChestDespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('loot_chest_despawn', __argsBuffer, this.setCallReducerFlags.lootChestDespawnFlags)
+    this.connection.callReducer(
+      'loot_chest_despawn',
+      __argsBuffer,
+      this.setCallReducerFlags.lootChestDespawnFlags
+    )
   }
 
-  onLootChestDespawn(callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void) {
+  onLootChestDespawn(
+    callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void
+  ) {
     this.connection.onReducer('loot_chest_despawn', callback)
   }
 
-  removeOnLootChestDespawn(callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void) {
+  removeOnLootChestDespawn(
+    callback: (ctx: ReducerEventContext, timer: LootChestDespawnTimer) => void
+  ) {
     this.connection.offReducer('loot_chest_despawn', callback)
   }
 
@@ -15531,14 +19703,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     LootChestSpawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('loot_chest_spawn', __argsBuffer, this.setCallReducerFlags.lootChestSpawnFlags)
+    this.connection.callReducer(
+      'loot_chest_spawn',
+      __argsBuffer,
+      this.setCallReducerFlags.lootChestSpawnFlags
+    )
   }
 
-  onLootChestSpawn(callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void) {
+  onLootChestSpawn(
+    callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void
+  ) {
     this.connection.onReducer('loot_chest_spawn', callback)
   }
 
-  removeOnLootChestSpawn(callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void) {
+  removeOnLootChestSpawn(
+    callback: (ctx: ReducerEventContext, timer: LootChestSpawnTimer) => void
+  ) {
     this.connection.offReducer('loot_chest_spawn', callback)
   }
 
@@ -15547,14 +19727,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     NpcAiAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('npc_ai_agent_loop', __argsBuffer, this.setCallReducerFlags.npcAiAgentLoopFlags)
+    this.connection.callReducer(
+      'npc_ai_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.npcAiAgentLoopFlags
+    )
   }
 
-  onNpcAiAgentLoop(callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void) {
+  onNpcAiAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void
+  ) {
     this.connection.onReducer('npc_ai_agent_loop', callback)
   }
 
-  removeOnNpcAiAgentLoop(callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void) {
+  removeOnNpcAiAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: NpcAiLoopTimer) => void
+  ) {
     this.connection.offReducer('npc_ai_agent_loop', callback)
   }
 
@@ -15563,21 +19751,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OnDurabilityZero.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('on_durability_zero', __argsBuffer, this.setCallReducerFlags.onDurabilityZeroFlags)
+    this.connection.callReducer(
+      'on_durability_zero',
+      __argsBuffer,
+      this.setCallReducerFlags.onDurabilityZeroFlags
+    )
   }
 
-  onOnDurabilityZero(callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void) {
+  onOnDurabilityZero(
+    callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void
+  ) {
     this.connection.onReducer('on_durability_zero', callback)
   }
 
-  removeOnOnDurabilityZero(callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void) {
+  removeOnOnDurabilityZero(
+    callback: (ctx: ReducerEventContext, timer: OnDurabilityZeroTimer) => void
+  ) {
     this.connection.offReducer('on_durability_zero', callback)
   }
 
   onInterModuleMessageProcessed(id: bigint, error: string | undefined) {
     const __args = { id, error }
     let __writer = new BinaryWriter(1024)
-    OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'on_inter_module_message_processed',
@@ -15586,12 +19785,22 @@ export class RemoteReducers {
     )
   }
 
-  onOnInterModuleMessageProcessed(callback: (ctx: ReducerEventContext, id: bigint, error: string | undefined) => void) {
+  onOnInterModuleMessageProcessed(
+    callback: (
+      ctx: ReducerEventContext,
+      id: bigint,
+      error: string | undefined
+    ) => void
+  ) {
     this.connection.onReducer('on_inter_module_message_processed', callback)
   }
 
   removeOnOnInterModuleMessageProcessed(
-    callback: (ctx: ReducerEventContext, id: bigint, error: string | undefined) => void
+    callback: (
+      ctx: ReducerEventContext,
+      id: bigint,
+      error: string | undefined
+    ) => void
   ) {
     this.connection.offReducer('on_inter_module_message_processed', callback)
   }
@@ -15601,14 +19810,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_cancel', __argsBuffer, this.setCallReducerFlags.orderCancelFlags)
+    this.connection.callReducer(
+      'order_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.orderCancelFlags
+    )
   }
 
-  onOrderCancel(callback: (ctx: ReducerEventContext, request: PlayerOrderCancelRequest) => void) {
+  onOrderCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerOrderCancelRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_cancel', callback)
   }
 
-  removeOnOrderCancel(callback: (ctx: ReducerEventContext, request: PlayerOrderCancelRequest) => void) {
+  removeOnOrderCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerOrderCancelRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_cancel', callback)
   }
 
@@ -15617,14 +19840,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderCollect.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_collect', __argsBuffer, this.setCallReducerFlags.orderCollectFlags)
+    this.connection.callReducer(
+      'order_collect',
+      __argsBuffer,
+      this.setCallReducerFlags.orderCollectFlags
+    )
   }
 
-  onOrderCollect(callback: (ctx: ReducerEventContext, request: PlayerOrderCollectRequest) => void) {
+  onOrderCollect(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerOrderCollectRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_collect', callback)
   }
 
-  removeOnOrderCollect(callback: (ctx: ReducerEventContext, request: PlayerOrderCollectRequest) => void) {
+  removeOnOrderCollect(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerOrderCollectRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_collect', callback)
   }
 
@@ -15633,14 +19870,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderEditBuyOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_edit_buy_order', __argsBuffer, this.setCallReducerFlags.orderEditBuyOrderFlags)
+    this.connection.callReducer(
+      'order_edit_buy_order',
+      __argsBuffer,
+      this.setCallReducerFlags.orderEditBuyOrderFlags
+    )
   }
 
-  onOrderEditBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+  onOrderEditBuyOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEditOrderRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_edit_buy_order', callback)
   }
 
-  removeOnOrderEditBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+  removeOnOrderEditBuyOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEditOrderRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_edit_buy_order', callback)
   }
 
@@ -15649,14 +19900,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderEditSellOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_edit_sell_order', __argsBuffer, this.setCallReducerFlags.orderEditSellOrderFlags)
+    this.connection.callReducer(
+      'order_edit_sell_order',
+      __argsBuffer,
+      this.setCallReducerFlags.orderEditSellOrderFlags
+    )
   }
 
-  onOrderEditSellOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+  onOrderEditSellOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEditOrderRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_edit_sell_order', callback)
   }
 
-  removeOnOrderEditSellOrder(callback: (ctx: ReducerEventContext, request: PlayerEditOrderRequest) => void) {
+  removeOnOrderEditSellOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerEditOrderRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_edit_sell_order', callback)
   }
 
@@ -15665,14 +19930,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderPostBuyOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_post_buy_order', __argsBuffer, this.setCallReducerFlags.orderPostBuyOrderFlags)
+    this.connection.callReducer(
+      'order_post_buy_order',
+      __argsBuffer,
+      this.setCallReducerFlags.orderPostBuyOrderFlags
+    )
   }
 
-  onOrderPostBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+  onOrderPostBuyOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPostOrderRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_post_buy_order', callback)
   }
 
-  removeOnOrderPostBuyOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+  removeOnOrderPostBuyOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPostOrderRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_post_buy_order', callback)
   }
 
@@ -15681,14 +19960,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     OrderPostSellOrder.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('order_post_sell_order', __argsBuffer, this.setCallReducerFlags.orderPostSellOrderFlags)
+    this.connection.callReducer(
+      'order_post_sell_order',
+      __argsBuffer,
+      this.setCallReducerFlags.orderPostSellOrderFlags
+    )
   }
 
-  onOrderPostSellOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+  onOrderPostSellOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPostOrderRequest
+    ) => void
+  ) {
     this.connection.onReducer('order_post_sell_order', callback)
   }
 
-  removeOnOrderPostSellOrder(callback: (ctx: ReducerEventContext, request: PlayerPostOrderRequest) => void) {
+  removeOnOrderPostSellOrder(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPostOrderRequest
+    ) => void
+  ) {
     this.connection.offReducer('order_post_sell_order', callback)
   }
 
@@ -15697,14 +19990,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PassiveCraftCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('passive_craft_cancel', __argsBuffer, this.setCallReducerFlags.passiveCraftCancelFlags)
+    this.connection.callReducer(
+      'passive_craft_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.passiveCraftCancelFlags
+    )
   }
 
-  onPassiveCraftCancel(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+  onPassiveCraftCancel(
+    callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void
+  ) {
     this.connection.onReducer('passive_craft_cancel', callback)
   }
 
-  removeOnPassiveCraftCancel(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+  removeOnPassiveCraftCancel(
+    callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void
+  ) {
     this.connection.offReducer('passive_craft_cancel', callback)
   }
 
@@ -15720,18 +20021,25 @@ export class RemoteReducers {
     )
   }
 
-  onPassiveCraftCollect(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+  onPassiveCraftCollect(
+    callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void
+  ) {
     this.connection.onReducer('passive_craft_collect', callback)
   }
 
-  removeOnPassiveCraftCollect(callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void) {
+  removeOnPassiveCraftCollect(
+    callback: (ctx: ReducerEventContext, passiveCraftEntityId: bigint) => void
+  ) {
     this.connection.offReducer('passive_craft_collect', callback)
   }
 
   passiveCraftCollectAll(buildingEntityId: bigint) {
     const __args = { buildingEntityId }
     let __writer = new BinaryWriter(1024)
-    PassiveCraftCollectAll.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PassiveCraftCollectAll.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'passive_craft_collect_all',
@@ -15740,11 +20048,15 @@ export class RemoteReducers {
     )
   }
 
-  onPassiveCraftCollectAll(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  onPassiveCraftCollectAll(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('passive_craft_collect_all', callback)
   }
 
-  removeOnPassiveCraftCollectAll(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  removeOnPassiveCraftCollectAll(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('passive_craft_collect_all', callback)
   }
 
@@ -15760,11 +20072,15 @@ export class RemoteReducers {
     )
   }
 
-  onPassiveCraftProcess(callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void) {
+  onPassiveCraftProcess(
+    callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void
+  ) {
     this.connection.onReducer('passive_craft_process', callback)
   }
 
-  removeOnPassiveCraftProcess(callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void) {
+  removeOnPassiveCraftProcess(
+    callback: (ctx: ReducerEventContext, timer: PassiveCraftTimer) => void
+  ) {
     this.connection.offReducer('passive_craft_process', callback)
   }
 
@@ -15773,14 +20089,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PassiveCraftQueue.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('passive_craft_queue', __argsBuffer, this.setCallReducerFlags.passiveCraftQueueFlags)
+    this.connection.callReducer(
+      'passive_craft_queue',
+      __argsBuffer,
+      this.setCallReducerFlags.passiveCraftQueueFlags
+    )
   }
 
-  onPassiveCraftQueue(callback: (ctx: ReducerEventContext, request: PlayerPassiveCraftQueueRequest) => void) {
+  onPassiveCraftQueue(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPassiveCraftQueueRequest
+    ) => void
+  ) {
     this.connection.onReducer('passive_craft_queue', callback)
   }
 
-  removeOnPassiveCraftQueue(callback: (ctx: ReducerEventContext, request: PlayerPassiveCraftQueueRequest) => void) {
+  removeOnPassiveCraftQueue(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPassiveCraftQueueRequest
+    ) => void
+  ) {
     this.connection.offReducer('passive_craft_queue', callback)
   }
 
@@ -15789,14 +20119,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PausePlayTimer.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('pause_play_timer', __argsBuffer, this.setCallReducerFlags.pausePlayTimerFlags)
+    this.connection.callReducer(
+      'pause_play_timer',
+      __argsBuffer,
+      this.setCallReducerFlags.pausePlayTimerFlags
+    )
   }
 
-  onPausePlayTimer(callback: (ctx: ReducerEventContext, request: PlayerPausePlayTimerRequest) => void) {
+  onPausePlayTimer(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPausePlayTimerRequest
+    ) => void
+  ) {
     this.connection.onReducer('pause_play_timer', callback)
   }
 
-  removeOnPausePlayTimer(callback: (ctx: ReducerEventContext, request: PlayerPausePlayTimerRequest) => void) {
+  removeOnPausePlayTimer(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPausePlayTimerRequest
+    ) => void
+  ) {
     this.connection.offReducer('pause_play_timer', callback)
   }
 
@@ -15805,21 +20149,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PavingDestroyTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('paving_destroy_tile', __argsBuffer, this.setCallReducerFlags.pavingDestroyTileFlags)
+    this.connection.callReducer(
+      'paving_destroy_tile',
+      __argsBuffer,
+      this.setCallReducerFlags.pavingDestroyTileFlags
+    )
   }
 
-  onPavingDestroyTile(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+  onPavingDestroyTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingDestroyTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('paving_destroy_tile', callback)
   }
 
-  removeOnPavingDestroyTile(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+  removeOnPavingDestroyTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingDestroyTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('paving_destroy_tile', callback)
   }
 
   pavingDestroyTileStart(request: PlayerPavingDestroyTileRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PavingDestroyTileStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PavingDestroyTileStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'paving_destroy_tile_start',
@@ -15828,12 +20189,20 @@ export class RemoteReducers {
     )
   }
 
-  onPavingDestroyTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void) {
+  onPavingDestroyTileStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingDestroyTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('paving_destroy_tile_start', callback)
   }
 
   removeOnPavingDestroyTileStart(
-    callback: (ctx: ReducerEventContext, request: PlayerPavingDestroyTileRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingDestroyTileRequest
+    ) => void
   ) {
     this.connection.offReducer('paving_destroy_tile_start', callback)
   }
@@ -15843,21 +20212,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PavingPlaceTile.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('paving_place_tile', __argsBuffer, this.setCallReducerFlags.pavingPlaceTileFlags)
+    this.connection.callReducer(
+      'paving_place_tile',
+      __argsBuffer,
+      this.setCallReducerFlags.pavingPlaceTileFlags
+    )
   }
 
-  onPavingPlaceTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  onPavingPlaceTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('paving_place_tile', callback)
   }
 
-  removeOnPavingPlaceTile(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  removeOnPavingPlaceTile(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('paving_place_tile', callback)
   }
 
   pavingPlaceTileStart(request: PlayerPavingPlaceTileRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PavingPlaceTileStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PavingPlaceTileStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'paving_place_tile_start',
@@ -15866,11 +20252,21 @@ export class RemoteReducers {
     )
   }
 
-  onPavingPlaceTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  onPavingPlaceTileStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.onReducer('paving_place_tile_start', callback)
   }
 
-  removeOnPavingPlaceTileStart(callback: (ctx: ReducerEventContext, request: PlayerPavingPlaceTileRequest) => void) {
+  removeOnPavingPlaceTileStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPavingPlaceTileRequest
+    ) => void
+  ) {
     this.connection.offReducer('paving_place_tile_start', callback)
   }
 
@@ -15879,21 +20275,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PermissionEdit.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('permission_edit', __argsBuffer, this.setCallReducerFlags.permissionEditFlags)
+    this.connection.callReducer(
+      'permission_edit',
+      __argsBuffer,
+      this.setCallReducerFlags.permissionEditFlags
+    )
   }
 
-  onPermissionEdit(callback: (ctx: ReducerEventContext, request: PlayerPermissionEditRequest) => void) {
+  onPermissionEdit(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPermissionEditRequest
+    ) => void
+  ) {
     this.connection.onReducer('permission_edit', callback)
   }
 
-  removeOnPermissionEdit(callback: (ctx: ReducerEventContext, request: PlayerPermissionEditRequest) => void) {
+  removeOnPermissionEdit(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPermissionEditRequest
+    ) => void
+  ) {
     this.connection.offReducer('permission_edit', callback)
   }
 
   pillarShapingDestroy(request: PlayerPillarShapingDestroyRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PillarShapingDestroy.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PillarShapingDestroy.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'pillar_shaping_destroy',
@@ -15902,12 +20315,20 @@ export class RemoteReducers {
     )
   }
 
-  onPillarShapingDestroy(callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void) {
+  onPillarShapingDestroy(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
+  ) {
     this.connection.onReducer('pillar_shaping_destroy', callback)
   }
 
   removeOnPillarShapingDestroy(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
   ) {
     this.connection.offReducer('pillar_shaping_destroy', callback)
   }
@@ -15915,7 +20336,10 @@ export class RemoteReducers {
   pillarShapingDestroyStart(request: PlayerPillarShapingDestroyRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PillarShapingDestroyStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PillarShapingDestroyStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'pillar_shaping_destroy_start',
@@ -15925,13 +20349,19 @@ export class RemoteReducers {
   }
 
   onPillarShapingDestroyStart(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
   ) {
     this.connection.onReducer('pillar_shaping_destroy_start', callback)
   }
 
   removeOnPillarShapingDestroyStart(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingDestroyRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingDestroyRequest
+    ) => void
   ) {
     this.connection.offReducer('pillar_shaping_destroy_start', callback)
   }
@@ -15939,7 +20369,10 @@ export class RemoteReducers {
   pillarShapingPlacePillar(request: PlayerPillarShapingPlaceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PillarShapingPlacePillar.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PillarShapingPlacePillar.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'pillar_shaping_place_pillar',
@@ -15948,12 +20381,20 @@ export class RemoteReducers {
     )
   }
 
-  onPillarShapingPlacePillar(callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void) {
+  onPillarShapingPlacePillar(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
+  ) {
     this.connection.onReducer('pillar_shaping_place_pillar', callback)
   }
 
   removeOnPillarShapingPlacePillar(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
   ) {
     this.connection.offReducer('pillar_shaping_place_pillar', callback)
   }
@@ -15961,7 +20402,10 @@ export class RemoteReducers {
   pillarShapingPlacePillarStart(request: PlayerPillarShapingPlaceRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PillarShapingPlacePillarStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'pillar_shaping_place_pillar_start',
@@ -15971,13 +20415,19 @@ export class RemoteReducers {
   }
 
   onPillarShapingPlacePillarStart(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
   ) {
     this.connection.onReducer('pillar_shaping_place_pillar_start', callback)
   }
 
   removeOnPillarShapingPlacePillarStart(
-    callback: (ctx: ReducerEventContext, request: PlayerPillarShapingPlaceRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPillarShapingPlaceRequest
+    ) => void
   ) {
     this.connection.offReducer('pillar_shaping_place_pillar_start', callback)
   }
@@ -15987,14 +20437,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerActionCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_action_cancel', __argsBuffer, this.setCallReducerFlags.playerActionCancelFlags)
+    this.connection.callReducer(
+      'player_action_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.playerActionCancelFlags
+    )
   }
 
-  onPlayerActionCancel(callback: (ctx: ReducerEventContext, clientCancel: boolean) => void) {
+  onPlayerActionCancel(
+    callback: (ctx: ReducerEventContext, clientCancel: boolean) => void
+  ) {
     this.connection.onReducer('player_action_cancel', callback)
   }
 
-  removeOnPlayerActionCancel(callback: (ctx: ReducerEventContext, clientCancel: boolean) => void) {
+  removeOnPlayerActionCancel(
+    callback: (ctx: ReducerEventContext, clientCancel: boolean) => void
+  ) {
     this.connection.offReducer('player_action_cancel', callback)
   }
 
@@ -16010,7 +20468,9 @@ export class RemoteReducers {
     this.connection.onReducer('player_cancel_region_transfer', callback)
   }
 
-  removeOnPlayerCancelRegionTransfer(callback: (ctx: ReducerEventContext) => void) {
+  removeOnPlayerCancelRegionTransfer(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
     this.connection.offReducer('player_cancel_region_transfer', callback)
   }
 
@@ -16022,7 +20482,10 @@ export class RemoteReducers {
   ) {
     const __args = { actorId, currentAction, layer, lastActionResult }
     let __writer = new BinaryWriter(1024)
-    PlayerClearActionState.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerClearActionState.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_clear_action_state',
@@ -16060,14 +20523,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerClimb.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_climb', __argsBuffer, this.setCallReducerFlags.playerClimbFlags)
+    this.connection.callReducer(
+      'player_climb',
+      __argsBuffer,
+      this.setCallReducerFlags.playerClimbFlags
+    )
   }
 
-  onPlayerClimb(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+  onPlayerClimb(
+    callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void
+  ) {
     this.connection.onReducer('player_climb', callback)
   }
 
-  removeOnPlayerClimb(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+  removeOnPlayerClimb(
+    callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void
+  ) {
     this.connection.offReducer('player_climb', callback)
   }
 
@@ -16076,14 +20547,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerClimbStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_climb_start', __argsBuffer, this.setCallReducerFlags.playerClimbStartFlags)
+    this.connection.callReducer(
+      'player_climb_start',
+      __argsBuffer,
+      this.setCallReducerFlags.playerClimbStartFlags
+    )
   }
 
-  onPlayerClimbStart(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+  onPlayerClimbStart(
+    callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void
+  ) {
     this.connection.onReducer('player_climb_start', callback)
   }
 
-  removeOnPlayerClimbStart(callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void) {
+  removeOnPlayerClimbStart(
+    callback: (ctx: ReducerEventContext, request: PlayerClimbRequest) => void
+  ) {
     this.connection.offReducer('player_climb_start', callback)
   }
 
@@ -16092,14 +20571,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerCompleteTask.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_complete_task', __argsBuffer, this.setCallReducerFlags.playerCompleteTaskFlags)
+    this.connection.callReducer(
+      'player_complete_task',
+      __argsBuffer,
+      this.setCallReducerFlags.playerCompleteTaskFlags
+    )
   }
 
-  onPlayerCompleteTask(callback: (ctx: ReducerEventContext, request: PlayerCompleteTaskRequest) => void) {
+  onPlayerCompleteTask(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCompleteTaskRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_complete_task', callback)
   }
 
-  removeOnPlayerCompleteTask(callback: (ctx: ReducerEventContext, request: PlayerCompleteTaskRequest) => void) {
+  removeOnPlayerCompleteTask(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerCompleteTaskRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_complete_task', callback)
   }
 
@@ -16108,14 +20601,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerDeathStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_death_start', __argsBuffer, this.setCallReducerFlags.playerDeathStartFlags)
+    this.connection.callReducer(
+      'player_death_start',
+      __argsBuffer,
+      this.setCallReducerFlags.playerDeathStartFlags
+    )
   }
 
-  onPlayerDeathStart(callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void) {
+  onPlayerDeathStart(
+    callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void
+  ) {
     this.connection.onReducer('player_death_start', callback)
   }
 
-  removeOnPlayerDeathStart(callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void) {
+  removeOnPlayerDeathStart(
+    callback: (ctx: ReducerEventContext, timer: PlayerDeathTimer) => void
+  ) {
     this.connection.offReducer('player_death_start', callback)
   }
 
@@ -16124,14 +20625,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerDismissAlert.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_dismiss_alert', __argsBuffer, this.setCallReducerFlags.playerDismissAlertFlags)
+    this.connection.callReducer(
+      'player_dismiss_alert',
+      __argsBuffer,
+      this.setCallReducerFlags.playerDismissAlertFlags
+    )
   }
 
-  onPlayerDismissAlert(callback: (ctx: ReducerEventContext, request: PlayerDismissAlertRequest) => void) {
+  onPlayerDismissAlert(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDismissAlertRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_dismiss_alert', callback)
   }
 
-  removeOnPlayerDismissAlert(callback: (ctx: ReducerEventContext, request: PlayerDismissAlertRequest) => void) {
+  removeOnPlayerDismissAlert(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerDismissAlertRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_dismiss_alert', callback)
   }
 
@@ -16140,21 +20655,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerDuelInitiate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_duel_initiate', __argsBuffer, this.setCallReducerFlags.playerDuelInitiateFlags)
+    this.connection.callReducer(
+      'player_duel_initiate',
+      __argsBuffer,
+      this.setCallReducerFlags.playerDuelInitiateFlags
+    )
   }
 
-  onPlayerDuelInitiate(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
+  onPlayerDuelInitiate(
+    callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void
+  ) {
     this.connection.onReducer('player_duel_initiate', callback)
   }
 
-  removeOnPlayerDuelInitiate(callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void) {
+  removeOnPlayerDuelInitiate(
+    callback: (ctx: ReducerEventContext, targetPlayerEntityId: bigint) => void
+  ) {
     this.connection.offReducer('player_duel_initiate', callback)
   }
 
   playerElevatorArrive(timer: PlayerUseElevatorTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerElevatorArrive.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerElevatorArrive.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_elevator_arrive',
@@ -16163,18 +20689,25 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerElevatorArrive(callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void) {
+  onPlayerElevatorArrive(
+    callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void
+  ) {
     this.connection.onReducer('player_elevator_arrive', callback)
   }
 
-  removeOnPlayerElevatorArrive(callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void) {
+  removeOnPlayerElevatorArrive(
+    callback: (ctx: ReducerEventContext, timer: PlayerUseElevatorTimer) => void
+  ) {
     this.connection.offReducer('player_elevator_arrive', callback)
   }
 
   playerHousingChangeEntrance(buildingEntityId: bigint) {
     const __args = { buildingEntityId }
     let __writer = new BinaryWriter(1024)
-    PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_housing_change_entrance',
@@ -16183,11 +20716,15 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerHousingChangeEntrance(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  onPlayerHousingChangeEntrance(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('player_housing_change_entrance', callback)
   }
 
-  removeOnPlayerHousingChangeEntrance(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  removeOnPlayerHousingChangeEntrance(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('player_housing_change_entrance', callback)
   }
 
@@ -16196,21 +20733,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerHousingEnter.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_housing_enter', __argsBuffer, this.setCallReducerFlags.playerHousingEnterFlags)
+    this.connection.callReducer(
+      'player_housing_enter',
+      __argsBuffer,
+      this.setCallReducerFlags.playerHousingEnterFlags
+    )
   }
 
-  onPlayerHousingEnter(callback: (ctx: ReducerEventContext, request: PlayerHousingEnterRequest) => void) {
+  onPlayerHousingEnter(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingEnterRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_housing_enter', callback)
   }
 
-  removeOnPlayerHousingEnter(callback: (ctx: ReducerEventContext, request: PlayerHousingEnterRequest) => void) {
+  removeOnPlayerHousingEnter(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingEnterRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_housing_enter', callback)
   }
 
   playerHousingEvictPlayer(request: PlayerHousingEvictPlayerRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerHousingEvictPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerHousingEvictPlayer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_housing_evict_player',
@@ -16219,12 +20773,20 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerHousingEvictPlayer(callback: (ctx: ReducerEventContext, request: PlayerHousingEvictPlayerRequest) => void) {
+  onPlayerHousingEvictPlayer(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingEvictPlayerRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_housing_evict_player', callback)
   }
 
   removeOnPlayerHousingEvictPlayer(
-    callback: (ctx: ReducerEventContext, request: PlayerHousingEvictPlayerRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingEvictPlayerRequest
+    ) => void
   ) {
     this.connection.offReducer('player_housing_evict_player', callback)
   }
@@ -16232,7 +20794,10 @@ export class RemoteReducers {
   playerHousingEvictPlayerComplete(timer: PlayerHousingEvictPlayerTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_housing_evict_player_complete',
@@ -16242,13 +20807,19 @@ export class RemoteReducers {
   }
 
   onPlayerHousingEvictPlayerComplete(
-    callback: (ctx: ReducerEventContext, timer: PlayerHousingEvictPlayerTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerHousingEvictPlayerTimer
+    ) => void
   ) {
     this.connection.onReducer('player_housing_evict_player_complete', callback)
   }
 
   removeOnPlayerHousingEvictPlayerComplete(
-    callback: (ctx: ReducerEventContext, timer: PlayerHousingEvictPlayerTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerHousingEvictPlayerTimer
+    ) => void
   ) {
     this.connection.offReducer('player_housing_evict_player_complete', callback)
   }
@@ -16256,7 +20827,10 @@ export class RemoteReducers {
   playerHousingIncomeAgentLoop(timer: PlayerHousingIncomeLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_housing_income_agent_loop',
@@ -16265,12 +20839,20 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerHousingIncomeAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerHousingIncomeLoopTimer) => void) {
+  onPlayerHousingIncomeAgentLoop(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerHousingIncomeLoopTimer
+    ) => void
+  ) {
     this.connection.onReducer('player_housing_income_agent_loop', callback)
   }
 
   removeOnPlayerHousingIncomeAgentLoop(
-    callback: (ctx: ReducerEventContext, timer: PlayerHousingIncomeLoopTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerHousingIncomeLoopTimer
+    ) => void
   ) {
     this.connection.offReducer('player_housing_income_agent_loop', callback)
   }
@@ -16278,7 +20860,10 @@ export class RemoteReducers {
   playerHousingRequestAccess(request: PlayerHousingRequestAccessRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerHousingRequestAccess.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerHousingRequestAccess.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_housing_request_access',
@@ -16288,13 +20873,19 @@ export class RemoteReducers {
   }
 
   onPlayerHousingRequestAccess(
-    callback: (ctx: ReducerEventContext, request: PlayerHousingRequestAccessRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingRequestAccessRequest
+    ) => void
   ) {
     this.connection.onReducer('player_housing_request_access', callback)
   }
 
   removeOnPlayerHousingRequestAccess(
-    callback: (ctx: ReducerEventContext, request: PlayerHousingRequestAccessRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerHousingRequestAccessRequest
+    ) => void
   ) {
     this.connection.offReducer('player_housing_request_access', callback)
   }
@@ -16311,11 +20902,15 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerHousingUpdate(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  onPlayerHousingUpdate(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.onReducer('player_housing_update', callback)
   }
 
-  removeOnPlayerHousingUpdate(callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void) {
+  removeOnPlayerHousingUpdate(
+    callback: (ctx: ReducerEventContext, buildingEntityId: bigint) => void
+  ) {
     this.connection.offReducer('player_housing_update', callback)
   }
 
@@ -16324,21 +20919,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerMove.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_move', __argsBuffer, this.setCallReducerFlags.playerMoveFlags)
+    this.connection.callReducer(
+      'player_move',
+      __argsBuffer,
+      this.setCallReducerFlags.playerMoveFlags
+    )
   }
 
-  onPlayerMove(callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void) {
+  onPlayerMove(
+    callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void
+  ) {
     this.connection.onReducer('player_move', callback)
   }
 
-  removeOnPlayerMove(callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void) {
+  removeOnPlayerMove(
+    callback: (ctx: ReducerEventContext, request: PlayerMoveRequest) => void
+  ) {
     this.connection.offReducer('player_move', callback)
   }
 
   playerNotificationEventReducer(timer: PlayerNotificationEvent) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerNotificationEventReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerNotificationEventReducer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_notification_event_reducer',
@@ -16347,16 +20953,24 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerNotificationEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerNotificationEvent) => void) {
+  onPlayerNotificationEventReducer(
+    callback: (ctx: ReducerEventContext, timer: PlayerNotificationEvent) => void
+  ) {
     this.connection.onReducer('player_notification_event_reducer', callback)
   }
 
-  removeOnPlayerNotificationEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerNotificationEvent) => void) {
+  removeOnPlayerNotificationEventReducer(
+    callback: (ctx: ReducerEventContext, timer: PlayerNotificationEvent) => void
+  ) {
     this.connection.offReducer('player_notification_event_reducer', callback)
   }
 
   playerQueueJoin() {
-    this.connection.callReducer('player_queue_join', new Uint8Array(0), this.setCallReducerFlags.playerQueueJoinFlags)
+    this.connection.callReducer(
+      'player_queue_join',
+      new Uint8Array(0),
+      this.setCallReducerFlags.playerQueueJoinFlags
+    )
   }
 
   onPlayerQueueJoin(callback: (ctx: ReducerEventContext) => void) {
@@ -16368,7 +20982,11 @@ export class RemoteReducers {
   }
 
   playerQueueLeave() {
-    this.connection.callReducer('player_queue_leave', new Uint8Array(0), this.setCallReducerFlags.playerQueueLeaveFlags)
+    this.connection.callReducer(
+      'player_queue_leave',
+      new Uint8Array(0),
+      this.setCallReducerFlags.playerQueueLeaveFlags
+    )
   }
 
   onPlayerQueueLeave(callback: (ctx: ReducerEventContext) => void) {
@@ -16382,7 +21000,10 @@ export class RemoteReducers {
   playerRegenAgentLoop(timer: PlayerRegenLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerRegenAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerRegenAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_regen_agent_loop',
@@ -16391,11 +21012,15 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void) {
+  onPlayerRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void
+  ) {
     this.connection.onReducer('player_regen_agent_loop', callback)
   }
 
-  removeOnPlayerRegenAgentLoop(callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void) {
+  removeOnPlayerRegenAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: PlayerRegenLoopTimer) => void
+  ) {
     this.connection.offReducer('player_regen_agent_loop', callback)
   }
 
@@ -16418,7 +21043,10 @@ export class RemoteReducers {
   playerRegionTransferEventReducer(timer: PlayerRegionTransferEvent) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerRegionTransferEventReducer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_region_transfer_event_reducer',
@@ -16427,12 +21055,20 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerRegionTransferEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerRegionTransferEvent) => void) {
+  onPlayerRegionTransferEventReducer(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerRegionTransferEvent
+    ) => void
+  ) {
     this.connection.onReducer('player_region_transfer_event_reducer', callback)
   }
 
   removeOnPlayerRegionTransferEventReducer(
-    callback: (ctx: ReducerEventContext, timer: PlayerRegionTransferEvent) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerRegionTransferEvent
+    ) => void
   ) {
     this.connection.offReducer('player_region_transfer_event_reducer', callback)
   }
@@ -16442,21 +21078,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerRespawn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_respawn', __argsBuffer, this.setCallReducerFlags.playerRespawnFlags)
+    this.connection.callReducer(
+      'player_respawn',
+      __argsBuffer,
+      this.setCallReducerFlags.playerRespawnFlags
+    )
   }
 
-  onPlayerRespawn(callback: (ctx: ReducerEventContext, teleportHome: boolean) => void) {
+  onPlayerRespawn(
+    callback: (ctx: ReducerEventContext, teleportHome: boolean) => void
+  ) {
     this.connection.onReducer('player_respawn', callback)
   }
 
-  removeOnPlayerRespawn(callback: (ctx: ReducerEventContext, teleportHome: boolean) => void) {
+  removeOnPlayerRespawn(
+    callback: (ctx: ReducerEventContext, teleportHome: boolean) => void
+  ) {
     this.connection.offReducer('player_respawn', callback)
   }
 
   playerSetDefaultDeployable(request: PlayerSetDefaultDeployableRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerSetDefaultDeployable.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerSetDefaultDeployable.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_set_default_deployable',
@@ -16466,13 +21113,19 @@ export class RemoteReducers {
   }
 
   onPlayerSetDefaultDeployable(
-    callback: (ctx: ReducerEventContext, request: PlayerSetDefaultDeployableRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerSetDefaultDeployableRequest
+    ) => void
   ) {
     this.connection.onReducer('player_set_default_deployable', callback)
   }
 
   removeOnPlayerSetDefaultDeployable(
-    callback: (ctx: ReducerEventContext, request: PlayerSetDefaultDeployableRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerSetDefaultDeployableRequest
+    ) => void
   ) {
     this.connection.offReducer('player_set_default_deployable', callback)
   }
@@ -16480,7 +21133,10 @@ export class RemoteReducers {
   playerSetNameOutcomeEventReducer(timer: PlayerSetNameOutcomeEvent) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    PlayerSetNameOutcomeEventReducer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerSetNameOutcomeEventReducer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_set_name_outcome_event_reducer',
@@ -16489,14 +21145,25 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerSetNameOutcomeEventReducer(callback: (ctx: ReducerEventContext, timer: PlayerSetNameOutcomeEvent) => void) {
+  onPlayerSetNameOutcomeEventReducer(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerSetNameOutcomeEvent
+    ) => void
+  ) {
     this.connection.onReducer('player_set_name_outcome_event_reducer', callback)
   }
 
   removeOnPlayerSetNameOutcomeEventReducer(
-    callback: (ctx: ReducerEventContext, timer: PlayerSetNameOutcomeEvent) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: PlayerSetNameOutcomeEvent
+    ) => void
   ) {
-    this.connection.offReducer('player_set_name_outcome_event_reducer', callback)
+    this.connection.offReducer(
+      'player_set_name_outcome_event_reducer',
+      callback
+    )
   }
 
   playerTeleportHome(request: PlayerTeleportHomeRequest) {
@@ -16504,21 +21171,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerTeleportHome.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_teleport_home', __argsBuffer, this.setCallReducerFlags.playerTeleportHomeFlags)
+    this.connection.callReducer(
+      'player_teleport_home',
+      __argsBuffer,
+      this.setCallReducerFlags.playerTeleportHomeFlags
+    )
   }
 
-  onPlayerTeleportHome(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+  onPlayerTeleportHome(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportHomeRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_teleport_home', callback)
   }
 
-  removeOnPlayerTeleportHome(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+  removeOnPlayerTeleportHome(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportHomeRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_teleport_home', callback)
   }
 
   playerTeleportHomeStart(request: PlayerTeleportHomeRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerTeleportHomeStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerTeleportHomeStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_teleport_home_start',
@@ -16527,18 +21211,31 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerTeleportHomeStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+  onPlayerTeleportHomeStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportHomeRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_teleport_home_start', callback)
   }
 
-  removeOnPlayerTeleportHomeStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportHomeRequest) => void) {
+  removeOnPlayerTeleportHomeStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportHomeRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_teleport_home_start', callback)
   }
 
   playerTeleportWaystone(request: PlayerTeleportWaystoneRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerTeleportWaystone.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerTeleportWaystone.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_teleport_waystone',
@@ -16547,18 +21244,31 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerTeleportWaystone(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+  onPlayerTeleportWaystone(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportWaystoneRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_teleport_waystone', callback)
   }
 
-  removeOnPlayerTeleportWaystone(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+  removeOnPlayerTeleportWaystone(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportWaystoneRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_teleport_waystone', callback)
   }
 
   playerTeleportWaystoneStart(request: PlayerTeleportWaystoneRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    PlayerTeleportWaystoneStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'player_teleport_waystone_start',
@@ -16567,12 +21277,20 @@ export class RemoteReducers {
     )
   }
 
-  onPlayerTeleportWaystoneStart(callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void) {
+  onPlayerTeleportWaystoneStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportWaystoneRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_teleport_waystone_start', callback)
   }
 
   removeOnPlayerTeleportWaystoneStart(
-    callback: (ctx: ReducerEventContext, request: PlayerTeleportWaystoneRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTeleportWaystoneRequest
+    ) => void
   ) {
     this.connection.offReducer('player_teleport_waystone_start', callback)
   }
@@ -16582,14 +21300,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerUseElevator.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_use_elevator', __argsBuffer, this.setCallReducerFlags.playerUseElevatorFlags)
+    this.connection.callReducer(
+      'player_use_elevator',
+      __argsBuffer,
+      this.setCallReducerFlags.playerUseElevatorFlags
+    )
   }
 
-  onPlayerUseElevator(callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void) {
+  onPlayerUseElevator(
+    callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void
+  ) {
     this.connection.onReducer('player_use_elevator', callback)
   }
 
-  removeOnPlayerUseElevator(callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void) {
+  removeOnPlayerUseElevator(
+    callback: (ctx: ReducerEventContext, platformEntityId: bigint) => void
+  ) {
     this.connection.offReducer('player_use_elevator', callback)
   }
 
@@ -16598,14 +21324,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerVoteAnswer.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_vote_answer', __argsBuffer, this.setCallReducerFlags.playerVoteAnswerFlags)
+    this.connection.callReducer(
+      'player_vote_answer',
+      __argsBuffer,
+      this.setCallReducerFlags.playerVoteAnswerFlags
+    )
   }
 
-  onPlayerVoteAnswer(callback: (ctx: ReducerEventContext, request: PlayerVoteAnswerRequest) => void) {
+  onPlayerVoteAnswer(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerVoteAnswerRequest
+    ) => void
+  ) {
     this.connection.onReducer('player_vote_answer', callback)
   }
 
-  removeOnPlayerVoteAnswer(callback: (ctx: ReducerEventContext, request: PlayerVoteAnswerRequest) => void) {
+  removeOnPlayerVoteAnswer(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerVoteAnswerRequest
+    ) => void
+  ) {
     this.connection.offReducer('player_vote_answer', callback)
   }
 
@@ -16614,14 +21354,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PlayerVoteConclude.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('player_vote_conclude', __argsBuffer, this.setCallReducerFlags.playerVoteConcludeFlags)
+    this.connection.callReducer(
+      'player_vote_conclude',
+      __argsBuffer,
+      this.setCallReducerFlags.playerVoteConcludeFlags
+    )
   }
 
-  onPlayerVoteConclude(callback: (ctx: ReducerEventContext, timer: PlayerVoteConcludeTimer) => void) {
+  onPlayerVoteConclude(
+    callback: (ctx: ReducerEventContext, timer: PlayerVoteConcludeTimer) => void
+  ) {
     this.connection.onReducer('player_vote_conclude', callback)
   }
 
-  removeOnPlayerVoteConclude(callback: (ctx: ReducerEventContext, timer: PlayerVoteConcludeTimer) => void) {
+  removeOnPlayerVoteConclude(
+    callback: (ctx: ReducerEventContext, timer: PlayerVoteConcludeTimer) => void
+  ) {
     this.connection.offReducer('player_vote_conclude', callback)
   }
 
@@ -16630,14 +21378,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PocketSwapContents.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('pocket_swap_contents', __argsBuffer, this.setCallReducerFlags.pocketSwapContentsFlags)
+    this.connection.callReducer(
+      'pocket_swap_contents',
+      __argsBuffer,
+      this.setCallReducerFlags.pocketSwapContentsFlags
+    )
   }
 
-  onPocketSwapContents(callback: (ctx: ReducerEventContext, request: PlayerPocketSwapContentsRequest) => void) {
+  onPocketSwapContents(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPocketSwapContentsRequest
+    ) => void
+  ) {
     this.connection.onReducer('pocket_swap_contents', callback)
   }
 
-  removeOnPocketSwapContents(callback: (ctx: ReducerEventContext, request: PlayerPocketSwapContentsRequest) => void) {
+  removeOnPocketSwapContents(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPocketSwapContentsRequest
+    ) => void
+  ) {
     this.connection.offReducer('pocket_swap_contents', callback)
   }
 
@@ -16646,21 +21408,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     PortalEnter.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('portal_enter', __argsBuffer, this.setCallReducerFlags.portalEnterFlags)
+    this.connection.callReducer(
+      'portal_enter',
+      __argsBuffer,
+      this.setCallReducerFlags.portalEnterFlags
+    )
   }
 
-  onPortalEnter(callback: (ctx: ReducerEventContext, request: PlayerPortalEnterRequest) => void) {
+  onPortalEnter(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPortalEnterRequest
+    ) => void
+  ) {
     this.connection.onReducer('portal_enter', callback)
   }
 
-  removeOnPortalEnter(callback: (ctx: ReducerEventContext, request: PlayerPortalEnterRequest) => void) {
+  removeOnPortalEnter(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerPortalEnterRequest
+    ) => void
+  ) {
     this.connection.offReducer('portal_enter', callback)
   }
 
   processInterModuleMessage(sender: number, message: InterModuleMessage) {
     const __args = { sender, message }
     let __writer = new BinaryWriter(1024)
-    ProcessInterModuleMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ProcessInterModuleMessage.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'process_inter_module_message',
@@ -16670,13 +21449,21 @@ export class RemoteReducers {
   }
 
   onProcessInterModuleMessage(
-    callback: (ctx: ReducerEventContext, sender: number, message: InterModuleMessage) => void
+    callback: (
+      ctx: ReducerEventContext,
+      sender: number,
+      message: InterModuleMessage
+    ) => void
   ) {
     this.connection.onReducer('process_inter_module_message', callback)
   }
 
   removeOnProcessInterModuleMessage(
-    callback: (ctx: ReducerEventContext, sender: number, message: InterModuleMessage) => void
+    callback: (
+      ctx: ReducerEventContext,
+      sender: number,
+      message: InterModuleMessage
+    ) => void
   ) {
     this.connection.offReducer('process_inter_module_message', callback)
   }
@@ -16684,7 +21471,10 @@ export class RemoteReducers {
   projectSiteAddMaterials(request: PlayerProjectSiteAddMaterialsRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ProjectSiteAddMaterials.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ProjectSiteAddMaterials.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'project_site_add_materials',
@@ -16694,13 +21484,19 @@ export class RemoteReducers {
   }
 
   onProjectSiteAddMaterials(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAddMaterialsRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAddMaterialsRequest
+    ) => void
   ) {
     this.connection.onReducer('project_site_add_materials', callback)
   }
 
   removeOnProjectSiteAddMaterials(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAddMaterialsRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAddMaterialsRequest
+    ) => void
   ) {
     this.connection.offReducer('project_site_add_materials', callback)
   }
@@ -16708,7 +21504,10 @@ export class RemoteReducers {
   projectSiteAdvanceProject(request: PlayerProjectSiteAdvanceProjectRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ProjectSiteAdvanceProject.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ProjectSiteAdvanceProject.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'project_site_advance_project',
@@ -16718,21 +21517,32 @@ export class RemoteReducers {
   }
 
   onProjectSiteAdvanceProject(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAdvanceProjectRequest
+    ) => void
   ) {
     this.connection.onReducer('project_site_advance_project', callback)
   }
 
   removeOnProjectSiteAdvanceProject(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAdvanceProjectRequest
+    ) => void
   ) {
     this.connection.offReducer('project_site_advance_project', callback)
   }
 
-  projectSiteAdvanceProjectStart(request: PlayerProjectSiteAdvanceProjectRequest) {
+  projectSiteAdvanceProjectStart(
+    request: PlayerProjectSiteAdvanceProjectRequest
+  ) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    ProjectSiteAdvanceProjectStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ProjectSiteAdvanceProjectStart.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'project_site_advance_project_start',
@@ -16742,13 +21552,19 @@ export class RemoteReducers {
   }
 
   onProjectSiteAdvanceProjectStart(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAdvanceProjectRequest
+    ) => void
   ) {
     this.connection.onReducer('project_site_advance_project_start', callback)
   }
 
   removeOnProjectSiteAdvanceProjectStart(
-    callback: (ctx: ReducerEventContext, request: PlayerProjectSiteAdvanceProjectRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteAdvanceProjectRequest
+    ) => void
   ) {
     this.connection.offReducer('project_site_advance_project_start', callback)
   }
@@ -16758,14 +21574,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ProjectSiteCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('project_site_cancel', __argsBuffer, this.setCallReducerFlags.projectSiteCancelFlags)
+    this.connection.callReducer(
+      'project_site_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.projectSiteCancelFlags
+    )
   }
 
-  onProjectSiteCancel(callback: (ctx: ReducerEventContext, request: PlayerProjectSiteCancelRequest) => void) {
+  onProjectSiteCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteCancelRequest
+    ) => void
+  ) {
     this.connection.onReducer('project_site_cancel', callback)
   }
 
-  removeOnProjectSiteCancel(callback: (ctx: ReducerEventContext, request: PlayerProjectSiteCancelRequest) => void) {
+  removeOnProjectSiteCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSiteCancelRequest
+    ) => void
+  ) {
     this.connection.offReducer('project_site_cancel', callback)
   }
 
@@ -16774,21 +21604,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ProjectSitePlace.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('project_site_place', __argsBuffer, this.setCallReducerFlags.projectSitePlaceFlags)
+    this.connection.callReducer(
+      'project_site_place',
+      __argsBuffer,
+      this.setCallReducerFlags.projectSitePlaceFlags
+    )
   }
 
-  onProjectSitePlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+  onProjectSitePlace(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSitePlaceRequest
+    ) => void
+  ) {
     this.connection.onReducer('project_site_place', callback)
   }
 
-  removeOnProjectSitePlace(callback: (ctx: ReducerEventContext, request: PlayerProjectSitePlaceRequest) => void) {
+  removeOnProjectSitePlace(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerProjectSitePlaceRequest
+    ) => void
+  ) {
     this.connection.offReducer('project_site_place', callback)
   }
 
   regionPopuplationAgentLoop(timer: RegionPopulationLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'region_popuplation_agent_loop',
@@ -16797,11 +21644,21 @@ export class RemoteReducers {
     )
   }
 
-  onRegionPopuplationAgentLoop(callback: (ctx: ReducerEventContext, timer: RegionPopulationLoopTimer) => void) {
+  onRegionPopuplationAgentLoop(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: RegionPopulationLoopTimer
+    ) => void
+  ) {
     this.connection.onReducer('region_popuplation_agent_loop', callback)
   }
 
-  removeOnRegionPopuplationAgentLoop(callback: (ctx: ReducerEventContext, timer: RegionPopulationLoopTimer) => void) {
+  removeOnRegionPopuplationAgentLoop(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: RegionPopulationLoopTimer
+    ) => void
+  ) {
     this.connection.offReducer('region_popuplation_agent_loop', callback)
   }
 
@@ -16810,14 +21667,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentAddListing.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_add_listing', __argsBuffer, this.setCallReducerFlags.rentAddListingFlags)
+    this.connection.callReducer(
+      'rent_add_listing',
+      __argsBuffer,
+      this.setCallReducerFlags.rentAddListingFlags
+    )
   }
 
-  onRentAddListing(callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void) {
+  onRentAddListing(
+    callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void
+  ) {
     this.connection.onReducer('rent_add_listing', callback)
   }
 
-  removeOnRentAddListing(callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void) {
+  removeOnRentAddListing(
+    callback: (ctx: ReducerEventContext, request: RentAddListingRequest) => void
+  ) {
     this.connection.offReducer('rent_add_listing', callback)
   }
 
@@ -16826,21 +21691,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentAddTenant.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_add_tenant', __argsBuffer, this.setCallReducerFlags.rentAddTenantFlags)
+    this.connection.callReducer(
+      'rent_add_tenant',
+      __argsBuffer,
+      this.setCallReducerFlags.rentAddTenantFlags
+    )
   }
 
-  onRentAddTenant(callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void) {
+  onRentAddTenant(
+    callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void
+  ) {
     this.connection.onReducer('rent_add_tenant', callback)
   }
 
-  removeOnRentAddTenant(callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void) {
+  removeOnRentAddTenant(
+    callback: (ctx: ReducerEventContext, request: RentAddTenantRequest) => void
+  ) {
     this.connection.offReducer('rent_add_tenant', callback)
   }
 
   rentCollectEvictionFee(rentEntityId: bigint) {
     const __args = { rentEntityId }
     let __writer = new BinaryWriter(1024)
-    RentCollectEvictionFee.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    RentCollectEvictionFee.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'rent_collect_eviction_fee',
@@ -16849,18 +21725,25 @@ export class RemoteReducers {
     )
   }
 
-  onRentCollectEvictionFee(callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void) {
+  onRentCollectEvictionFee(
+    callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void
+  ) {
     this.connection.onReducer('rent_collect_eviction_fee', callback)
   }
 
-  removeOnRentCollectEvictionFee(callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void) {
+  removeOnRentCollectEvictionFee(
+    callback: (ctx: ReducerEventContext, rentEntityId: bigint) => void
+  ) {
     this.connection.offReducer('rent_collect_eviction_fee', callback)
   }
 
   rentCollectorAgentLoop(timer: RentCollectorLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    RentCollectorAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    RentCollectorAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'rent_collector_agent_loop',
@@ -16869,11 +21752,15 @@ export class RemoteReducers {
     )
   }
 
-  onRentCollectorAgentLoop(callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void) {
+  onRentCollectorAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void
+  ) {
     this.connection.onReducer('rent_collector_agent_loop', callback)
   }
 
-  removeOnRentCollectorAgentLoop(callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void) {
+  removeOnRentCollectorAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: RentCollectorLoopTimer) => void
+  ) {
     this.connection.offReducer('rent_collector_agent_loop', callback)
   }
 
@@ -16882,14 +21769,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentDepositCoins.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_deposit_coins', __argsBuffer, this.setCallReducerFlags.rentDepositCoinsFlags)
+    this.connection.callReducer(
+      'rent_deposit_coins',
+      __argsBuffer,
+      this.setCallReducerFlags.rentDepositCoinsFlags
+    )
   }
 
-  onRentDepositCoins(callback: (ctx: ReducerEventContext, request: RentDepositCoinsRequest) => void) {
+  onRentDepositCoins(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentDepositCoinsRequest
+    ) => void
+  ) {
     this.connection.onReducer('rent_deposit_coins', callback)
   }
 
-  removeOnRentDepositCoins(callback: (ctx: ReducerEventContext, request: RentDepositCoinsRequest) => void) {
+  removeOnRentDepositCoins(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentDepositCoinsRequest
+    ) => void
+  ) {
     this.connection.offReducer('rent_deposit_coins', callback)
   }
 
@@ -16898,14 +21799,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentEvict.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_evict', __argsBuffer, this.setCallReducerFlags.rentEvictFlags)
+    this.connection.callReducer(
+      'rent_evict',
+      __argsBuffer,
+      this.setCallReducerFlags.rentEvictFlags
+    )
   }
 
-  onRentEvict(callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void) {
+  onRentEvict(
+    callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void
+  ) {
     this.connection.onReducer('rent_evict', callback)
   }
 
-  removeOnRentEvict(callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void) {
+  removeOnRentEvict(
+    callback: (ctx: ReducerEventContext, request: RentEvictRequest) => void
+  ) {
     this.connection.offReducer('rent_evict', callback)
   }
 
@@ -16914,14 +21823,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentEvictTerm.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_evict_term', __argsBuffer, this.setCallReducerFlags.rentEvictTermFlags)
+    this.connection.callReducer(
+      'rent_evict_term',
+      __argsBuffer,
+      this.setCallReducerFlags.rentEvictTermFlags
+    )
   }
 
-  onRentEvictTerm(callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void) {
+  onRentEvictTerm(
+    callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void
+  ) {
     this.connection.onReducer('rent_evict_term', callback)
   }
 
-  removeOnRentEvictTerm(callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void) {
+  removeOnRentEvictTerm(
+    callback: (ctx: ReducerEventContext, timer: RentEvictTimer) => void
+  ) {
     this.connection.offReducer('rent_evict_term', callback)
   }
 
@@ -16930,14 +21847,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentPurchase.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_purchase', __argsBuffer, this.setCallReducerFlags.rentPurchaseFlags)
+    this.connection.callReducer(
+      'rent_purchase',
+      __argsBuffer,
+      this.setCallReducerFlags.rentPurchaseFlags
+    )
   }
 
-  onRentPurchase(callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void) {
+  onRentPurchase(
+    callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void
+  ) {
     this.connection.onReducer('rent_purchase', callback)
   }
 
-  removeOnRentPurchase(callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void) {
+  removeOnRentPurchase(
+    callback: (ctx: ReducerEventContext, request: RentPurchaseRequest) => void
+  ) {
     this.connection.offReducer('rent_purchase', callback)
   }
 
@@ -16946,14 +21871,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentRemoveTenant.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_remove_tenant', __argsBuffer, this.setCallReducerFlags.rentRemoveTenantFlags)
+    this.connection.callReducer(
+      'rent_remove_tenant',
+      __argsBuffer,
+      this.setCallReducerFlags.rentRemoveTenantFlags
+    )
   }
 
-  onRentRemoveTenant(callback: (ctx: ReducerEventContext, request: RentRemoveTenantRequest) => void) {
+  onRentRemoveTenant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentRemoveTenantRequest
+    ) => void
+  ) {
     this.connection.onReducer('rent_remove_tenant', callback)
   }
 
-  removeOnRentRemoveTenant(callback: (ctx: ReducerEventContext, request: RentRemoveTenantRequest) => void) {
+  removeOnRentRemoveTenant(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentRemoveTenantRequest
+    ) => void
+  ) {
     this.connection.offReducer('rent_remove_tenant', callback)
   }
 
@@ -16962,14 +21901,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentSetDailyRate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_set_daily_rate', __argsBuffer, this.setCallReducerFlags.rentSetDailyRateFlags)
+    this.connection.callReducer(
+      'rent_set_daily_rate',
+      __argsBuffer,
+      this.setCallReducerFlags.rentSetDailyRateFlags
+    )
   }
 
-  onRentSetDailyRate(callback: (ctx: ReducerEventContext, request: RentSetDailyRateRequest) => void) {
+  onRentSetDailyRate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentSetDailyRateRequest
+    ) => void
+  ) {
     this.connection.onReducer('rent_set_daily_rate', callback)
   }
 
-  removeOnRentSetDailyRate(callback: (ctx: ReducerEventContext, request: RentSetDailyRateRequest) => void) {
+  removeOnRentSetDailyRate(
+    callback: (
+      ctx: ReducerEventContext,
+      request: RentSetDailyRateRequest
+    ) => void
+  ) {
     this.connection.offReducer('rent_set_daily_rate', callback)
   }
 
@@ -16978,14 +21931,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentTerminate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_terminate', __argsBuffer, this.setCallReducerFlags.rentTerminateFlags)
+    this.connection.callReducer(
+      'rent_terminate',
+      __argsBuffer,
+      this.setCallReducerFlags.rentTerminateFlags
+    )
   }
 
-  onRentTerminate(callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void) {
+  onRentTerminate(
+    callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void
+  ) {
     this.connection.onReducer('rent_terminate', callback)
   }
 
-  removeOnRentTerminate(callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void) {
+  removeOnRentTerminate(
+    callback: (ctx: ReducerEventContext, request: RentTerminateRequest) => void
+  ) {
     this.connection.offReducer('rent_terminate', callback)
   }
 
@@ -16994,14 +21955,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RentUnlist.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('rent_unlist', __argsBuffer, this.setCallReducerFlags.rentUnlistFlags)
+    this.connection.callReducer(
+      'rent_unlist',
+      __argsBuffer,
+      this.setCallReducerFlags.rentUnlistFlags
+    )
   }
 
-  onRentUnlist(callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void) {
+  onRentUnlist(
+    callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void
+  ) {
     this.connection.onReducer('rent_unlist', callback)
   }
 
-  removeOnRentUnlist(callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void) {
+  removeOnRentUnlist(
+    callback: (ctx: ReducerEventContext, request: RentUnlistRequest) => void
+  ) {
     this.connection.offReducer('rent_unlist', callback)
   }
 
@@ -17010,14 +21979,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ReportChatMessage.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('report_chat_message', __argsBuffer, this.setCallReducerFlags.reportChatMessageFlags)
+    this.connection.callReducer(
+      'report_chat_message',
+      __argsBuffer,
+      this.setCallReducerFlags.reportChatMessageFlags
+    )
   }
 
-  onReportChatMessage(callback: (ctx: ReducerEventContext, request: ReportPlayerChatMessage) => void) {
+  onReportChatMessage(
+    callback: (
+      ctx: ReducerEventContext,
+      request: ReportPlayerChatMessage
+    ) => void
+  ) {
     this.connection.onReducer('report_chat_message', callback)
   }
 
-  removeOnReportChatMessage(callback: (ctx: ReducerEventContext, request: ReportPlayerChatMessage) => void) {
+  removeOnReportChatMessage(
+    callback: (
+      ctx: ReducerEventContext,
+      request: ReportPlayerChatMessage
+    ) => void
+  ) {
     this.connection.offReducer('report_chat_message', callback)
   }
 
@@ -17026,19 +22009,31 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ReportPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('report_player', __argsBuffer, this.setCallReducerFlags.reportPlayerFlags)
+    this.connection.callReducer(
+      'report_player',
+      __argsBuffer,
+      this.setCallReducerFlags.reportPlayerFlags
+    )
   }
 
-  onReportPlayer(callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void) {
+  onReportPlayer(
+    callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void
+  ) {
     this.connection.onReducer('report_player', callback)
   }
 
-  removeOnReportPlayer(callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void) {
+  removeOnReportPlayer(
+    callback: (ctx: ReducerEventContext, request: ReportPlayerMessage) => void
+  ) {
     this.connection.offReducer('report_player', callback)
   }
 
   resetChunkIndex() {
-    this.connection.callReducer('reset_chunk_index', new Uint8Array(0), this.setCallReducerFlags.resetChunkIndexFlags)
+    this.connection.callReducer(
+      'reset_chunk_index',
+      new Uint8Array(0),
+      this.setCallReducerFlags.resetChunkIndexFlags
+    )
   }
 
   onResetChunkIndex(callback: (ctx: ReducerEventContext) => void) {
@@ -17052,7 +22047,10 @@ export class RemoteReducers {
   resetChunkIndexWithDimension(timer: ResetChunkIndexTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'reset_chunk_index_with_dimension',
@@ -17061,18 +22059,25 @@ export class RemoteReducers {
     )
   }
 
-  onResetChunkIndexWithDimension(callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void) {
+  onResetChunkIndexWithDimension(
+    callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void
+  ) {
     this.connection.onReducer('reset_chunk_index_with_dimension', callback)
   }
 
-  removeOnResetChunkIndexWithDimension(callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void) {
+  removeOnResetChunkIndexWithDimension(
+    callback: (ctx: ReducerEventContext, timer: ResetChunkIndexTimer) => void
+  ) {
     this.connection.offReducer('reset_chunk_index_with_dimension', callback)
   }
 
   resetMobileEntityPosition(timer: ResetMobileEntityTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    ResetMobileEntityPosition.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ResetMobileEntityPosition.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'reset_mobile_entity_position',
@@ -17081,16 +22086,24 @@ export class RemoteReducers {
     )
   }
 
-  onResetMobileEntityPosition(callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void) {
+  onResetMobileEntityPosition(
+    callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void
+  ) {
     this.connection.onReducer('reset_mobile_entity_position', callback)
   }
 
-  removeOnResetMobileEntityPosition(callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void) {
+  removeOnResetMobileEntityPosition(
+    callback: (ctx: ReducerEventContext, timer: ResetMobileEntityTimer) => void
+  ) {
     this.connection.offReducer('reset_mobile_entity_position', callback)
   }
 
   resetOnboarding() {
-    this.connection.callReducer('reset_onboarding', new Uint8Array(0), this.setCallReducerFlags.resetOnboardingFlags)
+    this.connection.callReducer(
+      'reset_onboarding',
+      new Uint8Array(0),
+      this.setCallReducerFlags.resetOnboardingFlags
+    )
   }
 
   onResetOnboarding(callback: (ctx: ReducerEventContext) => void) {
@@ -17104,7 +22117,10 @@ export class RemoteReducers {
   resourceSpawnScheduled(timer: ResourceSpawnTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    ResourceSpawnScheduled.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ResourceSpawnScheduled.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'resource_spawn_scheduled',
@@ -17113,11 +22129,15 @@ export class RemoteReducers {
     )
   }
 
-  onResourceSpawnScheduled(callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void) {
+  onResourceSpawnScheduled(
+    callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void
+  ) {
     this.connection.onReducer('resource_spawn_scheduled', callback)
   }
 
-  removeOnResourceSpawnScheduled(callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void) {
+  removeOnResourceSpawnScheduled(
+    callback: (ctx: ReducerEventContext, timer: ResourceSpawnTimer) => void
+  ) {
     this.connection.offReducer('resource_spawn_scheduled', callback)
   }
 
@@ -17126,14 +22146,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ResourcesRegen.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('resources_regen', __argsBuffer, this.setCallReducerFlags.resourcesRegenFlags)
+    this.connection.callReducer(
+      'resources_regen',
+      __argsBuffer,
+      this.setCallReducerFlags.resourcesRegenFlags
+    )
   }
 
-  onResourcesRegen(callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void) {
+  onResourcesRegen(
+    callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void
+  ) {
     this.connection.onReducer('resources_regen', callback)
   }
 
-  removeOnResourcesRegen(callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void) {
+  removeOnResourcesRegen(
+    callback: (ctx: ReducerEventContext, timer: ResourcesRegenLoopTimer) => void
+  ) {
     this.connection.offReducer('resources_regen', callback)
   }
 
@@ -17156,7 +22184,10 @@ export class RemoteReducers {
   respawnResourceInChunk(timer: RespawnResourceInChunkTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    RespawnResourceInChunk.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    RespawnResourceInChunk.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'respawn_resource_in_chunk',
@@ -17165,11 +22196,21 @@ export class RemoteReducers {
     )
   }
 
-  onRespawnResourceInChunk(callback: (ctx: ReducerEventContext, timer: RespawnResourceInChunkTimer) => void) {
+  onRespawnResourceInChunk(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: RespawnResourceInChunkTimer
+    ) => void
+  ) {
     this.connection.onReducer('respawn_resource_in_chunk', callback)
   }
 
-  removeOnRespawnResourceInChunk(callback: (ctx: ReducerEventContext, timer: RespawnResourceInChunkTimer) => void) {
+  removeOnRespawnResourceInChunk(
+    callback: (
+      ctx: ReducerEventContext,
+      timer: RespawnResourceInChunkTimer
+    ) => void
+  ) {
     this.connection.offReducer('respawn_resource_in_chunk', callback)
   }
 
@@ -17178,14 +22219,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     RetrieveLostItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('retrieve_lost_item', __argsBuffer, this.setCallReducerFlags.retrieveLostItemFlags)
+    this.connection.callReducer(
+      'retrieve_lost_item',
+      __argsBuffer,
+      this.setCallReducerFlags.retrieveLostItemFlags
+    )
   }
 
-  onRetrieveLostItem(callback: (ctx: ReducerEventContext, request: PlayerRetrieveLostItemRequest) => void) {
+  onRetrieveLostItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerRetrieveLostItemRequest
+    ) => void
+  ) {
     this.connection.onReducer('retrieve_lost_item', callback)
   }
 
-  removeOnRetrieveLostItem(callback: (ctx: ReducerEventContext, request: PlayerRetrieveLostItemRequest) => void) {
+  removeOnRetrieveLostItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerRetrieveLostItemRequest
+    ) => void
+  ) {
     this.connection.offReducer('retrieve_lost_item', callback)
   }
 
@@ -17194,21 +22249,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     ScrollRead.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('scroll_read', __argsBuffer, this.setCallReducerFlags.scrollReadFlags)
+    this.connection.callReducer(
+      'scroll_read',
+      __argsBuffer,
+      this.setCallReducerFlags.scrollReadFlags
+    )
   }
 
-  onScrollRead(callback: (ctx: ReducerEventContext, request: PlayerScrollReadRequest) => void) {
+  onScrollRead(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerScrollReadRequest
+    ) => void
+  ) {
     this.connection.onReducer('scroll_read', callback)
   }
 
-  removeOnScrollRead(callback: (ctx: ReducerEventContext, request: PlayerScrollReadRequest) => void) {
+  removeOnScrollRead(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerScrollReadRequest
+    ) => void
+  ) {
     this.connection.offReducer('scroll_read', callback)
   }
 
   searchForClosestBuilding(buildingDescriptionIds: number[]) {
     const __args = { buildingDescriptionIds }
     let __writer = new BinaryWriter(1024)
-    SearchForClosestBuilding.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    SearchForClosestBuilding.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'search_for_closest_building',
@@ -17217,18 +22289,31 @@ export class RemoteReducers {
     )
   }
 
-  onSearchForClosestBuilding(callback: (ctx: ReducerEventContext, buildingDescriptionIds: number[]) => void) {
+  onSearchForClosestBuilding(
+    callback: (
+      ctx: ReducerEventContext,
+      buildingDescriptionIds: number[]
+    ) => void
+  ) {
     this.connection.onReducer('search_for_closest_building', callback)
   }
 
-  removeOnSearchForClosestBuilding(callback: (ctx: ReducerEventContext, buildingDescriptionIds: number[]) => void) {
+  removeOnSearchForClosestBuilding(
+    callback: (
+      ctx: ReducerEventContext,
+      buildingDescriptionIds: number[]
+    ) => void
+  ) {
     this.connection.offReducer('search_for_closest_building', callback)
   }
 
   searchForClosestBuildingType(buildingTypeId: number) {
     const __args = { buildingTypeId }
     let __writer = new BinaryWriter(1024)
-    SearchForClosestBuildingType.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    SearchForClosestBuildingType.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'search_for_closest_building_type',
@@ -17237,18 +22322,25 @@ export class RemoteReducers {
     )
   }
 
-  onSearchForClosestBuildingType(callback: (ctx: ReducerEventContext, buildingTypeId: number) => void) {
+  onSearchForClosestBuildingType(
+    callback: (ctx: ReducerEventContext, buildingTypeId: number) => void
+  ) {
     this.connection.onReducer('search_for_closest_building_type', callback)
   }
 
-  removeOnSearchForClosestBuildingType(callback: (ctx: ReducerEventContext, buildingTypeId: number) => void) {
+  removeOnSearchForClosestBuildingType(
+    callback: (ctx: ReducerEventContext, buildingTypeId: number) => void
+  ) {
     this.connection.offReducer('search_for_closest_building_type', callback)
   }
 
   serverTeleportPlayer(timer: TeleportPlayerTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    ServerTeleportPlayer.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    ServerTeleportPlayer.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'server_teleport_player',
@@ -17257,11 +22349,15 @@ export class RemoteReducers {
     )
   }
 
-  onServerTeleportPlayer(callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void) {
+  onServerTeleportPlayer(
+    callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void
+  ) {
     this.connection.onReducer('server_teleport_player', callback)
   }
 
-  removeOnServerTeleportPlayer(callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void) {
+  removeOnServerTeleportPlayer(
+    callback: (ctx: ReducerEventContext, timer: TeleportPlayerTimer) => void
+  ) {
     this.connection.offReducer('server_teleport_player', callback)
   }
 
@@ -17270,14 +22366,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     SetHome.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('set_home', __argsBuffer, this.setCallReducerFlags.setHomeFlags)
+    this.connection.callReducer(
+      'set_home',
+      __argsBuffer,
+      this.setCallReducerFlags.setHomeFlags
+    )
   }
 
-  onSetHome(callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void) {
+  onSetHome(
+    callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void
+  ) {
     this.connection.onReducer('set_home', callback)
   }
 
-  removeOnSetHome(callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void) {
+  removeOnSetHome(
+    callback: (ctx: ReducerEventContext, request: PlayerSetHomeRequest) => void
+  ) {
     this.connection.offReducer('set_home', callback)
   }
 
@@ -17286,19 +22390,31 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     SignIn.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('sign_in', __argsBuffer, this.setCallReducerFlags.signInFlags)
+    this.connection.callReducer(
+      'sign_in',
+      __argsBuffer,
+      this.setCallReducerFlags.signInFlags
+    )
   }
 
-  onSignIn(callback: (ctx: ReducerEventContext, request: PlayerSignInRequest) => void) {
+  onSignIn(
+    callback: (ctx: ReducerEventContext, request: PlayerSignInRequest) => void
+  ) {
     this.connection.onReducer('sign_in', callback)
   }
 
-  removeOnSignIn(callback: (ctx: ReducerEventContext, request: PlayerSignInRequest) => void) {
+  removeOnSignIn(
+    callback: (ctx: ReducerEventContext, request: PlayerSignInRequest) => void
+  ) {
     this.connection.offReducer('sign_in', callback)
   }
 
   signOut() {
-    this.connection.callReducer('sign_out', new Uint8Array(0), this.setCallReducerFlags.signOutFlags)
+    this.connection.callReducer(
+      'sign_out',
+      new Uint8Array(0),
+      this.setCallReducerFlags.signOutFlags
+    )
   }
 
   onSignOut(callback: (ctx: ReducerEventContext) => void) {
@@ -17314,21 +22430,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Sleep.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('sleep', __argsBuffer, this.setCallReducerFlags.sleepFlags)
+    this.connection.callReducer(
+      'sleep',
+      __argsBuffer,
+      this.setCallReducerFlags.sleepFlags
+    )
   }
 
-  onSleep(callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void) {
+  onSleep(
+    callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void
+  ) {
     this.connection.onReducer('sleep', callback)
   }
 
-  removeOnSleep(callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void) {
+  removeOnSleep(
+    callback: (ctx: ReducerEventContext, request: PlayerSleepRequest) => void
+  ) {
     this.connection.offReducer('sleep', callback)
   }
 
   stageAchievementDesc(records: AchievementDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageAchievementDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageAchievementDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_achievement_desc',
@@ -17337,11 +22464,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageAchievementDesc(callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void) {
+  onStageAchievementDesc(
+    callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void
+  ) {
     this.connection.onReducer('stage_achievement_desc', callback)
   }
 
-  removeOnStageAchievementDesc(callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void) {
+  removeOnStageAchievementDesc(
+    callback: (ctx: ReducerEventContext, records: AchievementDesc[]) => void
+  ) {
     this.connection.offReducer('stage_achievement_desc', callback)
   }
 
@@ -17350,14 +22481,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageAlertDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_alert_desc', __argsBuffer, this.setCallReducerFlags.stageAlertDescFlags)
+    this.connection.callReducer(
+      'stage_alert_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageAlertDescFlags
+    )
   }
 
-  onStageAlertDesc(callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void) {
+  onStageAlertDesc(
+    callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void
+  ) {
     this.connection.onReducer('stage_alert_desc', callback)
   }
 
-  removeOnStageAlertDesc(callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void) {
+  removeOnStageAlertDesc(
+    callback: (ctx: ReducerEventContext, records: AlertDesc[]) => void
+  ) {
     this.connection.offReducer('stage_alert_desc', callback)
   }
 
@@ -17366,14 +22505,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageBiomeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_biome_desc', __argsBuffer, this.setCallReducerFlags.stageBiomeDescFlags)
+    this.connection.callReducer(
+      'stage_biome_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageBiomeDescFlags
+    )
   }
 
-  onStageBiomeDesc(callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void) {
+  onStageBiomeDesc(
+    callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_biome_desc', callback)
   }
 
-  removeOnStageBiomeDesc(callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void) {
+  removeOnStageBiomeDesc(
+    callback: (ctx: ReducerEventContext, records: BiomeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_biome_desc', callback)
   }
 
@@ -17382,14 +22529,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageBuffDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_buff_desc', __argsBuffer, this.setCallReducerFlags.stageBuffDescFlags)
+    this.connection.callReducer(
+      'stage_buff_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageBuffDescFlags
+    )
   }
 
-  onStageBuffDesc(callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void) {
+  onStageBuffDesc(
+    callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void
+  ) {
     this.connection.onReducer('stage_buff_desc', callback)
   }
 
-  removeOnStageBuffDesc(callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void) {
+  removeOnStageBuffDesc(
+    callback: (ctx: ReducerEventContext, records: BuffDesc[]) => void
+  ) {
     this.connection.offReducer('stage_buff_desc', callback)
   }
 
@@ -17398,21 +22553,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageBuffTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_buff_type_desc', __argsBuffer, this.setCallReducerFlags.stageBuffTypeDescFlags)
+    this.connection.callReducer(
+      'stage_buff_type_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageBuffTypeDescFlags
+    )
   }
 
-  onStageBuffTypeDesc(callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void) {
+  onStageBuffTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_buff_type_desc', callback)
   }
 
-  removeOnStageBuffTypeDesc(callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void) {
+  removeOnStageBuffTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuffTypeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_buff_type_desc', callback)
   }
 
   stageBuildingClaimDesc(records: BuildingClaimDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageBuildingClaimDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_building_claim_desc',
@@ -17421,11 +22587,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageBuildingClaimDesc(callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void) {
+  onStageBuildingClaimDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_claim_desc', callback)
   }
 
-  removeOnStageBuildingClaimDesc(callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void) {
+  removeOnStageBuildingClaimDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingClaimDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_claim_desc', callback)
   }
 
@@ -17434,21 +22604,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageBuildingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_building_desc', __argsBuffer, this.setCallReducerFlags.stageBuildingDescFlags)
+    this.connection.callReducer(
+      'stage_building_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageBuildingDescFlags
+    )
   }
 
-  onStageBuildingDesc(callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void) {
+  onStageBuildingDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_desc', callback)
   }
 
-  removeOnStageBuildingDesc(callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void) {
+  removeOnStageBuildingDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_desc', callback)
   }
 
   stageBuildingPortalDesc(records: BuildingPortalDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageBuildingPortalDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageBuildingPortalDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_building_portal_desc',
@@ -17457,18 +22638,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageBuildingPortalDesc(callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void) {
+  onStageBuildingPortalDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_portal_desc', callback)
   }
 
-  removeOnStageBuildingPortalDesc(callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void) {
+  removeOnStageBuildingPortalDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingPortalDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_portal_desc', callback)
   }
 
   stageBuildingRepairsDesc(records: BuildingRepairsDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageBuildingRepairsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageBuildingRepairsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_building_repairs_desc',
@@ -17477,18 +22665,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageBuildingRepairsDesc(callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void) {
+  onStageBuildingRepairsDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_repairs_desc', callback)
   }
 
-  removeOnStageBuildingRepairsDesc(callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void) {
+  removeOnStageBuildingRepairsDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingRepairsDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_repairs_desc', callback)
   }
 
   stageBuildingSpawnDesc(records: BuildingSpawnDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageBuildingSpawnDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageBuildingSpawnDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_building_spawn_desc',
@@ -17497,18 +22692,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageBuildingSpawnDesc(callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void) {
+  onStageBuildingSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_spawn_desc', callback)
   }
 
-  removeOnStageBuildingSpawnDesc(callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void) {
+  removeOnStageBuildingSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingSpawnDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_spawn_desc', callback)
   }
 
   stageBuildingTypeDesc(records: BuildingTypeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageBuildingTypeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_building_type_desc',
@@ -17517,11 +22719,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageBuildingTypeDesc(callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void) {
+  onStageBuildingTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_building_type_desc', callback)
   }
 
-  removeOnStageBuildingTypeDesc(callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void) {
+  removeOnStageBuildingTypeDesc(
+    callback: (ctx: ReducerEventContext, records: BuildingTypeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_building_type_desc', callback)
   }
 
@@ -17530,21 +22736,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageCargoDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_cargo_desc', __argsBuffer, this.setCallReducerFlags.stageCargoDescFlags)
+    this.connection.callReducer(
+      'stage_cargo_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageCargoDescFlags
+    )
   }
 
-  onStageCargoDesc(callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void) {
+  onStageCargoDesc(
+    callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void
+  ) {
     this.connection.onReducer('stage_cargo_desc', callback)
   }
 
-  removeOnStageCargoDesc(callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void) {
+  removeOnStageCargoDesc(
+    callback: (ctx: ReducerEventContext, records: CargoDesc[]) => void
+  ) {
     this.connection.offReducer('stage_cargo_desc', callback)
   }
 
   stageCharacterStatDesc(records: CharacterStatDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageCharacterStatDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageCharacterStatDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_character_stat_desc',
@@ -17553,18 +22770,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageCharacterStatDesc(callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void) {
+  onStageCharacterStatDesc(
+    callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void
+  ) {
     this.connection.onReducer('stage_character_stat_desc', callback)
   }
 
-  removeOnStageCharacterStatDesc(callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void) {
+  removeOnStageCharacterStatDesc(
+    callback: (ctx: ReducerEventContext, records: CharacterStatDesc[]) => void
+  ) {
     this.connection.offReducer('stage_character_stat_desc', callback)
   }
 
   stageChestRarityDesc(records: ChestRarityDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageChestRarityDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageChestRarityDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_chest_rarity_desc',
@@ -17573,11 +22797,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageChestRarityDesc(callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void) {
+  onStageChestRarityDesc(
+    callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void
+  ) {
     this.connection.onReducer('stage_chest_rarity_desc', callback)
   }
 
-  removeOnStageChestRarityDesc(callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void) {
+  removeOnStageChestRarityDesc(
+    callback: (ctx: ReducerEventContext, records: ChestRarityDesc[]) => void
+  ) {
     this.connection.offReducer('stage_chest_rarity_desc', callback)
   }
 
@@ -17586,14 +22814,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageClaimTechDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_claim_tech_desc', __argsBuffer, this.setCallReducerFlags.stageClaimTechDescFlags)
+    this.connection.callReducer(
+      'stage_claim_tech_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageClaimTechDescFlags
+    )
   }
 
-  onStageClaimTechDesc(callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void) {
+  onStageClaimTechDesc(
+    callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void
+  ) {
     this.connection.onReducer('stage_claim_tech_desc', callback)
   }
 
-  removeOnStageClaimTechDesc(callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void) {
+  removeOnStageClaimTechDesc(
+    callback: (ctx: ReducerEventContext, records: ClaimTechDesc[]) => void
+  ) {
     this.connection.offReducer('stage_claim_tech_desc', callback)
   }
 
@@ -17602,21 +22838,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageClaimTileCost.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_claim_tile_cost', __argsBuffer, this.setCallReducerFlags.stageClaimTileCostFlags)
+    this.connection.callReducer(
+      'stage_claim_tile_cost',
+      __argsBuffer,
+      this.setCallReducerFlags.stageClaimTileCostFlags
+    )
   }
 
-  onStageClaimTileCost(callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void) {
+  onStageClaimTileCost(
+    callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void
+  ) {
     this.connection.onReducer('stage_claim_tile_cost', callback)
   }
 
-  removeOnStageClaimTileCost(callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void) {
+  removeOnStageClaimTileCost(
+    callback: (ctx: ReducerEventContext, records: ClaimTileCost[]) => void
+  ) {
     this.connection.offReducer('stage_claim_tile_cost', callback)
   }
 
   stageClimbRequirementDesc(records: ClimbRequirementDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_climb_requirement_desc',
@@ -17625,11 +22872,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageClimbRequirementDesc(callback: (ctx: ReducerEventContext, records: ClimbRequirementDesc[]) => void) {
+  onStageClimbRequirementDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClimbRequirementDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_climb_requirement_desc', callback)
   }
 
-  removeOnStageClimbRequirementDesc(callback: (ctx: ReducerEventContext, records: ClimbRequirementDesc[]) => void) {
+  removeOnStageClimbRequirementDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ClimbRequirementDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_climb_requirement_desc', callback)
   }
 
@@ -17638,21 +22895,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageClothingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_clothing_desc', __argsBuffer, this.setCallReducerFlags.stageClothingDescFlags)
+    this.connection.callReducer(
+      'stage_clothing_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageClothingDescFlags
+    )
   }
 
-  onStageClothingDesc(callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void) {
+  onStageClothingDesc(
+    callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void
+  ) {
     this.connection.onReducer('stage_clothing_desc', callback)
   }
 
-  removeOnStageClothingDesc(callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void) {
+  removeOnStageClothingDesc(
+    callback: (ctx: ReducerEventContext, records: ClothingDesc[]) => void
+  ) {
     this.connection.offReducer('stage_clothing_desc', callback)
   }
 
   stageCollectibleDesc(records: CollectibleDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageCollectibleDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageCollectibleDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_collectible_desc',
@@ -17661,18 +22929,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageCollectibleDesc(callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void) {
+  onStageCollectibleDesc(
+    callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void
+  ) {
     this.connection.onReducer('stage_collectible_desc', callback)
   }
 
-  removeOnStageCollectibleDesc(callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void) {
+  removeOnStageCollectibleDesc(
+    callback: (ctx: ReducerEventContext, records: CollectibleDesc[]) => void
+  ) {
     this.connection.offReducer('stage_collectible_desc', callback)
   }
 
   stageCombatActionDesc(records: CombatActionDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageCombatActionDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageCombatActionDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_combat_action_desc',
@@ -17681,18 +22956,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageCombatActionDesc(callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void) {
+  onStageCombatActionDesc(
+    callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void
+  ) {
     this.connection.onReducer('stage_combat_action_desc', callback)
   }
 
-  removeOnStageCombatActionDesc(callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void) {
+  removeOnStageCombatActionDesc(
+    callback: (ctx: ReducerEventContext, records: CombatActionDesc[]) => void
+  ) {
     this.connection.offReducer('stage_combat_action_desc', callback)
   }
 
   stageConstructionRecipeDesc(records: ConstructionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageConstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageConstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_construction_recipe_desc',
@@ -17701,18 +22983,31 @@ export class RemoteReducers {
     )
   }
 
-  onStageConstructionRecipeDesc(callback: (ctx: ReducerEventContext, records: ConstructionRecipeDesc[]) => void) {
+  onStageConstructionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ConstructionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_construction_recipe_desc', callback)
   }
 
-  removeOnStageConstructionRecipeDesc(callback: (ctx: ReducerEventContext, records: ConstructionRecipeDesc[]) => void) {
+  removeOnStageConstructionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ConstructionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_construction_recipe_desc', callback)
   }
 
   stageCraftingRecipeDesc(records: CraftingRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageCraftingRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageCraftingRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_crafting_recipe_desc',
@@ -17721,18 +23016,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageCraftingRecipeDesc(callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void) {
+  onStageCraftingRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_crafting_recipe_desc', callback)
   }
 
-  removeOnStageCraftingRecipeDesc(callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void) {
+  removeOnStageCraftingRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: CraftingRecipeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_crafting_recipe_desc', callback)
   }
 
   stageDeconstructionRecipeDesc(records: DeconstructionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageDeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_deconstruction_recipe_desc',
@@ -17741,12 +23043,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageDeconstructionRecipeDesc(callback: (ctx: ReducerEventContext, records: DeconstructionRecipeDesc[]) => void) {
+  onStageDeconstructionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DeconstructionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_deconstruction_recipe_desc', callback)
   }
 
   removeOnStageDeconstructionRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: DeconstructionRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DeconstructionRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_deconstruction_recipe_desc', callback)
   }
@@ -17763,18 +23073,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageDeployableDesc(callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void) {
+  onStageDeployableDesc(
+    callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void
+  ) {
     this.connection.onReducer('stage_deployable_desc', callback)
   }
 
-  removeOnStageDeployableDesc(callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void) {
+  removeOnStageDeployableDesc(
+    callback: (ctx: ReducerEventContext, records: DeployableDesc[]) => void
+  ) {
     this.connection.offReducer('stage_deployable_desc', callback)
   }
 
   stageDistantVisibleEntityDesc(records: DistantVisibleEntityDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageDistantVisibleEntityDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_distant_visible_entity_desc',
@@ -17783,12 +23100,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageDistantVisibleEntityDesc(callback: (ctx: ReducerEventContext, records: DistantVisibleEntityDesc[]) => void) {
+  onStageDistantVisibleEntityDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: DistantVisibleEntityDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_distant_visible_entity_desc', callback)
   }
 
   removeOnStageDistantVisibleEntityDesc(
-    callback: (ctx: ReducerEventContext, records: DistantVisibleEntityDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: DistantVisibleEntityDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_distant_visible_entity_desc', callback)
   }
@@ -17798,14 +23123,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageElevatorDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_elevator_desc', __argsBuffer, this.setCallReducerFlags.stageElevatorDescFlags)
+    this.connection.callReducer(
+      'stage_elevator_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageElevatorDescFlags
+    )
   }
 
-  onStageElevatorDesc(callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void) {
+  onStageElevatorDesc(
+    callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void
+  ) {
     this.connection.onReducer('stage_elevator_desc', callback)
   }
 
-  removeOnStageElevatorDesc(callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void) {
+  removeOnStageElevatorDesc(
+    callback: (ctx: ReducerEventContext, records: ElevatorDesc[]) => void
+  ) {
     this.connection.offReducer('stage_elevator_desc', callback)
   }
 
@@ -17814,21 +23147,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageEmoteDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_emote_desc', __argsBuffer, this.setCallReducerFlags.stageEmoteDescFlags)
+    this.connection.callReducer(
+      'stage_emote_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageEmoteDescFlags
+    )
   }
 
-  onStageEmoteDesc(callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void) {
+  onStageEmoteDesc(
+    callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void
+  ) {
     this.connection.onReducer('stage_emote_desc', callback)
   }
 
-  removeOnStageEmoteDesc(callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void) {
+  removeOnStageEmoteDesc(
+    callback: (ctx: ReducerEventContext, records: EmoteDesc[]) => void
+  ) {
     this.connection.offReducer('stage_emote_desc', callback)
   }
 
   stageEmpireColorsDesc(records: EmpireColorDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEmpireColorsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEmpireColorsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_empire_colors_desc',
@@ -17837,11 +23181,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireColorsDesc(callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void) {
+  onStageEmpireColorsDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void
+  ) {
     this.connection.onReducer('stage_empire_colors_desc', callback)
   }
 
-  removeOnStageEmpireColorsDesc(callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void) {
+  removeOnStageEmpireColorsDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireColorDesc[]) => void
+  ) {
     this.connection.offReducer('stage_empire_colors_desc', callback)
   }
 
@@ -17857,18 +23205,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+  onStageEmpireIconDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void
+  ) {
     this.connection.onReducer('stage_empire_icon_desc', callback)
   }
 
-  removeOnStageEmpireIconDesc(callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void) {
+  removeOnStageEmpireIconDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireIconDesc[]) => void
+  ) {
     this.connection.offReducer('stage_empire_icon_desc', callback)
   }
 
   stageEmpireNotificationDesc(records: EmpireNotificationDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_empire_notification_desc',
@@ -17877,11 +23232,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireNotificationDesc(callback: (ctx: ReducerEventContext, records: EmpireNotificationDesc[]) => void) {
+  onStageEmpireNotificationDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EmpireNotificationDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_empire_notification_desc', callback)
   }
 
-  removeOnStageEmpireNotificationDesc(callback: (ctx: ReducerEventContext, records: EmpireNotificationDesc[]) => void) {
+  removeOnStageEmpireNotificationDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EmpireNotificationDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_empire_notification_desc', callback)
   }
 
@@ -17897,18 +23262,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireRankDesc(callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void) {
+  onStageEmpireRankDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void
+  ) {
     this.connection.onReducer('stage_empire_rank_desc', callback)
   }
 
-  removeOnStageEmpireRankDesc(callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void) {
+  removeOnStageEmpireRankDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireRankDesc[]) => void
+  ) {
     this.connection.offReducer('stage_empire_rank_desc', callback)
   }
 
   stageEmpireSuppliesDesc(records: EmpireSuppliesDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEmpireSuppliesDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEmpireSuppliesDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_empire_supplies_desc',
@@ -17917,18 +23289,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireSuppliesDesc(callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void) {
+  onStageEmpireSuppliesDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void
+  ) {
     this.connection.onReducer('stage_empire_supplies_desc', callback)
   }
 
-  removeOnStageEmpireSuppliesDesc(callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void) {
+  removeOnStageEmpireSuppliesDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireSuppliesDesc[]) => void
+  ) {
     this.connection.offReducer('stage_empire_supplies_desc', callback)
   }
 
   stageEmpireTerritoryDesc(records: EmpireTerritoryDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEmpireTerritoryDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_empire_territory_desc',
@@ -17937,18 +23316,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageEmpireTerritoryDesc(callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void) {
+  onStageEmpireTerritoryDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void
+  ) {
     this.connection.onReducer('stage_empire_territory_desc', callback)
   }
 
-  removeOnStageEmpireTerritoryDesc(callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void) {
+  removeOnStageEmpireTerritoryDesc(
+    callback: (ctx: ReducerEventContext, records: EmpireTerritoryDesc[]) => void
+  ) {
     this.connection.offReducer('stage_empire_territory_desc', callback)
   }
 
   stageEnemyAiParamsDesc(records: EnemyAiParamsDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_enemy_ai_params_desc',
@@ -17957,11 +23343,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageEnemyAiParamsDesc(callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void) {
+  onStageEnemyAiParamsDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void
+  ) {
     this.connection.onReducer('stage_enemy_ai_params_desc', callback)
   }
 
-  removeOnStageEnemyAiParamsDesc(callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void) {
+  removeOnStageEnemyAiParamsDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyAiParamsDesc[]) => void
+  ) {
     this.connection.offReducer('stage_enemy_ai_params_desc', callback)
   }
 
@@ -17970,21 +23360,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageEnemyDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_enemy_desc', __argsBuffer, this.setCallReducerFlags.stageEnemyDescFlags)
+    this.connection.callReducer(
+      'stage_enemy_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageEnemyDescFlags
+    )
   }
 
-  onStageEnemyDesc(callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void) {
+  onStageEnemyDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void
+  ) {
     this.connection.onReducer('stage_enemy_desc', callback)
   }
 
-  removeOnStageEnemyDesc(callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void) {
+  removeOnStageEnemyDesc(
+    callback: (ctx: ReducerEventContext, records: EnemyDesc[]) => void
+  ) {
     this.connection.offReducer('stage_enemy_desc', callback)
   }
 
   stageEnvironmentDebuffDesc(records: EnvironmentDebuffDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_environment_debuff_desc',
@@ -17993,11 +23394,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageEnvironmentDebuffDesc(callback: (ctx: ReducerEventContext, records: EnvironmentDebuffDesc[]) => void) {
+  onStageEnvironmentDebuffDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EnvironmentDebuffDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_environment_debuff_desc', callback)
   }
 
-  removeOnStageEnvironmentDebuffDesc(callback: (ctx: ReducerEventContext, records: EnvironmentDebuffDesc[]) => void) {
+  removeOnStageEnvironmentDebuffDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: EnvironmentDebuffDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_environment_debuff_desc', callback)
   }
 
@@ -18006,21 +23417,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageEquipmentDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_equipment_desc', __argsBuffer, this.setCallReducerFlags.stageEquipmentDescFlags)
+    this.connection.callReducer(
+      'stage_equipment_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageEquipmentDescFlags
+    )
   }
 
-  onStageEquipmentDesc(callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void) {
+  onStageEquipmentDesc(
+    callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void
+  ) {
     this.connection.onReducer('stage_equipment_desc', callback)
   }
 
-  removeOnStageEquipmentDesc(callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void) {
+  removeOnStageEquipmentDesc(
+    callback: (ctx: ReducerEventContext, records: EquipmentDesc[]) => void
+  ) {
     this.connection.offReducer('stage_equipment_desc', callback)
   }
 
   stageExtractionRecipeDesc(records: ExtractionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageExtractionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageExtractionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_extraction_recipe_desc',
@@ -18029,11 +23451,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageExtractionRecipeDesc(callback: (ctx: ReducerEventContext, records: ExtractionRecipeDesc[]) => void) {
+  onStageExtractionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExtractionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_extraction_recipe_desc', callback)
   }
 
-  removeOnStageExtractionRecipeDesc(callback: (ctx: ReducerEventContext, records: ExtractionRecipeDesc[]) => void) {
+  removeOnStageExtractionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ExtractionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_extraction_recipe_desc', callback)
   }
 
@@ -18042,14 +23474,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageFoodDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_food_desc', __argsBuffer, this.setCallReducerFlags.stageFoodDescFlags)
+    this.connection.callReducer(
+      'stage_food_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageFoodDescFlags
+    )
   }
 
-  onStageFoodDesc(callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void) {
+  onStageFoodDesc(
+    callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void
+  ) {
     this.connection.onReducer('stage_food_desc', callback)
   }
 
-  removeOnStageFoodDesc(callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void) {
+  removeOnStageFoodDesc(
+    callback: (ctx: ReducerEventContext, records: FoodDesc[]) => void
+  ) {
     this.connection.offReducer('stage_food_desc', callback)
   }
 
@@ -18058,21 +23498,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageGateDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_gate_desc', __argsBuffer, this.setCallReducerFlags.stageGateDescFlags)
+    this.connection.callReducer(
+      'stage_gate_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageGateDescFlags
+    )
   }
 
-  onStageGateDesc(callback: (ctx: ReducerEventContext, records: GateDesc[]) => void) {
+  onStageGateDesc(
+    callback: (ctx: ReducerEventContext, records: GateDesc[]) => void
+  ) {
     this.connection.onReducer('stage_gate_desc', callback)
   }
 
-  removeOnStageGateDesc(callback: (ctx: ReducerEventContext, records: GateDesc[]) => void) {
+  removeOnStageGateDesc(
+    callback: (ctx: ReducerEventContext, records: GateDesc[]) => void
+  ) {
     this.connection.offReducer('stage_gate_desc', callback)
   }
 
   stageHexiteExchangeEntryDesc(records: HexiteExchangeEntryDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_hexite_exchange_entry_desc',
@@ -18081,12 +23532,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageHexiteExchangeEntryDesc(callback: (ctx: ReducerEventContext, records: HexiteExchangeEntryDesc[]) => void) {
+  onStageHexiteExchangeEntryDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: HexiteExchangeEntryDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_hexite_exchange_entry_desc', callback)
   }
 
   removeOnStageHexiteExchangeEntryDesc(
-    callback: (ctx: ReducerEventContext, records: HexiteExchangeEntryDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: HexiteExchangeEntryDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_hexite_exchange_entry_desc', callback)
   }
@@ -18094,7 +23553,10 @@ export class RemoteReducers {
   stageInteriorEnvironmentDesc(records: InteriorEnvironmentDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_environment_desc',
@@ -18103,12 +23565,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageInteriorEnvironmentDesc(callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void) {
+  onStageInteriorEnvironmentDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorEnvironmentDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_interior_environment_desc', callback)
   }
 
   removeOnStageInteriorEnvironmentDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorEnvironmentDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorEnvironmentDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_interior_environment_desc', callback)
   }
@@ -18116,7 +23586,10 @@ export class RemoteReducers {
   stageInteriorInstanceDesc(records: InteriorInstanceDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorInstanceDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorInstanceDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_instance_desc',
@@ -18125,18 +23598,31 @@ export class RemoteReducers {
     )
   }
 
-  onStageInteriorInstanceDesc(callback: (ctx: ReducerEventContext, records: InteriorInstanceDesc[]) => void) {
+  onStageInteriorInstanceDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorInstanceDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_interior_instance_desc', callback)
   }
 
-  removeOnStageInteriorInstanceDesc(callback: (ctx: ReducerEventContext, records: InteriorInstanceDesc[]) => void) {
+  removeOnStageInteriorInstanceDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorInstanceDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_interior_instance_desc', callback)
   }
 
   stageInteriorNetworkDesc(records: InteriorNetworkDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorNetworkDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_network_desc',
@@ -18145,18 +23631,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageInteriorNetworkDesc(callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void) {
+  onStageInteriorNetworkDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void
+  ) {
     this.connection.onReducer('stage_interior_network_desc', callback)
   }
 
-  removeOnStageInteriorNetworkDesc(callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void) {
+  removeOnStageInteriorNetworkDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorNetworkDesc[]) => void
+  ) {
     this.connection.offReducer('stage_interior_network_desc', callback)
   }
 
   stageInteriorPortalConnectionsDesc(records: InteriorPortalConnectionsDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_portal_connections_desc',
@@ -18166,21 +23659,36 @@ export class RemoteReducers {
   }
 
   onStageInteriorPortalConnectionsDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorPortalConnectionsDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorPortalConnectionsDesc[]
+    ) => void
   ) {
-    this.connection.onReducer('stage_interior_portal_connections_desc', callback)
+    this.connection.onReducer(
+      'stage_interior_portal_connections_desc',
+      callback
+    )
   }
 
   removeOnStageInteriorPortalConnectionsDesc(
-    callback: (ctx: ReducerEventContext, records: InteriorPortalConnectionsDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: InteriorPortalConnectionsDesc[]
+    ) => void
   ) {
-    this.connection.offReducer('stage_interior_portal_connections_desc', callback)
+    this.connection.offReducer(
+      'stage_interior_portal_connections_desc',
+      callback
+    )
   }
 
   stageInteriorShapeDesc(records: InteriorShapeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorShapeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorShapeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_shape_desc',
@@ -18189,18 +23697,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageInteriorShapeDesc(callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void) {
+  onStageInteriorShapeDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_interior_shape_desc', callback)
   }
 
-  removeOnStageInteriorShapeDesc(callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void) {
+  removeOnStageInteriorShapeDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorShapeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_interior_shape_desc', callback)
   }
 
   stageInteriorSpawnDesc(records: InteriorSpawnDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageInteriorSpawnDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageInteriorSpawnDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_interior_spawn_desc',
@@ -18209,18 +23724,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageInteriorSpawnDesc(callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void) {
+  onStageInteriorSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void
+  ) {
     this.connection.onReducer('stage_interior_spawn_desc', callback)
   }
 
-  removeOnStageInteriorSpawnDesc(callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void) {
+  removeOnStageInteriorSpawnDesc(
+    callback: (ctx: ReducerEventContext, records: InteriorSpawnDesc[]) => void
+  ) {
     this.connection.offReducer('stage_interior_spawn_desc', callback)
   }
 
   stageItemConversionRecipeDesc(records: ItemConversionRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_item_conversion_recipe_desc',
@@ -18229,12 +23751,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageItemConversionRecipeDesc(callback: (ctx: ReducerEventContext, records: ItemConversionRecipeDesc[]) => void) {
+  onStageItemConversionRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ItemConversionRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_item_conversion_recipe_desc', callback)
   }
 
   removeOnStageItemConversionRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ItemConversionRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ItemConversionRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_item_conversion_recipe_desc', callback)
   }
@@ -18244,14 +23774,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageItemDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_item_desc', __argsBuffer, this.setCallReducerFlags.stageItemDescFlags)
+    this.connection.callReducer(
+      'stage_item_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageItemDescFlags
+    )
   }
 
-  onStageItemDesc(callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void) {
+  onStageItemDesc(
+    callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void
+  ) {
     this.connection.onReducer('stage_item_desc', callback)
   }
 
-  removeOnStageItemDesc(callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void) {
+  removeOnStageItemDesc(
+    callback: (ctx: ReducerEventContext, records: ItemDesc[]) => void
+  ) {
     this.connection.offReducer('stage_item_desc', callback)
   }
 
@@ -18260,21 +23798,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageItemListDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_item_list_desc', __argsBuffer, this.setCallReducerFlags.stageItemListDescFlags)
+    this.connection.callReducer(
+      'stage_item_list_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageItemListDescFlags
+    )
   }
 
-  onStageItemListDesc(callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void) {
+  onStageItemListDesc(
+    callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void
+  ) {
     this.connection.onReducer('stage_item_list_desc', callback)
   }
 
-  removeOnStageItemListDesc(callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void) {
+  removeOnStageItemListDesc(
+    callback: (ctx: ReducerEventContext, records: ItemListDesc[]) => void
+  ) {
     this.connection.offReducer('stage_item_list_desc', callback)
   }
 
   stageKnowledgeScrollDesc(records: KnowledgeScrollDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageKnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageKnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_knowledge_scroll_desc',
@@ -18283,18 +23832,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageKnowledgeScrollDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void) {
+  onStageKnowledgeScrollDesc(
+    callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void
+  ) {
     this.connection.onReducer('stage_knowledge_scroll_desc', callback)
   }
 
-  removeOnStageKnowledgeScrollDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void) {
+  removeOnStageKnowledgeScrollDesc(
+    callback: (ctx: ReducerEventContext, records: KnowledgeScrollDesc[]) => void
+  ) {
     this.connection.offReducer('stage_knowledge_scroll_desc', callback)
   }
 
   stageKnowledgeScrollTypeDesc(records: KnowledgeScrollTypeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageKnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageKnowledgeScrollTypeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_knowledge_scroll_type_desc',
@@ -18303,12 +23859,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageKnowledgeScrollTypeDesc(callback: (ctx: ReducerEventContext, records: KnowledgeScrollTypeDesc[]) => void) {
+  onStageKnowledgeScrollTypeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeScrollTypeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_knowledge_scroll_type_desc', callback)
   }
 
   removeOnStageKnowledgeScrollTypeDesc(
-    callback: (ctx: ReducerEventContext, records: KnowledgeScrollTypeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeScrollTypeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_knowledge_scroll_type_desc', callback)
   }
@@ -18316,7 +23880,10 @@ export class RemoteReducers {
   stageKnowledgeStatModifierDesc(records: KnowledgeStatModifierDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageKnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageKnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_knowledge_stat_modifier_desc',
@@ -18325,12 +23892,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageKnowledgeStatModifierDesc(callback: (ctx: ReducerEventContext, records: KnowledgeStatModifierDesc[]) => void) {
+  onStageKnowledgeStatModifierDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeStatModifierDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_knowledge_stat_modifier_desc', callback)
   }
 
   removeOnStageKnowledgeStatModifierDesc(
-    callback: (ctx: ReducerEventContext, records: KnowledgeStatModifierDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: KnowledgeStatModifierDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_knowledge_stat_modifier_desc', callback)
   }
@@ -18340,14 +23915,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageLootChestDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_loot_chest_desc', __argsBuffer, this.setCallReducerFlags.stageLootChestDescFlags)
+    this.connection.callReducer(
+      'stage_loot_chest_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageLootChestDescFlags
+    )
   }
 
-  onStageLootChestDesc(callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void) {
+  onStageLootChestDesc(
+    callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void
+  ) {
     this.connection.onReducer('stage_loot_chest_desc', callback)
   }
 
-  removeOnStageLootChestDesc(callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void) {
+  removeOnStageLootChestDesc(
+    callback: (ctx: ReducerEventContext, records: LootChestDesc[]) => void
+  ) {
     this.connection.offReducer('stage_loot_chest_desc', callback)
   }
 
@@ -18363,11 +23946,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageLootRarityDesc(callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void) {
+  onStageLootRarityDesc(
+    callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void
+  ) {
     this.connection.onReducer('stage_loot_rarity_desc', callback)
   }
 
-  removeOnStageLootRarityDesc(callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void) {
+  removeOnStageLootRarityDesc(
+    callback: (ctx: ReducerEventContext, records: LootRarityDesc[]) => void
+  ) {
     this.connection.offReducer('stage_loot_rarity_desc', callback)
   }
 
@@ -18376,14 +23963,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageLootTableDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_loot_table_desc', __argsBuffer, this.setCallReducerFlags.stageLootTableDescFlags)
+    this.connection.callReducer(
+      'stage_loot_table_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageLootTableDescFlags
+    )
   }
 
-  onStageLootTableDesc(callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void) {
+  onStageLootTableDesc(
+    callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void
+  ) {
     this.connection.onReducer('stage_loot_table_desc', callback)
   }
 
-  removeOnStageLootTableDesc(callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void) {
+  removeOnStageLootTableDesc(
+    callback: (ctx: ReducerEventContext, records: LootTableDesc[]) => void
+  ) {
     this.connection.offReducer('stage_loot_table_desc', callback)
   }
 
@@ -18392,21 +23987,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageNpcDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_npc_desc', __argsBuffer, this.setCallReducerFlags.stageNpcDescFlags)
+    this.connection.callReducer(
+      'stage_npc_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageNpcDescFlags
+    )
   }
 
-  onStageNpcDesc(callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void) {
+  onStageNpcDesc(
+    callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void
+  ) {
     this.connection.onReducer('stage_npc_desc', callback)
   }
 
-  removeOnStageNpcDesc(callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void) {
+  removeOnStageNpcDesc(
+    callback: (ctx: ReducerEventContext, records: NpcDesc[]) => void
+  ) {
     this.connection.offReducer('stage_npc_desc', callback)
   }
 
   stageOnboardingRewardDesc(records: OnboardingRewardDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_onboarding_reward_desc',
@@ -18415,11 +24021,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageOnboardingRewardDesc(callback: (ctx: ReducerEventContext, records: OnboardingRewardDesc[]) => void) {
+  onStageOnboardingRewardDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: OnboardingRewardDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_onboarding_reward_desc', callback)
   }
 
-  removeOnStageOnboardingRewardDesc(callback: (ctx: ReducerEventContext, records: OnboardingRewardDesc[]) => void) {
+  removeOnStageOnboardingRewardDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: OnboardingRewardDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_onboarding_reward_desc', callback)
   }
 
@@ -18435,18 +24051,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageParametersDesc(callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void) {
+  onStageParametersDesc(
+    callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void
+  ) {
     this.connection.onReducer('stage_parameters_desc', callback)
   }
 
-  removeOnStageParametersDesc(callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void) {
+  removeOnStageParametersDesc(
+    callback: (ctx: ReducerEventContext, records: ParametersDesc[]) => void
+  ) {
     this.connection.offReducer('stage_parameters_desc', callback)
   }
 
   stagePathfindingDesc(records: PathfindingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StagePathfindingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StagePathfindingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_pathfinding_desc',
@@ -18455,11 +24078,15 @@ export class RemoteReducers {
     )
   }
 
-  onStagePathfindingDesc(callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void) {
+  onStagePathfindingDesc(
+    callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void
+  ) {
     this.connection.onReducer('stage_pathfinding_desc', callback)
   }
 
-  removeOnStagePathfindingDesc(callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void) {
+  removeOnStagePathfindingDesc(
+    callback: (ctx: ReducerEventContext, records: PathfindingDesc[]) => void
+  ) {
     this.connection.offReducer('stage_pathfinding_desc', callback)
   }
 
@@ -18475,18 +24102,25 @@ export class RemoteReducers {
     )
   }
 
-  onStagePavingTileDesc(callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void) {
+  onStagePavingTileDesc(
+    callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void
+  ) {
     this.connection.onReducer('stage_paving_tile_desc', callback)
   }
 
-  removeOnStagePavingTileDesc(callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void) {
+  removeOnStagePavingTileDesc(
+    callback: (ctx: ReducerEventContext, records: PavingTileDesc[]) => void
+  ) {
     this.connection.offReducer('stage_paving_tile_desc', callback)
   }
 
   stagePillarShapingDesc(records: PillarShapingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StagePillarShapingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StagePillarShapingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_pillar_shaping_desc',
@@ -18495,18 +24129,25 @@ export class RemoteReducers {
     )
   }
 
-  onStagePillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+  onStagePillarShapingDesc(
+    callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void
+  ) {
     this.connection.onReducer('stage_pillar_shaping_desc', callback)
   }
 
-  removeOnStagePillarShapingDesc(callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void) {
+  removeOnStagePillarShapingDesc(
+    callback: (ctx: ReducerEventContext, records: PillarShapingDesc[]) => void
+  ) {
     this.connection.offReducer('stage_pillar_shaping_desc', callback)
   }
 
   stagePlayerActionDesc(records: PlayerActionDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StagePlayerActionDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StagePlayerActionDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_player_action_desc',
@@ -18515,18 +24156,25 @@ export class RemoteReducers {
     )
   }
 
-  onStagePlayerActionDesc(callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void) {
+  onStagePlayerActionDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void
+  ) {
     this.connection.onReducer('stage_player_action_desc', callback)
   }
 
-  removeOnStagePlayerActionDesc(callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void) {
+  removeOnStagePlayerActionDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerActionDesc[]) => void
+  ) {
     this.connection.offReducer('stage_player_action_desc', callback)
   }
 
   stagePlayerHousingDesc(records: PlayerHousingDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StagePlayerHousingDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StagePlayerHousingDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_player_housing_desc',
@@ -18535,18 +24183,25 @@ export class RemoteReducers {
     )
   }
 
-  onStagePlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+  onStagePlayerHousingDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void
+  ) {
     this.connection.onReducer('stage_player_housing_desc', callback)
   }
 
-  removeOnStagePlayerHousingDesc(callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void) {
+  removeOnStagePlayerHousingDesc(
+    callback: (ctx: ReducerEventContext, records: PlayerHousingDesc[]) => void
+  ) {
     this.connection.offReducer('stage_player_housing_desc', callback)
   }
 
   stagePrivateParametersDesc(records: PrivateParametersDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StagePrivateParametersDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StagePrivateParametersDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_private_parameters_desc',
@@ -18555,18 +24210,31 @@ export class RemoteReducers {
     )
   }
 
-  onStagePrivateParametersDesc(callback: (ctx: ReducerEventContext, records: PrivateParametersDesc[]) => void) {
+  onStagePrivateParametersDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: PrivateParametersDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_private_parameters_desc', callback)
   }
 
-  removeOnStagePrivateParametersDesc(callback: (ctx: ReducerEventContext, records: PrivateParametersDesc[]) => void) {
+  removeOnStagePrivateParametersDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: PrivateParametersDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_private_parameters_desc', callback)
   }
 
   stageReservedNameDesc(records: ReservedNameDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageReservedNameDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageReservedNameDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_reserved_name_desc',
@@ -18575,18 +24243,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+  onStageReservedNameDesc(
+    callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void
+  ) {
     this.connection.onReducer('stage_reserved_name_desc', callback)
   }
 
-  removeOnStageReservedNameDesc(callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void) {
+  removeOnStageReservedNameDesc(
+    callback: (ctx: ReducerEventContext, records: ReservedNameDesc[]) => void
+  ) {
     this.connection.offReducer('stage_reserved_name_desc', callback)
   }
 
   stageResourceClumpDesc(records: ResourceClumpDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageResourceClumpDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageResourceClumpDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_resource_clump_desc',
@@ -18595,11 +24270,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageResourceClumpDesc(callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void) {
+  onStageResourceClumpDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void
+  ) {
     this.connection.onReducer('stage_resource_clump_desc', callback)
   }
 
-  removeOnStageResourceClumpDesc(callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void) {
+  removeOnStageResourceClumpDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceClumpDesc[]) => void
+  ) {
     this.connection.offReducer('stage_resource_clump_desc', callback)
   }
 
@@ -18608,21 +24287,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageResourceDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_resource_desc', __argsBuffer, this.setCallReducerFlags.stageResourceDescFlags)
+    this.connection.callReducer(
+      'stage_resource_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageResourceDescFlags
+    )
   }
 
-  onStageResourceDesc(callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void) {
+  onStageResourceDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void
+  ) {
     this.connection.onReducer('stage_resource_desc', callback)
   }
 
-  removeOnStageResourceDesc(callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void) {
+  removeOnStageResourceDesc(
+    callback: (ctx: ReducerEventContext, records: ResourceDesc[]) => void
+  ) {
     this.connection.offReducer('stage_resource_desc', callback)
   }
 
   stageResourceGrowthRecipeDesc(records: ResourceGrowthRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_resource_growth_recipe_desc',
@@ -18631,12 +24321,20 @@ export class RemoteReducers {
     )
   }
 
-  onStageResourceGrowthRecipeDesc(callback: (ctx: ReducerEventContext, records: ResourceGrowthRecipeDesc[]) => void) {
+  onStageResourceGrowthRecipeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourceGrowthRecipeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_resource_growth_recipe_desc', callback)
   }
 
   removeOnStageResourceGrowthRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourceGrowthRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourceGrowthRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_resource_growth_recipe_desc', callback)
   }
@@ -18644,7 +24342,10 @@ export class RemoteReducers {
   stageResourcePlacementRecipeDesc(records: ResourcePlacementRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_resource_placement_recipe_desc',
@@ -18654,13 +24355,19 @@ export class RemoteReducers {
   }
 
   onStageResourcePlacementRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourcePlacementRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourcePlacementRecipeDesc[]
+    ) => void
   ) {
     this.connection.onReducer('stage_resource_placement_recipe_desc', callback)
   }
 
   removeOnStageResourcePlacementRecipeDesc(
-    callback: (ctx: ReducerEventContext, records: ResourcePlacementRecipeDesc[]) => void
+    callback: (
+      ctx: ReducerEventContext,
+      records: ResourcePlacementRecipeDesc[]
+    ) => void
   ) {
     this.connection.offReducer('stage_resource_placement_recipe_desc', callback)
   }
@@ -18668,7 +24375,10 @@ export class RemoteReducers {
   stageSecondaryKnowledgeDesc(records: SecondaryKnowledgeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageSecondaryKnowledgeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageSecondaryKnowledgeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_secondary_knowledge_desc',
@@ -18677,11 +24387,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageSecondaryKnowledgeDesc(callback: (ctx: ReducerEventContext, records: SecondaryKnowledgeDesc[]) => void) {
+  onStageSecondaryKnowledgeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: SecondaryKnowledgeDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_secondary_knowledge_desc', callback)
   }
 
-  removeOnStageSecondaryKnowledgeDesc(callback: (ctx: ReducerEventContext, records: SecondaryKnowledgeDesc[]) => void) {
+  removeOnStageSecondaryKnowledgeDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: SecondaryKnowledgeDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_secondary_knowledge_desc', callback)
   }
 
@@ -18690,21 +24410,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageSkillDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_skill_desc', __argsBuffer, this.setCallReducerFlags.stageSkillDescFlags)
+    this.connection.callReducer(
+      'stage_skill_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageSkillDescFlags
+    )
   }
 
-  onStageSkillDesc(callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void) {
+  onStageSkillDesc(
+    callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void
+  ) {
     this.connection.onReducer('stage_skill_desc', callback)
   }
 
-  removeOnStageSkillDesc(callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void) {
+  removeOnStageSkillDesc(
+    callback: (ctx: ReducerEventContext, records: SkillDesc[]) => void
+  ) {
     this.connection.offReducer('stage_skill_desc', callback)
   }
 
   stageTargetingMatrixDesc(records: TargetingMatrixDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_targeting_matrix_desc',
@@ -18713,18 +24444,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageTargetingMatrixDesc(callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void) {
+  onStageTargetingMatrixDesc(
+    callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void
+  ) {
     this.connection.onReducer('stage_targeting_matrix_desc', callback)
   }
 
-  removeOnStageTargetingMatrixDesc(callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void) {
+  removeOnStageTargetingMatrixDesc(
+    callback: (ctx: ReducerEventContext, records: TargetingMatrixDesc[]) => void
+  ) {
     this.connection.offReducer('stage_targeting_matrix_desc', callback)
   }
 
   stageTeleportItemDesc(records: TeleportItemDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageTeleportItemDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageTeleportItemDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_teleport_item_desc',
@@ -18733,18 +24471,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageTeleportItemDesc(callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void) {
+  onStageTeleportItemDesc(
+    callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void
+  ) {
     this.connection.onReducer('stage_teleport_item_desc', callback)
   }
 
-  removeOnStageTeleportItemDesc(callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void) {
+  removeOnStageTeleportItemDesc(
+    callback: (ctx: ReducerEventContext, records: TeleportItemDesc[]) => void
+  ) {
     this.connection.offReducer('stage_teleport_item_desc', callback)
   }
 
   stageTerraformRecipeDesc(records: TerraformRecipeDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageTerraformRecipeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageTerraformRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_terraform_recipe_desc',
@@ -18753,11 +24498,15 @@ export class RemoteReducers {
     )
   }
 
-  onStageTerraformRecipeDesc(callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void) {
+  onStageTerraformRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_terraform_recipe_desc', callback)
   }
 
-  removeOnStageTerraformRecipeDesc(callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void) {
+  removeOnStageTerraformRecipeDesc(
+    callback: (ctx: ReducerEventContext, records: TerraformRecipeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_terraform_recipe_desc', callback)
   }
 
@@ -18766,14 +24515,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageToolDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_tool_desc', __argsBuffer, this.setCallReducerFlags.stageToolDescFlags)
+    this.connection.callReducer(
+      'stage_tool_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageToolDescFlags
+    )
   }
 
-  onStageToolDesc(callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void) {
+  onStageToolDesc(
+    callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void
+  ) {
     this.connection.onReducer('stage_tool_desc', callback)
   }
 
-  removeOnStageToolDesc(callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void) {
+  removeOnStageToolDesc(
+    callback: (ctx: ReducerEventContext, records: ToolDesc[]) => void
+  ) {
     this.connection.offReducer('stage_tool_desc', callback)
   }
 
@@ -18782,21 +24539,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageToolTypeDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_tool_type_desc', __argsBuffer, this.setCallReducerFlags.stageToolTypeDescFlags)
+    this.connection.callReducer(
+      'stage_tool_type_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageToolTypeDescFlags
+    )
   }
 
-  onStageToolTypeDesc(callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void) {
+  onStageToolTypeDesc(
+    callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_tool_type_desc', callback)
   }
 
-  removeOnStageToolTypeDesc(callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void) {
+  removeOnStageToolTypeDesc(
+    callback: (ctx: ReducerEventContext, records: ToolTypeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_tool_type_desc', callback)
   }
 
   stageTravelerTaskDesc(records: TravelerTaskDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageTravelerTaskDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_traveler_task_desc',
@@ -18805,18 +24573,25 @@ export class RemoteReducers {
     )
   }
 
-  onStageTravelerTaskDesc(callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void) {
+  onStageTravelerTaskDesc(
+    callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void
+  ) {
     this.connection.onReducer('stage_traveler_task_desc', callback)
   }
 
-  removeOnStageTravelerTaskDesc(callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void) {
+  removeOnStageTravelerTaskDesc(
+    callback: (ctx: ReducerEventContext, records: TravelerTaskDesc[]) => void
+  ) {
     this.connection.offReducer('stage_traveler_task_desc', callback)
   }
 
   stageTravelerTradeOrderDesc(records: TravelerTradeOrderDesc[]) {
     const __args = { records }
     let __writer = new BinaryWriter(1024)
-    StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'stage_traveler_trade_order_desc',
@@ -18825,11 +24600,21 @@ export class RemoteReducers {
     )
   }
 
-  onStageTravelerTradeOrderDesc(callback: (ctx: ReducerEventContext, records: TravelerTradeOrderDesc[]) => void) {
+  onStageTravelerTradeOrderDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: TravelerTradeOrderDesc[]
+    ) => void
+  ) {
     this.connection.onReducer('stage_traveler_trade_order_desc', callback)
   }
 
-  removeOnStageTravelerTradeOrderDesc(callback: (ctx: ReducerEventContext, records: TravelerTradeOrderDesc[]) => void) {
+  removeOnStageTravelerTradeOrderDesc(
+    callback: (
+      ctx: ReducerEventContext,
+      records: TravelerTradeOrderDesc[]
+    ) => void
+  ) {
     this.connection.offReducer('stage_traveler_trade_order_desc', callback)
   }
 
@@ -18838,14 +24623,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageWallDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_wall_desc', __argsBuffer, this.setCallReducerFlags.stageWallDescFlags)
+    this.connection.callReducer(
+      'stage_wall_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageWallDescFlags
+    )
   }
 
-  onStageWallDesc(callback: (ctx: ReducerEventContext, records: WallDesc[]) => void) {
+  onStageWallDesc(
+    callback: (ctx: ReducerEventContext, records: WallDesc[]) => void
+  ) {
     this.connection.onReducer('stage_wall_desc', callback)
   }
 
-  removeOnStageWallDesc(callback: (ctx: ReducerEventContext, records: WallDesc[]) => void) {
+  removeOnStageWallDesc(
+    callback: (ctx: ReducerEventContext, records: WallDesc[]) => void
+  ) {
     this.connection.offReducer('stage_wall_desc', callback)
   }
 
@@ -18854,14 +24647,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StageWeaponDesc.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('stage_weapon_desc', __argsBuffer, this.setCallReducerFlags.stageWeaponDescFlags)
+    this.connection.callReducer(
+      'stage_weapon_desc',
+      __argsBuffer,
+      this.setCallReducerFlags.stageWeaponDescFlags
+    )
   }
 
-  onStageWeaponDesc(callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void) {
+  onStageWeaponDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void
+  ) {
     this.connection.onReducer('stage_weapon_desc', callback)
   }
 
-  removeOnStageWeaponDesc(callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void) {
+  removeOnStageWeaponDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponDesc[]) => void
+  ) {
     this.connection.offReducer('stage_weapon_desc', callback)
   }
 
@@ -18877,16 +24678,24 @@ export class RemoteReducers {
     )
   }
 
-  onStageWeaponTypeDesc(callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void) {
+  onStageWeaponTypeDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void
+  ) {
     this.connection.onReducer('stage_weapon_type_desc', callback)
   }
 
-  removeOnStageWeaponTypeDesc(callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void) {
+  removeOnStageWeaponTypeDesc(
+    callback: (ctx: ReducerEventContext, records: WeaponTypeDesc[]) => void
+  ) {
     this.connection.offReducer('stage_weapon_type_desc', callback)
   }
 
   startAgents() {
-    this.connection.callReducer('start_agents', new Uint8Array(0), this.setCallReducerFlags.startAgentsFlags)
+    this.connection.callReducer(
+      'start_agents',
+      new Uint8Array(0),
+      this.setCallReducerFlags.startAgentsFlags
+    )
   }
 
   onStartAgents(callback: (ctx: ReducerEventContext) => void) {
@@ -18897,10 +24706,18 @@ export class RemoteReducers {
     this.connection.offReducer('start_agents', callback)
   }
 
-  startGeneratingWorld(worldWidth: number, worldHeight: number, regionIndex: number, regionCount: number) {
+  startGeneratingWorld(
+    worldWidth: number,
+    worldHeight: number,
+    regionIndex: number,
+    regionCount: number
+  ) {
     const __args = { worldWidth, worldHeight, regionIndex, regionCount }
     let __writer = new BinaryWriter(1024)
-    StartGeneratingWorld.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StartGeneratingWorld.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'start_generating_world',
@@ -18936,7 +24753,10 @@ export class RemoteReducers {
   startOnboardingQuest(id: number) {
     const __args = { id }
     let __writer = new BinaryWriter(1024)
-    StartOnboardingQuest.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    StartOnboardingQuest.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'start_onboarding_quest',
@@ -18945,11 +24765,15 @@ export class RemoteReducers {
     )
   }
 
-  onStartOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+  onStartOnboardingQuest(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.onReducer('start_onboarding_quest', callback)
   }
 
-  removeOnStartOnboardingQuest(callback: (ctx: ReducerEventContext, id: number) => void) {
+  removeOnStartOnboardingQuest(
+    callback: (ctx: ReducerEventContext, id: number) => void
+  ) {
     this.connection.offReducer('start_onboarding_quest', callback)
   }
 
@@ -18958,19 +24782,31 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     StarvingAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('starving_agent_loop', __argsBuffer, this.setCallReducerFlags.starvingAgentLoopFlags)
+    this.connection.callReducer(
+      'starving_agent_loop',
+      __argsBuffer,
+      this.setCallReducerFlags.starvingAgentLoopFlags
+    )
   }
 
-  onStarvingAgentLoop(callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void) {
+  onStarvingAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void
+  ) {
     this.connection.onReducer('starving_agent_loop', callback)
   }
 
-  removeOnStarvingAgentLoop(callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void) {
+  removeOnStarvingAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: StarvingLoopTimer) => void
+  ) {
     this.connection.offReducer('starving_agent_loop', callback)
   }
 
   stopAgents() {
-    this.connection.callReducer('stop_agents', new Uint8Array(0), this.setCallReducerFlags.stopAgentsFlags)
+    this.connection.callReducer(
+      'stop_agents',
+      new Uint8Array(0),
+      this.setCallReducerFlags.stopAgentsFlags
+    )
   }
 
   onStopAgents(callback: (ctx: ReducerEventContext) => void) {
@@ -18986,14 +24822,22 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     SynchronizeTime.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('synchronize_time', __argsBuffer, this.setCallReducerFlags.synchronizeTimeFlags)
+    this.connection.callReducer(
+      'synchronize_time',
+      __argsBuffer,
+      this.setCallReducerFlags.synchronizeTimeFlags
+    )
   }
 
-  onSynchronizeTime(callback: (ctx: ReducerEventContext, clientTime: number) => void) {
+  onSynchronizeTime(
+    callback: (ctx: ReducerEventContext, clientTime: number) => void
+  ) {
     this.connection.onReducer('synchronize_time', callback)
   }
 
-  removeOnSynchronizeTime(callback: (ctx: ReducerEventContext, clientTime: number) => void) {
+  removeOnSynchronizeTime(
+    callback: (ctx: ReducerEventContext, clientTime: number) => void
+  ) {
     this.connection.offReducer('synchronize_time', callback)
   }
 
@@ -19002,21 +24846,32 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TargetUpdate.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('target_update', __argsBuffer, this.setCallReducerFlags.targetUpdateFlags)
+    this.connection.callReducer(
+      'target_update',
+      __argsBuffer,
+      this.setCallReducerFlags.targetUpdateFlags
+    )
   }
 
-  onTargetUpdate(callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void) {
+  onTargetUpdate(
+    callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void
+  ) {
     this.connection.onReducer('target_update', callback)
   }
 
-  removeOnTargetUpdate(callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void) {
+  removeOnTargetUpdate(
+    callback: (ctx: ReducerEventContext, request: TargetUpdateRequest) => void
+  ) {
     this.connection.offReducer('target_update', callback)
   }
 
   teleportationEnergyRegenAgentLoop(timer: TeleportationEnergyRegenLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'teleportation_energy_regen_agent_loop',
@@ -19026,15 +24881,24 @@ export class RemoteReducers {
   }
 
   onTeleportationEnergyRegenAgentLoop(
-    callback: (ctx: ReducerEventContext, timer: TeleportationEnergyRegenLoopTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: TeleportationEnergyRegenLoopTimer
+    ) => void
   ) {
     this.connection.onReducer('teleportation_energy_regen_agent_loop', callback)
   }
 
   removeOnTeleportationEnergyRegenAgentLoop(
-    callback: (ctx: ReducerEventContext, timer: TeleportationEnergyRegenLoopTimer) => void
+    callback: (
+      ctx: ReducerEventContext,
+      timer: TeleportationEnergyRegenLoopTimer
+    ) => void
   ) {
-    this.connection.offReducer('teleportation_energy_regen_agent_loop', callback)
+    this.connection.offReducer(
+      'teleportation_energy_regen_agent_loop',
+      callback
+    )
   }
 
   terraform(request: PlayerTerraformRequest) {
@@ -19042,14 +24906,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     Terraform.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('terraform', __argsBuffer, this.setCallReducerFlags.terraformFlags)
+    this.connection.callReducer(
+      'terraform',
+      __argsBuffer,
+      this.setCallReducerFlags.terraformFlags
+    )
   }
 
-  onTerraform(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+  onTerraform(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformRequest
+    ) => void
+  ) {
     this.connection.onReducer('terraform', callback)
   }
 
-  removeOnTerraform(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+  removeOnTerraform(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformRequest
+    ) => void
+  ) {
     this.connection.offReducer('terraform', callback)
   }
 
@@ -19058,21 +24936,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TerraformCancel.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('terraform_cancel', __argsBuffer, this.setCallReducerFlags.terraformCancelFlags)
+    this.connection.callReducer(
+      'terraform_cancel',
+      __argsBuffer,
+      this.setCallReducerFlags.terraformCancelFlags
+    )
   }
 
-  onTerraformCancel(callback: (ctx: ReducerEventContext, request: PlayerTerraformCancelRequest) => void) {
+  onTerraformCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformCancelRequest
+    ) => void
+  ) {
     this.connection.onReducer('terraform_cancel', callback)
   }
 
-  removeOnTerraformCancel(callback: (ctx: ReducerEventContext, request: PlayerTerraformCancelRequest) => void) {
+  removeOnTerraformCancel(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformCancelRequest
+    ) => void
+  ) {
     this.connection.offReducer('terraform_cancel', callback)
   }
 
   terraformSetFinalTarget(request: PlayerTerraformSetFinalTargetRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    TerraformSetFinalTarget.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TerraformSetFinalTarget.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'terraform_set_final_target',
@@ -19082,13 +24977,19 @@ export class RemoteReducers {
   }
 
   onTerraformSetFinalTarget(
-    callback: (ctx: ReducerEventContext, request: PlayerTerraformSetFinalTargetRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformSetFinalTargetRequest
+    ) => void
   ) {
     this.connection.onReducer('terraform_set_final_target', callback)
   }
 
   removeOnTerraformSetFinalTarget(
-    callback: (ctx: ReducerEventContext, request: PlayerTerraformSetFinalTargetRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformSetFinalTargetRequest
+    ) => void
   ) {
     this.connection.offReducer('terraform_set_final_target', callback)
   }
@@ -19098,14 +24999,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TerraformStart.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('terraform_start', __argsBuffer, this.setCallReducerFlags.terraformStartFlags)
+    this.connection.callReducer(
+      'terraform_start',
+      __argsBuffer,
+      this.setCallReducerFlags.terraformStartFlags
+    )
   }
 
-  onTerraformStart(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+  onTerraformStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformRequest
+    ) => void
+  ) {
     this.connection.onReducer('terraform_start', callback)
   }
 
-  removeOnTerraformStart(callback: (ctx: ReducerEventContext, request: PlayerTerraformRequest) => void) {
+  removeOnTerraformStart(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTerraformRequest
+    ) => void
+  ) {
     this.connection.offReducer('terraform_start', callback)
   }
 
@@ -19114,14 +25029,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeAccept.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_accept', __argsBuffer, this.setCallReducerFlags.tradeAcceptFlags)
+    this.connection.callReducer(
+      'trade_accept',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeAcceptFlags
+    )
   }
 
-  onTradeAccept(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptRequest) => void) {
+  onTradeAccept(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAcceptRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_accept', callback)
   }
 
-  removeOnTradeAccept(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptRequest) => void) {
+  removeOnTradeAccept(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAcceptRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_accept', callback)
   }
 
@@ -19130,14 +25059,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeAcceptSession.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_accept_session', __argsBuffer, this.setCallReducerFlags.tradeAcceptSessionFlags)
+    this.connection.callReducer(
+      'trade_accept_session',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeAcceptSessionFlags
+    )
   }
 
-  onTradeAcceptSession(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptSessionRequest) => void) {
+  onTradeAcceptSession(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAcceptSessionRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_accept_session', callback)
   }
 
-  removeOnTradeAcceptSession(callback: (ctx: ReducerEventContext, request: PlayerTradeAcceptSessionRequest) => void) {
+  removeOnTradeAcceptSession(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAcceptSessionRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_accept_session', callback)
   }
 
@@ -19146,14 +25089,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeAddItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_add_item', __argsBuffer, this.setCallReducerFlags.tradeAddItemFlags)
+    this.connection.callReducer(
+      'trade_add_item',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeAddItemFlags
+    )
   }
 
-  onTradeAddItem(callback: (ctx: ReducerEventContext, request: PlayerTradeAddItemRequest) => void) {
+  onTradeAddItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAddItemRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_add_item', callback)
   }
 
-  removeOnTradeAddItem(callback: (ctx: ReducerEventContext, request: PlayerTradeAddItemRequest) => void) {
+  removeOnTradeAddItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeAddItemRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_add_item', callback)
   }
 
@@ -19162,17 +25119,29 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeCancelServer.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_cancel_server', __argsBuffer, this.setCallReducerFlags.tradeCancelServerFlags)
+    this.connection.callReducer(
+      'trade_cancel_server',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeCancelServerFlags
+    )
   }
 
   onTradeCancelServer(
-    callback: (ctx: ReducerEventContext, sessionEntityId: bigint, resolutionMessage: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      sessionEntityId: bigint,
+      resolutionMessage: string
+    ) => void
   ) {
     this.connection.onReducer('trade_cancel_server', callback)
   }
 
   removeOnTradeCancelServer(
-    callback: (ctx: ReducerEventContext, sessionEntityId: bigint, resolutionMessage: string) => void
+    callback: (
+      ctx: ReducerEventContext,
+      sessionEntityId: bigint,
+      resolutionMessage: string
+    ) => void
   ) {
     this.connection.offReducer('trade_cancel_server', callback)
   }
@@ -19182,14 +25151,28 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeDecline.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_decline', __argsBuffer, this.setCallReducerFlags.tradeDeclineFlags)
+    this.connection.callReducer(
+      'trade_decline',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeDeclineFlags
+    )
   }
 
-  onTradeDecline(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineRequest) => void) {
+  onTradeDecline(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeDeclineRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_decline', callback)
   }
 
-  removeOnTradeDecline(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineRequest) => void) {
+  removeOnTradeDecline(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeDeclineRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_decline', callback)
   }
 
@@ -19205,18 +25188,31 @@ export class RemoteReducers {
     )
   }
 
-  onTradeDeclineSession(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineSessionRequest) => void) {
+  onTradeDeclineSession(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeDeclineSessionRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_decline_session', callback)
   }
 
-  removeOnTradeDeclineSession(callback: (ctx: ReducerEventContext, request: PlayerTradeDeclineSessionRequest) => void) {
+  removeOnTradeDeclineSession(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeDeclineSessionRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_decline_session', callback)
   }
 
   tradeInitiateSession(request: PlayerTradeInitiateSessionRequest) {
     const __args = { request }
     let __writer = new BinaryWriter(1024)
-    TradeInitiateSession.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TradeInitiateSession.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'trade_initiate_session',
@@ -19225,12 +25221,20 @@ export class RemoteReducers {
     )
   }
 
-  onTradeInitiateSession(callback: (ctx: ReducerEventContext, request: PlayerTradeInitiateSessionRequest) => void) {
+  onTradeInitiateSession(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeInitiateSessionRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_initiate_session', callback)
   }
 
   removeOnTradeInitiateSession(
-    callback: (ctx: ReducerEventContext, request: PlayerTradeInitiateSessionRequest) => void
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeInitiateSessionRequest
+    ) => void
   ) {
     this.connection.offReducer('trade_initiate_session', callback)
   }
@@ -19240,21 +25244,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeRemoveItem.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_remove_item', __argsBuffer, this.setCallReducerFlags.tradeRemoveItemFlags)
+    this.connection.callReducer(
+      'trade_remove_item',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeRemoveItemFlags
+    )
   }
 
-  onTradeRemoveItem(callback: (ctx: ReducerEventContext, request: PlayerTradeRemoveItemRequest) => void) {
+  onTradeRemoveItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeRemoveItemRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_remove_item', callback)
   }
 
-  removeOnTradeRemoveItem(callback: (ctx: ReducerEventContext, request: PlayerTradeRemoveItemRequest) => void) {
+  removeOnTradeRemoveItem(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeRemoveItemRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_remove_item', callback)
   }
 
   tradeSessionsAgentLoop(timer: TradeSessionLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'trade_sessions_agent_loop',
@@ -19263,11 +25284,15 @@ export class RemoteReducers {
     )
   }
 
-  onTradeSessionsAgentLoop(callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void) {
+  onTradeSessionsAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void
+  ) {
     this.connection.onReducer('trade_sessions_agent_loop', callback)
   }
 
-  removeOnTradeSessionsAgentLoop(callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void) {
+  removeOnTradeSessionsAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TradeSessionLoopTimer) => void
+  ) {
     this.connection.offReducer('trade_sessions_agent_loop', callback)
   }
 
@@ -19276,21 +25301,38 @@ export class RemoteReducers {
     let __writer = new BinaryWriter(1024)
     TradeSwapPockets.getTypeScriptAlgebraicType().serialize(__writer, __args)
     let __argsBuffer = __writer.getBuffer()
-    this.connection.callReducer('trade_swap_pockets', __argsBuffer, this.setCallReducerFlags.tradeSwapPocketsFlags)
+    this.connection.callReducer(
+      'trade_swap_pockets',
+      __argsBuffer,
+      this.setCallReducerFlags.tradeSwapPocketsFlags
+    )
   }
 
-  onTradeSwapPockets(callback: (ctx: ReducerEventContext, request: PlayerTradeSwapPocketsRequest) => void) {
+  onTradeSwapPockets(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeSwapPocketsRequest
+    ) => void
+  ) {
     this.connection.onReducer('trade_swap_pockets', callback)
   }
 
-  removeOnTradeSwapPockets(callback: (ctx: ReducerEventContext, request: PlayerTradeSwapPocketsRequest) => void) {
+  removeOnTradeSwapPockets(
+    callback: (
+      ctx: ReducerEventContext,
+      request: PlayerTradeSwapPocketsRequest
+    ) => void
+  ) {
     this.connection.offReducer('trade_swap_pockets', callback)
   }
 
   transferPlayerDelayed(timer: TransferPlayerTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    TransferPlayerDelayed.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TransferPlayerDelayed.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'transfer_player_delayed',
@@ -19299,18 +25341,25 @@ export class RemoteReducers {
     )
   }
 
-  onTransferPlayerDelayed(callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void) {
+  onTransferPlayerDelayed(
+    callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void
+  ) {
     this.connection.onReducer('transfer_player_delayed', callback)
   }
 
-  removeOnTransferPlayerDelayed(callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void) {
+  removeOnTransferPlayerDelayed(
+    callback: (ctx: ReducerEventContext, timer: TransferPlayerTimer) => void
+  ) {
     this.connection.offReducer('transfer_player_delayed', callback)
   }
 
   travelerTaskAgentLoop(timer: TravelerTaskLoopTimer) {
     const __args = { timer }
     let __writer = new BinaryWriter(1024)
-    TravelerTaskAgentLoop.getTypeScriptAlgebraicType().serialize(__writer, __args)
+    TravelerTaskAgentLoop.getTypeScriptAlgebraicType().serialize(
+      __writer,
+      __args
+    )
     let __argsBuffer = __writer.getBuffer()
     this.connection.callReducer(
       'traveler_task_agent_loop',
@@ -19319,11 +25368,15 @@ export class RemoteReducers {
     )
   }
 
-  onTravelerTaskAgentLoop(callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void) {
+  onTravelerTaskAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void
+  ) {
     this.connection.onReducer('traveler_task_agent_loop', callback)
   }
 
-  removeOnTravelerTaskAgentLoop(callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void) {
+  removeOnTravelerTaskAgentLoop(
+    callback: (ctx: ReducerEventContext, timer: TravelerTaskLoopTimer) => void
+  ) {
     this.connection.offReducer('traveler_task_agent_loop', callback)
   }
 
@@ -19335,12 +25388,22 @@ export class RemoteReducers {
     )
   }
 
-  onUpdateScheduledTimersFromStaticData(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer('update_scheduled_timers_from_static_data', callback)
+  onUpdateScheduledTimersFromStaticData(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
+    this.connection.onReducer(
+      'update_scheduled_timers_from_static_data',
+      callback
+    )
   }
 
-  removeOnUpdateScheduledTimersFromStaticData(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer('update_scheduled_timers_from_static_data', callback)
+  removeOnUpdateScheduledTimersFromStaticData(
+    callback: (ctx: ReducerEventContext) => void
+  ) {
+    this.connection.offReducer(
+      'update_scheduled_timers_from_static_data',
+      callback
+    )
   }
 }
 
@@ -19360,47 +25423,56 @@ export class SetReducerFlags {
     this.adminAlpha3CompleteOnboardingFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToFifthTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFifthTempleQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToFifthTempleQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToFifthTempleQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToFirstExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFirstExpandQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToFirstExpandQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToFirstExpandQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToFirstTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFirstTempleQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToFirstTempleQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToFirstTempleQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToFourthExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFourthExpandQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToFourthExpandQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToFourthExpandQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToFourthTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToFourthTempleQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToFourthTempleQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToFourthTempleQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToSecondExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToSecondExpandQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToSecondExpandQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToSecondExpandQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToSecondTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToSecondTempleQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToSecondTempleQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToSecondTempleQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToThirdExpandQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToThirdExpandQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToThirdExpandQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToThirdExpandQuestFlags = flags
   }
 
-  adminAlpha3ResetOnboardingToThirdTempleQuestFlags: CallReducerFlags = 'FullUpdate'
+  adminAlpha3ResetOnboardingToThirdTempleQuestFlags: CallReducerFlags =
+    'FullUpdate'
   adminAlpha3ResetOnboardingToThirdTempleQuest(flags: CallReducerFlags) {
     this.adminAlpha3ResetOnboardingToThirdTempleQuestFlags = flags
   }
@@ -22236,31 +28308,41 @@ export class RemoteTables {
 
   get aIDebugState(): AIDebugStateTableHandle {
     return new AIDebugStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AiDebugState>(REMOTE_MODULE.tables.a_i_debug_state)
+      this.connection.clientCache.getOrCreateTable<AiDebugState>(
+        REMOTE_MODULE.tables.a_i_debug_state
+      )
     )
   }
 
   get achievementDesc(): AchievementDescTableHandle {
     return new AchievementDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<AchievementDesc>(REMOTE_MODULE.tables.achievement_desc)
+      this.connection.clientCache.getOrCreateTable<AchievementDesc>(
+        REMOTE_MODULE.tables.achievement_desc
+      )
     )
   }
 
   get actionState(): ActionStateTableHandle {
     return new ActionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ActionState>(REMOTE_MODULE.tables.action_state)
+      this.connection.clientCache.getOrCreateTable<ActionState>(
+        REMOTE_MODULE.tables.action_state
+      )
     )
   }
 
   get activeBuffState(): ActiveBuffStateTableHandle {
     return new ActiveBuffStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ActiveBuffState>(REMOTE_MODULE.tables.active_buff_state)
+      this.connection.clientCache.getOrCreateTable<ActiveBuffState>(
+        REMOTE_MODULE.tables.active_buff_state
+      )
     )
   }
 
   get adminBroadcast(): AdminBroadcastTableHandle {
     return new AdminBroadcastTableHandle(
-      this.connection.clientCache.getOrCreateTable<AdminBroadcast>(REMOTE_MODULE.tables.admin_broadcast)
+      this.connection.clientCache.getOrCreateTable<AdminBroadcast>(
+        REMOTE_MODULE.tables.admin_broadcast
+      )
     )
   }
 
@@ -22282,85 +28364,113 @@ export class RemoteTables {
 
   get alertDesc(): AlertDescTableHandle {
     return new AlertDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<AlertDesc>(REMOTE_MODULE.tables.alert_desc)
+      this.connection.clientCache.getOrCreateTable<AlertDesc>(
+        REMOTE_MODULE.tables.alert_desc
+      )
     )
   }
 
   get alertState(): AlertStateTableHandle {
     return new AlertStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AlertState>(REMOTE_MODULE.tables.alert_state)
+      this.connection.clientCache.getOrCreateTable<AlertState>(
+        REMOTE_MODULE.tables.alert_state
+      )
     )
   }
 
   get attachedHerdsState(): AttachedHerdsStateTableHandle {
     return new AttachedHerdsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AttachedHerdsState>(REMOTE_MODULE.tables.attached_herds_state)
+      this.connection.clientCache.getOrCreateTable<AttachedHerdsState>(
+        REMOTE_MODULE.tables.attached_herds_state
+      )
     )
   }
 
   get attackImpactTimer(): AttackImpactTimerTableHandle {
     return new AttackImpactTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<AttackImpactTimer>(REMOTE_MODULE.tables.attack_impact_timer)
+      this.connection.clientCache.getOrCreateTable<AttackImpactTimer>(
+        REMOTE_MODULE.tables.attack_impact_timer
+      )
     )
   }
 
   get attackOutcomeState(): AttackOutcomeStateTableHandle {
     return new AttackOutcomeStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AttackOutcomeState>(REMOTE_MODULE.tables.attack_outcome_state)
+      this.connection.clientCache.getOrCreateTable<AttackOutcomeState>(
+        REMOTE_MODULE.tables.attack_outcome_state
+      )
     )
   }
 
   get attackTimer(): AttackTimerTableHandle {
     return new AttackTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<AttackTimer>(REMOTE_MODULE.tables.attack_timer)
+      this.connection.clientCache.getOrCreateTable<AttackTimer>(
+        REMOTE_MODULE.tables.attack_timer
+      )
     )
   }
 
   get autoClaimState(): AutoClaimStateTableHandle {
     return new AutoClaimStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AutoClaimState>(REMOTE_MODULE.tables.auto_claim_state)
+      this.connection.clientCache.getOrCreateTable<AutoClaimState>(
+        REMOTE_MODULE.tables.auto_claim_state
+      )
     )
   }
 
   get autoLogoutLoopTimer(): AutoLogoutLoopTimerTableHandle {
     return new AutoLogoutLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<AutoLogoutLoopTimer>(REMOTE_MODULE.tables.auto_logout_loop_timer)
+      this.connection.clientCache.getOrCreateTable<AutoLogoutLoopTimer>(
+        REMOTE_MODULE.tables.auto_logout_loop_timer
+      )
     )
   }
 
   get barterStallState(): BarterStallStateTableHandle {
     return new BarterStallStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<BarterStallState>(REMOTE_MODULE.tables.barter_stall_state)
+      this.connection.clientCache.getOrCreateTable<BarterStallState>(
+        REMOTE_MODULE.tables.barter_stall_state
+      )
     )
   }
 
   get biomeDesc(): BiomeDescTableHandle {
     return new BiomeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BiomeDesc>(REMOTE_MODULE.tables.biome_desc)
+      this.connection.clientCache.getOrCreateTable<BiomeDesc>(
+        REMOTE_MODULE.tables.biome_desc
+      )
     )
   }
 
   get blockedIdentity(): BlockedIdentityTableHandle {
     return new BlockedIdentityTableHandle(
-      this.connection.clientCache.getOrCreateTable<BlockedIdentity>(REMOTE_MODULE.tables.blocked_identity)
+      this.connection.clientCache.getOrCreateTable<BlockedIdentity>(
+        REMOTE_MODULE.tables.blocked_identity
+      )
     )
   }
 
   get buffDesc(): BuffDescTableHandle {
     return new BuffDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuffDesc>(REMOTE_MODULE.tables.buff_desc)
+      this.connection.clientCache.getOrCreateTable<BuffDesc>(
+        REMOTE_MODULE.tables.buff_desc
+      )
     )
   }
 
   get buffTypeDesc(): BuffTypeDescTableHandle {
     return new BuffTypeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuffTypeDesc>(REMOTE_MODULE.tables.buff_type_desc)
+      this.connection.clientCache.getOrCreateTable<BuffTypeDesc>(
+        REMOTE_MODULE.tables.buff_type_desc
+      )
     )
   }
 
   get buildingClaimDesc(): BuildingClaimDescTableHandle {
     return new BuildingClaimDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingClaimDesc>(REMOTE_MODULE.tables.building_claim_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingClaimDesc>(
+        REMOTE_MODULE.tables.building_claim_desc
+      )
     )
   }
 
@@ -22374,13 +28484,17 @@ export class RemoteTables {
 
   get buildingDesc(): BuildingDescTableHandle {
     return new BuildingDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingDesc>(REMOTE_MODULE.tables.building_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingDesc>(
+        REMOTE_MODULE.tables.building_desc
+      )
     )
   }
 
   get buildingDespawnTimer(): BuildingDespawnTimerTableHandle {
     return new BuildingDespawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingDespawnTimer>(REMOTE_MODULE.tables.building_despawn_timer)
+      this.connection.clientCache.getOrCreateTable<BuildingDespawnTimer>(
+        REMOTE_MODULE.tables.building_despawn_timer
+      )
     )
   }
 
@@ -22394,174 +28508,234 @@ export class RemoteTables {
 
   get buildingNicknameState(): BuildingNicknameStateTableHandle {
     return new BuildingNicknameStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingNicknameState>(REMOTE_MODULE.tables.building_nickname_state)
+      this.connection.clientCache.getOrCreateTable<BuildingNicknameState>(
+        REMOTE_MODULE.tables.building_nickname_state
+      )
     )
   }
 
   get buildingPortalDesc(): BuildingPortalDescTableHandle {
     return new BuildingPortalDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingPortalDesc>(REMOTE_MODULE.tables.building_portal_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingPortalDesc>(
+        REMOTE_MODULE.tables.building_portal_desc
+      )
     )
   }
 
   get buildingRepairsDesc(): BuildingRepairsDescTableHandle {
     return new BuildingRepairsDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingRepairsDesc>(REMOTE_MODULE.tables.building_repairs_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingRepairsDesc>(
+        REMOTE_MODULE.tables.building_repairs_desc
+      )
     )
   }
 
   get buildingSpawnDesc(): BuildingSpawnDescTableHandle {
     return new BuildingSpawnDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingSpawnDesc>(REMOTE_MODULE.tables.building_spawn_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingSpawnDesc>(
+        REMOTE_MODULE.tables.building_spawn_desc
+      )
     )
   }
 
   get buildingState(): BuildingStateTableHandle {
     return new BuildingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingState>(REMOTE_MODULE.tables.building_state)
+      this.connection.clientCache.getOrCreateTable<BuildingState>(
+        REMOTE_MODULE.tables.building_state
+      )
     )
   }
 
   get buildingTypeDesc(): BuildingTypeDescTableHandle {
     return new BuildingTypeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<BuildingTypeDesc>(REMOTE_MODULE.tables.building_type_desc)
+      this.connection.clientCache.getOrCreateTable<BuildingTypeDesc>(
+        REMOTE_MODULE.tables.building_type_desc
+      )
     )
   }
 
   get buyOrderState(): BuyOrderStateTableHandle {
     return new BuyOrderStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AuctionListingState>(REMOTE_MODULE.tables.buy_order_state)
+      this.connection.clientCache.getOrCreateTable<AuctionListingState>(
+        REMOTE_MODULE.tables.buy_order_state
+      )
     )
   }
 
   get cargoDesc(): CargoDescTableHandle {
     return new CargoDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<CargoDesc>(REMOTE_MODULE.tables.cargo_desc)
+      this.connection.clientCache.getOrCreateTable<CargoDesc>(
+        REMOTE_MODULE.tables.cargo_desc
+      )
     )
   }
 
   get characterStatDesc(): CharacterStatDescTableHandle {
     return new CharacterStatDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<CharacterStatDesc>(REMOTE_MODULE.tables.character_stat_desc)
+      this.connection.clientCache.getOrCreateTable<CharacterStatDesc>(
+        REMOTE_MODULE.tables.character_stat_desc
+      )
     )
   }
 
   get characterStatsState(): CharacterStatsStateTableHandle {
     return new CharacterStatsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<CharacterStatsState>(REMOTE_MODULE.tables.character_stats_state)
+      this.connection.clientCache.getOrCreateTable<CharacterStatsState>(
+        REMOTE_MODULE.tables.character_stats_state
+      )
     )
   }
 
   get chatMessageState(): ChatMessageStateTableHandle {
     return new ChatMessageStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ChatMessageState>(REMOTE_MODULE.tables.chat_message_state)
+      this.connection.clientCache.getOrCreateTable<ChatMessageState>(
+        REMOTE_MODULE.tables.chat_message_state
+      )
     )
   }
 
   get chestRarityDesc(): ChestRarityDescTableHandle {
     return new ChestRarityDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ChestRarityDesc>(REMOTE_MODULE.tables.chest_rarity_desc)
+      this.connection.clientCache.getOrCreateTable<ChestRarityDesc>(
+        REMOTE_MODULE.tables.chest_rarity_desc
+      )
     )
   }
 
   get claimLocalState(): ClaimLocalStateTableHandle {
     return new ClaimLocalStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimLocalState>(REMOTE_MODULE.tables.claim_local_state)
+      this.connection.clientCache.getOrCreateTable<ClaimLocalState>(
+        REMOTE_MODULE.tables.claim_local_state
+      )
     )
   }
 
   get claimMemberState(): ClaimMemberStateTableHandle {
     return new ClaimMemberStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimMemberState>(REMOTE_MODULE.tables.claim_member_state)
+      this.connection.clientCache.getOrCreateTable<ClaimMemberState>(
+        REMOTE_MODULE.tables.claim_member_state
+      )
     )
   }
 
   get claimRecruitmentState(): ClaimRecruitmentStateTableHandle {
     return new ClaimRecruitmentStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimRecruitmentState>(REMOTE_MODULE.tables.claim_recruitment_state)
+      this.connection.clientCache.getOrCreateTable<ClaimRecruitmentState>(
+        REMOTE_MODULE.tables.claim_recruitment_state
+      )
     )
   }
 
   get claimState(): ClaimStateTableHandle {
     return new ClaimStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimState>(REMOTE_MODULE.tables.claim_state)
+      this.connection.clientCache.getOrCreateTable<ClaimState>(
+        REMOTE_MODULE.tables.claim_state
+      )
     )
   }
 
   get claimTechDesc(): ClaimTechDescTableHandle {
     return new ClaimTechDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimTechDesc>(REMOTE_MODULE.tables.claim_tech_desc)
+      this.connection.clientCache.getOrCreateTable<ClaimTechDesc>(
+        REMOTE_MODULE.tables.claim_tech_desc
+      )
     )
   }
 
   get claimTechState(): ClaimTechStateTableHandle {
     return new ClaimTechStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimTechState>(REMOTE_MODULE.tables.claim_tech_state)
+      this.connection.clientCache.getOrCreateTable<ClaimTechState>(
+        REMOTE_MODULE.tables.claim_tech_state
+      )
     )
   }
 
   get claimTechUnlockTimer(): ClaimTechUnlockTimerTableHandle {
     return new ClaimTechUnlockTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimTechUnlockTimer>(REMOTE_MODULE.tables.claim_tech_unlock_timer)
+      this.connection.clientCache.getOrCreateTable<ClaimTechUnlockTimer>(
+        REMOTE_MODULE.tables.claim_tech_unlock_timer
+      )
     )
   }
 
   get claimTileCost(): ClaimTileCostTableHandle {
     return new ClaimTileCostTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimTileCost>(REMOTE_MODULE.tables.claim_tile_cost)
+      this.connection.clientCache.getOrCreateTable<ClaimTileCost>(
+        REMOTE_MODULE.tables.claim_tile_cost
+      )
     )
   }
 
   get claimTileState(): ClaimTileStateTableHandle {
     return new ClaimTileStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClaimTileState>(REMOTE_MODULE.tables.claim_tile_state)
+      this.connection.clientCache.getOrCreateTable<ClaimTileState>(
+        REMOTE_MODULE.tables.claim_tile_state
+      )
     )
   }
 
   get climbRequirementDesc(): ClimbRequirementDescTableHandle {
     return new ClimbRequirementDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClimbRequirementDesc>(REMOTE_MODULE.tables.climb_requirement_desc)
+      this.connection.clientCache.getOrCreateTable<ClimbRequirementDesc>(
+        REMOTE_MODULE.tables.climb_requirement_desc
+      )
     )
   }
 
   get closedListingState(): ClosedListingStateTableHandle {
     return new ClosedListingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClosedListingState>(REMOTE_MODULE.tables.closed_listing_state)
+      this.connection.clientCache.getOrCreateTable<ClosedListingState>(
+        REMOTE_MODULE.tables.closed_listing_state
+      )
     )
   }
 
   get clothingDesc(): ClothingDescTableHandle {
     return new ClothingDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ClothingDesc>(REMOTE_MODULE.tables.clothing_desc)
+      this.connection.clientCache.getOrCreateTable<ClothingDesc>(
+        REMOTE_MODULE.tables.clothing_desc
+      )
     )
   }
 
   get collectStatsTimer(): CollectStatsTimerTableHandle {
     return new CollectStatsTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<CollectStatsTimer>(REMOTE_MODULE.tables.collect_stats_timer)
+      this.connection.clientCache.getOrCreateTable<CollectStatsTimer>(
+        REMOTE_MODULE.tables.collect_stats_timer
+      )
     )
   }
 
   get collectibleDesc(): CollectibleDescTableHandle {
     return new CollectibleDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<CollectibleDesc>(REMOTE_MODULE.tables.collectible_desc)
+      this.connection.clientCache.getOrCreateTable<CollectibleDesc>(
+        REMOTE_MODULE.tables.collectible_desc
+      )
     )
   }
 
   get combatActionDesc(): CombatActionDescTableHandle {
     return new CombatActionDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<CombatActionDesc>(REMOTE_MODULE.tables.combat_action_desc)
+      this.connection.clientCache.getOrCreateTable<CombatActionDesc>(
+        REMOTE_MODULE.tables.combat_action_desc
+      )
     )
   }
 
   get combatState(): CombatStateTableHandle {
     return new CombatStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<CombatState>(REMOTE_MODULE.tables.combat_state)
+      this.connection.clientCache.getOrCreateTable<CombatState>(
+        REMOTE_MODULE.tables.combat_state
+      )
     )
   }
 
   get config(): ConfigTableHandle {
-    return new ConfigTableHandle(this.connection.clientCache.getOrCreateTable<Config>(REMOTE_MODULE.tables.config))
+    return new ConfigTableHandle(
+      this.connection.clientCache.getOrCreateTable<Config>(
+        REMOTE_MODULE.tables.config
+      )
+    )
   }
 
   get constructionRecipeDesc(): ConstructionRecipeDescTableHandle {
@@ -22574,13 +28748,17 @@ export class RemoteTables {
 
   get craftingRecipeDesc(): CraftingRecipeDescTableHandle {
     return new CraftingRecipeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<CraftingRecipeDesc>(REMOTE_MODULE.tables.crafting_recipe_desc)
+      this.connection.clientCache.getOrCreateTable<CraftingRecipeDesc>(
+        REMOTE_MODULE.tables.crafting_recipe_desc
+      )
     )
   }
 
   get dayNightLoopTimer(): DayNightLoopTimerTableHandle {
     return new DayNightLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<DayNightLoopTimer>(REMOTE_MODULE.tables.day_night_loop_timer)
+      this.connection.clientCache.getOrCreateTable<DayNightLoopTimer>(
+        REMOTE_MODULE.tables.day_night_loop_timer
+      )
     )
   }
 
@@ -22602,7 +28780,9 @@ export class RemoteTables {
 
   get deployableDesc(): DeployableDescTableHandle {
     return new DeployableDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<DeployableDesc>(REMOTE_MODULE.tables.deployable_desc)
+      this.connection.clientCache.getOrCreateTable<DeployableDesc>(
+        REMOTE_MODULE.tables.deployable_desc
+      )
     )
   }
 
@@ -22616,7 +28796,9 @@ export class RemoteTables {
 
   get deployableState(): DeployableStateTableHandle {
     return new DeployableStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<DeployableState>(REMOTE_MODULE.tables.deployable_state)
+      this.connection.clientCache.getOrCreateTable<DeployableState>(
+        REMOTE_MODULE.tables.deployable_state
+      )
     )
   }
 
@@ -22638,13 +28820,17 @@ export class RemoteTables {
 
   get dimensionNetworkState(): DimensionNetworkStateTableHandle {
     return new DimensionNetworkStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<DimensionNetworkState>(REMOTE_MODULE.tables.dimension_network_state)
+      this.connection.clientCache.getOrCreateTable<DimensionNetworkState>(
+        REMOTE_MODULE.tables.dimension_network_state
+      )
     )
   }
 
   get distantVisibleEntity(): DistantVisibleEntityTableHandle {
     return new DistantVisibleEntityTableHandle(
-      this.connection.clientCache.getOrCreateTable<DistantVisibleEntity>(REMOTE_MODULE.tables.distant_visible_entity)
+      this.connection.clientCache.getOrCreateTable<DistantVisibleEntity>(
+        REMOTE_MODULE.tables.distant_visible_entity
+      )
     )
   }
 
@@ -22674,73 +28860,97 @@ export class RemoteTables {
 
   get droppedInventoryState(): DroppedInventoryStateTableHandle {
     return new DroppedInventoryStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<DroppedInventoryState>(REMOTE_MODULE.tables.dropped_inventory_state)
+      this.connection.clientCache.getOrCreateTable<DroppedInventoryState>(
+        REMOTE_MODULE.tables.dropped_inventory_state
+      )
     )
   }
 
   get duelAgentTimer(): DuelAgentTimerTableHandle {
     return new DuelAgentTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<DuelAgentTimer>(REMOTE_MODULE.tables.duel_agent_timer)
+      this.connection.clientCache.getOrCreateTable<DuelAgentTimer>(
+        REMOTE_MODULE.tables.duel_agent_timer
+      )
     )
   }
 
   get duelDespawnTimer(): DuelDespawnTimerTableHandle {
     return new DuelDespawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<DuelDespawnTimer>(REMOTE_MODULE.tables.duel_despawn_timer)
+      this.connection.clientCache.getOrCreateTable<DuelDespawnTimer>(
+        REMOTE_MODULE.tables.duel_despawn_timer
+      )
     )
   }
 
   get duelState(): DuelStateTableHandle {
     return new DuelStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<DuelState>(REMOTE_MODULE.tables.duel_state)
+      this.connection.clientCache.getOrCreateTable<DuelState>(
+        REMOTE_MODULE.tables.duel_state
+      )
     )
   }
 
   get elevatorDesc(): ElevatorDescTableHandle {
     return new ElevatorDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ElevatorDesc>(REMOTE_MODULE.tables.elevator_desc)
+      this.connection.clientCache.getOrCreateTable<ElevatorDesc>(
+        REMOTE_MODULE.tables.elevator_desc
+      )
     )
   }
 
   get emoteDesc(): EmoteDescTableHandle {
     return new EmoteDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmoteDesc>(REMOTE_MODULE.tables.emote_desc)
+      this.connection.clientCache.getOrCreateTable<EmoteDesc>(
+        REMOTE_MODULE.tables.emote_desc
+      )
     )
   }
 
   get empireChunkState(): EmpireChunkStateTableHandle {
     return new EmpireChunkStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireChunkState>(REMOTE_MODULE.tables.empire_chunk_state)
+      this.connection.clientCache.getOrCreateTable<EmpireChunkState>(
+        REMOTE_MODULE.tables.empire_chunk_state
+      )
     )
   }
 
   get empireColorDesc(): EmpireColorDescTableHandle {
     return new EmpireColorDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireColorDesc>(REMOTE_MODULE.tables.empire_color_desc)
+      this.connection.clientCache.getOrCreateTable<EmpireColorDesc>(
+        REMOTE_MODULE.tables.empire_color_desc
+      )
     )
   }
 
   get empireExpansionState(): EmpireExpansionStateTableHandle {
     return new EmpireExpansionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireExpansionState>(REMOTE_MODULE.tables.empire_expansion_state)
+      this.connection.clientCache.getOrCreateTable<EmpireExpansionState>(
+        REMOTE_MODULE.tables.empire_expansion_state
+      )
     )
   }
 
   get empireIconDesc(): EmpireIconDescTableHandle {
     return new EmpireIconDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireIconDesc>(REMOTE_MODULE.tables.empire_icon_desc)
+      this.connection.clientCache.getOrCreateTable<EmpireIconDesc>(
+        REMOTE_MODULE.tables.empire_icon_desc
+      )
     )
   }
 
   get empireNodeSiegeState(): EmpireNodeSiegeStateTableHandle {
     return new EmpireNodeSiegeStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireNodeSiegeState>(REMOTE_MODULE.tables.empire_node_siege_state)
+      this.connection.clientCache.getOrCreateTable<EmpireNodeSiegeState>(
+        REMOTE_MODULE.tables.empire_node_siege_state
+      )
     )
   }
 
   get empireNodeState(): EmpireNodeStateTableHandle {
     return new EmpireNodeStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireNodeState>(REMOTE_MODULE.tables.empire_node_state)
+      this.connection.clientCache.getOrCreateTable<EmpireNodeState>(
+        REMOTE_MODULE.tables.empire_node_state
+      )
     )
   }
 
@@ -22754,91 +28964,121 @@ export class RemoteTables {
 
   get empirePlayerDataState(): EmpirePlayerDataStateTableHandle {
     return new EmpirePlayerDataStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpirePlayerDataState>(REMOTE_MODULE.tables.empire_player_data_state)
+      this.connection.clientCache.getOrCreateTable<EmpirePlayerDataState>(
+        REMOTE_MODULE.tables.empire_player_data_state
+      )
     )
   }
 
   get empireRankDesc(): EmpireRankDescTableHandle {
     return new EmpireRankDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireRankDesc>(REMOTE_MODULE.tables.empire_rank_desc)
+      this.connection.clientCache.getOrCreateTable<EmpireRankDesc>(
+        REMOTE_MODULE.tables.empire_rank_desc
+      )
     )
   }
 
   get empireRankState(): EmpireRankStateTableHandle {
     return new EmpireRankStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireRankState>(REMOTE_MODULE.tables.empire_rank_state)
+      this.connection.clientCache.getOrCreateTable<EmpireRankState>(
+        REMOTE_MODULE.tables.empire_rank_state
+      )
     )
   }
 
   get empireSettlementState(): EmpireSettlementStateTableHandle {
     return new EmpireSettlementStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireSettlementState>(REMOTE_MODULE.tables.empire_settlement_state)
+      this.connection.clientCache.getOrCreateTable<EmpireSettlementState>(
+        REMOTE_MODULE.tables.empire_settlement_state
+      )
     )
   }
 
   get empireState(): EmpireStateTableHandle {
     return new EmpireStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireState>(REMOTE_MODULE.tables.empire_state)
+      this.connection.clientCache.getOrCreateTable<EmpireState>(
+        REMOTE_MODULE.tables.empire_state
+      )
     )
   }
 
   get empireSuppliesDesc(): EmpireSuppliesDescTableHandle {
     return new EmpireSuppliesDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireSuppliesDesc>(REMOTE_MODULE.tables.empire_supplies_desc)
+      this.connection.clientCache.getOrCreateTable<EmpireSuppliesDesc>(
+        REMOTE_MODULE.tables.empire_supplies_desc
+      )
     )
   }
 
   get empireTerritoryDesc(): EmpireTerritoryDescTableHandle {
     return new EmpireTerritoryDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EmpireTerritoryDesc>(REMOTE_MODULE.tables.empire_territory_desc)
+      this.connection.clientCache.getOrCreateTable<EmpireTerritoryDesc>(
+        REMOTE_MODULE.tables.empire_territory_desc
+      )
     )
   }
 
   get endGracePeriodTimer(): EndGracePeriodTimerTableHandle {
     return new EndGracePeriodTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EndGracePeriodTimer>(REMOTE_MODULE.tables.end_grace_period_timer)
+      this.connection.clientCache.getOrCreateTable<EndGracePeriodTimer>(
+        REMOTE_MODULE.tables.end_grace_period_timer
+      )
     )
   }
 
   get enemyAiParamsDesc(): EnemyAiParamsDescTableHandle {
     return new EnemyAiParamsDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyAiParamsDesc>(REMOTE_MODULE.tables.enemy_ai_params_desc)
+      this.connection.clientCache.getOrCreateTable<EnemyAiParamsDesc>(
+        REMOTE_MODULE.tables.enemy_ai_params_desc
+      )
     )
   }
 
   get enemyDesc(): EnemyDescTableHandle {
     return new EnemyDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyDesc>(REMOTE_MODULE.tables.enemy_desc)
+      this.connection.clientCache.getOrCreateTable<EnemyDesc>(
+        REMOTE_MODULE.tables.enemy_desc
+      )
     )
   }
 
   get enemyDespawnTimer(): EnemyDespawnTimerTableHandle {
     return new EnemyDespawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyDespawnTimer>(REMOTE_MODULE.tables.enemy_despawn_timer)
+      this.connection.clientCache.getOrCreateTable<EnemyDespawnTimer>(
+        REMOTE_MODULE.tables.enemy_despawn_timer
+      )
     )
   }
 
   get enemyMobMonitorState(): EnemyMobMonitorStateTableHandle {
     return new EnemyMobMonitorStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyMobMonitorState>(REMOTE_MODULE.tables.enemy_mob_monitor_state)
+      this.connection.clientCache.getOrCreateTable<EnemyMobMonitorState>(
+        REMOTE_MODULE.tables.enemy_mob_monitor_state
+      )
     )
   }
 
   get enemyRegenLoopTimer(): EnemyRegenLoopTimerTableHandle {
     return new EnemyRegenLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyRegenLoopTimer>(REMOTE_MODULE.tables.enemy_regen_loop_timer)
+      this.connection.clientCache.getOrCreateTable<EnemyRegenLoopTimer>(
+        REMOTE_MODULE.tables.enemy_regen_loop_timer
+      )
     )
   }
 
   get enemyState(): EnemyStateTableHandle {
     return new EnemyStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnemyState>(REMOTE_MODULE.tables.enemy_state)
+      this.connection.clientCache.getOrCreateTable<EnemyState>(
+        REMOTE_MODULE.tables.enemy_state
+      )
     )
   }
 
   get environmentDebuffDesc(): EnvironmentDebuffDescTableHandle {
     return new EnvironmentDebuffDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EnvironmentDebuffDesc>(REMOTE_MODULE.tables.environment_debuff_desc)
+      this.connection.clientCache.getOrCreateTable<EnvironmentDebuffDesc>(
+        REMOTE_MODULE.tables.environment_debuff_desc
+      )
     )
   }
 
@@ -22852,19 +29092,25 @@ export class RemoteTables {
 
   get equipmentDesc(): EquipmentDescTableHandle {
     return new EquipmentDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<EquipmentDesc>(REMOTE_MODULE.tables.equipment_desc)
+      this.connection.clientCache.getOrCreateTable<EquipmentDesc>(
+        REMOTE_MODULE.tables.equipment_desc
+      )
     )
   }
 
   get equipmentState(): EquipmentStateTableHandle {
     return new EquipmentStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<EquipmentState>(REMOTE_MODULE.tables.equipment_state)
+      this.connection.clientCache.getOrCreateTable<EquipmentState>(
+        REMOTE_MODULE.tables.equipment_state
+      )
     )
   }
 
   get experienceState(): ExperienceStateTableHandle {
     return new ExperienceStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ExperienceState>(REMOTE_MODULE.tables.experience_state)
+      this.connection.clientCache.getOrCreateTable<ExperienceState>(
+        REMOTE_MODULE.tables.experience_state
+      )
     )
   }
 
@@ -22878,71 +29124,97 @@ export class RemoteTables {
 
   get extractOutcomeState(): ExtractOutcomeStateTableHandle {
     return new ExtractOutcomeStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ExtractOutcomeState>(REMOTE_MODULE.tables.extract_outcome_state)
+      this.connection.clientCache.getOrCreateTable<ExtractOutcomeState>(
+        REMOTE_MODULE.tables.extract_outcome_state
+      )
     )
   }
 
   get extractionRecipeDesc(): ExtractionRecipeDescTableHandle {
     return new ExtractionRecipeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ExtractionRecipeDesc>(REMOTE_MODULE.tables.extraction_recipe_desc)
+      this.connection.clientCache.getOrCreateTable<ExtractionRecipeDesc>(
+        REMOTE_MODULE.tables.extraction_recipe_desc
+      )
     )
   }
 
   get foodDesc(): FoodDescTableHandle {
     return new FoodDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<FoodDesc>(REMOTE_MODULE.tables.food_desc)
+      this.connection.clientCache.getOrCreateTable<FoodDesc>(
+        REMOTE_MODULE.tables.food_desc
+      )
     )
   }
 
   get footprintTileState(): FootprintTileStateTableHandle {
     return new FootprintTileStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<FootprintTileState>(REMOTE_MODULE.tables.footprint_tile_state)
+      this.connection.clientCache.getOrCreateTable<FootprintTileState>(
+        REMOTE_MODULE.tables.footprint_tile_state
+      )
     )
   }
 
   get forceGenerateTypes(): ForceGenerateTypesTableHandle {
     return new ForceGenerateTypesTableHandle(
-      this.connection.clientCache.getOrCreateTable<ForceGenerateTypes>(REMOTE_MODULE.tables.force_generate_types)
+      this.connection.clientCache.getOrCreateTable<ForceGenerateTypes>(
+        REMOTE_MODULE.tables.force_generate_types
+      )
     )
   }
 
   get gateDesc(): GateDescTableHandle {
     return new GateDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<GateDesc>(REMOTE_MODULE.tables.gate_desc)
+      this.connection.clientCache.getOrCreateTable<GateDesc>(
+        REMOTE_MODULE.tables.gate_desc
+      )
     )
   }
 
   get globalSearchState(): GlobalSearchStateTableHandle {
     return new GlobalSearchStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<GlobalSearchState>(REMOTE_MODULE.tables.global_search_state)
+      this.connection.clientCache.getOrCreateTable<GlobalSearchState>(
+        REMOTE_MODULE.tables.global_search_state
+      )
     )
   }
 
   get globals(): GlobalsTableHandle {
-    return new GlobalsTableHandle(this.connection.clientCache.getOrCreateTable<Globals>(REMOTE_MODULE.tables.globals))
+    return new GlobalsTableHandle(
+      this.connection.clientCache.getOrCreateTable<Globals>(
+        REMOTE_MODULE.tables.globals
+      )
+    )
   }
 
   get growthLoopTimer(): GrowthLoopTimerTableHandle {
     return new GrowthLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<GrowthLoopTimer>(REMOTE_MODULE.tables.growth_loop_timer)
+      this.connection.clientCache.getOrCreateTable<GrowthLoopTimer>(
+        REMOTE_MODULE.tables.growth_loop_timer
+      )
     )
   }
 
   get growthState(): GrowthStateTableHandle {
     return new GrowthStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<GrowthState>(REMOTE_MODULE.tables.growth_state)
+      this.connection.clientCache.getOrCreateTable<GrowthState>(
+        REMOTE_MODULE.tables.growth_state
+      )
     )
   }
 
   get healthState(): HealthStateTableHandle {
     return new HealthStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<HealthState>(REMOTE_MODULE.tables.health_state)
+      this.connection.clientCache.getOrCreateTable<HealthState>(
+        REMOTE_MODULE.tables.health_state
+      )
     )
   }
 
   get herdState(): HerdStateTableHandle {
     return new HerdStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<HerdState>(REMOTE_MODULE.tables.herd_state)
+      this.connection.clientCache.getOrCreateTable<HerdState>(
+        REMOTE_MODULE.tables.herd_state
+      )
     )
   }
 
@@ -22956,19 +29228,25 @@ export class RemoteTables {
 
   get hideDeployableTimer(): HideDeployableTimerTableHandle {
     return new HideDeployableTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<HideDeployableTimer>(REMOTE_MODULE.tables.hide_deployable_timer)
+      this.connection.clientCache.getOrCreateTable<HideDeployableTimer>(
+        REMOTE_MODULE.tables.hide_deployable_timer
+      )
     )
   }
 
   get identityRole(): IdentityRoleTableHandle {
     return new IdentityRoleTableHandle(
-      this.connection.clientCache.getOrCreateTable<IdentityRole>(REMOTE_MODULE.tables.identity_role)
+      this.connection.clientCache.getOrCreateTable<IdentityRole>(
+        REMOTE_MODULE.tables.identity_role
+      )
     )
   }
 
   get interModuleMessage(): InterModuleMessageTableHandle {
     return new InterModuleMessageTableHandle(
-      this.connection.clientCache.getOrCreateTable<InterModuleMessage>(REMOTE_MODULE.tables.inter_module_message)
+      this.connection.clientCache.getOrCreateTable<InterModuleMessage>(
+        REMOTE_MODULE.tables.inter_module_message
+      )
     )
   }
 
@@ -23006,13 +29284,17 @@ export class RemoteTables {
 
   get interiorInstanceDesc(): InteriorInstanceDescTableHandle {
     return new InteriorInstanceDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<InteriorInstanceDesc>(REMOTE_MODULE.tables.interior_instance_desc)
+      this.connection.clientCache.getOrCreateTable<InteriorInstanceDesc>(
+        REMOTE_MODULE.tables.interior_instance_desc
+      )
     )
   }
 
   get interiorNetworkDesc(): InteriorNetworkDescTableHandle {
     return new InteriorNetworkDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<InteriorNetworkDesc>(REMOTE_MODULE.tables.interior_network_desc)
+      this.connection.clientCache.getOrCreateTable<InteriorNetworkDesc>(
+        REMOTE_MODULE.tables.interior_network_desc
+      )
     )
   }
 
@@ -23034,19 +29316,25 @@ export class RemoteTables {
 
   get interiorShapeDesc(): InteriorShapeDescTableHandle {
     return new InteriorShapeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<InteriorShapeDesc>(REMOTE_MODULE.tables.interior_shape_desc)
+      this.connection.clientCache.getOrCreateTable<InteriorShapeDesc>(
+        REMOTE_MODULE.tables.interior_shape_desc
+      )
     )
   }
 
   get interiorSpawnDesc(): InteriorSpawnDescTableHandle {
     return new InteriorSpawnDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<InteriorSpawnDesc>(REMOTE_MODULE.tables.interior_spawn_desc)
+      this.connection.clientCache.getOrCreateTable<InteriorSpawnDesc>(
+        REMOTE_MODULE.tables.interior_spawn_desc
+      )
     )
   }
 
   get inventoryState(): InventoryStateTableHandle {
     return new InventoryStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<InventoryState>(REMOTE_MODULE.tables.inventory_state)
+      this.connection.clientCache.getOrCreateTable<InventoryState>(
+        REMOTE_MODULE.tables.inventory_state
+      )
     )
   }
 
@@ -23060,13 +29348,17 @@ export class RemoteTables {
 
   get itemDesc(): ItemDescTableHandle {
     return new ItemDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ItemDesc>(REMOTE_MODULE.tables.item_desc)
+      this.connection.clientCache.getOrCreateTable<ItemDesc>(
+        REMOTE_MODULE.tables.item_desc
+      )
     )
   }
 
   get itemListDesc(): ItemListDescTableHandle {
     return new ItemListDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ItemListDesc>(REMOTE_MODULE.tables.item_list_desc)
+      this.connection.clientCache.getOrCreateTable<ItemListDesc>(
+        REMOTE_MODULE.tables.item_list_desc
+      )
     )
   }
 
@@ -23096,13 +29388,17 @@ export class RemoteTables {
 
   get knowledgeCargoState(): KnowledgeCargoStateTableHandle {
     return new KnowledgeCargoStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeCargoState>(REMOTE_MODULE.tables.knowledge_cargo_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeCargoState>(
+        REMOTE_MODULE.tables.knowledge_cargo_state
+      )
     )
   }
 
   get knowledgeClaimState(): KnowledgeClaimStateTableHandle {
     return new KnowledgeClaimStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeClaimState>(REMOTE_MODULE.tables.knowledge_claim_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeClaimState>(
+        REMOTE_MODULE.tables.knowledge_claim_state
+      )
     )
   }
 
@@ -23116,7 +29412,9 @@ export class RemoteTables {
 
   get knowledgeCraftState(): KnowledgeCraftStateTableHandle {
     return new KnowledgeCraftStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeCraftState>(REMOTE_MODULE.tables.knowledge_craft_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeCraftState>(
+        REMOTE_MODULE.tables.knowledge_craft_state
+      )
     )
   }
 
@@ -23130,37 +29428,49 @@ export class RemoteTables {
 
   get knowledgeEnemyState(): KnowledgeEnemyStateTableHandle {
     return new KnowledgeEnemyStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeEnemyState>(REMOTE_MODULE.tables.knowledge_enemy_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeEnemyState>(
+        REMOTE_MODULE.tables.knowledge_enemy_state
+      )
     )
   }
 
   get knowledgeExtractState(): KnowledgeExtractStateTableHandle {
     return new KnowledgeExtractStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeExtractState>(REMOTE_MODULE.tables.knowledge_extract_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeExtractState>(
+        REMOTE_MODULE.tables.knowledge_extract_state
+      )
     )
   }
 
   get knowledgeItemState(): KnowledgeItemStateTableHandle {
     return new KnowledgeItemStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeItemState>(REMOTE_MODULE.tables.knowledge_item_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeItemState>(
+        REMOTE_MODULE.tables.knowledge_item_state
+      )
     )
   }
 
   get knowledgeLoreState(): KnowledgeLoreStateTableHandle {
     return new KnowledgeLoreStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeLoreState>(REMOTE_MODULE.tables.knowledge_lore_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeLoreState>(
+        REMOTE_MODULE.tables.knowledge_lore_state
+      )
     )
   }
 
   get knowledgeNpcState(): KnowledgeNpcStateTableHandle {
     return new KnowledgeNpcStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeNpcState>(REMOTE_MODULE.tables.knowledge_npc_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeNpcState>(
+        REMOTE_MODULE.tables.knowledge_npc_state
+      )
     )
   }
 
   get knowledgePavingState(): KnowledgePavingStateTableHandle {
     return new KnowledgePavingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgePavingState>(REMOTE_MODULE.tables.knowledge_paving_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgePavingState>(
+        REMOTE_MODULE.tables.knowledge_paving_state
+      )
     )
   }
 
@@ -23190,13 +29500,17 @@ export class RemoteTables {
 
   get knowledgeRuinsState(): KnowledgeRuinsStateTableHandle {
     return new KnowledgeRuinsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeRuinsState>(REMOTE_MODULE.tables.knowledge_ruins_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeRuinsState>(
+        REMOTE_MODULE.tables.knowledge_ruins_state
+      )
     )
   }
 
   get knowledgeScrollDesc(): KnowledgeScrollDescTableHandle {
     return new KnowledgeScrollDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeScrollDesc>(REMOTE_MODULE.tables.knowledge_scroll_desc)
+      this.connection.clientCache.getOrCreateTable<KnowledgeScrollDesc>(
+        REMOTE_MODULE.tables.knowledge_scroll_desc
+      )
     )
   }
 
@@ -23226,79 +29540,105 @@ export class RemoteTables {
 
   get knowledgeVaultState(): KnowledgeVaultStateTableHandle {
     return new KnowledgeVaultStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<KnowledgeVaultState>(REMOTE_MODULE.tables.knowledge_vault_state)
+      this.connection.clientCache.getOrCreateTable<KnowledgeVaultState>(
+        REMOTE_MODULE.tables.knowledge_vault_state
+      )
     )
   }
 
   get lightSourceState(): LightSourceStateTableHandle {
     return new LightSourceStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<LightSourceState>(REMOTE_MODULE.tables.light_source_state)
+      this.connection.clientCache.getOrCreateTable<LightSourceState>(
+        REMOTE_MODULE.tables.light_source_state
+      )
     )
   }
 
   get locationCache(): LocationCacheTableHandle {
     return new LocationCacheTableHandle(
-      this.connection.clientCache.getOrCreateTable<LocationCache>(REMOTE_MODULE.tables.location_cache)
+      this.connection.clientCache.getOrCreateTable<LocationCache>(
+        REMOTE_MODULE.tables.location_cache
+      )
     )
   }
 
   get locationState(): LocationStateTableHandle {
     return new LocationStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<LocationState>(REMOTE_MODULE.tables.location_state)
+      this.connection.clientCache.getOrCreateTable<LocationState>(
+        REMOTE_MODULE.tables.location_state
+      )
     )
   }
 
   get lootChestDesc(): LootChestDescTableHandle {
     return new LootChestDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootChestDesc>(REMOTE_MODULE.tables.loot_chest_desc)
+      this.connection.clientCache.getOrCreateTable<LootChestDesc>(
+        REMOTE_MODULE.tables.loot_chest_desc
+      )
     )
   }
 
   get lootChestDespawnTimer(): LootChestDespawnTimerTableHandle {
     return new LootChestDespawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootChestDespawnTimer>(REMOTE_MODULE.tables.loot_chest_despawn_timer)
+      this.connection.clientCache.getOrCreateTable<LootChestDespawnTimer>(
+        REMOTE_MODULE.tables.loot_chest_despawn_timer
+      )
     )
   }
 
   get lootChestSpawnTimer(): LootChestSpawnTimerTableHandle {
     return new LootChestSpawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootChestSpawnTimer>(REMOTE_MODULE.tables.loot_chest_spawn_timer)
+      this.connection.clientCache.getOrCreateTable<LootChestSpawnTimer>(
+        REMOTE_MODULE.tables.loot_chest_spawn_timer
+      )
     )
   }
 
   get lootChestState(): LootChestStateTableHandle {
     return new LootChestStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootChestState>(REMOTE_MODULE.tables.loot_chest_state)
+      this.connection.clientCache.getOrCreateTable<LootChestState>(
+        REMOTE_MODULE.tables.loot_chest_state
+      )
     )
   }
 
   get lootRarityDesc(): LootRarityDescTableHandle {
     return new LootRarityDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootRarityDesc>(REMOTE_MODULE.tables.loot_rarity_desc)
+      this.connection.clientCache.getOrCreateTable<LootRarityDesc>(
+        REMOTE_MODULE.tables.loot_rarity_desc
+      )
     )
   }
 
   get lootTableDesc(): LootTableDescTableHandle {
     return new LootTableDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<LootTableDesc>(REMOTE_MODULE.tables.loot_table_desc)
+      this.connection.clientCache.getOrCreateTable<LootTableDesc>(
+        REMOTE_MODULE.tables.loot_table_desc
+      )
     )
   }
 
   get lostItemsState(): LostItemsStateTableHandle {
     return new LostItemsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<LostItemsState>(REMOTE_MODULE.tables.lost_items_state)
+      this.connection.clientCache.getOrCreateTable<LostItemsState>(
+        REMOTE_MODULE.tables.lost_items_state
+      )
     )
   }
 
   get mobileEntityState(): MobileEntityStateTableHandle {
     return new MobileEntityStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<MobileEntityState>(REMOTE_MODULE.tables.mobile_entity_state)
+      this.connection.clientCache.getOrCreateTable<MobileEntityState>(
+        REMOTE_MODULE.tables.mobile_entity_state
+      )
     )
   }
 
   get mountingState(): MountingStateTableHandle {
     return new MountingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<MountingState>(REMOTE_MODULE.tables.mounting_state)
+      this.connection.clientCache.getOrCreateTable<MountingState>(
+        REMOTE_MODULE.tables.mounting_state
+      )
     )
   }
 
@@ -23312,41 +29652,57 @@ export class RemoteTables {
 
   get npcAiLoopTimer(): NpcAiLoopTimerTableHandle {
     return new NpcAiLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<NpcAiLoopTimer>(REMOTE_MODULE.tables.npc_ai_loop_timer)
+      this.connection.clientCache.getOrCreateTable<NpcAiLoopTimer>(
+        REMOTE_MODULE.tables.npc_ai_loop_timer
+      )
     )
   }
 
   get npcDesc(): NpcDescTableHandle {
-    return new NpcDescTableHandle(this.connection.clientCache.getOrCreateTable<NpcDesc>(REMOTE_MODULE.tables.npc_desc))
+    return new NpcDescTableHandle(
+      this.connection.clientCache.getOrCreateTable<NpcDesc>(
+        REMOTE_MODULE.tables.npc_desc
+      )
+    )
   }
 
   get npcState(): NpcStateTableHandle {
     return new NpcStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<NpcState>(REMOTE_MODULE.tables.npc_state)
+      this.connection.clientCache.getOrCreateTable<NpcState>(
+        REMOTE_MODULE.tables.npc_state
+      )
     )
   }
 
   get onDurabilityZeroTimer(): OnDurabilityZeroTimerTableHandle {
     return new OnDurabilityZeroTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<OnDurabilityZeroTimer>(REMOTE_MODULE.tables.on_durability_zero_timer)
+      this.connection.clientCache.getOrCreateTable<OnDurabilityZeroTimer>(
+        REMOTE_MODULE.tables.on_durability_zero_timer
+      )
     )
   }
 
   get onboardingRewardDesc(): OnboardingRewardDescTableHandle {
     return new OnboardingRewardDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<OnboardingRewardDesc>(REMOTE_MODULE.tables.onboarding_reward_desc)
+      this.connection.clientCache.getOrCreateTable<OnboardingRewardDesc>(
+        REMOTE_MODULE.tables.onboarding_reward_desc
+      )
     )
   }
 
   get onboardingState(): OnboardingStateTableHandle {
     return new OnboardingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<OnboardingState>(REMOTE_MODULE.tables.onboarding_state)
+      this.connection.clientCache.getOrCreateTable<OnboardingState>(
+        REMOTE_MODULE.tables.onboarding_state
+      )
     )
   }
 
   get parametersDesc(): ParametersDescTableHandle {
     return new ParametersDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ParametersDesc>(REMOTE_MODULE.tables.parameters_desc)
+      this.connection.clientCache.getOrCreateTable<ParametersDesc>(
+        REMOTE_MODULE.tables.parameters_desc
+      )
     )
   }
 
@@ -23360,73 +29716,97 @@ export class RemoteTables {
 
   get passiveCraftState(): PassiveCraftStateTableHandle {
     return new PassiveCraftStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PassiveCraftState>(REMOTE_MODULE.tables.passive_craft_state)
+      this.connection.clientCache.getOrCreateTable<PassiveCraftState>(
+        REMOTE_MODULE.tables.passive_craft_state
+      )
     )
   }
 
   get passiveCraftTimer(): PassiveCraftTimerTableHandle {
     return new PassiveCraftTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<PassiveCraftTimer>(REMOTE_MODULE.tables.passive_craft_timer)
+      this.connection.clientCache.getOrCreateTable<PassiveCraftTimer>(
+        REMOTE_MODULE.tables.passive_craft_timer
+      )
     )
   }
 
   get pathfindingDesc(): PathfindingDescTableHandle {
     return new PathfindingDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PathfindingDesc>(REMOTE_MODULE.tables.pathfinding_desc)
+      this.connection.clientCache.getOrCreateTable<PathfindingDesc>(
+        REMOTE_MODULE.tables.pathfinding_desc
+      )
     )
   }
 
   get pavedTileState(): PavedTileStateTableHandle {
     return new PavedTileStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PavedTileState>(REMOTE_MODULE.tables.paved_tile_state)
+      this.connection.clientCache.getOrCreateTable<PavedTileState>(
+        REMOTE_MODULE.tables.paved_tile_state
+      )
     )
   }
 
   get pavingTileDesc(): PavingTileDescTableHandle {
     return new PavingTileDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PavingTileDesc>(REMOTE_MODULE.tables.paving_tile_desc)
+      this.connection.clientCache.getOrCreateTable<PavingTileDesc>(
+        REMOTE_MODULE.tables.paving_tile_desc
+      )
     )
   }
 
   get permissionState(): PermissionStateTableHandle {
     return new PermissionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PermissionState>(REMOTE_MODULE.tables.permission_state)
+      this.connection.clientCache.getOrCreateTable<PermissionState>(
+        REMOTE_MODULE.tables.permission_state
+      )
     )
   }
 
   get pillarShapingDesc(): PillarShapingDescTableHandle {
     return new PillarShapingDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PillarShapingDesc>(REMOTE_MODULE.tables.pillar_shaping_desc)
+      this.connection.clientCache.getOrCreateTable<PillarShapingDesc>(
+        REMOTE_MODULE.tables.pillar_shaping_desc
+      )
     )
   }
 
   get pillarShapingState(): PillarShapingStateTableHandle {
     return new PillarShapingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PillarShapingState>(REMOTE_MODULE.tables.pillar_shaping_state)
+      this.connection.clientCache.getOrCreateTable<PillarShapingState>(
+        REMOTE_MODULE.tables.pillar_shaping_state
+      )
     )
   }
 
   get playerActionDesc(): PlayerActionDescTableHandle {
     return new PlayerActionDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerActionDesc>(REMOTE_MODULE.tables.player_action_desc)
+      this.connection.clientCache.getOrCreateTable<PlayerActionDesc>(
+        REMOTE_MODULE.tables.player_action_desc
+      )
     )
   }
 
   get playerActionState(): PlayerActionStateTableHandle {
     return new PlayerActionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerActionState>(REMOTE_MODULE.tables.player_action_state)
+      this.connection.clientCache.getOrCreateTable<PlayerActionState>(
+        REMOTE_MODULE.tables.player_action_state
+      )
     )
   }
 
   get playerDeathTimer(): PlayerDeathTimerTableHandle {
     return new PlayerDeathTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerDeathTimer>(REMOTE_MODULE.tables.player_death_timer)
+      this.connection.clientCache.getOrCreateTable<PlayerDeathTimer>(
+        REMOTE_MODULE.tables.player_death_timer
+      )
     )
   }
 
   get playerHousingDesc(): PlayerHousingDescTableHandle {
     return new PlayerHousingDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerHousingDesc>(REMOTE_MODULE.tables.player_housing_desc)
+      this.connection.clientCache.getOrCreateTable<PlayerHousingDesc>(
+        REMOTE_MODULE.tables.player_housing_desc
+      )
     )
   }
 
@@ -23448,7 +29828,9 @@ export class RemoteTables {
 
   get playerHousingState(): PlayerHousingStateTableHandle {
     return new PlayerHousingStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerHousingState>(REMOTE_MODULE.tables.player_housing_state)
+      this.connection.clientCache.getOrCreateTable<PlayerHousingState>(
+        REMOTE_MODULE.tables.player_housing_state
+      )
     )
   }
 
@@ -23462,7 +29844,9 @@ export class RemoteTables {
 
   get playerNoteState(): PlayerNoteStateTableHandle {
     return new PlayerNoteStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerNoteState>(REMOTE_MODULE.tables.player_note_state)
+      this.connection.clientCache.getOrCreateTable<PlayerNoteState>(
+        REMOTE_MODULE.tables.player_note_state
+      )
     )
   }
 
@@ -23476,19 +29860,25 @@ export class RemoteTables {
 
   get playerPrefsState(): PlayerPrefsStateTableHandle {
     return new PlayerPrefsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerPrefsState>(REMOTE_MODULE.tables.player_prefs_state)
+      this.connection.clientCache.getOrCreateTable<PlayerPrefsState>(
+        REMOTE_MODULE.tables.player_prefs_state
+      )
     )
   }
 
   get playerQueueState(): PlayerQueueStateTableHandle {
     return new PlayerQueueStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerQueueState>(REMOTE_MODULE.tables.player_queue_state)
+      this.connection.clientCache.getOrCreateTable<PlayerQueueState>(
+        REMOTE_MODULE.tables.player_queue_state
+      )
     )
   }
 
   get playerRegenLoopTimer(): PlayerRegenLoopTimerTableHandle {
     return new PlayerRegenLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerRegenLoopTimer>(REMOTE_MODULE.tables.player_regen_loop_timer)
+      this.connection.clientCache.getOrCreateTable<PlayerRegenLoopTimer>(
+        REMOTE_MODULE.tables.player_regen_loop_timer
+      )
     )
   }
 
@@ -23502,7 +29892,9 @@ export class RemoteTables {
 
   get playerReportState(): PlayerReportStateTableHandle {
     return new PlayerReportStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerReportState>(REMOTE_MODULE.tables.player_report_state)
+      this.connection.clientCache.getOrCreateTable<PlayerReportState>(
+        REMOTE_MODULE.tables.player_report_state
+      )
     )
   }
 
@@ -23524,13 +29916,17 @@ export class RemoteTables {
 
   get playerState(): PlayerStateTableHandle {
     return new PlayerStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerState>(REMOTE_MODULE.tables.player_state)
+      this.connection.clientCache.getOrCreateTable<PlayerState>(
+        REMOTE_MODULE.tables.player_state
+      )
     )
   }
 
   get playerTimestampState(): PlayerTimestampStateTableHandle {
     return new PlayerTimestampStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerTimestampState>(REMOTE_MODULE.tables.player_timestamp_state)
+      this.connection.clientCache.getOrCreateTable<PlayerTimestampState>(
+        REMOTE_MODULE.tables.player_timestamp_state
+      )
     )
   }
 
@@ -23544,7 +29940,9 @@ export class RemoteTables {
 
   get playerUsernameState(): PlayerUsernameStateTableHandle {
     return new PlayerUsernameStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerUsernameState>(REMOTE_MODULE.tables.player_username_state)
+      this.connection.clientCache.getOrCreateTable<PlayerUsernameState>(
+        REMOTE_MODULE.tables.player_username_state
+      )
     )
   }
 
@@ -23558,19 +29956,25 @@ export class RemoteTables {
 
   get playerVoteState(): PlayerVoteStateTableHandle {
     return new PlayerVoteStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PlayerVoteState>(REMOTE_MODULE.tables.player_vote_state)
+      this.connection.clientCache.getOrCreateTable<PlayerVoteState>(
+        REMOTE_MODULE.tables.player_vote_state
+      )
     )
   }
 
   get portalState(): PortalStateTableHandle {
     return new PortalStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<PortalState>(REMOTE_MODULE.tables.portal_state)
+      this.connection.clientCache.getOrCreateTable<PortalState>(
+        REMOTE_MODULE.tables.portal_state
+      )
     )
   }
 
   get privateParametersDesc(): PrivateParametersDescTableHandle {
     return new PrivateParametersDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<PrivateParametersDesc>(REMOTE_MODULE.tables.private_parameters_desc)
+      this.connection.clientCache.getOrCreateTable<PrivateParametersDesc>(
+        REMOTE_MODULE.tables.private_parameters_desc
+      )
     )
   }
 
@@ -23584,19 +29988,25 @@ export class RemoteTables {
 
   get projectSiteState(): ProjectSiteStateTableHandle {
     return new ProjectSiteStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ProjectSiteState>(REMOTE_MODULE.tables.project_site_state)
+      this.connection.clientCache.getOrCreateTable<ProjectSiteState>(
+        REMOTE_MODULE.tables.project_site_state
+      )
     )
   }
 
   get regionConnectionInfo(): RegionConnectionInfoTableHandle {
     return new RegionConnectionInfoTableHandle(
-      this.connection.clientCache.getOrCreateTable<RegionConnectionInfo>(REMOTE_MODULE.tables.region_connection_info)
+      this.connection.clientCache.getOrCreateTable<RegionConnectionInfo>(
+        REMOTE_MODULE.tables.region_connection_info
+      )
     )
   }
 
   get regionPopulationInfo(): RegionPopulationInfoTableHandle {
     return new RegionPopulationInfoTableHandle(
-      this.connection.clientCache.getOrCreateTable<RegionPopulationInfo>(REMOTE_MODULE.tables.region_population_info)
+      this.connection.clientCache.getOrCreateTable<RegionPopulationInfo>(
+        REMOTE_MODULE.tables.region_population_info
+      )
     )
   }
 
@@ -23626,25 +30036,33 @@ export class RemoteTables {
 
   get rentEvictTimer(): RentEvictTimerTableHandle {
     return new RentEvictTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<RentEvictTimer>(REMOTE_MODULE.tables.rent_evict_timer)
+      this.connection.clientCache.getOrCreateTable<RentEvictTimer>(
+        REMOTE_MODULE.tables.rent_evict_timer
+      )
     )
   }
 
   get rentState(): RentStateTableHandle {
     return new RentStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<RentState>(REMOTE_MODULE.tables.rent_state)
+      this.connection.clientCache.getOrCreateTable<RentState>(
+        REMOTE_MODULE.tables.rent_state
+      )
     )
   }
 
   get reservedNameDesc(): ReservedNameDescTableHandle {
     return new ReservedNameDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ReservedNameDesc>(REMOTE_MODULE.tables.reserved_name_desc)
+      this.connection.clientCache.getOrCreateTable<ReservedNameDesc>(
+        REMOTE_MODULE.tables.reserved_name_desc
+      )
     )
   }
 
   get resetChunkIndexTimer(): ResetChunkIndexTimerTableHandle {
     return new ResetChunkIndexTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResetChunkIndexTimer>(REMOTE_MODULE.tables.reset_chunk_index_timer)
+      this.connection.clientCache.getOrCreateTable<ResetChunkIndexTimer>(
+        REMOTE_MODULE.tables.reset_chunk_index_timer
+      )
     )
   }
 
@@ -23658,19 +30076,25 @@ export class RemoteTables {
 
   get resourceClumpDesc(): ResourceClumpDescTableHandle {
     return new ResourceClumpDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceClumpDesc>(REMOTE_MODULE.tables.resource_clump_desc)
+      this.connection.clientCache.getOrCreateTable<ResourceClumpDesc>(
+        REMOTE_MODULE.tables.resource_clump_desc
+      )
     )
   }
 
   get resourceCount(): ResourceCountTableHandle {
     return new ResourceCountTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceCount>(REMOTE_MODULE.tables.resource_count)
+      this.connection.clientCache.getOrCreateTable<ResourceCount>(
+        REMOTE_MODULE.tables.resource_count
+      )
     )
   }
 
   get resourceDesc(): ResourceDescTableHandle {
     return new ResourceDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceDesc>(REMOTE_MODULE.tables.resource_desc)
+      this.connection.clientCache.getOrCreateTable<ResourceDesc>(
+        REMOTE_MODULE.tables.resource_desc
+      )
     )
   }
 
@@ -23684,7 +30108,9 @@ export class RemoteTables {
 
   get resourceHealthState(): ResourceHealthStateTableHandle {
     return new ResourceHealthStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceHealthState>(REMOTE_MODULE.tables.resource_health_state)
+      this.connection.clientCache.getOrCreateTable<ResourceHealthState>(
+        REMOTE_MODULE.tables.resource_health_state
+      )
     )
   }
 
@@ -23698,19 +30124,25 @@ export class RemoteTables {
 
   get resourceSpawnTimer(): ResourceSpawnTimerTableHandle {
     return new ResourceSpawnTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceSpawnTimer>(REMOTE_MODULE.tables.resource_spawn_timer)
+      this.connection.clientCache.getOrCreateTable<ResourceSpawnTimer>(
+        REMOTE_MODULE.tables.resource_spawn_timer
+      )
     )
   }
 
   get resourceState(): ResourceStateTableHandle {
     return new ResourceStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourceState>(REMOTE_MODULE.tables.resource_state)
+      this.connection.clientCache.getOrCreateTable<ResourceState>(
+        REMOTE_MODULE.tables.resource_state
+      )
     )
   }
 
   get resourcesLog(): ResourcesLogTableHandle {
     return new ResourcesLogTableHandle(
-      this.connection.clientCache.getOrCreateTable<ResourcesLog>(REMOTE_MODULE.tables.resources_log)
+      this.connection.clientCache.getOrCreateTable<ResourcesLog>(
+        REMOTE_MODULE.tables.resources_log
+      )
     )
   }
 
@@ -23732,13 +30164,17 @@ export class RemoteTables {
 
   get rezSickLongTermState(): RezSickLongTermStateTableHandle {
     return new RezSickLongTermStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<RezSickLongTermState>(REMOTE_MODULE.tables.rez_sick_long_term_state)
+      this.connection.clientCache.getOrCreateTable<RezSickLongTermState>(
+        REMOTE_MODULE.tables.rez_sick_long_term_state
+      )
     )
   }
 
   get satiationState(): SatiationStateTableHandle {
     return new SatiationStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<SatiationState>(REMOTE_MODULE.tables.satiation_state)
+      this.connection.clientCache.getOrCreateTable<SatiationState>(
+        REMOTE_MODULE.tables.satiation_state
+      )
     )
   }
 
@@ -23752,19 +30188,25 @@ export class RemoteTables {
 
   get sellOrderState(): SellOrderStateTableHandle {
     return new SellOrderStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<AuctionListingState>(REMOTE_MODULE.tables.sell_order_state)
+      this.connection.clientCache.getOrCreateTable<AuctionListingState>(
+        REMOTE_MODULE.tables.sell_order_state
+      )
     )
   }
 
   get serverIdentity(): ServerIdentityTableHandle {
     return new ServerIdentityTableHandle(
-      this.connection.clientCache.getOrCreateTable<ServerIdentity>(REMOTE_MODULE.tables.server_identity)
+      this.connection.clientCache.getOrCreateTable<ServerIdentity>(
+        REMOTE_MODULE.tables.server_identity
+      )
     )
   }
 
   get signedInPlayerState(): SignedInPlayerStateTableHandle {
     return new SignedInPlayerStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<SignedInPlayerState>(REMOTE_MODULE.tables.signed_in_player_state)
+      this.connection.clientCache.getOrCreateTable<SignedInPlayerState>(
+        REMOTE_MODULE.tables.signed_in_player_state
+      )
     )
   }
 
@@ -23786,61 +30228,81 @@ export class RemoteTables {
 
   get skillDesc(): SkillDescTableHandle {
     return new SkillDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<SkillDesc>(REMOTE_MODULE.tables.skill_desc)
+      this.connection.clientCache.getOrCreateTable<SkillDesc>(
+        REMOTE_MODULE.tables.skill_desc
+      )
     )
   }
 
   get stagedStaticData(): StagedStaticDataTableHandle {
     return new StagedStaticDataTableHandle(
-      this.connection.clientCache.getOrCreateTable<StagedStaticData>(REMOTE_MODULE.tables.staged_static_data)
+      this.connection.clientCache.getOrCreateTable<StagedStaticData>(
+        REMOTE_MODULE.tables.staged_static_data
+      )
     )
   }
 
   get staminaState(): StaminaStateTableHandle {
     return new StaminaStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<StaminaState>(REMOTE_MODULE.tables.stamina_state)
+      this.connection.clientCache.getOrCreateTable<StaminaState>(
+        REMOTE_MODULE.tables.stamina_state
+      )
     )
   }
 
   get starvingLoopTimer(): StarvingLoopTimerTableHandle {
     return new StarvingLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<StarvingLoopTimer>(REMOTE_MODULE.tables.starving_loop_timer)
+      this.connection.clientCache.getOrCreateTable<StarvingLoopTimer>(
+        REMOTE_MODULE.tables.starving_loop_timer
+      )
     )
   }
 
   get starvingPlayerState(): StarvingPlayerStateTableHandle {
     return new StarvingPlayerStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<StarvingPlayerState>(REMOTE_MODULE.tables.starving_player_state)
+      this.connection.clientCache.getOrCreateTable<StarvingPlayerState>(
+        REMOTE_MODULE.tables.starving_player_state
+      )
     )
   }
 
   get targetState(): TargetStateTableHandle {
     return new TargetStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TargetState>(REMOTE_MODULE.tables.target_state)
+      this.connection.clientCache.getOrCreateTable<TargetState>(
+        REMOTE_MODULE.tables.target_state
+      )
     )
   }
 
   get targetableState(): TargetableStateTableHandle {
     return new TargetableStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TargetableState>(REMOTE_MODULE.tables.targetable_state)
+      this.connection.clientCache.getOrCreateTable<TargetableState>(
+        REMOTE_MODULE.tables.targetable_state
+      )
     )
   }
 
   get targetingMatrixDesc(): TargetingMatrixDescTableHandle {
     return new TargetingMatrixDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<TargetingMatrixDesc>(REMOTE_MODULE.tables.targeting_matrix_desc)
+      this.connection.clientCache.getOrCreateTable<TargetingMatrixDesc>(
+        REMOTE_MODULE.tables.targeting_matrix_desc
+      )
     )
   }
 
   get teleportItemDesc(): TeleportItemDescTableHandle {
     return new TeleportItemDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<TeleportItemDesc>(REMOTE_MODULE.tables.teleport_item_desc)
+      this.connection.clientCache.getOrCreateTable<TeleportItemDesc>(
+        REMOTE_MODULE.tables.teleport_item_desc
+      )
     )
   }
 
   get teleportPlayerTimer(): TeleportPlayerTimerTableHandle {
     return new TeleportPlayerTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<TeleportPlayerTimer>(REMOTE_MODULE.tables.teleport_player_timer)
+      this.connection.clientCache.getOrCreateTable<TeleportPlayerTimer>(
+        REMOTE_MODULE.tables.teleport_player_timer
+      )
     )
   }
 
@@ -23870,13 +30332,17 @@ export class RemoteTables {
 
   get terraformRecipeDesc(): TerraformRecipeDescTableHandle {
     return new TerraformRecipeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<TerraformRecipeDesc>(REMOTE_MODULE.tables.terraform_recipe_desc)
+      this.connection.clientCache.getOrCreateTable<TerraformRecipeDesc>(
+        REMOTE_MODULE.tables.terraform_recipe_desc
+      )
     )
   }
 
   get terrainChunkState(): TerrainChunkStateTableHandle {
     return new TerrainChunkStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TerrainChunkState>(REMOTE_MODULE.tables.terrain_chunk_state)
+      this.connection.clientCache.getOrCreateTable<TerrainChunkState>(
+        REMOTE_MODULE.tables.terrain_chunk_state
+      )
     )
   }
 
@@ -23890,67 +30356,89 @@ export class RemoteTables {
 
   get threatState(): ThreatStateTableHandle {
     return new ThreatStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ThreatState>(REMOTE_MODULE.tables.threat_state)
+      this.connection.clientCache.getOrCreateTable<ThreatState>(
+        REMOTE_MODULE.tables.threat_state
+      )
     )
   }
 
   get toolDesc(): ToolDescTableHandle {
     return new ToolDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ToolDesc>(REMOTE_MODULE.tables.tool_desc)
+      this.connection.clientCache.getOrCreateTable<ToolDesc>(
+        REMOTE_MODULE.tables.tool_desc
+      )
     )
   }
 
   get toolTypeDesc(): ToolTypeDescTableHandle {
     return new ToolTypeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<ToolTypeDesc>(REMOTE_MODULE.tables.tool_type_desc)
+      this.connection.clientCache.getOrCreateTable<ToolTypeDesc>(
+        REMOTE_MODULE.tables.tool_type_desc
+      )
     )
   }
 
   get toolbarState(): ToolbarStateTableHandle {
     return new ToolbarStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<ToolbarState>(REMOTE_MODULE.tables.toolbar_state)
+      this.connection.clientCache.getOrCreateTable<ToolbarState>(
+        REMOTE_MODULE.tables.toolbar_state
+      )
     )
   }
 
   get tradeOrderState(): TradeOrderStateTableHandle {
     return new TradeOrderStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TradeOrderState>(REMOTE_MODULE.tables.trade_order_state)
+      this.connection.clientCache.getOrCreateTable<TradeOrderState>(
+        REMOTE_MODULE.tables.trade_order_state
+      )
     )
   }
 
   get tradeSessionLoopTimer(): TradeSessionLoopTimerTableHandle {
     return new TradeSessionLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<TradeSessionLoopTimer>(REMOTE_MODULE.tables.trade_session_loop_timer)
+      this.connection.clientCache.getOrCreateTable<TradeSessionLoopTimer>(
+        REMOTE_MODULE.tables.trade_session_loop_timer
+      )
     )
   }
 
   get tradeSessionState(): TradeSessionStateTableHandle {
     return new TradeSessionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TradeSessionState>(REMOTE_MODULE.tables.trade_session_state)
+      this.connection.clientCache.getOrCreateTable<TradeSessionState>(
+        REMOTE_MODULE.tables.trade_session_state
+      )
     )
   }
 
   get transferPlayerTimer(): TransferPlayerTimerTableHandle {
     return new TransferPlayerTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<TransferPlayerTimer>(REMOTE_MODULE.tables.transfer_player_timer)
+      this.connection.clientCache.getOrCreateTable<TransferPlayerTimer>(
+        REMOTE_MODULE.tables.transfer_player_timer
+      )
     )
   }
 
   get travelerTaskDesc(): TravelerTaskDescTableHandle {
     return new TravelerTaskDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<TravelerTaskDesc>(REMOTE_MODULE.tables.traveler_task_desc)
+      this.connection.clientCache.getOrCreateTable<TravelerTaskDesc>(
+        REMOTE_MODULE.tables.traveler_task_desc
+      )
     )
   }
 
   get travelerTaskLoopTimer(): TravelerTaskLoopTimerTableHandle {
     return new TravelerTaskLoopTimerTableHandle(
-      this.connection.clientCache.getOrCreateTable<TravelerTaskLoopTimer>(REMOTE_MODULE.tables.traveler_task_loop_timer)
+      this.connection.clientCache.getOrCreateTable<TravelerTaskLoopTimer>(
+        REMOTE_MODULE.tables.traveler_task_loop_timer
+      )
     )
   }
 
   get travelerTaskState(): TravelerTaskStateTableHandle {
     return new TravelerTaskStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<TravelerTaskState>(REMOTE_MODULE.tables.traveler_task_state)
+      this.connection.clientCache.getOrCreateTable<TravelerTaskState>(
+        REMOTE_MODULE.tables.traveler_task_state
+      )
     )
   }
 
@@ -23972,7 +30460,9 @@ export class RemoteTables {
 
   get unclaimedShardsState(): UnclaimedShardsStateTableHandle {
     return new UnclaimedShardsStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<UnclaimedShardsState>(REMOTE_MODULE.tables.unclaimed_shards_state)
+      this.connection.clientCache.getOrCreateTable<UnclaimedShardsState>(
+        REMOTE_MODULE.tables.unclaimed_shards_state
+      )
     )
   }
 
@@ -23986,7 +30476,9 @@ export class RemoteTables {
 
   get userModerationState(): UserModerationStateTableHandle {
     return new UserModerationStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<UserModerationState>(REMOTE_MODULE.tables.user_moderation_state)
+      this.connection.clientCache.getOrCreateTable<UserModerationState>(
+        REMOTE_MODULE.tables.user_moderation_state
+      )
     )
   }
 
@@ -24000,62 +30492,107 @@ export class RemoteTables {
 
   get userState(): UserStateTableHandle {
     return new UserStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<UserState>(REMOTE_MODULE.tables.user_state)
+      this.connection.clientCache.getOrCreateTable<UserState>(
+        REMOTE_MODULE.tables.user_state
+      )
     )
   }
 
   get vaultState(): VaultStateTableHandle {
     return new VaultStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<VaultState>(REMOTE_MODULE.tables.vault_state)
+      this.connection.clientCache.getOrCreateTable<VaultState>(
+        REMOTE_MODULE.tables.vault_state
+      )
     )
   }
 
   get wallDesc(): WallDescTableHandle {
     return new WallDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<WallDesc>(REMOTE_MODULE.tables.wall_desc)
+      this.connection.clientCache.getOrCreateTable<WallDesc>(
+        REMOTE_MODULE.tables.wall_desc
+      )
     )
   }
 
   get weaponDesc(): WeaponDescTableHandle {
     return new WeaponDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<WeaponDesc>(REMOTE_MODULE.tables.weapon_desc)
+      this.connection.clientCache.getOrCreateTable<WeaponDesc>(
+        REMOTE_MODULE.tables.weapon_desc
+      )
     )
   }
 
   get weaponTypeDesc(): WeaponTypeDescTableHandle {
     return new WeaponTypeDescTableHandle(
-      this.connection.clientCache.getOrCreateTable<WeaponTypeDesc>(REMOTE_MODULE.tables.weapon_type_desc)
+      this.connection.clientCache.getOrCreateTable<WeaponTypeDesc>(
+        REMOTE_MODULE.tables.weapon_type_desc
+      )
     )
   }
 
   get worldRegionNameState(): WorldRegionNameStateTableHandle {
     return new WorldRegionNameStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<WorldRegionNameState>(REMOTE_MODULE.tables.world_region_name_state)
+      this.connection.clientCache.getOrCreateTable<WorldRegionNameState>(
+        REMOTE_MODULE.tables.world_region_name_state
+      )
     )
   }
 
   get worldRegionState(): WorldRegionStateTableHandle {
     return new WorldRegionStateTableHandle(
-      this.connection.clientCache.getOrCreateTable<WorldRegionState>(REMOTE_MODULE.tables.world_region_state)
+      this.connection.clientCache.getOrCreateTable<WorldRegionState>(
+        REMOTE_MODULE.tables.world_region_state
+      )
     )
   }
 }
 
-export class SubscriptionBuilder extends SubscriptionBuilderImpl<RemoteTables, RemoteReducers, SetReducerFlags> {}
+export class SubscriptionBuilder extends SubscriptionBuilderImpl<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags
+> {}
 
-export class DbConnection extends DbConnectionImpl<RemoteTables, RemoteReducers, SetReducerFlags> {
-  static builder = (): DbConnectionBuilder<DbConnection, ErrorContext, SubscriptionEventContext> => {
-    return new DbConnectionBuilder<DbConnection, ErrorContext, SubscriptionEventContext>(
-      REMOTE_MODULE,
-      (imp: DbConnectionImpl) => imp as DbConnection
-    )
+export class DbConnection extends DbConnectionImpl<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags
+> {
+  static builder = (): DbConnectionBuilder<
+    DbConnection,
+    ErrorContext,
+    SubscriptionEventContext
+  > => {
+    return new DbConnectionBuilder<
+      DbConnection,
+      ErrorContext,
+      SubscriptionEventContext
+    >(REMOTE_MODULE, (imp: DbConnectionImpl) => imp as DbConnection)
   }
   subscriptionBuilder = (): SubscriptionBuilder => {
     return new SubscriptionBuilder(this)
   }
 }
 
-export type EventContext = EventContextInterface<RemoteTables, RemoteReducers, SetReducerFlags, Reducer>
-export type ReducerEventContext = ReducerEventContextInterface<RemoteTables, RemoteReducers, SetReducerFlags, Reducer>
-export type SubscriptionEventContext = SubscriptionEventContextInterface<RemoteTables, RemoteReducers, SetReducerFlags>
-export type ErrorContext = ErrorContextInterface<RemoteTables, RemoteReducers, SetReducerFlags>
+export type EventContext = EventContextInterface<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags,
+  Reducer
+>
+export type ReducerEventContext = ReducerEventContextInterface<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags,
+  Reducer
+>
+export type SubscriptionEventContext = SubscriptionEventContextInterface<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags
+>
+export type ErrorContext = ErrorContextInterface<
+  RemoteTables,
+  RemoteReducers,
+  SetReducerFlags
+>

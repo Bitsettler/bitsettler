@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type PlayerBuildingMoveRequest = {
@@ -26,16 +31,27 @@ export namespace PlayerBuildingMoveRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('newCoordinates', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'newCoordinates',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('facingDirection', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerBuildingMoveRequest): void {
-    PlayerBuildingMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerBuildingMoveRequest
+  ): void {
+    PlayerBuildingMoveRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerBuildingMoveRequest {
-    return PlayerBuildingMoveRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerBuildingMoveRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

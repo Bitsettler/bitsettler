@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TradeSessionLoopTimer as __TradeSessionLoopTimer } from './trade_session_loop_timer_type'
 
@@ -24,15 +29,23 @@ export namespace TradeSessionsAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __TradeSessionLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __TradeSessionLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeSessionsAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeSessionsAgentLoop
+  ): void {
     TradeSessionsAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TradeSessionsAgentLoop {
-    return TradeSessionsAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+    return TradeSessionsAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

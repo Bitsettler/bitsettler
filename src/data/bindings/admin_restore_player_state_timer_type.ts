@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type AdminRestorePlayerStateTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   username: string
   restorePosition: boolean
   forceSignout: boolean
@@ -38,23 +40,42 @@ export namespace AdminRestorePlayerStateTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('username', AlgebraicType.createStringType()),
       new ProductTypeElement('restorePosition', AlgebraicType.createBoolType()),
       new ProductTypeElement('forceSignout', AlgebraicType.createBoolType()),
-      new ProductTypeElement('restoreAllDeployablesPositions', AlgebraicType.createBoolType()),
-      new ProductTypeElement('storeDeployables', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'restoreAllDeployablesPositions',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'storeDeployables',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('clearCargo', AlgebraicType.createBoolType()),
       new ProductTypeElement('clearItems', AlgebraicType.createBoolType()),
       new ProductTypeElement('clearToolbelt', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminRestorePlayerStateTimer): void {
-    AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminRestorePlayerStateTimer
+  ): void {
+    AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): AdminRestorePlayerStateTimer {
-    return AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): AdminRestorePlayerStateTimer {
+    return AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -25,5 +25,10 @@ export function getAllEquipmentItems(): ItemDesc[] {
     .map((equipmentDesc) => {
       return items.find((item) => item.id === equipmentDesc.itemId)
     })
-    .filter((item): item is ItemDesc => item !== undefined && item.compendiumEntry && EQUIPMENT_TAGS.includes(item.tag))
+    .filter(
+      (item): item is ItemDesc =>
+        item !== undefined &&
+        item.compendiumEntry &&
+        EQUIPMENT_TAGS.includes(item.tag)
+    )
 }

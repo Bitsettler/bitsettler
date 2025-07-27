@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemyRegenLoopTimer as __EnemyRegenLoopTimer } from './enemy_regen_loop_timer_type'
 
@@ -24,11 +29,17 @@ export namespace EnemyRegenAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __EnemyRegenLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __EnemyRegenLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyRegenAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyRegenAgentLoop
+  ): void {
     EnemyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

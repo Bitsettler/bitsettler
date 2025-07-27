@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerBarterStallOrderDeleteRequest = {
   shopEntityId: bigint
   tradeOrderEntityId: bigint
@@ -23,15 +28,28 @@ export namespace PlayerBarterStallOrderDeleteRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('shopEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('tradeOrderEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'tradeOrderEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerBarterStallOrderDeleteRequest): void {
-    PlayerBarterStallOrderDeleteRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerBarterStallOrderDeleteRequest
+  ): void {
+    PlayerBarterStallOrderDeleteRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerBarterStallOrderDeleteRequest {
-    return PlayerBarterStallOrderDeleteRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerBarterStallOrderDeleteRequest {
+    return PlayerBarterStallOrderDeleteRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ClaimType {
   // These are the generated variant types for each variant of the tagged union.
@@ -44,6 +49,9 @@ export namespace ClaimType {
 }
 
 // The tagged union or sum type for the algebraic type `ClaimType`.
-export type ClaimType = ClaimType.Source | ClaimType.Extension | ClaimType.Neutral
+export type ClaimType =
+  | ClaimType.Source
+  | ClaimType.Extension
+  | ClaimType.Neutral
 
 export default ClaimType

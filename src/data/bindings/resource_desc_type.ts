@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { FootprintTile as __FootprintTile } from './footprint_tile_type'
 import { ItemStack as __ItemStack } from './item_stack_type'
 import { Rarity as __Rarity } from './rarity_type'
@@ -51,18 +56,38 @@ export namespace ResourceDesc {
       new ProductTypeElement('maxHealth', AlgebraicType.createI32Type()),
       new ProductTypeElement('ignoreDamage', AlgebraicType.createBoolType()),
       new ProductTypeElement('despawnTime', AlgebraicType.createF32Type()),
-      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'modelAssetName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('onDestroyYield', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('onDestroyYieldResourceId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'onDestroyYield',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'onDestroyYieldResourceId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('spawnPriority', AlgebraicType.createI32Type()),
-      new ProductTypeElement('footprint', AlgebraicType.createArrayType(__FootprintTile.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'footprint',
+        AlgebraicType.createArrayType(
+          __FootprintTile.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('tag', AlgebraicType.createStringType()),
       new ProductTypeElement('rarity', __Rarity.getTypeScriptAlgebraicType()),
       new ProductTypeElement('compendiumEntry', AlgebraicType.createBoolType()),
-      new ProductTypeElement('enemyParamsId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('scheduledRespawnTime', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'enemyParamsId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'scheduledRespawnTime',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('notRespawning', AlgebraicType.createBoolType())
     ])
   }

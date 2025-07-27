@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerTradeAcceptSessionRequest = {
   sessionEntityId: bigint
 }
@@ -20,14 +25,26 @@ export namespace PlayerTradeAcceptSessionRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('sessionEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('sessionEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTradeAcceptSessionRequest): void {
-    PlayerTradeAcceptSessionRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTradeAcceptSessionRequest
+  ): void {
+    PlayerTradeAcceptSessionRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerTradeAcceptSessionRequest {
-    return PlayerTradeAcceptSessionRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerTradeAcceptSessionRequest {
+    return PlayerTradeAcceptSessionRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

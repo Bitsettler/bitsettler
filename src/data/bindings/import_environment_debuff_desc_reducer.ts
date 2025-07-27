@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnvironmentDebuffDesc as __EnvironmentDebuffDesc } from './environment_debuff_desc_type'
 
@@ -26,16 +31,28 @@ export namespace ImportEnvironmentDebuffDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__EnvironmentDebuffDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EnvironmentDebuffDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportEnvironmentDebuffDesc): void {
-    ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportEnvironmentDebuffDesc
+  ): void {
+    ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportEnvironmentDebuffDesc {
-    return ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportEnvironmentDebuffDesc {
+    return ImportEnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

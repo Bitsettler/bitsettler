@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerBuildingMoveRequest as __PlayerBuildingMoveRequest } from './player_building_move_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatBuildingMove {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerBuildingMoveRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerBuildingMoveRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatBuildingMove): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatBuildingMove
+  ): void {
     CheatBuildingMove.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

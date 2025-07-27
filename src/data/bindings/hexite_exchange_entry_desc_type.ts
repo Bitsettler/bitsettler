@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type HexiteExchangeEntryDesc = {
   id: number
   imageAddress: string
@@ -37,11 +42,19 @@ export namespace HexiteExchangeEntryDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: HexiteExchangeEntryDesc): void {
-    HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: HexiteExchangeEntryDesc
+  ): void {
+    HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): HexiteExchangeEntryDesc {
-    return HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return HexiteExchangeEntryDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

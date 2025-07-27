@@ -30,7 +30,10 @@ export namespace StaminaState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastStaminaDecreaseTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'lastStaminaDecreaseTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('stamina', AlgebraicType.createF32Type())
     ])
   }

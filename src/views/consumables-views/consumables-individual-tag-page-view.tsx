@@ -21,7 +21,12 @@ export function ConsumableIndividualTagPageView({
     { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
     { key: 'name', label: 'Name', sortable: true },
     { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-    { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
+    {
+      key: 'rarity',
+      label: 'Rarity',
+      sortable: true,
+      className: 'text-center'
+    },
     { key: 'description', label: 'Description', sortable: true }
   ]
 

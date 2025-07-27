@@ -74,11 +74,23 @@ export class SatiationStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: SatiationState, newRow: SatiationState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: SatiationState,
+      newRow: SatiationState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: SatiationState, newRow: SatiationState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: SatiationState,
+      newRow: SatiationState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

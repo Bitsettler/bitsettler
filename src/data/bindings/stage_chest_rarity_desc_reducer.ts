@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ChestRarityDesc as __ChestRarityDesc } from './chest_rarity_desc_type'
 
@@ -24,11 +29,19 @@ export namespace StageChestRarityDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__ChestRarityDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __ChestRarityDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageChestRarityDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageChestRarityDesc
+  ): void {
     StageChestRarityDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

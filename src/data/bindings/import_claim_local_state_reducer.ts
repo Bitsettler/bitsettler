@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimLocalState as __ClaimLocalState } from './claim_local_state_type'
 
@@ -24,15 +29,25 @@ export namespace ImportClaimLocalState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__ClaimLocalState.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __ClaimLocalState.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportClaimLocalState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportClaimLocalState
+  ): void {
     ImportClaimLocalState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportClaimLocalState {
-    return ImportClaimLocalState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportClaimLocalState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

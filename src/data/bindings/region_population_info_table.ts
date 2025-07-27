@@ -61,7 +61,9 @@ export class RegionPopulationInfoTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: RegionPopulationInfo) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: RegionPopulationInfo) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class RegionPopulationInfoTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: RegionPopulationInfo) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: RegionPopulationInfo) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: RegionPopulationInfo, newRow: RegionPopulationInfo) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: RegionPopulationInfo,
+      newRow: RegionPopulationInfo
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: RegionPopulationInfo, newRow: RegionPopulationInfo) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: RegionPopulationInfo,
+      newRow: RegionPopulationInfo
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

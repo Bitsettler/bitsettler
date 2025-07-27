@@ -15,13 +15,17 @@ export function mapCargoToCalculatorItem(cargo: CargoDesc): CalculatorItem {
     rarity: cargo.rarity.tag.toLowerCase(),
     category: 'cargo',
     description: cargo.description || 'No description available',
-    icon_asset_name: getServerIconPath(cleanIconAssetName(cargo.iconAssetName || ''))
+    icon_asset_name: getServerIconPath(
+      cleanIconAssetName(cargo.iconAssetName || '')
+    )
   }
 }
 
 /**
  * Transform cargo to calculator format
  */
-export function transformCargoToCalculator(cargo: CargoDesc[]): CalculatorItem[] {
+export function transformCargoToCalculator(
+  cargo: CargoDesc[]
+): CalculatorItem[] {
   return cargo.map(mapCargoToCalculatorItem)
 }

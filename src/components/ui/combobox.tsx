@@ -5,8 +5,19 @@ import { Check, ChevronsUpDown } from 'lucide-react'
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
 
 export interface ComboboxOption {
@@ -124,11 +135,16 @@ export function Combobox({
           aria-expanded={open}
           className={cn('w-full justify-between', className, triggerClassName)}
         >
-          {value ? options.find((option) => option.value === value)?.label : placeholder}
+          {value
+            ? options.find((option) => option.value === value)?.label
+            : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0" align="start">
+      <PopoverContent
+        className="w-fit min-w-[var(--radix-popover-trigger-width)] p-0"
+        align="start"
+      >
         <Command shouldFilter={false} key={open ? 'open' : 'closed'}>
           <CommandInput
             placeholder={searchPlaceholder}
@@ -136,7 +152,10 @@ export function Combobox({
             value={searchValue}
             onValueChange={setSearchValue}
           />
-          <CommandList ref={parentRef} className="max-h-[300px] overflow-y-auto">
+          <CommandList
+            ref={parentRef}
+            className="max-h-[300px] overflow-y-auto"
+          >
             <CommandEmpty>{emptyText}</CommandEmpty>
             <CommandGroup>
               {filteredOptions.length > 0 && (
@@ -170,7 +189,9 @@ export function Combobox({
                             <Check
                               className={cn(
                                 'ml-2 h-4 w-4 flex-shrink-0',
-                                value === option.value ? 'opacity-100' : 'opacity-0'
+                                value === option.value
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
                               )}
                             />
                           </div>
@@ -178,7 +199,12 @@ export function Combobox({
                           <>
                             {option.label}
                             <Check
-                              className={cn('ml-auto h-4 w-4', value === option.value ? 'opacity-100' : 'opacity-0')}
+                              className={cn(
+                                'ml-auto h-4 w-4',
+                                value === option.value
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
+                              )}
                             />
                           </>
                         )}

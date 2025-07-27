@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingSpawnType as __BuildingSpawnType } from './building_spawn_type_type'
 import { EnemyType as __EnemyType } from './enemy_type_type'
 import { NpcType as __NpcType } from './npc_type_type'
@@ -40,16 +45,31 @@ export namespace BuildingSpawnDesc {
       new ProductTypeElement('x', AlgebraicType.createI32Type()),
       new ProductTypeElement('z', AlgebraicType.createI32Type()),
       new ProductTypeElement('direction', AlgebraicType.createI32Type()),
-      new ProductTypeElement('spawnType', __BuildingSpawnType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('travelerType', AlgebraicType.createOptionType(__NpcType.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('enemyType', AlgebraicType.createOptionType(__EnemyType.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('spawnIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'spawnType',
+        __BuildingSpawnType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'travelerType',
+        AlgebraicType.createOptionType(__NpcType.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'enemyType',
+        AlgebraicType.createOptionType(__EnemyType.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'spawnIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('respawnTimeMin', AlgebraicType.createF32Type()),
       new ProductTypeElement('respawnTimeMax', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingSpawnDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingSpawnDesc
+  ): void {
     BuildingSpawnDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

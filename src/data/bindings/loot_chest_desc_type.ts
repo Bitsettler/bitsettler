@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type LootChestDesc = {
   id: number
   name: string
@@ -29,7 +34,10 @@ export namespace LootChestDesc {
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('chestRarity', AlgebraicType.createI32Type()),
       new ProductTypeElement('prefabAddress', AlgebraicType.createStringType()),
-      new ProductTypeElement('lootTables', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'lootTables',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 

@@ -33,7 +33,10 @@ export namespace PlayerTimestampState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTimestampState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTimestampState
+  ): void {
     PlayerTimestampState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

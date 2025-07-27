@@ -61,7 +61,9 @@ export class ExtractOutcomeStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: ExtractOutcomeState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: ExtractOutcomeState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class ExtractOutcomeStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: ExtractOutcomeState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: ExtractOutcomeState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ExtractOutcomeState, newRow: ExtractOutcomeState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ExtractOutcomeState,
+      newRow: ExtractOutcomeState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ExtractOutcomeState, newRow: ExtractOutcomeState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ExtractOutcomeState,
+      newRow: ExtractOutcomeState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

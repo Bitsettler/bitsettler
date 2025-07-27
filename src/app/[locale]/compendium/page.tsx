@@ -1,14 +1,29 @@
-import { getCargoStatistics, getCargoTagsMetadata } from '@/lib/spacetime-db-new/modules/cargo/flows'
-import { getEquipmentCategories, getEquipmentStatistics } from '@/lib/spacetime-db-new/modules/equipment/flows'
+import {
+  getCargoStatistics,
+  getCargoTagsMetadata
+} from '@/lib/spacetime-db-new/modules/cargo/flows'
+import {
+  getEquipmentCategories,
+  getEquipmentStatistics
+} from '@/lib/spacetime-db-new/modules/equipment/flows'
 import {
   getConsumableStatistics,
   getConsumableTagsMetadata,
   getItemStatistics,
   getItemTagsMetadata
 } from '@/lib/spacetime-db-new/modules/items/flows'
-import { getResourceStatistics, getResourceTagsMetadata } from '@/lib/spacetime-db-new/modules/resources/flows'
-import { getToolCategories, getToolStatistics } from '@/lib/spacetime-db-new/modules/tools/flows'
-import { getWeaponCategories, getWeaponStatistics } from '@/lib/spacetime-db-new/modules/weapons/flows'
+import {
+  getResourceStatistics,
+  getResourceTagsMetadata
+} from '@/lib/spacetime-db-new/modules/resources/flows'
+import {
+  getToolCategories,
+  getToolStatistics
+} from '@/lib/spacetime-db-new/modules/tools/flows'
+import {
+  getWeaponCategories,
+  getWeaponStatistics
+} from '@/lib/spacetime-db-new/modules/weapons/flows'
 import { CompendiumIndexPageView } from '@/views/compendium-views/compendium-index-page-view'
 
 export default function CompendiumPage() {

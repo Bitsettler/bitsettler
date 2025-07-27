@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type OnInterModuleMessageProcessed = {
   id: bigint
@@ -24,15 +29,28 @@ export namespace OnInterModuleMessageProcessed {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createU64Type()),
-      new ProductTypeElement('error', AlgebraicType.createOptionType(AlgebraicType.createStringType()))
+      new ProductTypeElement(
+        'error',
+        AlgebraicType.createOptionType(AlgebraicType.createStringType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OnInterModuleMessageProcessed): void {
-    OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: OnInterModuleMessageProcessed
+  ): void {
+    OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): OnInterModuleMessageProcessed {
-    return OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): OnInterModuleMessageProcessed {
+    return OnInterModuleMessageProcessed.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

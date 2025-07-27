@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerTerraformCancelRequest as __PlayerTerraformCancelRequest } from './player_terraform_cancel_request_type'
 
@@ -24,11 +29,17 @@ export namespace TerraformCancel {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerTerraformCancelRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerTerraformCancelRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TerraformCancel): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TerraformCancel
+  ): void {
     TerraformCancel.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

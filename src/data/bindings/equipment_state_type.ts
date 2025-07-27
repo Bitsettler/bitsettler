@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EquipmentSlot as __EquipmentSlot } from './equipment_slot_type'
 
 export type EquipmentState = {
@@ -27,7 +32,9 @@ export namespace EquipmentState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'equipmentSlots',
-        AlgebraicType.createArrayType(__EquipmentSlot.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EquipmentSlot.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }

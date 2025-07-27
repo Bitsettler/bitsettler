@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type PlayerBarterStallOrderCreateRequest = {
@@ -30,18 +35,37 @@ export namespace PlayerBarterStallOrderCreateRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('shopEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('remainingStock', AlgebraicType.createI32Type()),
-      new ProductTypeElement('offerItems', AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'offerItems',
+        AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('offerCargoId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('requiredCargos', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'requiredItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'requiredCargos',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerBarterStallOrderCreateRequest): void {
-    PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerBarterStallOrderCreateRequest
+  ): void {
+    PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerBarterStallOrderCreateRequest {
-    return PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerBarterStallOrderCreateRequest {
+    return PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

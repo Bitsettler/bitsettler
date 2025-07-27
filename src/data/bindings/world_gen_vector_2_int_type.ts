@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WorldGenVector2Int = {
   x: number
   y: number
@@ -27,7 +32,10 @@ export namespace WorldGenVector2Int {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenVector2Int): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenVector2Int
+  ): void {
     WorldGenVector2Int.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

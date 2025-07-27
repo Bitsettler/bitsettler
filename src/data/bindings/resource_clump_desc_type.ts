@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ResourceClumpDesc = {
   id: number
   resourceId: number[]
@@ -26,14 +31,29 @@ export namespace ResourceClumpDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourceId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('x', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('z', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('direction', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'resourceId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'x',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'z',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'direction',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResourceClumpDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResourceClumpDesc
+  ): void {
     ResourceClumpDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

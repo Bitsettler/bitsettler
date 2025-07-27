@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AdminBroadcast as __AdminBroadcast } from './admin_broadcast_type'
 
@@ -24,11 +29,19 @@ export namespace ImportAdminBroadcast {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__AdminBroadcast.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __AdminBroadcast.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportAdminBroadcast): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportAdminBroadcast
+  ): void {
     ImportAdminBroadcast.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

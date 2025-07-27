@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type DistantVisibleEntity = {
   entityId: bigint
   chunkIndex: bigint
@@ -27,7 +32,10 @@ export namespace DistantVisibleEntity {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DistantVisibleEntity): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DistantVisibleEntity
+  ): void {
     DistantVisibleEntity.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

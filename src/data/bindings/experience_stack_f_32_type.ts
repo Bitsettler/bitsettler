@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ExperienceStackF32 = {
   skillId: number
   quantity: number
@@ -27,7 +32,10 @@ export namespace ExperienceStackF32 {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ExperienceStackF32): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ExperienceStackF32
+  ): void {
     ExperienceStackF32.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

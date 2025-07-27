@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type UpdateScheduledTimersFromStaticData = {}
 
@@ -22,11 +26,21 @@ export namespace UpdateScheduledTimersFromStaticData {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: UpdateScheduledTimersFromStaticData): void {
-    UpdateScheduledTimersFromStaticData.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: UpdateScheduledTimersFromStaticData
+  ): void {
+    UpdateScheduledTimersFromStaticData.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): UpdateScheduledTimersFromStaticData {
-    return UpdateScheduledTimersFromStaticData.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): UpdateScheduledTimersFromStaticData {
+    return UpdateScheduledTimersFromStaticData.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

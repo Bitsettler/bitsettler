@@ -6,8 +6,14 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import { Link, usePathname } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
-import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
+import {
+  createSlug,
+  getTierColor
+} from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ArrowLeft, Calculator, Package } from 'lucide-react'
 import Image from 'next/image'
 
@@ -16,7 +22,10 @@ interface ItemDetailPageLayoutProps {
   children: React.ReactNode
 }
 
-export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutProps) {
+export function ItemDetailPageLayout({
+  item,
+  children
+}: ItemDetailPageLayoutProps) {
   const pathname = usePathname()
   const tierColor = getTierColor(item.tier)
   const iconPath = getServerIconPath(cleanIconAssetName(item.iconAssetName))
@@ -29,8 +38,16 @@ export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutPro
     { id: 'info', label: 'Info', href: baseUrl },
     { id: 'obtain', label: 'Obtain', href: `${baseUrl}/obtain` },
     { id: 'used-in', label: 'Used In', href: `${baseUrl}/used-in` },
-    { id: 'construction', label: 'Construction', href: `${baseUrl}/construction` },
-    { id: 'achievements', label: 'Achievements', href: `${baseUrl}/achievements` }
+    {
+      id: 'construction',
+      label: 'Construction',
+      href: `${baseUrl}/construction`
+    },
+    {
+      id: 'achievements',
+      label: 'Achievements',
+      href: `${baseUrl}/achievements`
+    }
   ]
 
   // Determine active tab based on pathname
@@ -71,8 +88,12 @@ export function ItemDetailPageLayout({ item, children }: ItemDetailPageLayoutPro
             {/* Item Info */}
             <div className="flex-1">
               <div className="mb-4">
-                {process.env.NEXT_PUBLIC_DEBUG && <span className="text-red-500">{item.id}</span>}
-                <h1 className="text-foreground text-4xl font-bold">{item.name}</h1>
+                {process.env.NEXT_PUBLIC_DEBUG && (
+                  <span className="text-red-500">{item.id}</span>
+                )}
+                <h1 className="text-foreground text-4xl font-bold">
+                  {item.name}
+                </h1>
                 <div className="mt-2 flex flex-wrap gap-2">
                   <Badge variant="outline" className={tierColor}>
                     Tier {item.tier > 0 ? item.tier : 'None'}

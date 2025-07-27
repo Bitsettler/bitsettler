@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { InteriorPortalConnectionsDesc as __InteriorPortalConnectionsDesc } from './interior_portal_connections_desc_type'
 
@@ -26,16 +31,28 @@ export namespace StageInteriorPortalConnectionsDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageInteriorPortalConnectionsDesc): void {
-    StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageInteriorPortalConnectionsDesc
+  ): void {
+    StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): StageInteriorPortalConnectionsDesc {
-    return StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): StageInteriorPortalConnectionsDesc {
+    return StageInteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

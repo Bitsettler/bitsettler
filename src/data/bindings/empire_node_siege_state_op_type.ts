@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireNodeSiegeState as __EmpireNodeSiegeState } from './empire_node_siege_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,43 @@ export namespace EmpireNodeSiegeStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireNodeSiegeState): EmpireNodeSiegeStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpireNodeSiegeState): EmpireNodeSiegeStateOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __EmpireNodeSiegeState
+  ): EmpireNodeSiegeStateOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __EmpireNodeSiegeState
+  ): EmpireNodeSiegeStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __EmpireNodeSiegeState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __EmpireNodeSiegeState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __EmpireNodeSiegeState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __EmpireNodeSiegeState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNodeSiegeStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNodeSiegeStateOp
+  ): void {
     EmpireNodeSiegeStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireNodeSiegeStateOp {
-    return EmpireNodeSiegeStateOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireNodeSiegeStateOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `EmpireNodeSiegeStateOp`.
-export type EmpireNodeSiegeStateOp = EmpireNodeSiegeStateOp.Insert | EmpireNodeSiegeStateOp.Delete
+export type EmpireNodeSiegeStateOp =
+  | EmpireNodeSiegeStateOp.Insert
+  | EmpireNodeSiegeStateOp.Delete
 
 export default EmpireNodeSiegeStateOp

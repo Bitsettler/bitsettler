@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuildingPortalDesc = {
   id: number
   name: string
@@ -29,13 +34,19 @@ export namespace BuildingPortalDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('allowDeployables', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'allowDeployables',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('posX', AlgebraicType.createI32Type()),
       new ProductTypeElement('posZ', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingPortalDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingPortalDesc
+  ): void {
     BuildingPortalDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

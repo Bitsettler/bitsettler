@@ -75,11 +75,15 @@ export class IdentityRoleTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: IdentityRole, newRow: IdentityRole) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: IdentityRole, newRow: IdentityRole) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: IdentityRole, newRow: IdentityRole) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: IdentityRole, newRow: IdentityRole) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

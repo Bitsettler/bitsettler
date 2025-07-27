@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemType as __ItemType } from './item_type_type'
 
 export type InputItemStack = {
@@ -29,7 +34,10 @@ export namespace InputItemStack {
     return AlgebraicType.createProductType([
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('quantity', AlgebraicType.createI32Type()),
-      new ProductTypeElement('itemType', __ItemType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'itemType',
+        __ItemType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('discoveryScore', AlgebraicType.createI32Type()),
       new ProductTypeElement('consumptionChance', AlgebraicType.createF32Type())
     ])

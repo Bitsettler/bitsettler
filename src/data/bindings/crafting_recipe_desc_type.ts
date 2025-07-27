@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingRequirement as __BuildingRequirement } from './building_requirement_type'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { InputItemStack as __InputItemStack } from './input_item_stack_type'
@@ -53,30 +58,55 @@ export namespace CraftingRecipeDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('timeRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('staminaRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('toolDurabilityLost', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'staminaRequirement',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'toolDurabilityLost',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'buildingRequirement',
-        AlgebraicType.createOptionType(__BuildingRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __BuildingRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'toolRequirements',
-        AlgebraicType.createArrayType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedItemStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredClaimTechId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('fullDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'discoveryTriggers',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredClaimTechId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'fullDiscoveryScore',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'craftedItemStacks',
@@ -84,17 +114,35 @@ export namespace CraftingRecipeDesc {
       ),
       new ProductTypeElement('actionsRequired', AlgebraicType.createI32Type()),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('blockingKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('hideWithoutRequiredKnowledge', AlgebraicType.createBoolType()),
-      new ProductTypeElement('hideWithBlockingKnowledges', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'blockingKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'hideWithoutRequiredKnowledge',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'hideWithBlockingKnowledges',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('allowUseHands', AlgebraicType.createBoolType()),
       new ProductTypeElement('isPassive', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CraftingRecipeDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CraftingRecipeDesc
+  ): void {
     CraftingRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

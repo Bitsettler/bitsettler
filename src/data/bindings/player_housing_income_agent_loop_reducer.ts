@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerHousingIncomeLoopTimer as __PlayerHousingIncomeLoopTimer } from './player_housing_income_loop_timer_type'
 
@@ -24,15 +29,28 @@ export namespace PlayerHousingIncomeAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingIncomeAgentLoop): void {
-    PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingIncomeAgentLoop
+  ): void {
+    PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingIncomeAgentLoop {
-    return PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingIncomeAgentLoop {
+    return PlayerHousingIncomeAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -57,31 +57,47 @@ export class PlayerRegionTransferEventTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PlayerRegionTransferEvent) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: PlayerRegionTransferEvent, newRow: PlayerRegionTransferEvent) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerRegionTransferEvent,
+      newRow: PlayerRegionTransferEvent
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: PlayerRegionTransferEvent, newRow: PlayerRegionTransferEvent) => void
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerRegionTransferEvent,
+      newRow: PlayerRegionTransferEvent
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

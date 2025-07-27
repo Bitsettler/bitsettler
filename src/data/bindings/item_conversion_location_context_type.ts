@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ItemConversionLocationContext {
   // These are the generated variant types for each variant of the tagged union.
@@ -31,16 +36,28 @@ export namespace ItemConversionLocationContext {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ItemConversionLocationContext): void {
-    ItemConversionLocationContext.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ItemConversionLocationContext
+  ): void {
+    ItemConversionLocationContext.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ItemConversionLocationContext {
-    return ItemConversionLocationContext.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ItemConversionLocationContext {
+    return ItemConversionLocationContext.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `ItemConversionLocationContext`.
-export type ItemConversionLocationContext = ItemConversionLocationContext.None | ItemConversionLocationContext.Water
+export type ItemConversionLocationContext =
+  | ItemConversionLocationContext.None
+  | ItemConversionLocationContext.Water
 
 export default ItemConversionLocationContext

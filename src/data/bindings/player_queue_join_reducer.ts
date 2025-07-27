@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerQueueJoin = {}
 
@@ -22,7 +26,10 @@ export namespace PlayerQueueJoin {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerQueueJoin): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerQueueJoin
+  ): void {
     PlayerQueueJoin.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

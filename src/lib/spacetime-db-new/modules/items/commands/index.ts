@@ -5,4 +5,7 @@ export { getAllItems } from './get-all-items'
 export { getAllItemsUnfiltered } from './get-all-items-unfiltered'
 export { getConsumablesByTags } from './get-consumables-by-tags'
 export { getItemsByTagSlugs, getItemsByTags } from './get-items-by-tags'
-export { mapItemToCalculatorItem, transformItemsToCalculator } from './map-item-to-calculator'
+export {
+  mapItemToCalculatorItem,
+  transformItemsToCalculator
+} from './map-item-to-calculator'

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerPillarShapingPlaceRequest as __PlayerPillarShapingPlaceRequest } from './player_pillar_shaping_place_request_type'
 
@@ -24,15 +29,28 @@ export namespace CheatPillarShapingAddPillar {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatPillarShapingAddPillar): void {
-    CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatPillarShapingAddPillar
+  ): void {
+    CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatPillarShapingAddPillar {
-    return CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatPillarShapingAddPillar {
+    return CheatPillarShapingAddPillar.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

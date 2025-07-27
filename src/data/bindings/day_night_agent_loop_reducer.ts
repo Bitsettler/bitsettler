@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DayNightLoopTimer as __DayNightLoopTimer } from './day_night_loop_timer_type'
 
@@ -24,11 +29,17 @@ export namespace DayNightAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DayNightLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DayNightLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DayNightAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DayNightAgentLoop
+  ): void {
     DayNightAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

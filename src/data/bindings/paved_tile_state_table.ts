@@ -74,11 +74,23 @@ export class PavedTileStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PavedTileState, newRow: PavedTileState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PavedTileState,
+      newRow: PavedTileState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PavedTileState, newRow: PavedTileState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PavedTileState,
+      newRow: PavedTileState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

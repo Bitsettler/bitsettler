@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireClaimJoinMsg = {
   playerEntityId: bigint
   claimEntityId: bigint
@@ -27,13 +32,19 @@ export namespace EmpireClaimJoinMsg {
     return AlgebraicType.createProductType([
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('claimBuildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'claimBuildingEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('empireEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('claimName', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireClaimJoinMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireClaimJoinMsg
+  ): void {
     EmpireClaimJoinMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

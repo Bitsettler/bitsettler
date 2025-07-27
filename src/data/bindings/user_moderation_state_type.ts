@@ -37,15 +37,30 @@ export namespace UserModerationState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('createdByEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('userModerationPolicy', __UserModerationPolicy.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('createdTime', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('expirationTime', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'createdByEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'userModerationPolicy',
+        __UserModerationPolicy.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'createdTime',
+        AlgebraicType.createTimestampType()
+      ),
+      new ProductTypeElement(
+        'expirationTime',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('durationMs', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UserModerationState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: UserModerationState
+  ): void {
     UserModerationState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

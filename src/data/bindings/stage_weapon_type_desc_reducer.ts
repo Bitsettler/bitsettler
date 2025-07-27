@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { WeaponTypeDesc as __WeaponTypeDesc } from './weapon_type_desc_type'
 
@@ -24,11 +29,19 @@ export namespace StageWeaponTypeDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__WeaponTypeDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __WeaponTypeDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageWeaponTypeDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageWeaponTypeDesc
+  ): void {
     StageWeaponTypeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

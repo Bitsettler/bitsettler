@@ -37,11 +37,17 @@ export namespace EmpireNodeSiegeState {
       new ProductTypeElement('empireEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('energy', AlgebraicType.createI32Type()),
       new ProductTypeElement('active', AlgebraicType.createBoolType()),
-      new ProductTypeElement('startTimestamp', AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+      new ProductTypeElement(
+        'startTimestamp',
+        AlgebraicType.createOptionType(AlgebraicType.createTimestampType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNodeSiegeState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNodeSiegeState
+  ): void {
     EmpireNodeSiegeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

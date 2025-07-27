@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnvironmentDebuffLoopTimer as __EnvironmentDebuffLoopTimer } from './environment_debuff_loop_timer_type'
 
@@ -24,15 +29,28 @@ export namespace EnvironmentDebuffAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnvironmentDebuffAgentLoop): void {
-    EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnvironmentDebuffAgentLoop
+  ): void {
+    EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): EnvironmentDebuffAgentLoop {
-    return EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): EnvironmentDebuffAgentLoop {
+    return EnvironmentDebuffAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

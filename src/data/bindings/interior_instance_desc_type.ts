@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type InteriorInstanceDesc = {
   id: number
   interiorShapeId: number
@@ -41,8 +46,14 @@ export namespace InteriorInstanceDesc {
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('biome', AlgebraicType.createU8Type()),
       new ProductTypeElement('rentable', AlgebraicType.createBoolType()),
-      new ProductTypeElement('generateWallsMesh', AlgebraicType.createBoolType()),
-      new ProductTypeElement('generateFloorMesh', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'generateWallsMesh',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'generateFloorMesh',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('defaultLighting', AlgebraicType.createBoolType()),
       new ProductTypeElement('interiorModel', AlgebraicType.createStringType()),
       new ProductTypeElement('wallMaterial', AlgebraicType.createStringType()),
@@ -51,11 +62,17 @@ export namespace InteriorInstanceDesc {
       new ProductTypeElement('maxZoom', AlgebraicType.createF32Type()),
       new ProductTypeElement('minAngle', AlgebraicType.createF32Type()),
       new ProductTypeElement('maxAngle', AlgebraicType.createF32Type()),
-      new ProductTypeElement('intertiorEnvironmentId', AlgebraicType.createOptionType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'intertiorEnvironmentId',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorInstanceDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorInstanceDesc
+  ): void {
     InteriorInstanceDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

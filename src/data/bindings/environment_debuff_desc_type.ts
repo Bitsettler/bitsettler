@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EnvironmentResistanceType as __EnvironmentResistanceType } from './environment_resistance_type_type'
 
 export type EnvironmentDebuffDesc = {
@@ -30,20 +35,34 @@ export namespace EnvironmentDebuffDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buffId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resistanceType', __EnvironmentResistanceType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'resistanceType',
+        __EnvironmentResistanceType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('resistanceLevel', AlgebraicType.createI32Type()),
       new ProductTypeElement('groundDamage', AlgebraicType.createI32Type()),
       new ProductTypeElement('waterDamage', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resistanceUnmetText', AlgebraicType.createStringType()),
-      new ProductTypeElement('resistanceMetText', AlgebraicType.createStringType())
+      new ProductTypeElement(
+        'resistanceUnmetText',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'resistanceMetText',
+        AlgebraicType.createStringType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnvironmentDebuffDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnvironmentDebuffDesc
+  ): void {
     EnvironmentDebuffDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnvironmentDebuffDesc {
-    return EnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return EnvironmentDebuffDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

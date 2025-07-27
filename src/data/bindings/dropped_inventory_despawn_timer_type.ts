@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type DroppedInventoryDespawnTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   entityId: bigint
   startedAt: Timestamp
 }
@@ -32,17 +34,30 @@ export namespace DroppedInventoryDespawnTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('startedAt', AlgebraicType.createTimestampType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DroppedInventoryDespawnTimer): void {
-    DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DroppedInventoryDespawnTimer
+  ): void {
+    DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): DroppedInventoryDespawnTimer {
-    return DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): DroppedInventoryDespawnTimer {
+    return DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

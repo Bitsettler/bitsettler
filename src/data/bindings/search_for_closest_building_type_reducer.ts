@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type SearchForClosestBuildingType = {
   buildingTypeId: number
@@ -21,14 +26,26 @@ export namespace SearchForClosestBuildingType {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('buildingTypeId', AlgebraicType.createI32Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('buildingTypeId', AlgebraicType.createI32Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SearchForClosestBuildingType): void {
-    SearchForClosestBuildingType.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: SearchForClosestBuildingType
+  ): void {
+    SearchForClosestBuildingType.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): SearchForClosestBuildingType {
-    return SearchForClosestBuildingType.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): SearchForClosestBuildingType {
+    return SearchForClosestBuildingType.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

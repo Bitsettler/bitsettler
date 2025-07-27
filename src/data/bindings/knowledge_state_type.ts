@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace KnowledgeState {
   // These are the generated variant types for each variant of the tagged union.
@@ -44,6 +49,9 @@ export namespace KnowledgeState {
 }
 
 // The tagged union or sum type for the algebraic type `KnowledgeState`.
-export type KnowledgeState = KnowledgeState.Unknown | KnowledgeState.Discovered | KnowledgeState.Acquired
+export type KnowledgeState =
+  | KnowledgeState.Unknown
+  | KnowledgeState.Discovered
+  | KnowledgeState.Acquired
 
 export default KnowledgeState

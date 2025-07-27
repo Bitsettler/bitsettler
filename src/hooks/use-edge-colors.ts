@@ -2,7 +2,11 @@ import type { Edge, Node } from '@xyflow/react'
 import { useEdgesState } from '@xyflow/react'
 import { useEffect, useRef } from 'react'
 
-export const useEdgeColors = (nodes: Node[], edges: Edge[], setEdges: ReturnType<typeof useEdgesState>[1]) => {
+export const useEdgeColors = (
+  nodes: Node[],
+  edges: Edge[],
+  setEdges: ReturnType<typeof useEdgesState>[1]
+) => {
   // Track previous node states to prevent unnecessary edge updates
   const prevNodeStates = useRef<Map<string, boolean>>(new Map())
 
@@ -17,7 +21,8 @@ export const useEdgeColors = (nodes: Node[], edges: Edge[], setEdges: ReturnType
         const isDone = Boolean(node.data?.isDone)
         const isHovered = Boolean(node.data?.isHovered)
         const prevIsDone = prevNodeStates.current.get(node.id) || false
-        const prevIsHovered = prevNodeStates.current.get(`${node.id}-hover`) || false
+        const prevIsHovered =
+          prevNodeStates.current.get(`${node.id}-hover`) || false
         currentNodeStates.set(node.id, isDone)
         currentNodeStates.set(`${node.id}-hover`, isHovered)
 

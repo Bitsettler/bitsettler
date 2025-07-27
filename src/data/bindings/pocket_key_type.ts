@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PocketKey = {
   inventoryEntityId: bigint
   pocketIndex: number
@@ -22,7 +27,10 @@ export namespace PocketKey {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('inventoryEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'inventoryEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type())
     ])
   }

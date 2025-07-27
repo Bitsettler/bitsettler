@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type EnvironmentDebuffLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
 }
 
 /**
@@ -30,15 +32,28 @@ export namespace EnvironmentDebuffLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType())
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnvironmentDebuffLoopTimer): void {
-    EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnvironmentDebuffLoopTimer
+  ): void {
+    EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): EnvironmentDebuffLoopTimer {
-    return EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): EnvironmentDebuffLoopTimer {
+    return EnvironmentDebuffLoopTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

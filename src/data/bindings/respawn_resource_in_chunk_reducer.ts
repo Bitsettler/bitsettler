@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { RespawnResourceInChunkTimer as __RespawnResourceInChunkTimer } from './respawn_resource_in_chunk_timer_type'
 
@@ -24,15 +29,23 @@ export namespace RespawnResourceInChunk {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __RespawnResourceInChunkTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __RespawnResourceInChunkTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RespawnResourceInChunk): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RespawnResourceInChunk
+  ): void {
     RespawnResourceInChunk.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RespawnResourceInChunk {
-    return RespawnResourceInChunk.getTypeScriptAlgebraicType().deserialize(reader)
+    return RespawnResourceInChunk.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

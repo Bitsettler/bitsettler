@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { TraversalSettings as __TraversalSettings } from './traversal_settings_type'
 
 export type PathfindingTraversalOption = {
@@ -24,16 +29,32 @@ export namespace PathfindingTraversalOption {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('maxElevationDifference', AlgebraicType.createI32Type()),
-      new ProductTypeElement('moveType', __TraversalSettings.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'maxElevationDifference',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'moveType',
+        __TraversalSettings.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PathfindingTraversalOption): void {
-    PathfindingTraversalOption.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PathfindingTraversalOption
+  ): void {
+    PathfindingTraversalOption.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PathfindingTraversalOption {
-    return PathfindingTraversalOption.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PathfindingTraversalOption {
+    return PathfindingTraversalOption.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -16,7 +16,10 @@ export interface WeaponCategory {
 /**
  * Weapon category metadata - maps item tags to UI categories
  */
-const weaponCategoryMetadata: Record<string, Omit<WeaponCategory, 'count' | 'firstWeapon'>> = {
+const weaponCategoryMetadata: Record<
+  string,
+  Omit<WeaponCategory, 'count' | 'firstWeapon'>
+> = {
   Weapon: {
     id: 'weapon',
     name: 'All Weapons',
@@ -33,7 +36,10 @@ export function getWeaponCategories(): WeaponCategory[] {
   const weapons = getAllWeapons()
 
   // Group weapons by their tag
-  const weaponsByTag: Record<string, { count: number; firstWeapon?: (typeof weapons)[0] }> = {}
+  const weaponsByTag: Record<
+    string,
+    { count: number; firstWeapon?: (typeof weapons)[0] }
+  > = {}
 
   weapons.forEach((weapon) => {
     if (!weaponsByTag[weapon.tag]) {

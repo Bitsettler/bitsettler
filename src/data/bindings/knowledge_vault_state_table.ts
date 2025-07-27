@@ -62,7 +62,9 @@ export class KnowledgeVaultStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeVaultState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeVaultState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgeVaultStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeVaultState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeVaultState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgeVaultState, newRow: KnowledgeVaultState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeVaultState,
+      newRow: KnowledgeVaultState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgeVaultState, newRow: KnowledgeVaultState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeVaultState,
+      newRow: KnowledgeVaultState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

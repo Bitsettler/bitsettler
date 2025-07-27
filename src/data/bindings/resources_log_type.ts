@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CommonRng as __CommonRng } from './common_rng_type'
 import { ResourceClumpInfo as __ResourceClumpInfo } from './resource_clump_info_type'
 import { ResourceInfo as __ResourceInfo } from './resource_info_type'
@@ -35,9 +40,16 @@ export namespace ResourcesLog {
       new ProductTypeElement('worldHeight', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'resourceClumps',
-        AlgebraicType.createArrayType(__ResourceClumpInfo.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ResourceClumpInfo.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('resources', AlgebraicType.createArrayType(__ResourceInfo.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'resources',
+        AlgebraicType.createArrayType(
+          __ResourceInfo.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('random', __CommonRng.getTypeScriptAlgebraicType())
     ])
   }

@@ -13,11 +13,15 @@ export async function fetchCommunityBiomeData(): Promise<BiomeResourceMap> {
     const csvText = await fetchFromGoogleSheets()
     return parseCommunityCSV(csvText)
   } catch (error) {
-    console.warn('Failed to fetch from Google Sheets, falling back to local CSV:', error)
+    console.warn(
+      'Failed to fetch from Google Sheets, falling back to local CSV:',
+      error
+    )
 
     try {
       // Fallback to local CSV file
-      const csvPath = '/src/data/crowd-sourced/Bitcraft Biome Diversity - Biome Diversity.csv'
+      const csvPath =
+        '/src/data/crowd-sourced/Bitcraft Biome Diversity - Biome Diversity.csv'
       const fs = await import('fs/promises')
       const path = await import('path')
 
@@ -25,7 +29,10 @@ export async function fetchCommunityBiomeData(): Promise<BiomeResourceMap> {
       const csvText = await fs.readFile(filePath, 'utf-8')
       return parseCommunityCSV(csvText)
     } catch (fallbackError) {
-      console.warn('Failed to fetch community biome data from both live and local sources:', fallbackError)
+      console.warn(
+        'Failed to fetch community biome data from both live and local sources:',
+        fallbackError
+      )
       return {}
     }
   }
@@ -47,7 +54,9 @@ async function fetchFromGoogleSheets(): Promise<string> {
   })
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch Google Sheets CSV: ${response.status} ${response.statusText}`)
+    throw new Error(
+      `Failed to fetch Google Sheets CSV: ${response.status} ${response.statusText}`
+    )
   }
 
   return response.text()
@@ -106,13 +115,20 @@ function parseCommunityCSV(csvText: string): BiomeResourceMap {
     let tier: string | null = null
 
     // Check if first cell explicitly contains tier
-    if (inBiomeSection && currentBiome && cells[0] && cells[0].match(/^T\d+$/)) {
+    if (
+      inBiomeSection &&
+      currentBiome &&
+      cells[0] &&
+      cells[0].match(/^T\d+$/)
+    ) {
       tier = cells[0]
     }
     // Or check if this looks like a tier row based on content pattern (T1, T2 in multiple columns)
     else if (inBiomeSection && currentBiome && cells.length > 8) {
       // Look for tier patterns in the data columns (multiple T1, T2, etc.)
-      const tierMatches = cells.slice(0, 15).filter((cell) => cell && cell.match(/^T\d+$/))
+      const tierMatches = cells
+        .slice(0, 15)
+        .filter((cell) => cell && cell.match(/^T\d+$/))
       if (tierMatches.length >= 1) {
         // Changed from >= 3 to >= 1 to catch single T1 entries
         // Use the most common tier in this row
@@ -130,23 +146,25 @@ function parseCommunityCSV(csvText: string): BiomeResourceMap {
       // console.log(`Processing ${tier} row in ${currentBiome}`)
 
       // Check each resource column for tier availability
-      Object.entries(RESOURCE_COLUMNS).forEach(([resourceType, columnIndex]) => {
-        const cellValue = cells[columnIndex]
+      Object.entries(RESOURCE_COLUMNS).forEach(
+        ([resourceType, columnIndex]) => {
+          const cellValue = cells[columnIndex]
 
-        // If the cell contains the tier (T1, T2, etc.), this resource is available
-        if (cellValue && cellValue.trim() === tier) {
-          if (!biomeMap[currentBiome][resourceType]) {
-            biomeMap[currentBiome][resourceType] = []
-          }
+          // If the cell contains the tier (T1, T2, etc.), this resource is available
+          if (cellValue && cellValue.trim() === tier) {
+            if (!biomeMap[currentBiome][resourceType]) {
+              biomeMap[currentBiome][resourceType] = []
+            }
 
-          if (!biomeMap[currentBiome][resourceType].includes(tier)) {
-            biomeMap[currentBiome][resourceType].push(tier)
+            if (!biomeMap[currentBiome][resourceType].includes(tier)) {
+              biomeMap[currentBiome][resourceType].push(tier)
 
-            // Track resource discoveries for debugging if needed
-            // console.log(`Found ${tier} ${resourceType} in biome: "${currentBiome}"`)
+              // Track resource discoveries for debugging if needed
+              // console.log(`Found ${tier} ${resourceType} in biome: "${currentBiome}"`)
+            }
           }
         }
-      })
+      )
     }
 
     // End biome section when we hit another biome or multiple consecutive empty lines
@@ -351,7 +369,10 @@ export function getBiomesForResourceTag(
 
   // Find biomes where this resource type and tier are available
   for (const [biome, resources] of Object.entries(communityData)) {
-    if (resources[communityType] && resources[communityType].includes(communityTier)) {
+    if (
+      resources[communityType] &&
+      resources[communityType].includes(communityTier)
+    ) {
       biomes.push(biome)
     }
   }

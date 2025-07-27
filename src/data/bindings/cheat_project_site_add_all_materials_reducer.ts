@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type CheatProjectSiteAddAllMaterials = {
   projectSiteEntityId: bigint
@@ -22,15 +27,28 @@ export namespace CheatProjectSiteAddAllMaterials {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('projectSiteEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'projectSiteEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatProjectSiteAddAllMaterials): void {
-    CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatProjectSiteAddAllMaterials
+  ): void {
+    CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatProjectSiteAddAllMaterials {
-    return CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatProjectSiteAddAllMaterials {
+    return CheatProjectSiteAddAllMaterials.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

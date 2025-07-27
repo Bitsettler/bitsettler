@@ -18,10 +18,41 @@ export interface ResourceTagMetadata {
  */
 const SECTIONS_TO_TAGS: Record<string, string[]> = {
   'Trees & Lumber': ['Tree', 'Wood Logs', 'Sapling', 'Stick', 'Stump'],
-  'Forage & Plants': ['Berry', 'Fruit', 'Flower', 'Mushroom', 'Fiber Plant', 'Wild Grain', 'Wild Vegetable', 'Insects'],
-  'Minerals & Stone': ['Rock', 'Rock Boulder', 'Rock Outcrop', 'Clay', 'Sand', 'Salt', 'Ore Vein', 'Metal Outcrop'],
-  'Aquatic Resources': ['Ocean Fish School', 'Lake Fish School', 'Chummed Ocean Fish School', 'Baitfish', 'Mollusks'],
-  'Special Resources': ['Monster Den', 'Wonder Resource', 'Energy Font', 'Research', 'Note', 'Bones'],
+  'Forage & Plants': [
+    'Berry',
+    'Fruit',
+    'Flower',
+    'Mushroom',
+    'Fiber Plant',
+    'Wild Grain',
+    'Wild Vegetable',
+    'Insects'
+  ],
+  'Minerals & Stone': [
+    'Rock',
+    'Rock Boulder',
+    'Rock Outcrop',
+    'Clay',
+    'Sand',
+    'Salt',
+    'Ore Vein',
+    'Metal Outcrop'
+  ],
+  'Aquatic Resources': [
+    'Ocean Fish School',
+    'Lake Fish School',
+    'Chummed Ocean Fish School',
+    'Baitfish',
+    'Mollusks'
+  ],
+  'Special Resources': [
+    'Monster Den',
+    'Wonder Resource',
+    'Energy Font',
+    'Research',
+    'Note',
+    'Bones'
+  ],
   'Interactive Objects': ['Door', 'Obstacle', 'Depleted Resource']
 }
 

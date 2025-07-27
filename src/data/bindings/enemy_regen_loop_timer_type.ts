@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type EnemyRegenLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
 }
 
 /**
@@ -30,11 +32,17 @@ export namespace EnemyRegenLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType())
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyRegenLoopTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyRegenLoopTimer
+  ): void {
     EnemyRegenLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

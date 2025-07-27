@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { MessageContents as __MessageContents } from './message_contents_type'
 
 export type InterModuleMessage = {
@@ -27,11 +32,17 @@ export namespace InterModuleMessage {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createU64Type()),
       new ProductTypeElement('to', AlgebraicType.createU8Type()),
-      new ProductTypeElement('contents', __MessageContents.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'contents',
+        __MessageContents.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InterModuleMessage): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InterModuleMessage
+  ): void {
     InterModuleMessage.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

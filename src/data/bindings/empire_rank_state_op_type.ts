@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireRankState as __EmpireRankState } from './empire_rank_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace EmpireRankStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireRankState): EmpireRankStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpireRankState): EmpireRankStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __EmpireRankState): EmpireRankStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __EmpireRankState): EmpireRankStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __EmpireRankState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __EmpireRankState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __EmpireRankState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __EmpireRankState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireRankStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireRankStateOp
+  ): void {
     EmpireRankStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace EmpireRankStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `EmpireRankStateOp`.
-export type EmpireRankStateOp = EmpireRankStateOp.Insert | EmpireRankStateOp.Delete
+export type EmpireRankStateOp =
+  | EmpireRankStateOp.Insert
+  | EmpireRankStateOp.Delete
 
 export default EmpireRankStateOp

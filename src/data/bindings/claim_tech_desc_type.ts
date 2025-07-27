@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type ClaimTechDesc = {
@@ -38,8 +43,14 @@ export namespace ClaimTechDesc {
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('suppliesCost', AlgebraicType.createI32Type()),
       new ProductTypeElement('researchTime', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requirements', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('input', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'requirements',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'input',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('members', AlgebraicType.createI32Type()),
       new ProductTypeElement('area', AlgebraicType.createI32Type()),
       new ProductTypeElement('supplies', AlgebraicType.createI32Type()),

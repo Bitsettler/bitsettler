@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ClothingVisual as __ClothingVisual } from './clothing_visual_type'
 import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 import { EquipmentSlotType as __EquipmentSlotType } from './equipment_slot_type_type'
@@ -37,23 +42,48 @@ export namespace EquipmentDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('slots', AlgebraicType.createArrayType(__EquipmentSlotType.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('visualType', __EquipmentVisualType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'slots',
+        AlgebraicType.createArrayType(
+          __EquipmentSlotType.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'visualType',
+        __EquipmentVisualType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'levelRequirement',
-        AlgebraicType.createOptionType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'clothingVisual',
-        AlgebraicType.createOptionType(__ClothingVisual.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __ClothingVisual.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'handEquipmentVisual',
-        AlgebraicType.createOptionType(__HandEquipmentVisual.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __HandEquipmentVisual.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('stats', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('requiredAchievements', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'stats',
+        AlgebraicType.createArrayType(
+          __CsvStatEntry.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'requiredAchievements',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 

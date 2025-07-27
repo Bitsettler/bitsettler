@@ -12,7 +12,10 @@ interface CalculatorPageProps {
   }>
 }
 
-export default async function Calculator({ params, searchParams }: CalculatorPageProps) {
+export default async function Calculator({
+  params,
+  searchParams
+}: CalculatorPageProps) {
   const { slug } = await params
   const { qty } = await searchParams
 

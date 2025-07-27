@@ -74,11 +74,23 @@ export class PermissionStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PermissionState, newRow: PermissionState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PermissionState,
+      newRow: PermissionState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PermissionState, newRow: PermissionState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PermissionState,
+      newRow: PermissionState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

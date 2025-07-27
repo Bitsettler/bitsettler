@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenMountain as __WorldGenMountain } from './world_gen_mountain_type'
 
 export type WorldGenMountainsMapDefinition = {
@@ -25,16 +30,28 @@ export namespace WorldGenMountainsMapDefinition {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'mountains',
-        AlgebraicType.createArrayType(__WorldGenMountain.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenMountain.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenMountainsMapDefinition): void {
-    WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenMountainsMapDefinition
+  ): void {
+    WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenMountainsMapDefinition {
-    return WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenMountainsMapDefinition {
+    return WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

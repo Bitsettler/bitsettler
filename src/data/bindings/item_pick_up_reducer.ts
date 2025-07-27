@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerDroppedInventoryPickUpRequest as __PlayerDroppedInventoryPickUpRequest } from './player_dropped_inventory_pick_up_request_type'
 
@@ -24,7 +29,10 @@ export namespace ItemPickUp {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerDroppedInventoryPickUpRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerActionLayer as __PlayerActionLayer } from './player_action_layer_type'
 import { PlayerActionResult as __PlayerActionResult } from './player_action_result_type'
@@ -30,17 +35,31 @@ export namespace PlayerClearActionState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('actorId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('currentAction', __PlayerActionType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('layer', __PlayerActionLayer.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('lastActionResult', __PlayerActionResult.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'currentAction',
+        __PlayerActionType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'layer',
+        __PlayerActionLayer.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'lastActionResult',
+        __PlayerActionResult.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClearActionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClearActionState
+  ): void {
     PlayerClearActionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerClearActionState {
-    return PlayerClearActionState.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerClearActionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

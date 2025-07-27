@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerBarterStallOrderCreateRequest as __PlayerBarterStallOrderCreateRequest } from './player_barter_stall_order_create_request_type'
 
@@ -24,15 +29,23 @@ export namespace BarterStallOrderCreate {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerBarterStallOrderCreateRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BarterStallOrderCreate): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BarterStallOrderCreate
+  ): void {
     BarterStallOrderCreate.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BarterStallOrderCreate {
-    return BarterStallOrderCreate.getTypeScriptAlgebraicType().deserialize(reader)
+    return BarterStallOrderCreate.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ProgressiveActionStatus {
   // These are the generated variant types for each variant of the tagged union.
@@ -37,12 +42,20 @@ export namespace ProgressiveActionStatus {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProgressiveActionStatus): void {
-    ProgressiveActionStatus.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProgressiveActionStatus
+  ): void {
+    ProgressiveActionStatus.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ProgressiveActionStatus {
-    return ProgressiveActionStatus.getTypeScriptAlgebraicType().deserialize(reader)
+    return ProgressiveActionStatus.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 

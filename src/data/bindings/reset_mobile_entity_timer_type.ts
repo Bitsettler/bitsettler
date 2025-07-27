@@ -19,7 +19,9 @@ import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coo
 
 export type ResetMobileEntityTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   ownerEntityId: bigint
   position: __OffsetCoordinatesFloat | undefined
   strikeCounterToUpdate: __MoveValidationStrikeCounterState | undefined
@@ -36,24 +38,36 @@ export namespace ResetMobileEntityTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'position',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'strikeCounterToUpdate',
-        AlgebraicType.createOptionType(__MoveValidationStrikeCounterState.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __MoveValidationStrikeCounterState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResetMobileEntityTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResetMobileEntityTimer
+  ): void {
     ResetMobileEntityTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ResetMobileEntityTimer {
-    return ResetMobileEntityTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return ResetMobileEntityTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

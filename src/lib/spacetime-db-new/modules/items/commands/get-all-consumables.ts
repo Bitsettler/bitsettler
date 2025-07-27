@@ -8,5 +8,8 @@ export function getAllConsumables() {
   const consumableTags = getAllConsumableTags()
   const items = getAllItems()
 
-  return items.filter((item) => item.compendiumEntry && item.tag && consumableTags.includes(item.tag))
+  return items.filter(
+    (item) =>
+      item.compendiumEntry && item.tag && consumableTags.includes(item.tag)
+  )
 }

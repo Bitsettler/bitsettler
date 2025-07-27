@@ -1,6 +1,15 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface BuildingCategory {
@@ -20,7 +29,9 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
             <div className="flex items-center gap-3">
               <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
                 <Image
-                  src={getServerIconPath(cleanIconAssetName(category.iconAssetName))}
+                  src={getServerIconPath(
+                    cleanIconAssetName(category.iconAssetName)
+                  )}
                   alt={category.name}
                   width={44}
                   height={44}
@@ -28,13 +39,17 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
         </CardContent>
       </Card>
     </Link>
@@ -47,7 +62,8 @@ export function BuildingsSection() {
       id: 'buildings',
       name: 'Buildings',
       description: 'Structures, facilities, and architectural constructions',
-      iconAssetName: 'GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium',
+      iconAssetName:
+        'GeneratedIcons/Other/Buildings/Enterable/EnterableT1Medium',
       href: '/compendium/buildings'
     },
     {
@@ -63,7 +79,9 @@ export function BuildingsSection() {
     <div className="space-y-8">
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Buildings & Structures</h2>
-        <p className="text-muted-foreground">Browse building categories and construction documents</p>
+        <p className="text-muted-foreground">
+          Browse building categories and construction documents
+        </p>
       </div>
       <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {buildingCategories.map((category) => (

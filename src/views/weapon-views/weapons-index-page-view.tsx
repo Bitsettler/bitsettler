@@ -5,11 +5,21 @@ import { SortableTableHeader } from '@/components/sortable-table-header'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
 import { Link } from '@/i18n/navigation'
 import type { WeaponGroup } from '@/lib/spacetime-db-new/modules/weapons/flows'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import Image from 'next/image'
@@ -63,15 +73,24 @@ function getValue(obj: unknown, path: string): unknown {
   }, obj)
 }
 
-export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps) {
+export function WeaponsView({
+  title,
+  subtitle,
+  weaponGroups
+}: WeaponsViewProps) {
   // Sorting state for each group
-  const [sortStates, setSortStates] = useState<Record<string, { key: string; direction: 'asc' | 'desc' } | null>>({})
+  const [sortStates, setSortStates] = useState<
+    Record<string, { key: string; direction: 'asc' | 'desc' } | null>
+  >({})
 
   // Function to handle sorting for a specific group
   const handleSort = (groupName: string, sortKey: string) => {
     setSortStates((prev) => {
       const currentSort = prev[groupName]
-      const newDirection = currentSort?.key === sortKey && currentSort.direction === 'asc' ? 'desc' : 'asc'
+      const newDirection =
+        currentSort?.key === sortKey && currentSort.direction === 'asc'
+          ? 'desc'
+          : 'asc'
 
       return {
         ...prev,
@@ -115,7 +134,9 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
           const bValue = getValue(b, sortState.key) as string | number
 
           if (typeof aValue === 'string' && typeof bValue === 'string') {
-            const comparison = aValue.toLowerCase().localeCompare(bValue.toLowerCase())
+            const comparison = aValue
+              .toLowerCase()
+              .localeCompare(bValue.toLowerCase())
             return sortState.direction === 'asc' ? comparison : -comparison
           } else if (typeof aValue === 'number' && typeof bValue === 'number') {
             const comparison = aValue - bValue
@@ -133,11 +154,36 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
       const columns: TableColumn[] = [
         { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-        { key: 'minDamage', label: 'Min Damage', sortable: true, className: 'text-center' },
-        { key: 'maxDamage', label: 'Max Damage', sortable: true, className: 'text-center' },
-        { key: 'cooldown', label: 'Cooldown (s)', sortable: true, className: 'text-center' },
-        { key: 'staminaMultiplier', label: 'Stamina Multiplier', sortable: true, className: 'text-center' }
+        {
+          key: 'tier',
+          label: 'Tier',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'minDamage',
+          label: 'Min Damage',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'maxDamage',
+          label: 'Max Damage',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'cooldown',
+          label: 'Cooldown (s)',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'staminaMultiplier',
+          label: 'Stamina Multiplier',
+          sortable: true,
+          className: 'text-center'
+        }
       ]
 
       return {
@@ -174,7 +220,10 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
     rarity: (item: WeaponItem) => {
       const rarityTag = item.rarity.tag.toLowerCase()
       return (
-        <Badge variant="outline" className={`capitalize ${getRarityColor(rarityTag)}`}>
+        <Badge
+          variant="outline"
+          className={`capitalize ${getRarityColor(rarityTag)}`}
+        >
           {item.rarity.tag}
         </Badge>
       )
@@ -206,7 +255,9 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
                   <div>
                     <div className="capitalize">{group.name}</div>
                     {group.subtitle && (
-                      <div className="text-muted-foreground mt-1 text-sm font-normal">{group.subtitle}</div>
+                      <div className="text-muted-foreground mt-1 text-sm font-normal">
+                        {group.subtitle}
+                      </div>
                     )}
                   </div>
                   <Badge variant="secondary">{group.items.length} items</Badge>
@@ -225,13 +276,17 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
                               currentSort={sortStates[group.name]}
                               onSort={(key) => handleSort(group.name, key)}
                               className={
-                                column.className || 'hover:bg-accent/50 cursor-pointer text-center transition-colors'
+                                column.className ||
+                                'hover:bg-accent/50 cursor-pointer text-center transition-colors'
                               }
                             >
                               {column.label}
                             </SortableTableHeader>
                           ) : (
-                            <TableHead key={column.key} className={column.className || 'text-center'}>
+                            <TableHead
+                              key={column.key}
+                              className={column.className || 'text-center'}
+                            >
                               {column.label}
                             </TableHead>
                           )
@@ -244,15 +299,25 @@ export function WeaponsView({ title, subtitle, weaponGroups }: WeaponsViewProps)
                         const itemLink = `/compendium/weapon/${itemSlug}`
 
                         return (
-                          <TableRow key={item.id || index} className="hover:bg-muted/50 cursor-pointer">
+                          <TableRow
+                            key={item.id || index}
+                            className="hover:bg-muted/50 cursor-pointer"
+                          >
                             {group.columns.map((column) => (
-                              <TableCell key={column.key} className="p-0 text-center">
+                              <TableCell
+                                key={column.key}
+                                className="p-0 text-center"
+                              >
                                 <Link
                                   href={itemLink}
                                   className="block h-full w-full p-2 text-inherit hover:text-inherit"
                                 >
-                                  {defaultRenders[column.key as keyof typeof defaultRenders]
-                                    ? defaultRenders[column.key as keyof typeof defaultRenders](item)
+                                  {defaultRenders[
+                                    column.key as keyof typeof defaultRenders
+                                  ]
+                                    ? defaultRenders[
+                                        column.key as keyof typeof defaultRenders
+                                      ](item)
                                     : String(getValue(item, column.key) || '')}
                                 </Link>
                               </TableCell>

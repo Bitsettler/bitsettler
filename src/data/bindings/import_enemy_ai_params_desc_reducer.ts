@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemyAiParamsDesc as __EnemyAiParamsDesc } from './enemy_ai_params_desc_type'
 
@@ -24,15 +29,28 @@ export namespace ImportEnemyAiParamsDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__EnemyAiParamsDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __EnemyAiParamsDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportEnemyAiParamsDesc): void {
-    ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportEnemyAiParamsDesc
+  ): void {
+    ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ImportEnemyAiParamsDesc {
-    return ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportEnemyAiParamsDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

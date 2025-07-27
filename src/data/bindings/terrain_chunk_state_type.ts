@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TerrainChunkState = {
   chunkIndex: bigint
   chunkX: number
@@ -35,17 +40,41 @@ export namespace TerrainChunkState {
       new ProductTypeElement('chunkX', AlgebraicType.createI32Type()),
       new ProductTypeElement('chunkZ', AlgebraicType.createI32Type()),
       new ProductTypeElement('dimension', AlgebraicType.createU32Type()),
-      new ProductTypeElement('biomes', AlgebraicType.createArrayType(AlgebraicType.createU32Type())),
-      new ProductTypeElement('biomeDensity', AlgebraicType.createArrayType(AlgebraicType.createU32Type())),
-      new ProductTypeElement('elevations', AlgebraicType.createArrayType(AlgebraicType.createI16Type())),
-      new ProductTypeElement('waterLevels', AlgebraicType.createArrayType(AlgebraicType.createI16Type())),
-      new ProductTypeElement('waterBodyTypes', AlgebraicType.createArrayType(AlgebraicType.createU8Type())),
-      new ProductTypeElement('zoningTypes', AlgebraicType.createArrayType(AlgebraicType.createU8Type())),
-      new ProductTypeElement('originalElevations', AlgebraicType.createArrayType(AlgebraicType.createI16Type()))
+      new ProductTypeElement(
+        'biomes',
+        AlgebraicType.createArrayType(AlgebraicType.createU32Type())
+      ),
+      new ProductTypeElement(
+        'biomeDensity',
+        AlgebraicType.createArrayType(AlgebraicType.createU32Type())
+      ),
+      new ProductTypeElement(
+        'elevations',
+        AlgebraicType.createArrayType(AlgebraicType.createI16Type())
+      ),
+      new ProductTypeElement(
+        'waterLevels',
+        AlgebraicType.createArrayType(AlgebraicType.createI16Type())
+      ),
+      new ProductTypeElement(
+        'waterBodyTypes',
+        AlgebraicType.createArrayType(AlgebraicType.createU8Type())
+      ),
+      new ProductTypeElement(
+        'zoningTypes',
+        AlgebraicType.createArrayType(AlgebraicType.createU8Type())
+      ),
+      new ProductTypeElement(
+        'originalElevations',
+        AlgebraicType.createArrayType(AlgebraicType.createI16Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TerrainChunkState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TerrainChunkState
+  ): void {
     TerrainChunkState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

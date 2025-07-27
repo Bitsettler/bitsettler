@@ -28,7 +28,9 @@ export function CalculatorHeader({
   const { saveCalculator } = useCalculatorSaves()
   const { getNodes, getEdges } = useReactFlow()
 
-  const handleQuantityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleQuantityInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newQuantity = parseInt(e.target.value) || 1
     onQuantityChange(newQuantity)
   }
@@ -54,7 +56,9 @@ export function CalculatorHeader({
 
     try {
       saveCalculator(selectedItem.slug, desiredQuantity, nodes, edges)
-      toast.success(`Calculator saved! Saved "${selectedItem.name}" with ${desiredQuantity}x quantity.`)
+      toast.success(
+        `Calculator saved! Saved "${selectedItem.name}" with ${desiredQuantity}x quantity.`
+      )
     } catch {
       toast.error('Save failed: Failed to save calculator state.')
     }
@@ -232,7 +236,11 @@ export function CalculatorHeader({
     <div className="bg-background/95 supports-[backdrop-filter]:bg-background/60 flex items-center gap-4 p-4 pb-0 backdrop-blur">
       {/* Search Combo Box */}
       <div className="w-80">
-        <CalculatorSearchInput items={items} selectedItem={selectedItem} onItemSelect={onItemSelect} />
+        <CalculatorSearchInput
+          items={items}
+          selectedItem={selectedItem}
+          onItemSelect={onItemSelect}
+        />
       </div>
 
       <div className="text-sm">X</div>
@@ -256,14 +264,23 @@ export function CalculatorHeader({
       {selectedItem && (
         <div className="flex items-center gap-2">
           {selectedItem.tier > 0 && (
-            <Badge variant="outline" className={getTierColor(selectedItem.tier)}>
+            <Badge
+              variant="outline"
+              className={getTierColor(selectedItem.tier)}
+            >
               Tier {selectedItem.tier}
             </Badge>
           )}
-          <Badge variant="outline" className={getRarityColor(selectedItem.rarity)}>
+          <Badge
+            variant="outline"
+            className={getRarityColor(selectedItem.rarity)}
+          >
             {selectedItem.rarity}
           </Badge>
-          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+          <Badge
+            variant="outline"
+            className="border-blue-200 bg-blue-50 text-blue-700"
+          >
             {selectedItem.category}
           </Badge>
         </div>

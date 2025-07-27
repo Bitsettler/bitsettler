@@ -74,11 +74,15 @@ export class ElevatorDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ElevatorDesc, newRow: ElevatorDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ElevatorDesc, newRow: ElevatorDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ElevatorDesc, newRow: ElevatorDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ElevatorDesc, newRow: ElevatorDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

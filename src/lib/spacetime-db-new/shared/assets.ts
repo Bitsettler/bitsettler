@@ -18,12 +18,20 @@ export function getServerIconPath(iconAssetName: string | undefined): string {
 /**
  * Clean icon asset name by removing redundant prefixes
  */
-export function cleanIconAssetName(iconAssetName: string | undefined): string | undefined {
+export function cleanIconAssetName(
+  iconAssetName: string | undefined
+): string | undefined {
   if (!iconAssetName) return undefined
 
   // Fix the common issue where "GeneratedIcons/Other/GeneratedIcons" is duplicated
-  let cleanPath = iconAssetName.replace('GeneratedIcons/Other/GeneratedIcons/Other/', 'GeneratedIcons/Other/')
-  cleanPath = cleanPath.replace('GeneratedIcons/Other/GeneratedIcons', 'GeneratedIcons')
+  let cleanPath = iconAssetName.replace(
+    'GeneratedIcons/Other/GeneratedIcons/Other/',
+    'GeneratedIcons/Other/'
+  )
+  cleanPath = cleanPath.replace(
+    'GeneratedIcons/Other/GeneratedIcons',
+    'GeneratedIcons'
+  )
 
   // Handle specific cosmetic item path fixes
   if (cleanPath === 'Items/LeatherBonnet') {

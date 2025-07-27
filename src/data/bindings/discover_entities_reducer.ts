@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerDiscoverEntitiesRequest as __PlayerDiscoverEntitiesRequest } from './player_discover_entities_request_type'
 
@@ -24,11 +29,17 @@ export namespace DiscoverEntities {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerDiscoverEntitiesRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerDiscoverEntitiesRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DiscoverEntities): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DiscoverEntities
+  ): void {
     DiscoverEntities.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

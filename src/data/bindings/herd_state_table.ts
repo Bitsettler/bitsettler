@@ -74,11 +74,15 @@ export class HerdStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: HerdState, newRow: HerdState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: HerdState, newRow: HerdState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: HerdState, newRow: HerdState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: HerdState, newRow: HerdState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -61,7 +61,9 @@ export class BuildingDecayLoopTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: BuildingDecayLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: BuildingDecayLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class BuildingDecayLoopTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: BuildingDecayLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: BuildingDecayLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BuildingDecayLoopTimer, newRow: BuildingDecayLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: BuildingDecayLoopTimer,
+      newRow: BuildingDecayLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BuildingDecayLoopTimer, newRow: BuildingDecayLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: BuildingDecayLoopTimer,
+      newRow: BuildingDecayLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

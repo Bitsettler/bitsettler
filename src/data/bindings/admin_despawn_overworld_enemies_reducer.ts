@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminDespawnOverworldEnemies = {}
 
@@ -22,11 +26,21 @@ export namespace AdminDespawnOverworldEnemies {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminDespawnOverworldEnemies): void {
-    AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminDespawnOverworldEnemies
+  ): void {
+    AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): AdminDespawnOverworldEnemies {
-    return AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): AdminDespawnOverworldEnemies {
+    return AdminDespawnOverworldEnemies.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

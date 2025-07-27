@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace EmpireNotificationType {
   // These are the generated variant types for each variant of the tagged union.
@@ -57,12 +62,21 @@ export namespace EmpireNotificationType {
       new SumTypeVariant('MarkedForSiege', AlgebraicType.createProductType([])),
       new SumTypeVariant('StartedSiege', AlgebraicType.createProductType([])),
       new SumTypeVariant('StartedDefense', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SuccessfulSiege', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SuccessfulDefense', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'SuccessfulSiege',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'SuccessfulDefense',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('FailedSiege', AlgebraicType.createProductType([])),
       new SumTypeVariant('FailedDefense', AlgebraicType.createProductType([])),
       new SumTypeVariant('MemberLeft', AlgebraicType.createProductType([])),
-      new SumTypeVariant('WatchtowerBuilt', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'WatchtowerBuilt',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('ClaimJoined', AlgebraicType.createProductType([])),
       new SumTypeVariant('ClaimLeft', AlgebraicType.createProductType([])),
       new SumTypeVariant('Donation', AlgebraicType.createProductType([])),
@@ -70,12 +84,17 @@ export namespace EmpireNotificationType {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNotificationType): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNotificationType
+  ): void {
     EmpireNotificationType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireNotificationType {
-    return EmpireNotificationType.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireNotificationType.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PlayerActionType {
   // These are the generated variant types for each variant of the tagged union.
@@ -85,7 +90,10 @@ export namespace PlayerActionType {
       new SumTypeVariant('None', AlgebraicType.createProductType([])),
       new SumTypeVariant('Attack', AlgebraicType.createProductType([])),
       new SumTypeVariant('DestroyPaving', AlgebraicType.createProductType([])),
-      new SumTypeVariant('StationaryEmote', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'StationaryEmote',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Extract', AlgebraicType.createProductType([])),
       new SumTypeVariant('PaveTile', AlgebraicType.createProductType([])),
       new SumTypeVariant('SpawnCargo', AlgebraicType.createProductType([])),
@@ -95,8 +103,14 @@ export namespace PlayerActionType {
       new SumTypeVariant('ResupplyClaim', AlgebraicType.createProductType([])),
       new SumTypeVariant('CargoPickUp', AlgebraicType.createProductType([])),
       new SumTypeVariant('Terraform', AlgebraicType.createProductType([])),
-      new SumTypeVariant('DeployDeployable', AlgebraicType.createProductType([])),
-      new SumTypeVariant('StoreDeployable', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'DeployDeployable',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'StoreDeployable',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Sleep', AlgebraicType.createProductType([])),
       new SumTypeVariant('Teleport', AlgebraicType.createProductType([])),
       new SumTypeVariant('Death', AlgebraicType.createProductType([])),
@@ -106,16 +120,28 @@ export namespace PlayerActionType {
       new SumTypeVariant('ConvertItems', AlgebraicType.createProductType([])),
       new SumTypeVariant('PlayerMove', AlgebraicType.createProductType([])),
       new SumTypeVariant('DeployableMove', AlgebraicType.createProductType([])),
-      new SumTypeVariant('ResupplyEmpireNode', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'ResupplyEmpireNode',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('SetHome', AlgebraicType.createProductType([])),
       new SumTypeVariant('UseElevator', AlgebraicType.createProductType([])),
       new SumTypeVariant('MobileEmote', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PlacePillarShaping', AlgebraicType.createProductType([])),
-      new SumTypeVariant('DestroyPillarShaping', AlgebraicType.createProductType([]))
+      new SumTypeVariant(
+        'PlacePillarShaping',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'DestroyPillarShaping',
+        AlgebraicType.createProductType([])
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerActionType): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerActionType
+  ): void {
     PlayerActionType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

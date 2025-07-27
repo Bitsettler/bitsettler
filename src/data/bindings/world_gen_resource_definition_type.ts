@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenResourceBiome as __WorldGenResourceBiome } from './world_gen_resource_biome_type'
 import { WorldGenResourceDetails as __WorldGenResourceDetails } from './world_gen_resource_details_type'
 
@@ -25,19 +30,34 @@ export namespace WorldGenResourceDefinition {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('resourceDetails', __WorldGenResourceDetails.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'resourceDetails',
+        __WorldGenResourceDetails.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'biomes',
-        AlgebraicType.createArrayType(__WorldGenResourceBiome.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenResourceBiome.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenResourceDefinition): void {
-    WorldGenResourceDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenResourceDefinition
+  ): void {
+    WorldGenResourceDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenResourceDefinition {
-    return WorldGenResourceDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenResourceDefinition {
+    return WorldGenResourceDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

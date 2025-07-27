@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { DimensionType as __DimensionType } from './dimension_type_type'
 
 export type DimensionDescriptionState = {
@@ -33,23 +38,55 @@ export namespace DimensionDescriptionState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('dimensionNetworkEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('collapseTimestamp', AlgebraicType.createU64Type()),
-      new ProductTypeElement('interiorInstanceId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('dimensionPositionLargeX', AlgebraicType.createU32Type()),
-      new ProductTypeElement('dimensionPositionLargeZ', AlgebraicType.createU32Type()),
-      new ProductTypeElement('dimensionSizeLargeX', AlgebraicType.createU32Type()),
-      new ProductTypeElement('dimensionSizeLargeZ', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'dimensionNetworkEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'collapseTimestamp',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'interiorInstanceId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'dimensionPositionLargeX',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'dimensionPositionLargeZ',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'dimensionSizeLargeX',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'dimensionSizeLargeZ',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('dimensionId', AlgebraicType.createU32Type()),
-      new ProductTypeElement('dimensionType', __DimensionType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'dimensionType',
+        __DimensionType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DimensionDescriptionState): void {
-    DimensionDescriptionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DimensionDescriptionState
+  ): void {
+    DimensionDescriptionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): DimensionDescriptionState {
-    return DimensionDescriptionState.getTypeScriptAlgebraicType().deserialize(reader)
+    return DimensionDescriptionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

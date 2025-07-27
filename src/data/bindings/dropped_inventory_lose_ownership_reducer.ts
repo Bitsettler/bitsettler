@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DroppedInventoryOwnershipTimer as __DroppedInventoryOwnershipTimer } from './dropped_inventory_ownership_timer_type'
 
@@ -24,15 +29,28 @@ export namespace DroppedInventoryLoseOwnership {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DroppedInventoryOwnershipTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DroppedInventoryLoseOwnership): void {
-    DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DroppedInventoryLoseOwnership
+  ): void {
+    DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): DroppedInventoryLoseOwnership {
-    return DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): DroppedInventoryLoseOwnership {
+    return DroppedInventoryLoseOwnership.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace BuffCategory {
   // These are the generated variant types for each variant of the tagged union.
@@ -53,16 +58,28 @@ export namespace BuffCategory {
       new SumTypeVariant('None', AlgebraicType.createProductType([])),
       new SumTypeVariant('Generic', AlgebraicType.createProductType([])),
       new SumTypeVariant('Rested', AlgebraicType.createProductType([])),
-      new SumTypeVariant('RezSicknessShortTerm', AlgebraicType.createProductType([])),
-      new SumTypeVariant('RezSicknessLongTerm', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'RezSicknessShortTerm',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'RezSicknessLongTerm',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('InnerLight', AlgebraicType.createProductType([])),
       new SumTypeVariant('Darkness', AlgebraicType.createProductType([])),
       new SumTypeVariant('CarryCargo', AlgebraicType.createProductType([])),
       new SumTypeVariant('Freezing', AlgebraicType.createProductType([])),
       new SumTypeVariant('Overheating', AlgebraicType.createProductType([])),
-      new SumTypeVariant('FriendWarpDebuff', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'FriendWarpDebuff',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Starving', AlgebraicType.createProductType([])),
-      new SumTypeVariant('ElevatorSickness', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'ElevatorSickness',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('NearbyFlame', AlgebraicType.createProductType([]))
     ])
   }

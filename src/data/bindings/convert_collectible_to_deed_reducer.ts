@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerConvertCollectibleToDeedRequest as __PlayerConvertCollectibleToDeedRequest } from './player_convert_collectible_to_deed_request_type'
 
@@ -24,15 +29,26 @@ export namespace ConvertCollectibleToDeed {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ConvertCollectibleToDeed): void {
-    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ConvertCollectibleToDeed
+  ): void {
+    ConvertCollectibleToDeed.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ConvertCollectibleToDeed {
-    return ConvertCollectibleToDeed.getTypeScriptAlgebraicType().deserialize(reader)
+    return ConvertCollectibleToDeed.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

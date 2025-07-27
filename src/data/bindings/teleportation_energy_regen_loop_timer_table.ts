@@ -57,19 +57,27 @@ export class TeleportationEnergyRegenLoopTimerTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: TeleportationEnergyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
@@ -85,7 +93,11 @@ export class TeleportationEnergyRegenLoopTimerTableHandle {
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: TeleportationEnergyRegenLoopTimer, newRow: TeleportationEnergyRegenLoopTimer) => void
+    cb: (
+      ctx: EventContext,
+      onRow: TeleportationEnergyRegenLoopTimer,
+      newRow: TeleportationEnergyRegenLoopTimer
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

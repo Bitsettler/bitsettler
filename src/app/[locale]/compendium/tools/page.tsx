@@ -1,4 +1,7 @@
-import { getToolCategories, getToolStatistics } from '@/lib/spacetime-db-new/modules/tools/flows'
+import {
+  getToolCategories,
+  getToolStatistics
+} from '@/lib/spacetime-db-new/modules/tools/flows'
 import { ToolsView } from '@/views/tools-views/tools-index-page-view'
 
 export default async function ToolsPage() {

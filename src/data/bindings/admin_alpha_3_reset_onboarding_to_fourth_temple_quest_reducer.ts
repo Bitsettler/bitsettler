@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminAlpha3ResetOnboardingToFourthTempleQuest = {
   entityId: bigint
@@ -21,14 +26,26 @@ export namespace AdminAlpha3ResetOnboardingToFourthTempleQuest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('entityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('entityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminAlpha3ResetOnboardingToFourthTempleQuest): void {
-    AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminAlpha3ResetOnboardingToFourthTempleQuest
+  ): void {
+    AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): AdminAlpha3ResetOnboardingToFourthTempleQuest {
-    return AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): AdminAlpha3ResetOnboardingToFourthTempleQuest {
+    return AdminAlpha3ResetOnboardingToFourthTempleQuest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

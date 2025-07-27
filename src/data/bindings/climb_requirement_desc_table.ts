@@ -61,7 +61,9 @@ export class ClimbRequirementDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: ClimbRequirementDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: ClimbRequirementDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class ClimbRequirementDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: ClimbRequirementDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: ClimbRequirementDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ClimbRequirementDesc, newRow: ClimbRequirementDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ClimbRequirementDesc,
+      newRow: ClimbRequirementDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ClimbRequirementDesc, newRow: ClimbRequirementDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ClimbRequirementDesc,
+      newRow: ClimbRequirementDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

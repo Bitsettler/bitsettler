@@ -57,29 +57,47 @@ export class TeleportationEnergyStateTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: TeleportationEnergyState) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: TeleportationEnergyState) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: TeleportationEnergyState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: TeleportationEnergyState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: TeleportationEnergyState) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: TeleportationEnergyState) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: TeleportationEnergyState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: TeleportationEnergyState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TeleportationEnergyState, newRow: TeleportationEnergyState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TeleportationEnergyState,
+      newRow: TeleportationEnergyState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: TeleportationEnergyState, newRow: TeleportationEnergyState) => void
+    cb: (
+      ctx: EventContext,
+      onRow: TeleportationEnergyState,
+      newRow: TeleportationEnergyState
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

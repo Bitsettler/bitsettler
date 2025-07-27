@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ChunkCoordinatesMessage as __ChunkCoordinatesMessage } from './chunk_coordinates_message_type'
 import { ClaimPermission as __ClaimPermission } from './claim_permission_type'
 import { FloatHexTileMessage as __FloatHexTileMessage } from './float_hex_tile_message_type'
@@ -35,12 +40,30 @@ export namespace ForceGenerateTypes {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('hexDirection', __HexDirection.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('floatHexTile', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('chunkCoordinatesMessage', __ChunkCoordinatesMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('claimPermission', __ClaimPermission.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('largeHexTileMessage', __LargeHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('terrainCell', __TerrainCell.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'hexDirection',
+        __HexDirection.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'floatHexTile',
+        __FloatHexTileMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'chunkCoordinatesMessage',
+        __ChunkCoordinatesMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'claimPermission',
+        __ClaimPermission.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'largeHexTileMessage',
+        __LargeHexTileMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'terrainCell',
+        __TerrainCell.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'itemConversionLocatinContext',
         __ItemConversionLocationContext.getTypeScriptAlgebraicType()
@@ -48,7 +71,10 @@ export namespace ForceGenerateTypes {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ForceGenerateTypes): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ForceGenerateTypes
+  ): void {
     ForceGenerateTypes.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

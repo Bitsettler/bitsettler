@@ -36,14 +36,23 @@ export namespace RentState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('dimensionNetworkId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'dimensionNetworkId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('whiteList', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
+      new ProductTypeElement(
+        'whiteList',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      ),
       new ProductTypeElement('dailyRent', AlgebraicType.createU32Type()),
       new ProductTypeElement('paidRent', AlgebraicType.createU32Type()),
       new ProductTypeElement('active', AlgebraicType.createBoolType()),
       new ProductTypeElement('defaulted', AlgebraicType.createBoolType()),
-      new ProductTypeElement('evictionTimestamp', AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+      new ProductTypeElement(
+        'evictionTimestamp',
+        AlgebraicType.createOptionType(AlgebraicType.createTimestampType())
+      )
     ])
   }
 

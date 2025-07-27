@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerProjectSiteAddMaterialsRequest as __PlayerProjectSiteAddMaterialsRequest } from './player_project_site_add_materials_request_type'
 
@@ -24,15 +29,26 @@ export namespace ProjectSiteAddMaterials {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerProjectSiteAddMaterialsRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerProjectSiteAddMaterialsRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProjectSiteAddMaterials): void {
-    ProjectSiteAddMaterials.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProjectSiteAddMaterials
+  ): void {
+    ProjectSiteAddMaterials.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ProjectSiteAddMaterials {
-    return ProjectSiteAddMaterials.getTypeScriptAlgebraicType().deserialize(reader)
+    return ProjectSiteAddMaterials.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

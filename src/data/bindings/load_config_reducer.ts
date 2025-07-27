@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type LoadConfig = {
   environmentNames: string[]
@@ -23,8 +28,14 @@ export namespace LoadConfig {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('environmentNames', AlgebraicType.createArrayType(AlgebraicType.createStringType())),
-      new ProductTypeElement('contents', AlgebraicType.createArrayType(AlgebraicType.createStringType()))
+      new ProductTypeElement(
+        'environmentNames',
+        AlgebraicType.createArrayType(AlgebraicType.createStringType())
+      ),
+      new ProductTypeElement(
+        'contents',
+        AlgebraicType.createArrayType(AlgebraicType.createStringType())
+      )
     ])
   }
 

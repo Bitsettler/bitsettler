@@ -74,11 +74,15 @@ export class StaminaStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: StaminaState, newRow: StaminaState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: StaminaState, newRow: StaminaState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: StaminaState, newRow: StaminaState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: StaminaState, newRow: StaminaState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

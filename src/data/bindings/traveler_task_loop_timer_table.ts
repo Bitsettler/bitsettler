@@ -61,7 +61,9 @@ export class TravelerTaskLoopTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: TravelerTaskLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: TravelerTaskLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class TravelerTaskLoopTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: TravelerTaskLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: TravelerTaskLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TravelerTaskLoopTimer, newRow: TravelerTaskLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TravelerTaskLoopTimer,
+      newRow: TravelerTaskLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TravelerTaskLoopTimer, newRow: TravelerTaskLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: TravelerTaskLoopTimer,
+      newRow: TravelerTaskLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

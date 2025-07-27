@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DeployableDismountTimer as __DeployableDismountTimer } from './deployable_dismount_timer_type'
 
@@ -24,15 +29,28 @@ export namespace DeployableDismountScheduled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DeployableDismountTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DeployableDismountTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeployableDismountScheduled): void {
-    DeployableDismountScheduled.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeployableDismountScheduled
+  ): void {
+    DeployableDismountScheduled.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): DeployableDismountScheduled {
-    return DeployableDismountScheduled.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): DeployableDismountScheduled {
+    return DeployableDismountScheduled.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

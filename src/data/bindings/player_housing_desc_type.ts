@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerHousingDesc = {
   secondaryKnowledgeId: number
   rank: number
@@ -24,14 +29,23 @@ export namespace PlayerHousingDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'secondaryKnowledgeId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('rank', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
-      new ProductTypeElement('templateBuildingId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'templateBuildingId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingDesc
+  ): void {
     PlayerHousingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

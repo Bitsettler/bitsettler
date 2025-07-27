@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminCountInventoryItems = {
   itemId: number
@@ -28,11 +33,19 @@ export namespace AdminCountInventoryItems {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminCountInventoryItems): void {
-    AdminCountInventoryItems.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminCountInventoryItems
+  ): void {
+    AdminCountInventoryItems.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): AdminCountInventoryItems {
-    return AdminCountInventoryItems.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminCountInventoryItems.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

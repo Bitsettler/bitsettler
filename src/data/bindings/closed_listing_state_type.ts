@@ -36,12 +36,18 @@ export namespace ClosedListingState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('itemStack', __ItemStack.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'itemStack',
+        __ItemStack.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('timestamp', AlgebraicType.createTimestampType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClosedListingState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClosedListingState
+  ): void {
     ClosedListingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

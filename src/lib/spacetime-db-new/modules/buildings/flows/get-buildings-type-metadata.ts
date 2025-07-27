@@ -96,7 +96,9 @@ export function getBuildingsTypeMetadata(): BuildingTypeMetadata[] {
       return {
         id: slug,
         name: buildingType.name,
-        description: BUILDING_TYPE_DESCRIPTIONS[buildingType.id] || 'Various building structures and facilities',
+        description:
+          BUILDING_TYPE_DESCRIPTIONS[buildingType.id] ||
+          'Various building structures and facilities',
         icon: icon,
         count: buildingDescs.length,
         href: `/compendium/buildings/${slug}`,

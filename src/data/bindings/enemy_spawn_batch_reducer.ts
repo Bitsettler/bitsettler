@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemySpawnRequest as __EnemySpawnRequest } from './enemy_spawn_request_type'
 
@@ -26,12 +31,17 @@ export namespace EnemySpawnBatch {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'requests',
-        AlgebraicType.createArrayType(__EnemySpawnRequest.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EnemySpawnRequest.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemySpawnBatch): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemySpawnBatch
+  ): void {
     EnemySpawnBatch.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

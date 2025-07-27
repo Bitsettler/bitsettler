@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenBiomeDefinition as __WorldGenBiomeDefinition } from './world_gen_biome_definition_type'
 
 export type WorldGenBiomesMapDefinition = {
@@ -26,17 +31,32 @@ export namespace WorldGenBiomesMapDefinition {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'biomes',
-        AlgebraicType.createArrayType(__WorldGenBiomeDefinition.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenBiomeDefinition.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('values', AlgebraicType.createArrayType(AlgebraicType.createU8Type()))
+      new ProductTypeElement(
+        'values',
+        AlgebraicType.createArrayType(AlgebraicType.createU8Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenBiomesMapDefinition): void {
-    WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenBiomesMapDefinition
+  ): void {
+    WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenBiomesMapDefinition {
-    return WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenBiomesMapDefinition {
+    return WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

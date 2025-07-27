@@ -75,11 +75,23 @@ export class InventoryStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: InventoryState, newRow: InventoryState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: InventoryState,
+      newRow: InventoryState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: InventoryState, newRow: InventoryState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: InventoryState,
+      newRow: InventoryState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

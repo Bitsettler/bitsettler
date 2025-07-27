@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerItemConvertRequest = {
   conversionRecipeId: number
   locationContext: number
@@ -24,18 +29,29 @@ export namespace PlayerItemConvertRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('conversionRecipeId', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'conversionRecipeId',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('locationContext', AlgebraicType.createU32Type()),
       new ProductTypeElement('count', AlgebraicType.createU32Type()),
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerItemConvertRequest): void {
-    PlayerItemConvertRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerItemConvertRequest
+  ): void {
+    PlayerItemConvertRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerItemConvertRequest {
-    return PlayerItemConvertRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerItemConvertRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

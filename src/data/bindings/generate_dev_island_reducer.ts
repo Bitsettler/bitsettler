@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type GenerateDevIsland = {}
 
@@ -22,7 +26,10 @@ export namespace GenerateDevIsland {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: GenerateDevIsland): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: GenerateDevIsland
+  ): void {
     GenerateDevIsland.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

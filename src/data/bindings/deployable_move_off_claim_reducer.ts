@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type DeployableMoveOffClaim = {
   deployableEntityId: bigint
@@ -22,15 +27,23 @@ export namespace DeployableMoveOffClaim {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeployableMoveOffClaim): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeployableMoveOffClaim
+  ): void {
     DeployableMoveOffClaim.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DeployableMoveOffClaim {
-    return DeployableMoveOffClaim.getTypeScriptAlgebraicType().deserialize(reader)
+    return DeployableMoveOffClaim.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

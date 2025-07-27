@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerHousingEvictPlayerTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   buildingEntityId: bigint
   playerEntityId: bigint
 }
@@ -32,17 +34,30 @@ export namespace PlayerHousingEvictPlayerTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingEvictPlayerTimer): void {
-    PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingEvictPlayerTimer
+  ): void {
+    PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingEvictPlayerTimer {
-    return PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingEvictPlayerTimer {
+    return PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

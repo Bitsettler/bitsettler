@@ -74,11 +74,15 @@ export class ThreatStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ThreatState, newRow: ThreatState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ThreatState, newRow: ThreatState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ThreatState, newRow: ThreatState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ThreatState, newRow: ThreatState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

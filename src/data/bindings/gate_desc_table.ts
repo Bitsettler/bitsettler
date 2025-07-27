@@ -74,11 +74,15 @@ export class GateDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: GateDesc, newRow: GateDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: GateDesc, newRow: GateDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: GateDesc, newRow: GateDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: GateDesc, newRow: GateDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

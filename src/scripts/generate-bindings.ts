@@ -87,7 +87,9 @@ function dumpTables(
       console.log('Connecting to WebSocket:')
       console.log('  URL:', wsUrl)
       if (auth) {
-        console.log('  Headers:', { Authorization: auth.substring(0, 50) + '...' })
+        console.log('  Headers:', {
+          Authorization: auth.substring(0, 50) + '...'
+        })
       } else {
         console.log('  Headers: none')
       }
@@ -132,7 +134,10 @@ function dumpTables(
             saveData[name] = rows.map((row) => JSON.parse(row))
           }
           ws.close()
-        } else if (msg.TransactionUpdate && msg.TransactionUpdate.status.Failed) {
+        } else if (
+          msg.TransactionUpdate &&
+          msg.TransactionUpdate.status.Failed
+        ) {
           const failure = msg.TransactionUpdate.status.Failed
           const badTableMatch = failure.match(/`(\w*)` is not a valid table/)
           if (badTableMatch) {
@@ -166,7 +171,10 @@ function dumpTables(
   })
 }
 
-async function generateBindings(dataDir: string, programs: Program[]): Promise<[boolean, string | null]> {
+async function generateBindings(
+  dataDir: string,
+  programs: Program[]
+): Promise<[boolean, string | null]> {
   const manifestPath = path.join(dataDir, 'manifest.txt')
 
   // Read existing programs
@@ -240,13 +248,21 @@ async function generateBindings(dataDir: string, programs: Program[]): Promise<[
 }
 
 async function main(): Promise<void> {
-  const dataDir = process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data', 'bindings')
+  const dataDir =
+    process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data', 'bindings')
   await fs.mkdir(dataDir, { recursive: true })
 
-  const globalHost = process.env.BITCRAFT_SPACETIME_HOST || 'bitcraft-early-access.spacetimedb.com'
+  const globalHost =
+    process.env.BITCRAFT_SPACETIME_HOST ||
+    'bitcraft-early-access.spacetimedb.com'
   const auth = process.env.BITCRAFT_SPACETIME_AUTH || undefined
 
-  const tables = await dumpTables(globalHost, 'spacetime-control', 'program', auth)
+  const tables = await dumpTables(
+    globalHost,
+    'spacetime-control',
+    'program',
+    auth
+  )
   const programs = tables['program'] as Program[]
 
   const [updated, progHash] = await generateBindings(dataDir, programs)

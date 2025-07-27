@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type EmpireSettlementState = {
@@ -33,17 +38,28 @@ export namespace EmpireSettlementState {
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('empireEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
-      new ProductTypeElement('canHouseEmpireStorehouse', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'canHouseEmpireStorehouse',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('membersDonations', AlgebraicType.createU32Type()),
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireSettlementState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireSettlementState
+  ): void {
     EmpireSettlementState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireSettlementState {
-    return EmpireSettlementState.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireSettlementState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

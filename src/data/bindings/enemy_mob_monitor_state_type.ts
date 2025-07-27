@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EnemyType as __EnemyType } from './enemy_type_type'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
@@ -28,13 +33,22 @@ export namespace EnemyMobMonitorState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'enemyType',
+        __EnemyType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('herdEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('herdLocation', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'herdLocation',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyMobMonitorState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyMobMonitorState
+  ): void {
     EnemyMobMonitorState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

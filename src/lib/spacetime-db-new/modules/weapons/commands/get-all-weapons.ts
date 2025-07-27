@@ -15,5 +15,7 @@ export function getAllWeapons(): ItemDesc[] {
     .map((weaponDesc) => {
       return items.find((item) => item.id === weaponDesc.itemId)
     })
-    .filter((item): item is ItemDesc => item !== undefined && item.compendiumEntry)
+    .filter(
+      (item): item is ItemDesc => item !== undefined && item.compendiumEntry
+    )
 }

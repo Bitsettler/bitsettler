@@ -1,8 +1,17 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -40,19 +49,27 @@ function ResourceCategoryCard({ category }: { category: ResourceCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
-                <p className="text-muted-foreground text-sm">{category.count} items</p>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
+                <p className="text-muted-foreground text-sm">
+                  {category.count} items
+                </p>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between space-y-3">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
 
           {/* Primary Biomes */}
           {category.primaryBiomes.length > 0 && (
             <div className="space-y-2">
-              <p className="text-muted-foreground text-xs font-medium">Primary Biomes:</p>
+              <p className="text-muted-foreground text-xs font-medium">
+                Primary Biomes:
+              </p>
               <div className="flex flex-wrap gap-1">
                 {category.primaryBiomes.slice(0, 3).map((biome) => (
                   <Badge key={biome} variant="secondary" className="text-xs">
@@ -73,7 +90,11 @@ function ResourceCategoryCard({ category }: { category: ResourceCategory }) {
   )
 }
 
-export function ResourceIndexPageView({ title, subtitle, resourceCategories }: ResourceIndexPageViewProps) {
+export function ResourceIndexPageView({
+  title,
+  subtitle,
+  resourceCategories
+}: ResourceIndexPageViewProps) {
   // Group categories by section
   const categoriesBySection = resourceCategories.reduce(
     (acc, category) => {
@@ -110,8 +131,10 @@ export function ResourceIndexPageView({ title, subtitle, resourceCategories }: R
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold">{sectionName}</h2>
                 <p className="text-muted-foreground">
-                  {categories.length} categor{categories.length !== 1 ? 'ies' : 'y'} with{' '}
-                  {categories.reduce((total, cat) => total + cat.count, 0)} total items
+                  {categories.length} categor
+                  {categories.length !== 1 ? 'ies' : 'y'} with{' '}
+                  {categories.reduce((total, cat) => total + cat.count, 0)}{' '}
+                  total items
                 </p>
               </div>
               <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -126,7 +149,9 @@ export function ResourceIndexPageView({ title, subtitle, resourceCategories }: R
         {resourceCategories.length === 0 && (
           <Card>
             <CardContent className="py-12 text-center">
-              <p className="text-muted-foreground">No resource categories found.</p>
+              <p className="text-muted-foreground">
+                No resource categories found.
+              </p>
             </CardContent>
           </Card>
         )}

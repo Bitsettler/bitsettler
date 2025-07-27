@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminResetHerdLocations = {
   enemyAiParamsDescId: number
@@ -22,15 +27,26 @@ export namespace AdminResetHerdLocations {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('enemyAiParamsDescId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'enemyAiParamsDescId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminResetHerdLocations): void {
-    AdminResetHerdLocations.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminResetHerdLocations
+  ): void {
+    AdminResetHerdLocations.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): AdminResetHerdLocations {
-    return AdminResetHerdLocations.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminResetHerdLocations.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

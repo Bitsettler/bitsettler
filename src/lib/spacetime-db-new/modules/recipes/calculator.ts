@@ -3,7 +3,10 @@ import type { ExtractionRecipeDesc } from '@/data/bindings/extraction_recipe_des
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ItemListDesc } from '@/data/bindings/item_list_desc_type'
 import { getItemPrefix } from '../../shared/calculator-utils'
-import type { CalculatorItem, CalculatorRecipe } from '../../shared/dtos/calculator-dtos'
+import type {
+  CalculatorItem,
+  CalculatorRecipe
+} from '../../shared/dtos/calculator-dtos'
 
 /**
  * Resolve an item that might have an item_list_id to its actual outputs
@@ -24,7 +27,11 @@ function resolveItemOutput(
     // Find the corresponding item list
     const itemList = itemLists.find((list) => list.id === item.itemListId)
 
-    if (itemList && itemList.possibilities && itemList.possibilities.length > 0) {
+    if (
+      itemList &&
+      itemList.possibilities &&
+      itemList.possibilities.length > 0
+    ) {
       const resolvedOutputs: Array<{ item: string; qty: number }> = []
 
       for (const possibility of itemList.possibilities) {
@@ -76,13 +83,23 @@ export function mapCraftingRecipeToCalculatorRecipe(
   }
 
   // Extract outputs from craftedItemStacks
-  const output: Array<{ item: string; qty: number | number[] | null; probability?: number }> = []
+  const output: Array<{
+    item: string
+    qty: number | number[] | null
+    probability?: number
+  }> = []
 
   if (recipe.craftedItemStacks && Array.isArray(recipe.craftedItemStacks)) {
     for (const stack of recipe.craftedItemStacks) {
       if (stack.itemId && typeof stack.quantity === 'number') {
         // Resolve potential item list outputs
-        const resolvedOutputs = resolveItemOutput(stack.itemId, stack.quantity, stack.itemType, itemLists, allItems)
+        const resolvedOutputs = resolveItemOutput(
+          stack.itemId,
+          stack.quantity,
+          stack.itemType,
+          itemLists,
+          allItems
+        )
         for (const resolvedOutput of resolvedOutputs) {
           output.push({
             item: resolvedOutput.item,
@@ -135,25 +152,40 @@ export function mapExtractionRecipeToCalculatorRecipe(
   }
 
   // Extract outputs from extractedItemStacks
-  const output: Array<{ item: string; qty: number | number[] | null; probability?: number }> = []
+  const output: Array<{
+    item: string
+    qty: number | number[] | null
+    probability?: number
+  }> = []
 
   if (recipe.extractedItemStacks && Array.isArray(recipe.extractedItemStacks)) {
     for (const stackEntry of recipe.extractedItemStacks) {
-      if (stackEntry.itemStack && stackEntry.itemStack.itemId && typeof stackEntry.itemStack.quantity === 'number') {
+      if (
+        stackEntry.itemStack &&
+        stackEntry.itemStack.itemId &&
+        typeof stackEntry.itemStack.quantity === 'number'
+      ) {
         // Determine prefix for the output item
         const prefix = getItemPrefix(stackEntry.itemStack.itemType)
         output.push({
           item: `${prefix}${stackEntry.itemStack.itemId}`,
           qty: stackEntry.itemStack.quantity,
-          probability: typeof stackEntry.probability === 'number' ? stackEntry.probability : undefined
+          probability:
+            typeof stackEntry.probability === 'number'
+              ? stackEntry.probability
+              : undefined
         })
       }
     }
   }
 
   // Generate a meaningful name for the extraction recipe
-  const resourceName = unifiedLookup.get(`resource_${recipe.resourceId}`)?.name || 'Unknown Resource'
-  const recipeName = recipe.verbPhrase ? `${recipe.verbPhrase} ${resourceName}` : `Extract from ${resourceName}`
+  const resourceName =
+    unifiedLookup.get(`resource_${recipe.resourceId}`)?.name ||
+    'Unknown Resource'
+  const recipeName = recipe.verbPhrase
+    ? `${recipe.verbPhrase} ${resourceName}`
+    : `Extract from ${resourceName}`
 
   return {
     id: recipe.id,
@@ -177,7 +209,11 @@ export function transformCraftingRecipesToCalculator(
 
   for (const recipe of recipes) {
     try {
-      const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(recipe, itemLists, allItems)
+      const calculatorRecipe = mapCraftingRecipeToCalculatorRecipe(
+        recipe,
+        itemLists,
+        allItems
+      )
       if (calculatorRecipe.output.length > 0) {
         // Only include recipes with valid outputs
         calculatorRecipes.push(calculatorRecipe)
@@ -201,7 +237,10 @@ export function transformExtractionRecipesToCalculator(
 
   for (const recipe of recipes) {
     try {
-      const calculatorRecipe = mapExtractionRecipeToCalculatorRecipe(recipe, unifiedLookup)
+      const calculatorRecipe = mapExtractionRecipeToCalculatorRecipe(
+        recipe,
+        unifiedLookup
+      )
 
       if (calculatorRecipe.output.length > 0) {
         // Only include recipes with valid outputs

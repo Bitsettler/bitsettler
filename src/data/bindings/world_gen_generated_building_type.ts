@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingState as __BuildingState } from './building_state_type'
 
 export type WorldGenGeneratedBuilding = {
@@ -28,16 +33,29 @@ export namespace WorldGenGeneratedBuilding {
     return AlgebraicType.createProductType([
       new ProductTypeElement('x', AlgebraicType.createI32Type()),
       new ProductTypeElement('z', AlgebraicType.createI32Type()),
-      new ProductTypeElement('building', AlgebraicType.createOptionType(__BuildingState.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'building',
+        AlgebraicType.createOptionType(
+          __BuildingState.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('dimension', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenGeneratedBuilding): void {
-    WorldGenGeneratedBuilding.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenGeneratedBuilding
+  ): void {
+    WorldGenGeneratedBuilding.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): WorldGenGeneratedBuilding {
-    return WorldGenGeneratedBuilding.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenGeneratedBuilding.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

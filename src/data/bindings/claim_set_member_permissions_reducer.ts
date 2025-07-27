@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerClaimSetMemberPermissionsRequest as __PlayerClaimSetMemberPermissionsRequest } from './player_claim_set_member_permissions_request_type'
 
@@ -24,15 +29,26 @@ export namespace ClaimSetMemberPermissions {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerClaimSetMemberPermissionsRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerClaimSetMemberPermissionsRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimSetMemberPermissions): void {
-    ClaimSetMemberPermissions.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimSetMemberPermissions
+  ): void {
+    ClaimSetMemberPermissions.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ClaimSetMemberPermissions {
-    return ClaimSetMemberPermissions.getTypeScriptAlgebraicType().deserialize(reader)
+    return ClaimSetMemberPermissions.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

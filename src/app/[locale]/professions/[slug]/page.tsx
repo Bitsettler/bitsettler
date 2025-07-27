@@ -1,6 +1,12 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import type { SkillDesc } from '@/data/bindings/skill_desc_type'
 import { getSkillIconPath } from '@/lib/spacetime-db-new/modules/skills/commands/get-skill-icon'
 import { getSkillsByCategories } from '@/lib/spacetime-db-new/modules/skills/commands/get-skills-by-categories'
@@ -16,14 +22,24 @@ interface ProfessionPageProps {
 }
 
 export function generateStaticParams() {
-  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None']).filter((skill) => skill.name !== 'ANY')
+  const skills = getSkillsByCategories([
+    'Profession',
+    'Adventure',
+    'None'
+  ]).filter((skill) => skill.name !== 'ANY')
   return skills.map((skill) => ({ slug: createSlug(skill.name) }))
 }
 
 export default async function ProfessionPage({ params }: ProfessionPageProps) {
   const { slug } = await params
-  const skills = getSkillsByCategories(['Profession', 'Adventure', 'None']).filter((skill) => skill.name !== 'ANY')
-  const profession: SkillDesc | undefined = skills.find((skill) => createSlug(skill.name) === slug)
+  const skills = getSkillsByCategories([
+    'Profession',
+    'Adventure',
+    'None'
+  ]).filter((skill) => skill.name !== 'ANY')
+  const profession: SkillDesc | undefined = skills.find(
+    (skill) => createSlug(skill.name) === slug
+  )
 
   if (!profession) {
     notFound()
@@ -49,7 +65,9 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
                 <h1 className="text-4xl font-bold">{profession.name}</h1>
                 <Badge variant="outline">{profession.skillCategory.tag}</Badge>
               </div>
-              <p className="text-muted-foreground text-xl">{profession.title}</p>
+              <p className="text-muted-foreground text-xl">
+                {profession.title}
+              </p>
               <p className="text-lg">{profession.description}</p>
             </div>
           </div>
@@ -59,7 +77,9 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
         <Card>
           <CardHeader>
             <CardTitle>Skill Information</CardTitle>
-            <CardDescription>Basic details about this profession</CardDescription>
+            <CardDescription>
+              Basic details about this profession
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -73,7 +93,9 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
               </div>
               <div className="space-y-1">
                 <p className="text-sm font-medium">Category</p>
-                <p className="text-lg font-semibold">{profession.skillCategory.tag}</p>
+                <p className="text-lg font-semibold">
+                  {profession.skillCategory.tag}
+                </p>
               </div>
               <div className="space-y-1">
                 <p className="text-sm font-medium">Database ID</p>
@@ -88,13 +110,17 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>Recipes & Crafting</CardTitle>
-              <CardDescription>Items you can craft with this skill</CardDescription>
+              <CardDescription>
+                Items you can craft with this skill
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-center py-12">
                 <div className="space-y-3 text-center">
                   <p className="text-muted-foreground">🛠️ Coming Soon!</p>
-                  <p className="text-muted-foreground text-sm">Detailed recipes, materials, and crafting guides</p>
+                  <p className="text-muted-foreground text-sm">
+                    Detailed recipes, materials, and crafting guides
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -109,7 +135,9 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
               <div className="flex items-center justify-center py-12">
                 <div className="space-y-3 text-center">
                   <p className="text-muted-foreground">📈 Coming Soon!</p>
-                  <p className="text-muted-foreground text-sm">XP requirements, unlocks, and optimization tips</p>
+                  <p className="text-muted-foreground text-sm">
+                    XP requirements, unlocks, and optimization tips
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -118,13 +146,17 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>Tools & Equipment</CardTitle>
-              <CardDescription>Required tools and recommended gear</CardDescription>
+              <CardDescription>
+                Required tools and recommended gear
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-center py-12">
                 <div className="space-y-3 text-center">
                   <p className="text-muted-foreground">⚒️ Coming Soon!</p>
-                  <p className="text-muted-foreground text-sm">Tool requirements, efficiency bonuses, and upgrades</p>
+                  <p className="text-muted-foreground text-sm">
+                    Tool requirements, efficiency bonuses, and upgrades
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -133,7 +165,9 @@ export default async function ProfessionPage({ params }: ProfessionPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>Resources & Locations</CardTitle>
-              <CardDescription>Where to gather materials and practice</CardDescription>
+              <CardDescription>
+                Where to gather materials and practice
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-center py-12">

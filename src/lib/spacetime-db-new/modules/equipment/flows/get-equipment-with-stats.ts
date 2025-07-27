@@ -19,7 +19,9 @@ export function getEquipmentWithStats(): EquipmentWithStats[] {
   for (const item of equipmentItems) {
     const equipmentData = getEquipmentDescByItemId(item.id)
     if (!equipmentData) {
-      console.warn(`Equipment item ${item.name} (ID: ${item.id}) has no corresponding equipment description`)
+      console.warn(
+        `Equipment item ${item.name} (ID: ${item.id}) has no corresponding equipment description`
+      )
       continue
     }
 

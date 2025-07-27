@@ -3,10 +3,19 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
 import type { ToolCategory } from '@/lib/spacetime-db-new/modules/tools/flows'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface ToolsViewProps {
@@ -17,10 +26,20 @@ interface ToolsViewProps {
 
 export function ToolsView({ title, subtitle, toolCategories }: ToolsViewProps) {
   // Group categories by type
-  const gatheringTools = toolCategories.filter((cat) => cat.category === 'Gathering')
-  const craftingTools = toolCategories.filter((cat) => cat.category === 'Crafting')
+  const gatheringTools = toolCategories.filter(
+    (cat) => cat.category === 'Gathering'
+  )
+  const craftingTools = toolCategories.filter(
+    (cat) => cat.category === 'Crafting'
+  )
 
-  const CategorySection = ({ sectionTitle, categories }: { sectionTitle: string; categories: ToolCategory[] }) => (
+  const CategorySection = ({
+    sectionTitle,
+    categories
+  }: {
+    sectionTitle: string
+    categories: ToolCategory[]
+  }) => (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
         <h2 className="text-xl font-semibold">{sectionTitle}</h2>
@@ -36,7 +55,9 @@ export function ToolsView({ title, subtitle, toolCategories }: ToolsViewProps) {
                     <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
                       {category.firstTool ? (
                         <Image
-                          src={getServerIconPath(cleanIconAssetName(category.firstTool.iconAssetName))}
+                          src={getServerIconPath(
+                            cleanIconAssetName(category.firstTool.iconAssetName)
+                          )}
                           alt={category.firstTool.name}
                           width={44}
                           height={44}
@@ -50,13 +71,17 @@ export function ToolsView({ title, subtitle, toolCategories }: ToolsViewProps) {
                       <CardTitle className="group-hover:text-primary text-lg transition-colors">
                         {category.name}
                       </CardTitle>
-                      <p className="text-muted-foreground text-sm">{category.count} tools</p>
+                      <p className="text-muted-foreground text-sm">
+                        {category.count} tools
+                      </p>
                     </div>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col justify-between">
-                <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+                <CardDescription className="line-clamp-3 text-sm">
+                  {category.description}
+                </CardDescription>
               </CardContent>
             </Card>
           </Link>
@@ -83,8 +108,14 @@ export function ToolsView({ title, subtitle, toolCategories }: ToolsViewProps) {
 
         {/* Tool Categories */}
         <div className="space-y-8">
-          <CategorySection sectionTitle="Gathering Tools" categories={gatheringTools} />
-          <CategorySection sectionTitle="Crafting Tools" categories={craftingTools} />
+          <CategorySection
+            sectionTitle="Gathering Tools"
+            categories={gatheringTools}
+          />
+          <CategorySection
+            sectionTitle="Crafting Tools"
+            categories={craftingTools}
+          />
         </div>
       </div>
     </Container>

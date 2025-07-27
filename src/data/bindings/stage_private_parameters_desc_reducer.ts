@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PrivateParametersDesc as __PrivateParametersDesc } from './private_parameters_desc_type'
 
@@ -26,16 +31,28 @@ export namespace StagePrivateParametersDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__PrivateParametersDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PrivateParametersDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StagePrivateParametersDesc): void {
-    StagePrivateParametersDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StagePrivateParametersDesc
+  ): void {
+    StagePrivateParametersDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): StagePrivateParametersDesc {
-    return StagePrivateParametersDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): StagePrivateParametersDesc {
+    return StagePrivateParametersDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

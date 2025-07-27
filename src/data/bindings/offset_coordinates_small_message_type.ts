@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type OffsetCoordinatesSmallMessage = {
   x: number
   z: number
@@ -29,11 +34,21 @@ export namespace OffsetCoordinatesSmallMessage {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OffsetCoordinatesSmallMessage): void {
-    OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: OffsetCoordinatesSmallMessage
+  ): void {
+    OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): OffsetCoordinatesSmallMessage {
-    return OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): OffsetCoordinatesSmallMessage {
+    return OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

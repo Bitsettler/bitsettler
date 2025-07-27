@@ -75,11 +75,23 @@ export class BuildingTypeDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BuildingTypeDesc, newRow: BuildingTypeDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: BuildingTypeDesc,
+      newRow: BuildingTypeDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BuildingTypeDesc, newRow: BuildingTypeDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: BuildingTypeDesc,
+      newRow: BuildingTypeDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

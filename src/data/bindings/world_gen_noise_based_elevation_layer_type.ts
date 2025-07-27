@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenNoiseBasedElevationLayerBlendingMode as __WorldGenNoiseBasedElevationLayerBlendingMode } from './world_gen_noise_based_elevation_layer_blending_mode_type'
 import { WorldGenNoiseSpecs as __WorldGenNoiseSpecs } from './world_gen_noise_specs_type'
 import { WorldGenVector2Int as __WorldGenVector2Int } from './world_gen_vector_2_int_type'
@@ -33,16 +38,32 @@ export namespace WorldGenNoiseBasedElevationLayer {
         __WorldGenNoiseBasedElevationLayerBlendingMode.getTypeScriptAlgebraicType()
       ),
       new ProductTypeElement('threshold', AlgebraicType.createF32Type()),
-      new ProductTypeElement('range', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('noise', __WorldGenNoiseSpecs.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'range',
+        __WorldGenVector2Int.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'noise',
+        __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenNoiseBasedElevationLayer): void {
-    WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenNoiseBasedElevationLayer
+  ): void {
+    WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenNoiseBasedElevationLayer {
-    return WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenNoiseBasedElevationLayer {
+    return WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

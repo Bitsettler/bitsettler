@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { RegionConnectionInfo as __RegionConnectionInfo } from './region_connection_info_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,43 @@ export namespace RegionConnectionInfoOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __RegionConnectionInfo): RegionConnectionInfoOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __RegionConnectionInfo): RegionConnectionInfoOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __RegionConnectionInfo
+  ): RegionConnectionInfoOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __RegionConnectionInfo
+  ): RegionConnectionInfoOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __RegionConnectionInfo.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __RegionConnectionInfo.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __RegionConnectionInfo.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __RegionConnectionInfo.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionConnectionInfoOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionConnectionInfoOp
+  ): void {
     RegionConnectionInfoOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RegionConnectionInfoOp {
-    return RegionConnectionInfoOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return RegionConnectionInfoOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `RegionConnectionInfoOp`.
-export type RegionConnectionInfoOp = RegionConnectionInfoOp.Insert | RegionConnectionInfoOp.Delete
+export type RegionConnectionInfoOp =
+  | RegionConnectionInfoOp.Insert
+  | RegionConnectionInfoOp.Delete
 
 export default RegionConnectionInfoOp

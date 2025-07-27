@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ClothingVisual = {
   mesheNames: string[]
 }
@@ -21,7 +26,10 @@ export namespace ClothingVisual {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('mesheNames', AlgebraicType.createArrayType(AlgebraicType.createStringType()))
+      new ProductTypeElement(
+        'mesheNames',
+        AlgebraicType.createArrayType(AlgebraicType.createStringType())
+      )
     ])
   }
 

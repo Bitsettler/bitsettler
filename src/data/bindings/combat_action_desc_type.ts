@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuffEffect as __BuffEffect } from './buff_effect_type'
 import { LevelRequirement as __LevelRequirement } from './level_requirement_type'
 
@@ -59,37 +64,78 @@ export namespace CombatActionDesc {
       new ProductTypeElement('range', AlgebraicType.createU32Type()),
       new ProductTypeElement('maxRange', AlgebraicType.createU32Type()),
       new ProductTypeElement('autoCast', AlgebraicType.createBoolType()),
-      new ProductTypeElement('weaponTypeRequirements', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'weaponTypeRequirements',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('leadInTime', AlgebraicType.createF32Type()),
-      new ProductTypeElement('canMoveDuringLeadIn', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'canMoveDuringLeadIn',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('cooldown', AlgebraicType.createF32Type()),
       new ProductTypeElement('globalCooldown', AlgebraicType.createF32Type()),
-      new ProductTypeElement('ignoreGlobalCooldown', AlgebraicType.createBoolType()),
-      new ProductTypeElement('strengthMultiplier', AlgebraicType.createF32Type()),
-      new ProductTypeElement('accuracyMultiplier', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'ignoreGlobalCooldown',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'strengthMultiplier',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'accuracyMultiplier',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('staminaUse', AlgebraicType.createF32Type()),
-      new ProductTypeElement('weaponDurabilityLost', AlgebraicType.createI32Type()),
-      new ProductTypeElement('selfBuffs', AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('targetBuffs', AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'weaponDurabilityLost',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'selfBuffs',
+        AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'targetBuffs',
+        AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'levelRequirement',
-        AlgebraicType.createOptionType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('playerAnimationId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('npcAnimationName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'playerAnimationId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'npcAnimationName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('hitVfx', AlgebraicType.createStringType()),
       new ProductTypeElement('projectileSpeed', AlgebraicType.createF32Type()),
       new ProductTypeElement('projectileVfx', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
-      new ProductTypeElement('selfThreatAgainstBuildings', AlgebraicType.createF32Type()),
-      new ProductTypeElement('selfThreatAgainstEnemies', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'selfThreatAgainstBuildings',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'selfThreatAgainstEnemies',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('baseThreat', AlgebraicType.createF32Type()),
       new ProductTypeElement('threatPerDamage', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CombatActionDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CombatActionDesc
+  ): void {
     CombatActionDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

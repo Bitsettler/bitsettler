@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResourceGrowthRecipeDesc as __ResourceGrowthRecipeDesc } from './resource_growth_recipe_desc_type'
 
@@ -26,16 +31,28 @@ export namespace StageResourceGrowthRecipeDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageResourceGrowthRecipeDesc): void {
-    StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageResourceGrowthRecipeDesc
+  ): void {
+    StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): StageResourceGrowthRecipeDesc {
-    return StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): StageResourceGrowthRecipeDesc {
+    return StageResourceGrowthRecipeDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

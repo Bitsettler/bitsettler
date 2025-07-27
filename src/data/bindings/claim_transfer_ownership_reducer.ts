@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerClaimTransferOwnershipRequest as __PlayerClaimTransferOwnershipRequest } from './player_claim_transfer_ownership_request_type'
 
@@ -24,15 +29,23 @@ export namespace ClaimTransferOwnership {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerClaimTransferOwnershipRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerClaimTransferOwnershipRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimTransferOwnership): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimTransferOwnership
+  ): void {
     ClaimTransferOwnership.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ClaimTransferOwnership {
-    return ClaimTransferOwnership.getTypeScriptAlgebraicType().deserialize(reader)
+    return ClaimTransferOwnership.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

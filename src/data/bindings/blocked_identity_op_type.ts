@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { BlockedIdentity as __BlockedIdentity } from './blocked_identity_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace BlockedIdentityOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __BlockedIdentity): BlockedIdentityOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __BlockedIdentity): BlockedIdentityOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __BlockedIdentity): BlockedIdentityOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __BlockedIdentity): BlockedIdentityOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __BlockedIdentity.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __BlockedIdentity.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __BlockedIdentity.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __BlockedIdentity.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BlockedIdentityOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BlockedIdentityOp
+  ): void {
     BlockedIdentityOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace BlockedIdentityOp {
 }
 
 // The tagged union or sum type for the algebraic type `BlockedIdentityOp`.
-export type BlockedIdentityOp = BlockedIdentityOp.Insert | BlockedIdentityOp.Delete
+export type BlockedIdentityOp =
+  | BlockedIdentityOp.Insert
+  | BlockedIdentityOp.Delete
 
 export default BlockedIdentityOp

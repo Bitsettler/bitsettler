@@ -74,11 +74,19 @@ export class LocationStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: LocationState, newRow: LocationState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: LocationState,
+      newRow: LocationState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: LocationState, newRow: LocationState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: LocationState, newRow: LocationState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

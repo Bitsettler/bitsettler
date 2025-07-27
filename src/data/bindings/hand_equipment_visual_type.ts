@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type HandEquipmentVisual = {
   mainHand: boolean
   prefabNames: string[]
@@ -23,11 +28,17 @@ export namespace HandEquipmentVisual {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('mainHand', AlgebraicType.createBoolType()),
-      new ProductTypeElement('prefabNames', AlgebraicType.createArrayType(AlgebraicType.createStringType()))
+      new ProductTypeElement(
+        'prefabNames',
+        AlgebraicType.createArrayType(AlgebraicType.createStringType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: HandEquipmentVisual): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: HandEquipmentVisual
+  ): void {
     HandEquipmentVisual.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

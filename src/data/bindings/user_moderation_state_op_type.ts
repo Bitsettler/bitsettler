@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { UserModerationState as __UserModerationState } from './user_moderation_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,43 @@ export namespace UserModerationStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __UserModerationState): UserModerationStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __UserModerationState): UserModerationStateOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __UserModerationState
+  ): UserModerationStateOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __UserModerationState
+  ): UserModerationStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __UserModerationState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __UserModerationState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __UserModerationState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __UserModerationState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UserModerationStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: UserModerationStateOp
+  ): void {
     UserModerationStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): UserModerationStateOp {
-    return UserModerationStateOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return UserModerationStateOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `UserModerationStateOp`.
-export type UserModerationStateOp = UserModerationStateOp.Insert | UserModerationStateOp.Delete
+export type UserModerationStateOp =
+  | UserModerationStateOp.Insert
+  | UserModerationStateOp.Delete
 
 export default UserModerationStateOp

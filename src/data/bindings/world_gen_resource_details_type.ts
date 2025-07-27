@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenVector2Int as __WorldGenVector2Int } from './world_gen_vector_2_int_type'
 
 export type WorldGenResourceDetails = {
@@ -30,18 +35,35 @@ export namespace WorldGenResourceDetails {
     return AlgebraicType.createProductType([
       new ProductTypeElement('clumpId', AlgebraicType.createI32Type()),
       new ProductTypeElement('spawnsOnLand', AlgebraicType.createBoolType()),
-      new ProductTypeElement('landElevationRange', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'landElevationRange',
+        __WorldGenVector2Int.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('spawnsInWater', AlgebraicType.createBoolType()),
-      new ProductTypeElement('waterDepthRange', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('spawnsOnUnevenTerrain', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'waterDepthRange',
+        __WorldGenVector2Int.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'spawnsOnUnevenTerrain',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenResourceDetails): void {
-    WorldGenResourceDetails.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenResourceDetails
+  ): void {
+    WorldGenResourceDetails.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): WorldGenResourceDetails {
-    return WorldGenResourceDetails.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenResourceDetails.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DroppedInventoryState as __DroppedInventoryState } from './dropped_inventory_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportDroppedInventoryState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__DroppedInventoryState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DroppedInventoryState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportDroppedInventoryState): void {
-    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportDroppedInventoryState
+  ): void {
+    ImportDroppedInventoryState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportDroppedInventoryState {
-    return ImportDroppedInventoryState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportDroppedInventoryState {
+    return ImportDroppedInventoryState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

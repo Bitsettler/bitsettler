@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace BuildingCategory {
   // These are the generated variant types for each variant of the tagged union.
@@ -79,7 +84,10 @@ export namespace BuildingCategory {
       new SumTypeVariant('Ornamental', AlgebraicType.createProductType([])),
       new SumTypeVariant('AncientRuins', AlgebraicType.createProductType([])),
       new SumTypeVariant('ClaimTotem', AlgebraicType.createProductType([])),
-      new SumTypeVariant('TerrraformingBase', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'TerrraformingBase',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Barter', AlgebraicType.createProductType([])),
       new SumTypeVariant('Portal', AlgebraicType.createProductType([])),
       new SumTypeVariant('RentTerminal', AlgebraicType.createProductType([])),
@@ -97,7 +105,10 @@ export namespace BuildingCategory {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingCategory): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingCategory
+  ): void {
     BuildingCategory.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

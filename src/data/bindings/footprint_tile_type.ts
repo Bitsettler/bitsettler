@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { FootprintType as __FootprintType } from './footprint_type_type'
 
 export type FootprintTile = {
@@ -27,7 +32,10 @@ export namespace FootprintTile {
     return AlgebraicType.createProductType([
       new ProductTypeElement('x', AlgebraicType.createI32Type()),
       new ProductTypeElement('z', AlgebraicType.createI32Type()),
-      new ProductTypeElement('footprintType', __FootprintType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'footprintType',
+        __FootprintType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

@@ -15,5 +15,7 @@ export function getAllTools(): ItemDesc[] {
     .map((toolDesc) => {
       return items.find((item) => item.id === toolDesc.itemId)
     })
-    .filter((item): item is ItemDesc => item !== undefined && item.compendiumEntry)
+    .filter(
+      (item): item is ItemDesc => item !== undefined && item.compendiumEntry
+    )
 }

@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type OnDurabilityZeroTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   playerEntityId: bigint
   brokenItemId: number
   convertInto: number
@@ -35,7 +37,10 @@ export namespace OnDurabilityZeroTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('brokenItemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('convertInto', AlgebraicType.createI32Type()),
@@ -44,11 +49,16 @@ export namespace OnDurabilityZeroTimer {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OnDurabilityZeroTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: OnDurabilityZeroTimer
+  ): void {
     OnDurabilityZeroTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): OnDurabilityZeroTimer {
-    return OnDurabilityZeroTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return OnDurabilityZeroTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

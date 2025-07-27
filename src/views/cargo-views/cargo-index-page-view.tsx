@@ -1,7 +1,16 @@
 import { Container } from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -37,21 +46,31 @@ function CargoCategoryCard({ category }: { category: CargoCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
-                <p className="text-muted-foreground text-sm">{category.count} items</p>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
+                <p className="text-muted-foreground text-sm">
+                  {category.count} items
+                </p>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
         </CardContent>
       </Card>
     </Link>
   )
 }
 
-export function CargoView({ title, subtitle, cargoCategories }: CargoViewProps) {
+export function CargoView({
+  title,
+  subtitle,
+  cargoCategories
+}: CargoViewProps) {
   // Group categories by section
   const categoriesBySection = cargoCategories.reduce(
     (acc, category) => {
@@ -81,28 +100,34 @@ export function CargoView({ title, subtitle, cargoCategories }: CargoViewProps) 
         </div>
 
         {/* Cargo Categories by Section */}
-        {Object.entries(categoriesBySection).map(([sectionName, categories]) => (
-          <div key={sectionName} className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold">{sectionName}</h2>
-              <p className="text-muted-foreground">
-                {categories.length} categor{categories.length !== 1 ? 'ies' : 'y'} with{' '}
-                {categories.reduce((total, cat) => total + cat.count, 0)} total items
-              </p>
+        {Object.entries(categoriesBySection).map(
+          ([sectionName, categories]) => (
+            <div key={sectionName} className="space-y-6">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-semibold">{sectionName}</h2>
+                <p className="text-muted-foreground">
+                  {categories.length} categor
+                  {categories.length !== 1 ? 'ies' : 'y'} with{' '}
+                  {categories.reduce((total, cat) => total + cat.count, 0)}{' '}
+                  total items
+                </p>
+              </div>
+              <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {categories.map((category) => (
+                  <CargoCategoryCard key={category.id} category={category} />
+                ))}
+              </div>
             </div>
-            <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map((category) => (
-                <CargoCategoryCard key={category.id} category={category} />
-              ))}
-            </div>
-          </div>
-        ))}
+          )
+        )}
 
         {/* Empty State */}
         {cargoCategories.length === 0 && (
           <Card>
             <CardContent className="py-12 text-center">
-              <p className="text-muted-foreground">No cargo categories found.</p>
+              <p className="text-muted-foreground">
+                No cargo categories found.
+              </p>
             </CardContent>
           </Card>
         )}

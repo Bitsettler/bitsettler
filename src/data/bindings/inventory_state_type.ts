@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Pocket as __Pocket } from './pocket_type'
 
 export type InventoryState = {
@@ -29,11 +34,17 @@ export namespace InventoryState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('pockets', AlgebraicType.createArrayType(__Pocket.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'pockets',
+        AlgebraicType.createArrayType(__Pocket.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('inventoryIndex', AlgebraicType.createI32Type()),
       new ProductTypeElement('cargoIndex', AlgebraicType.createI32Type()),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('playerOwnerEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'playerOwnerEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 

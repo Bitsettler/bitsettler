@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemType as __ItemType } from './item_type_type'
 
 export type PlayerPostOrderRequest = {
@@ -30,18 +35,26 @@ export namespace PlayerPostOrderRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('itemType', __ItemType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'itemType',
+        __ItemType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('coins', AlgebraicType.createI32Type()),
       new ProductTypeElement('quantity', AlgebraicType.createI32Type()),
       new ProductTypeElement('persistOrder', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerPostOrderRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerPostOrderRequest
+  ): void {
     PlayerPostOrderRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerPostOrderRequest {
-    return PlayerPostOrderRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerPostOrderRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

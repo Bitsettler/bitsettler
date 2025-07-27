@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ChatMessageState as __ChatMessageState } from './chat_message_state_type'
 
 export type PlayerReportState = {
@@ -34,27 +39,46 @@ export namespace PlayerReportState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('reporterEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('reportedPlayerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('reportedPlayerUsername', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'reportedPlayerEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'reportedPlayerUsername',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('reportType', AlgebraicType.createStringType()),
       new ProductTypeElement('reportMessage', AlgebraicType.createStringType()),
       new ProductTypeElement(
         'reportedChatMessage',
-        AlgebraicType.createOptionType(__ChatMessageState.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __ChatMessageState.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'chatChannelContext',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __ChatMessageState.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement(
         'chatUserContext',
-        AlgebraicType.createOptionType(AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))
+        AlgebraicType.createOptionType(
+          AlgebraicType.createArrayType(
+            __ChatMessageState.getTypeScriptAlgebraicType()
+          )
+        )
       ),
       new ProductTypeElement('actioned', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerReportState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerReportState
+  ): void {
     PlayerReportState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerPortalEnterRequest = {
   portalEntityId: bigint
 }
@@ -20,14 +25,24 @@ export namespace PlayerPortalEnterRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('portalEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('portalEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerPortalEnterRequest): void {
-    PlayerPortalEnterRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerPortalEnterRequest
+  ): void {
+    PlayerPortalEnterRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerPortalEnterRequest {
-    return PlayerPortalEnterRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerPortalEnterRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

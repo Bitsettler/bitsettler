@@ -57,31 +57,47 @@ export class PlayerSetNameOutcomeEventTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PlayerSetNameOutcomeEvent) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: PlayerSetNameOutcomeEvent, newRow: PlayerSetNameOutcomeEvent) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerSetNameOutcomeEvent,
+      newRow: PlayerSetNameOutcomeEvent
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: PlayerSetNameOutcomeEvent, newRow: PlayerSetNameOutcomeEvent) => void
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerSetNameOutcomeEvent,
+      newRow: PlayerSetNameOutcomeEvent
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

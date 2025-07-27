@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuildingFunction = {
   functionType: number
   level: number
@@ -42,20 +47,35 @@ export namespace BuildingFunction {
       new ProductTypeElement('storageSlots', AlgebraicType.createI32Type()),
       new ProductTypeElement('cargoSlots', AlgebraicType.createI32Type()),
       new ProductTypeElement('refiningSlots', AlgebraicType.createI32Type()),
-      new ProductTypeElement('refiningCargoSlots', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'refiningCargoSlots',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('itemSlotSize', AlgebraicType.createI32Type()),
       new ProductTypeElement('cargoSlotSize', AlgebraicType.createI32Type()),
       new ProductTypeElement('tradeOrders', AlgebraicType.createI32Type()),
-      new ProductTypeElement('allowedItemIdPerSlot', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('buffIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('concurrentCraftsPerPlayer', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'allowedItemIdPerSlot',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'buffIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'concurrentCraftsPerPlayer',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('terraform', AlgebraicType.createBoolType()),
       new ProductTypeElement('housingSlots', AlgebraicType.createI32Type()),
       new ProductTypeElement('housingIncome', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingFunction): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingFunction
+  ): void {
     BuildingFunction.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

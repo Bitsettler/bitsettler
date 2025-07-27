@@ -62,7 +62,9 @@ export class PrivateParametersDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PrivateParametersDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PrivateParametersDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class PrivateParametersDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PrivateParametersDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PrivateParametersDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PrivateParametersDesc, newRow: PrivateParametersDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PrivateParametersDesc,
+      newRow: PrivateParametersDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PrivateParametersDesc, newRow: PrivateParametersDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PrivateParametersDesc,
+      newRow: PrivateParametersDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

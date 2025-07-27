@@ -20,7 +20,10 @@ interface FlowVisualizeViewProps {
 
 const AUTO_EXPAND_DEPTH = 4
 
-export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps) {
+export function CalcultorFlowView({
+  slug,
+  quantity = 1
+}: FlowVisualizeViewProps) {
   const gameData = useGameData()
   const { items, recipes } = gameData
   const { loadCalculator } = useCalculatorSaves()
@@ -33,7 +36,9 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
     if (!selectedItem) return { nodes: [], edges: [] }
 
     // Find recipes for this item
-    const itemRecipes = recipes.filter((r) => r.output.some((output) => output.item === selectedItem.id))
+    const itemRecipes = recipes.filter((r) =>
+      r.output.some((output) => output.item === selectedItem.id)
+    )
 
     // Create the main item node
     const itemNode: Node = {
@@ -55,7 +60,9 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
     }
 
     // Iterative expansion using a queue-based approach
-    const nodesToProcess: Array<{ node: Node; depth: number }> = [{ node: itemNode, depth: 0 }]
+    const nodesToProcess: Array<{ node: Node; depth: number }> = [
+      { node: itemNode, depth: 0 }
+    ]
     const allNodes: Node[] = []
     const allEdges: Edge[] = []
     const processedNodeIds = new Set<string>()
@@ -92,12 +99,16 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
 
           // Check if there's already an edge from currentNodeId to materialId
           // If so, creating materialId -> currentNodeId would create a circle
-          return allEdges.some((edge) => edge.source === currentNodeId && edge.target === materialId)
+          return allEdges.some(
+            (edge) =>
+              edge.source === currentNodeId && edge.target === materialId
+          )
         })
       })
 
       // Use first non-circular recipe, or fallback to first recipe if all are circular
-      const recipe = nonCircularRecipes.length > 0 ? nonCircularRecipes[0] : nodeRecipes[0]
+      const recipe =
+        nonCircularRecipes.length > 0 ? nonCircularRecipes[0] : nodeRecipes[0]
       const updatedNode = {
         ...node,
         data: {
@@ -110,13 +121,22 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
       processedNodeIds.add(node.id)
 
       // If recipe has no materials, continue to next node
-      if (!recipe.requirements.materials || recipe.requirements.materials.length === 0) {
+      if (
+        !recipe.requirements.materials ||
+        recipe.requirements.materials.length === 0
+      ) {
         continue
       }
 
       // Calculate recipe runs
-      const outputItem = recipe.output.find((output) => output.item === node.data.itemId)
-      const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+      const outputItem = recipe.output.find(
+        (output) => output.item === node.data.itemId
+      )
+      const outputQty = outputItem
+        ? (Array.isArray(outputItem.qty)
+            ? outputItem.qty[0]
+            : outputItem.qty) || 1
+        : 1
       const nodeQuantity = Number(node.data.quantity) || 1
       const recipeRuns = Math.ceil(nodeQuantity / Number(outputQty))
 
@@ -124,10 +144,16 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
       recipe.requirements.materials.forEach((material) => {
         const materialId = material.id
         const materialData = items.find((item) => item.id === materialId)
-        const materialRecipes = recipes.filter((r) => r.output.some((output) => output.item === materialId))
+        const materialRecipes = recipes.filter((r) =>
+          r.output.some((output) => output.item === materialId)
+        )
 
         let calculatedQuantity = 0
-        if (material.qty !== null && material.qty !== undefined && materialData?.category !== 'resources') {
+        if (
+          material.qty !== null &&
+          material.qty !== undefined &&
+          materialData?.category !== 'resources'
+        ) {
           calculatedQuantity = Number(material.qty) * recipeRuns
         }
 
@@ -181,7 +207,8 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
   }, [selectedItem, quantity, recipes, items])
 
   // Always start with calculated nodes, then load saved state if available
-  const { nodes: calculatedNodes, edges: calculatedEdges } = createInitialNodesAndEdges()
+  const { nodes: calculatedNodes, edges: calculatedEdges } =
+    createInitialNodesAndEdges()
 
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(calculatedEdges)
@@ -194,7 +221,12 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
     if (savedState && savedState.nodes.length > 0) {
       // When loading from saved state, update quantities if needed
       if (selectedItem && savedState.quantity !== quantity) {
-        const updatedNodes = calculateQuantitiesFromEdges(savedState.nodes, savedState.edges, selectedItem, quantity)
+        const updatedNodes = calculateQuantitiesFromEdges(
+          savedState.nodes,
+          savedState.edges,
+          selectedItem,
+          quantity
+        )
         setNodes(updatedNodes)
       } else {
         setNodes(savedState.nodes)
@@ -212,13 +244,24 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
       if (!selectedItem) return
 
       setNodes((currentNodes) => {
-        return calculateQuantitiesFromEdges(currentNodes, edges, selectedItem, quantity)
+        return calculateQuantitiesFromEdges(
+          currentNodes,
+          edges,
+          selectedItem,
+          quantity
+        )
       })
     }
 
-    window.addEventListener('recalculateQuantities', handleRecalculateQuantities)
+    window.addEventListener(
+      'recalculateQuantities',
+      handleRecalculateQuantities
+    )
     return () => {
-      window.removeEventListener('recalculateQuantities', handleRecalculateQuantities)
+      window.removeEventListener(
+        'recalculateQuantities',
+        handleRecalculateQuantities
+      )
     }
   }, [selectedItem, edges, quantity, setNodes])
 
@@ -233,7 +276,12 @@ export function CalcultorFlowView({ slug, quantity = 1 }: FlowVisualizeViewProps
   useEffect(() => {
     if (selectedItem && nodes.length > 0) {
       setNodes((currentNodes) => {
-        return calculateQuantitiesFromEdges(currentNodes, edges, selectedItem, quantity)
+        return calculateQuantitiesFromEdges(
+          currentNodes,
+          edges,
+          selectedItem,
+          quantity
+        )
       })
     }
   }, [quantity, selectedItem, nodes.length, edges, setNodes])

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuildingFunctionTypeMappingDesc = {
   typeId: number
   descIds: number[]
@@ -23,15 +28,28 @@ export namespace BuildingFunctionTypeMappingDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('typeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('descIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'descIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingFunctionTypeMappingDesc): void {
-    BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingFunctionTypeMappingDesc
+  ): void {
+    BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): BuildingFunctionTypeMappingDesc {
-    return BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): BuildingFunctionTypeMappingDesc {
+    return BuildingFunctionTypeMappingDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

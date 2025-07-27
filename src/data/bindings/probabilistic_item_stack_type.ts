@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type ProbabilisticItemStack = {
@@ -24,16 +29,24 @@ export namespace ProbabilisticItemStack {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('itemStack', AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'itemStack',
+        AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('probability', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProbabilisticItemStack): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProbabilisticItemStack
+  ): void {
     ProbabilisticItemStack.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ProbabilisticItemStack {
-    return ProbabilisticItemStack.getTypeScriptAlgebraicType().deserialize(reader)
+    return ProbabilisticItemStack.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

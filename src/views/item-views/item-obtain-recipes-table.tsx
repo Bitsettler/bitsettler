@@ -1,4 +1,11 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@/components/ui/table'
 import type { EnrichedCraftingRecipe } from '@/lib/spacetime-db-new/modules/crafting-recipes/flows'
 import type { EnrichedExtractionRecipe } from '@/lib/spacetime-db-new/modules/extraction-recipes/flows'
 
@@ -7,14 +14,27 @@ interface ItemObtainRecipesTableProps {
   extractionRecipes: EnrichedExtractionRecipe[]
 }
 
-export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: ItemObtainRecipesTableProps) {
+export function ItemObtainRecipesTable({
+  craftingRecipes,
+  extractionRecipes
+}: ItemObtainRecipesTableProps) {
   const allRecipes = [
-    ...craftingRecipes.map((recipe) => ({ ...recipe, type: 'crafting' as const })),
-    ...extractionRecipes.map((recipe) => ({ ...recipe, type: 'extraction' as const }))
+    ...craftingRecipes.map((recipe) => ({
+      ...recipe,
+      type: 'crafting' as const
+    })),
+    ...extractionRecipes.map((recipe) => ({
+      ...recipe,
+      type: 'extraction' as const
+    }))
   ]
 
   if (allRecipes.length === 0) {
-    return <div className="text-muted-foreground py-8 text-center">No recipes found that produce this item.</div>
+    return (
+      <div className="text-muted-foreground py-8 text-center">
+        No recipes found that produce this item.
+      </div>
+    )
   }
 
   return (
@@ -35,27 +55,39 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
           {allRecipes.map((recipe) => (
             <TableRow key={`${recipe.type}-${recipe.id}`}>
               <TableCell className="font-medium">
-                {recipe.type === 'crafting' ? recipe.resolvedRecipeName : `${recipe.verbPhrase} Recipe`}
+                {recipe.type === 'crafting'
+                  ? recipe.resolvedRecipeName
+                  : `${recipe.verbPhrase} Recipe`}
               </TableCell>
               <TableCell>
                 {recipe.type === 'crafting' ? (
                   recipe.buildingRequirement ? (
                     <div className="text-sm">
-                      {recipe.resolvedBuildingType?.name || `Building ${recipe.buildingRequirement.buildingType}`}
-                      <span className="text-muted-foreground ml-1">(Tier {recipe.buildingRequirement.tier})</span>
+                      {recipe.resolvedBuildingType?.name ||
+                        `Building ${recipe.buildingRequirement.buildingType}`}
+                      <span className="text-muted-foreground ml-1">
+                        (Tier {recipe.buildingRequirement.tier})
+                      </span>
                     </div>
                   ) : (
-                    <span className="text-muted-foreground text-sm">Hand Crafted</span>
+                    <span className="text-muted-foreground text-sm">
+                      Hand Crafted
+                    </span>
                   )
                 ) : (
                   <div className="text-sm">
                     {recipe.resource?.name || 'Resource Node'}
-                    {recipe.range > 1 && <span className="text-muted-foreground ml-1">(Range: {recipe.range})</span>}
+                    {recipe.range > 1 && (
+                      <span className="text-muted-foreground ml-1">
+                        (Range: {recipe.range})
+                      </span>
+                    )}
                   </div>
                 )}
               </TableCell>
               <TableCell>
-                {recipe.allowUseHands && recipe.enrichedToolRequirements.length === 0 ? (
+                {recipe.allowUseHands &&
+                recipe.enrichedToolRequirements.length === 0 ? (
                   <span className="text-muted-foreground">Hands</span>
                 ) : (
                   <div className="space-y-1">
@@ -76,7 +108,9 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                     return (
                       <div key={index} className="text-sm">
                         {levelReq.skill?.name || `Skill ${levelReq.skillId}`}
-                        <span className="text-muted-foreground ml-1">Level {levelReq.level}</span>
+                        <span className="text-muted-foreground ml-1">
+                          Level {levelReq.level}
+                        </span>
                       </div>
                     )
                   })}
@@ -86,7 +120,8 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                 <div className="space-y-1">
                   {recipe.enrichedConsumedItems.map((item, index) => (
                     <div key={index} className="text-sm">
-                      {item.quantity}x {item.item?.name || `Item ${item.itemId}`}
+                      {item.quantity}x{' '}
+                      {item.item?.name || `Item ${item.itemId}`}
                     </div>
                   ))}
                 </div>
@@ -96,12 +131,16 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                   {recipe.type === 'crafting'
                     ? recipe.enrichedCraftedItems.map((item, index) => (
                         <div key={index} className="text-sm font-medium">
-                          {item.quantity}x {item.item?.name || `Item ${item.itemId}`}
+                          {item.quantity}x{' '}
+                          {item.item?.name || `Item ${item.itemId}`}
                         </div>
                       ))
                     : recipe.enrichedExtractedItems.map((item, index) => (
                         <div key={index} className="text-sm font-medium">
-                          {item.quantity}x {item.item?.name || item.cargo?.name || `ID ${item.itemId}`}
+                          {item.quantity}x{' '}
+                          {item.item?.name ||
+                            item.cargo?.name ||
+                            `ID ${item.itemId}`}
                           {item.probability < 1 && (
                             <span className="text-muted-foreground ml-1 text-xs">
                               ({Math.round(item.probability * 100)}%)
@@ -115,7 +154,9 @@ export function ItemObtainRecipesTable({ craftingRecipes, extractionRecipes }: I
                 <div className="text-sm">
                   {recipe.timeRequirement.toFixed(2)}s
                   {recipe.type === 'crafting' && recipe.actionsRequired > 1 && (
-                    <div className="text-muted-foreground text-xs">{recipe.actionsRequired} actions</div>
+                    <div className="text-muted-foreground text-xs">
+                      {recipe.actionsRequired} actions
+                    </div>
                   )}
                 </div>
               </TableCell>

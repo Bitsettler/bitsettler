@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ProgressiveActionState as __ProgressiveActionState } from './progressive_action_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportProgressiveActionState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__ProgressiveActionState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ProgressiveActionState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportProgressiveActionState): void {
-    ImportProgressiveActionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportProgressiveActionState
+  ): void {
+    ImportProgressiveActionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportProgressiveActionState {
-    return ImportProgressiveActionState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportProgressiveActionState {
+    return ImportProgressiveActionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

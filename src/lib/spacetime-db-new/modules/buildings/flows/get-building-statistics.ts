@@ -9,10 +9,14 @@ export function getBuildingStatistics() {
   const allItems = getAllItems()
 
   // Filter buildings that are marked for compendium entry
-  const compendiumBuildings = buildings.filter((building) => building.showInCompendium)
+  const compendiumBuildings = buildings.filter(
+    (building) => building.showInCompendium
+  )
 
   // Get Writ items (construction permits and building documents)
-  const writs = allItems.filter((item) => item.compendiumEntry && item.tag === 'Writ')
+  const writs = allItems.filter(
+    (item) => item.compendiumEntry && item.tag === 'Writ'
+  )
 
   return {
     totalBuildings: compendiumBuildings.length,

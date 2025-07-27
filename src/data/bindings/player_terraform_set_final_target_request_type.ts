@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type'
 
 export type PlayerTerraformSetFinalTargetRequest = {
@@ -24,16 +29,29 @@ export namespace PlayerTerraformSetFinalTargetRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('coordinates', __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'coordinates',
+        __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('finalHeightTarget', AlgebraicType.createI16Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTerraformSetFinalTargetRequest): void {
-    PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTerraformSetFinalTargetRequest
+  ): void {
+    PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerTerraformSetFinalTargetRequest {
-    return PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerTerraformSetFinalTargetRequest {
+    return PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

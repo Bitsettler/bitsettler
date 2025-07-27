@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { BuildingDecayLoopTimer as __BuildingDecayLoopTimer } from './building_decay_loop_timer_type'
 
@@ -24,15 +29,23 @@ export namespace BuildingDecayAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __BuildingDecayLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __BuildingDecayLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingDecayAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingDecayAgentLoop
+  ): void {
     BuildingDecayAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingDecayAgentLoop {
-    return BuildingDecayAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+    return BuildingDecayAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

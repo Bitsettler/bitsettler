@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { InteriorSetCollapsedTimer as __InteriorSetCollapsedTimer } from './interior_set_collapsed_timer_type'
 
@@ -24,15 +29,28 @@ export namespace InteriorSetCollapsedScheduled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __InteriorSetCollapsedTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __InteriorSetCollapsedTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorSetCollapsedScheduled): void {
-    InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorSetCollapsedScheduled
+  ): void {
+    InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): InteriorSetCollapsedScheduled {
-    return InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): InteriorSetCollapsedScheduled {
+    return InteriorSetCollapsedScheduled.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

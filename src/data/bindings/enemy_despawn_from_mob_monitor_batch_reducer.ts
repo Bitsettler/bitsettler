@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type EnemyDespawnFromMobMonitorBatch = {
   enemyEntityIds: bigint[]
@@ -22,15 +27,28 @@ export namespace EnemyDespawnFromMobMonitorBatch {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('enemyEntityIds', AlgebraicType.createArrayType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'enemyEntityIds',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyDespawnFromMobMonitorBatch): void {
-    EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyDespawnFromMobMonitorBatch
+  ): void {
+    EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): EnemyDespawnFromMobMonitorBatch {
-    return EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): EnemyDespawnFromMobMonitorBatch {
+    return EnemyDespawnFromMobMonitorBatch.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

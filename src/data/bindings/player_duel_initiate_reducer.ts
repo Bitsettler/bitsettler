@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerDuelInitiate = {
   targetPlayerEntityId: bigint
@@ -22,11 +27,17 @@ export namespace PlayerDuelInitiate {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('targetPlayerEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'targetPlayerEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDuelInitiate): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDuelInitiate
+  ): void {
     PlayerDuelInitiate.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

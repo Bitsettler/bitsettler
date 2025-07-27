@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenVector2Int as __WorldGenVector2Int } from './world_gen_vector_2_int_type'
 
 export type WorldGenRiverPathfindingCosts = {
@@ -24,16 +29,29 @@ export namespace WorldGenRiverPathfindingCosts {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('elevationDifferenceRange', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'elevationDifferenceRange',
+        __WorldGenVector2Int.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('pathfindingCosts', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenRiverPathfindingCosts): void {
-    WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenRiverPathfindingCosts
+  ): void {
+    WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenRiverPathfindingCosts {
-    return WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenRiverPathfindingCosts {
+    return WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

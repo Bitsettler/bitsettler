@@ -35,15 +35,23 @@ export namespace EmpirePlayerDataState {
       new ProductTypeElement('empireEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('rank', AlgebraicType.createU8Type()),
       new ProductTypeElement('donatedShards', AlgebraicType.createU32Type()),
-      new ProductTypeElement('noble', AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+      new ProductTypeElement(
+        'noble',
+        AlgebraicType.createOptionType(AlgebraicType.createTimestampType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpirePlayerDataState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpirePlayerDataState
+  ): void {
     EmpirePlayerDataState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpirePlayerDataState {
-    return EmpirePlayerDataState.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpirePlayerDataState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

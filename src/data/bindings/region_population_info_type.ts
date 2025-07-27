@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type RegionPopulationInfo = {
   regionId: number
   signedInPlayers: number
@@ -29,7 +34,10 @@ export namespace RegionPopulationInfo {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionPopulationInfo): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionPopulationInfo
+  ): void {
     RegionPopulationInfo.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

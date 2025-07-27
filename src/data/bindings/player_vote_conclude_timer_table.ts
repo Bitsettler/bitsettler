@@ -57,29 +57,47 @@ export class PlayerVoteConcludeTimerTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PlayerVoteConcludeTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PlayerVoteConcludeTimer, newRow: PlayerVoteConcludeTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerVoteConcludeTimer,
+      newRow: PlayerVoteConcludeTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: PlayerVoteConcludeTimer, newRow: PlayerVoteConcludeTimer) => void
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerVoteConcludeTimer,
+      newRow: PlayerVoteConcludeTimer
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

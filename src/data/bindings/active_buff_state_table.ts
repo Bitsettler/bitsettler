@@ -75,11 +75,23 @@ export class ActiveBuffStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ActiveBuffState, newRow: ActiveBuffState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ActiveBuffState,
+      newRow: ActiveBuffState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ActiveBuffState, newRow: ActiveBuffState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ActiveBuffState,
+      newRow: ActiveBuffState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

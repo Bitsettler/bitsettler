@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type ResetChunkIndex = {}
 
@@ -22,7 +26,10 @@ export namespace ResetChunkIndex {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResetChunkIndex): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResetChunkIndex
+  ): void {
     ResetChunkIndex.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

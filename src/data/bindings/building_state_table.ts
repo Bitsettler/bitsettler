@@ -74,11 +74,19 @@ export class BuildingStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BuildingState, newRow: BuildingState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: BuildingState,
+      newRow: BuildingState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BuildingState, newRow: BuildingState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: BuildingState, newRow: BuildingState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

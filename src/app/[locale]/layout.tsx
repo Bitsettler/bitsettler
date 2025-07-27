@@ -10,7 +10,11 @@ import { geistSans } from '@/styles/typography'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale
+} from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import '../globals.css'
 
@@ -18,7 +22,11 @@ export function generateStaticParams() {
   return I18N_CONFIG.locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
   const { locale } = await params
 
   // Validate that the incoming `locale` parameter is valid
@@ -42,7 +50,10 @@ export type LocaleLayoutProps = {
   params: Promise<{ locale: string }>
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({
+  children,
+  params
+}: LocaleLayoutProps) {
   const { locale } = await params
   // Enable static rendering
   setRequestLocale(locale)
@@ -59,7 +70,12 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NextIntlClientProvider messages={messages}>
             <SidebarProvider>
               <AppSidebar searchData={searchData} />

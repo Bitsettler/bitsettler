@@ -75,11 +75,23 @@ export class PlayerVoteStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PlayerVoteState, newRow: PlayerVoteState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerVoteState,
+      newRow: PlayerVoteState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PlayerVoteState, newRow: PlayerVoteState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerVoteState,
+      newRow: PlayerVoteState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

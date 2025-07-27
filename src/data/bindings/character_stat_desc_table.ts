@@ -61,7 +61,9 @@ export class CharacterStatDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: CharacterStatDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: CharacterStatDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class CharacterStatDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: CharacterStatDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: CharacterStatDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: CharacterStatDesc, newRow: CharacterStatDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: CharacterStatDesc,
+      newRow: CharacterStatDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: CharacterStatDesc, newRow: CharacterStatDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: CharacterStatDesc,
+      newRow: CharacterStatDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

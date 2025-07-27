@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ClaimMemberState = {
   entityId: bigint
   claimEntityId: bigint
@@ -32,14 +37,26 @@ export namespace ClaimMemberState {
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('userName', AlgebraicType.createStringType()),
-      new ProductTypeElement('inventoryPermission', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'inventoryPermission',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('buildPermission', AlgebraicType.createBoolType()),
-      new ProductTypeElement('officerPermission', AlgebraicType.createBoolType()),
-      new ProductTypeElement('coOwnerPermission', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'officerPermission',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'coOwnerPermission',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimMemberState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimMemberState
+  ): void {
     ClaimMemberState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type DimensionNetworkState = {
   entityId: bigint
   buildingId: bigint
@@ -29,19 +34,30 @@ export namespace DimensionNetworkState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('buildingId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('collapseRespawnTimestamp', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'collapseRespawnTimestamp',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('rentEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('entranceDimensionId', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'entranceDimensionId',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('isCollapsed', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DimensionNetworkState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: DimensionNetworkState
+  ): void {
     DimensionNetworkState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): DimensionNetworkState {
-    return DimensionNetworkState.getTypeScriptAlgebraicType().deserialize(reader)
+    return DimensionNetworkState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

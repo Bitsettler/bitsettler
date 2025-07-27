@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace EnvironmentResistanceType {
   // These are the generated variant types for each variant of the tagged union.
@@ -31,16 +36,26 @@ export namespace EnvironmentResistanceType {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnvironmentResistanceType): void {
-    EnvironmentResistanceType.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnvironmentResistanceType
+  ): void {
+    EnvironmentResistanceType.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): EnvironmentResistanceType {
-    return EnvironmentResistanceType.getTypeScriptAlgebraicType().deserialize(reader)
+    return EnvironmentResistanceType.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `EnvironmentResistanceType`.
-export type EnvironmentResistanceType = EnvironmentResistanceType.Cold | EnvironmentResistanceType.Heat
+export type EnvironmentResistanceType =
+  | EnvironmentResistanceType.Cold
+  | EnvironmentResistanceType.Heat
 
 export default EnvironmentResistanceType

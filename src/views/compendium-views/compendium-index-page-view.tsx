@@ -1,7 +1,10 @@
 import { Container } from '@/components/container'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -47,16 +50,21 @@ export function CompendiumIndexPageView({
         {/* Hero Section */}
         <div className="space-y-6 text-center">
           <h1 className="text-5xl font-bold tracking-tight">{title}</h1>
-          <p className="text-muted-foreground mx-auto max-w-2xl text-xl leading-relaxed">{subtitle}</p>
+          <p className="text-muted-foreground mx-auto max-w-2xl text-xl leading-relaxed">
+            {subtitle}
+          </p>
         </div>
 
         {/* Special Collections */}
         {specialCollections.length > 0 && (
           <section className="space-y-6">
             <div className="space-y-2">
-              <h2 className="text-3xl font-semibold tracking-tight">Featured Collections</h2>
+              <h2 className="text-3xl font-semibold tracking-tight">
+                Featured Collections
+              </h2>
               <p className="text-muted-foreground text-lg">
-                Explore curated collections of the most important items in Bitcraft
+                Explore curated collections of the most important items in
+                Bitcraft
               </p>
             </div>
 
@@ -70,7 +78,9 @@ export function CompendiumIndexPageView({
                           {collection.icon ? (
                             <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
                               <Image
-                                src={getServerIconPath(cleanIconAssetName(collection.icon))}
+                                src={getServerIconPath(
+                                  cleanIconAssetName(collection.icon)
+                                )}
                                 alt={collection.title}
                                 width={44}
                                 height={44}
@@ -81,12 +91,16 @@ export function CompendiumIndexPageView({
                             <span className="text-2xl">📦</span>
                           )}
                           <div>
-                            <h3 className="group-hover:text-accent-foreground font-semibold">{collection.title}</h3>
+                            <h3 className="group-hover:text-accent-foreground font-semibold">
+                              {collection.title}
+                            </h3>
                           </div>
                         </div>
                       </CardTitle>
                       <CardContent className="">
-                        <p className="text-muted-foreground text-sm">{collection.description}</p>
+                        <p className="text-muted-foreground text-sm">
+                          {collection.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </Link>
@@ -99,9 +113,12 @@ export function CompendiumIndexPageView({
         {/* Browse by Category */}
         <section className="space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-tight">Browse by Category</h2>
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Browse by Category
+            </h2>
             <p className="text-muted-foreground text-lg">
-              Find exactly what you&apos;re looking for with our organized category system
+              Find exactly what you&apos;re looking for with our organized
+              category system
             </p>
           </div>
 
@@ -110,7 +127,9 @@ export function CompendiumIndexPageView({
               <div className="border-b pb-2">
                 <h3 className="text-2xl font-semibold">
                   {section.title}
-                  <span className="text-muted-foreground ml-2 text-lg font-normal">({section.totalCount} items)</span>
+                  <span className="text-muted-foreground ml-2 text-lg font-normal">
+                    ({section.totalCount} items)
+                  </span>
                 </h3>
               </div>
 
@@ -123,7 +142,9 @@ export function CompendiumIndexPageView({
                           {category.icon && (
                             <div className="flex-shrink-0">
                               <Image
-                                src={getServerIconPath(cleanIconAssetName(category.icon))}
+                                src={getServerIconPath(
+                                  cleanIconAssetName(category.icon)
+                                )}
                                 alt={category.name}
                                 width={36}
                                 height={36}
@@ -135,7 +156,10 @@ export function CompendiumIndexPageView({
                             <div className="group-hover:text-accent-foreground text-sm font-medium">
                               {category.name}
                             </div>
-                            <Badge variant="secondary" className="text-muted-foreground text-xs">
+                            <Badge
+                              variant="secondary"
+                              className="text-muted-foreground text-xs"
+                            >
                               {category.count}
                             </Badge>
                           </div>

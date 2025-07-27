@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingNicknameState as __BuildingNicknameState } from './building_nickname_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,46 @@ export namespace BuildingNicknameStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __BuildingNicknameState): BuildingNicknameStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __BuildingNicknameState): BuildingNicknameStateOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __BuildingNicknameState
+  ): BuildingNicknameStateOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __BuildingNicknameState
+  ): BuildingNicknameStateOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __BuildingNicknameState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __BuildingNicknameState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __BuildingNicknameState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __BuildingNicknameState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingNicknameStateOp): void {
-    BuildingNicknameStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingNicknameStateOp
+  ): void {
+    BuildingNicknameStateOp.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): BuildingNicknameStateOp {
-    return BuildingNicknameStateOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return BuildingNicknameStateOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `BuildingNicknameStateOp`.
-export type BuildingNicknameStateOp = BuildingNicknameStateOp.Insert | BuildingNicknameStateOp.Delete
+export type BuildingNicknameStateOp =
+  | BuildingNicknameStateOp.Insert
+  | BuildingNicknameStateOp.Delete
 
 export default BuildingNicknameStateOp

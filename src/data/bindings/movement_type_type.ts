@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace MovementType {
   // These are the generated variant types for each variant of the tagged union.
@@ -47,6 +52,10 @@ export namespace MovementType {
 }
 
 // The tagged union or sum type for the algebraic type `MovementType`.
-export type MovementType = MovementType.None | MovementType.Ground | MovementType.Water | MovementType.Amphibious
+export type MovementType =
+  | MovementType.None
+  | MovementType.Ground
+  | MovementType.Water
+  | MovementType.Amphibious
 
 export default MovementType

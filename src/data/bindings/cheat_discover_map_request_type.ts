@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type CheatDiscoverMapRequest = {
   targetEntityId: bigint
 }
@@ -20,14 +25,24 @@ export namespace CheatDiscoverMapRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatDiscoverMapRequest): void {
-    CheatDiscoverMapRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatDiscoverMapRequest
+  ): void {
+    CheatDiscoverMapRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): CheatDiscoverMapRequest {
-    return CheatDiscoverMapRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return CheatDiscoverMapRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -74,11 +74,23 @@ export class EmpireChunkStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EmpireChunkState, newRow: EmpireChunkState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EmpireChunkState,
+      newRow: EmpireChunkState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EmpireChunkState, newRow: EmpireChunkState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EmpireChunkState,
+      newRow: EmpireChunkState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

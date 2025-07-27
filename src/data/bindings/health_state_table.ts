@@ -74,11 +74,15 @@ export class HealthStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: HealthState, newRow: HealthState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: HealthState, newRow: HealthState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: HealthState, newRow: HealthState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: HealthState, newRow: HealthState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

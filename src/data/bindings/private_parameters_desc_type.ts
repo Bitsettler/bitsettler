@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { MoveValidationParamsDesc as __MoveValidationParamsDesc } from './move_validation_params_desc_type'
 
 export type PrivateParametersDesc = {
@@ -25,15 +30,23 @@ export namespace PrivateParametersDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('version', AlgebraicType.createI32Type()),
-      new ProductTypeElement('moveValidation', __MoveValidationParamsDesc.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'moveValidation',
+        __MoveValidationParamsDesc.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PrivateParametersDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PrivateParametersDesc
+  ): void {
     PrivateParametersDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PrivateParametersDesc {
-    return PrivateParametersDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return PrivateParametersDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

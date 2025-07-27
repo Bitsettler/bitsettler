@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type VaultCollectible = {
   id: number
   activated: boolean
@@ -29,7 +34,10 @@ export namespace VaultCollectible {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: VaultCollectible): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: VaultCollectible
+  ): void {
     VaultCollectible.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -5,7 +5,9 @@ import { getAllResources } from './get-all-resources'
  * Get all resources grouped by their tag
  */
 export function getResourcesGroupedByTag(): Record<string, ResourceDesc[]> {
-  const resources = getAllResources().filter((resource) => resource.compendiumEntry)
+  const resources = getAllResources().filter(
+    (resource) => resource.compendiumEntry
+  )
 
   return resources.reduce(
     (groups, resource) => {

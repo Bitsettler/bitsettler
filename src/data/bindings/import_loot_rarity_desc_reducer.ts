@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { LootRarityDesc as __LootRarityDesc } from './loot_rarity_desc_type'
 
@@ -24,11 +29,19 @@ export namespace ImportLootRarityDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__LootRarityDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __LootRarityDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportLootRarityDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportLootRarityDesc
+  ): void {
     ImportLootRarityDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

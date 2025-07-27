@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type KnowledgeScrollDesc = {
   itemId: number
   scrollType: number
@@ -30,7 +35,10 @@ export namespace KnowledgeScrollDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('scrollType', AlgebraicType.createI32Type()),
-      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'secondaryKnowledgeId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('knownByDefault', AlgebraicType.createBoolType()),
       new ProductTypeElement('autoCollect', AlgebraicType.createBoolType()),
       new ProductTypeElement('title', AlgebraicType.createStringType()),
@@ -39,7 +47,10 @@ export namespace KnowledgeScrollDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: KnowledgeScrollDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: KnowledgeScrollDesc
+  ): void {
     KnowledgeScrollDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

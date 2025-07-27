@@ -31,7 +31,10 @@ export namespace HealthState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastHealthDecreaseTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'lastHealthDecreaseTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('health', AlgebraicType.createF32Type()),
       new ProductTypeElement('diedTimestamp', AlgebraicType.createI32Type())
     ])

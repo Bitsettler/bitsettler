@@ -1,7 +1,10 @@
 'use client'
 
 import type { CollectibleWithDeed } from '@/lib/spacetime-db-new/modules/collectibles/flows'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import type { BaseItem } from '@/views/tag-views/tag-page-view'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 import Image from 'next/image'
@@ -44,7 +47,12 @@ export function CollectiblesIndividualTagPageView({
           className: 'w-16'
         },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
+        {
+          key: 'rarity',
+          label: 'Rarity',
+          sortable: true,
+          className: 'text-center'
+        },
         {
           key: 'deedIconAssetName',
           label: 'Deed',
@@ -54,7 +62,9 @@ export function CollectiblesIndividualTagPageView({
             item.deedIconAssetName ? (
               <div className="bg-muted relative h-13 w-13 rounded p-1">
                 <Image
-                  src={getServerIconPath(cleanIconAssetName(item.deedIconAssetName))}
+                  src={getServerIconPath(
+                    cleanIconAssetName(item.deedIconAssetName)
+                  )}
                   alt="Deed"
                   width={48}
                   height={48}

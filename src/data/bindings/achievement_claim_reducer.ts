@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerAchievementClaimRequest as __PlayerAchievementClaimRequest } from './player_achievement_claim_request_type'
 
@@ -24,11 +29,17 @@ export namespace AchievementClaim {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerAchievementClaimRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerAchievementClaimRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AchievementClaim): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AchievementClaim
+  ): void {
     AchievementClaim.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

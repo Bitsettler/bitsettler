@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type CheatRemoveEntityResource = {
   targetEntityId: bigint
@@ -21,14 +26,24 @@ export namespace CheatRemoveEntityResource {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatRemoveEntityResource): void {
-    CheatRemoveEntityResource.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatRemoveEntityResource
+  ): void {
+    CheatRemoveEntityResource.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): CheatRemoveEntityResource {
-    return CheatRemoveEntityResource.getTypeScriptAlgebraicType().deserialize(reader)
+    return CheatRemoveEntityResource.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

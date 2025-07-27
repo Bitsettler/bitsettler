@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminCollapseRuin = {
   ruinBuildingEntityId: bigint
@@ -22,11 +27,17 @@ export namespace AdminCollapseRuin {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('ruinBuildingEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'ruinBuildingEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminCollapseRuin): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminCollapseRuin
+  ): void {
     AdminCollapseRuin.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

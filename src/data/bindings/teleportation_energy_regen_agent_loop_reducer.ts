@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TeleportationEnergyRegenLoopTimer as __TeleportationEnergyRegenLoopTimer } from './teleportation_energy_regen_loop_timer_type'
 
@@ -24,15 +29,28 @@ export namespace TeleportationEnergyRegenAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __TeleportationEnergyRegenLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TeleportationEnergyRegenAgentLoop): void {
-    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: TeleportationEnergyRegenAgentLoop
+  ): void {
+    TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): TeleportationEnergyRegenAgentLoop {
-    return TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): TeleportationEnergyRegenAgentLoop {
+    return TeleportationEnergyRegenAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

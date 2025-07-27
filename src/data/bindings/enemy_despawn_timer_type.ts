@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type EnemyDespawnTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   attackerEntityId: bigint
   entityId: bigint
 }
@@ -32,13 +34,19 @@ export namespace EnemyDespawnTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('attackerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('entityId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyDespawnTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyDespawnTimer
+  ): void {
     EnemyDespawnTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

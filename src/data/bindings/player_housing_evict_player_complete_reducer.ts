@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerHousingEvictPlayerTimer as __PlayerHousingEvictPlayerTimer } from './player_housing_evict_player_timer_type'
 
@@ -24,15 +29,28 @@ export namespace PlayerHousingEvictPlayerComplete {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerHousingEvictPlayerTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingEvictPlayerComplete): void {
-    PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingEvictPlayerComplete
+  ): void {
+    PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingEvictPlayerComplete {
-    return PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingEvictPlayerComplete {
+    return PlayerHousingEvictPlayerComplete.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

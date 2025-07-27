@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
 import { WorldGenVector2 as __WorldGenVector2 } from './world_gen_vector_2_type'
 
@@ -28,15 +33,27 @@ export namespace WorldGenMountain {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('center', __WorldGenVector2.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'center',
+        __WorldGenVector2.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('radius', AlgebraicType.createF32Type()),
       new ProductTypeElement('height', AlgebraicType.createI32Type()),
-      new ProductTypeElement('peakOffset', __WorldGenVector2.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('shape', __WorldGenAnimationCurve.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'peakOffset',
+        __WorldGenVector2.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'shape',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenMountain): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenMountain
+  ): void {
     WorldGenMountain.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type'
 
 export type PlayerPillarShapingPlaceRequest = {
@@ -25,17 +30,30 @@ export namespace PlayerPillarShapingPlaceRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('coordinates', __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'coordinates',
+        __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('pillarTypeId', AlgebraicType.createI32Type()),
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerPillarShapingPlaceRequest): void {
-    PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerPillarShapingPlaceRequest
+  ): void {
+    PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerPillarShapingPlaceRequest {
-    return PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerPillarShapingPlaceRequest {
+    return PlayerPillarShapingPlaceRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

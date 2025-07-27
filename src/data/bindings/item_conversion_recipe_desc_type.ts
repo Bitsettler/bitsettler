@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type ItemConversionRecipeDesc = {
@@ -40,20 +45,43 @@ export namespace ItemConversionRecipeDesc {
       new ProductTypeElement('staminaCost', AlgebraicType.createU32Type()),
       new ProductTypeElement('locationContext', AlgebraicType.createI32Type()),
       new ProductTypeElement('stringContext', AlgebraicType.createStringType()),
-      new ProductTypeElement('outputItem', AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('inputItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('requiredEquipmentId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredEquipmentTier', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'outputItem',
+        AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'inputItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'requiredEquipmentId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'requiredEquipmentTier',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('allowUseHands', AlgebraicType.createBoolType()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ItemConversionRecipeDesc): void {
-    ItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ItemConversionRecipeDesc
+  ): void {
+    ItemConversionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ItemConversionRecipeDesc {
-    return ItemConversionRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ItemConversionRecipeDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

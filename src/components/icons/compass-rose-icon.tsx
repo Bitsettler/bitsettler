@@ -1,6 +1,11 @@
 import React from 'react'
 
-export function CompassRoseIcon(props: React.ComponentPropsWithoutRef<'svg'> & { width?: number; height?: number }) {
+export function CompassRoseIcon(
+  props: React.ComponentPropsWithoutRef<'svg'> & {
+    width?: number
+    height?: number
+  }
+) {
   const { width = 24, height = 24, ...rest } = props
   return (
     <svg

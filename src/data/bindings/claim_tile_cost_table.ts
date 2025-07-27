@@ -74,11 +74,19 @@ export class ClaimTileCostTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ClaimTileCost, newRow: ClaimTileCost) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ClaimTileCost,
+      newRow: ClaimTileCost
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ClaimTileCost, newRow: ClaimTileCost) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ClaimTileCost, newRow: ClaimTileCost) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

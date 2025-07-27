@@ -61,7 +61,9 @@ export class RezSickLongTermStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: RezSickLongTermState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: RezSickLongTermState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class RezSickLongTermStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: RezSickLongTermState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: RezSickLongTermState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: RezSickLongTermState, newRow: RezSickLongTermState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: RezSickLongTermState,
+      newRow: RezSickLongTermState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: RezSickLongTermState, newRow: RezSickLongTermState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: RezSickLongTermState,
+      newRow: RezSickLongTermState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

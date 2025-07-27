@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type EmpireNodeState = {
@@ -35,11 +40,17 @@ export namespace EmpireNodeState {
       new ProductTypeElement('energy', AlgebraicType.createI32Type()),
       new ProductTypeElement('active', AlgebraicType.createBoolType()),
       new ProductTypeElement('upkeep', AlgebraicType.createI32Type()),
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNodeState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNodeState
+  ): void {
     EmpireNodeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

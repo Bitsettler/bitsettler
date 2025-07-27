@@ -1,5 +1,16 @@
-export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'mythic'
-export type Category = 'items' | 'cargo' | 'creatures' | 'resources' | 'structures'
+export type Rarity =
+  | 'common'
+  | 'uncommon'
+  | 'rare'
+  | 'epic'
+  | 'legendary'
+  | 'mythic'
+export type Category =
+  | 'items'
+  | 'cargo'
+  | 'creatures'
+  | 'resources'
+  | 'structures'
 
 export interface GameItem {
   id: string
@@ -87,7 +98,12 @@ export interface ServerItem {
   item_list_id: number
 }
 
-export type ServerItemStack = [number, number, [number, unknown[]], [number, number]]
+export type ServerItemStack = [
+  number,
+  number,
+  [number, unknown[]],
+  [number, number]
+]
 export type ServerItemListPossibility = [number, ServerItemStack[]]
 
 export interface ServerItemList {
@@ -132,7 +148,9 @@ export interface ServerResource {
   despawn_time: number
   model_asset_name: string
   icon_asset_name: string
-  on_destroy_yield: Array<[number, number, [number, unknown[]], [number, number]]>
+  on_destroy_yield: Array<
+    [number, number, [number, unknown[]], [number, number]]
+  >
   on_destroy_yield_resource_id: number
   spawn_priority: number
   footprint: Array<[number, number, [number, unknown[]]]>

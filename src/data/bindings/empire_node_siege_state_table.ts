@@ -61,7 +61,9 @@ export class EmpireNodeSiegeStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: EmpireNodeSiegeState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: EmpireNodeSiegeState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class EmpireNodeSiegeStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: EmpireNodeSiegeState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: EmpireNodeSiegeState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EmpireNodeSiegeState, newRow: EmpireNodeSiegeState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EmpireNodeSiegeState,
+      newRow: EmpireNodeSiegeState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EmpireNodeSiegeState, newRow: EmpireNodeSiegeState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EmpireNodeSiegeState,
+      newRow: EmpireNodeSiegeState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

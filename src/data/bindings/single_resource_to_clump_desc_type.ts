@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type SingleResourceToClumpDesc = {
   resourceId: number
   clumpId: number
@@ -27,11 +32,19 @@ export namespace SingleResourceToClumpDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SingleResourceToClumpDesc): void {
-    SingleResourceToClumpDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: SingleResourceToClumpDesc
+  ): void {
+    SingleResourceToClumpDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): SingleResourceToClumpDesc {
-    return SingleResourceToClumpDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return SingleResourceToClumpDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuffEffect as __BuffEffect } from './buff_effect_type'
 
 export type FoodDesc = {
@@ -37,9 +42,18 @@ export namespace FoodDesc {
       new ProductTypeElement('stamina', AlgebraicType.createF32Type()),
       new ProductTypeElement('upToStamina', AlgebraicType.createF32Type()),
       new ProductTypeElement('hunger', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportationEnergy', AlgebraicType.createF32Type()),
-      new ProductTypeElement('consumableWhileInCombat', AlgebraicType.createBoolType()),
-      new ProductTypeElement('buffs', AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'teleportationEnergy',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'consumableWhileInCombat',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'buffs',
+        AlgebraicType.createArrayType(__BuffEffect.getTypeScriptAlgebraicType())
+      )
     ])
   }
 

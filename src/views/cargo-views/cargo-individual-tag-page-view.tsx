@@ -25,14 +25,31 @@ export function CargoIndividualTagPageView({
 
   // Add cargo-specific columns (using raw game values)
   const cargoColumns = [
-    { key: 'pickUpTime', label: 'Pickup Time', sortable: true, className: 'text-center' },
-    { key: 'movementModifier', label: 'Movement Modifier', sortable: true, className: 'text-center' }
+    {
+      key: 'pickUpTime',
+      label: 'Pickup Time',
+      sortable: true,
+      className: 'text-center'
+    },
+    {
+      key: 'movementModifier',
+      label: 'Movement Modifier',
+      sortable: true,
+      className: 'text-center'
+    }
   ]
 
   // Add conditional columns based on cargo properties
   const hasTransportableItems = cargo.some((item) => item.notPickupable)
   const transportableColumn = hasTransportableItems
-    ? [{ key: 'isTransportable', label: 'Transportable', sortable: true, className: 'text-center' }]
+    ? [
+        {
+          key: 'isTransportable',
+          label: 'Transportable',
+          sortable: true,
+          className: 'text-center'
+        }
+      ]
     : []
 
   // Create enriched items with proper rarity fallback and tier colors
@@ -58,7 +75,9 @@ export function CargoIndividualTagPageView({
   const totalCargo = cargo.length
   const transportableCount = cargo.filter((c) => !c.notPickupable).length
   // Simplified statistics - we can determine basic categories from tag patterns
-  const animalCount = cargo.filter((c) => c.tag?.toLowerCase().includes('animal')).length
+  const animalCount = cargo.filter((c) =>
+    c.tag?.toLowerCase().includes('animal')
+  ).length
   const materialCount = cargo.filter(
     (c) =>
       c.tag?.toLowerCase().includes('material') ||
@@ -66,7 +85,9 @@ export function CargoIndividualTagPageView({
       c.tag?.toLowerCase().includes('stone') ||
       c.tag?.toLowerCase().includes('metal')
   ).length
-  const vehicleCount = cargo.filter((c) => c.tag?.toLowerCase().includes('vehicle')).length
+  const vehicleCount = cargo.filter((c) =>
+    c.tag?.toLowerCase().includes('vehicle')
+  ).length
 
   // Create subtitle with breakdown
   const subtitleParts = [`${totalCargo} items`]

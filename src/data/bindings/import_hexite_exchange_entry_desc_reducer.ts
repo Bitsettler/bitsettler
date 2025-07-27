@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { HexiteExchangeEntryDesc as __HexiteExchangeEntryDesc } from './hexite_exchange_entry_desc_type'
 
@@ -26,16 +31,28 @@ export namespace ImportHexiteExchangeEntryDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__HexiteExchangeEntryDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __HexiteExchangeEntryDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportHexiteExchangeEntryDesc): void {
-    ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportHexiteExchangeEntryDesc
+  ): void {
+    ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportHexiteExchangeEntryDesc {
-    return ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportHexiteExchangeEntryDesc {
+    return ImportHexiteExchangeEntryDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

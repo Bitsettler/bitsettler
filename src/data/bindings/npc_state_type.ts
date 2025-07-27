@@ -41,10 +41,16 @@ export namespace NpcState {
       new ProductTypeElement('npcType', __NpcType.getTypeScriptAlgebraicType()),
       new ProductTypeElement('direction', AlgebraicType.createI32Type()),
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('nextActionTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'nextActionTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('moveDuration', AlgebraicType.createF32Type()),
       new ProductTypeElement('startedMoving', AlgebraicType.createU64Type()),
-      new ProductTypeElement('previousBuildings', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
+      new ProductTypeElement(
+        'previousBuildings',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      ),
       new ProductTypeElement('traveling', AlgebraicType.createBoolType())
     ])
   }

@@ -57,31 +57,47 @@ export class InterModuleMessageCounterTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: InterModuleMessageCounter) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: InterModuleMessageCounter) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InterModuleMessageCounter) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InterModuleMessageCounter) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: InterModuleMessageCounter) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: InterModuleMessageCounter) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InterModuleMessageCounter) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InterModuleMessageCounter) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: InterModuleMessageCounter, newRow: InterModuleMessageCounter) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: InterModuleMessageCounter,
+      newRow: InterModuleMessageCounter
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: InterModuleMessageCounter, newRow: InterModuleMessageCounter) => void
+    cb: (
+      ctx: EventContext,
+      onRow: InterModuleMessageCounter,
+      newRow: InterModuleMessageCounter
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

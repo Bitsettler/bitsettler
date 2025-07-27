@@ -39,19 +39,37 @@ export namespace ProjectSiteState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('constructionRecipeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourcePlacementRecipeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('items', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('cargos', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'constructionRecipeId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'resourcePlacementRecipeId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'items',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'cargos',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('progress', AlgebraicType.createI32Type()),
       new ProductTypeElement('lastCritOutcome', AlgebraicType.createI32Type()),
       new ProductTypeElement('ownerId', AlgebraicType.createU64Type()),
       new ProductTypeElement('direction', AlgebraicType.createI32Type()),
-      new ProductTypeElement('lastHitTimestamp', AlgebraicType.createTimestampType())
+      new ProductTypeElement(
+        'lastHitTimestamp',
+        AlgebraicType.createTimestampType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProjectSiteState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProjectSiteState
+  ): void {
     ProjectSiteState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

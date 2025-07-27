@@ -42,50 +42,56 @@ export interface EnrichedCraftingRecipe extends CraftingRecipeDesc {
 /**
  * Get enriched crafting recipes that produce a specific item with item data resolved
  */
-export function getEnrichedCraftingRecipesByOutputItemId(itemId: number): EnrichedCraftingRecipe[] {
+export function getEnrichedCraftingRecipesByOutputItemId(
+  itemId: number
+): EnrichedCraftingRecipe[] {
   const craftingRecipes = getCraftingRecipesByOutputItemId(itemId)
   const allItems = getAllItems()
   const itemsMap = new Map(allItems.map((item) => [item.id, item]))
 
   return craftingRecipes.map((recipe) => {
     // Resolve consumed items
-    const enrichedConsumedItems: EnrichedItemStack[] = recipe.consumedItemStacks.map((stack) => ({
-      itemId: stack.itemId,
-      quantity: stack.quantity,
-      item: itemsMap.get(stack.itemId)
-    }))
+    const enrichedConsumedItems: EnrichedItemStack[] =
+      recipe.consumedItemStacks.map((stack) => ({
+        itemId: stack.itemId,
+        quantity: stack.quantity,
+        item: itemsMap.get(stack.itemId)
+      }))
 
     // Resolve crafted items
-    const enrichedCraftedItems: EnrichedItemStack[] = recipe.craftedItemStacks.map((stack) => ({
-      itemId: stack.itemId,
-      quantity: stack.quantity,
-      item: itemsMap.get(stack.itemId)
-    }))
+    const enrichedCraftedItems: EnrichedItemStack[] =
+      recipe.craftedItemStacks.map((stack) => ({
+        itemId: stack.itemId,
+        quantity: stack.quantity,
+        item: itemsMap.get(stack.itemId)
+      }))
 
     // Resolve tool requirements
-    const enrichedToolRequirements: EnrichedToolRequirement[] = recipe.toolRequirements.map((toolReq) => {
-      const toolType = getToolTypeById(toolReq.toolType)
-      const toolItem = getToolByTypeAndLevel(toolReq.toolType, toolReq.level)
+    const enrichedToolRequirements: EnrichedToolRequirement[] =
+      recipe.toolRequirements.map((toolReq) => {
+        const toolType = getToolTypeById(toolReq.toolType)
+        const toolItem = getToolByTypeAndLevel(toolReq.toolType, toolReq.level)
 
-      return {
-        toolType: toolReq.toolType,
-        level: toolReq.level,
-        power: toolReq.power,
-        toolTypeName: toolType?.name || `Tool Type ${toolReq.toolType}`,
-        toolItem
-      }
-    })
+        return {
+          toolType: toolReq.toolType,
+          level: toolReq.level,
+          power: toolReq.power,
+          toolTypeName: toolType?.name || `Tool Type ${toolReq.toolType}`,
+          toolItem
+        }
+      })
 
     // Resolve level requirements
-    const enrichedLevelRequirements: EnrichedLevelRequirement[] = recipe.levelRequirements.map((levelReq) => {
-      const skill = getSkillById(levelReq.skillId)
+    const enrichedLevelRequirements: EnrichedLevelRequirement[] =
+      recipe.levelRequirements.map((levelReq) => {
+        const skill = getSkillById(levelReq.skillId)
 
-      return {
-        skillId: levelReq.skillId,
-        level: levelReq.level,
-        skill
-      }
-    })
+        return {
+          skillId: levelReq.skillId,
+          level: levelReq.level,
+          skill
+        }
+      })
 
     // Resolve building requirement
     const resolvedBuildingType = recipe.buildingRequirement
@@ -93,7 +99,11 @@ export function getEnrichedCraftingRecipesByOutputItemId(itemId: number): Enrich
       : undefined
 
     // Resolve recipe name
-    const resolvedRecipeName = resolveRecipeName(recipe.name, enrichedCraftedItems, enrichedConsumedItems)
+    const resolvedRecipeName = resolveRecipeName(
+      recipe.name,
+      enrichedCraftedItems,
+      enrichedConsumedItems
+    )
 
     return {
       ...recipe,

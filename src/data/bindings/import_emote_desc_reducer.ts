@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EmoteDesc as __EmoteDesc } from './emote_desc_type'
 
@@ -24,11 +29,17 @@ export namespace ImportEmoteDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__EmoteDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(__EmoteDesc.getTypeScriptAlgebraicType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportEmoteDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportEmoteDesc
+  ): void {
     ImportEmoteDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

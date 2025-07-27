@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WallDesc = {
   buildingId: number
   largePostAssetName: string
@@ -25,9 +30,18 @@ export namespace WallDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('largePostAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('smallPostAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('wallAssetNames', AlgebraicType.createArrayType(AlgebraicType.createStringType()))
+      new ProductTypeElement(
+        'largePostAssetName',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'smallPostAssetName',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'wallAssetNames',
+        AlgebraicType.createArrayType(AlgebraicType.createStringType())
+      )
     ])
   }
 

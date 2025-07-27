@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { SurfaceType as __SurfaceType } from './surface_type_type'
 
 export type MovementSpeed = {
@@ -24,7 +29,10 @@ export namespace MovementSpeed {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('surfaceType', __SurfaceType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'surfaceType',
+        __SurfaceType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('speed', AlgebraicType.createF32Type())
     ])
   }

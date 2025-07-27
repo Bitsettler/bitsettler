@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TerrainChunkState as __TerrainChunkState } from './terrain_chunk_state_type'
 import { WorldGenGeneratedBuilding as __WorldGenGeneratedBuilding } from './world_gen_generated_building_type'
@@ -28,19 +33,29 @@ export namespace InsertTerrainChunk {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('terrainChunk', __TerrainChunkState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'terrainChunk',
+        __TerrainChunkState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'buildings',
-        AlgebraicType.createArrayType(__WorldGenGeneratedBuilding.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenGeneratedBuilding.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'resources',
-        AlgebraicType.createArrayType(__WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InsertTerrainChunk): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InsertTerrainChunk
+  ): void {
     InsertTerrainChunk.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

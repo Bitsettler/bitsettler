@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type InteriorSetCollapsedTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   dimensionNetworkEntityId: bigint
   isCollapsed: boolean
 }
@@ -32,17 +34,31 @@ export namespace InteriorSetCollapsedTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('dimensionNetworkEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'dimensionNetworkEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('isCollapsed', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorSetCollapsedTimer): void {
-    InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorSetCollapsedTimer
+  ): void {
+    InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): InteriorSetCollapsedTimer {
-    return InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return InteriorSetCollapsedTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

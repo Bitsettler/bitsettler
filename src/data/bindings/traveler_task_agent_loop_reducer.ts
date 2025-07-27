@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TravelerTaskLoopTimer as __TravelerTaskLoopTimer } from './traveler_task_loop_timer_type'
 
@@ -24,15 +29,23 @@ export namespace TravelerTaskAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __TravelerTaskLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __TravelerTaskLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TravelerTaskAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TravelerTaskAgentLoop
+  ): void {
     TravelerTaskAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TravelerTaskAgentLoop {
-    return TravelerTaskAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+    return TravelerTaskAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

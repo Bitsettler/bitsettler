@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace SkillCategory {
   // These are the generated variant types for each variant of the tagged union.
@@ -44,6 +49,9 @@ export namespace SkillCategory {
 }
 
 // The tagged union or sum type for the algebraic type `SkillCategory`.
-export type SkillCategory = SkillCategory.None | SkillCategory.Profession | SkillCategory.Adventure
+export type SkillCategory =
+  | SkillCategory.None
+  | SkillCategory.Profession
+  | SkillCategory.Adventure
 
 export default SkillCategory

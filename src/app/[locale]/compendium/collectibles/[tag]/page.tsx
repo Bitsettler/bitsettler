@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation'
 // Generate static params for all collectible types
 export function generateStaticParams() {
   const collectibleTypes = getAllCollectibleTypes()
-  
+
   return collectibleTypes.map((type) => ({
     tag: createSlug(type)
   }))
@@ -38,7 +38,8 @@ export default async function CollectibleTagPage({ params }: PageProps) {
   }
 
   // Get the collectible type name from the first collectible
-  const collectibleTypeName = filteredCollectibles[0].collectible.collectibleType.tag
+  const collectibleTypeName =
+    filteredCollectibles[0].collectible.collectibleType.tag
 
   return (
     <CollectiblesIndividualTagPageView

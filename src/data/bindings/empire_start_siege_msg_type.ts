@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type EmpireStartSiegeMsg = {
@@ -29,17 +34,29 @@ export namespace EmpireStartSiegeMsg {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('buildingCoord', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'buildingCoord',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('supplies', AlgebraicType.createI32Type()),
       new ProductTypeElement('supplyCargoId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('isDepletedWatchtower', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'isDepletedWatchtower',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireStartSiegeMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireStartSiegeMsg
+  ): void {
     EmpireStartSiegeMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

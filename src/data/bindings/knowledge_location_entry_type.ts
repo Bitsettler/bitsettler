@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { KnowledgeState as __KnowledgeState } from './knowledge_state_type'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
@@ -25,16 +30,27 @@ export namespace KnowledgeLocationEntry {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('state', __KnowledgeState.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'state',
+        __KnowledgeState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: KnowledgeLocationEntry): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: KnowledgeLocationEntry
+  ): void {
     KnowledgeLocationEntry.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeLocationEntry {
-    return KnowledgeLocationEntry.getTypeScriptAlgebraicType().deserialize(reader)
+    return KnowledgeLocationEntry.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

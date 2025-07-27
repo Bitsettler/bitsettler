@@ -1,7 +1,16 @@
 import { Container } from '@/components/container'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface BuildingCategory {
@@ -37,21 +46,31 @@ function BuildingCategoryCard({ category }: { category: BuildingCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
-                <p className="text-muted-foreground text-sm">{category.count} buildings</p>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
+                <p className="text-muted-foreground text-sm">
+                  {category.count} buildings
+                </p>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
         </CardContent>
       </Card>
     </Link>
   )
 }
 
-export function BuildingsView({ title, subtitle, buildingCategories }: BuildingsViewProps) {
+export function BuildingsView({
+  title,
+  subtitle,
+  buildingCategories
+}: BuildingsViewProps) {
   return (
     <Container>
       <div className="space-y-8 py-8">
@@ -71,7 +90,8 @@ export function BuildingsView({ title, subtitle, buildingCategories }: Buildings
         {/* Info */}
         <div className="text-center">
           <p className="text-muted-foreground text-sm">
-            🔍 Click on any category to explore buildings, construction requirements, and detailed specifications!
+            🔍 Click on any category to explore buildings, construction
+            requirements, and detailed specifications!
           </p>
         </div>
       </div>

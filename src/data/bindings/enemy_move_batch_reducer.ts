@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemyMoveRequest as __EnemyMoveRequest } from './enemy_move_request_type'
 
@@ -24,7 +29,12 @@ export namespace EnemyMoveBatch {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('requests', AlgebraicType.createArrayType(__EnemyMoveRequest.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'requests',
+        AlgebraicType.createArrayType(
+          __EnemyMoveRequest.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 

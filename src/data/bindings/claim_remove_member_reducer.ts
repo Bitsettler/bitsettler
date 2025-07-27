@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerClaimRemoveMemberRequest as __PlayerClaimRemoveMemberRequest } from './player_claim_remove_member_request_type'
 
@@ -24,11 +29,17 @@ export namespace ClaimRemoveMember {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerClaimRemoveMemberRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerClaimRemoveMemberRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimRemoveMember): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimRemoveMember
+  ): void {
     ClaimRemoveMember.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

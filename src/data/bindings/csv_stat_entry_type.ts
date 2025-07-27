@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CharacterStatType as __CharacterStatType } from './character_stat_type_type'
 
 export type CsvStatEntry = {
@@ -25,7 +30,10 @@ export namespace CsvStatEntry {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('id', __CharacterStatType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'id',
+        __CharacterStatType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('value', AlgebraicType.createF32Type()),
       new ProductTypeElement('isPct', AlgebraicType.createBoolType())
     ])

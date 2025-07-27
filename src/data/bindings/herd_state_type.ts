@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type HerdState = {
   entityId: bigint
   enemyAiParamsDescId: number
@@ -26,10 +31,19 @@ export namespace HerdState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('enemyAiParamsDescId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('currentPopulation', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'enemyAiParamsDescId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'currentPopulation',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('ignoreEagerness', AlgebraicType.createBoolType()),
-      new ProductTypeElement('populationVariance', AlgebraicType.createArrayType(AlgebraicType.createF32Type()))
+      new ProductTypeElement(
+        'populationVariance',
+        AlgebraicType.createArrayType(AlgebraicType.createF32Type())
+      )
     ])
   }
 

@@ -30,7 +30,10 @@ export namespace GrowthState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('endTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'endTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('growthRecipeId', AlgebraicType.createI32Type())
     ])
   }

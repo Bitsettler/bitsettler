@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type InteriorSetCollapsed = {
   dimensionNetworkEntityId: bigint
@@ -23,12 +28,18 @@ export namespace InteriorSetCollapsed {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('dimensionNetworkEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'dimensionNetworkEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('isCollapsed', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorSetCollapsed): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorSetCollapsed
+  ): void {
     InteriorSetCollapsed.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

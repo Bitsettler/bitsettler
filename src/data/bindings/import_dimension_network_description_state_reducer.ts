@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DimensionNetworkState as __DimensionNetworkState } from './dimension_network_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportDimensionNetworkDescriptionState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__DimensionNetworkState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DimensionNetworkState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportDimensionNetworkDescriptionState): void {
-    ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportDimensionNetworkDescriptionState
+  ): void {
+    ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportDimensionNetworkDescriptionState {
-    return ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportDimensionNetworkDescriptionState {
+    return ImportDimensionNetworkDescriptionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

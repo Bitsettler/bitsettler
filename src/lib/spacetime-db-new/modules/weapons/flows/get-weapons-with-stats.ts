@@ -1,7 +1,11 @@
 import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { WeaponDesc } from '@/data/bindings/weapon_desc_type'
 import type { WeaponTypeDesc } from '@/data/bindings/weapon_type_desc_type'
-import { getAllWeapons, getWeaponDescByItemId, getWeaponTypeById } from '../commands'
+import {
+  getAllWeapons,
+  getWeaponDescByItemId,
+  getWeaponTypeById
+} from '../commands'
 
 export interface WeaponWithStats {
   item: ItemDesc

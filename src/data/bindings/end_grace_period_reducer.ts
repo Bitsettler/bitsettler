@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EndGracePeriodTimer as __EndGracePeriodTimer } from './end_grace_period_timer_type'
 
@@ -24,7 +29,10 @@ export namespace EndGracePeriod {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __EndGracePeriodTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __EndGracePeriodTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

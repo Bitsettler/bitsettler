@@ -79,31 +79,47 @@ export class SingleResourceToClumpDescTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: SingleResourceToClumpDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: SingleResourceToClumpDesc,
+      newRow: SingleResourceToClumpDesc
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: SingleResourceToClumpDesc, newRow: SingleResourceToClumpDesc) => void
+    cb: (
+      ctx: EventContext,
+      onRow: SingleResourceToClumpDesc,
+      newRow: SingleResourceToClumpDesc
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

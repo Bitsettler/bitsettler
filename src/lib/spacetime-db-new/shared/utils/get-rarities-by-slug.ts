@@ -8,7 +8,7 @@ import { RARITY_ORDER, type RarityTag } from './rarity'
  */
 export function getRaritiesBySlug(slug: string): string[] {
   const allItems = getAllItems()
-  
+
   // Find all items with matching slugs (same name, different rarities)
   const matchingItems = allItems.filter((item) => {
     const itemSlug = createSlug(item.name)

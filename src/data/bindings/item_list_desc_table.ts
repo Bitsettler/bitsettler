@@ -75,11 +75,15 @@ export class ItemListDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ItemListDesc, newRow: ItemListDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ItemListDesc, newRow: ItemListDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ItemListDesc, newRow: ItemListDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ItemListDesc, newRow: ItemListDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

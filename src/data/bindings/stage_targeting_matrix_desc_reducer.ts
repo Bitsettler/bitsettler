@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TargetingMatrixDesc as __TargetingMatrixDesc } from './targeting_matrix_desc_type'
 
@@ -26,16 +31,26 @@ export namespace StageTargetingMatrixDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__TargetingMatrixDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TargetingMatrixDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageTargetingMatrixDesc): void {
-    StageTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageTargetingMatrixDesc
+  ): void {
+    StageTargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): StageTargetingMatrixDesc {
-    return StageTargetingMatrixDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return StageTargetingMatrixDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

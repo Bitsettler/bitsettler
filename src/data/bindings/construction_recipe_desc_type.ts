@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { InputItemStack as __InputItemStack } from './input_item_stack_type'
 import { LevelRequirement as __LevelRequirement } from './level_requirement_type'
@@ -50,48 +55,90 @@ export namespace ConstructionRecipeDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('timeRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('staminaRequirement', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'staminaRequirement',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('consumedBuilding', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredInteriorTier', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'requiredInteriorTier',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'toolRequirements',
-        AlgebraicType.createArrayType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedItemStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedCargoStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('consumedShards', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredClaimTechId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('fullDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'discoveryTriggers',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredClaimTechId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'fullDiscoveryScore',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('buildingDescriptionId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredPavingTier', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'buildingDescriptionId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'requiredPavingTier',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('actionsRequired', AlgebraicType.createI32Type()),
       new ProductTypeElement('instantlyBuilt', AlgebraicType.createBoolType()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ConstructionRecipeDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ConstructionRecipeDesc
+  ): void {
     ConstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ConstructionRecipeDesc {
-    return ConstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ConstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

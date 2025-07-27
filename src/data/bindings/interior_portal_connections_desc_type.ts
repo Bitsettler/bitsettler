@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type InteriorPortalConnectionsDesc = {
   id: number
   entranceSpawnId: number
@@ -33,11 +38,21 @@ export namespace InteriorPortalConnectionsDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorPortalConnectionsDesc): void {
-    InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorPortalConnectionsDesc
+  ): void {
+    InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): InteriorPortalConnectionsDesc {
-    return InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): InteriorPortalConnectionsDesc {
+    return InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

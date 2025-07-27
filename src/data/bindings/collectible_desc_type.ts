@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CollectibleType as __CollectibleType } from './collectible_type_type'
 import { Rarity as __Rarity } from './rarity_type'
 
@@ -47,23 +52,41 @@ export namespace CollectibleDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
-      new ProductTypeElement('collectibleType', __CollectibleType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('invalidatesType', __CollectibleType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'collectibleType',
+        __CollectibleType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'invalidatesType',
+        __CollectibleType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('autoCollect', AlgebraicType.createBoolType()),
-      new ProductTypeElement('collectibleRarity', __Rarity.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'collectibleRarity',
+        __Rarity.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('startingLoadout', AlgebraicType.createBoolType()),
       new ProductTypeElement('locked', AlgebraicType.createBoolType()),
       new ProductTypeElement('variant', AlgebraicType.createI32Type()),
       new ProductTypeElement('color', AlgebraicType.createStringType()),
       new ProductTypeElement('emission', AlgebraicType.createStringType()),
       new ProductTypeElement('maxEquipCount', AlgebraicType.createI32Type()),
-      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('variantMaterial', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'modelAssetName',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'variantMaterial',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
       new ProductTypeElement('tag', AlgebraicType.createStringType()),
       new ProductTypeElement('displayString', AlgebraicType.createStringType()),
       new ProductTypeElement('itemDeedId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredKnowledgesToUse', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'requiredKnowledgesToUse',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement(
         'requiredKnowledgesToConvert',
         AlgebraicType.createArrayType(AlgebraicType.createI32Type())
@@ -71,7 +94,10 @@ export namespace CollectibleDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CollectibleDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CollectibleDesc
+  ): void {
     CollectibleDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

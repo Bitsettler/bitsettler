@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerOrderCancelRequest = {
   buildingEntityId: bigint
   auctionListingEntityId: bigint
@@ -23,15 +28,26 @@ export namespace PlayerOrderCancelRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('auctionListingEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'auctionListingEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerOrderCancelRequest): void {
-    PlayerOrderCancelRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerOrderCancelRequest
+  ): void {
+    PlayerOrderCancelRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerOrderCancelRequest {
-    return PlayerOrderCancelRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerOrderCancelRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -7,7 +7,11 @@ import * as React from 'react'
 import { EnhancedSearchForm } from '@/components/enhanced-search-form'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from '@/components/ui/collapsible'
 import {
   Sidebar,
   SidebarContent,
@@ -68,18 +72,33 @@ const data = {
       translationLabel: 'sidebar.compendium',
       children: [
         { translationKey: 'sidebar.codex', href: '/compendium/codex' },
-        { translationKey: 'sidebar.compendiumTools', href: '/compendium/tools' },
+        {
+          translationKey: 'sidebar.compendiumTools',
+          href: '/compendium/tools'
+        },
         { translationKey: 'sidebar.resources', href: '/compendium/resources' },
         { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
-        { translationKey: 'sidebar.deployables', href: '/compendium/collectibles/deployable' },
+        {
+          translationKey: 'sidebar.deployables',
+          href: '/compendium/collectibles/deployable'
+        },
         { translationKey: 'sidebar.seeAll', href: '/compendium' }
       ]
     },
     {
       translationLabel: 'sidebar.tools',
       children: [
-        { translationKey: 'sidebar.calculator', href: '/calculator', icon: CalculatorIcon },
-        { translationKey: 'sidebar.projects', href: '/projects', icon: HammerIcon, comingSoon: true }
+        {
+          translationKey: 'sidebar.calculator',
+          href: '/calculator',
+          icon: CalculatorIcon
+        },
+        {
+          translationKey: 'sidebar.projects',
+          href: '/projects',
+          icon: HammerIcon,
+          comingSoon: true
+        }
       ]
     },
     {
@@ -107,7 +126,13 @@ const data = {
     },
     {
       translationLabel: 'sidebar.recentChanges',
-      children: [{ translationKey: 'sidebar.changelog', href: '/changelog', icon: BookOpenIcon }],
+      children: [
+        {
+          translationKey: 'sidebar.changelog',
+          href: '/changelog',
+          icon: BookOpenIcon
+        }
+      ],
       description: 'sidebar.recentChangesDescription'
     }
   ]
@@ -140,7 +165,10 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
         <Button
           variant={isActive(item.href) ? 'secondary' : 'ghost'}
           size="sm"
-          className={cn('h-8 w-full justify-start text-sm font-normal', isActive(item.href) && 'bg-accent')}
+          className={cn(
+            'h-8 w-full justify-start text-sm font-normal',
+            isActive(item.href) && 'bg-accent'
+          )}
           asChild={!item.comingSoon}
           disabled={item.comingSoon}
         >
@@ -153,7 +181,12 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
               </Badge>
             </div>
           ) : item.external ? (
-            <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
               {Icon && <Icon className="mr-2 h-4 w-4" />}
               {t(item.translationKey)}
             </a>
@@ -178,7 +211,11 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
       </SidebarHeader>
       <SidebarContent className="gap-0">
         {data.navMain.map((section) => (
-          <Collapsible key={section.translationLabel} defaultOpen className="group/collapsible">
+          <Collapsible
+            key={section.translationLabel}
+            defaultOpen
+            className="group/collapsible"
+          >
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
@@ -204,7 +241,9 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
                   </SidebarMenu>
                   {section.description && section.children.length > 0 && (
                     <div className="px-2 py-1">
-                      <div className="text-muted-foreground text-xs">{t(section.description)}</div>
+                      <div className="text-muted-foreground text-xs">
+                        {t(section.description)}
+                      </div>
                     </div>
                   )}
                 </SidebarGroupContent>

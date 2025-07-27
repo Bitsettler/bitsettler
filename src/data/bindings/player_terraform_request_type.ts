@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesLargeMessage as __OffsetCoordinatesLargeMessage } from './offset_coordinates_large_message_type'
 
 export type PlayerTerraformRequest = {
@@ -25,17 +30,25 @@ export namespace PlayerTerraformRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('coordinates', __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'coordinates',
+        __OffsetCoordinatesLargeMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('startNew', AlgebraicType.createBoolType()),
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTerraformRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTerraformRequest
+  ): void {
     PlayerTerraformRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerTerraformRequest {
-    return PlayerTerraformRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerTerraformRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

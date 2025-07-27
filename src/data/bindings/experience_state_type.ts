@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ExperienceStack as __ExperienceStack } from './experience_stack_type'
 
 export type ExperienceState = {
@@ -27,12 +32,17 @@ export namespace ExperienceState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'experienceStacks',
-        AlgebraicType.createArrayType(__ExperienceStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStack.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ExperienceState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ExperienceState
+  ): void {
     ExperienceState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

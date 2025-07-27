@@ -3,7 +3,10 @@ import { BuildingsView } from '@/views/buildings-views/buildings-index-page-view
 
 export default async function BuildingsPage() {
   const buildingCategories = getBuildingsTypeMetadata()
-  const totalBuildings = buildingCategories.reduce((sum, category) => sum + category.count, 0)
+  const totalBuildings = buildingCategories.reduce(
+    (sum, category) => sum + category.count,
+    0
+  )
 
   return (
     <BuildingsView

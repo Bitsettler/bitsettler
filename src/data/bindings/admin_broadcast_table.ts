@@ -74,11 +74,23 @@ export class AdminBroadcastTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AdminBroadcast, newRow: AdminBroadcast) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AdminBroadcast,
+      newRow: AdminBroadcast
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AdminBroadcast, newRow: AdminBroadcast) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AdminBroadcast,
+      newRow: AdminBroadcast
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

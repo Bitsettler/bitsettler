@@ -57,29 +57,47 @@ export class HexiteExchangeEntryDescTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: HexiteExchangeEntryDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: HexiteExchangeEntryDesc, newRow: HexiteExchangeEntryDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: HexiteExchangeEntryDesc,
+      newRow: HexiteExchangeEntryDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: HexiteExchangeEntryDesc, newRow: HexiteExchangeEntryDesc) => void
+    cb: (
+      ctx: EventContext,
+      onRow: HexiteExchangeEntryDesc,
+      newRow: HexiteExchangeEntryDesc
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

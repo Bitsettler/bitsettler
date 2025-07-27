@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BarterStallState = {
   entityId: bigint
   marketModeEnabled: boolean
@@ -23,11 +28,17 @@ export namespace BarterStallState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('marketModeEnabled', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'marketModeEnabled',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BarterStallState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BarterStallState
+  ): void {
     BarterStallState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

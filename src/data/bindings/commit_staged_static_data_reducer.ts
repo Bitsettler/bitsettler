@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type CommitStagedStaticData = {}
 
@@ -22,11 +26,16 @@ export namespace CommitStagedStaticData {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: CommitStagedStaticData): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CommitStagedStaticData
+  ): void {
     CommitStagedStaticData.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CommitStagedStaticData {
-    return CommitStagedStaticData.getTypeScriptAlgebraicType().deserialize(reader)
+    return CommitStagedStaticData.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

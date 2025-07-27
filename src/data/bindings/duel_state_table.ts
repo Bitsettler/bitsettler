@@ -118,11 +118,15 @@ export class DuelStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DuelState, newRow: DuelState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: DuelState, newRow: DuelState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DuelState, newRow: DuelState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: DuelState, newRow: DuelState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

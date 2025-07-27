@@ -96,11 +96,15 @@ export class ToolTypeDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ToolTypeDesc, newRow: ToolTypeDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ToolTypeDesc, newRow: ToolTypeDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ToolTypeDesc, newRow: ToolTypeDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ToolTypeDesc, newRow: ToolTypeDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

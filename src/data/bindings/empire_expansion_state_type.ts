@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireExpansionState = {
   chunkIndex: bigint
   empireEntityId: bigint[]
@@ -23,11 +28,17 @@ export namespace EmpireExpansionState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
-      new ProductTypeElement('empireEntityId', AlgebraicType.createArrayType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'empireEntityId',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireExpansionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireExpansionState
+  ): void {
     EmpireExpansionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

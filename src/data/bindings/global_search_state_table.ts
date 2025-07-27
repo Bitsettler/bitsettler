@@ -61,7 +61,9 @@ export class GlobalSearchStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: GlobalSearchState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: GlobalSearchState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class GlobalSearchStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: GlobalSearchState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: GlobalSearchState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: GlobalSearchState, newRow: GlobalSearchState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: GlobalSearchState,
+      newRow: GlobalSearchState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: GlobalSearchState, newRow: GlobalSearchState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: GlobalSearchState,
+      newRow: GlobalSearchState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

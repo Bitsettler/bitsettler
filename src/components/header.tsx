@@ -6,7 +6,13 @@ import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { Fragment } from 'react'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from './ui/breadcrumb'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator
+} from './ui/breadcrumb'
 
 // Mapping of path segments to translation keys
 const pathTranslationMap: Record<string, string> = {
@@ -47,7 +53,9 @@ export function Header() {
 
       // Get translation for the segment or use the segment itself (capitalized)
       const translationKey = pathTranslationMap[segment]
-      const label = translationKey ? t(translationKey) : segment.charAt(0).toUpperCase() + segment.slice(1)
+      const label = translationKey
+        ? t(translationKey)
+        : segment.charAt(0).toUpperCase() + segment.slice(1)
 
       breadcrumbs.push({
         label,
@@ -72,7 +80,9 @@ export function Header() {
                 <Fragment key={breadcrumb.href}>
                   <BreadcrumbItem>
                     {breadcrumb.isLast ? (
-                      <span className="text-muted-foreground">{breadcrumb.label}</span>
+                      <span className="text-muted-foreground">
+                        {breadcrumb.label}
+                      </span>
                     ) : (
                       <BreadcrumbLink asChild>
                         <Link href={breadcrumb.href}>{breadcrumb.label}</Link>

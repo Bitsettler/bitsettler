@@ -62,7 +62,9 @@ export class KnowledgeLoreStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeLoreState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeLoreState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgeLoreStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeLoreState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeLoreState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgeLoreState, newRow: KnowledgeLoreState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeLoreState,
+      newRow: KnowledgeLoreState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgeLoreState, newRow: KnowledgeLoreState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeLoreState,
+      newRow: KnowledgeLoreState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

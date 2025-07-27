@@ -62,7 +62,9 @@ export class InterModuleMessageTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InterModuleMessage) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InterModuleMessage) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class InterModuleMessageTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InterModuleMessage) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InterModuleMessage) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: InterModuleMessage, newRow: InterModuleMessage) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: InterModuleMessage,
+      newRow: InterModuleMessage
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: InterModuleMessage, newRow: InterModuleMessage) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: InterModuleMessage,
+      newRow: InterModuleMessage
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -40,6 +40,7 @@ src/lib/spacetime-db/
 ```
 
 **Principles:**
+
 - Each command/flow gets its own file
 - Commands are simple, single-purpose functions
 - Flows combine multiple commands for complex operations
@@ -48,6 +49,7 @@ src/lib/spacetime-db/
 ### 2. Page Layer (`src/app/[locale]/`)
 
 Handles routing and data orchestration:
+
 - Uses Next.js App Router
 - Calls data layer flows/commands
 - Manages internationalization
@@ -56,6 +58,7 @@ Handles routing and data orchestration:
 ### 3. View Layer (`src/views/`)
 
 Pure presentation components organized by feature:
+
 - 1:1 representation of UI screens
 - Feature-based organization (`calculator-views/`, `cargo-views/`)
 - Consumes data from pages
@@ -78,18 +81,21 @@ Pure presentation components organized by feature:
 ## Development Guidelines
 
 ### File Organization
+
 - Avoid re-exporting from index files
 - Import explicitly from actual file locations
 - Each function gets its own file
 - Feature-based directory structure
 
 ### Code Principles
+
 - TypeScript strict mode enforcement
 - Component reusability through shadcn/ui
 - Clean separation of concerns
 - Pure functions where possible
 
 ### Build & Development
+
 - **Dev Server**: `npm run dev` (with Turbopack)
 - **Linting**: ESLint with Next.js rules
 - **Formatting**: Prettier with import organization
@@ -98,17 +104,20 @@ Pure presentation components organized by feature:
 ## Design System
 
 ### UI Components
+
 - **Base**: shadcn/ui components
 - **Styling**: Tailwind CSS with custom design tokens
 - **Icons**: Consistent icon library
 - **Responsive**: Mobile-first breakpoints
 
 ### Color Scheme
+
 - Dark mode optimized
 - Game-themed color palette
 - Accessibility-compliant contrast ratios
 
 ### Typography
+
 - Clear hierarchy
 - Consistent spacing
 - Readable font choices
@@ -116,18 +125,21 @@ Pure presentation components organized by feature:
 ## Best Practices
 
 ### Development
+
 - Always prefer editing existing files over creating new ones
 - Don't create documentation files unless explicitly requested
 - Follow the Data > Page > View pattern strictly
 - Keep components pure and focused
 
 ### Code Quality
+
 - Use TypeScript for type safety
 - Write descriptive commit messages
 - Test critical functionality
 - Maintain clean imports
 
 ### Performance
+
 - Leverage Next.js optimizations
 - Minimize bundle size
 - Optimize images and assets
@@ -136,6 +148,7 @@ Pure presentation components organized by feature:
 ## Detailed Project Structure
 
 ### Root Level
+
 ```
 bitcraft.guide-web-next/
 ├── src/                       # Main source code
@@ -152,6 +165,7 @@ bitcraft.guide-web-next/
 ### Source Code Structure (`src/`)
 
 #### 1. Data Layer (`src/lib/spacetime-db-new/`)
+
 The pseudo-backend following strict architectural patterns:
 
 ```
@@ -182,6 +196,7 @@ spacetime-db-new/
 ```
 
 #### 2. Page Layer (`src/app/[locale]/`)
+
 Next.js App Router with internationalization:
 
 ```
@@ -210,6 +225,7 @@ app/[locale]/
 ```
 
 #### 3. View Layer (`src/views/`)
+
 Feature-based UI components:
 
 ```
@@ -229,6 +245,7 @@ views/
 ```
 
 #### 4. Component Layer (`src/components/`)
+
 Reusable UI building blocks:
 
 ```
@@ -249,6 +266,7 @@ components/
 #### 5. Supporting Infrastructure
 
 **Data Integration (`src/data/`)**
+
 ```
 data/
 ├── bindings/                  # Auto-generated TypeScript bindings
@@ -257,6 +275,7 @@ data/
 ```
 
 **Configuration (`src/`)**
+
 ```
 src/
 ├── i18n/                      # Internationalization setup

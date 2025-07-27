@@ -74,11 +74,23 @@ export class DuelDespawnTimerTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DuelDespawnTimer, newRow: DuelDespawnTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DuelDespawnTimer,
+      newRow: DuelDespawnTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DuelDespawnTimer, newRow: DuelDespawnTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: DuelDespawnTimer,
+      newRow: DuelDespawnTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

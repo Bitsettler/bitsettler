@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type CheatExperienceGrantRequest = {
   ownerEntityId: bigint
   skillId: number
@@ -29,11 +34,21 @@ export namespace CheatExperienceGrantRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatExperienceGrantRequest): void {
-    CheatExperienceGrantRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatExperienceGrantRequest
+  ): void {
+    CheatExperienceGrantRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatExperienceGrantRequest {
-    return CheatExperienceGrantRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatExperienceGrantRequest {
+    return CheatExperienceGrantRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

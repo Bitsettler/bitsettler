@@ -74,11 +74,23 @@ export class ServerIdentityTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ServerIdentity, newRow: ServerIdentity) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ServerIdentity,
+      newRow: ServerIdentity
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ServerIdentity, newRow: ServerIdentity) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ServerIdentity,
+      newRow: ServerIdentity
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

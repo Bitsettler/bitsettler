@@ -10,7 +10,9 @@ export interface CollectibleStatistics {
  */
 export function getCollectibleStatistics(): CollectibleStatistics {
   const collectibles = getCollectiblesForCompendium()
-  const types = new Set(collectibles.map((item) => item.collectible.collectibleType.tag))
+  const types = new Set(
+    collectibles.map((item) => item.collectible.collectibleType.tag)
+  )
 
   return {
     total: collectibles.length,

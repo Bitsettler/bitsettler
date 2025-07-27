@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation'
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '@/components/ui/popover'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
@@ -46,7 +50,9 @@ export function MobileNav({ className }: { className?: string }) {
             </div>
             <span className="sr-only">Toggle Menu</span>
           </div>
-          <span className="flex h-8 items-center text-lg leading-none font-medium">{t('common.menu')}</span>
+          <span className="flex h-8 items-center text-lg leading-none font-medium">
+            {t('common.menu')}
+          </span>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -58,7 +64,9 @@ export function MobileNav({ className }: { className?: string }) {
       >
         <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
           <div className="flex flex-col gap-4">
-            <div className="text-muted-foreground text-sm font-medium">{t('common.menu')}</div>
+            <div className="text-muted-foreground text-sm font-medium">
+              {t('common.menu')}
+            </div>
             <div className="flex flex-col gap-3">
               <MobileLink href="/" onOpenChange={setOpen}>
                 {t('header.navigation.calculator')}

@@ -1,6 +1,14 @@
 // Rarity order from lowest to highest
-export const RARITY_ORDER = ['Default', 'Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'] as const
-export type RarityTag = typeof RARITY_ORDER[number]
+export const RARITY_ORDER = [
+  'Default',
+  'Common',
+  'Uncommon',
+  'Rare',
+  'Epic',
+  'Legendary',
+  'Mythic'
+] as const
+export type RarityTag = (typeof RARITY_ORDER)[number]
 
 /**
  * Get rarity color classes for UI display
@@ -28,18 +36,22 @@ export function getRarityColor(rarity: string): string {
 /**
  * Get the lowest available rarity from a group of items
  */
-export function getLowestRarity<T extends { item: { rarity: { tag: string } } }>(items: T[]): string {
+export function getLowestRarity<
+  T extends { item: { rarity: { tag: string } } }
+>(items: T[]): string {
   if (items.length === 0) return 'Common'
-  
-  const availableRarities = [...new Set(items.map(item => item.item.rarity.tag))]
-  
+
+  const availableRarities = [
+    ...new Set(items.map((item) => item.item.rarity.tag))
+  ]
+
   // Find the lowest rarity based on RARITY_ORDER
   for (const rarity of RARITY_ORDER) {
     if (availableRarities.includes(rarity)) {
       return rarity
     }
   }
-  
+
   // Fallback to the first available rarity if none match our order
   return availableRarities[0]
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PathfindingTraversalOption as __PathfindingTraversalOption } from './pathfinding_traversal_option_type'
 
 export type PathfindingDesc = {
@@ -35,23 +40,36 @@ export namespace PathfindingDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('canWalkOnLand', AlgebraicType.createBoolType()),
       new ProductTypeElement('canSwim', AlgebraicType.createBoolType()),
-      new ProductTypeElement('requiresTransitions', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'requiresTransitions',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('minWaterDepth', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxWaterDepth', AlgebraicType.createI32Type()),
-      new ProductTypeElement('maxSwimHeightDelta', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'maxSwimHeightDelta',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('avoidLight', AlgebraicType.createBoolType()),
       new ProductTypeElement(
         'climbUpOptions',
-        AlgebraicType.createArrayType(__PathfindingTraversalOption.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PathfindingTraversalOption.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'climbDownOptions',
-        AlgebraicType.createArrayType(__PathfindingTraversalOption.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PathfindingTraversalOption.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PathfindingDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PathfindingDesc
+  ): void {
     PathfindingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

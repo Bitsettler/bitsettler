@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerTradeSwapPocketsRequest = {
   sessionEntityId: bigint
   fromIndex: number
@@ -29,11 +34,21 @@ export namespace PlayerTradeSwapPocketsRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTradeSwapPocketsRequest): void {
-    PlayerTradeSwapPocketsRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTradeSwapPocketsRequest
+  ): void {
+    PlayerTradeSwapPocketsRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerTradeSwapPocketsRequest {
-    return PlayerTradeSwapPocketsRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerTradeSwapPocketsRequest {
+    return PlayerTradeSwapPocketsRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

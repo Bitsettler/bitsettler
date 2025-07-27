@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatSpawnLootChestRequest as __CheatSpawnLootChestRequest } from './cheat_spawn_loot_chest_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatSpawnLootChest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatSpawnLootChestRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatSpawnLootChestRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatSpawnLootChest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatSpawnLootChest
+  ): void {
     CheatSpawnLootChest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

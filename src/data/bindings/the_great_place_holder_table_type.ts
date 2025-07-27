@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuffCategory as __BuffCategory } from './buff_category_type'
 import { ChatChannel as __ChatChannel } from './chat_channel_type'
 import { PermissionGroup as __PermissionGroup } from './permission_group_type'
@@ -37,21 +42,50 @@ export namespace TheGreatPlaceHolderTable {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('placeholderId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('placeholderSkillType', __SkillType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('placeholderBuffCategory', __BuffCategory.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('placeholder', __ProgressiveActionStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('placeholderWaterBodyType', __SurfaceType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('chatChannel', __ChatChannel.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('permission', __Permission.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('permissionGroup', __PermissionGroup.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'placeholderSkillType',
+        __SkillType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'placeholderBuffCategory',
+        __BuffCategory.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'placeholder',
+        __ProgressiveActionStatus.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'placeholderWaterBodyType',
+        __SurfaceType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'chatChannel',
+        __ChatChannel.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'permission',
+        __Permission.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'permissionGroup',
+        __PermissionGroup.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TheGreatPlaceHolderTable): void {
-    TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: TheGreatPlaceHolderTable
+  ): void {
+    TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): TheGreatPlaceHolderTable {
-    return TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().deserialize(reader)
+    return TheGreatPlaceHolderTable.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -58,31 +58,47 @@ export class KnowledgeResourcePlacementStateTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeResourcePlacementState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: KnowledgeResourcePlacementState, newRow: KnowledgeResourcePlacementState) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeResourcePlacementState,
+      newRow: KnowledgeResourcePlacementState
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: KnowledgeResourcePlacementState, newRow: KnowledgeResourcePlacementState) => void
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeResourcePlacementState,
+      newRow: KnowledgeResourcePlacementState
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

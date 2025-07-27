@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type SpawnInfo = {
   biomeIndex: bigint
   chance: number
@@ -41,8 +46,14 @@ export namespace SpawnInfo {
       new ProductTypeElement('chance', AlgebraicType.createF32Type()),
       new ProductTypeElement('noiseOffsetX', AlgebraicType.createF32Type()),
       new ProductTypeElement('noiseOffsetY', AlgebraicType.createF32Type()),
-      new ProductTypeElement('noiseThresholdBottom', AlgebraicType.createF32Type()),
-      new ProductTypeElement('noiseThresholdTop', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'noiseThresholdBottom',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'noiseThresholdTop',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('noiseScale', AlgebraicType.createF32Type()),
       new ProductTypeElement('noiseOctaves', AlgebraicType.createI32Type()),
       new ProductTypeElement('noisePersistance', AlgebraicType.createF32Type()),
@@ -53,7 +64,10 @@ export namespace SpawnInfo {
       new ProductTypeElement('spawnsInWater', AlgebraicType.createBoolType()),
       new ProductTypeElement('waterDepthMin', AlgebraicType.createI16Type()),
       new ProductTypeElement('waterDepthMax', AlgebraicType.createI16Type()),
-      new ProductTypeElement('spawnsOnUnevenTerrain', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'spawnsOnUnevenTerrain',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 

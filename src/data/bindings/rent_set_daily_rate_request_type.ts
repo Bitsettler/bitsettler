@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type RentSetDailyRateRequest = {
   rentEntityId: bigint
   dailyRate: number
@@ -27,11 +32,19 @@ export namespace RentSetDailyRateRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RentSetDailyRateRequest): void {
-    RentSetDailyRateRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: RentSetDailyRateRequest
+  ): void {
+    RentSetDailyRateRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): RentSetDailyRateRequest {
-    return RentSetDailyRateRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return RentSetDailyRateRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

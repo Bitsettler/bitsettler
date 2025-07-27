@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 import { DeployableType as __DeployableType } from './deployable_type_type'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
@@ -56,16 +61,36 @@ export namespace DeployableDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
-      new ProductTypeElement('deployFromCollectibleId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'deployFromCollectibleId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('deployTime', AlgebraicType.createF32Type()),
-      new ProductTypeElement('deployableType', __DeployableType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'deployableType',
+        __DeployableType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('pathfindingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('movementType', __MovementType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'movementType',
+        __MovementType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('canEnterPortals', AlgebraicType.createBoolType()),
-      new ProductTypeElement('speed', AlgebraicType.createArrayType(__MovementSpeed.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('usePlayerSpeedModifier', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'speed',
+        AlgebraicType.createArrayType(
+          __MovementSpeed.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'usePlayerSpeedModifier',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('placeableOnLand', AlgebraicType.createBoolType()),
-      new ProductTypeElement('placeableInWater', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'placeableInWater',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('capacity', AlgebraicType.createI32Type()),
       new ProductTypeElement('storage', AlgebraicType.createI32Type()),
       new ProductTypeElement('stockpile', AlgebraicType.createI32Type()),
@@ -73,19 +98,41 @@ export namespace DeployableDesc {
       new ProductTypeElement('itemSlotSize', AlgebraicType.createI32Type()),
       new ProductTypeElement('cargoSlotSize', AlgebraicType.createI32Type()),
       new ProductTypeElement('modelAddress', AlgebraicType.createStringType()),
-      new ProductTypeElement('stats', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'stats',
+        AlgebraicType.createArrayType(
+          __CsvStatEntry.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'playerAnimationsInDeployableSlots',
         AlgebraicType.createArrayType(AlgebraicType.createI32Type())
       ),
-      new ProductTypeElement('allowDriverExtract', AlgebraicType.createBoolType()),
-      new ProductTypeElement('allowPassengerExtract', AlgebraicType.createBoolType()),
-      new ProductTypeElement('showForSecsAfterOwnerLogout', AlgebraicType.createI32Type()),
-      new ProductTypeElement('allowEmoteWhileDriver', AlgebraicType.createBoolType()),
-      new ProductTypeElement('allowEmoteWhilePassenger', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'allowDriverExtract',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'allowPassengerExtract',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'showForSecsAfterOwnerLogout',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'allowEmoteWhileDriver',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'allowEmoteWhilePassenger',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('mountingRadius', AlgebraicType.createF32Type())
     ])

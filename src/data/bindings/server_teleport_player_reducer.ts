@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TeleportPlayerTimer as __TeleportPlayerTimer } from './teleport_player_timer_type'
 
@@ -24,11 +29,17 @@ export namespace ServerTeleportPlayer {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __TeleportPlayerTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __TeleportPlayerTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ServerTeleportPlayer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ServerTeleportPlayer
+  ): void {
     ServerTeleportPlayer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

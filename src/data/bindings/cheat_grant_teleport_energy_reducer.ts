@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type CheatGrantTeleportEnergy = {
   playerEntityId: bigint
@@ -28,11 +33,19 @@ export namespace CheatGrantTeleportEnergy {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatGrantTeleportEnergy): void {
-    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatGrantTeleportEnergy
+  ): void {
+    CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): CheatGrantTeleportEnergy {
-    return CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().deserialize(reader)
+    return CheatGrantTeleportEnergy.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
