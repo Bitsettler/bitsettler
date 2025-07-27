@@ -116,6 +116,11 @@
     "tools": "Tools",
     "calculator": "Calculator",
     "projects": "Projects",
+    "settlement": "Settlement",
+    "settlementDashboard": "Dashboard",
+    "settlementMembers": "Members",
+    "settlementProjects": "Settlement Projects",
+    "settlementTreasury": "Treasury",
     "comingSoon": "Soon"
   },
   "search": {

@@ -44,7 +44,8 @@ import {
   HammerIcon,
   HouseIcon,
   InfoIcon,
-  TwitterLogoIcon
+  TwitterLogoIcon,
+  BuildingsIcon
 } from '@phosphor-icons/react'
 
 // Navigation data with icons and descriptions
@@ -80,6 +81,15 @@ const data = {
       children: [
         { translationKey: 'sidebar.calculator', href: '/calculator', icon: CalculatorIcon },
         { translationKey: 'sidebar.projects', href: '/projects', icon: HammerIcon, comingSoon: true }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.settlement',
+      children: [
+        { translationKey: 'sidebar.settlementDashboard', href: '/settlement', icon: BuildingsIcon },
+        { translationKey: 'sidebar.settlementMembers', href: '/settlement/members' },
+                    { translationKey: 'sidebar.settlementProjects', href: '/settlement/projects' },
+                  { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury' }
       ]
     },
     {

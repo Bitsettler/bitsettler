@@ -116,6 +116,11 @@
     "tools": "Herramientas",
     "calculator": "Calculadora",
     "projects": "Proyectos",
+    "settlement": "Asentamiento",
+    "settlementDashboard": "Panel de control",
+    "settlementMembers": "Miembros",
+    "settlementProjects": "Proyectos del asentamiento",
+    "settlementTreasury": "Tesorería",
     "comingSoon": "Pronto"
   },
   "search": {

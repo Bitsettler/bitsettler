@@ -116,6 +116,11 @@
     "tools": "Outils",
     "calculator": "Calculateur",
     "projects": "Projets",
+    "settlement": "Colonie",
+    "settlementDashboard": "Tableau de bord",
+    "settlementMembers": "Membres",
+    "settlementProjects": "Projets de colonie",
+    "settlementTreasury": "Trésorerie",
     "comingSoon": "Bientôt"
   },
   "search": {
