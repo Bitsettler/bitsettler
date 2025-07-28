@@ -9,6 +9,7 @@ This document outlines the integration with BitJita.com API for settlement data 
 - [Architecture Overview](#architecture-overview)
 - [BitJita API Endpoints](#bitjita-api-endpoints)
 - [Settlement Master List Sync](#settlement-master-list-sync)
+- [Treasury Polling Service](#treasury-polling-service)
 - [Local Database Schema](#local-database-schema)
 - [API Rate Limiting & Etiquette](#api-rate-limiting--etiquette)
 - [Search Implementation](#search-implementation)
@@ -20,25 +21,45 @@ This document outlines the integration with BitJita.com API for settlement data 
 
 ## 🏗️ **Architecture Overview**
 
-### **Local-First Design**
+### **2-Tier Data System**
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │                 │    │                  │    │                 │
-│   User Search   │    │  Local Database  │    │  BitJita API    │
+│   User Request  │    │  Local Database  │    │  BitJita API    │
 │                 │    │                  │    │                 │
-│  "Port Tavern"  │───►│  Instant Results │    │  Background     │
-│     <50ms       │    │    settlements   │◄───│  Sync (30min)   │
-│                 │    │     _master      │    │                 │
+│  "Search Port"  │───►│  Cached Results  │───►│  Real-time API  │
+│     <50ms       │    │   <100ms         │    │  300-800ms      │
+│                 │    │                  │    │                 │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+### **Treasury Real-Time Monitoring**
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│                 │    │                  │    │                 │
+│ Treasury Polling│    │ History Database │    │  BitJita API    │
+│   Service       │───►│   Time Series    │◄───│   5-min poll    │
+│                 │    │   treasury_hist  │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+       │                         │
+       ▼                         ▼
+┌─────────────────┐    ┌──────────────────┐
+│   Dashboard     │    │   Charts &       │
+│   Real Balance  │    │   Trend Analysis │
+└─────────────────┘    └──────────────────┘
 ```
 
 ### **Benefits**
 
 - ⚡ **Fast Search**: <50ms local database queries vs 300-800ms API calls
 - 🤝 **API Respectful**: Background sync reduces API load by 95%+
-- 🛡️ **Resilient**: Works even if BitJita API is temporarily down
+- 🛡️ **Reliable**: 2-tier system ensures accurate results only
 - 📱 **Better UX**: Instant results, no loading delays for search
+- 💰 **Real-Time Treasury**: 5-minute polling for accurate balance tracking
+- 📊 **Historical Data**: Time series treasury analytics and trending
+- ✅ **No False Positives**: Only real settlements, never fake demo data
 
 ---
 
@@ -108,7 +129,7 @@ GET /claims?q={settlementName}&page=1
 ```
 
 **Purpose**: Get specific settlement information  
-**Usage**: Settlement statistics and details  
+**Usage**: Settlement statistics, details, and **treasury polling**
 
 ---
 
@@ -173,6 +194,116 @@ interface SyncResult {
 
 ---
 
+## 💰 **Treasury Polling Service**
+
+### **Overview**
+
+The Treasury Polling Service provides real-time treasury balance tracking with historical data analysis. It polls BitJita API every 5 minutes to track balance changes and build a comprehensive treasury history.
+
+### **Service Architecture**
+
+```typescript
+interface TreasurySnapshot {
+  settlementId: string;
+  balance: number;
+  previousBalance: number;
+  changeAmount: number;
+  supplies: number;
+  tier: number;
+  numTiles: number;
+  recordedAt: Date;
+  dataSource: 'bitjita_polling' | 'manual';
+}
+```
+
+### **Polling Strategy**
+
+```typescript
+const POLLING_CONFIG = {
+  interval: 5 * 60 * 1000,        // 5 minutes
+  significantChange: 1000,        // Record if change >= 1000 coins
+  dailySnapshot: 24 * 60 * 60 * 1000, // Daily backup snapshots
+  retentionPeriod: 6              // Keep 6 months of history
+};
+```
+
+### **Smart Recording Logic**
+
+The service only records snapshots when:
+1. **Significant Balance Change**: ±1000 coins or more
+2. **Daily Snapshots**: At least once every 24 hours
+3. **First Record**: Initial balance establishment
+
+This prevents database clutter while capturing all meaningful treasury activity.
+
+### **API Endpoints**
+
+#### **Treasury Dashboard Integration**
+```http
+GET /api/settlement/treasury?action=summary&settlementId={id}
+```
+
+Returns enhanced treasury summary with real-time BitJita balance.
+
+#### **Treasury History**
+```http
+GET /api/settlement/treasury?action=history&settlementId={id}&timeRange=6
+```
+
+**Parameters**:
+- `timeRange`: Months of history (default: 6)
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "balance": 335603,
+      "changeAmount": 12500,
+      "recordedAt": "2024-12-28T10:30:00Z",
+      "dataSource": "bitjita_polling"
+    }
+  ],
+  "count": 25,
+  "meta": {
+    "settlementId": "504403158277057776",
+    "timeRangeMonths": 6
+  }
+}
+```
+
+#### **Polling Control**
+```http
+# Start polling
+GET /api/settlement/treasury?action=start_polling&settlementId={id}
+
+# Stop polling  
+GET /api/settlement/treasury?action=stop_polling
+
+# Get status
+GET /api/settlement/treasury?action=polling_status
+
+# Manual poll
+GET /api/settlement/treasury?action=poll_now&settlementId={id}
+```
+
+### **Automatic Cleanup**
+
+The service includes automatic cleanup to prevent excessive data:
+
+```typescript
+// Cleanup triggers
+await treasuryPollingService.cleanupExcessiveSnapshots(settlementId);
+
+// Keeps only:
+// - Snapshots with significant balance changes (>=1000 coins)
+// - Daily snapshots for continuity
+// - Recent 6 months of data
+```
+
+---
+
 ## 🗄️ **Local Database Schema**
 
 ### **settlements_master Table**
@@ -203,6 +334,28 @@ CREATE TABLE settlements_master (
 );
 ```
 
+### **treasury_history Table**
+
+```sql
+CREATE TABLE treasury_history (
+    id SERIAL PRIMARY KEY,
+    settlement_id TEXT NOT NULL,
+    balance BIGINT NOT NULL,
+    previous_balance BIGINT,
+    change_amount BIGINT,
+    recorded_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    data_source TEXT DEFAULT 'bitjita',
+    
+    -- Additional context
+    supplies BIGINT,
+    tier INTEGER,
+    num_tiles INTEGER,
+    
+    -- Prevent duplicate timestamps per settlement
+    CONSTRAINT treasury_history_settlement_time UNIQUE (settlement_id, recorded_at)
+);
+```
+
 ### **Key Indexes for Performance**
 
 ```sql
@@ -221,6 +374,11 @@ ON settlements_master USING gin(to_tsvector('english', name_searchable));
 -- Active settlements only
 CREATE INDEX idx_settlements_master_active 
 ON settlements_master(is_active) WHERE is_active = true;
+
+-- Treasury history performance
+CREATE INDEX idx_treasury_history_settlement_id ON treasury_history(settlement_id);
+CREATE INDEX idx_treasury_history_recorded_at ON treasury_history(recorded_at);
+CREATE INDEX idx_treasury_history_settlement_date ON treasury_history(settlement_id, recorded_at DESC);
 ```
 
 ### **settlements_sync_log Table**
@@ -256,34 +414,44 @@ const RATE_LIMITS = {
   betweenApiCalls: 200,        // 200ms between API calls
   betweenBatches: 1000,        // 1 second between batches
   maxConcurrentCalls: 1,       // No concurrent calls
-  respectfulBackoff: true      // Exponential backoff on errors
+  respectfulBackoff: true,     // Exponential backoff on errors
+  treasuryPolling: 300000      // 5 minutes between treasury polls
 };
 ```
 
 ### **Why We're Respectful**
 
 1. **Background Sync Only**: No real-time API hits during user searches
-2. **Minimal Frequency**: Only sync every 30 minutes, not continuously
+2. **Minimal Frequency**: Settlement sync every 30 minutes, treasury every 5 minutes
 3. **Smart Deduplication**: Use Map to avoid duplicate settlements
 4. **Batch Processing**: Process results in chunks to avoid DB overload
 5. **Error Handling**: Graceful failure without overwhelming API
+6. **Smart Treasury Recording**: Only record significant changes, not every poll
 
 ### **API Call Estimation**
 
 ```
-Sync Frequency: Every 30 minutes
-Search Terms: ~34 terms (A-Z + common words)
-API Calls per Sync: ~34 calls
-Daily API Calls: 34 × 48 = ~1,632 calls/day
+Settlement Sync:
+- Frequency: Every 30 minutes
+- Search Terms: ~34 terms (A-Z + common words)
+- API Calls per Sync: ~34 calls
+- Daily API Calls: 34 × 48 = ~1,632 calls/day
+
+Treasury Polling:
+- Frequency: Every 5 minutes  
+- API Calls per Poll: 1 call
+- Daily API Calls: 1 × 288 = ~288 calls/day
+
+Total Daily API Usage: ~1,920 calls/day
 ```
 
-**This is very reasonable compared to real-time search which could be 1000s of calls per day.**
+**This is very reasonable compared to real-time search which could be 10,000s of calls per day.**
 
 ---
 
 ## 🔍 **Search Implementation**
 
-### **Two-Tier Search Strategy**
+### **2-Tier Search Strategy**
 
 #### **Primary: Local Database Search**
 ```typescript
@@ -301,7 +469,7 @@ const { data: settlements } = await supabase
 
 #### **Fallback: BitJita API Search**
 ```typescript
-// Only used if database is unavailable
+// Used if database fails or is unavailable
 const result = await BitJitaAPI.searchSettlements(query, page);
 ```
 
@@ -320,7 +488,7 @@ const result = await BitJitaAPI.searchSettlements(query, page);
     "resultsPerPage": 20
   },
   "source": "local_database",        // or "bitjita_api"
-  "lastSyncInfo": "Last synced: 12/1/2024, 2:30 PM"
+  "lastSyncInfo": "Last synced: 12/28/2024, 2:30 PM"
 }
 ```
 
@@ -345,15 +513,23 @@ const SYNC_CONFIG = {
 // Start all sync services
 await settlementSyncService.start();
 
+// Start treasury polling
+treasuryPollingService.startPolling('504403158277057776');
+
 // Stop all sync services
 await settlementSyncService.stop();
+treasuryPollingService.stopPolling();
 
 // Manual sync trigger
 await settlementSyncService.syncAll();
 
+// Manual treasury poll
+await treasuryPollingService.pollTreasuryData(settlementId);
+
 // Get service status
 const status = settlementSyncService.getStatus();
-console.log(status.running, status.activeIntervals);
+const treasuryStatus = treasuryPollingService.getStatus();
+console.log(status.running, treasuryStatus.isPolling);
 ```
 
 ### **Environment Configuration**
@@ -385,6 +561,17 @@ SELECT
 FROM settlements_sync_log 
 ORDER BY started_at DESC 
 LIMIT 10;
+
+-- Check treasury polling history
+SELECT 
+  settlement_id,
+  balance,
+  change_amount,
+  recorded_at,
+  data_source
+FROM treasury_history 
+ORDER BY recorded_at DESC 
+LIMIT 20;
 ```
 
 ### **Debug Console Output**
@@ -394,13 +581,10 @@ LIMIT 10;
 📊 Query "a": Found 12 settlements
 📊 Query "port": Found 8 settlements
 ✅ Settlement sync complete: 156 unique settlements found from 34 API calls
-📊 Processing 156 settlements from BitJita...
-✅ Settlements master sync completed in 8543ms:
-   📊 Found: 156 settlements
-   ➕ Added: 12 new settlements
-   📝 Updated: 8 existing settlements
-   ❌ Deactivated: 2 outdated settlements
-   🌐 API calls: 34
+
+🏛️ Starting treasury polling service (5-minute intervals)
+💰 Treasury snapshot recorded: 335603 (significant change (+12500))
+📊 Treasury snapshot skipped: 335603 (small change (+50))
 ```
 
 ### **Performance Monitoring**
@@ -410,12 +594,18 @@ LIMIT 10;
 console.time('settlement-search');
 const results = await searchSettlements(query);
 console.timeEnd('settlement-search'); // Should be <50ms
+
+// Check treasury poll performance
+console.time('treasury-poll');
+const snapshot = await treasuryPollingService.pollTreasuryData(settlementId);
+console.timeEnd('treasury-poll'); // Should be <2000ms
 ```
 
 ### **Health Check API**
 
 ```http
 GET /api/settlement/sync-status
+GET /api/settlement/treasury?action=polling_status
 ```
 
 Returns sync service health and last sync information.
@@ -428,16 +618,29 @@ Returns sync service health and last sync information.
 - **Graceful Degradation**: Fall back to live BitJita API search
 - **User Notification**: Indicate "live search mode" in UI
 - **Rate Limiting**: Apply delays to respect BitJita API
+- **Error Handling**: Show clear error if both systems fail
 
 ### **BitJita API Unavailable**
-- **Local Cache**: Use last known settlement data
-- **Error Handling**: Show helpful error messages
+- **Local Cache**: Use last known settlement and treasury data
+- **Error Handling**: Show helpful error messages  
 - **Retry Logic**: Exponential backoff for sync operations
+- **Search Limitation**: Search unavailable until API recovers
+
+### **Treasury Polling Failures**
+- **Graceful Degradation**: Show last known balance with timestamp
+- **Retry Logic**: Automatic retry with exponential backoff
+- **Manual Controls**: Allow users to trigger manual polls
+- **History Preservation**: Maintain historical data even during outages
 
 ### **Partial Failures**
 - **Continue Processing**: Don't fail entire sync for individual errors
 - **Error Logging**: Log specific failures for debugging
 - **Graceful Recovery**: Retry failed operations on next sync
+
+### **No False Positives Policy**
+- **Real Data Only**: Never show fake or demo settlements in search results
+- **Clear Error States**: Inform users when services are unavailable
+- **Honest UX**: Better to show "search unavailable" than fake results
 
 ---
 
@@ -488,12 +691,22 @@ curl "http://localhost:3000/api/settlement/search?q=port"
 - API Dependency: 100% (every search)
 - Rate Limit Risk: High
 - Offline Capability: None
+- Treasury Updates: Manual/None
 
 ### **After Integration**
 - Search Response Time: <50ms (95% faster)
 - API Dependency: Background only
 - Rate Limit Risk: Minimal
 - Offline Capability: Full search functionality
+- Treasury Updates: Real-time (5-minute polling)
+- Data Reliability: 2-tier system with real data only
+
+### **Treasury Polling Benefits**
+- **Real-Time Balance**: Up-to-date within 5 minutes
+- **Historical Analysis**: 6 months of balance trends
+- **Smart Recording**: Only significant changes stored
+- **Minimal API Usage**: 1 call per 5 minutes vs constant polling
+- **Automatic Cleanup**: Prevents database bloat
 
 ---
 
@@ -504,12 +717,15 @@ curl "http://localhost:3000/api/settlement/search?q=port"
 - **Regional Sync**: Focus on specific geographic regions
 - **Delta Sync**: Only fetch changed settlements
 - **Cache Warming**: Pre-populate search cache with popular terms
+- **Treasury Webhooks**: Real-time balance updates if BitJita supports
+- **Advanced Analytics**: Treasury trend predictions and alerts
 
 ### **BitJita API Wishlist**
 - Dedicated settlements list endpoint
 - Last modified timestamps for delta sync
 - Pagination with larger page sizes
 - Webhook notifications for settlement changes
+- Treasury change events for real-time updates
 
 ---
 
