@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResourcesRegenLoopTimer as __ResourcesRegenLoopTimer } from './resources_regen_loop_timer_type'
 
@@ -24,7 +29,10 @@ export namespace ResourcesRegen {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __ResourcesRegenLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __ResourcesRegenLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

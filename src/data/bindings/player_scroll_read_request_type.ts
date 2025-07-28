@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerScrollReadRequest = {
   pocketIndex: number
 }
@@ -20,14 +25,24 @@ export namespace PlayerScrollReadRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('pocketIndex', AlgebraicType.createI32Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerScrollReadRequest): void {
-    PlayerScrollReadRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerScrollReadRequest
+  ): void {
+    PlayerScrollReadRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerScrollReadRequest {
-    return PlayerScrollReadRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerScrollReadRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

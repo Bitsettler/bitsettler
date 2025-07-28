@@ -74,11 +74,23 @@ export class EmpireRankStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EmpireRankState, newRow: EmpireRankState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EmpireRankState,
+      newRow: EmpireRankState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EmpireRankState, newRow: EmpireRankState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EmpireRankState,
+      newRow: EmpireRankState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

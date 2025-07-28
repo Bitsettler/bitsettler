@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { ItemStack as __ItemStack } from './item_stack_type'
 import { LevelRequirement as __LevelRequirement } from './level_requirement_type'
@@ -40,11 +45,15 @@ export namespace DeconstructionRecipeDesc {
       new ProductTypeElement('consumedBuilding', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'toolRequirements',
-        AlgebraicType.createArrayType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'outputItemStacks',
@@ -53,18 +62,31 @@ export namespace DeconstructionRecipeDesc {
       new ProductTypeElement('outputCargoId', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeconstructionRecipeDesc): void {
-    DeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeconstructionRecipeDesc
+  ): void {
+    DeconstructionRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): DeconstructionRecipeDesc {
-    return DeconstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return DeconstructionRecipeDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { RuinsEntityValuePair as __RuinsEntityValuePair } from './ruins_entity_value_pair_type'
 import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_message_type'
 
@@ -36,21 +41,32 @@ export namespace LocationCache {
       new ProductTypeElement('version', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'tradingPostLocations',
-        AlgebraicType.createArrayType(__SmallHexTileMessage.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __SmallHexTileMessage.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'allRuins',
-        AlgebraicType.createArrayType(__RuinsEntityValuePair.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __RuinsEntityValuePair.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'travelerRuins',
-        AlgebraicType.createArrayType(__RuinsEntityValuePair.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __RuinsEntityValuePair.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'spawnLocations',
-        AlgebraicType.createArrayType(__SmallHexTileMessage.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __SmallHexTileMessage.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('biomeChunks', AlgebraicType.createArrayType(AlgebraicType.createF32Type())),
+      new ProductTypeElement(
+        'biomeChunks',
+        AlgebraicType.createArrayType(AlgebraicType.createF32Type())
+      ),
       new ProductTypeElement('regionMaxX', AlgebraicType.createI32Type()),
       new ProductTypeElement('regionMaxZ', AlgebraicType.createI32Type()),
       new ProductTypeElement('regionMinX', AlgebraicType.createI32Type()),

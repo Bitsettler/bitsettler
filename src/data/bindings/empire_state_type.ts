@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type EmpireState = {
@@ -30,12 +35,21 @@ export namespace EmpireState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('capitalBuildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'capitalBuildingEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('shardTreasury', AlgebraicType.createU32Type()),
-      new ProductTypeElement('nobilityThreshold', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'nobilityThreshold',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('numClaims', AlgebraicType.createI32Type()),
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

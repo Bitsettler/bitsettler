@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace VfxAttachmentPoint {
   // These are the generated variant types for each variant of the tagged union.
@@ -49,7 +54,10 @@ export namespace VfxAttachmentPoint {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: VfxAttachmentPoint): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: VfxAttachmentPoint
+  ): void {
     VfxAttachmentPoint.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

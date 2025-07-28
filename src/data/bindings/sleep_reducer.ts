@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerSleepRequest as __PlayerSleepRequest } from './player_sleep_request_type'
 
@@ -24,7 +29,10 @@ export namespace Sleep {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerSleepRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerSleepRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

@@ -57,19 +57,27 @@ export class InterModuleResponseMessageCounterTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InterModuleResponseMessageCounter) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
@@ -85,7 +93,11 @@ export class InterModuleResponseMessageCounterTableHandle {
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: InterModuleResponseMessageCounter, newRow: InterModuleResponseMessageCounter) => void
+    cb: (
+      ctx: EventContext,
+      onRow: InterModuleResponseMessageCounter,
+      newRow: InterModuleResponseMessageCounter
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

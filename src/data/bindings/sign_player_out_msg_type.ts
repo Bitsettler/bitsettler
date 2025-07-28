@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type SignPlayerOutMsg = {
   playerIdentity: Identity
 }
@@ -21,11 +27,17 @@ export namespace SignPlayerOutMsg {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('playerIdentity', AlgebraicType.createIdentityType())
+      new ProductTypeElement(
+        'playerIdentity',
+        AlgebraicType.createIdentityType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SignPlayerOutMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: SignPlayerOutMsg
+  ): void {
     SignPlayerOutMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

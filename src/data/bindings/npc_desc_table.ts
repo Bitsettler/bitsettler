@@ -74,11 +74,15 @@ export class NpcDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: NpcDesc, newRow: NpcDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: NpcDesc, newRow: NpcDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: NpcDesc, newRow: NpcDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: NpcDesc, newRow: NpcDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

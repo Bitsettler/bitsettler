@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OnlineTimestamp as __OnlineTimestamp } from './online_timestamp_type'
 
 export type ActiveBuff = {
@@ -27,9 +32,15 @@ export namespace ActiveBuff {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buffId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('buffStartTimestamp', __OnlineTimestamp.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'buffStartTimestamp',
+        __OnlineTimestamp.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('buffDuration', AlgebraicType.createI32Type()),
-      new ProductTypeElement('values', AlgebraicType.createArrayType(AlgebraicType.createF32Type()))
+      new ProductTypeElement(
+        'values',
+        AlgebraicType.createArrayType(AlgebraicType.createF32Type())
+      )
     ])
   }
 

@@ -61,7 +61,9 @@ export class LootChestSpawnTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: LootChestSpawnTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: LootChestSpawnTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class LootChestSpawnTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: LootChestSpawnTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: LootChestSpawnTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: LootChestSpawnTimer, newRow: LootChestSpawnTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: LootChestSpawnTimer,
+      newRow: LootChestSpawnTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: LootChestSpawnTimer, newRow: LootChestSpawnTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: LootChestSpawnTimer,
+      newRow: LootChestSpawnTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

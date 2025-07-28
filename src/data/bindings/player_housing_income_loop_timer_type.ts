@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerHousingIncomeLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   firstTick: boolean
 }
 
@@ -31,16 +33,29 @@ export namespace PlayerHousingIncomeLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('firstTick', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingIncomeLoopTimer): void {
-    PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingIncomeLoopTimer
+  ): void {
+    PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingIncomeLoopTimer {
-    return PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingIncomeLoopTimer {
+    return PlayerHousingIncomeLoopTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

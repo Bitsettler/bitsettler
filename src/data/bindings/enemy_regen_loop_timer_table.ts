@@ -61,7 +61,9 @@ export class EnemyRegenLoopTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: EnemyRegenLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: EnemyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class EnemyRegenLoopTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: EnemyRegenLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: EnemyRegenLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EnemyRegenLoopTimer, newRow: EnemyRegenLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EnemyRegenLoopTimer,
+      newRow: EnemyRegenLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EnemyRegenLoopTimer, newRow: EnemyRegenLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EnemyRegenLoopTimer,
+      newRow: EnemyRegenLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

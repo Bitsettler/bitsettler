@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PillarShapingState = {
   entityId: bigint
   pillarTypeId: number
@@ -27,7 +32,10 @@ export namespace PillarShapingState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PillarShapingState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PillarShapingState
+  ): void {
     PillarShapingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DestroyDimensionNetworkTimer as __DestroyDimensionNetworkTimer } from './destroy_dimension_network_timer_type'
 
@@ -24,15 +29,26 @@ export namespace DestroyDimensionNetwork {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DestroyDimensionNetwork): void {
-    DestroyDimensionNetwork.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DestroyDimensionNetwork
+  ): void {
+    DestroyDimensionNetwork.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): DestroyDimensionNetwork {
-    return DestroyDimensionNetwork.getTypeScriptAlgebraicType().deserialize(reader)
+    return DestroyDimensionNetwork.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

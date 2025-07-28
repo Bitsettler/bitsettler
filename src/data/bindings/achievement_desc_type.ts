@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type AchievementDesc = {
   id: number
   name: string
@@ -37,21 +42,45 @@ export namespace AchievementDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
-      new ProductTypeElement('requisites', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'requisites',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('skillId', AlgebraicType.createI32Type()),
       new ProductTypeElement('skillLevel', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourceDisc', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('craftingDisc', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('cargoDisc', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('itemDisc', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('collectibleRewards', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'resourceDisc',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'craftingDisc',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'cargoDisc',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'itemDisc',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'collectibleRewards',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('pointsReward', AlgebraicType.createI32Type()),
-      new ProductTypeElement('pctChunksDiscovered', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'pctChunksDiscovered',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('chunksDiscovered', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AchievementDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AchievementDesc
+  ): void {
     AchievementDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

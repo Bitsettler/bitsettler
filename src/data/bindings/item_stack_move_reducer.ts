@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerItemStackMoveRequest as __PlayerItemStackMoveRequest } from './player_item_stack_move_request_type'
 
@@ -24,7 +29,10 @@ export namespace ItemStackMove {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerItemStackMoveRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerItemStackMoveRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

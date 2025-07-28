@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PassiveCraftCancel = {
   passiveCraftEntityId: bigint
@@ -22,11 +27,17 @@ export namespace PassiveCraftCancel {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('passiveCraftEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'passiveCraftEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PassiveCraftCancel): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PassiveCraftCancel
+  ): void {
     PassiveCraftCancel.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

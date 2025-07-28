@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace EnemyType {
   // These are the generated variant types for each variant of the tagged union.
@@ -101,8 +106,14 @@ export namespace EnemyType {
       new SumTypeVariant('BoarElder', AlgebraicType.createProductType([])),
       new SumTypeVariant('PlainsOx', AlgebraicType.createProductType([])),
       new SumTypeVariant('TundraOx', AlgebraicType.createProductType([])),
-      new SumTypeVariant('JungleLargeBird', AlgebraicType.createProductType([])),
-      new SumTypeVariant('DesertLargeBird', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'JungleLargeBird',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'DesertLargeBird',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Jakyl', AlgebraicType.createProductType([])),
       new SumTypeVariant('AlphaJakyl', AlgebraicType.createProductType([])),
       new SumTypeVariant('KingJakyl', AlgebraicType.createProductType([])),

@@ -127,7 +127,9 @@ export class PlayerUseElevatorTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PlayerUseElevatorTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PlayerUseElevatorTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -135,16 +137,30 @@ export class PlayerUseElevatorTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PlayerUseElevatorTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PlayerUseElevatorTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PlayerUseElevatorTimer, newRow: PlayerUseElevatorTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerUseElevatorTimer,
+      newRow: PlayerUseElevatorTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PlayerUseElevatorTimer, newRow: PlayerUseElevatorTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerUseElevatorTimer,
+      newRow: PlayerUseElevatorTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

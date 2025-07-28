@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type SynchronizeTime = {
   clientTime: number
@@ -21,10 +26,15 @@ export namespace SynchronizeTime {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('clientTime', AlgebraicType.createF64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('clientTime', AlgebraicType.createF64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SynchronizeTime): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: SynchronizeTime
+  ): void {
     SynchronizeTime.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

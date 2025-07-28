@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 
 export type KnowledgeStatModifierDesc = {
@@ -24,16 +29,32 @@ export namespace KnowledgeStatModifierDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('stats', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'secondaryKnowledgeId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'stats',
+        AlgebraicType.createArrayType(
+          __CsvStatEntry.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: KnowledgeStatModifierDesc): void {
-    KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: KnowledgeStatModifierDesc
+  ): void {
+    KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): KnowledgeStatModifierDesc {
-    return KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return KnowledgeStatModifierDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

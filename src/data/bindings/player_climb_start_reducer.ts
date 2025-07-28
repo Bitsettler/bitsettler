@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerClimbRequest as __PlayerClimbRequest } from './player_climb_request_type'
 
@@ -24,11 +29,17 @@ export namespace PlayerClimbStart {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerClimbRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerClimbRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClimbStart): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClimbStart
+  ): void {
     PlayerClimbStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

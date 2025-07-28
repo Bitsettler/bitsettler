@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemyDespawnTimer as __EnemyDespawnTimer } from './enemy_despawn_timer_type'
 
@@ -24,7 +29,10 @@ export namespace EnemyDespawn {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __EnemyDespawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __EnemyDespawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

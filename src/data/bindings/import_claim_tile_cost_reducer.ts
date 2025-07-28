@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimTileCost as __ClaimTileCost } from './claim_tile_cost_type'
 
@@ -24,11 +29,19 @@ export namespace ImportClaimTileCost {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__ClaimTileCost.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __ClaimTileCost.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportClaimTileCost): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportClaimTileCost
+  ): void {
     ImportClaimTileCost.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

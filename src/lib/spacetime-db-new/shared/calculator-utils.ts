@@ -20,14 +20,20 @@ export interface FlowNodeData {
 /**
  * Check if an item should be filtered out (recipes, loot tables, etc.)
  */
-export function shouldFilterItem(item: ItemDesc | CargoDesc | ResourceDesc): boolean {
+export function shouldFilterItem(
+  item: ItemDesc | CargoDesc | ResourceDesc
+): boolean {
   // Filter out items with "Output" suffix (recipe outputs)
   if (item.name.includes('Output')) {
     return true
   }
 
   // Filter out items with item_list_id (loot table containers, not actual items)
-  if ('itemListId' in item && item.itemListId != null && item.itemListId !== 0) {
+  if (
+    'itemListId' in item &&
+    item.itemListId != null &&
+    item.itemListId !== 0
+  ) {
     return true
   }
 
@@ -52,7 +58,9 @@ export function getItemPrefix(itemType: unknown): string {
       case 1:
         return 'cargo_' // Cargo variant
       default:
-        console.warn(`Unknown item type variant index: ${variantIndex}, defaulting to item_`)
+        console.warn(
+          `Unknown item type variant index: ${variantIndex}, defaulting to item_`
+        )
         return 'item_'
     }
   }
@@ -137,7 +145,11 @@ export function resolveItemOutput(
     // Find the corresponding item list
     const itemList = itemLists.find((list) => list.id === item.itemListId)
 
-    if (itemList && itemList.possibilities && itemList.possibilities.length > 0) {
+    if (
+      itemList &&
+      itemList.possibilities &&
+      itemList.possibilities.length > 0
+    ) {
       const resolvedOutputs: Array<{ item: string; qty: number }> = []
 
       for (const possibility of itemList.possibilities) {
@@ -195,9 +207,14 @@ export function resolveRecipeName(
  * Resolve recipe name for calculator recipes
  * Extracts crafted and consumed items from CalculatorRecipe format
  */
-export function resolveCalculatorRecipeName(recipe: CalculatorRecipe, itemsLookup?: CalculatorItem[]): string {
+export function resolveCalculatorRecipeName(
+  recipe: CalculatorRecipe,
+  itemsLookup?: CalculatorItem[]
+): string {
   // Create lookup map for fast item retrieval
-  const itemsMap = itemsLookup ? new Map(itemsLookup.map((item) => [item.id, item])) : new Map()
+  const itemsMap = itemsLookup
+    ? new Map(itemsLookup.map((item) => [item.id, item]))
+    : new Map()
 
   // Extract crafted items from output
   const craftedItems = recipe.output.map((output) => ({
@@ -263,8 +280,13 @@ export function calculateQuantitiesFromEdges(
     if (currentQuantity === 0) continue
 
     // Calculate how many times we need to run this recipe
-    const outputItem = recipe.output?.find((output) => output.item === currentNodeData.itemId)
-    const outputQty = outputItem ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) || 1 : 1
+    const outputItem = recipe.output?.find(
+      (output) => output.item === currentNodeData.itemId
+    )
+    const outputQty = outputItem
+      ? (Array.isArray(outputItem.qty) ? outputItem.qty[0] : outputItem.qty) ||
+        1
+      : 1
     const recipeRuns = Math.ceil(currentQuantity / outputQty)
 
     // Process each material required by this recipe
@@ -309,7 +331,10 @@ export function calculateQuantitiesFromEdges(
       ...node,
       data: {
         ...node.data,
-        quantity: calculatedQuantity !== undefined ? calculatedQuantity : nodeData.quantity
+        quantity:
+          calculatedQuantity !== undefined
+            ? calculatedQuantity
+            : nodeData.quantity
       }
     }
   })

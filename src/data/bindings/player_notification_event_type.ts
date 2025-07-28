@@ -18,7 +18,9 @@ import { NotificationSeverity as __NotificationSeverity } from './notification_s
 
 export type PlayerNotificationEvent = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   playerEntityId: bigint
   message: string
   severity: __NotificationSeverity
@@ -35,18 +37,32 @@ export namespace PlayerNotificationEvent {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('message', AlgebraicType.createStringType()),
-      new ProductTypeElement('severity', __NotificationSeverity.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'severity',
+        __NotificationSeverity.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerNotificationEvent): void {
-    PlayerNotificationEvent.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerNotificationEvent
+  ): void {
+    PlayerNotificationEvent.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerNotificationEvent {
-    return PlayerNotificationEvent.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerNotificationEvent.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

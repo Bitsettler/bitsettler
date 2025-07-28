@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ExplorationChunksState = {
   entityId: bigint
   bitmap: bigint[]
@@ -24,16 +29,27 @@ export namespace ExplorationChunksState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('bitmap', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
-      new ProductTypeElement('exploredChunksCount', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'bitmap',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      ),
+      new ProductTypeElement(
+        'exploredChunksCount',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ExplorationChunksState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ExplorationChunksState
+  ): void {
     ExplorationChunksState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ExplorationChunksState {
-    return ExplorationChunksState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ExplorationChunksState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

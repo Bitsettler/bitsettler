@@ -62,7 +62,9 @@ export class PassiveCraftStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PassiveCraftState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PassiveCraftState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class PassiveCraftStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PassiveCraftState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PassiveCraftState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PassiveCraftState, newRow: PassiveCraftState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PassiveCraftState,
+      newRow: PassiveCraftState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PassiveCraftState, newRow: PassiveCraftState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PassiveCraftState,
+      newRow: PassiveCraftState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

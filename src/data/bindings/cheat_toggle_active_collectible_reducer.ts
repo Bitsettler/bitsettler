@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatToggleActiveCollectibleRequest as __CheatToggleActiveCollectibleRequest } from './cheat_toggle_active_collectible_request_type'
 
@@ -24,15 +29,28 @@ export namespace CheatToggleActiveCollectible {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatToggleActiveCollectibleRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatToggleActiveCollectibleRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatToggleActiveCollectible): void {
-    CheatToggleActiveCollectible.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatToggleActiveCollectible
+  ): void {
+    CheatToggleActiveCollectible.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatToggleActiveCollectible {
-    return CheatToggleActiveCollectible.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatToggleActiveCollectible {
+    return CheatToggleActiveCollectible.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

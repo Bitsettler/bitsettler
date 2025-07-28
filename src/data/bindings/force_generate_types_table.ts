@@ -40,7 +40,9 @@ export class ForceGenerateTypesTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: ForceGenerateTypes) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -48,7 +50,9 @@ export class ForceGenerateTypesTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: ForceGenerateTypes) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: ForceGenerateTypes) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 }

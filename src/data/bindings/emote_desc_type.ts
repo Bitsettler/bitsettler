@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmoteDesc = {
   id: number
   name: string
@@ -34,7 +39,10 @@ export namespace EmoteDesc {
       new ProductTypeElement('duration', AlgebraicType.createF32Type()),
       new ProductTypeElement('keyCode', AlgebraicType.createStringType()),
       new ProductTypeElement('commandLine', AlgebraicType.createStringType()),
-      new ProductTypeElement('allowWhileMounted', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'allowWhileMounted',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('allowWhileMoving', AlgebraicType.createBoolType())
     ])
   }

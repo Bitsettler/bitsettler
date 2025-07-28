@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { OnDurabilityZeroTimer as __OnDurabilityZeroTimer } from './on_durability_zero_timer_type'
 
@@ -24,11 +29,17 @@ export namespace OnDurabilityZero {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __OnDurabilityZeroTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __OnDurabilityZeroTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OnDurabilityZero): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: OnDurabilityZero
+  ): void {
     OnDurabilityZero.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

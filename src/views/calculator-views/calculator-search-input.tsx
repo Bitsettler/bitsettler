@@ -14,7 +14,11 @@ interface CalculatorSearchInputProps {
   onItemSelect: (slug: string) => void
 }
 
-export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: CalculatorSearchInputProps) {
+export function CalculatorSearchInput({
+  items,
+  selectedItem,
+  onItemSelect
+}: CalculatorSearchInputProps) {
   const t = useTranslations()
 
   // Convert items to combobox options
@@ -22,18 +26,22 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
     // Deduplicate by name - keep only the first occurrence of each name
     .filter((item, index, array) => {
       const normalizedName = item.name.toLowerCase().trim()
-      return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+      return (
+        array.findIndex(
+          (i) => i.name.toLowerCase().trim() === normalizedName
+        ) === index
+      )
     })
     .map((item) => ({
-    value: item.slug,
-    label: item.name,
-    keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
-    id: item.id,
-    tier: item.tier,
-    category: item.category,
-    rarity: item.rarity,
-    icon_asset_name: item.icon_asset_name
-  }))
+      value: item.slug,
+      label: item.name,
+      keywords: `${item.name} ${item.slug} ${item.category} ${item.rarity}`,
+      id: item.id,
+      tier: item.tier,
+      category: item.category,
+      rarity: item.rarity,
+      icon_asset_name: item.icon_asset_name
+    }))
 
   const renderOption = (option: ComboboxOption) => (
     <div className="flex w-full items-center gap-2">
@@ -53,7 +61,10 @@ export function CalculatorSearchInput({ items, selectedItem, onItemSelect }: Cal
               Tier {option.tier}
             </Badge>
           )}
-          <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+          <Badge
+            variant="outline"
+            className="border-blue-200 bg-blue-50 text-blue-700"
+          >
             {option.category}
           </Badge>
         </div>

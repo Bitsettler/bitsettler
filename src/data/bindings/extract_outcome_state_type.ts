@@ -32,12 +32,18 @@ export namespace ExtractOutcomeState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastTimestamp', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'lastTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('damage', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ExtractOutcomeState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ExtractOutcomeState
+  ): void {
     ExtractOutcomeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

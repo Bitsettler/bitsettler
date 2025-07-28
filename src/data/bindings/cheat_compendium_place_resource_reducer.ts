@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatCompendiumItemPlaceRequest as __CheatCompendiumItemPlaceRequest } from './cheat_compendium_item_place_request_type'
 
@@ -24,15 +29,28 @@ export namespace CheatCompendiumPlaceResource {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatCompendiumItemPlaceRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatCompendiumItemPlaceRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatCompendiumPlaceResource): void {
-    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatCompendiumPlaceResource
+  ): void {
+    CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatCompendiumPlaceResource {
-    return CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatCompendiumPlaceResource {
+    return CheatCompendiumPlaceResource.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

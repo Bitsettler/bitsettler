@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerDeployableMountRequest = {
   deployableEntityId: bigint
 }
@@ -21,15 +26,28 @@ export namespace PlayerDeployableMountRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDeployableMountRequest): void {
-    PlayerDeployableMountRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDeployableMountRequest
+  ): void {
+    PlayerDeployableMountRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerDeployableMountRequest {
-    return PlayerDeployableMountRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerDeployableMountRequest {
+    return PlayerDeployableMountRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -61,7 +61,9 @@ export class StarvingLoopTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: StarvingLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: StarvingLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class StarvingLoopTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: StarvingLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: StarvingLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: StarvingLoopTimer, newRow: StarvingLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: StarvingLoopTimer,
+      newRow: StarvingLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: StarvingLoopTimer, newRow: StarvingLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: StarvingLoopTimer,
+      newRow: StarvingLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

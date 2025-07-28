@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { StaticDataUpload as __StaticDataUpload } from './static_data_upload_type'
 
 export type StagedStaticData = {
@@ -25,11 +30,17 @@ export namespace StagedStaticData {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('version', AlgebraicType.createU32Type()),
-      new ProductTypeElement('staticData', __StaticDataUpload.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'staticData',
+        __StaticDataUpload.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StagedStaticData): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StagedStaticData
+  ): void {
     StagedStaticData.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

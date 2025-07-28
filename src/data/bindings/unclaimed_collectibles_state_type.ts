@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type UnclaimedCollectiblesState = {
   identity: Identity
   collectibles: number[]
@@ -23,15 +29,28 @@ export namespace UnclaimedCollectiblesState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('identity', AlgebraicType.createIdentityType()),
-      new ProductTypeElement('collectibles', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'collectibles',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UnclaimedCollectiblesState): void {
-    UnclaimedCollectiblesState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: UnclaimedCollectiblesState
+  ): void {
+    UnclaimedCollectiblesState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): UnclaimedCollectiblesState {
-    return UnclaimedCollectiblesState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): UnclaimedCollectiblesState {
+    return UnclaimedCollectiblesState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -1,7 +1,12 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 import { languages, type Locale } from '@/i18n/config'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Globe } from '@phosphor-icons/react'
@@ -29,7 +34,9 @@ export function LanguageSwitcher() {
               className={`flex w-full items-center justify-between ${locale === language.code ? 'bg-accent' : ''}`}
             >
               <span>{language.name}</span>
-              {locale === language.code && <span className="text-muted-foreground text-xs">✓</span>}
+              {locale === language.code && (
+                <span className="text-muted-foreground text-xs">✓</span>
+              )}
             </Link>
           </DropdownMenuItem>
         ))}

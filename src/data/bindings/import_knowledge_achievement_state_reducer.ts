@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { KnowledgeAchievementState as __KnowledgeAchievementState } from './knowledge_achievement_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportKnowledgeAchievementState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__KnowledgeAchievementState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeAchievementState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportKnowledgeAchievementState): void {
-    ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportKnowledgeAchievementState
+  ): void {
+    ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportKnowledgeAchievementState {
-    return ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportKnowledgeAchievementState {
+    return ImportKnowledgeAchievementState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

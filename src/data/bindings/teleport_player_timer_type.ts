@@ -19,7 +19,9 @@ import { ServerTeleportReason as __ServerTeleportReason } from './server_telepor
 
 export type TeleportPlayerTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   location: __OffsetCoordinatesFloat
   playerEntityId: bigint
   reason: __ServerTeleportReason
@@ -36,14 +38,26 @@ export namespace TeleportPlayerTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('location', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('reason', __ServerTeleportReason.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'reason',
+        __ServerTeleportReason.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TeleportPlayerTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TeleportPlayerTimer
+  ): void {
     TeleportPlayerTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

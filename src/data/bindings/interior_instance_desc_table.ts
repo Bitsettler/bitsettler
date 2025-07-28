@@ -61,7 +61,9 @@ export class InteriorInstanceDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InteriorInstanceDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InteriorInstanceDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class InteriorInstanceDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InteriorInstanceDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InteriorInstanceDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: InteriorInstanceDesc, newRow: InteriorInstanceDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: InteriorInstanceDesc,
+      newRow: InteriorInstanceDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: InteriorInstanceDesc, newRow: InteriorInstanceDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: InteriorInstanceDesc,
+      newRow: InteriorInstanceDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

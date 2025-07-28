@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ElevatorDesc = {
   buildingId: number
   maxCliffHeight: number
@@ -30,10 +35,19 @@ export namespace ElevatorDesc {
       new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxCliffHeight', AlgebraicType.createU32Type()),
       new ProductTypeElement('speed', AlgebraicType.createF32Type()),
-      new ProductTypeElement('usableWithDeployable', AlgebraicType.createBoolType()),
-      new ProductTypeElement('topPlatformAddress', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'usableWithDeployable',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'topPlatformAddress',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('basketAddress', AlgebraicType.createStringType()),
-      new ProductTypeElement('bottomPlatformAddress', AlgebraicType.createStringType())
+      new ProductTypeElement(
+        'bottomPlatformAddress',
+        AlgebraicType.createStringType()
+      )
     ])
   }
 

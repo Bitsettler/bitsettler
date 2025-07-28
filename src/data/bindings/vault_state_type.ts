@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { VaultCollectible as __VaultCollectible } from './vault_collectible_type'
 
 export type VaultState = {
@@ -27,7 +32,9 @@ export namespace VaultState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'collectibles',
-        AlgebraicType.createArrayType(__VaultCollectible.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __VaultCollectible.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }

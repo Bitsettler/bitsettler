@@ -75,11 +75,23 @@ export class CombatActionDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: CombatActionDesc, newRow: CombatActionDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: CombatActionDesc,
+      newRow: CombatActionDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: CombatActionDesc, newRow: CombatActionDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: CombatActionDesc,
+      newRow: CombatActionDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

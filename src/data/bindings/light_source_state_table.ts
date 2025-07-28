@@ -74,11 +74,23 @@ export class LightSourceStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: LightSourceState, newRow: LightSourceState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: LightSourceState,
+      newRow: LightSourceState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: LightSourceState, newRow: LightSourceState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: LightSourceState,
+      newRow: LightSourceState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

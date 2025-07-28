@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerClimbRequest = {
@@ -26,14 +31,23 @@ export namespace PlayerClimbRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('destination', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('origin', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'destination',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'origin',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type()),
       new ProductTypeElement('climbType', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClimbRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClimbRequest
+  ): void {
     PlayerClimbRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

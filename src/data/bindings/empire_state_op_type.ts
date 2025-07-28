@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireState as __EmpireState } from './empire_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,8 +28,14 @@ export namespace EmpireStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireState): EmpireStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpireState): EmpireStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __EmpireState): EmpireStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __EmpireState): EmpireStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([

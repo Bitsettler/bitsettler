@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { KnowledgeState as __KnowledgeState } from './knowledge_state_type'
 
 export type KnowledgeEntityEntry = {
@@ -25,11 +30,17 @@ export namespace KnowledgeEntityEntry {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('state', __KnowledgeState.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'state',
+        __KnowledgeState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: KnowledgeEntityEntry): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: KnowledgeEntityEntry
+  ): void {
     KnowledgeEntityEntry.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

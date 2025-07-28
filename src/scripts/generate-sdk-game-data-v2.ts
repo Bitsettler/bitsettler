@@ -254,7 +254,9 @@ function getSortKey(item: unknown): number {
   if (typeof item === 'object' && item !== null) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj = item as any
-    return obj.id ?? obj.itemId ?? obj.buildingId ?? obj.cargoId ?? obj.typeId ?? 0
+    return (
+      obj.id ?? obj.itemId ?? obj.buildingId ?? obj.cargoId ?? obj.typeId ?? 0
+    )
   }
   return 0
 }
@@ -286,13 +288,19 @@ async function connectToDb(): Promise<DbConnection> {
   })
 }
 
-async function subscribeToTables(conn: DbConnection, tables: readonly (keyof TableTypeMap)[]) {
+async function subscribeToTables(
+  conn: DbConnection,
+  tables: readonly (keyof TableTypeMap)[]
+) {
   const queries = tables.map((name) => `SELECT * FROM ${name}`)
   conn.subscriptionBuilder().subscribe(queries)
   await new Promise((res) => setTimeout(res, 5000)) // wait for data to arrive
 }
 
-function collectTableData(conn: DbConnection, tables: readonly (keyof TableTypeMap)[]): GameData {
+function collectTableData(
+  conn: DbConnection,
+  tables: readonly (keyof TableTypeMap)[]
+): GameData {
   const data = {} as GameData
 
   for (const table of tables) {
@@ -319,7 +327,10 @@ async function saveTableDataAsJSON(dataDir: string, tableData: GameData) {
   for (const [name, data] of Object.entries(tableData)) {
     if (data.length === 0) continue
     const sorted = [...data].sort((a, b) => getSortKey(a) - getSortKey(b))
-    await fs.writeFile(path.join(outputDir, `${name}.json`), JSON.stringify(sorted, replacer, 2))
+    await fs.writeFile(
+      path.join(outputDir, `${name}.json`),
+      JSON.stringify(sorted, replacer, 2)
+    )
     console.log(`✅ Saved ${name}.json (${sorted.length} rows)`)
   }
 }
@@ -329,14 +340,18 @@ function logSummary(tableData: GameData) {
   for (const [name, data] of Object.entries(tableData)) {
     console.log(`- ${name}: ${data.length} rows`)
   }
-  const totalRows = Object.values(tableData).reduce((acc, arr) => acc + arr.length, 0)
+  const totalRows = Object.values(tableData).reduce(
+    (acc, arr) => acc + arr.length,
+    0
+  )
   console.log(`\n📊 Total tables: ${Object.keys(tableData).length}`)
   console.log(`📊 Total rows: ${totalRows}`)
 }
 
 async function main() {
   try {
-    const dataDir = process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data')
+    const dataDir =
+      process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data')
     await fs.mkdir(dataDir, { recursive: true })
 
     console.log('🚀 Connecting to SpacetimeDB...')

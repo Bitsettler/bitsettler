@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireRankDesc = {
   rank: number
   title: string
@@ -26,8 +31,14 @@ export namespace EmpireRankDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('rank', AlgebraicType.createI32Type()),
       new ProductTypeElement('title', AlgebraicType.createStringType()),
-      new ProductTypeElement('maxCount', AlgebraicType.createOptionType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('permissions', AlgebraicType.createArrayType(AlgebraicType.createBoolType()))
+      new ProductTypeElement(
+        'maxCount',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'permissions',
+        AlgebraicType.createArrayType(AlgebraicType.createBoolType())
+      )
     ])
   }
 

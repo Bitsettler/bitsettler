@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminDeleteAllItemsOfType = {
   playerUsername: string
@@ -24,17 +29,28 @@ export namespace AdminDeleteAllItemsOfType {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('playerUsername', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'playerUsername',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('isCargo', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminDeleteAllItemsOfType): void {
-    AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminDeleteAllItemsOfType
+  ): void {
+    AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): AdminDeleteAllItemsOfType {
-    return AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminDeleteAllItemsOfType.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

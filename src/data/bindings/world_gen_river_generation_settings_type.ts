@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
 import { WorldGenRiverPathfindingCosts as __WorldGenRiverPathfindingCosts } from './world_gen_river_pathfinding_costs_type'
 
@@ -30,22 +35,43 @@ export namespace WorldGenRiverGenerationSettings {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('radius', AlgebraicType.createI32Type()),
-      new ProductTypeElement('depthCurve', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'depthCurve',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('erosion', AlgebraicType.createF32Type()),
-      new ProductTypeElement('minLakeCircumference', AlgebraicType.createI32Type()),
-      new ProductTypeElement('pathfindingNodeLimit', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'minLakeCircumference',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'pathfindingNodeLimit',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'pathfindingCosts',
-        AlgebraicType.createArrayType(__WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenRiverPathfindingCosts.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenRiverGenerationSettings): void {
-    WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenRiverGenerationSettings
+  ): void {
+    WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenRiverGenerationSettings {
-    return WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenRiverGenerationSettings {
+    return WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

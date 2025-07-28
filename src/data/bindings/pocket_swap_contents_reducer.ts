@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerPocketSwapContentsRequest as __PlayerPocketSwapContentsRequest } from './player_pocket_swap_contents_request_type'
 
@@ -24,11 +29,17 @@ export namespace PocketSwapContents {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerPocketSwapContentsRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerPocketSwapContentsRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PocketSwapContents): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PocketSwapContents
+  ): void {
     PocketSwapContents.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

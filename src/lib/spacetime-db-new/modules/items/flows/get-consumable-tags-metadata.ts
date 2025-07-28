@@ -30,7 +30,12 @@ const SECTIONS_TO_TAGS: Record<string, string[]> = {
     'Vegetable',
     'Wonder Fruit'
   ],
-  'Potions & Medicine': ['Healing Potion', 'Stamina Potion', 'Crafting Speed Elixir', 'Bandage'],
+  'Potions & Medicine': [
+    'Healing Potion',
+    'Stamina Potion',
+    'Crafting Speed Elixir',
+    'Bandage'
+  ],
   'Fishing Supplies': ['Bait', 'Chum'],
   'Crafting & Recipes': ['Recipe']
 }
@@ -64,7 +69,8 @@ export function getConsumableTagsMetadata(): ConsumableTagMetadata[] {
     return {
       id: slug,
       name: tag, // Use the tag as the display name
-      description: firstConsumable?.description || `Consumable items of type ${tag}`,
+      description:
+        firstConsumable?.description || `Consumable items of type ${tag}`,
       icon: firstConsumable?.iconAssetName, // Use actual icon asset name
       section,
       href: `/compendium/${slug}`,

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type Pocket = {
@@ -26,7 +31,10 @@ export namespace Pocket {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('volume', AlgebraicType.createI32Type()),
-      new ProductTypeElement('contents', AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'contents',
+        AlgebraicType.createOptionType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement('locked', AlgebraicType.createBoolType())
     ])
   }

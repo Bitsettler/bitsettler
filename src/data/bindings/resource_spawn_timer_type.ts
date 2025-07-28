@@ -18,7 +18,9 @@ import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_m
 
 export type ResourceSpawnTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   entityId: bigint | undefined
   resourceId: number
   coordinates: __SmallHexTileMessage
@@ -39,10 +41,19 @@ export namespace ResourceSpawnTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('entityId', AlgebraicType.createOptionType(AlgebraicType.createU64Type())),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'entityId',
+        AlgebraicType.createOptionType(AlgebraicType.createU64Type())
+      ),
       new ProductTypeElement('resourceId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('coordinates', __SmallHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'coordinates',
+        __SmallHexTileMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('directionIndex', AlgebraicType.createI32Type()),
       new ProductTypeElement('health', AlgebraicType.createI32Type()),
       new ProductTypeElement('checkBuildings', AlgebraicType.createBoolType()),
@@ -50,7 +61,10 @@ export namespace ResourceSpawnTimer {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResourceSpawnTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResourceSpawnTimer
+  ): void {
     ResourceSpawnTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

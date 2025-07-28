@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_message_type'
 
 export type EnemySpawnLootRequest = {
@@ -27,15 +32,23 @@ export namespace EnemySpawnLootRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('enemyType', AlgebraicType.createI32Type()),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lootCoordinates', __SmallHexTileMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'lootCoordinates',
+        __SmallHexTileMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemySpawnLootRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemySpawnLootRequest
+  ): void {
     EnemySpawnLootRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemySpawnLootRequest {
-    return EnemySpawnLootRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return EnemySpawnLootRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@ interface KofiWidgetProps {
 
 export function KofiWidget({ className }: KofiWidgetProps) {
   return (
-    <a href="https://ko-fi.com/T6T71I40QY" target="_blank" rel="noopener noreferrer" className={className}>
+    <a
+      href="https://ko-fi.com/T6T71I40QY"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
       <Image
         src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
         alt="Buy Me a Coffee at ko-fi.com"

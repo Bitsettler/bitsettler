@@ -5,11 +5,24 @@ import { SortableTableHeader } from '@/components/sortable-table-header'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@/components/ui/table'
 import { Rarity } from '@/data/bindings/rarity_type'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
-import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
+import {
+  createSlug,
+  getTierColor
+} from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
@@ -59,13 +72,18 @@ export function TagPageView({
   tagSlug
 }: TagPageViewProps) {
   // Sorting state for each group
-  const [sortStates, setSortStates] = useState<Record<string, { key: string; direction: 'asc' | 'desc' } | null>>({})
+  const [sortStates, setSortStates] = useState<
+    Record<string, { key: string; direction: 'asc' | 'desc' } | null>
+  >({})
 
   // Function to handle sorting for a specific group
   const handleSort = (groupName: string, sortKey: string) => {
     setSortStates((prev) => {
       const currentSort = prev[groupName]
-      const newDirection = currentSort?.key === sortKey && currentSort.direction === 'asc' ? 'desc' : 'asc'
+      const newDirection =
+        currentSort?.key === sortKey && currentSort.direction === 'asc'
+          ? 'desc'
+          : 'asc'
 
       return {
         ...prev,
@@ -84,8 +102,14 @@ export function TagPageView({
         return {
           ...group,
           items: [...group.items].sort((a, b) => {
-            const aTier = typeof a === 'object' && a && 'tier' in a ? (a as { tier: number }).tier : 0
-            const bTier = typeof b === 'object' && b && 'tier' in b ? (b as { tier: number }).tier : 0
+            const aTier =
+              typeof a === 'object' && a && 'tier' in a
+                ? (a as { tier: number }).tier
+                : 0
+            const bTier =
+              typeof b === 'object' && b && 'tier' in b
+                ? (b as { tier: number }).tier
+                : 0
             return aTier - bTier
           })
         }
@@ -112,9 +136,13 @@ export function TagPageView({
         if (sortState.key === 'rarity' || sortState.key.includes('rarity')) {
           // Get the rarity tag directly - it might be a Rarity object with tag property
           const aRarity =
-            typeof aValue === 'object' && aValue && 'tag' in aValue ? (aValue as Rarity) : ({ tag: 'Common' } as Rarity)
+            typeof aValue === 'object' && aValue && 'tag' in aValue
+              ? (aValue as Rarity)
+              : ({ tag: 'Common' } as Rarity)
           const bRarity =
-            typeof bValue === 'object' && bValue && 'tag' in bValue ? (bValue as Rarity) : ({ tag: 'Common' } as Rarity)
+            typeof bValue === 'object' && bValue && 'tag' in bValue
+              ? (bValue as Rarity)
+              : ({ tag: 'Common' } as Rarity)
           aValue = aRarity.tag.toLowerCase()
           bValue = bRarity.tag.toLowerCase()
         } else if (sortState.key === 'name' || sortState.key.includes('name')) {
@@ -168,7 +196,10 @@ export function TagPageView({
     rarity: (item: BaseItem) => {
       const rarityTag = item.rarity.tag.toLowerCase()
       return (
-        <Badge variant="outline" className={`capitalize ${getRarityColor(rarityTag)}`}>
+        <Badge
+          variant="outline"
+          className={`capitalize ${getRarityColor(rarityTag)}`}
+        >
           {item.rarity.tag}
         </Badge>
       )
@@ -200,7 +231,9 @@ export function TagPageView({
                   <div>
                     <div className="capitalize">{group.name}</div>
                     {group.subtitle && (
-                      <div className="text-muted-foreground mt-1 text-sm font-normal">{group.subtitle}</div>
+                      <div className="text-muted-foreground mt-1 text-sm font-normal">
+                        {group.subtitle}
+                      </div>
                     )}
                   </div>
                   <Badge variant="secondary">{group.items.length} items</Badge>
@@ -219,13 +252,17 @@ export function TagPageView({
                               currentSort={sortStates[group.name]}
                               onSort={(key) => handleSort(group.name, key)}
                               className={
-                                column.className || 'hover:bg-accent/50 cursor-pointer text-center transition-colors'
+                                column.className ||
+                                'hover:bg-accent/50 cursor-pointer text-center transition-colors'
                               }
                             >
                               {column.label}
                             </SortableTableHeader>
                           ) : (
-                            <TableHead key={column.key} className={column.className || 'text-center'}>
+                            <TableHead
+                              key={column.key}
+                              className={column.className || 'text-center'}
+                            >
                               {column.label}
                             </TableHead>
                           )
@@ -235,13 +272,22 @@ export function TagPageView({
                     <TableBody>
                       {group.items.map((item, index) => {
                         const itemSlug = createSlug(item.name)
-                        const itemLink = enableItemLinks && tagSlug ? `/compendium/${tagSlug}/${itemSlug}` : undefined
+                        const itemLink =
+                          enableItemLinks && tagSlug
+                            ? `/compendium/${tagSlug}/${itemSlug}`
+                            : undefined
 
                         if (itemLink) {
                           return (
-                            <TableRow key={item.id || index} className="hover:bg-muted/50 cursor-pointer">
+                            <TableRow
+                              key={item.id || index}
+                              className="hover:bg-muted/50 cursor-pointer"
+                            >
                               {group.columns.map((column) => (
-                                <TableCell key={column.key} className="p-0 text-center">
+                                <TableCell
+                                  key={column.key}
+                                  className="p-0 text-center"
+                                >
                                   <Link
                                     href={itemLink}
                                     className="block h-full w-full p-2 text-inherit hover:text-inherit"
@@ -249,9 +295,15 @@ export function TagPageView({
                                   >
                                     {column.render
                                       ? column.render(item)
-                                      : defaultRenders[column.key as keyof typeof defaultRenders]
-                                        ? defaultRenders[column.key as keyof typeof defaultRenders](item)
-                                        : String(getValue(item, column.key) || '')}
+                                      : defaultRenders[
+                                            column.key as keyof typeof defaultRenders
+                                          ]
+                                        ? defaultRenders[
+                                            column.key as keyof typeof defaultRenders
+                                          ](item)
+                                        : String(
+                                            getValue(item, column.key) || ''
+                                          )}
                                   </Link>
                                 </TableCell>
                               ))}
@@ -261,12 +313,21 @@ export function TagPageView({
                           return (
                             <TableRow key={item.id || index}>
                               {group.columns.map((column) => (
-                                <TableCell key={column.key} className="text-center">
+                                <TableCell
+                                  key={column.key}
+                                  className="text-center"
+                                >
                                   {column.render
                                     ? column.render(item)
-                                    : defaultRenders[column.key as keyof typeof defaultRenders]
-                                      ? defaultRenders[column.key as keyof typeof defaultRenders](item)
-                                      : String(getValue(item, column.key) || '')}
+                                    : defaultRenders[
+                                          column.key as keyof typeof defaultRenders
+                                        ]
+                                      ? defaultRenders[
+                                          column.key as keyof typeof defaultRenders
+                                        ](item)
+                                      : String(
+                                          getValue(item, column.key) || ''
+                                        )}
                                 </TableCell>
                               ))}
                             </TableRow>

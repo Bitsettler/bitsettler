@@ -4,7 +4,8 @@ import buildingFunctionMappingData from '@/data/sdk-tables/building_function_typ
 import { getAllBuildings } from './get-all-buildings'
 
 // SDK data is already in camelCase format, no transformation needed
-const buildingFunctionMappings = buildingFunctionMappingData as BuildingFunctionTypeMappingDesc[]
+const buildingFunctionMappings =
+  buildingFunctionMappingData as BuildingFunctionTypeMappingDesc[]
 
 /**
  * Get all building descriptions that belong to a specific building type

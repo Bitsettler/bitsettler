@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type EnemyMoveRequest = {
@@ -30,14 +35,26 @@ export namespace EnemyMoveRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('chunkIndex', AlgebraicType.createU64Type()),
-      new ProductTypeElement('origin', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('destination', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'origin',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'destination',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('duration', AlgebraicType.createF32Type()),
-      new ProductTypeElement('overlapPrevention', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'overlapPrevention',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyMoveRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyMoveRequest
+  ): void {
     EnemyMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

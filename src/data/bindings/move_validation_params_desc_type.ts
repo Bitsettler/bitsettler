@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type MoveValidationParamsDesc = {
   strikeCountBeforeMoveValidationFailure: number
   strikeCounterTimeWindowSec: number
@@ -22,16 +27,30 @@ export namespace MoveValidationParamsDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('strikeCountBeforeMoveValidationFailure', AlgebraicType.createI32Type()),
-      new ProductTypeElement('strikeCounterTimeWindowSec', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'strikeCountBeforeMoveValidationFailure',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'strikeCounterTimeWindowSec',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: MoveValidationParamsDesc): void {
-    MoveValidationParamsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: MoveValidationParamsDesc
+  ): void {
+    MoveValidationParamsDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): MoveValidationParamsDesc {
-    return MoveValidationParamsDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return MoveValidationParamsDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TeleportationEnergyState = {
   entityId: bigint
   energy: number
@@ -27,11 +32,19 @@ export namespace TeleportationEnergyState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TeleportationEnergyState): void {
-    TeleportationEnergyState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: TeleportationEnergyState
+  ): void {
+    TeleportationEnergyState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): TeleportationEnergyState {
-    return TeleportationEnergyState.getTypeScriptAlgebraicType().deserialize(reader)
+    return TeleportationEnergyState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

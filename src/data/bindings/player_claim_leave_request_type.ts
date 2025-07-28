@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerClaimLeaveRequest = {
   claimEntityId: bigint
 }
@@ -20,14 +25,24 @@ export namespace PlayerClaimLeaveRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClaimLeaveRequest): void {
-    PlayerClaimLeaveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClaimLeaveRequest
+  ): void {
+    PlayerClaimLeaveRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerClaimLeaveRequest {
-    return PlayerClaimLeaveRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerClaimLeaveRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type PlayerEmoteRequest = {
@@ -27,12 +32,17 @@ export namespace PlayerEmoteRequest {
       new ProductTypeElement('emoteId', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'face',
-        AlgebraicType.createOptionType(__OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerEmoteRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerEmoteRequest
+  ): void {
     PlayerEmoteRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

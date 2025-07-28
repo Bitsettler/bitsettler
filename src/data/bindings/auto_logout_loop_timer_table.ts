@@ -61,7 +61,9 @@ export class AutoLogoutLoopTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: AutoLogoutLoopTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: AutoLogoutLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class AutoLogoutLoopTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: AutoLogoutLoopTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: AutoLogoutLoopTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AutoLogoutLoopTimer, newRow: AutoLogoutLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AutoLogoutLoopTimer,
+      newRow: AutoLogoutLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AutoLogoutLoopTimer, newRow: AutoLogoutLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AutoLogoutLoopTimer,
+      newRow: AutoLogoutLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

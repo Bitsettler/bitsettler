@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerTerraformSetFinalTargetRequest as __PlayerTerraformSetFinalTargetRequest } from './player_terraform_set_final_target_request_type'
 
@@ -24,15 +29,26 @@ export namespace TerraformSetFinalTarget {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerTerraformSetFinalTargetRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TerraformSetFinalTarget): void {
-    TerraformSetFinalTarget.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: TerraformSetFinalTarget
+  ): void {
+    TerraformSetFinalTarget.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): TerraformSetFinalTarget {
-    return TerraformSetFinalTarget.getTypeScriptAlgebraicType().deserialize(reader)
+    return TerraformSetFinalTarget.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

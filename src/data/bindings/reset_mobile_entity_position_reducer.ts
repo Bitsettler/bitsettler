@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResetMobileEntityTimer as __ResetMobileEntityTimer } from './reset_mobile_entity_timer_type'
 
@@ -24,15 +29,26 @@ export namespace ResetMobileEntityPosition {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __ResetMobileEntityTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __ResetMobileEntityTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResetMobileEntityPosition): void {
-    ResetMobileEntityPosition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResetMobileEntityPosition
+  ): void {
+    ResetMobileEntityPosition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ResetMobileEntityPosition {
-    return ResetMobileEntityPosition.getTypeScriptAlgebraicType().deserialize(reader)
+    return ResetMobileEntityPosition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

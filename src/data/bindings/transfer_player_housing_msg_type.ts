@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TransferPlayerHousingMsg = {
   playerEntityId: bigint
   networkEntityId: bigint
@@ -26,16 +31,30 @@ export namespace TransferPlayerHousingMsg {
     return AlgebraicType.createProductType([
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('networkEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('interiorPortalEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('newEntranceBuildingEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'interiorPortalEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'newEntranceBuildingEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TransferPlayerHousingMsg): void {
-    TransferPlayerHousingMsg.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: TransferPlayerHousingMsg
+  ): void {
+    TransferPlayerHousingMsg.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): TransferPlayerHousingMsg {
-    return TransferPlayerHousingMsg.getTypeScriptAlgebraicType().deserialize(reader)
+    return TransferPlayerHousingMsg.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

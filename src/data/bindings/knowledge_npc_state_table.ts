@@ -62,7 +62,9 @@ export class KnowledgeNpcStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeNpcState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeNpcState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgeNpcStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeNpcState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeNpcState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgeNpcState, newRow: KnowledgeNpcState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeNpcState,
+      newRow: KnowledgeNpcState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgeNpcState, newRow: KnowledgeNpcState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeNpcState,
+      newRow: KnowledgeNpcState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

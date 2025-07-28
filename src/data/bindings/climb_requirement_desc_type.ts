@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ClimbRequirementDesc = {
   id: number
   minElevation: number
@@ -29,11 +34,17 @@ export namespace ClimbRequirementDesc {
       new ProductTypeElement('minElevation', AlgebraicType.createI16Type()),
       new ProductTypeElement('maxElevation', AlgebraicType.createI16Type()),
       new ProductTypeElement('staminaCost', AlgebraicType.createI32Type()),
-      new ProductTypeElement('minClimbProficiency', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'minClimbProficiency',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClimbRequirementDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClimbRequirementDesc
+  ): void {
     ClimbRequirementDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

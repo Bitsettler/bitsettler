@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 
 export type ItemListPossibility = {
@@ -25,11 +30,17 @@ export namespace ItemListPossibility {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('probability', AlgebraicType.createF32Type()),
-      new ProductTypeElement('items', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'items',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ItemListPossibility): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ItemListPossibility
+  ): void {
     ItemListPossibility.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

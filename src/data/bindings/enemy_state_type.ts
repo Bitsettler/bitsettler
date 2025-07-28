@@ -38,9 +38,18 @@ export namespace EnemyState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('herdEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('direction', AlgebraicType.createI32Type()),
-      new ProductTypeElement('status', __EnemyStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('lastRangedAttackTimestamp', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'status',
+        __EnemyStatus.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'lastRangedAttackTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
+      new ProductTypeElement(
+        'enemyType',
+        __EnemyType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

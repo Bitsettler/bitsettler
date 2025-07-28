@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { KnowledgePillarShapingState as __KnowledgePillarShapingState } from './knowledge_pillar_shaping_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportKnowledgePillarShapingState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__KnowledgePillarShapingState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgePillarShapingState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportKnowledgePillarShapingState): void {
-    ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportKnowledgePillarShapingState
+  ): void {
+    ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportKnowledgePillarShapingState {
-    return ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportKnowledgePillarShapingState {
+    return ImportKnowledgePillarShapingState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

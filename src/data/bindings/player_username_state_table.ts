@@ -83,7 +83,9 @@ export class PlayerUsernameStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: PlayerUsernameState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: PlayerUsernameState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -91,16 +93,30 @@ export class PlayerUsernameStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: PlayerUsernameState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: PlayerUsernameState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PlayerUsernameState, newRow: PlayerUsernameState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PlayerUsernameState,
+      newRow: PlayerUsernameState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PlayerUsernameState, newRow: PlayerUsernameState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PlayerUsernameState,
+      newRow: PlayerUsernameState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

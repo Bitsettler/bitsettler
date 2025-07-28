@@ -1,6 +1,12 @@
 import { fetchCommunityBiomeData } from '@/lib/integrations/google-sheets'
-import { getAllResourceTags, getResourcesBySlug } from '@/lib/spacetime-db-new/modules/resources/commands'
-import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
+import {
+  getAllResourceTags,
+  getResourcesBySlug
+} from '@/lib/spacetime-db-new/modules/resources/commands'
+import {
+  createSlug,
+  slugToTitleCase
+} from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ResourceIndividualTagPageView } from '@/views/resource-views/resource-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 

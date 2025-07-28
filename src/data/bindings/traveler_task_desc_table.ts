@@ -75,11 +75,23 @@ export class TravelerTaskDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TravelerTaskDesc, newRow: TravelerTaskDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TravelerTaskDesc,
+      newRow: TravelerTaskDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TravelerTaskDesc, newRow: TravelerTaskDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: TravelerTaskDesc,
+      newRow: TravelerTaskDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

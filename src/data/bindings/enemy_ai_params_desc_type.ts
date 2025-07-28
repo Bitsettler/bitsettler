@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Biome as __Biome } from './biome_type'
 import { EnemyType as __EnemyType } from './enemy_type_type'
 
@@ -35,7 +40,10 @@ export namespace EnemyAiParamsDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
-      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'enemyType',
+        __EnemyType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('biome', __Biome.getTypeScriptAlgebraicType()),
       new ProductTypeElement('avgHerdSize', AlgebraicType.createI32Type()),
       new ProductTypeElement('varHerdSize', AlgebraicType.createF32Type()),
@@ -44,11 +52,17 @@ export namespace EnemyAiParamsDesc {
       new ProductTypeElement('spawnEagerness', AlgebraicType.createF32Type()),
       new ProductTypeElement('timeOfDayStart', AlgebraicType.createF32Type()),
       new ProductTypeElement('timeOfDayEnd', AlgebraicType.createF32Type()),
-      new ProductTypeElement('spawnFrequencyMinutes', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'spawnFrequencyMinutes',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyAiParamsDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyAiParamsDesc
+  ): void {
     EnemyAiParamsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

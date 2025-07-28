@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerRegionTransferEvent = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   playerEntityId: bigint
   newRegionIndex: number
 }
@@ -32,17 +34,28 @@ export namespace PlayerRegionTransferEvent {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('newRegionIndex', AlgebraicType.createU8Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerRegionTransferEvent): void {
-    PlayerRegionTransferEvent.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerRegionTransferEvent
+  ): void {
+    PlayerRegionTransferEvent.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerRegionTransferEvent {
-    return PlayerRegionTransferEvent.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerRegionTransferEvent.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

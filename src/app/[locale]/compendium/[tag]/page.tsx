@@ -2,7 +2,10 @@ import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import { tagCollections } from '@/lib/spacetime-db-new/modules/collections/item-tag-collections'
 import { getEquipmentWithStats } from '@/lib/spacetime-db-new/modules/equipment/flows'
-import { getAllConsumables, getAllItems } from '@/lib/spacetime-db-new/modules/items/commands'
+import {
+  getAllConsumables,
+  getAllItems
+} from '@/lib/spacetime-db-new/modules/items/commands'
 import { getToolsWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
 import { slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { ConsumableIndividualTagPageView } from '@/views/consumables-views/consumables-individual-tag-page-view'
@@ -38,7 +41,9 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   const allItems = getAllItems()
 
   // Filter entries by tag
-  const items = allItems.filter((item) => item.compendiumEntry && item.tag === tagName)
+  const items = allItems.filter(
+    (item) => item.compendiumEntry && item.tag === tagName
+  )
 
   // Combine all entities (currently just items, resources can be added later)
   const allEntities: CompendiumEntity[] = [...items]
@@ -52,13 +57,17 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   const entityType = items.length > 0 ? 'Items' : 'Resources'
 
   // Check if this tag is an equipment tag
-  const isEquipmentTag = tagCollections.equipment.tags.some((tag) => tag === tagName)
+  const isEquipmentTag = tagCollections.equipment.tags.some(
+    (tag) => tag === tagName
+  )
 
   // Check if this tag is a tools tag
   const isToolsTag = tagCollections.tools.tags.some((tag) => tag === tagName)
 
   // Check if this tag is a consumables tag
-  const isConsumablesTag = tagCollections.consumables.tags.some((tag) => tag === tagName)
+  const isConsumablesTag = tagCollections.consumables.tags.some(
+    (tag) => tag === tagName
+  )
 
   // Find which collection this tag belongs to for smart navigation
   const parentCollection = findTagCollection(tagName)
@@ -66,14 +75,20 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Handle equipment tags with the live component
   if (isEquipmentTag && items.length > 0) {
     const equipmentWithStats = getEquipmentWithStats()
-    const equipmentForThisTag = equipmentWithStats.filter((equipment) => equipment.item.tag === tagName)
+    const equipmentForThisTag = equipmentWithStats.filter(
+      (equipment) => equipment.item.tag === tagName
+    )
 
     return (
       <EquipmentIndividualTagPageView
         tagName={tagName}
         equipment={equipmentForThisTag}
         backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        backLinkText={
+          parentCollection
+            ? `← Back to ${parentCollection.name}`
+            : '← Back to Compendium'
+        }
       />
     )
   }
@@ -81,14 +96,20 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Handle tools tags with the new component
   if (isToolsTag && items.length > 0) {
     const toolsWithStats = getToolsWithStats()
-    const toolsForThisTag = toolsWithStats.filter((tool) => tool.item.tag === tagName)
+    const toolsForThisTag = toolsWithStats.filter(
+      (tool) => tool.item.tag === tagName
+    )
 
     return (
       <ToolsIndividualTagPageView
         tagName={tagName}
         tools={toolsForThisTag}
         backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        backLinkText={
+          parentCollection
+            ? `← Back to ${parentCollection.name}`
+            : '← Back to Compendium'
+        }
       />
     )
   }
@@ -96,7 +117,9 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
   // Handle consumables tags with the new component
   if (isConsumablesTag && items.length > 0) {
     const allConsumables = getAllConsumables()
-    const consumablesForThisTag = allConsumables.filter((consumable) => consumable.tag === tagName)
+    const consumablesForThisTag = allConsumables.filter(
+      (consumable) => consumable.tag === tagName
+    )
 
     return (
       <ConsumableIndividualTagPageView
@@ -104,7 +127,11 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
         tagSlug={tag}
         consumables={consumablesForThisTag}
         backLink={parentCollection?.href || '/compendium'}
-        backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+        backLinkText={
+          parentCollection
+            ? `← Back to ${parentCollection.name}`
+            : '← Back to Compendium'
+        }
       />
     )
   }
@@ -117,8 +144,18 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
       columns: [
         { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-        { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' }
+        {
+          key: 'tier',
+          label: 'Tier',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'rarity',
+          label: 'Rarity',
+          sortable: true,
+          className: 'text-center'
+        }
       ]
     }
   ]
@@ -128,7 +165,11 @@ export default async function CompendiumCategoryPage({ params }: PageProps) {
       title={tagName}
       subtitle={`${allEntities.length} ${entityType.toLowerCase()} in this category`}
       backLink={parentCollection?.href || '/compendium'}
-      backLinkText={parentCollection ? `← Back to ${parentCollection.name}` : '← Back to Compendium'}
+      backLinkText={
+        parentCollection
+          ? `← Back to ${parentCollection.name}`
+          : '← Back to Compendium'
+      }
       itemGroups={itemGroups}
       enableItemLinks={true}
       tagSlug={tag}

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type GlobalDeleteEmpireBuildingMsg = {
   playerEntityId: bigint
   buildingEntityId: bigint
@@ -27,11 +32,21 @@ export namespace GlobalDeleteEmpireBuildingMsg {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: GlobalDeleteEmpireBuildingMsg): void {
-    GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: GlobalDeleteEmpireBuildingMsg
+  ): void {
+    GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): GlobalDeleteEmpireBuildingMsg {
-    return GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): GlobalDeleteEmpireBuildingMsg {
+    return GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

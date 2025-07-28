@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerClosedListingCollectRequest = {
   buildingEntityId: bigint
   auctionListingEntityId: bigint
@@ -23,15 +28,28 @@ export namespace PlayerClosedListingCollectRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('auctionListingEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'auctionListingEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClosedListingCollectRequest): void {
-    PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClosedListingCollectRequest
+  ): void {
+    PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerClosedListingCollectRequest {
-    return PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerClosedListingCollectRequest {
+    return PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { OnboardingRewardDesc as __OnboardingRewardDesc } from './onboarding_reward_desc_type'
 
@@ -26,16 +31,28 @@ export namespace ImportOnboardingRewardDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__OnboardingRewardDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __OnboardingRewardDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportOnboardingRewardDesc): void {
-    ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportOnboardingRewardDesc
+  ): void {
+    ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportOnboardingRewardDesc {
-    return ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportOnboardingRewardDesc {
+    return ImportOnboardingRewardDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

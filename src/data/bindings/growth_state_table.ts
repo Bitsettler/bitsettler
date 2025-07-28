@@ -74,11 +74,15 @@ export class GrowthStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: GrowthState, newRow: GrowthState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: GrowthState, newRow: GrowthState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: GrowthState, newRow: GrowthState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: GrowthState, newRow: GrowthState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -74,11 +74,23 @@ export class NpcAiLoopTimerTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: NpcAiLoopTimer, newRow: NpcAiLoopTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: NpcAiLoopTimer,
+      newRow: NpcAiLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: NpcAiLoopTimer, newRow: NpcAiLoopTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: NpcAiLoopTimer,
+      newRow: NpcAiLoopTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

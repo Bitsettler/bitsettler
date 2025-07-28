@@ -62,7 +62,9 @@ export class FootprintTileStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: FootprintTileState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: FootprintTileState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class FootprintTileStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: FootprintTileState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: FootprintTileState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: FootprintTileState, newRow: FootprintTileState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: FootprintTileState,
+      newRow: FootprintTileState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: FootprintTileState, newRow: FootprintTileState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: FootprintTileState,
+      newRow: FootprintTileState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

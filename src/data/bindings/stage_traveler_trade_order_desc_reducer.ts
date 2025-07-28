@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { TravelerTradeOrderDesc as __TravelerTradeOrderDesc } from './traveler_trade_order_desc_type'
 
@@ -26,16 +31,28 @@ export namespace StageTravelerTradeOrderDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__TravelerTradeOrderDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TravelerTradeOrderDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StageTravelerTradeOrderDesc): void {
-    StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: StageTravelerTradeOrderDesc
+  ): void {
+    StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): StageTravelerTradeOrderDesc {
-    return StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): StageTravelerTradeOrderDesc {
+    return StageTravelerTradeOrderDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

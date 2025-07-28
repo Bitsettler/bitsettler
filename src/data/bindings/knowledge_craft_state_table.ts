@@ -62,7 +62,9 @@ export class KnowledgeCraftStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeCraftState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeCraftState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgeCraftStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeCraftState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeCraftState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgeCraftState, newRow: KnowledgeCraftState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeCraftState,
+      newRow: KnowledgeCraftState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgeCraftState, newRow: KnowledgeCraftState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeCraftState,
+      newRow: KnowledgeCraftState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { MovementSpeed as __MovementSpeed } from './movement_speed_type'
 
 export type ParametersDesc = {
@@ -126,107 +131,343 @@ export namespace ParametersDesc {
       new ProductTypeElement('version', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'defaultSpeed',
-        AlgebraicType.createArrayType(__MovementSpeed.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __MovementSpeed.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('defaultNumInventoryPockets', AlgebraicType.createI32Type()),
-      new ProductTypeElement('skillYieldPowerExponent', AlgebraicType.createF32Type()),
-      new ProductTypeElement('skillYieldLogBase', AlgebraicType.createF32Type()),
-      new ProductTypeElement('skillYieldCutoffPercent', AlgebraicType.createF32Type()),
-      new ProductTypeElement('techTimePowerExponent', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'defaultNumInventoryPockets',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'skillYieldPowerExponent',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'skillYieldLogBase',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'skillYieldCutoffPercent',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'techTimePowerExponent',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('techTimeLogBase', AlgebraicType.createF32Type()),
-      new ProductTypeElement('minSecondsToPassiveRegenHealth', AlgebraicType.createI32Type()),
-      new ProductTypeElement('minSecondsToPassiveRegenStamina', AlgebraicType.createI32Type()),
-      new ProductTypeElement('repairBuildingDuration', AlgebraicType.createI32Type()),
-      new ProductTypeElement('repairBuildingMaxRepairPercent', AlgebraicType.createF32Type()),
-      new ProductTypeElement('repairBuildingShowDamagePercent', AlgebraicType.createF32Type()),
-      new ProductTypeElement('environmentDebuffTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('enemySpawnAgentWaitTime', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'minSecondsToPassiveRegenHealth',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'minSecondsToPassiveRegenStamina',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'repairBuildingDuration',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'repairBuildingMaxRepairPercent',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'repairBuildingShowDamagePercent',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'environmentDebuffTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'enemySpawnAgentWaitTime',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('discoveryRange', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxBuildRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('deconstructDefaultTime', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'deconstructDefaultTime',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('respawnSeconds', AlgebraicType.createI32Type()),
-      new ProductTypeElement('playerClimbHeight', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'playerClimbHeight',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('playerJumpHeight', AlgebraicType.createF32Type()),
       new ProductTypeElement('playerSwimHeight', AlgebraicType.createF32Type()),
       new ProductTypeElement('daytime', AlgebraicType.createI32Type()),
       new ProductTypeElement('nighttime', AlgebraicType.createI32Type()),
       new ProductTypeElement('aggroRange', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxCargoPerHex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourcesRegenLoops', AlgebraicType.createI32Type()),
-      new ProductTypeElement('selectedTravelerOrderCount', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourcesRegenTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('buildingDecayTickMillis', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'resourcesRegenLoops',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'selectedTravelerOrderCount',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'resourcesRegenTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'buildingDecayTickMillis',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('maxTradedItems', AlgebraicType.createI32Type()),
-      new ProductTypeElement('maxTradeDistanceLargeTiles', AlgebraicType.createI32Type()),
-      new ProductTypeElement('minDistanceBetweenClaims', AlgebraicType.createI32Type()),
-      new ProductTypeElement('combatManagerTickMillis', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'maxTradeDistanceLargeTiles',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'minDistanceBetweenClaims',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'combatManagerTickMillis',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('disengageRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('disengageTimeMillis', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'disengageTimeMillis',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('actionSlots', AlgebraicType.createI32Type()),
       new ProductTypeElement('startingSupplies', AlgebraicType.createI32Type()),
-      new ProductTypeElement('showShieldBarPercent', AlgebraicType.createF32Type()),
-      new ProductTypeElement('swimSprintSpeedMultiplier', AlgebraicType.createF32Type()),
-      new ProductTypeElement('lootChestDespawnTimeSeconds', AlgebraicType.createF32Type()),
-      new ProductTypeElement('deployableDisembarkMaxElevation', AlgebraicType.createI32Type()),
-      new ProductTypeElement('defaultNumToolbeltPockets', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourceGrowthTickRateMilliseconds', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'showShieldBarPercent',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'swimSprintSpeedMultiplier',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'lootChestDespawnTimeSeconds',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'deployableDisembarkMaxElevation',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'defaultNumToolbeltPockets',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'resourceGrowthTickRateMilliseconds',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('rentDepositDays', AlgebraicType.createI32Type()),
-      new ProductTypeElement('rentCollectionTimeOfDay', AlgebraicType.createF32Type()),
-      new ProductTypeElement('rentEvictionCompensation', AlgebraicType.createF32Type()),
-      new ProductTypeElement('maxRentalDepositDays', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recommendedAchievements', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireDecayTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireSiegeTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireSiegeRaisePct', AlgebraicType.createF32Type()),
-      new ProductTypeElement('empireDefaultNobilityThreshold', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'rentCollectionTimeOfDay',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'rentEvictionCompensation',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'maxRentalDepositDays',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'recommendedAchievements',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireDecayTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireSiegeTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireSiegeRaisePct',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'empireDefaultNobilityThreshold',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('empireShardCost', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireStartingShards', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireNodeMaxEnergy', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireNodeStartingEnergy', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireMinSiegeDistance', AlgebraicType.createI32Type()),
-      new ProductTypeElement('empireMaxSiegeDistance', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'empireStartingShards',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireNodeMaxEnergy',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireNodeStartingEnergy',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireMinSiegeDistance',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'empireMaxSiegeDistance',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('dailyShards', AlgebraicType.createI32Type()),
-      new ProductTypeElement('hexiteCapsuleSupplyCost', AlgebraicType.createI32Type()),
-      new ProductTypeElement('hexiteCapsuleShardCost', AlgebraicType.createI32Type()),
-      new ProductTypeElement('hexiteCapsuleCraftTimeSeconds', AlgebraicType.createI32Type()),
-      new ProductTypeElement('craftingLockDurationSecs', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'hexiteCapsuleSupplyCost',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'hexiteCapsuleShardCost',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'hexiteCapsuleCraftTimeSeconds',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'craftingLockDurationSecs',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('numToolbars', AlgebraicType.createI32Type()),
-      new ProductTypeElement('starvingTickMillis', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'starvingTickMillis',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('starvingDamage', AlgebraicType.createF32Type()),
-      new ProductTypeElement('claimStabilityParamM', AlgebraicType.createF32Type()),
-      new ProductTypeElement('claimStabilityParamB', AlgebraicType.createF32Type()),
-      new ProductTypeElement('playerRegenTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('enemyRegenTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('teleportationEnergyRegenTickMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('autoRespawnAttempts', AlgebraicType.createI32Type()),
-      new ProductTypeElement('playerPathfindingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('nearbyFlameBuffId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('floatingOriginDistanceThreshold', AlgebraicType.createI32Type()),
-      new ProductTypeElement('withdrawFromDeployablesRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('depositToDeployablesRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('signInAggroImmunity', AlgebraicType.createI32Type()),
-      new ProductTypeElement('respawnAggroImmunity', AlgebraicType.createI32Type()),
-      new ProductTypeElement('newUserAggroImmunity', AlgebraicType.createI32Type()),
-      new ProductTypeElement('terraformExperiencePerProgress', AlgebraicType.createF32Type()),
-      new ProductTypeElement('droppedInventoryOwnershipSeconds', AlgebraicType.createI32Type()),
-      new ProductTypeElement('droppedInventoryDespawnSeconds', AlgebraicType.createI32Type()),
-      new ProductTypeElement('enemyLootOwnershipSeconds', AlgebraicType.createI32Type()),
-      new ProductTypeElement('travelerTasksPerNpc', AlgebraicType.createI32Type()),
-      new ProductTypeElement('travelerTasksTimesOfDay', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('teleportChannelTimeHome', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportChannelTimeWaystone', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportationHomeEnergyCost', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportationBaseEnergyCost', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportationCostPerLargeTile', AlgebraicType.createF32Type()),
-      new ProductTypeElement('teleportationFullInventoryMultiplier', AlgebraicType.createF32Type()),
-      new ProductTypeElement('regionCrossoverDistanceLargeTiles', AlgebraicType.createI32Type()),
-      new ProductTypeElement('itemRecoveryRange', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'claimStabilityParamM',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'claimStabilityParamB',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'playerRegenTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'enemyRegenTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'teleportationEnergyRegenTickMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'autoRespawnAttempts',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'playerPathfindingId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'nearbyFlameBuffId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'floatingOriginDistanceThreshold',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'withdrawFromDeployablesRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'depositToDeployablesRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'signInAggroImmunity',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'respawnAggroImmunity',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'newUserAggroImmunity',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'terraformExperiencePerProgress',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'droppedInventoryOwnershipSeconds',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'droppedInventoryDespawnSeconds',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'enemyLootOwnershipSeconds',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'travelerTasksPerNpc',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'travelerTasksTimesOfDay',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'teleportChannelTimeHome',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'teleportChannelTimeWaystone',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'teleportationHomeEnergyCost',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'teleportationBaseEnergyCost',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'teleportationCostPerLargeTile',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'teleportationFullInventoryMultiplier',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'regionCrossoverDistanceLargeTiles',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'itemRecoveryRange',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('quickBoardRange', AlgebraicType.createF32Type()),
       new ProductTypeElement('duelRange', AlgebraicType.createF32Type()),
-      new ProductTypeElement('duelOutOfRangeGracePeriodMillis', AlgebraicType.createI32Type()),
-      new ProductTypeElement('playerHousingSameRegionMoveTimeMinutes', AlgebraicType.createI32Type()),
-      new ProductTypeElement('playerHousingEvictionTimeMinutes', AlgebraicType.createI32Type()),
-      new ProductTypeElement('playerHousingIncomeTimeOfDay', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'duelOutOfRangeGracePeriodMillis',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'playerHousingSameRegionMoveTimeMinutes',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'playerHousingEvictionTimeMinutes',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'playerHousingIncomeTimeOfDay',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 

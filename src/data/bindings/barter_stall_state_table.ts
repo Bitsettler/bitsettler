@@ -74,11 +74,23 @@ export class BarterStallStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BarterStallState, newRow: BarterStallState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: BarterStallState,
+      newRow: BarterStallState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BarterStallState, newRow: BarterStallState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: BarterStallState,
+      newRow: BarterStallState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

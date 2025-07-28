@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { InteriorCollapseTriggerState as __InteriorCollapseTriggerState } from './interior_collapse_trigger_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportInteriorCollapseTriggerState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__InteriorCollapseTriggerState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorCollapseTriggerState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportInteriorCollapseTriggerState): void {
-    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportInteriorCollapseTriggerState
+  ): void {
+    ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportInteriorCollapseTriggerState {
-    return ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportInteriorCollapseTriggerState {
+    return ImportInteriorCollapseTriggerState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

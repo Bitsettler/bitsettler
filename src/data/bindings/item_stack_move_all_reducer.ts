@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerItemStackMoveAllRequest as __PlayerItemStackMoveAllRequest } from './player_item_stack_move_all_request_type'
 
@@ -24,11 +29,17 @@ export namespace ItemStackMoveAll {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerItemStackMoveAllRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerItemStackMoveAllRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ItemStackMoveAll): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ItemStackMoveAll
+  ): void {
     ItemStackMoveAll.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

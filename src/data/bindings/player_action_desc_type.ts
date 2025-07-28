@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PlayerActionLayer as __PlayerActionLayer } from './player_action_layer_type'
 
 export type PlayerActionDesc = {
@@ -26,12 +31,21 @@ export namespace PlayerActionDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('actionTypeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('layer', __PlayerActionLayer.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('allowedConcurrentActionIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'layer',
+        __PlayerActionLayer.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'allowedConcurrentActionIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerActionDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerActionDesc
+  ): void {
     PlayerActionDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

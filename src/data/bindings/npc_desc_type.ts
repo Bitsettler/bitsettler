@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type NpcDesc = {
   npcType: number
   name: string
@@ -39,7 +44,10 @@ export namespace NpcDesc {
       new ProductTypeElement('prefabAddress', AlgebraicType.createStringType()),
       new ProductTypeElement('iconAddress', AlgebraicType.createStringType()),
       new ProductTypeElement('forceMarketMode', AlgebraicType.createBoolType()),
-      new ProductTypeElement('taskSkillCheck', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'taskSkillCheck',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 

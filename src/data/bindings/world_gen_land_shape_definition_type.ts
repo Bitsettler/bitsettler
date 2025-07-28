@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenNoiseSpecs as __WorldGenNoiseSpecs } from './world_gen_noise_specs_type'
 import { WorldGenRectInt as __WorldGenRectInt } from './world_gen_rect_int_type'
 
@@ -26,17 +31,33 @@ export namespace WorldGenLandShapeDefinition {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('noiseSpecs', __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('bounds', __WorldGenRectInt.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'noiseSpecs',
+        __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'bounds',
+        __WorldGenRectInt.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('landThreshold', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenLandShapeDefinition): void {
-    WorldGenLandShapeDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenLandShapeDefinition
+  ): void {
+    WorldGenLandShapeDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenLandShapeDefinition {
-    return WorldGenLandShapeDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenLandShapeDefinition {
+    return WorldGenLandShapeDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

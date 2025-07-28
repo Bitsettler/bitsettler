@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { DeployableState as __DeployableState } from './deployable_state_type'
 import { TradeOrderState as __TradeOrderState } from './trade_order_state_type'
 
@@ -29,21 +34,37 @@ export namespace OnDeployableRecoveredMsg {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('deployableDescId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('deployableState', __DeployableState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'deployableState',
+        __DeployableState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'tradeOrders',
-        AlgebraicType.createArrayType(__TradeOrderState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TradeOrderState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OnDeployableRecoveredMsg): void {
-    OnDeployableRecoveredMsg.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: OnDeployableRecoveredMsg
+  ): void {
+    OnDeployableRecoveredMsg.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): OnDeployableRecoveredMsg {
-    return OnDeployableRecoveredMsg.getTypeScriptAlgebraicType().deserialize(reader)
+    return OnDeployableRecoveredMsg.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

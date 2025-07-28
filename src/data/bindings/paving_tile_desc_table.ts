@@ -75,11 +75,23 @@ export class PavingTileDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PavingTileDesc, newRow: PavingTileDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: PavingTileDesc,
+      newRow: PavingTileDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PavingTileDesc, newRow: PavingTileDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: PavingTileDesc,
+      newRow: PavingTileDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

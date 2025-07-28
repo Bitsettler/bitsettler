@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireAddSiegeSuppliesRequest = {
   buildingEntityId: bigint
   proxyEmpireEntityId: bigint | undefined
@@ -23,15 +28,28 @@ export namespace EmpireAddSiegeSuppliesRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('proxyEmpireEntityId', AlgebraicType.createOptionType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'proxyEmpireEntityId',
+        AlgebraicType.createOptionType(AlgebraicType.createU64Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireAddSiegeSuppliesRequest): void {
-    EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireAddSiegeSuppliesRequest
+  ): void {
+    EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): EmpireAddSiegeSuppliesRequest {
-    return EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): EmpireAddSiegeSuppliesRequest {
+    return EmpireAddSiegeSuppliesRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

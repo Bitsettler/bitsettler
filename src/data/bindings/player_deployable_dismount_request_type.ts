@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerDeployableDismountRequest = {
@@ -27,25 +32,45 @@ export namespace PlayerDeployableDismountRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'coordinates',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'deployableCoordinates',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('skipDeployableIcon', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'skipDeployableIcon',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDeployableDismountRequest): void {
-    PlayerDeployableDismountRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDeployableDismountRequest
+  ): void {
+    PlayerDeployableDismountRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerDeployableDismountRequest {
-    return PlayerDeployableDismountRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerDeployableDismountRequest {
+    return PlayerDeployableDismountRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CappedLevelRequirement as __CappedLevelRequirement } from './capped_level_requirement_type'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { ItemStack as __ItemStack } from './item_stack_type'
@@ -31,15 +36,30 @@ export namespace TravelerTaskDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
-      new ProductTypeElement('levelRequirement', __CappedLevelRequirement.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('requiredItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('rewardedItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('rewardedExperience', __ExperienceStackF32.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'levelRequirement',
+        __CappedLevelRequirement.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'requiredItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'rewardedItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'rewardedExperience',
+        __ExperienceStackF32.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('description', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TravelerTaskDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TravelerTaskDesc
+  ): void {
     TravelerTaskDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

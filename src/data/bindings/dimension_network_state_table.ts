@@ -83,7 +83,9 @@ export class DimensionNetworkStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: DimensionNetworkState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: DimensionNetworkState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -91,16 +93,30 @@ export class DimensionNetworkStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: DimensionNetworkState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: DimensionNetworkState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DimensionNetworkState, newRow: DimensionNetworkState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DimensionNetworkState,
+      newRow: DimensionNetworkState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DimensionNetworkState, newRow: DimensionNetworkState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: DimensionNetworkState,
+      newRow: DimensionNetworkState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

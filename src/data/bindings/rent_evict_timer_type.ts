@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type RentEvictTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   rentEntityId: bigint
 }
 
@@ -31,7 +33,10 @@ export namespace RentEvictTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('rentEntityId', AlgebraicType.createU64Type())
     ])
   }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace CharacterStatType {
   // These are the generated variant types for each variant of the tagged union.
@@ -65,7 +70,9 @@ export namespace CharacterStatType {
   export type ExperienceRate = { tag: 'ExperienceRate' }
   export type Accuracy = { tag: 'Accuracy' }
   export type MaxTeleportationEnergy = { tag: 'MaxTeleportationEnergy' }
-  export type TeleportationEnergyRegenRate = { tag: 'TeleportationEnergyRegenRate' }
+  export type TeleportationEnergyRegenRate = {
+    tag: 'TeleportationEnergyRegenRate'
+  }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -126,20 +133,43 @@ export namespace CharacterStatType {
   export const ExperienceRate = { tag: 'ExperienceRate' }
   export const Accuracy = { tag: 'Accuracy' }
   export const MaxTeleportationEnergy = { tag: 'MaxTeleportationEnergy' }
-  export const TeleportationEnergyRegenRate = { tag: 'TeleportationEnergyRegenRate' }
+  export const TeleportationEnergyRegenRate = {
+    tag: 'TeleportationEnergyRegenRate'
+  }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
       new SumTypeVariant('MaxHealth', AlgebraicType.createProductType([])),
       new SumTypeVariant('MaxStamina', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PassiveHealthRegenRate', AlgebraicType.createProductType([])),
-      new SumTypeVariant('PassiveStaminaRegenRate', AlgebraicType.createProductType([])),
-      new SumTypeVariant('MovementMultiplier', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SprintMultiplier', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SprintStaminaDrain', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'PassiveHealthRegenRate',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'PassiveStaminaRegenRate',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'MovementMultiplier',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'SprintMultiplier',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'SprintStaminaDrain',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Armor', AlgebraicType.createProductType([])),
-      new SumTypeVariant('CooldownMultiplier', AlgebraicType.createProductType([])),
-      new SumTypeVariant('HuntingWeaponPower', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'CooldownMultiplier',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'HuntingWeaponPower',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Strength', AlgebraicType.createProductType([])),
       new SumTypeVariant('ColdProtection', AlgebraicType.createProductType([])),
       new SumTypeVariant('HeatProtection', AlgebraicType.createProductType([])),
@@ -148,7 +178,10 @@ export namespace CharacterStatType {
       new SumTypeVariant('CraftingSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('GatheringSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('BuildingSpeed', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SatiationRegenRate', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'SatiationRegenRate',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('MaxSatiation', AlgebraicType.createProductType([])),
       new SumTypeVariant('DefenseLevel', AlgebraicType.createProductType([])),
       new SumTypeVariant('ForestrySpeed', AlgebraicType.createProductType([])),
@@ -157,7 +190,10 @@ export namespace CharacterStatType {
       new SumTypeVariant('MiningSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('SmithingSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('ScholarSpeed', AlgebraicType.createProductType([])),
-      new SumTypeVariant('LeatherworkingSpeed', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'LeatherworkingSpeed',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('HuntingSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('TailoringSpeed', AlgebraicType.createProductType([])),
       new SumTypeVariant('FarmingSpeed', AlgebraicType.createProductType([])),
@@ -170,24 +206,45 @@ export namespace CharacterStatType {
       new SumTypeVariant('MiningPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('SmithingPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('ScholarPower', AlgebraicType.createProductType([])),
-      new SumTypeVariant('LeatherworkingPower', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'LeatherworkingPower',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('HuntingPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('TailoringPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('FarmingPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('FishingPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('CookingPower', AlgebraicType.createProductType([])),
       new SumTypeVariant('ForagingPower', AlgebraicType.createProductType([])),
-      new SumTypeVariant('ActiveHealthRegenRate', AlgebraicType.createProductType([])),
-      new SumTypeVariant('ActiveStaminaRegenRate', AlgebraicType.createProductType([])),
-      new SumTypeVariant('ClimbProficiency', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'ActiveHealthRegenRate',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'ActiveStaminaRegenRate',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'ClimbProficiency',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('ExperienceRate', AlgebraicType.createProductType([])),
       new SumTypeVariant('Accuracy', AlgebraicType.createProductType([])),
-      new SumTypeVariant('MaxTeleportationEnergy', AlgebraicType.createProductType([])),
-      new SumTypeVariant('TeleportationEnergyRegenRate', AlgebraicType.createProductType([]))
+      new SumTypeVariant(
+        'MaxTeleportationEnergy',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'TeleportationEnergyRegenRate',
+        AlgebraicType.createProductType([])
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CharacterStatType): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CharacterStatType
+  ): void {
     CharacterStatType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

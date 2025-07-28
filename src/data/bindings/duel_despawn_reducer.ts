@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DuelDespawnTimer as __DuelDespawnTimer } from './duel_despawn_timer_type'
 
@@ -24,7 +29,10 @@ export namespace DuelDespawn {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DuelDespawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DuelDespawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

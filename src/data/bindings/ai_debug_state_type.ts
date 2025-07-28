@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type AiDebugState = {
@@ -30,9 +35,18 @@ export namespace AiDebugState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('currentDestination', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('currentPosition', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('targetPosition', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'currentDestination',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'currentPosition',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'targetPosition',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('dp', AlgebraicType.createF32Type())
     ])
   }

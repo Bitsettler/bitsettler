@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { PlayerReportState as __PlayerReportState } from './player_report_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace PlayerReportStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __PlayerReportState): PlayerReportStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __PlayerReportState): PlayerReportStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __PlayerReportState): PlayerReportStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __PlayerReportState): PlayerReportStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __PlayerReportState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __PlayerReportState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __PlayerReportState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __PlayerReportState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerReportStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerReportStateOp
+  ): void {
     PlayerReportStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace PlayerReportStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `PlayerReportStateOp`.
-export type PlayerReportStateOp = PlayerReportStateOp.Insert | PlayerReportStateOp.Delete
+export type PlayerReportStateOp =
+  | PlayerReportStateOp.Insert
+  | PlayerReportStateOp.Delete
 
 export default PlayerReportStateOp

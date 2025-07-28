@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerDeathTimer as __PlayerDeathTimer } from './player_death_timer_type'
 
@@ -24,11 +29,17 @@ export namespace PlayerDeathStart {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerDeathTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerDeathTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDeathStart): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDeathStart
+  ): void {
     PlayerDeathStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

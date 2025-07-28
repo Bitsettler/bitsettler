@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ItemStack as __ItemStack } from './item_stack_type'
 import { LevelRequirement as __LevelRequirement } from './level_requirement_type'
 import { NpcType as __NpcType } from './npc_type_type'
@@ -42,29 +47,69 @@ export namespace TravelerTradeOrderDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('startingStock', AlgebraicType.createI32Type()),
       new ProductTypeElement('alwaysOffered', AlgebraicType.createBoolType()),
-      new ProductTypeElement('traveler', __NpcType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('offerItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('offerCargoId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredItems', AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('requiredCargoId', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'traveler',
+        __NpcType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'offerItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'offerCargoId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredItems',
+        AlgebraicType.createArrayType(__ItemStack.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'requiredCargoId',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('achievementRequirements', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('hideIfRequirementsAreNotMet', AlgebraicType.createBoolType()),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('hideWithoutRequiredKnowledge', AlgebraicType.createBoolType()),
-      new ProductTypeElement('blockingKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('hideWithBlockingKnowledges', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'achievementRequirements',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'hideIfRequirementsAreNotMet',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'hideWithoutRequiredKnowledge',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'blockingKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'hideWithBlockingKnowledges',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TravelerTradeOrderDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TravelerTradeOrderDesc
+  ): void {
     TravelerTradeOrderDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TravelerTradeOrderDesc {
-    return TravelerTradeOrderDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return TravelerTradeOrderDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

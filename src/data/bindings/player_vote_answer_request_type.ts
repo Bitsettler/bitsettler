@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerVoteAnswerRequest = {
   voteEntityId: bigint
   accept: boolean
@@ -27,11 +32,19 @@ export namespace PlayerVoteAnswerRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerVoteAnswerRequest): void {
-    PlayerVoteAnswerRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerVoteAnswerRequest
+  ): void {
+    PlayerVoteAnswerRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerVoteAnswerRequest {
-    return PlayerVoteAnswerRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerVoteAnswerRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

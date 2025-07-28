@@ -62,7 +62,9 @@ export class KnowledgeEnemyStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: KnowledgeEnemyState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: KnowledgeEnemyState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class KnowledgeEnemyStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: KnowledgeEnemyState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: KnowledgeEnemyState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: KnowledgeEnemyState, newRow: KnowledgeEnemyState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: KnowledgeEnemyState,
+      newRow: KnowledgeEnemyState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: KnowledgeEnemyState, newRow: KnowledgeEnemyState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: KnowledgeEnemyState,
+      newRow: KnowledgeEnemyState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

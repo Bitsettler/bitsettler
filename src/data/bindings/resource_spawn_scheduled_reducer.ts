@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResourceSpawnTimer as __ResourceSpawnTimer } from './resource_spawn_timer_type'
 
@@ -24,15 +29,23 @@ export namespace ResourceSpawnScheduled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __ResourceSpawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __ResourceSpawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResourceSpawnScheduled): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResourceSpawnScheduled
+  ): void {
     ResourceSpawnScheduled.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ResourceSpawnScheduled {
-    return ResourceSpawnScheduled.getTypeScriptAlgebraicType().deserialize(reader)
+    return ResourceSpawnScheduled.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

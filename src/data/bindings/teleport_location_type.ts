@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 import { TeleportLocationType as __TeleportLocationType } from './teleport_location_type_type'
 
@@ -25,12 +30,21 @@ export namespace TeleportLocation {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('locationType', __TeleportLocationType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'locationType',
+        __TeleportLocationType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TeleportLocation): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TeleportLocation
+  ): void {
     TeleportLocation.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

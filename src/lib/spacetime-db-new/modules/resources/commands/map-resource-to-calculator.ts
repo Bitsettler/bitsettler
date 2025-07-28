@@ -6,7 +6,9 @@ import { createSlug } from '../../../shared/utils/entities'
 /**
  * Map ResourceDesc to CalculatorItem
  */
-export function mapResourceToCalculatorItem(resource: ResourceDesc): CalculatorItem {
+export function mapResourceToCalculatorItem(
+  resource: ResourceDesc
+): CalculatorItem {
   return {
     id: `resource_${resource.id}`,
     name: resource.name,
@@ -15,13 +17,17 @@ export function mapResourceToCalculatorItem(resource: ResourceDesc): CalculatorI
     rarity: resource.rarity.tag.toLowerCase(),
     category: 'resources',
     description: resource.description || 'No description available',
-    icon_asset_name: getServerIconPath(cleanIconAssetName(resource.iconAssetName || ''))
+    icon_asset_name: getServerIconPath(
+      cleanIconAssetName(resource.iconAssetName || '')
+    )
   }
 }
 
 /**
  * Transform resources to calculator format
  */
-export function transformResourcesToCalculator(resources: ResourceDesc[]): CalculatorItem[] {
+export function transformResourcesToCalculator(
+  resources: ResourceDesc[]
+): CalculatorItem[] {
   return resources.map(mapResourceToCalculatorItem)
 }

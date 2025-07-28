@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type RespawnInteriorNpcs = {}
 
@@ -22,7 +26,10 @@ export namespace RespawnInteriorNpcs {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: RespawnInteriorNpcs): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RespawnInteriorNpcs
+  ): void {
     RespawnInteriorNpcs.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

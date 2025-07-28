@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ChestLootRarity = {
   rarity: number
   probability: number
@@ -27,7 +32,10 @@ export namespace ChestLootRarity {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ChestLootRarity): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ChestLootRarity
+  ): void {
     ChestLootRarity.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

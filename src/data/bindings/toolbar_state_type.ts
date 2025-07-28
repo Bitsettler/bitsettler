@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ToolbarState = {
   entityId: bigint
   ownerEntityId: bigint
@@ -27,7 +32,10 @@ export namespace ToolbarState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('index', AlgebraicType.createU8Type()),
-      new ProductTypeElement('actions', AlgebraicType.createArrayType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'actions',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      )
     ])
   }
 

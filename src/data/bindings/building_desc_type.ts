@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingFunction as __BuildingFunction } from './building_function_type'
 import { BuildingInteractionLevel as __BuildingInteractionLevel } from './building_interaction_level_type'
 import { FootprintTile as __FootprintTile } from './footprint_tile_type'
@@ -49,28 +54,53 @@ export namespace BuildingDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'functions',
-        AlgebraicType.createArrayType(__BuildingFunction.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingFunction.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
-      new ProductTypeElement('restedBuffDuration', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'restedBuffDuration',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('lightRadius', AlgebraicType.createI32Type()),
-      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'modelAssetName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
       new ProductTypeElement('unenterable', AlgebraicType.createBoolType()),
       new ProductTypeElement('wilderness', AlgebraicType.createBoolType()),
-      new ProductTypeElement('footprint', AlgebraicType.createArrayType(__FootprintTile.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'footprint',
+        AlgebraicType.createArrayType(
+          __FootprintTile.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('maxHealth', AlgebraicType.createI32Type()),
       new ProductTypeElement('ignoreDamage', AlgebraicType.createBoolType()),
       new ProductTypeElement('defenseLevel', AlgebraicType.createI32Type()),
       new ProductTypeElement('decay', AlgebraicType.createF32Type()),
       new ProductTypeElement('maintenance', AlgebraicType.createF32Type()),
-      new ProductTypeElement('buildPermission', __BuildingInteractionLevel.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('interactPermission', __BuildingInteractionLevel.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'buildPermission',
+        __BuildingInteractionLevel.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'interactPermission',
+        __BuildingInteractionLevel.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('hasAction', AlgebraicType.createBoolType()),
-      new ProductTypeElement('showInCompendium', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'showInCompendium',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('isRuins', AlgebraicType.createBoolType()),
-      new ProductTypeElement('notDeconstructible', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'notDeconstructible',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 

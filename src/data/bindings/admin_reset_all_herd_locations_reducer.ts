@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminResetAllHerdLocations = {}
 
@@ -22,11 +26,21 @@ export namespace AdminResetAllHerdLocations {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminResetAllHerdLocations): void {
-    AdminResetAllHerdLocations.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminResetAllHerdLocations
+  ): void {
+    AdminResetAllHerdLocations.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): AdminResetAllHerdLocations {
-    return AdminResetAllHerdLocations.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): AdminResetAllHerdLocations {
+    return AdminResetAllHerdLocations.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

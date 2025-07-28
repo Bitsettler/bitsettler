@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { RegionPopulationLoopTimer as __RegionPopulationLoopTimer } from './region_population_loop_timer_type'
 
@@ -24,15 +29,28 @@ export namespace RegionPopuplationAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __RegionPopulationLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __RegionPopulationLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionPopuplationAgentLoop): void {
-    RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionPopuplationAgentLoop
+  ): void {
+    RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): RegionPopuplationAgentLoop {
-    return RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): RegionPopuplationAgentLoop {
+    return RegionPopuplationAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenAnimationCurveKeyframe as __WorldGenAnimationCurveKeyframe } from './world_gen_animation_curve_keyframe_type'
 
 export type WorldGenAnimationCurve = {
@@ -25,16 +30,23 @@ export namespace WorldGenAnimationCurve {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'keyframes',
-        AlgebraicType.createArrayType(__WorldGenAnimationCurveKeyframe.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenAnimationCurveKeyframe.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenAnimationCurve): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenAnimationCurve
+  ): void {
     WorldGenAnimationCurve.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenAnimationCurve {
-    return WorldGenAnimationCurve.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenAnimationCurve.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

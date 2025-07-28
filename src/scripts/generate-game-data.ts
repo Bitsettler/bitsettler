@@ -98,7 +98,9 @@ function dumpTables(
       console.log('Connecting to WebSocket:')
       console.log('  URL:', wsUrl)
       if (auth) {
-        console.log('  Headers:', { Authorization: `Bearer ${auth.substring(0, 20)}...` })
+        console.log('  Headers:', {
+          Authorization: `Bearer ${auth.substring(0, 20)}...`
+        })
       } else {
         console.log('  Headers: none')
       }
@@ -159,10 +161,18 @@ function dumpTables(
               console.log(`Processing table ${name} with ${rows.length} rows`)
               saveData[name] = rows.map((row) => JSON.parse(row))
             }
-            console.log(`Total tables processed: ${Object.keys(saveData).length}`)
+            console.log(
+              `Total tables processed: ${Object.keys(saveData).length}`
+            )
             ws.close()
-          } else if (msg.TransactionUpdate && msg.TransactionUpdate.status.Failed) {
-            console.log('Transaction failed:', msg.TransactionUpdate.status.Failed)
+          } else if (
+            msg.TransactionUpdate &&
+            msg.TransactionUpdate.status.Failed
+          ) {
+            console.log(
+              'Transaction failed:',
+              msg.TransactionUpdate.status.Failed
+            )
             const failure = msg.TransactionUpdate.status.Failed
             const badTableMatch = failure.match(/`(\w*)` is not a valid table/)
             if (badTableMatch) {
@@ -225,7 +235,10 @@ async function getSchema(host: string, module: string): Promise<Schema | null> {
   }
 }
 
-async function getRegionInfo(globalHost: string, auth?: string): Promise<RegionConnectionInfo | null> {
+async function getRegionInfo(
+  globalHost: string,
+  auth?: string
+): Promise<RegionConnectionInfo | null> {
   // Check if region module is specified in environment
   const regionModule = process.env.BITCRAFT_REGION_MODULE
 
@@ -240,8 +253,15 @@ async function getRegionInfo(globalHost: string, auth?: string): Promise<RegionC
   // If no region module specified, try to auto-detect from available modules
   // This is a fallback that probably won't work, but we'll try anyway
   try {
-    console.log('No region module specified, attempting to get region connection info...')
-    const res = await dumpTables(globalHost, 'bitcraft-global', 'region_connection_info', auth)
+    console.log(
+      'No region module specified, attempting to get region connection info...'
+    )
+    const res = await dumpTables(
+      globalHost,
+      'bitcraft-global',
+      'region_connection_info',
+      auth
+    )
     console.log('Region connection info response:', Object.keys(res))
 
     const regionInfo = res['region_connection_info']
@@ -268,7 +288,11 @@ async function getRegionInfo(globalHost: string, auth?: string): Promise<RegionC
   }
 }
 
-async function saveTables(dataDir: string, subdir: string, tables: Record<string, any[]>): Promise<void> {
+async function saveTables(
+  dataDir: string,
+  subdir: string,
+  tables: Record<string, any[]>
+): Promise<void> {
   const root = path.join(dataDir, subdir)
   await fs.mkdir(root, { recursive: true })
 
@@ -276,7 +300,14 @@ async function saveTables(dataDir: string, subdir: string, tables: Record<string
 
   function getSort(x: any): number {
     // Handle various id field patterns
-    return x.id ?? x.item_id ?? x.building_id ?? x.cargo_id ?? x.type_id ?? (x.name ? 0 : -1)
+    return (
+      x.id ??
+      x.item_id ??
+      x.building_id ??
+      x.cargo_id ??
+      x.type_id ??
+      (x.name ? 0 : -1)
+    )
   }
 
   for (const [name, data] of Object.entries(tables)) {
@@ -297,13 +328,20 @@ async function saveTables(dataDir: string, subdir: string, tables: Record<string
   }
 }
 
-async function tableNamesToFile(schema: Schema, tableFile: string): Promise<void> {
+async function tableNamesToFile(
+  schema: Schema,
+  tableFile: string
+): Promise<void> {
   const tables = schema.tables || []
 
   // Debug: log a few table_access values to understand the format
   console.log('Debugging table_access values:')
   tables.slice(0, 5).forEach((t) => {
-    console.log(`Table: ${t.name}, table_access:`, t.table_access, `(type: ${typeof t.table_access})`)
+    console.log(
+      `Table: ${t.name}, table_access:`,
+      t.table_access,
+      `(type: ${typeof t.table_access})`
+    )
   })
 
   const tableAccess = tables.reduce(
@@ -323,10 +361,16 @@ async function tableNamesToFile(schema: Schema, tableFile: string): Promise<void
     {} as Record<string, boolean>
   )
 
-  const publicTables = Object.keys(tableAccess).filter((name) => tableAccess[name])
-  const privateTables = Object.keys(tableAccess).filter((name) => !tableAccess[name])
+  const publicTables = Object.keys(tableAccess).filter(
+    (name) => tableAccess[name]
+  )
+  const privateTables = Object.keys(tableAccess).filter(
+    (name) => !tableAccess[name]
+  )
 
-  console.log(`Generated ${publicTables.length} public tables and ${privateTables.length} private tables`)
+  console.log(
+    `Generated ${publicTables.length} public tables and ${privateTables.length} private tables`
+  )
 
   const result = {
     public: publicTables,
@@ -337,7 +381,8 @@ async function tableNamesToFile(schema: Schema, tableFile: string): Promise<void
 }
 
 async function main(): Promise<void> {
-  const dataDir = process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data')
+  const dataDir =
+    process.env.DATA_DIR || path.join(process.cwd(), 'src', 'data')
   await fs.mkdir(dataDir, { recursive: true })
 
   const globalHost = process.env.BITCRAFT_SPACETIME_HOST
@@ -350,7 +395,10 @@ async function main(): Promise<void> {
   console.log('Fetching global schema...')
   const schemaGlb = await getSchema(globalHost, 'bitcraft-global')
   if (schemaGlb) {
-    await fs.writeFile(path.join(dataDir, 'global_schema.json'), JSON.stringify(schemaGlb, null, 2))
+    await fs.writeFile(
+      path.join(dataDir, 'global_schema.json'),
+      JSON.stringify(schemaGlb, null, 2)
+    )
     const tableFile = path.join(dataDir, 'global_tables.json')
     await tableNamesToFile(schemaGlb, tableFile)
   }
@@ -362,12 +410,17 @@ async function main(): Promise<void> {
     console.log(`Found region: ${regionInfo.host}/${regionInfo.module}`)
     const schema = await getSchema(regionInfo.host, regionInfo.module)
     if (schema) {
-      await fs.writeFile(path.join(dataDir, 'schema.json'), JSON.stringify(schema, null, 2))
+      await fs.writeFile(
+        path.join(dataDir, 'schema.json'),
+        JSON.stringify(schema, null, 2)
+      )
       const tableFile = path.join(dataDir, 'region_tables.json')
       await tableNamesToFile(schema, tableFile)
     }
   } else {
-    console.log('Could not get region info. To specify your region, add to your .env.local:')
+    console.log(
+      'Could not get region info. To specify your region, add to your .env.local:'
+    )
     console.log('  BITCRAFT_REGION_MODULE=bitcraft-6')
     console.log('  (replace "bitcraft-6" with your actual region module name)')
     console.log('Skipping region schema')
@@ -450,21 +503,39 @@ async function main(): Promise<void> {
     'weapon_type_desc'
   ]
 
-  console.log(`Using curated list of ${curatedTables.length} tables (same as working Python script)`)
+  console.log(
+    `Using curated list of ${curatedTables.length} tables (same as working Python script)`
+  )
 
   if (curatedTables.length > 0) {
     console.log(`Dumping ${curatedTables.length} global tables...`)
-    const globalRes = await dumpTables(globalHost, 'bitcraft-global', curatedTables, auth)
-    console.log(`Received ${Object.keys(globalRes).length} global tables from WebSocket`)
+    const globalRes = await dumpTables(
+      globalHost,
+      'bitcraft-global',
+      curatedTables,
+      auth
+    )
+    console.log(
+      `Received ${Object.keys(globalRes).length} global tables from WebSocket`
+    )
     await saveTables(dataDir, 'global', globalRes)
   } else {
     console.log('No global tables to dump')
   }
 
   if (curatedTables.length > 0 && regionInfo) {
-    console.log(`Dumping ${curatedTables.length} region tables from ${regionInfo.host}/${regionInfo.module}...`)
-    const regionRes = await dumpTables(regionInfo.host, regionInfo.module, curatedTables, auth)
-    console.log(`Received ${Object.keys(regionRes).length} region tables from WebSocket`)
+    console.log(
+      `Dumping ${curatedTables.length} region tables from ${regionInfo.host}/${regionInfo.module}...`
+    )
+    const regionRes = await dumpTables(
+      regionInfo.host,
+      regionInfo.module,
+      curatedTables,
+      auth
+    )
+    console.log(
+      `Received ${Object.keys(regionRes).length} region tables from WebSocket`
+    )
     await saveTables(dataDir, 'region', regionRes)
   } else if (curatedTables.length > 0) {
     console.log('No region info available, cannot dump region tables')

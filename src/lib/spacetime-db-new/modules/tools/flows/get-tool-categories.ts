@@ -16,7 +16,10 @@ export interface ToolCategory {
 /**
  * Tool category metadata - maps item tags to UI categories
  */
-const toolCategoryMetadata: Record<string, Omit<ToolCategory, 'count' | 'firstTool'>> = {
+const toolCategoryMetadata: Record<
+  string,
+  Omit<ToolCategory, 'count' | 'firstTool'>
+> = {
   'Forester Tool': {
     id: 'forester-tool',
     name: 'Forester Tools',
@@ -110,7 +113,10 @@ export function getToolCategories(): ToolCategory[] {
   const tools = getAllTools()
 
   // Group tools by their tag
-  const toolsByTag: Record<string, { count: number; firstTool?: (typeof tools)[0] }> = {}
+  const toolsByTag: Record<
+    string,
+    { count: number; firstTool?: (typeof tools)[0] }
+  > = {}
 
   tools.forEach((tool) => {
     if (!toolsByTag[tool.tag]) {

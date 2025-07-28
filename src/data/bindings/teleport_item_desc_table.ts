@@ -74,11 +74,23 @@ export class TeleportItemDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TeleportItemDesc, newRow: TeleportItemDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TeleportItemDesc,
+      newRow: TeleportItemDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TeleportItemDesc, newRow: TeleportItemDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: TeleportItemDesc,
+      newRow: TeleportItemDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

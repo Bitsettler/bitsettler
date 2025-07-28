@@ -30,6 +30,9 @@ export function getCollectiblesGroupedByType(): CollectibleGroup[] {
     slug: type.toLowerCase().replace(/\s+/g, '-'),
     collectibles: items,
     count: items.length,
-    iconAssetName: items[0]?.collectible?.iconAssetName || items[0]?.deed?.iconAssetName || 'Items/AncientDeed'
+    iconAssetName:
+      items[0]?.collectible?.iconAssetName ||
+      items[0]?.deed?.iconAssetName ||
+      'Items/AncientDeed'
   }))
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemyClearAggroRequest as __EnemyClearAggroRequest } from './enemy_clear_aggro_request_type'
 
@@ -24,11 +29,17 @@ export namespace EnemyClearAggro {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __EnemyClearAggroRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __EnemyClearAggroRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemyClearAggro): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemyClearAggro
+  ): void {
     EnemyClearAggro.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

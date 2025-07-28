@@ -1,5 +1,9 @@
 import { CargoDesc, ItemDesc, ResourceDesc } from '@/data/bindings'
-import { transformToSearchData, type SearchData, type SearchItem } from '../../../shared/dtos/search-dtos'
+import {
+  transformToSearchData,
+  type SearchData,
+  type SearchItem
+} from '../../../shared/dtos/search-dtos'
 import { createSlug } from '../../../shared/utils/entities'
 import { getAllCargo } from '../../cargo/commands/get-all-cargo'
 import { getAllItems } from '../../items/commands/get-all-items'
@@ -92,5 +96,10 @@ export async function getSearchGameData(): Promise<SearchData> {
   const searchResources = transformResourcesToSearch(resources)
   const searchCollections: SearchItem[] = [] // TODO: Implement collections
 
-  return transformToSearchData(searchItems, searchCargo, searchResources, searchCollections)
+  return transformToSearchData(
+    searchItems,
+    searchCargo,
+    searchResources,
+    searchCollections
+  )
 }

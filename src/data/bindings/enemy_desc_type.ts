@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { ProbabilisticItemStack as __ProbabilisticItemStack } from './probabilistic_item_stack_type'
 import { Rarity as __Rarity } from './rarity_type'
@@ -67,44 +72,90 @@ export namespace EnemyDesc {
       new ProductTypeElement('enemyType', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('pathfindingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('targetingMatrixId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('combatActionsIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'targetingMatrixId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'combatActionsIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('description', AlgebraicType.createStringType()),
       new ProductTypeElement('minSpeed', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxSpeed', AlgebraicType.createI32Type()),
       new ProductTypeElement('radius', AlgebraicType.createF32Type()),
-      new ProductTypeElement('awarenessDestinationThreshold', AlgebraicType.createF32Type()),
-      new ProductTypeElement('minAwarenessTickSec', AlgebraicType.createF32Type()),
-      new ProductTypeElement('maxAwarenessTickSec', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'awarenessDestinationThreshold',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'minAwarenessTickSec',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'maxAwarenessTickSec',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('maxHealth', AlgebraicType.createI32Type()),
       new ProductTypeElement('ignoreDamage', AlgebraicType.createBoolType()),
-      new ProductTypeElement('healthRegenQuantity', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'healthRegenQuantity',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('armor', AlgebraicType.createI32Type()),
       new ProductTypeElement('accuracy', AlgebraicType.createI32Type()),
       new ProductTypeElement('evasion', AlgebraicType.createI32Type()),
       new ProductTypeElement('strength', AlgebraicType.createI32Type()),
       new ProductTypeElement('minDamage', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxDamage', AlgebraicType.createI32Type()),
-      new ProductTypeElement('cooldownMultiplier', AlgebraicType.createF32Type()),
-      new ProductTypeElement('daytimeDetectRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('daytimeAggroRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('daytimeDeaggroRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('nighttimeDetectRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('nighttimeAggroRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('nighttimeDeaggroRange', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'cooldownMultiplier',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'daytimeDetectRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'daytimeAggroRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'daytimeDeaggroRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'nighttimeDetectRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'nighttimeAggroRange',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'nighttimeDeaggroRange',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('evadeRange', AlgebraicType.createI32Type()),
-      new ProductTypeElement('deaggroHealthThreshold', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'deaggroHealthThreshold',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('attackLevel', AlgebraicType.createI32Type()),
       new ProductTypeElement('defenseLevel', AlgebraicType.createI32Type()),
       new ProductTypeElement('prefabAddress', AlgebraicType.createStringType()),
       new ProductTypeElement('iconAddress', AlgebraicType.createStringType()),
       new ProductTypeElement(
         'extractedItemStacks',
-        AlgebraicType.createArrayType(__ProbabilisticItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ProbabilisticItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'experiencePerDamageDealt',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('tag', AlgebraicType.createStringType()),

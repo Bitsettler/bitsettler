@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { RegionSignInParameters as __RegionSignInParameters } from './region_sign_in_parameters_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,46 @@ export namespace RegionSignInParametersOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __RegionSignInParameters): RegionSignInParametersOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __RegionSignInParameters
+  ): RegionSignInParametersOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __RegionSignInParameters
+  ): RegionSignInParametersOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __RegionSignInParameters.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __RegionSignInParameters.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __RegionSignInParameters.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __RegionSignInParameters.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionSignInParametersOp): void {
-    RegionSignInParametersOp.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionSignInParametersOp
+  ): void {
+    RegionSignInParametersOp.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): RegionSignInParametersOp {
-    return RegionSignInParametersOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return RegionSignInParametersOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `RegionSignInParametersOp`.
-export type RegionSignInParametersOp = RegionSignInParametersOp.Insert | RegionSignInParametersOp.Delete
+export type RegionSignInParametersOp =
+  | RegionSignInParametersOp.Insert
+  | RegionSignInParametersOp.Delete
 
 export default RegionSignInParametersOp

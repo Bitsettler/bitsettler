@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireNotificationType as __EmpireNotificationType } from './empire_notification_type_type'
 
 export type EmpireNotificationDesc = {
@@ -28,18 +33,26 @@ export namespace EmpireNotificationDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
-      new ProductTypeElement('notificationType', __EmpireNotificationType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'notificationType',
+        __EmpireNotificationType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('priority', AlgebraicType.createI32Type()),
       new ProductTypeElement('showOnLogin', AlgebraicType.createBoolType()),
       new ProductTypeElement('text', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNotificationDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNotificationDesc
+  ): void {
     EmpireNotificationDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EmpireNotificationDesc {
-    return EmpireNotificationDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireNotificationDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

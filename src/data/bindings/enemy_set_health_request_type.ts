@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EnemySetHealthRequest = {
   entityId: bigint
   health: number
@@ -27,11 +32,16 @@ export namespace EnemySetHealthRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EnemySetHealthRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EnemySetHealthRequest
+  ): void {
     EnemySetHealthRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): EnemySetHealthRequest {
-    return EnemySetHealthRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return EnemySetHealthRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

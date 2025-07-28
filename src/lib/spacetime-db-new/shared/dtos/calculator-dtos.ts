@@ -51,7 +51,9 @@ export function transformToCalculatorData(
   mapItemToCalculatorItem: (item: ItemDesc) => CalculatorItem,
   mapCargoToCalculatorItem: (cargo: CargoDesc) => CalculatorItem,
   mapResourceToCalculatorItem: (resource: ResourceDesc) => CalculatorItem,
-  transformCraftingRecipesToCalculator: (recipes: CraftingRecipeDesc[]) => CalculatorRecipe[],
+  transformCraftingRecipesToCalculator: (
+    recipes: CraftingRecipeDesc[]
+  ) => CalculatorRecipe[],
   transformExtractionRecipesToCalculator: (
     recipes: ExtractionRecipeDesc[],
     lookup: Map<string, CalculatorItem>
@@ -71,9 +73,16 @@ export function transformToCalculatorData(
   const calculatorItems: CalculatorItem[] = Array.from(unifiedLookup.values())
 
   // Transform recipes using module-specific functions
-  const calculatorCraftingRecipes = transformCraftingRecipesToCalculator(craftingRecipes)
-  const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(extractionRecipes, unifiedLookup)
-  const calculatorRecipes = [...calculatorCraftingRecipes, ...calculatorExtractionRecipes]
+  const calculatorCraftingRecipes =
+    transformCraftingRecipesToCalculator(craftingRecipes)
+  const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(
+    extractionRecipes,
+    unifiedLookup
+  )
+  const calculatorRecipes = [
+    ...calculatorCraftingRecipes,
+    ...calculatorExtractionRecipes
+  ]
 
   return {
     items: calculatorItems,

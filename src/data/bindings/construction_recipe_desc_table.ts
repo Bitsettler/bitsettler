@@ -62,7 +62,9 @@ export class ConstructionRecipeDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: ConstructionRecipeDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: ConstructionRecipeDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class ConstructionRecipeDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: ConstructionRecipeDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: ConstructionRecipeDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ConstructionRecipeDesc, newRow: ConstructionRecipeDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ConstructionRecipeDesc,
+      newRow: ConstructionRecipeDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ConstructionRecipeDesc, newRow: ConstructionRecipeDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ConstructionRecipeDesc,
+      newRow: ConstructionRecipeDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

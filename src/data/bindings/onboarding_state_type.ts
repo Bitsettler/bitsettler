@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type OnboardingState = {
   entityId: bigint
   completedStates: number[]
@@ -25,13 +30,25 @@ export namespace OnboardingState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('completedStates', AlgebraicType.createArrayType(AlgebraicType.createU16Type())),
-      new ProductTypeElement('currentQuests', AlgebraicType.createArrayType(AlgebraicType.createU16Type())),
-      new ProductTypeElement('completedQuests', AlgebraicType.createArrayType(AlgebraicType.createU16Type()))
+      new ProductTypeElement(
+        'completedStates',
+        AlgebraicType.createArrayType(AlgebraicType.createU16Type())
+      ),
+      new ProductTypeElement(
+        'currentQuests',
+        AlgebraicType.createArrayType(AlgebraicType.createU16Type())
+      ),
+      new ProductTypeElement(
+        'completedQuests',
+        AlgebraicType.createArrayType(AlgebraicType.createU16Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: OnboardingState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: OnboardingState
+  ): void {
     OnboardingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

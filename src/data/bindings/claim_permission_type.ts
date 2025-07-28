@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace ClaimPermission {
   // These are the generated variant types for each variant of the tagged union.
@@ -34,7 +39,10 @@ export namespace ClaimPermission {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimPermission): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimPermission
+  ): void {
     ClaimPermission.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -44,6 +52,9 @@ export namespace ClaimPermission {
 }
 
 // The tagged union or sum type for the algebraic type `ClaimPermission`.
-export type ClaimPermission = ClaimPermission.Inventory | ClaimPermission.Build | ClaimPermission.Usage
+export type ClaimPermission =
+  | ClaimPermission.Inventory
+  | ClaimPermission.Build
+  | ClaimPermission.Usage
 
 export default ClaimPermission

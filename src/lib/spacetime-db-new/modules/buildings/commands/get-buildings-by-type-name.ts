@@ -8,7 +8,10 @@ import { getAllBuildingTypes } from './get-building-type-by-id'
  * Only includes buildings that should be shown in compendium
  */
 export function getBuildingsByTypeName(slug: string): BuildingDesc[] {
-  const buildingTypes = getAllBuildingTypes().map((type) => ({ ...type, slug: createSlug(type.name) }))
+  const buildingTypes = getAllBuildingTypes().map((type) => ({
+    ...type,
+    slug: createSlug(type.name)
+  }))
   const buildingType = buildingTypes.find((type) => type.slug === slug)
 
   if (!buildingType) return []

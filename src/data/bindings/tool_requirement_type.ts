@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ToolRequirement = {
   toolType: number
   level: number
@@ -29,7 +34,10 @@ export namespace ToolRequirement {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ToolRequirement): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ToolRequirement
+  ): void {
     ToolRequirement.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

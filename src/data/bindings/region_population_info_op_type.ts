@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { RegionPopulationInfo as __RegionPopulationInfo } from './region_population_info_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,26 +28,43 @@ export namespace RegionPopulationInfoOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __RegionPopulationInfo): RegionPopulationInfoOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __RegionPopulationInfo): RegionPopulationInfoOp => ({ tag: 'Delete', value })
+  export const Insert = (
+    value: __RegionPopulationInfo
+  ): RegionPopulationInfoOp => ({ tag: 'Insert', value })
+  export const Delete = (
+    value: __RegionPopulationInfo
+  ): RegionPopulationInfoOp => ({ tag: 'Delete', value })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __RegionPopulationInfo.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __RegionPopulationInfo.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __RegionPopulationInfo.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __RegionPopulationInfo.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionPopulationInfoOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionPopulationInfoOp
+  ): void {
     RegionPopulationInfoOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RegionPopulationInfoOp {
-    return RegionPopulationInfoOp.getTypeScriptAlgebraicType().deserialize(reader)
+    return RegionPopulationInfoOp.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }
 
 // The tagged union or sum type for the algebraic type `RegionPopulationInfoOp`.
-export type RegionPopulationInfoOp = RegionPopulationInfoOp.Insert | RegionPopulationInfoOp.Delete
+export type RegionPopulationInfoOp =
+  | RegionPopulationInfoOp.Insert
+  | RegionPopulationInfoOp.Delete
 
 export default RegionPopulationInfoOp

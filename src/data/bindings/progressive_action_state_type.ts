@@ -44,16 +44,24 @@ export namespace ProgressiveActionState {
       new ProductTypeElement('craftCount', AlgebraicType.createI32Type()),
       new ProductTypeElement('lastCritOutcome', AlgebraicType.createI32Type()),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lockExpiration', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'lockExpiration',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('preparation', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProgressiveActionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProgressiveActionState
+  ): void {
     ProgressiveActionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ProgressiveActionState {
-    return ProgressiveActionState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ProgressiveActionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

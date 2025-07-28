@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type RegionSignInParameters = {
   regionId: number
   isSigningInBlocked: boolean
@@ -27,19 +32,36 @@ export namespace RegionSignInParameters {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('regionId', AlgebraicType.createU8Type()),
-      new ProductTypeElement('isSigningInBlocked', AlgebraicType.createBoolType()),
-      new ProductTypeElement('maxSignedInPlayers', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'isSigningInBlocked',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'maxSignedInPlayers',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('maxQueueLength', AlgebraicType.createU64Type()),
-      new ProductTypeElement('queueLengthTolerance', AlgebraicType.createU32Type()),
-      new ProductTypeElement('gracePeriodSeconds', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'queueLengthTolerance',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'gracePeriodSeconds',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RegionSignInParameters): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RegionSignInParameters
+  ): void {
     RegionSignInParameters.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RegionSignInParameters {
-    return RegionSignInParameters.getTypeScriptAlgebraicType().deserialize(reader)
+    return RegionSignInParameters.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

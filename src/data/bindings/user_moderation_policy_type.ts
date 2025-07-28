@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace UserModerationPolicy {
   // These are the generated variant types for each variant of the tagged union.
@@ -30,14 +35,23 @@ export namespace UserModerationPolicy {
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('PermanentBlockLogin', AlgebraicType.createProductType([])),
-      new SumTypeVariant('TemporaryBlockLogin', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'PermanentBlockLogin',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'TemporaryBlockLogin',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('BlockChat', AlgebraicType.createProductType([])),
       new SumTypeVariant('BlockConstruct', AlgebraicType.createProductType([]))
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UserModerationPolicy): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: UserModerationPolicy
+  ): void {
     UserModerationPolicy.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -32,10 +32,19 @@ export namespace ClaimTechState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('learned', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'learned',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('researching', AlgebraicType.createI32Type()),
-      new ProductTypeElement('startTimestamp', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('scheduledId', AlgebraicType.createOptionType(AlgebraicType.createU64Type()))
+      new ProductTypeElement(
+        'startTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
+      new ProductTypeElement(
+        'scheduledId',
+        AlgebraicType.createOptionType(AlgebraicType.createU64Type())
+      )
     ])
   }
 

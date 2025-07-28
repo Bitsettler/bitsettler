@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminRenameDeployable = {
   deployableName: string
@@ -23,16 +28,24 @@ export namespace AdminRenameDeployable {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'deployableName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('newName', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminRenameDeployable): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminRenameDeployable
+  ): void {
     AdminRenameDeployable.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AdminRenameDeployable {
-    return AdminRenameDeployable.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminRenameDeployable.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

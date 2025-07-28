@@ -75,11 +75,23 @@ export class ExperienceStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ExperienceState, newRow: ExperienceState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ExperienceState,
+      newRow: ExperienceState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ExperienceState, newRow: ExperienceState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ExperienceState,
+      newRow: ExperienceState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

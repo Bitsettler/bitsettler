@@ -15,13 +15,17 @@ export function mapItemToCalculatorItem(item: ItemDesc): CalculatorItem {
     rarity: item.rarity.tag.toLowerCase(),
     category: 'items',
     description: item.description || 'No description available',
-    icon_asset_name: getServerIconPath(cleanIconAssetName(item.iconAssetName || ''))
+    icon_asset_name: getServerIconPath(
+      cleanIconAssetName(item.iconAssetName || '')
+    )
   }
 }
 
 /**
  * Transform items to calculator format
  */
-export function transformItemsToCalculator(items: ItemDesc[]): CalculatorItem[] {
+export function transformItemsToCalculator(
+  items: ItemDesc[]
+): CalculatorItem[] {
   return items.map(mapItemToCalculatorItem)
 }

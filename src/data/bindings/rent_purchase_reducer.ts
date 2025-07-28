@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { RentPurchaseRequest as __RentPurchaseRequest } from './rent_purchase_request_type'
 
@@ -24,7 +29,10 @@ export namespace RentPurchase {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __RentPurchaseRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __RentPurchaseRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

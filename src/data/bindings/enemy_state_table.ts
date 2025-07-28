@@ -75,11 +75,15 @@ export class EnemyStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EnemyState, newRow: EnemyState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: EnemyState, newRow: EnemyState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EnemyState, newRow: EnemyState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: EnemyState, newRow: EnemyState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

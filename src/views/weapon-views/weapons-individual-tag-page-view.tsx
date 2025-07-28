@@ -18,11 +18,10 @@ export function WeaponsIndividualTagPageView({
   // Get the lowest available rarity for weapons, then filter by that rarity and volume > 0
   const lowestRarity = getLowestRarity(weapons)
   const filteredWeapons = weapons.filter(
-    (weapon) => 
-      weapon.item.rarity.tag === lowestRarity && 
-      weapon.item.volume > 0
+    (weapon) =>
+      weapon.item.rarity.tag === lowestRarity && weapon.item.volume > 0
   )
-  
+
   // Deduplicate by name+tier (keep only one weapon per name+tier combination)
   const deduplicatedWeapons = filteredWeapons.reduce(
     (acc, weapon) => {
@@ -53,12 +52,42 @@ export function WeaponsIndividualTagPageView({
       columns: [
         { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-        { key: 'minDamage', label: 'Min Damage', sortable: true, className: 'text-center' },
-        { key: 'maxDamage', label: 'Max Damage', sortable: true, className: 'text-center' },
-        { key: 'cooldown', label: 'Cooldown (s)', sortable: true, className: 'text-center' },
-        { key: 'staminaMultiplier', label: 'Stamina Multiplier', sortable: true, className: 'text-center' },
-        { key: 'weaponType', label: 'Type', sortable: true, className: 'text-center' }
+        {
+          key: 'tier',
+          label: 'Tier',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'minDamage',
+          label: 'Min Damage',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'maxDamage',
+          label: 'Max Damage',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'cooldown',
+          label: 'Cooldown (s)',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'staminaMultiplier',
+          label: 'Stamina Multiplier',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'weaponType',
+          label: 'Type',
+          sortable: true,
+          className: 'text-center'
+        }
       ]
     }
   ]

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuildingNicknameState = {
   entityId: bigint
   nickname: string
@@ -27,11 +32,16 @@ export namespace BuildingNicknameState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingNicknameState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingNicknameState
+  ): void {
     BuildingNicknameState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingNicknameState {
-    return BuildingNicknameState.getTypeScriptAlgebraicType().deserialize(reader)
+    return BuildingNicknameState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

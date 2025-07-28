@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WorldGenBuildingDetails = {
   index: number
   id: number
@@ -29,11 +34,19 @@ export namespace WorldGenBuildingDetails {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenBuildingDetails): void {
-    WorldGenBuildingDetails.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenBuildingDetails
+  ): void {
+    WorldGenBuildingDetails.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): WorldGenBuildingDetails {
-    return WorldGenBuildingDetails.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenBuildingDetails.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

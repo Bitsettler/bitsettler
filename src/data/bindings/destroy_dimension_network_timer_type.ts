@@ -18,7 +18,9 @@ import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coo
 
 export type DestroyDimensionNetworkTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   playerTeleportLocation: __OffsetCoordinatesFloat
   dimensionNetworkEntityId: bigint
 }
@@ -34,17 +36,36 @@ export namespace DestroyDimensionNetworkTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('playerTeleportLocation', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('dimensionNetworkEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'playerTeleportLocation',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'dimensionNetworkEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DestroyDimensionNetworkTimer): void {
-    DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DestroyDimensionNetworkTimer
+  ): void {
+    DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): DestroyDimensionNetworkTimer {
-    return DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): DestroyDimensionNetworkTimer {
+    return DestroyDimensionNetworkTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ProbabilisticItemStack as __ProbabilisticItemStack } from './probabilistic_item_stack_type'
 
 export type LootTableDesc = {
@@ -29,7 +34,9 @@ export namespace LootTableDesc {
       new ProductTypeElement('lootRarity', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'lootItemStacks',
-        AlgebraicType.createArrayType(__ProbabilisticItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ProbabilisticItemStack.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }

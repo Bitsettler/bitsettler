@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerTeleportWaystoneRequest = {
   entityIdFrom: bigint
   entityIdTo: bigint
@@ -27,11 +32,21 @@ export namespace PlayerTeleportWaystoneRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerTeleportWaystoneRequest): void {
-    PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerTeleportWaystoneRequest
+  ): void {
+    PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerTeleportWaystoneRequest {
-    return PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerTeleportWaystoneRequest {
+    return PlayerTeleportWaystoneRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

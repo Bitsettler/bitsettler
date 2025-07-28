@@ -3,4 +3,7 @@ export { getAllCargoTags } from './get-all-cargo-tags'
 export { getCargoBySlug } from './get-cargo-by-slug'
 export { getCargoByTags } from './get-cargo-by-tags'
 export { getCargoGroupedByTag } from './get-cargo-grouped-by-tag'
-export { mapCargoToCalculatorItem, transformCargoToCalculator } from './map-cargo-to-calculator'
+export {
+  mapCargoToCalculatorItem,
+  transformCargoToCalculator
+} from './map-cargo-to-calculator'

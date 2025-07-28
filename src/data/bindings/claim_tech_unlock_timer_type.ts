@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type ClaimTechUnlockTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   claimEntityId: bigint
   techId: number
 }
@@ -32,13 +34,19 @@ export namespace ClaimTechUnlockTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('techId', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimTechUnlockTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimTechUnlockTimer
+  ): void {
     ClaimTechUnlockTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

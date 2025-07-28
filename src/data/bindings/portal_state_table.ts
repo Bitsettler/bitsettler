@@ -74,11 +74,15 @@ export class PortalStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: PortalState, newRow: PortalState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: PortalState, newRow: PortalState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: PortalState, newRow: PortalState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: PortalState, newRow: PortalState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

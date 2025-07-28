@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type SearchForClosestBuilding = {
   buildingDescriptionIds: number[]
@@ -22,15 +27,26 @@ export namespace SearchForClosestBuilding {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('buildingDescriptionIds', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'buildingDescriptionIds',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SearchForClosestBuilding): void {
-    SearchForClosestBuilding.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: SearchForClosestBuilding
+  ): void {
+    SearchForClosestBuilding.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): SearchForClosestBuilding {
-    return SearchForClosestBuilding.getTypeScriptAlgebraicType().deserialize(reader)
+    return SearchForClosestBuilding.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

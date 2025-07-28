@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerRegionCrossover = {}
 
@@ -22,11 +26,16 @@ export namespace PlayerRegionCrossover {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerRegionCrossover): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerRegionCrossover
+  ): void {
     PlayerRegionCrossover.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerRegionCrossover {
-    return PlayerRegionCrossover.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerRegionCrossover.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

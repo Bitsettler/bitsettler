@@ -1,14 +1,26 @@
-import { createUnifiedLookup, shouldFilterItem } from '../../../shared/calculator-utils'
+import {
+  createUnifiedLookup,
+  shouldFilterItem
+} from '../../../shared/calculator-utils'
 import type { CalculatorGameData } from '../../../shared/dtos/calculator-dtos'
 import { getAllCargo } from '../../cargo/commands/get-all-cargo'
-import { mapCargoToCalculatorItem, transformCargoToCalculator } from '../../cargo/commands/map-cargo-to-calculator'
+import {
+  mapCargoToCalculatorItem,
+  transformCargoToCalculator
+} from '../../cargo/commands/map-cargo-to-calculator'
 import { getAllCraftingRecipes } from '../../crafting-recipes/commands/get-all-crafting-recipes'
 import { getAllExtractionRecipes } from '../../extraction-recipes/commands/get-all-extraction-recipes'
 import { getAllItemLists } from '../../item-lists/commands/get-all-item-lists'
 import { getAllItems } from '../../items/commands/get-all-items'
 import { getAllItemsUnfiltered } from '../../items/commands/get-all-items-unfiltered'
-import { mapItemToCalculatorItem, transformItemsToCalculator } from '../../items/commands/map-item-to-calculator'
-import { transformCraftingRecipesToCalculator, transformExtractionRecipesToCalculator } from '../../recipes/calculator'
+import {
+  mapItemToCalculatorItem,
+  transformItemsToCalculator
+} from '../../items/commands/map-item-to-calculator'
+import {
+  transformCraftingRecipesToCalculator,
+  transformExtractionRecipesToCalculator
+} from '../../recipes/calculator'
 import { getAllResources } from '../../resources/commands/get-all-resources'
 import {
   mapResourceToCalculatorItem,
@@ -30,14 +42,20 @@ export function getCalculatorGameData(): CalculatorGameData {
   const allItemsUnfiltered = getAllItemsUnfiltered()
 
   const filteredItems = itemDesc.filter((item) => item.compendiumEntry)
-  const filteredResources = resourceDesc.filter((resource) => resource.compendiumEntry)
+  const filteredResources = resourceDesc.filter(
+    (resource) => resource.compendiumEntry
+  )
   const filteredCargo = cargoDesc.filter((cargo) => !shouldFilterItem(cargo))
 
   const calculatorItems = transformItemsToCalculator(filteredItems)
   const calculatorCargo = transformCargoToCalculator(filteredCargo)
   const calculatorResources = transformResourcesToCalculator(filteredResources)
 
-  const allCalculatorItems = [...calculatorItems, ...calculatorCargo, ...calculatorResources]
+  const allCalculatorItems = [
+    ...calculatorItems,
+    ...calculatorCargo,
+    ...calculatorResources
+  ]
 
   const unifiedLookup = createUnifiedLookup(
     filteredItems,
@@ -53,8 +71,14 @@ export function getCalculatorGameData(): CalculatorGameData {
     itemListDesc,
     allItemsUnfiltered
   )
-  const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(extractionRecipeDesc, unifiedLookup)
-  const allCalculatorRecipes = [...calculatorCraftingRecipes, ...calculatorExtractionRecipes]
+  const calculatorExtractionRecipes = transformExtractionRecipesToCalculator(
+    extractionRecipeDesc,
+    unifiedLookup
+  )
+  const allCalculatorRecipes = [
+    ...calculatorCraftingRecipes,
+    ...calculatorExtractionRecipes
+  ]
 
   return {
     items: allCalculatorItems,

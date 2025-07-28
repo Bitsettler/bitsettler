@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerActionState as __PlayerActionState } from './player_action_state_type'
 
@@ -24,15 +29,28 @@ export namespace ImportPlayerActionState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__PlayerActionState.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __PlayerActionState.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportPlayerActionState): void {
-    ImportPlayerActionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportPlayerActionState
+  ): void {
+    ImportPlayerActionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ImportPlayerActionState {
-    return ImportPlayerActionState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportPlayerActionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

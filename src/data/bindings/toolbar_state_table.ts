@@ -74,11 +74,15 @@ export class ToolbarStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ToolbarState, newRow: ToolbarState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ToolbarState, newRow: ToolbarState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ToolbarState, newRow: ToolbarState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ToolbarState, newRow: ToolbarState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

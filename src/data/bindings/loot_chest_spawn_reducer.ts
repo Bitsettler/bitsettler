@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { LootChestSpawnTimer as __LootChestSpawnTimer } from './loot_chest_spawn_timer_type'
 
@@ -24,7 +29,10 @@ export namespace LootChestSpawn {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __LootChestSpawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __LootChestSpawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

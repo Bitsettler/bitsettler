@@ -1,5 +1,11 @@
-import { getAllCargoTags, getCargoBySlug } from '@/lib/spacetime-db-new/modules/cargo/commands'
-import { createSlug, slugToTitleCase } from '@/lib/spacetime-db-new/shared/utils/entities'
+import {
+  getAllCargoTags,
+  getCargoBySlug
+} from '@/lib/spacetime-db-new/modules/cargo/commands'
+import {
+  createSlug,
+  slugToTitleCase
+} from '@/lib/spacetime-db-new/shared/utils/entities'
 import { CargoIndividualTagPageView } from '@/views/cargo-views/cargo-individual-tag-page-view'
 import { notFound } from 'next/navigation'
 

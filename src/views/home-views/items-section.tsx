@@ -1,6 +1,15 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface ItemCategory {
@@ -20,7 +29,9 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
             <div className="flex items-center gap-3">
               <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
                 <Image
-                  src={getServerIconPath(cleanIconAssetName(category.iconAssetName))}
+                  src={getServerIconPath(
+                    cleanIconAssetName(category.iconAssetName)
+                  )}
                   alt={category.name}
                   width={44}
                   height={44}
@@ -28,13 +39,17 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
         </CardContent>
       </Card>
     </Link>
@@ -46,21 +61,24 @@ export function ItemsSection() {
     {
       id: 'consumables',
       name: 'Consumables',
-      description: 'Food, potions, and other items that provide temporary benefits when consumed',
+      description:
+        'Food, potions, and other items that provide temporary benefits when consumed',
       iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/HealingPotion',
       href: '/compendium/consumables'
     },
     {
       id: 'cargo',
       name: 'Cargo',
-      description: 'Packaged goods, animals, and bulk items for trading and transportation',
+      description:
+        'Packaged goods, animals, and bulk items for trading and transportation',
       iconAssetName: 'GeneratedIcons/Cargo/Supplies/SupplyPack',
       href: '/compendium/cargo'
     },
     {
       id: 'resources',
       name: 'Resources',
-      description: 'Raw materials, ores, plants, and other natural resources for crafting',
+      description:
+        'Raw materials, ores, plants, and other natural resources for crafting',
       iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/Log',
       href: '/compendium/resources'
     },
@@ -77,7 +95,9 @@ export function ItemsSection() {
     <div className="space-y-8">
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Items & Resources</h2>
-        <p className="text-muted-foreground">Discover all the items, equipment, and resources available in Bitcraft</p>
+        <p className="text-muted-foreground">
+          Discover all the items, equipment, and resources available in Bitcraft
+        </p>
       </div>
 
       {/* Item Categories Grid */}

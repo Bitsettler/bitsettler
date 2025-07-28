@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerClosedListingCollectRequest as __PlayerClosedListingCollectRequest } from './player_closed_listing_collect_request_type'
 
@@ -24,11 +29,17 @@ export namespace ClosedListingCollect {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerClosedListingCollectRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClosedListingCollect): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClosedListingCollect
+  ): void {
     ClosedListingCollect.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

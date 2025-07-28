@@ -1,11 +1,21 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList
+} from '@/components/ui/command'
 import { Label } from '@/components/ui/label'
 import { SidebarGroup, SidebarGroupContent } from '@/components/ui/sidebar'
 import { Link, useRouter } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import type { SearchData } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
@@ -16,7 +26,10 @@ interface EnhancedSearchFormProps extends React.ComponentProps<'div'> {
   searchData: SearchData
 }
 
-export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormProps) {
+export function EnhancedSearchForm({
+  searchData,
+  ...props
+}: EnhancedSearchFormProps) {
   const searchItems = searchData.items
   const [, setOpen] = useState(false)
   const [search, setSearch] = useState('')
@@ -30,12 +43,17 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
             (item) =>
               item.name.toLowerCase().includes(search.toLowerCase()) ||
               item.category.toLowerCase().includes(search.toLowerCase()) ||
-              (item.tag && item.tag.toLowerCase().includes(search.toLowerCase()))
+              (item.tag &&
+                item.tag.toLowerCase().includes(search.toLowerCase()))
           )
           // Deduplicate by name - keep only the first occurrence of each name
           .filter((item, index, array) => {
             const normalizedName = item.name.toLowerCase().trim()
-            return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+            return (
+              array.findIndex(
+                (i) => i.name.toLowerCase().trim() === normalizedName
+              ) === index
+            )
           })
           .slice(0, 15)
       : []
@@ -74,7 +92,10 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
                 {item.rarity}
               </Badge>
             )}
-            <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+            <Badge
+              variant="outline"
+              className="border-blue-200 bg-blue-50 text-blue-700"
+            >
               {item.category}
             </Badge>
           </div>
@@ -105,7 +126,9 @@ export function EnhancedSearchForm({ searchData, ...props }: EnhancedSearchFormP
                 <div className="bg-popover absolute top-full left-0 z-50 mt-1 w-80 rounded-md border p-0 shadow-md">
                   <CommandList>
                     {filteredItems.length > 0 ? (
-                      <CommandGroup>{filteredItems.map(renderSearchItem)}</CommandGroup>
+                      <CommandGroup>
+                        {filteredItems.map(renderSearchItem)}
+                      </CommandGroup>
                     ) : (
                       <CommandEmpty>No results found.</CommandEmpty>
                     )}

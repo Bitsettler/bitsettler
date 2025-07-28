@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimSetPurchaseSupplyThresholdRequest as __ClaimSetPurchaseSupplyThresholdRequest } from './claim_set_purchase_supply_threshold_request_type'
 
@@ -24,15 +29,28 @@ export namespace ClaimSetPurchaseSupplyThreshold {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __ClaimSetPurchaseSupplyThresholdRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __ClaimSetPurchaseSupplyThresholdRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimSetPurchaseSupplyThreshold): void {
-    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimSetPurchaseSupplyThreshold
+  ): void {
+    ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ClaimSetPurchaseSupplyThreshold {
-    return ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ClaimSetPurchaseSupplyThreshold {
+    return ClaimSetPurchaseSupplyThreshold.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

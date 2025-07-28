@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ServerIdentity as __ServerIdentity } from './server_identity_type'
 
@@ -24,11 +29,19 @@ export namespace ImportServerIdentity {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__ServerIdentity.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __ServerIdentity.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportServerIdentity): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportServerIdentity
+  ): void {
     ImportServerIdentity.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

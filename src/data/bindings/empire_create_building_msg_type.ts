@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type EmpireCreateBuildingMsg = {
@@ -27,19 +32,33 @@ export namespace EmpireCreateBuildingMsg {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('location', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'location',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('buildingDescId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('constructionRecipeId', AlgebraicType.createOptionType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'constructionRecipeId',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireCreateBuildingMsg): void {
-    EmpireCreateBuildingMsg.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireCreateBuildingMsg
+  ): void {
+    EmpireCreateBuildingMsg.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): EmpireCreateBuildingMsg {
-    return EmpireCreateBuildingMsg.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireCreateBuildingMsg.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerNotificationEvent as __PlayerNotificationEvent } from './player_notification_event_type'
 
@@ -24,15 +29,28 @@ export namespace PlayerNotificationEventReducer {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerNotificationEvent.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerNotificationEvent.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerNotificationEventReducer): void {
-    PlayerNotificationEventReducer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerNotificationEventReducer
+  ): void {
+    PlayerNotificationEventReducer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerNotificationEventReducer {
-    return PlayerNotificationEventReducer.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerNotificationEventReducer {
+    return PlayerNotificationEventReducer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

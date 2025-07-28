@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerClaimAddRecruitmentRequest = {
   claimEntityId: bigint
   stock: number
@@ -28,16 +33,29 @@ export namespace PlayerClaimAddRecruitmentRequest {
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('stock', AlgebraicType.createI32Type()),
       new ProductTypeElement('requiredSkillId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredSkillLevel', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'requiredSkillLevel',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('requiredApproval', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClaimAddRecruitmentRequest): void {
-    PlayerClaimAddRecruitmentRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClaimAddRecruitmentRequest
+  ): void {
+    PlayerClaimAddRecruitmentRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerClaimAddRecruitmentRequest {
-    return PlayerClaimAddRecruitmentRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerClaimAddRecruitmentRequest {
+    return PlayerClaimAddRecruitmentRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

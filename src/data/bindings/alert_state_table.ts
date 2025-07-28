@@ -75,11 +75,15 @@ export class AlertStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AlertState, newRow: AlertState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: AlertState, newRow: AlertState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AlertState, newRow: AlertState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: AlertState, newRow: AlertState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

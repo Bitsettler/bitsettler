@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EmpireColorDesc as __EmpireColorDesc } from './empire_color_desc_type'
 
@@ -24,15 +29,25 @@ export namespace ImportEmpireColorsDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__EmpireColorDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __EmpireColorDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportEmpireColorsDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportEmpireColorsDesc
+  ): void {
     ImportEmpireColorsDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportEmpireColorsDesc {
-    return ImportEmpireColorsDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportEmpireColorsDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

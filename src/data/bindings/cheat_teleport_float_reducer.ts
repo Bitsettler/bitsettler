@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatTeleportFloatRequest as __CheatTeleportFloatRequest } from './cheat_teleport_float_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatTeleportFloat {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatTeleportFloatRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatTeleportFloatRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatTeleportFloat): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatTeleportFloat
+  ): void {
     CheatTeleportFloat.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

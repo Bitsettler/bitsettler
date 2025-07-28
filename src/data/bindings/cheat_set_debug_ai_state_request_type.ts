@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type CheatSetDebugAiStateRequest = {
@@ -30,18 +35,37 @@ export namespace CheatSetDebugAiStateRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('targetPosition', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('currentPosition', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('currentDestination', __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'targetPosition',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'currentPosition',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'currentDestination',
+        __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('dp', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatSetDebugAiStateRequest): void {
-    CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatSetDebugAiStateRequest
+  ): void {
+    CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): CheatSetDebugAiStateRequest {
-    return CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): CheatSetDebugAiStateRequest {
+    return CheatSetDebugAiStateRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

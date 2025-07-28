@@ -62,7 +62,9 @@ export class EnemyMobMonitorStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: EnemyMobMonitorState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: EnemyMobMonitorState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class EnemyMobMonitorStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: EnemyMobMonitorState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: EnemyMobMonitorState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EnemyMobMonitorState, newRow: EnemyMobMonitorState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EnemyMobMonitorState,
+      newRow: EnemyMobMonitorState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EnemyMobMonitorState, newRow: EnemyMobMonitorState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EnemyMobMonitorState,
+      newRow: EnemyMobMonitorState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

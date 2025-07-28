@@ -58,29 +58,47 @@ export class DistantVisibleEntityDescTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: DistantVisibleEntityDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DistantVisibleEntityDesc, newRow: DistantVisibleEntityDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DistantVisibleEntityDesc,
+      newRow: DistantVisibleEntityDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: DistantVisibleEntityDesc, newRow: DistantVisibleEntityDesc) => void
+    cb: (
+      ctx: EventContext,
+      onRow: DistantVisibleEntityDesc,
+      newRow: DistantVisibleEntityDesc
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type AttackOutcomeState = {
   entityId: bigint
   lastAttackedTimestamp: bigint
@@ -26,14 +31,20 @@ export namespace AttackOutcomeState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('lastAttackedTimestamp', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'lastAttackedTimestamp',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('damage', AlgebraicType.createI32Type()),
       new ProductTypeElement('critResult', AlgebraicType.createBoolType()),
       new ProductTypeElement('dodgeResult', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AttackOutcomeState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AttackOutcomeState
+  ): void {
     AttackOutcomeState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

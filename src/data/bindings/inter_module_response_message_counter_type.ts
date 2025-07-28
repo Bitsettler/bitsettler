@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type InterModuleResponseMessageCounter = {
   dstModuleId: number
   lastProcessedMessageId: bigint
@@ -23,15 +28,28 @@ export namespace InterModuleResponseMessageCounter {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('dstModuleId', AlgebraicType.createU8Type()),
-      new ProductTypeElement('lastProcessedMessageId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'lastProcessedMessageId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InterModuleResponseMessageCounter): void {
-    InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InterModuleResponseMessageCounter
+  ): void {
+    InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): InterModuleResponseMessageCounter {
-    return InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): InterModuleResponseMessageCounter {
+    return InterModuleResponseMessageCounter.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

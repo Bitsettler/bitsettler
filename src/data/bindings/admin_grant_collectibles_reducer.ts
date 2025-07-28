@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminGrantCollectibles = {
   identity: string
@@ -24,15 +29,23 @@ export namespace AdminGrantCollectibles {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('identity', AlgebraicType.createStringType()),
-      new ProductTypeElement('collectibles', AlgebraicType.createArrayType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'collectibles',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminGrantCollectibles): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminGrantCollectibles
+  ): void {
     AdminGrantCollectibles.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): AdminGrantCollectibles {
-    return AdminGrantCollectibles.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminGrantCollectibles.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

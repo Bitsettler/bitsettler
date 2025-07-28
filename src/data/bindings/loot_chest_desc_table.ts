@@ -74,11 +74,19 @@ export class LootChestDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: LootChestDesc, newRow: LootChestDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: LootChestDesc,
+      newRow: LootChestDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: LootChestDesc, newRow: LootChestDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: LootChestDesc, newRow: LootChestDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

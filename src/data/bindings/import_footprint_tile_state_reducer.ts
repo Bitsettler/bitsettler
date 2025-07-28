@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { FootprintTileState as __FootprintTileState } from './footprint_tile_state_type'
 
@@ -26,16 +31,26 @@ export namespace ImportFootprintTileState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__FootprintTileState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __FootprintTileState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportFootprintTileState): void {
-    ImportFootprintTileState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportFootprintTileState
+  ): void {
+    ImportFootprintTileState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ImportFootprintTileState {
-    return ImportFootprintTileState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportFootprintTileState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

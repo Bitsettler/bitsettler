@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AutoLogoutLoopTimer as __AutoLogoutLoopTimer } from './auto_logout_loop_timer_type'
 
@@ -24,7 +29,10 @@ export namespace AutoLogoutLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __AutoLogoutLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __AutoLogoutLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type UnclaimedShardsState = {
   identity: Identity
   shards: number
@@ -27,7 +33,10 @@ export namespace UnclaimedShardsState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UnclaimedShardsState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: UnclaimedShardsState
+  ): void {
     UnclaimedShardsState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -1,11 +1,18 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { CraftingRecipeDesc, ExtractionRecipeDesc, ItemDesc } from '@/data/bindings'
+import {
+  CraftingRecipeDesc,
+  ExtractionRecipeDesc,
+  ItemDesc
+} from '@/data/bindings'
 import { Link } from '@/i18n/navigation'
 import { getCraftingRecipesByItemId } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-crafting-recipes-by-item-id'
 import { getExtractionRecipesByItemId } from '@/lib/spacetime-db-new/modules/extraction-recipes/commands/get-extraction-recipes-by-item-id'
-import { createSlug, getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import {
+  createSlug,
+  getTierColor
+} from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getRaritiesBySlug } from '@/lib/spacetime-db-new/shared/utils/get-rarities-by-slug'
 import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
 
@@ -29,7 +36,9 @@ function getAllRecipesByItemId(itemId: number): {
   }
 }
 
-export function ItemIndividualInfoPageView({ item }: ItemIndividualInfoPageViewProps) {
+export function ItemIndividualInfoPageView({
+  item
+}: ItemIndividualInfoPageViewProps) {
   const tierColor = getTierColor(item.tier)
   const tagSlug = item.tag.toLowerCase().replace(/\s+/g, '-')
   const itemSlug = createSlug(item.name)
@@ -67,7 +76,11 @@ export function ItemIndividualInfoPageView({ item }: ItemIndividualInfoPageViewP
                 {availableRarities.map((rarity) => {
                   const rarityColorClass = getRarityColor(rarity.toLowerCase())
                   return (
-                    <Badge key={rarity} variant="outline" className={`${rarityColorClass} capitalize`}>
+                    <Badge
+                      key={rarity}
+                      variant="outline"
+                      className={`${rarityColorClass} capitalize`}
+                    >
                       {rarity.toLowerCase()}
                     </Badge>
                   )
@@ -77,32 +90,43 @@ export function ItemIndividualInfoPageView({ item }: ItemIndividualInfoPageViewP
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Category</span>
-              <Link href={`/compendium/${tagSlug}`} className="text-primary text-sm hover:underline">
+              <Link
+                href={`/compendium/${tagSlug}`}
+                className="text-primary text-sm hover:underline"
+              >
                 {item.tag}
               </Link>
             </div>
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Volume</span>
-              <span className="text-muted-foreground text-sm">{item.volume}</span>
+              <span className="text-muted-foreground text-sm">
+                {item.volume}
+              </span>
             </div>
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Durability</span>
-              <span className="text-muted-foreground text-sm">{item.durability > 0 ? item.durability : 'None'}</span>
+              <span className="text-muted-foreground text-sm">
+                {item.durability > 0 ? item.durability : 'None'}
+              </span>
             </div>
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Converts to on break</span>
               <span className="text-muted-foreground text-sm">
-                {item.convertToOnDurabilityZero > 0 ? `Item #${item.convertToOnDurabilityZero}` : 'None'}
+                {item.convertToOnDurabilityZero > 0
+                  ? `Item #${item.convertToOnDurabilityZero}`
+                  : 'None'}
               </span>
             </div>
             <Separator />
             <div className="flex items-center justify-between py-3">
               <span className="text-sm font-medium">Secondary Knowledge</span>
               <span className="text-muted-foreground text-sm">
-                {item.secondaryKnowledgeId > 0 ? `Knowledge #${item.secondaryKnowledgeId}` : 'None'}
+                {item.secondaryKnowledgeId > 0
+                  ? `Knowledge #${item.secondaryKnowledgeId}`
+                  : 'None'}
               </span>
             </div>
             <Separator />

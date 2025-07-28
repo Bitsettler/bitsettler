@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WorldRegionState = {
   id: number
   regionMinChunkX: number
@@ -31,15 +36,24 @@ export namespace WorldRegionState {
       new ProductTypeElement('id', AlgebraicType.createU8Type()),
       new ProductTypeElement('regionMinChunkX', AlgebraicType.createU16Type()),
       new ProductTypeElement('regionMinChunkZ', AlgebraicType.createU16Type()),
-      new ProductTypeElement('regionWidthChunks', AlgebraicType.createU16Type()),
-      new ProductTypeElement('regionHeightChunks', AlgebraicType.createU16Type()),
+      new ProductTypeElement(
+        'regionWidthChunks',
+        AlgebraicType.createU16Type()
+      ),
+      new ProductTypeElement(
+        'regionHeightChunks',
+        AlgebraicType.createU16Type()
+      ),
       new ProductTypeElement('regionIndex', AlgebraicType.createU8Type()),
       new ProductTypeElement('regionCount', AlgebraicType.createU8Type()),
       new ProductTypeElement('regionCountSqrt', AlgebraicType.createU8Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldRegionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldRegionState
+  ): void {
     WorldRegionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

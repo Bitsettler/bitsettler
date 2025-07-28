@@ -62,7 +62,9 @@ export class InteriorShapeDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InteriorShapeDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InteriorShapeDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class InteriorShapeDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InteriorShapeDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InteriorShapeDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: InteriorShapeDesc, newRow: InteriorShapeDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: InteriorShapeDesc,
+      newRow: InteriorShapeDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: InteriorShapeDesc, newRow: InteriorShapeDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: InteriorShapeDesc,
+      newRow: InteriorShapeDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimSetPurchaseSupplyPriceRequest as __ClaimSetPurchaseSupplyPriceRequest } from './claim_set_purchase_supply_price_request_type'
 
@@ -24,15 +29,28 @@ export namespace ClaimSetPurchaseSupplyPrice {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __ClaimSetPurchaseSupplyPriceRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimSetPurchaseSupplyPrice): void {
-    ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimSetPurchaseSupplyPrice
+  ): void {
+    ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ClaimSetPurchaseSupplyPrice {
-    return ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ClaimSetPurchaseSupplyPrice {
+    return ClaimSetPurchaseSupplyPrice.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

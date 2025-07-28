@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type MountingState = {
   entityId: bigint
   deployableEntityId: bigint
@@ -24,7 +29,10 @@ export namespace MountingState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('deployableSlot', AlgebraicType.createI32Type())
     ])
   }

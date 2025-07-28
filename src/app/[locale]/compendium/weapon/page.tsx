@@ -1,4 +1,7 @@
-import { getWeaponsGroupedByType, getWeaponStatistics } from '@/lib/spacetime-db-new/modules/weapons/flows'
+import {
+  getWeaponsGroupedByType,
+  getWeaponStatistics
+} from '@/lib/spacetime-db-new/modules/weapons/flows'
 import { WeaponsView } from '@/views/weapon-views/weapons-index-page-view'
 
 export default function WeaponsPage() {

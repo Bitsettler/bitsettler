@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type HideDeployableTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   entityId: bigint
 }
 
@@ -31,12 +33,18 @@ export namespace HideDeployableTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('entityId', AlgebraicType.createU64Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: HideDeployableTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: HideDeployableTimer
+  ): void {
     HideDeployableTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

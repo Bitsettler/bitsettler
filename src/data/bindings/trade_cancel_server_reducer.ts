@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type TradeCancelServer = {
   sessionEntityId: bigint
@@ -24,11 +29,17 @@ export namespace TradeCancelServer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('sessionEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('resolutionMessage', AlgebraicType.createStringType())
+      new ProductTypeElement(
+        'resolutionMessage',
+        AlgebraicType.createStringType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeCancelServer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeCancelServer
+  ): void {
     TradeCancelServer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

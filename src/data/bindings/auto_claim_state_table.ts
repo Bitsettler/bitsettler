@@ -74,11 +74,23 @@ export class AutoClaimStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AutoClaimState, newRow: AutoClaimState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AutoClaimState,
+      newRow: AutoClaimState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AutoClaimState, newRow: AutoClaimState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AutoClaimState,
+      newRow: AutoClaimState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

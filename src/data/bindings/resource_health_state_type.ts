@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ResourceHealthState = {
   entityId: bigint
   health: number
@@ -27,7 +32,10 @@ export namespace ResourceHealthState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResourceHealthState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResourceHealthState
+  ): void {
     ResourceHealthState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

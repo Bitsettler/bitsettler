@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { ClaimMemberState as __ClaimMemberState } from './claim_member_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace ClaimMemberStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __ClaimMemberState): ClaimMemberStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __ClaimMemberState): ClaimMemberStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __ClaimMemberState): ClaimMemberStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __ClaimMemberState): ClaimMemberStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __ClaimMemberState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __ClaimMemberState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __ClaimMemberState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __ClaimMemberState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimMemberStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimMemberStateOp
+  ): void {
     ClaimMemberStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace ClaimMemberStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `ClaimMemberStateOp`.
-export type ClaimMemberStateOp = ClaimMemberStateOp.Insert | ClaimMemberStateOp.Delete
+export type ClaimMemberStateOp =
+  | ClaimMemberStateOp.Insert
+  | ClaimMemberStateOp.Delete
 
 export default ClaimMemberStateOp

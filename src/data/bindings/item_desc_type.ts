@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Rarity as __Rarity } from './rarity_type'
 
 export type ItemDesc = {
@@ -41,9 +46,18 @@ export namespace ItemDesc {
       new ProductTypeElement('description', AlgebraicType.createStringType()),
       new ProductTypeElement('volume', AlgebraicType.createI32Type()),
       new ProductTypeElement('durability', AlgebraicType.createI32Type()),
-      new ProductTypeElement('convertToOnDurabilityZero', AlgebraicType.createI32Type()),
-      new ProductTypeElement('secondaryKnowledgeId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('modelAssetName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'convertToOnDurabilityZero',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'secondaryKnowledgeId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'modelAssetName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
       new ProductTypeElement('tag', AlgebraicType.createStringType()),

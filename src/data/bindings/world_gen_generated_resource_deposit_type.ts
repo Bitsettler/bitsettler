@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ResourceState as __ResourceState } from './resource_state_type'
 
 export type WorldGenGeneratedResourceDeposit = {
@@ -28,16 +33,31 @@ export namespace WorldGenGeneratedResourceDeposit {
     return AlgebraicType.createProductType([
       new ProductTypeElement('x', AlgebraicType.createI32Type()),
       new ProductTypeElement('z', AlgebraicType.createI32Type()),
-      new ProductTypeElement('deposit', AlgebraicType.createOptionType(__ResourceState.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'deposit',
+        AlgebraicType.createOptionType(
+          __ResourceState.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('dimension', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenGeneratedResourceDeposit): void {
-    WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenGeneratedResourceDeposit
+  ): void {
+    WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): WorldGenGeneratedResourceDeposit {
-    return WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): WorldGenGeneratedResourceDeposit {
+    return WorldGenGeneratedResourceDeposit.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -25,7 +25,11 @@ export async function CalculatorSearchCombobox({
     // Deduplicate by name - keep only the first occurrence of each name
     .filter((item, index, array) => {
       const normalizedName = item.name.toLowerCase().trim()
-      return array.findIndex((i) => i.name.toLowerCase().trim() === normalizedName) === index
+      return (
+        array.findIndex(
+          (i) => i.name.toLowerCase().trim() === normalizedName
+        ) === index
+      )
     })
     .map((item) => ({
       value: item.slug,
@@ -39,7 +43,10 @@ export async function CalculatorSearchCombobox({
     }))
 
   const renderOption = (option: ComboboxOption) => (
-    <Link href={`/calculator/${option.value}?qty=${currentQuantity}`} className="block w-full">
+    <Link
+      href={`/calculator/${option.value}?qty=${currentQuantity}`}
+      className="block w-full"
+    >
       <div className="flex w-full items-center gap-2">
         <Image
           src={getServerIconPath(option.icon_asset_name || 'Unknown')}
@@ -52,11 +59,17 @@ export async function CalculatorSearchCombobox({
           <div className="truncate font-medium">{option.label}</div>
           <div className="flex items-center gap-1">
             {option.tier !== -1 && (
-              <Badge variant="outline" className={getTierColor(option.tier || 1)}>
+              <Badge
+                variant="outline"
+                className={getTierColor(option.tier || 1)}
+              >
                 Tier {option.tier}
               </Badge>
             )}
-            <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700">
+            <Badge
+              variant="outline"
+              className="border-blue-200 bg-blue-50 text-blue-700"
+            >
               {option.category}
             </Badge>
           </div>

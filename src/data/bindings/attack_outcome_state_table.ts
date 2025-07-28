@@ -61,7 +61,9 @@ export class AttackOutcomeStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: AttackOutcomeState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: AttackOutcomeState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class AttackOutcomeStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: AttackOutcomeState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: AttackOutcomeState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AttackOutcomeState, newRow: AttackOutcomeState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AttackOutcomeState,
+      newRow: AttackOutcomeState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AttackOutcomeState, newRow: AttackOutcomeState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AttackOutcomeState,
+      newRow: AttackOutcomeState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

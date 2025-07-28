@@ -38,23 +38,39 @@ export namespace TradeSessionState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('status', __TradeSessionStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('initiatorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'status',
+        __TradeSessionStatus.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'initiatorEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('acceptorEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'initiatorOffer',
-        AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TradePocket.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'acceptorOffer',
-        AlgebraicType.createArrayType(__TradePocket.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TradePocket.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('updatedAt', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('resolutionMessage', AlgebraicType.createStringType())
+      new ProductTypeElement(
+        'resolutionMessage',
+        AlgebraicType.createStringType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeSessionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeSessionState
+  ): void {
     TradeSessionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

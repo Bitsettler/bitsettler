@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace TradeSessionStatus {
   // These are the generated variant types for each variant of the tagged union.
@@ -33,14 +38,26 @@ export namespace TradeSessionStatus {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
       new SumTypeVariant('SessionOffered', AlgebraicType.createProductType([])),
-      new SumTypeVariant('SessionAccepted', AlgebraicType.createProductType([])),
-      new SumTypeVariant('InitiatorAccepted', AlgebraicType.createProductType([])),
-      new SumTypeVariant('AcceptorAccepted', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'SessionAccepted',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'InitiatorAccepted',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'AcceptorAccepted',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('SessionResolved', AlgebraicType.createProductType([]))
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeSessionStatus): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeSessionStatus
+  ): void {
     TradeSessionStatus.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

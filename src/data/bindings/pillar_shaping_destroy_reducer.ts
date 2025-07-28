@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerPillarShapingDestroyRequest as __PlayerPillarShapingDestroyRequest } from './player_pillar_shaping_destroy_request_type'
 
@@ -24,11 +29,17 @@ export namespace PillarShapingDestroy {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerPillarShapingDestroyRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PillarShapingDestroy): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PillarShapingDestroy
+  ): void {
     PillarShapingDestroy.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

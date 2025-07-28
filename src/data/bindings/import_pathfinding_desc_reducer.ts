@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PathfindingDesc as __PathfindingDesc } from './pathfinding_desc_type'
 
@@ -24,15 +29,25 @@ export namespace ImportPathfindingDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__PathfindingDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __PathfindingDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportPathfindingDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportPathfindingDesc
+  ): void {
     ImportPathfindingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportPathfindingDesc {
-    return ImportPathfindingDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportPathfindingDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

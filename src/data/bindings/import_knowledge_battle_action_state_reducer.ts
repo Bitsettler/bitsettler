@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { KnowledgeBattleActionState as __KnowledgeBattleActionState } from './knowledge_battle_action_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportKnowledgeBattleActionState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__KnowledgeBattleActionState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeBattleActionState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportKnowledgeBattleActionState): void {
-    ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportKnowledgeBattleActionState
+  ): void {
+    ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportKnowledgeBattleActionState {
-    return ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportKnowledgeBattleActionState {
+    return ImportKnowledgeBattleActionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

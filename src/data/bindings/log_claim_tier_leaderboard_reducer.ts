@@ -6,7 +6,11 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type LogClaimTierLeaderboard = {}
 
@@ -22,11 +26,19 @@ export namespace LogClaimTierLeaderboard {
     return AlgebraicType.createProductType([])
   }
 
-  export function serialize(writer: BinaryWriter, value: LogClaimTierLeaderboard): void {
-    LogClaimTierLeaderboard.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: LogClaimTierLeaderboard
+  ): void {
+    LogClaimTierLeaderboard.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): LogClaimTierLeaderboard {
-    return LogClaimTierLeaderboard.getTypeScriptAlgebraicType().deserialize(reader)
+    return LogClaimTierLeaderboard.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -62,7 +62,9 @@ export class InteriorNetworkDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InteriorNetworkDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InteriorNetworkDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class InteriorNetworkDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InteriorNetworkDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InteriorNetworkDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: InteriorNetworkDesc, newRow: InteriorNetworkDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: InteriorNetworkDesc,
+      newRow: InteriorNetworkDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: InteriorNetworkDesc, newRow: InteriorNetworkDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: InteriorNetworkDesc,
+      newRow: InteriorNetworkDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

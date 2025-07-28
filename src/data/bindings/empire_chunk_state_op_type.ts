@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireChunkState as __EmpireChunkState } from './empire_chunk_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace EmpireChunkStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpireChunkState): EmpireChunkStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __EmpireChunkState): EmpireChunkStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __EmpireChunkState): EmpireChunkStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __EmpireChunkState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __EmpireChunkState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __EmpireChunkState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __EmpireChunkState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireChunkStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireChunkStateOp
+  ): void {
     EmpireChunkStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace EmpireChunkStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `EmpireChunkStateOp`.
-export type EmpireChunkStateOp = EmpireChunkStateOp.Insert | EmpireChunkStateOp.Delete
+export type EmpireChunkStateOp =
+  | EmpireChunkStateOp.Insert
+  | EmpireChunkStateOp.Delete
 
 export default EmpireChunkStateOp

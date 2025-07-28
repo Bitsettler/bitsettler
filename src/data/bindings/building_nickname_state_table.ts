@@ -61,7 +61,9 @@ export class BuildingNicknameStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: BuildingNicknameState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: BuildingNicknameState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class BuildingNicknameStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: BuildingNicknameState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: BuildingNicknameState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BuildingNicknameState, newRow: BuildingNicknameState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: BuildingNicknameState,
+      newRow: BuildingNicknameState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BuildingNicknameState, newRow: BuildingNicknameState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: BuildingNicknameState,
+      newRow: BuildingNicknameState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

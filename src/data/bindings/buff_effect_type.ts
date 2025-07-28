@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuffEffect = {
   buffId: number
   duration: number | undefined
@@ -23,7 +28,10 @@ export namespace BuffEffect {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('buffId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('duration', AlgebraicType.createOptionType(AlgebraicType.createI32Type()))
+      new ProductTypeElement(
+        'duration',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      )
     ])
   }
 

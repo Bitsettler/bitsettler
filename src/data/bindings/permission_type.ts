@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace Permission {
   // These are the generated variant types for each variant of the tagged union.
@@ -44,7 +49,10 @@ export namespace Permission {
       new SumTypeVariant('Inventory', AlgebraicType.createProductType([])),
       new SumTypeVariant('Build', AlgebraicType.createProductType([])),
       new SumTypeVariant('CoOwner', AlgebraicType.createProductType([])),
-      new SumTypeVariant('OverrideNoAccess', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'OverrideNoAccess',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('Owner', AlgebraicType.createProductType([]))
     ])
   }

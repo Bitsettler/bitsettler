@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { RentCollectorLoopTimer as __RentCollectorLoopTimer } from './rent_collector_loop_timer_type'
 
@@ -24,15 +29,23 @@ export namespace RentCollectorAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __RentCollectorLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __RentCollectorLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RentCollectorAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RentCollectorAgentLoop
+  ): void {
     RentCollectorAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RentCollectorAgentLoop {
-    return RentCollectorAgentLoop.getTypeScriptAlgebraicType().deserialize(reader)
+    return RentCollectorAgentLoop.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

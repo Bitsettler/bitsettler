@@ -57,31 +57,47 @@ export class InteriorSetCollapsedTimerTableHandle {
     }
   }
 
-  onInsert = (cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void) => {
+  onInsert = (
+    cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void
+  ) => {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
-  onDelete = (cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void) => {
+  onDelete = (
+    cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void
+  ) => {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: InteriorSetCollapsedTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
   onUpdate = (
-    cb: (ctx: EventContext, oldRow: InteriorSetCollapsedTimer, newRow: InteriorSetCollapsedTimer) => void
+    cb: (
+      ctx: EventContext,
+      oldRow: InteriorSetCollapsedTimer,
+      newRow: InteriorSetCollapsedTimer
+    ) => void
   ) => {
     return this.tableCache.onUpdate(cb)
   }
 
   removeOnUpdate = (
-    cb: (ctx: EventContext, onRow: InteriorSetCollapsedTimer, newRow: InteriorSetCollapsedTimer) => void
+    cb: (
+      ctx: EventContext,
+      onRow: InteriorSetCollapsedTimer,
+      newRow: InteriorSetCollapsedTimer
+    ) => void
   ) => {
     return this.tableCache.removeOnUpdate(cb)
   }

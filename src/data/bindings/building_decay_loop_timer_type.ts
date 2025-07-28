@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type BuildingDecayLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
 }
 
 /**
@@ -30,15 +32,23 @@ export namespace BuildingDecayLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType())
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingDecayLoopTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingDecayLoopTimer
+  ): void {
     BuildingDecayLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): BuildingDecayLoopTimer {
-    return BuildingDecayLoopTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return BuildingDecayLoopTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

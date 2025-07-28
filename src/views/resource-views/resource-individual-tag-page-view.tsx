@@ -1,5 +1,8 @@
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
-import { getBiomesForResourceTag, type BiomeResourceMap } from '@/lib/integrations/google-sheets'
+import {
+  getBiomesForResourceTag,
+  type BiomeResourceMap
+} from '@/lib/integrations/google-sheets'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ResourceIndividualTagPageViewProps {
@@ -22,13 +25,28 @@ export function ResourceIndividualTagPageView({
     { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
     { key: 'name', label: 'Name', sortable: true },
     { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-    { key: 'rarity', label: 'Rarity', sortable: true, className: 'text-center' },
-    { key: 'maxHealth', label: 'Health', sortable: true, className: 'text-center' }
+    {
+      key: 'rarity',
+      label: 'Rarity',
+      sortable: true,
+      className: 'text-center'
+    },
+    {
+      key: 'maxHealth',
+      label: 'Health',
+      sortable: true,
+      className: 'text-center'
+    }
   ]
 
   // Add resource-specific columns
   const resourceColumns = [
-    { key: 'yieldDescription', label: 'Yield', sortable: true, className: 'text-center' },
+    {
+      key: 'yieldDescription',
+      label: 'Yield',
+      sortable: true,
+      className: 'text-center'
+    },
     { key: 'biomes', label: 'Biomes', sortable: true, className: 'text-center' }
   ]
 
@@ -37,9 +55,14 @@ export function ResourceIndividualTagPageView({
     ...resourceItem,
     rarity: resourceItem.rarity || { tag: 'Common' },
     // Add yield description from maxHealth
-    yieldDescription: resourceItem.maxHealth ? `${resourceItem.maxHealth} HP` : 'Unknown',
+    yieldDescription: resourceItem.maxHealth
+      ? `${resourceItem.maxHealth} HP`
+      : 'Unknown',
     // Add biome information
-    biomes: getBiomesForResourceTag(tagName, resourceItem.tier, biomeData).join(', ') || 'Unknown'
+    biomes:
+      getBiomesForResourceTag(tagName, resourceItem.tier, biomeData).join(
+        ', '
+      ) || 'Unknown'
   }))
 
   // Create single item group with tag name as title
@@ -60,7 +83,8 @@ export function ResourceIndividualTagPageView({
   // Create subtitle with breakdown
   const subtitleParts = [`${totalResources} resources`]
   if (respawningCount > 0) subtitleParts.push(`${respawningCount} respawning`)
-  if (flattenableCount > 0) subtitleParts.push(`${flattenableCount} flattenable`)
+  if (flattenableCount > 0)
+    subtitleParts.push(`${flattenableCount} flattenable`)
   if (tiers > 1) subtitleParts.push(`${tiers} tiers`)
 
   const subtitle = subtitleParts.join(' • ')

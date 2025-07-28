@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminSetSignText = {
   deployableName: string
@@ -23,12 +28,18 @@ export namespace AdminSetSignText {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableName', AlgebraicType.createStringType()),
+      new ProductTypeElement(
+        'deployableName',
+        AlgebraicType.createStringType()
+      ),
       new ProductTypeElement('newName', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminSetSignText): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminSetSignText
+  ): void {
     AdminSetSignText.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type InteriorEnvironmentDesc = {
   id: number
   name: string
@@ -38,14 +43,35 @@ export namespace InteriorEnvironmentDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
-      new ProductTypeElement('skyboxMaterial', AlgebraicType.createStringType()),
-      new ProductTypeElement('realtimeShadowColor', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'skyboxMaterial',
+        AlgebraicType.createStringType()
+      ),
+      new ProductTypeElement(
+        'realtimeShadowColor',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('lightingSource', AlgebraicType.createU8Type()),
-      new ProductTypeElement('lightingSkyboxIntensity', AlgebraicType.createF32Type()),
-      new ProductTypeElement('lightingGradientSkyColor', AlgebraicType.createU32Type()),
-      new ProductTypeElement('lightingGradientEquatorColor', AlgebraicType.createU32Type()),
-      new ProductTypeElement('lightingGradientGroundColor', AlgebraicType.createU32Type()),
-      new ProductTypeElement('lightingColorAmbientColor', AlgebraicType.createU32Type()),
+      new ProductTypeElement(
+        'lightingSkyboxIntensity',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'lightingGradientSkyColor',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'lightingGradientEquatorColor',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'lightingGradientGroundColor',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'lightingColorAmbientColor',
+        AlgebraicType.createU32Type()
+      ),
       new ProductTypeElement('fogEnable', AlgebraicType.createBoolType()),
       new ProductTypeElement('fogColor', AlgebraicType.createU32Type()),
       new ProductTypeElement('fogMode', AlgebraicType.createU8Type()),
@@ -55,11 +81,19 @@ export namespace InteriorEnvironmentDesc {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorEnvironmentDesc): void {
-    InteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorEnvironmentDesc
+  ): void {
+    InteriorEnvironmentDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): InteriorEnvironmentDesc {
-    return InteriorEnvironmentDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return InteriorEnvironmentDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

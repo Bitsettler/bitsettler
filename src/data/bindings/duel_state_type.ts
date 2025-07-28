@@ -33,13 +33,24 @@ export namespace DuelState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('initiatorEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'initiatorEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('acceptorEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('victor', AlgebraicType.createOptionType(AlgebraicType.createU64Type())),
-      new ProductTypeElement('playerEntityIds', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
+      new ProductTypeElement(
+        'victor',
+        AlgebraicType.createOptionType(AlgebraicType.createU64Type())
+      ),
+      new ProductTypeElement(
+        'playerEntityIds',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      ),
       new ProductTypeElement(
         'outOfRangeTimestamps',
-        AlgebraicType.createArrayType(AlgebraicType.createOptionType(AlgebraicType.createTimestampType()))
+        AlgebraicType.createArrayType(
+          AlgebraicType.createOptionType(AlgebraicType.createTimestampType())
+        )
       )
     ])
   }

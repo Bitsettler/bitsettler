@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type LootChestDespawnTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   lootChestEntityId: bigint
   shouldRespawn: boolean
 }
@@ -32,17 +34,28 @@ export namespace LootChestDespawnTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('lootChestEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'lootChestEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('shouldRespawn', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: LootChestDespawnTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: LootChestDespawnTimer
+  ): void {
     LootChestDespawnTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): LootChestDespawnTimer {
-    return LootChestDespawnTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return LootChestDespawnTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

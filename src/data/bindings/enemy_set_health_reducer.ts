@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EnemySetHealthRequest as __EnemySetHealthRequest } from './enemy_set_health_request_type'
 
@@ -24,7 +29,10 @@ export namespace EnemySetHealth {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __EnemySetHealthRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __EnemySetHealthRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

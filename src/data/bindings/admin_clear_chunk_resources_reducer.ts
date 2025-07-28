@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AdminClearResourceTimer as __AdminClearResourceTimer } from './admin_clear_resource_timer_type'
 
@@ -24,15 +29,26 @@ export namespace AdminClearChunkResources {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __AdminClearResourceTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __AdminClearResourceTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminClearChunkResources): void {
-    AdminClearChunkResources.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminClearChunkResources
+  ): void {
+    AdminClearChunkResources.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): AdminClearChunkResources {
-    return AdminClearChunkResources.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminClearChunkResources.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

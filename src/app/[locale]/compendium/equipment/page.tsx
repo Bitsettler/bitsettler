@@ -1,4 +1,7 @@
-import { getEquipmentCategories, getEquipmentStatistics } from '@/lib/spacetime-db-new/modules/equipment/flows'
+import {
+  getEquipmentCategories,
+  getEquipmentStatistics
+} from '@/lib/spacetime-db-new/modules/equipment/flows'
 import { EquipmentView } from '@/views/equipment-views/equipment-index-page-view'
 
 export default async function EquipmentPage() {

@@ -19,11 +19,9 @@ export function ToolsIndividualTagPageView({
   // Get the lowest available rarity for tools, then filter by that rarity and volume > 0
   const lowestRarity = getLowestRarity(tools)
   const filteredTools = tools.filter(
-    (tool) => 
-      tool.item.rarity.tag === lowestRarity && 
-      tool.item.volume > 0
+    (tool) => tool.item.rarity.tag === lowestRarity && tool.item.volume > 0
   )
-  
+
   // Deduplicate by name+tier (keep only one tool per name+tier combination)
   const deduplicatedTools = filteredTools.reduce(
     (acc, tool) => {
@@ -52,10 +50,30 @@ export function ToolsIndividualTagPageView({
       columns: [
         { key: 'icon', label: 'Icon', sortable: false, className: 'w-16' },
         { key: 'name', label: 'Name', sortable: true },
-        { key: 'tier', label: 'Tier', sortable: true, className: 'text-center' },
-        { key: 'level', label: 'Level', sortable: true, className: 'text-center' },
-        { key: 'power', label: 'Power', sortable: true, className: 'text-center' },
-        { key: 'toolType', label: 'Type', sortable: true, className: 'text-center' }
+        {
+          key: 'tier',
+          label: 'Tier',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'level',
+          label: 'Level',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'power',
+          label: 'Power',
+          sortable: true,
+          className: 'text-center'
+        },
+        {
+          key: 'toolType',
+          label: 'Type',
+          sortable: true,
+          className: 'text-center'
+        }
       ]
     }
   ]

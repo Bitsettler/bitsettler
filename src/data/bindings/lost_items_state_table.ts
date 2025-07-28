@@ -75,11 +75,23 @@ export class LostItemsStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: LostItemsState, newRow: LostItemsState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: LostItemsState,
+      newRow: LostItemsState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: LostItemsState, newRow: LostItemsState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: LostItemsState,
+      newRow: LostItemsState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

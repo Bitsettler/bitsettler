@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Permission as __Permission } from './permission_type'
 
 export type PlayerPermissionEditRequest = {
@@ -27,15 +32,30 @@ export namespace PlayerPermissionEditRequest {
     return AlgebraicType.createProductType([
       new ProductTypeElement('ordainedEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('allowedEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('permission', AlgebraicType.createOptionType(__Permission.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'permission',
+        AlgebraicType.createOptionType(
+          __Permission.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerPermissionEditRequest): void {
-    PlayerPermissionEditRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerPermissionEditRequest
+  ): void {
+    PlayerPermissionEditRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerPermissionEditRequest {
-    return PlayerPermissionEditRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerPermissionEditRequest {
+    return PlayerPermissionEditRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

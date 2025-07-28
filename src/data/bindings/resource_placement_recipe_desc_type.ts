@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { Biome as __Biome } from './biome_type'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { InputItemStack as __InputItemStack } from './input_item_stack_type'
@@ -50,47 +55,97 @@ export namespace ResourcePlacementRecipeDesc {
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement('timeRequirement', AlgebraicType.createF32Type()),
-      new ProductTypeElement('staminaRequirement', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'staminaRequirement',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('consumedResource', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredInteriorTier', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'requiredInteriorTier',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'levelRequirements',
-        AlgebraicType.createArrayType(__LevelRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LevelRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'toolRequirements',
-        AlgebraicType.createArrayType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedItemStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'consumedCargoStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredClaimTechId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredBiomes', AlgebraicType.createArrayType(__Biome.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('fullDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'discoveryTriggers',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredClaimTechId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'requiredBiomes',
+        AlgebraicType.createArrayType(__Biome.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'fullDiscoveryScore',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('resourceDescriptionId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('requiredPavingTier', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'resourceDescriptionId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'requiredPavingTier',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('actionsRequired', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResourcePlacementRecipeDesc): void {
-    ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResourcePlacementRecipeDesc
+  ): void {
+    ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ResourcePlacementRecipeDesc {
-    return ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ResourcePlacementRecipeDesc {
+    return ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

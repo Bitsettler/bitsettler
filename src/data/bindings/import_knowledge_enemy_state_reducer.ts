@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { KnowledgeEnemyState as __KnowledgeEnemyState } from './knowledge_enemy_state_type'
 
@@ -26,16 +31,26 @@ export namespace ImportKnowledgeEnemyState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__KnowledgeEnemyState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeEnemyState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportKnowledgeEnemyState): void {
-    ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportKnowledgeEnemyState
+  ): void {
+    ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ImportKnowledgeEnemyState {
-    return ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportKnowledgeEnemyState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

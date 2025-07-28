@@ -62,7 +62,9 @@ export class AttackImpactTimerTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: AttackImpactTimer) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class AttackImpactTimerTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: AttackImpactTimer) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: AttackImpactTimer) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AttackImpactTimer, newRow: AttackImpactTimer) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: AttackImpactTimer,
+      newRow: AttackImpactTimer
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AttackImpactTimer, newRow: AttackImpactTimer) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: AttackImpactTimer,
+      newRow: AttackImpactTimer
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

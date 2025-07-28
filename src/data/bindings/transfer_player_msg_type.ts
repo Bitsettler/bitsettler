@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ActionState as __ActionState } from './action_state_type'
 import { ActiveBuffState as __ActiveBuffState } from './active_buff_state_type'
 import { AttackOutcomeState as __AttackOutcomeState } from './attack_outcome_state_type'
@@ -124,97 +129,248 @@ export namespace TransferPlayerMsg {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('originalLocation', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('destinationLocation', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'originalLocation',
+        __FloatHexTileMessage.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'destinationLocation',
+        __FloatHexTileMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('allowCancel', AlgebraicType.createBoolType()),
-      new ProductTypeElement('teleportEnergyCost', AlgebraicType.createF32Type()),
-      new ProductTypeElement('vehicle', AlgebraicType.createOptionType(__DeployableState.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'teleportEnergyCost',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'vehicle',
+        AlgebraicType.createOptionType(
+          __DeployableState.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'vehicleInventory',
-        AlgebraicType.createOptionType(__InventoryState.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __InventoryState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('playerState', __PlayerState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('userState', __UserState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'playerState',
+        __PlayerState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'userState',
+        __UserState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'moveValidationStrikeCounterState',
         __MoveValidationStrikeCounterState.getTypeScriptAlgebraicType()
       ),
-      new ProductTypeElement('healthState', __HealthState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('staminaState', __StaminaState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('experienceState', __ExperienceState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('activeBuffState', __ActiveBuffState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeAchievementState', __KnowledgeAchievementState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeBattleActionState', __KnowledgeBattleActionState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeBuildingState', __KnowledgeBuildingState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeCargoState', __KnowledgeCargoState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeConstructionState', __KnowledgeConstructionState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'healthState',
+        __HealthState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'staminaState',
+        __StaminaState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'experienceState',
+        __ExperienceState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'activeBuffState',
+        __ActiveBuffState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeAchievementState',
+        __KnowledgeAchievementState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeBattleActionState',
+        __KnowledgeBattleActionState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeBuildingState',
+        __KnowledgeBuildingState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeCargoState',
+        __KnowledgeCargoState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeConstructionState',
+        __KnowledgeConstructionState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'knowledgeResourcePlacementState',
         __KnowledgeResourcePlacementState.getTypeScriptAlgebraicType()
       ),
-      new ProductTypeElement('knowledgeCraftState', __KnowledgeCraftState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeEnemyState', __KnowledgeEnemyState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeExtractState', __KnowledgeExtractState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeItemState', __KnowledgeItemState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeLoreState', __KnowledgeLoreState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeNpcState', __KnowledgeNpcState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeResourceState', __KnowledgeResourceState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeRuinsState', __KnowledgeRuinsState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeSecondaryState', __KnowledgeSecondaryState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeVaultState', __KnowledgeVaultState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeDeployableState', __KnowledgeDeployableState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgePavingState', __KnowledgePavingState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgeClaimState', __KnowledgeClaimState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('knowledgePillarShapingState', __KnowledgePillarShapingState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('equipmentState', __EquipmentState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'knowledgeCraftState',
+        __KnowledgeCraftState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeEnemyState',
+        __KnowledgeEnemyState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeExtractState',
+        __KnowledgeExtractState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeItemState',
+        __KnowledgeItemState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeLoreState',
+        __KnowledgeLoreState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeNpcState',
+        __KnowledgeNpcState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeResourceState',
+        __KnowledgeResourceState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeRuinsState',
+        __KnowledgeRuinsState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeSecondaryState',
+        __KnowledgeSecondaryState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeVaultState',
+        __KnowledgeVaultState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeDeployableState',
+        __KnowledgeDeployableState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgePavingState',
+        __KnowledgePavingState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgeClaimState',
+        __KnowledgeClaimState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'knowledgePillarShapingState',
+        __KnowledgePillarShapingState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'equipmentState',
+        __EquipmentState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'inventoryState',
-        AlgebraicType.createArrayType(__InventoryState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InventoryState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('characterStatsState', __CharacterStatsState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('playerUsernameState', __PlayerUsernameState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'characterStatsState',
+        __CharacterStatsState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'playerUsernameState',
+        __PlayerUsernameState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'playerActionState',
-        AlgebraicType.createArrayType(__PlayerActionState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PlayerActionState.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'deployableCollectibleState',
-        AlgebraicType.createArrayType(__DeployableCollectibleState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DeployableCollectibleState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('combatState', __CombatState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('actionState', AlgebraicType.createArrayType(__ActionState.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'combatState',
+        __CombatState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'actionState',
+        AlgebraicType.createArrayType(
+          __ActionState.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'toolbarState',
-        AlgebraicType.createArrayType(__ToolbarState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ToolbarState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('attackOutcomeState', __AttackOutcomeState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('vaultState', __VaultState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('explorationChunksState', __ExplorationChunksState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('satiationState', __SatiationState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('playerPrefsState', __PlayerPrefsState.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('onboardingState', __OnboardingState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'attackOutcomeState',
+        __AttackOutcomeState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'vaultState',
+        __VaultState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'explorationChunksState',
+        __ExplorationChunksState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'satiationState',
+        __SatiationState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'playerPrefsState',
+        __PlayerPrefsState.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'onboardingState',
+        __OnboardingState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'unclaimedCollectiblesState',
-        AlgebraicType.createOptionType(__UnclaimedCollectiblesState.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __UnclaimedCollectiblesState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('teleportationEnergyState', __TeleportationEnergyState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'teleportationEnergyState',
+        __TeleportationEnergyState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'playerHousingState',
-        AlgebraicType.createOptionType(__PlayerHousingState.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __PlayerHousingState.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'travelerTaskStates',
-        AlgebraicType.createArrayType(__TravelerTaskState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TravelerTaskState.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('extractOutcomeState', __ExtractOutcomeState.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'extractOutcomeState',
+        __ExtractOutcomeState.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'undeployedDeployableStates',
-        AlgebraicType.createArrayType(__DeployableState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DeployableState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TransferPlayerMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TransferPlayerMsg
+  ): void {
     TransferPlayerMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

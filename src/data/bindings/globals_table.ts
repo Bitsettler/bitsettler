@@ -74,11 +74,15 @@ export class GlobalsTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: Globals, newRow: Globals) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: Globals, newRow: Globals) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: Globals, newRow: Globals) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: Globals, newRow: Globals) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

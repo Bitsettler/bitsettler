@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 import { ExperienceStackF32 as __ExperienceStackF32 } from './experience_stack_f_32_type'
 import { InputItemStack as __InputItemStack } from './input_item_stack_type'
@@ -43,21 +48,42 @@ export namespace PavingTileDesc {
       new ProductTypeElement('name', AlgebraicType.createStringType()),
       new ProductTypeElement(
         'consumedItemStacks',
-        AlgebraicType.createArrayType(__InputItemStack.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InputItemStack.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('inputCargoId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('inputCargoDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'inputCargoDiscoveryScore',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement(
         'experiencePerProgress',
-        AlgebraicType.createArrayType(__ExperienceStackF32.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExperienceStackF32.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('discoveryTriggers', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('requiredKnowledges', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('fullDiscoveryScore', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'discoveryTriggers',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'requiredKnowledges',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'fullDiscoveryScore',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('pavingDuration', AlgebraicType.createF32Type()),
       new ProductTypeElement('prefabAddress', AlgebraicType.createStringType()),
       new ProductTypeElement('tier', AlgebraicType.createI32Type()),
-      new ProductTypeElement('statEffects', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'statEffects',
+        AlgebraicType.createArrayType(
+          __CsvStatEntry.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('iconAddress', AlgebraicType.createStringType()),
       new ProductTypeElement('description', AlgebraicType.createStringType())
     ])

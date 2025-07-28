@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimResupplyRequest as __ClaimResupplyRequest } from './claim_resupply_request_type'
 
@@ -24,11 +29,17 @@ export namespace ClaimResupplyStart {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __ClaimResupplyRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __ClaimResupplyRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimResupplyStart): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimResupplyStart
+  ): void {
     ClaimResupplyStart.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

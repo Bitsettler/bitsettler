@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type ResetChunkIndexTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   dimension: number
 }
 
@@ -31,12 +33,18 @@ export namespace ResetChunkIndexTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('dimension', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResetChunkIndexTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResetChunkIndexTimer
+  ): void {
     ResetChunkIndexTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

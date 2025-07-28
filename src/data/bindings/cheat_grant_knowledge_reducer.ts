@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatGrantKnowledgeRequest as __CheatGrantKnowledgeRequest } from './cheat_grant_knowledge_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatGrantKnowledge {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatGrantKnowledgeRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatGrantKnowledgeRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatGrantKnowledge): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatGrantKnowledge
+  ): void {
     CheatGrantKnowledge.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

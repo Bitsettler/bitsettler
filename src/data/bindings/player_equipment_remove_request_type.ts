@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PocketKey as __PocketKey } from './pocket_key_type'
 
 export type PlayerEquipmentRemoveRequest = {
@@ -25,15 +30,28 @@ export namespace PlayerEquipmentRemoveRequest {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('slot', AlgebraicType.createI32Type()),
-      new ProductTypeElement('toPocket', AlgebraicType.createOptionType(__PocketKey.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'toPocket',
+        AlgebraicType.createOptionType(__PocketKey.getTypeScriptAlgebraicType())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerEquipmentRemoveRequest): void {
-    PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerEquipmentRemoveRequest
+  ): void {
+    PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerEquipmentRemoveRequest {
-    return PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerEquipmentRemoveRequest {
+    return PlayerEquipmentRemoveRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

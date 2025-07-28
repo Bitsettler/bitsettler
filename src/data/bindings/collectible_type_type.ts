@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace CollectibleType {
   // These are the generated variant types for each variant of the tagged union.
@@ -82,7 +87,10 @@ export namespace CollectibleType {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CollectibleType): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CollectibleType
+  ): void {
     CollectibleType.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

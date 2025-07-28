@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ToolRequirement as __ToolRequirement } from './tool_requirement_type'
 
 export type TerraformRecipeDesc = {
@@ -33,16 +38,24 @@ export namespace TerraformRecipeDesc {
       new ProductTypeElement('actionsCount', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'toolRequirement',
-        AlgebraicType.createOptionType(__ToolRequirement.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __ToolRequirement.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('staminaPerAction', AlgebraicType.createF32Type()),
       new ProductTypeElement('timePerAction', AlgebraicType.createF32Type()),
       new ProductTypeElement('toolMeshIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('recipePerformanceId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'recipePerformanceId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TerraformRecipeDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TerraformRecipeDesc
+  ): void {
     TerraformRecipeDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

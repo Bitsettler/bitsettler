@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type ClaimLocalState = {
@@ -35,22 +40,42 @@ export namespace ClaimLocalState {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('supplies', AlgebraicType.createI32Type()),
-      new ProductTypeElement('buildingMaintenance', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'buildingMaintenance',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('numTiles', AlgebraicType.createI32Type()),
       new ProductTypeElement('numTileNeighbors', AlgebraicType.createU32Type()),
       new ProductTypeElement(
         'location',
-        AlgebraicType.createOptionType(__OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('treasury', AlgebraicType.createU32Type()),
-      new ProductTypeElement('xpGainedSinceLastCoinMinting', AlgebraicType.createU32Type()),
-      new ProductTypeElement('suppliesPurchaseThreshold', AlgebraicType.createU32Type()),
-      new ProductTypeElement('suppliesPurchasePrice', AlgebraicType.createF32Type()),
-      new ProductTypeElement('buildingDescriptionId', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'xpGainedSinceLastCoinMinting',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'suppliesPurchaseThreshold',
+        AlgebraicType.createU32Type()
+      ),
+      new ProductTypeElement(
+        'suppliesPurchasePrice',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'buildingDescriptionId',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ClaimLocalState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ClaimLocalState
+  ): void {
     ClaimLocalState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

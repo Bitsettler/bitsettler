@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { HubItemType as __HubItemType } from './hub_item_type_type'
 
 export type GrantHubItemMsg = {
@@ -26,14 +32,23 @@ export namespace GrantHubItemMsg {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('playerIdentity', AlgebraicType.createIdentityType()),
-      new ProductTypeElement('itemType', __HubItemType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'playerIdentity',
+        AlgebraicType.createIdentityType()
+      ),
+      new ProductTypeElement(
+        'itemType',
+        __HubItemType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('quantity', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: GrantHubItemMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: GrantHubItemMsg
+  ): void {
     GrantHubItemMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

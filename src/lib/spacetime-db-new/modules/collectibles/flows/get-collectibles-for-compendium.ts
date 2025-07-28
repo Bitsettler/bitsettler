@@ -7,5 +7,7 @@ import { getCollectiblesWithDeeds } from './get-collectibles-with-deeds'
 export function getCollectiblesForCompendium(): CollectibleWithDeed[] {
   const collectiblesWithDeeds = getCollectiblesWithDeeds()
 
-  return collectiblesWithDeeds.filter((item) => item.deed && item.deed.compendiumEntry)
+  return collectiblesWithDeeds.filter(
+    (item) => item.deed && item.deed.compendiumEntry
+  )
 }

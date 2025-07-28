@@ -75,11 +75,15 @@ export class ResourcesLogTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ResourcesLog, newRow: ResourcesLog) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ResourcesLog, newRow: ResourcesLog) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ResourcesLog, newRow: ResourcesLog) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ResourcesLog, newRow: ResourcesLog) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

@@ -36,11 +36,21 @@ export namespace MoveValidationStrikeCounterState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: MoveValidationStrikeCounterState): void {
-    MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: MoveValidationStrikeCounterState
+  ): void {
+    MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): MoveValidationStrikeCounterState {
-    return MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): MoveValidationStrikeCounterState {
+    return MoveValidationStrikeCounterState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

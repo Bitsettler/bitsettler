@@ -74,11 +74,15 @@ export class BiomeDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: BiomeDesc, newRow: BiomeDesc) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: BiomeDesc, newRow: BiomeDesc) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: BiomeDesc, newRow: BiomeDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: BiomeDesc, newRow: BiomeDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

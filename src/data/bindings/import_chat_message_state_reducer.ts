@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ChatMessageState as __ChatMessageState } from './chat_message_state_type'
 
@@ -24,15 +29,25 @@ export namespace ImportChatMessageState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__ChatMessageState.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __ChatMessageState.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportChatMessageState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportChatMessageState
+  ): void {
     ImportChatMessageState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): ImportChatMessageState {
-    return ImportChatMessageState.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportChatMessageState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

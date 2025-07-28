@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PlayerVoteAnswer as __PlayerVoteAnswer } from './player_vote_answer_type'
 import { PlayerVoteType as __PlayerVoteType } from './player_vote_type_type'
 
@@ -35,20 +40,40 @@ export namespace PlayerVoteState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('voteType', __PlayerVoteType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('initiatorEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('participantsEntityId', AlgebraicType.createArrayType(AlgebraicType.createU64Type())),
-      new ProductTypeElement('answers', AlgebraicType.createArrayType(__PlayerVoteAnswer.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'voteType',
+        __PlayerVoteType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'initiatorEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'participantsEntityId',
+        AlgebraicType.createArrayType(AlgebraicType.createU64Type())
+      ),
+      new ProductTypeElement(
+        'answers',
+        AlgebraicType.createArrayType(
+          __PlayerVoteAnswer.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('initiatorName', AlgebraicType.createStringType()),
       new ProductTypeElement('passThreshold', AlgebraicType.createF32Type()),
-      new ProductTypeElement('outcome', __PlayerVoteAnswer.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'outcome',
+        __PlayerVoteAnswer.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('argument1', AlgebraicType.createU64Type()),
       new ProductTypeElement('argument2', AlgebraicType.createU64Type()),
       new ProductTypeElement('outcomeStr', AlgebraicType.createStringType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerVoteState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerVoteState
+  ): void {
     PlayerVoteState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

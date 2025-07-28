@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CollectStatsTimer as __CollectStatsTimer } from './collect_stats_timer_type'
 
@@ -24,11 +29,17 @@ export namespace CollectStatsReducer {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __CollectStatsTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __CollectStatsTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CollectStatsReducer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CollectStatsReducer
+  ): void {
     CollectStatsReducer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

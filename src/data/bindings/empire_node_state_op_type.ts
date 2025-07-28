@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { EmpireNodeState as __EmpireNodeState } from './empire_node_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,32 @@ export namespace EmpireNodeStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __EmpireNodeState): EmpireNodeStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __EmpireNodeState): EmpireNodeStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __EmpireNodeState): EmpireNodeStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __EmpireNodeState): EmpireNodeStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __EmpireNodeState.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('Delete', __EmpireNodeState.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'Insert',
+        __EmpireNodeState.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'Delete',
+        __EmpireNodeState.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireNodeStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireNodeStateOp
+  ): void {
     EmpireNodeStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -43,6 +63,8 @@ export namespace EmpireNodeStateOp {
 }
 
 // The tagged union or sum type for the algebraic type `EmpireNodeStateOp`.
-export type EmpireNodeStateOp = EmpireNodeStateOp.Insert | EmpireNodeStateOp.Delete
+export type EmpireNodeStateOp =
+  | EmpireNodeStateOp.Insert
+  | EmpireNodeStateOp.Delete
 
 export default EmpireNodeStateOp

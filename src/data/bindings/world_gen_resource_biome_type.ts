@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenNoiseSpecs as __WorldGenNoiseSpecs } from './world_gen_noise_specs_type'
 import { WorldGenVector2 as __WorldGenVector2 } from './world_gen_vector_2_type'
 
@@ -27,18 +32,32 @@ export namespace WorldGenResourceBiome {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('biomeDefinitionIndex', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'biomeDefinitionIndex',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('chance', AlgebraicType.createF32Type()),
-      new ProductTypeElement('noiseThreshold', __WorldGenVector2.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('noiseSpecs', __WorldGenNoiseSpecs.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'noiseThreshold',
+        __WorldGenVector2.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'noiseSpecs',
+        __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenResourceBiome): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenResourceBiome
+  ): void {
     WorldGenResourceBiome.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): WorldGenResourceBiome {
-    return WorldGenResourceBiome.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenResourceBiome.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -96,11 +96,15 @@ export class ClaimStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ClaimState, newRow: ClaimState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: ClaimState, newRow: ClaimState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ClaimState, newRow: ClaimState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: ClaimState, newRow: ClaimState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

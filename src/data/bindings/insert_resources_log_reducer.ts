@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResourcesLog as __ResourcesLog } from './resources_log_type'
 
@@ -24,11 +29,17 @@ export namespace InsertResourcesLog {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('resourcesLog', __ResourcesLog.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'resourcesLog',
+        __ResourcesLog.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InsertResourcesLog): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InsertResourcesLog
+  ): void {
     InsertResourcesLog.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

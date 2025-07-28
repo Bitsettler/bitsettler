@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
 export type DeployableCollectibleState = {
@@ -27,22 +32,37 @@ export namespace DeployableCollectibleState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('ownerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('collectibleId', AlgebraicType.createI32Type()),
       new ProductTypeElement('deployableDescId', AlgebraicType.createI32Type()),
       new ProductTypeElement(
         'location',
-        AlgebraicType.createOptionType(__OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeployableCollectibleState): void {
-    DeployableCollectibleState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeployableCollectibleState
+  ): void {
+    DeployableCollectibleState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): DeployableCollectibleState {
-    return DeployableCollectibleState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): DeployableCollectibleState {
+    return DeployableCollectibleState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -35,17 +35,29 @@ export namespace PlayerHousingState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('entranceBuildingEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'entranceBuildingEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('networkEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('exitPortalEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'exitPortalEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('rank', AlgebraicType.createI32Type()),
-      new ProductTypeElement('lockedUntil', AlgebraicType.createTimestampType()),
+      new ProductTypeElement(
+        'lockedUntil',
+        AlgebraicType.createTimestampType()
+      ),
       new ProductTypeElement('isEmpty', AlgebraicType.createBoolType()),
       new ProductTypeElement('regionIndex', AlgebraicType.createU8Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingState
+  ): void {
     PlayerHousingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

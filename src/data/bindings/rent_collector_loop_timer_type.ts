@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type RentCollectorLoopTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   firstTick: boolean
 }
 
@@ -31,16 +33,24 @@ export namespace RentCollectorLoopTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('firstTick', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RentCollectorLoopTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RentCollectorLoopTimer
+  ): void {
     RentCollectorLoopTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): RentCollectorLoopTimer {
-    return RentCollectorLoopTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return RentCollectorLoopTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

@@ -75,11 +75,23 @@ export class StagedStaticDataTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: StagedStaticData, newRow: StagedStaticData) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: StagedStaticData,
+      newRow: StagedStaticData
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: StagedStaticData, newRow: StagedStaticData) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: StagedStaticData,
+      newRow: StagedStaticData
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

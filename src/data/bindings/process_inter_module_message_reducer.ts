@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { InterModuleMessage as __InterModuleMessage } from './inter_module_message_type'
 
@@ -26,15 +31,26 @@ export namespace ProcessInterModuleMessage {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('sender', AlgebraicType.createU8Type()),
-      new ProductTypeElement('message', __InterModuleMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'message',
+        __InterModuleMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProcessInterModuleMessage): void {
-    ProcessInterModuleMessage.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProcessInterModuleMessage
+  ): void {
+    ProcessInterModuleMessage.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ProcessInterModuleMessage {
-    return ProcessInterModuleMessage.getTypeScriptAlgebraicType().deserialize(reader)
+    return ProcessInterModuleMessage.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

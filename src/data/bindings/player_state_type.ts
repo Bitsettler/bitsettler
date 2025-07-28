@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { TeleportLocation as __TeleportLocation } from './teleport_location_type'
 
 export type PlayerState = {
@@ -30,14 +35,23 @@ export namespace PlayerState {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('teleportLocation', __TeleportLocation.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'teleportLocation',
+        __TeleportLocation.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('timePlayed', AlgebraicType.createI32Type()),
-      new ProductTypeElement('sessionStartTimestamp', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'sessionStartTimestamp',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('timeSignedIn', AlgebraicType.createI32Type()),
       new ProductTypeElement('signInTimestamp', AlgebraicType.createI32Type()),
       new ProductTypeElement('signedIn', AlgebraicType.createBoolType()),
-      new ProductTypeElement('travelerTasksExpiration', AlgebraicType.createI32Type())
+      new ProductTypeElement(
+        'travelerTasksExpiration',
+        AlgebraicType.createI32Type()
+      )
     ])
   }
 

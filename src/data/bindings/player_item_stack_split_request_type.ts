@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PocketKey as __PocketKey } from './pocket_key_type'
 
 export type PlayerItemStackSplitRequest = {
@@ -25,17 +30,30 @@ export namespace PlayerItemStackSplitRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('fromPocket', __PocketKey.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'fromPocket',
+        __PocketKey.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
       new ProductTypeElement('newStackCount', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerItemStackSplitRequest): void {
-    PlayerItemStackSplitRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerItemStackSplitRequest
+  ): void {
+    PlayerItemStackSplitRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerItemStackSplitRequest {
-    return PlayerItemStackSplitRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerItemStackSplitRequest {
+    return PlayerItemStackSplitRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

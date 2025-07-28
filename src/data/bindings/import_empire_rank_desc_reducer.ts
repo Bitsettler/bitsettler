@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EmpireRankDesc as __EmpireRankDesc } from './empire_rank_desc_type'
 
@@ -24,11 +29,19 @@ export namespace ImportEmpireRankDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__EmpireRankDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __EmpireRankDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportEmpireRankDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportEmpireRankDesc
+  ): void {
     ImportEmpireRankDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

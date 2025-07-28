@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { SmallHexTileMessage as __SmallHexTileMessage } from './small_hex_tile_message_type'
 
 export type RuinsEntityValuePair = {
@@ -25,11 +30,17 @@ export namespace RuinsEntityValuePair {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('coordinates', __SmallHexTileMessage.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'coordinates',
+        __SmallHexTileMessage.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: RuinsEntityValuePair): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: RuinsEntityValuePair
+  ): void {
     RuinsEntityValuePair.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

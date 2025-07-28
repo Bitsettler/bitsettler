@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EntityType as __EntityType } from './entity_type_type'
 
 export type EntityAttackRequest = {
@@ -30,12 +35,21 @@ export namespace EntityAttackRequest {
       new ProductTypeElement('attackerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('defenderEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('combatActionId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('attackerType', __EntityType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('defenderType', __EntityType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'attackerType',
+        __EntityType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'defenderType',
+        __EntityType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EntityAttackRequest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EntityAttackRequest
+  ): void {
     EntityAttackRequest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -36,8 +36,14 @@ export namespace AlertState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('targetEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('endTimestamp', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('alertType', __AlertType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'endTimestamp',
+        AlgebraicType.createTimestampType()
+      ),
+      new ProductTypeElement(
+        'alertType',
+        __AlertType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

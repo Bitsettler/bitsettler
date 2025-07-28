@@ -74,11 +74,23 @@ export class ChatMessageStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: ChatMessageState, newRow: ChatMessageState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: ChatMessageState,
+      newRow: ChatMessageState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: ChatMessageState, newRow: ChatMessageState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: ChatMessageState,
+      newRow: ChatMessageState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

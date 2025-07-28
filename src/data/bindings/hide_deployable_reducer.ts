@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { HideDeployableTimer as __HideDeployableTimer } from './hide_deployable_timer_type'
 
@@ -24,7 +29,10 @@ export namespace HideDeployable {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __HideDeployableTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __HideDeployableTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { BarterStallSetMarketModeEnabledRequest as __BarterStallSetMarketModeEnabledRequest } from './barter_stall_set_market_mode_enabled_request_type'
 
@@ -24,15 +29,28 @@ export namespace BarterStallSetMarketModeEnabled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __BarterStallSetMarketModeEnabledRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __BarterStallSetMarketModeEnabledRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BarterStallSetMarketModeEnabled): void {
-    BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: BarterStallSetMarketModeEnabled
+  ): void {
+    BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): BarterStallSetMarketModeEnabled {
-    return BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): BarterStallSetMarketModeEnabled {
+    return BarterStallSetMarketModeEnabled.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

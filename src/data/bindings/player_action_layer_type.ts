@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PlayerActionLayer {
   // These are the generated variant types for each variant of the tagged union.
@@ -31,7 +36,10 @@ export namespace PlayerActionLayer {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerActionLayer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerActionLayer
+  ): void {
     PlayerActionLayer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -41,6 +49,8 @@ export namespace PlayerActionLayer {
 }
 
 // The tagged union or sum type for the algebraic type `PlayerActionLayer`.
-export type PlayerActionLayer = PlayerActionLayer.Base | PlayerActionLayer.UpperBody
+export type PlayerActionLayer =
+  | PlayerActionLayer.Base
+  | PlayerActionLayer.UpperBody
 
 export default PlayerActionLayer

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { AchievementDesc as __AchievementDesc } from './achievement_desc_type'
 import { AlertDesc as __AlertDesc } from './alert_desc_type'
 import { BiomeDesc as __BiomeDesc } from './biome_desc_type'
@@ -187,258 +192,475 @@ export namespace StaticDataUpload {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'parameters',
-        AlgebraicType.createArrayType(__ParametersDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ParametersDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'privateParameters',
-        AlgebraicType.createArrayType(__PrivateParametersDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PrivateParametersDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'secondaryKnowledges',
-        AlgebraicType.createArrayType(__SecondaryKnowledgeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __SecondaryKnowledgeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'weaponTypes',
-        AlgebraicType.createArrayType(__WeaponTypeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WeaponTypeDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('skills', AlgebraicType.createArrayType(__SkillDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'skills',
+        AlgebraicType.createArrayType(__SkillDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'targetingMatrices',
-        AlgebraicType.createArrayType(__TargetingMatrixDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TargetingMatrixDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('npcs', AlgebraicType.createArrayType(__NpcDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'npcs',
+        AlgebraicType.createArrayType(__NpcDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'lootRarities',
-        AlgebraicType.createArrayType(__LootRarityDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __LootRarityDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'knowledgeScrollTypes',
-        AlgebraicType.createArrayType(__KnowledgeScrollTypeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeScrollTypeDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('items', AlgebraicType.createArrayType(__ItemDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'items',
+        AlgebraicType.createArrayType(__ItemDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'enemyAiParams',
-        AlgebraicType.createArrayType(__EnemyAiParamsDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EnemyAiParamsDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireRanks',
-        AlgebraicType.createArrayType(__EmpireRankDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireRankDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('emotes', AlgebraicType.createArrayType(__EmoteDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'emotes',
+        AlgebraicType.createArrayType(__EmoteDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'climbRequirements',
-        AlgebraicType.createArrayType(__ClimbRequirementDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ClimbRequirementDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'claimTileCosts',
-        AlgebraicType.createArrayType(__ClaimTileCost.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ClaimTileCost.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('claimTech', AlgebraicType.createArrayType(__ClaimTechDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'claimTech',
+        AlgebraicType.createArrayType(
+          __ClaimTechDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'characterStats',
-        AlgebraicType.createArrayType(__CharacterStatDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __CharacterStatDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('cargos', AlgebraicType.createArrayType(__CargoDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'cargos',
+        AlgebraicType.createArrayType(__CargoDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'buildingTypes',
-        AlgebraicType.createArrayType(__BuildingTypeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingTypeDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('buildings', AlgebraicType.createArrayType(__BuildingDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('biomes', AlgebraicType.createArrayType(__BiomeDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'buildings',
+        AlgebraicType.createArrayType(
+          __BuildingDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'biomes',
+        AlgebraicType.createArrayType(__BiomeDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'interiorShapes',
-        AlgebraicType.createArrayType(__InteriorShapeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorShapeDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('buffTypes', AlgebraicType.createArrayType(__BuffTypeDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('buffs', AlgebraicType.createArrayType(__BuffDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('alerts', AlgebraicType.createArrayType(__AlertDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('toolTypes', AlgebraicType.createArrayType(__ToolTypeDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('itemLists', AlgebraicType.createArrayType(__ItemListDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('foods', AlgebraicType.createArrayType(__FoodDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'buffTypes',
+        AlgebraicType.createArrayType(
+          __BuffTypeDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'buffs',
+        AlgebraicType.createArrayType(__BuffDesc.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'alerts',
+        AlgebraicType.createArrayType(__AlertDesc.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'toolTypes',
+        AlgebraicType.createArrayType(
+          __ToolTypeDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'itemLists',
+        AlgebraicType.createArrayType(
+          __ItemListDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'foods',
+        AlgebraicType.createArrayType(__FoodDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'achievements',
-        AlgebraicType.createArrayType(__AchievementDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __AchievementDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'knowledgeStatModifiers',
-        AlgebraicType.createArrayType(__KnowledgeStatModifierDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeStatModifierDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'interiorInstances',
-        AlgebraicType.createArrayType(__InteriorInstanceDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorInstanceDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'interiorEnvironments',
-        AlgebraicType.createArrayType(__InteriorEnvironmentDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorEnvironmentDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'interiorSpawns',
-        AlgebraicType.createArrayType(__InteriorSpawnDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorSpawnDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'buildingPortals',
-        AlgebraicType.createArrayType(__BuildingPortalDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingPortalDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'portalConnections',
-        AlgebraicType.createArrayType(__InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorPortalConnectionsDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'buildingInteriorNetworks',
-        AlgebraicType.createArrayType(__InteriorNetworkDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __InteriorNetworkDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'buildingClaims',
-        AlgebraicType.createArrayType(__BuildingClaimDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingClaimDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'buildingRepairs',
-        AlgebraicType.createArrayType(__BuildingRepairsDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingRepairsDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'buildingSpawns',
-        AlgebraicType.createArrayType(__BuildingSpawnDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __BuildingSpawnDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'chestRarities',
-        AlgebraicType.createArrayType(__ChestRarityDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ChestRarityDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('clothing', AlgebraicType.createArrayType(__ClothingDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'clothing',
+        AlgebraicType.createArrayType(
+          __ClothingDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'collectibles',
-        AlgebraicType.createArrayType(__CollectibleDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __CollectibleDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'combatActions',
-        AlgebraicType.createArrayType(__CombatActionDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __CombatActionDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'construction',
-        AlgebraicType.createArrayType(__ConstructionRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ConstructionRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'crafting',
-        AlgebraicType.createArrayType(__CraftingRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __CraftingRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'desconstructions',
-        AlgebraicType.createArrayType(__DeconstructionRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DeconstructionRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireSupplies',
-        AlgebraicType.createArrayType(__EmpireSuppliesDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireSuppliesDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('enemies', AlgebraicType.createArrayType(__EnemyDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'enemies',
+        AlgebraicType.createArrayType(__EnemyDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'environmentDebuffs',
-        AlgebraicType.createArrayType(__EnvironmentDebuffDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EnvironmentDebuffDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('equipment', AlgebraicType.createArrayType(__EquipmentDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'equipment',
+        AlgebraicType.createArrayType(
+          __EquipmentDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'extraction',
-        AlgebraicType.createArrayType(__ExtractionRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ExtractionRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'itemConversionRecipes',
-        AlgebraicType.createArrayType(__ItemConversionRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ItemConversionRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'knowledgeScrolls',
-        AlgebraicType.createArrayType(__KnowledgeScrollDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __KnowledgeScrollDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('lootChests', AlgebraicType.createArrayType(__LootChestDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('lootTables', AlgebraicType.createArrayType(__LootTableDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('paving', AlgebraicType.createArrayType(__PavingTileDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'lootChests',
+        AlgebraicType.createArrayType(
+          __LootChestDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'lootTables',
+        AlgebraicType.createArrayType(
+          __LootTableDesc.getTypeScriptAlgebraicType()
+        )
+      ),
+      new ProductTypeElement(
+        'paving',
+        AlgebraicType.createArrayType(
+          __PavingTileDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'pathfinding',
-        AlgebraicType.createArrayType(__PathfindingDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PathfindingDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'pillarShaping',
-        AlgebraicType.createArrayType(__PillarShapingDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PillarShapingDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('resources', AlgebraicType.createArrayType(__ResourceDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'resources',
+        AlgebraicType.createArrayType(
+          __ResourceDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'resourceClumps',
-        AlgebraicType.createArrayType(__ResourceClumpDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ResourceClumpDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'resourceGrowths',
-        AlgebraicType.createArrayType(__ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ResourceGrowthRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'resourcePlacements',
-        AlgebraicType.createArrayType(__ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ResourcePlacementRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'teleportItems',
-        AlgebraicType.createArrayType(__TeleportItemDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TeleportItemDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('tools', AlgebraicType.createArrayType(__ToolDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'tools',
+        AlgebraicType.createArrayType(__ToolDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'travelerTasks',
-        AlgebraicType.createArrayType(__TravelerTaskDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TravelerTaskDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'travelerTradeOrders',
-        AlgebraicType.createArrayType(__TravelerTradeOrderDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TravelerTradeOrderDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'deployables',
-        AlgebraicType.createArrayType(__DeployableDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DeployableDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('weapons', AlgebraicType.createArrayType(__WeaponDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'weapons',
+        AlgebraicType.createArrayType(__WeaponDesc.getTypeScriptAlgebraicType())
+      ),
       new ProductTypeElement(
         'onboardingRewards',
-        AlgebraicType.createArrayType(__OnboardingRewardDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __OnboardingRewardDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'terraformRecipes',
-        AlgebraicType.createArrayType(__TerraformRecipeDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __TerraformRecipeDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireNotifications',
-        AlgebraicType.createArrayType(__EmpireNotificationDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireNotificationDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireTerritories',
-        AlgebraicType.createArrayType(__EmpireTerritoryDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireTerritoryDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireColors',
-        AlgebraicType.createArrayType(__EmpireColorDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireColorDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'empireIcons',
-        AlgebraicType.createArrayType(__EmpireIconDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __EmpireIconDesc.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('walls', AlgebraicType.createArrayType(__WallDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('gates', AlgebraicType.createArrayType(__GateDesc.getTypeScriptAlgebraicType())),
-      new ProductTypeElement('elevators', AlgebraicType.createArrayType(__ElevatorDesc.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'walls',
+        AlgebraicType.createArrayType(__WallDesc.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'gates',
+        AlgebraicType.createArrayType(__GateDesc.getTypeScriptAlgebraicType())
+      ),
+      new ProductTypeElement(
+        'elevators',
+        AlgebraicType.createArrayType(
+          __ElevatorDesc.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement(
         'playerActions',
-        AlgebraicType.createArrayType(__PlayerActionDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PlayerActionDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'distantVisibileEntities',
-        AlgebraicType.createArrayType(__DistantVisibleEntityDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __DistantVisibleEntityDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'playerHousing',
-        AlgebraicType.createArrayType(__PlayerHousingDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __PlayerHousingDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'hexiteExchangeEntries',
-        AlgebraicType.createArrayType(__HexiteExchangeEntryDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __HexiteExchangeEntryDesc.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'reservedName',
-        AlgebraicType.createArrayType(__ReservedNameDesc.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ReservedNameDesc.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StaticDataUpload): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StaticDataUpload
+  ): void {
     StaticDataUpload.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

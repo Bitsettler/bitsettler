@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerCreateMsg = {
   identity: Identity
 }
@@ -20,10 +26,15 @@ export namespace PlayerCreateMsg {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('identity', AlgebraicType.createIdentityType())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('identity', AlgebraicType.createIdentityType())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerCreateMsg): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerCreateMsg
+  ): void {
     PlayerCreateMsg.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

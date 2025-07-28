@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type CappedLevelRequirement = {
   skillId: number
   minLevel: number
@@ -29,11 +34,16 @@ export namespace CappedLevelRequirement {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CappedLevelRequirement): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CappedLevelRequirement
+  ): void {
     CappedLevelRequirement.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): CappedLevelRequirement {
-    return CappedLevelRequirement.getTypeScriptAlgebraicType().deserialize(reader)
+    return CappedLevelRequirement.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

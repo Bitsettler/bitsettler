@@ -62,7 +62,9 @@ export class UserModerationStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: UserModerationState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: UserModerationState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class UserModerationStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: UserModerationState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: UserModerationState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: UserModerationState, newRow: UserModerationState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: UserModerationState,
+      newRow: UserModerationState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: UserModerationState, newRow: UserModerationState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: UserModerationState,
+      newRow: UserModerationState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

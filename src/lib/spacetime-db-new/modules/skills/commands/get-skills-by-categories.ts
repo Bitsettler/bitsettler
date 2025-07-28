@@ -6,5 +6,8 @@ import { getAllSkills } from './get-all-skills'
  */
 export function getSkillsByCategories(categories: string[]): SkillDesc[] {
   const allSkills = getAllSkills()
-  return allSkills.filter((skill) => skill.skillCategory && categories.includes(skill.skillCategory.tag))
+  return allSkills.filter(
+    (skill) =>
+      skill.skillCategory && categories.includes(skill.skillCategory.tag)
+  )
 }

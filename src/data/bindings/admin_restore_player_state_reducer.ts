@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type AdminRestorePlayerState = {
   username: string
@@ -32,19 +37,33 @@ export namespace AdminRestorePlayerState {
       new ProductTypeElement('username', AlgebraicType.createStringType()),
       new ProductTypeElement('restorePosition', AlgebraicType.createBoolType()),
       new ProductTypeElement('forceSignout', AlgebraicType.createBoolType()),
-      new ProductTypeElement('restoreAllDeployablesPositions', AlgebraicType.createBoolType()),
-      new ProductTypeElement('storeDeployables', AlgebraicType.createBoolType()),
+      new ProductTypeElement(
+        'restoreAllDeployablesPositions',
+        AlgebraicType.createBoolType()
+      ),
+      new ProductTypeElement(
+        'storeDeployables',
+        AlgebraicType.createBoolType()
+      ),
       new ProductTypeElement('clearCargo', AlgebraicType.createBoolType()),
       new ProductTypeElement('clearItems', AlgebraicType.createBoolType()),
       new ProductTypeElement('clearToolbelt', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminRestorePlayerState): void {
-    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminRestorePlayerState
+  ): void {
+    AdminRestorePlayerState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): AdminRestorePlayerState {
-    return AdminRestorePlayerState.getTypeScriptAlgebraicType().deserialize(reader)
+    return AdminRestorePlayerState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

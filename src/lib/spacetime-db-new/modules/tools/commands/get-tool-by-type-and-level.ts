@@ -5,12 +5,17 @@ import { getAllToolDescs } from './get-all-tool-descs'
 /**
  * Get a tool item by tool type and level
  */
-export function getToolByTypeAndLevel(toolType: number, level: number): ItemDesc | undefined {
+export function getToolByTypeAndLevel(
+  toolType: number,
+  level: number
+): ItemDesc | undefined {
   const toolDescs = getAllToolDescs()
   const allItems = getAllItems()
 
   // Find tool with matching type and level
-  const toolDesc = toolDescs.find((tool) => tool.toolType === toolType && tool.level === level)
+  const toolDesc = toolDescs.find(
+    (tool) => tool.toolType === toolType && tool.level === level
+  )
 
   if (!toolDesc) {
     return undefined

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerUseElevatorTimer as __PlayerUseElevatorTimer } from './player_use_elevator_timer_type'
 
@@ -24,11 +29,17 @@ export namespace PlayerElevatorArrive {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PlayerUseElevatorTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PlayerUseElevatorTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerElevatorArrive): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerElevatorArrive
+  ): void {
     PlayerElevatorArrive.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

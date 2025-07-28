@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PassiveCraftStatus {
   // These are the generated variant types for each variant of the tagged union.
@@ -34,7 +39,10 @@ export namespace PassiveCraftStatus {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PassiveCraftStatus): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PassiveCraftStatus
+  ): void {
     PassiveCraftStatus.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -44,6 +52,9 @@ export namespace PassiveCraftStatus {
 }
 
 // The tagged union or sum type for the algebraic type `PassiveCraftStatus`.
-export type PassiveCraftStatus = PassiveCraftStatus.Queued | PassiveCraftStatus.Processing | PassiveCraftStatus.Complete
+export type PassiveCraftStatus =
+  | PassiveCraftStatus.Queued
+  | PassiveCraftStatus.Processing
+  | PassiveCraftStatus.Complete
 
 export default PassiveCraftStatus

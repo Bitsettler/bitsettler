@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type PlayerHousingChangeEntrance = {
   buildingEntityId: bigint
@@ -21,14 +26,26 @@ export namespace PlayerHousingChangeEntrance {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerHousingChangeEntrance): void {
-    PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerHousingChangeEntrance
+  ): void {
+    PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerHousingChangeEntrance {
-    return PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerHousingChangeEntrance {
+    return PlayerHousingChangeEntrance.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

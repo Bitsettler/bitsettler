@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
 import { WorldGenBiomesMapDefinition as __WorldGenBiomesMapDefinition } from './world_gen_biomes_map_definition_type'
 import { WorldGenBuildingsMapDefinition as __WorldGenBuildingsMapDefinition } from './world_gen_buildings_map_definition_type'
@@ -37,23 +42,52 @@ export namespace WorldGenWorldDefinition {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('size', __WorldGenVector2Int.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('landCurve', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'size',
+        __WorldGenVector2Int.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'landCurve',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('noiseInfluence', AlgebraicType.createF32Type()),
       new ProductTypeElement('seaLevel', AlgebraicType.createI32Type()),
-      new ProductTypeElement('worldMap', __WorldGenWorldMapDefinition.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('biomesMap', __WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('mountainsMap', __WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('buildingsMap', __WorldGenBuildingsMapDefinition.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('resourcesMap', __WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'worldMap',
+        __WorldGenWorldMapDefinition.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'biomesMap',
+        __WorldGenBiomesMapDefinition.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'mountainsMap',
+        __WorldGenMountainsMapDefinition.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'buildingsMap',
+        __WorldGenBuildingsMapDefinition.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'resourcesMap',
+        __WorldGenResourcesMapDefinition.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenWorldDefinition): void {
-    WorldGenWorldDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenWorldDefinition
+  ): void {
+    WorldGenWorldDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): WorldGenWorldDefinition {
-    return WorldGenWorldDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenWorldDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

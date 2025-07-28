@@ -74,11 +74,23 @@ export class OnboardingStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: OnboardingState, newRow: OnboardingState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: OnboardingState,
+      newRow: OnboardingState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: OnboardingState, newRow: OnboardingState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: OnboardingState,
+      newRow: OnboardingState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

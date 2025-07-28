@@ -40,12 +40,21 @@ export namespace PassiveCraftState {
       new ProductTypeElement('recipeId', AlgebraicType.createI32Type()),
       new ProductTypeElement('buildingEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('timestamp', AlgebraicType.createTimestampType()),
-      new ProductTypeElement('status', __PassiveCraftStatus.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('slot', AlgebraicType.createOptionType(AlgebraicType.createU32Type()))
+      new ProductTypeElement(
+        'status',
+        __PassiveCraftStatus.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'slot',
+        AlgebraicType.createOptionType(AlgebraicType.createU32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PassiveCraftState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PassiveCraftState
+  ): void {
     PassiveCraftState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

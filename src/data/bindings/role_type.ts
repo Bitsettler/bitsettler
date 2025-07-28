@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace Role {
   // These are the generated variant types for each variant of the tagged union.
@@ -56,6 +61,13 @@ export namespace Role {
 }
 
 // The tagged union or sum type for the algebraic type `Role`.
-export type Role = Role.Player | Role.Partner | Role.SkipQueue | Role.Mod | Role.Gm | Role.Admin | Role.Relay
+export type Role =
+  | Role.Player
+  | Role.Partner
+  | Role.SkipQueue
+  | Role.Mod
+  | Role.Gm
+  | Role.Admin
+  | Role.Relay
 
 export default Role

@@ -75,11 +75,15 @@ export class AIDebugStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: AiDebugState, newRow: AiDebugState) => void) => {
+  onUpdate = (
+    cb: (ctx: EventContext, oldRow: AiDebugState, newRow: AiDebugState) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: AiDebugState, newRow: AiDebugState) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: AiDebugState, newRow: AiDebugState) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

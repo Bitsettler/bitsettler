@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { BuildingDespawnTimer as __BuildingDespawnTimer } from './building_despawn_timer_type'
 
@@ -24,11 +29,17 @@ export namespace BuildingDespawn {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __BuildingDespawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __BuildingDespawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingDespawn): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingDespawn
+  ): void {
     BuildingDespawn.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

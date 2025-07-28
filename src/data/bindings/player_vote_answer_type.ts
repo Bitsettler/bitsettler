@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace PlayerVoteAnswer {
   // These are the generated variant types for each variant of the tagged union.
@@ -34,7 +39,10 @@ export namespace PlayerVoteAnswer {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerVoteAnswer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerVoteAnswer
+  ): void {
     PlayerVoteAnswer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
@@ -44,6 +52,9 @@ export namespace PlayerVoteAnswer {
 }
 
 // The tagged union or sum type for the algebraic type `PlayerVoteAnswer`.
-export type PlayerVoteAnswer = PlayerVoteAnswer.None | PlayerVoteAnswer.No | PlayerVoteAnswer.Yes
+export type PlayerVoteAnswer =
+  | PlayerVoteAnswer.None
+  | PlayerVoteAnswer.No
+  | PlayerVoteAnswer.Yes
 
 export default PlayerVoteAnswer

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BuildingState = {
   entityId: bigint
   claimEntityId: bigint
@@ -28,8 +33,14 @@ export namespace BuildingState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('claimEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('directionIndex', AlgebraicType.createI32Type()),
-      new ProductTypeElement('buildingDescriptionId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('constructedByPlayerEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'buildingDescriptionId',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'constructedByPlayerEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { WorldGenWorldDefinition as __WorldGenWorldDefinition } from './world_gen_world_definition_type'
 
@@ -24,7 +29,10 @@ export namespace GenerateWorld {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('worldDefinition', __WorldGenWorldDefinition.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'worldDefinition',
+        __WorldGenWorldDefinition.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

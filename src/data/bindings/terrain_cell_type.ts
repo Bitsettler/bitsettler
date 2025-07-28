@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TerrainCell = {
   x: number
   z: number
@@ -37,7 +42,10 @@ export namespace TerrainCell {
       new ProductTypeElement('waterLevel', AlgebraicType.createI16Type()),
       new ProductTypeElement('biomes', AlgebraicType.createU32Type()),
       new ProductTypeElement('biomeDensity', AlgebraicType.createU32Type()),
-      new ProductTypeElement('originalElevation', AlgebraicType.createI16Type()),
+      new ProductTypeElement(
+        'originalElevation',
+        AlgebraicType.createI16Type()
+      ),
       new ProductTypeElement('zoningType', AlgebraicType.createU8Type()),
       new ProductTypeElement('waterBodyType', AlgebraicType.createU8Type())
     ])

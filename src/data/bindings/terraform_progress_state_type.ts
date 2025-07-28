@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TerraformProgressState = {
   entityId: bigint
   finalHeightTarget: number
@@ -25,17 +30,25 @@ export namespace TerraformProgressState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('finalHeightTarget', AlgebraicType.createI16Type()),
+      new ProductTypeElement(
+        'finalHeightTarget',
+        AlgebraicType.createI16Type()
+      ),
       new ProductTypeElement('nextHeightTarget', AlgebraicType.createI16Type()),
       new ProductTypeElement('progress', AlgebraicType.createI32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TerraformProgressState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TerraformProgressState
+  ): void {
     TerraformProgressState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): TerraformProgressState {
-    return TerraformProgressState.getTypeScriptAlgebraicType().deserialize(reader)
+    return TerraformProgressState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

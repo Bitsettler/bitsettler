@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ClaimRecruitmentState as __ClaimRecruitmentState } from './claim_recruitment_state_type'
 
@@ -26,16 +31,28 @@ export namespace ImportClaimRecruitmentState {
     return AlgebraicType.createProductType([
       new ProductTypeElement(
         'records',
-        AlgebraicType.createArrayType(__ClaimRecruitmentState.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __ClaimRecruitmentState.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportClaimRecruitmentState): void {
-    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportClaimRecruitmentState
+  ): void {
+    ImportClaimRecruitmentState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ImportClaimRecruitmentState {
-    return ImportClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ImportClaimRecruitmentState {
+    return ImportClaimRecruitmentState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

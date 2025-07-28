@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type EmpireSiegeAddSuppliesMsg = {
   siegeEntityId: bigint
   playerEntityId: bigint
@@ -31,11 +36,19 @@ export namespace EmpireSiegeAddSuppliesMsg {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EmpireSiegeAddSuppliesMsg): void {
-    EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: EmpireSiegeAddSuppliesMsg
+  ): void {
+    EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): EmpireSiegeAddSuppliesMsg {
-    return EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType().deserialize(reader)
+    return EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

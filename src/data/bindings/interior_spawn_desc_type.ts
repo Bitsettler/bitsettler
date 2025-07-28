@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { EnemyType as __EnemyType } from './enemy_type_type'
 import { InteriorSpawnType as __InteriorSpawnType } from './interior_spawn_type_type'
 import { NpcType as __NpcType } from './npc_type_type'
@@ -42,24 +47,45 @@ export namespace InteriorSpawnDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('name', AlgebraicType.createStringType()),
-      new ProductTypeElement('interiorInstanceId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'interiorInstanceId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('spawnX', AlgebraicType.createI32Type()),
       new ProductTypeElement('spawnZ', AlgebraicType.createI32Type()),
       new ProductTypeElement('direction', AlgebraicType.createI32Type()),
-      new ProductTypeElement('spawnType', __InteriorSpawnType.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'spawnType',
+        __InteriorSpawnType.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('buildingId', AlgebraicType.createI32Type()),
       new ProductTypeElement('pavingId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('lootChests', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
+      new ProductTypeElement(
+        'lootChests',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
       new ProductTypeElement('resourceClumpId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('enemyType', __EnemyType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('travelerType', __NpcType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('travelerRuinEntityId', AlgebraicType.createI32Type()),
+      new ProductTypeElement(
+        'enemyType',
+        __EnemyType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'travelerType',
+        __NpcType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'travelerRuinEntityId',
+        AlgebraicType.createI32Type()
+      ),
       new ProductTypeElement('respawn', AlgebraicType.createBoolType()),
       new ProductTypeElement('collapseTrigger', AlgebraicType.createBoolType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: InteriorSpawnDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: InteriorSpawnDesc
+  ): void {
     InteriorSpawnDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 // A namespace for generated variants and helper functions.
 export namespace AlertType {
   // These are the generated variant types for each variant of the tagged union.
@@ -33,18 +38,35 @@ export namespace AlertType {
   export const DismissableTest = { tag: 'DismissableTest' }
   export const OutOfSupplies = { tag: 'OutOfSupplies' }
   export const OutOfSuppliesInOneTick = { tag: 'OutOfSuppliesInOneTick' }
-  export const OutOfSuppliesInTwelveTicks = { tag: 'OutOfSuppliesInTwelveTicks' }
+  export const OutOfSuppliesInTwelveTicks = {
+    tag: 'OutOfSuppliesInTwelveTicks'
+  }
   export const NewLostItems = { tag: 'NewLostItems' }
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
       new SumTypeVariant('None', AlgebraicType.createProductType([])),
-      new SumTypeVariant('EvictionWarning', AlgebraicType.createProductType([])),
-      new SumTypeVariant('EvictionStatement', AlgebraicType.createProductType([])),
-      new SumTypeVariant('DismissableTest', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'EvictionWarning',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'EvictionStatement',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'DismissableTest',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('OutOfSupplies', AlgebraicType.createProductType([])),
-      new SumTypeVariant('OutOfSuppliesInOneTick', AlgebraicType.createProductType([])),
-      new SumTypeVariant('OutOfSuppliesInTwelveTicks', AlgebraicType.createProductType([])),
+      new SumTypeVariant(
+        'OutOfSuppliesInOneTick',
+        AlgebraicType.createProductType([])
+      ),
+      new SumTypeVariant(
+        'OutOfSuppliesInTwelveTicks',
+        AlgebraicType.createProductType([])
+      ),
       new SumTypeVariant('NewLostItems', AlgebraicType.createProductType([]))
     ])
   }

@@ -1,6 +1,15 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { cleanIconAssetName, getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import {
+  cleanIconAssetName,
+  getServerIconPath
+} from '@/lib/spacetime-db-new/shared/assets'
 import Image from 'next/image'
 
 interface ItemCategory {
@@ -20,7 +29,9 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
             <div className="flex items-center gap-3">
               <div className="bg-muted flex h-16 w-16 items-center justify-center rounded-lg">
                 <Image
-                  src={getServerIconPath(cleanIconAssetName(category.iconAssetName))}
+                  src={getServerIconPath(
+                    cleanIconAssetName(category.iconAssetName)
+                  )}
                   alt={category.name}
                   width={44}
                   height={44}
@@ -28,13 +39,17 @@ function ItemCategoryCard({ category }: { category: ItemCategory }) {
                 />
               </div>
               <div>
-                <CardTitle className="group-hover:text-primary text-lg transition-colors">{category.name}</CardTitle>
+                <CardTitle className="group-hover:text-primary text-lg transition-colors">
+                  {category.name}
+                </CardTitle>
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 flex-col justify-between">
-          <CardDescription className="line-clamp-3 text-sm">{category.description}</CardDescription>
+          <CardDescription className="line-clamp-3 text-sm">
+            {category.description}
+          </CardDescription>
         </CardContent>
       </Card>
     </Link>
@@ -61,7 +76,8 @@ export function EquipmentSection() {
       id: 'tools',
       name: 'Tools',
       description: 'Essential tools for crafting, gathering, and building',
-      iconAssetName: 'GeneratedIcons/Other/GeneratedIcons/Items/Tools/RathiumHammer',
+      iconAssetName:
+        'GeneratedIcons/Other/GeneratedIcons/Items/Tools/RathiumHammer',
       href: '/compendium/tools'
     },
     {
@@ -77,7 +93,9 @@ export function EquipmentSection() {
     <div className="space-y-8">
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Equipment & Collectibles</h2>
-        <p className="text-muted-foreground">Browse equipment categories by type</p>
+        <p className="text-muted-foreground">
+          Browse equipment categories by type
+        </p>
       </div>
       <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {equipmentCategories.map((category) => (

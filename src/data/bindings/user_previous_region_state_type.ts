@@ -6,7 +6,13 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, Identity, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  Identity,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { FloatHexTileMessage as __FloatHexTileMessage } from './float_hex_tile_message_type'
 
 export type UserPreviousRegionState = {
@@ -28,18 +34,32 @@ export namespace UserPreviousRegionState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('identity', AlgebraicType.createIdentityType()),
-      new ProductTypeElement('previousRegionLocation', __FloatHexTileMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'previousRegionLocation',
+        __FloatHexTileMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('withVehicle', AlgebraicType.createBoolType()),
       new ProductTypeElement('allowCancel', AlgebraicType.createBoolType()),
-      new ProductTypeElement('teleportEnergyCost', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'teleportEnergyCost',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UserPreviousRegionState): void {
-    UserPreviousRegionState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: UserPreviousRegionState
+  ): void {
+    UserPreviousRegionState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): UserPreviousRegionState {
-    return UserPreviousRegionState.getTypeScriptAlgebraicType().deserialize(reader)
+    return UserPreviousRegionState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

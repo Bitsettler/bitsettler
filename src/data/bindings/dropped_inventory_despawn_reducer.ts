@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { DroppedInventoryDespawnTimer as __DroppedInventoryDespawnTimer } from './dropped_inventory_despawn_timer_type'
 
@@ -24,15 +29,26 @@ export namespace DroppedInventoryDespawn {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __DroppedInventoryDespawnTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DroppedInventoryDespawn): void {
-    DroppedInventoryDespawn.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DroppedInventoryDespawn
+  ): void {
+    DroppedInventoryDespawn.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): DroppedInventoryDespawn {
-    return DroppedInventoryDespawn.getTypeScriptAlgebraicType().deserialize(reader)
+    return DroppedInventoryDespawn.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

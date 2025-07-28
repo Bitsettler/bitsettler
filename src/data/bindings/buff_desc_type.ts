@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { CsvStatEntry as __CsvStatEntry } from './csv_stat_entry_type'
 import { VfxAttachmentPoint as __VfxAttachmentPoint } from './vfx_attachment_point_type'
 
@@ -44,9 +49,17 @@ export namespace BuffDesc {
       new ProductTypeElement('onlineTimestamp', AlgebraicType.createBoolType()),
       new ProductTypeElement('beneficial', AlgebraicType.createBoolType()),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
-      new ProductTypeElement('stats', AlgebraicType.createArrayType(__CsvStatEntry.getTypeScriptAlgebraicType())),
+      new ProductTypeElement(
+        'stats',
+        AlgebraicType.createArrayType(
+          __CsvStatEntry.getTypeScriptAlgebraicType()
+        )
+      ),
       new ProductTypeElement('vfx', AlgebraicType.createStringType()),
-      new ProductTypeElement('vfxAttachmentPoint', __VfxAttachmentPoint.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'vfxAttachmentPoint',
+        __VfxAttachmentPoint.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

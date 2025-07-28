@@ -61,7 +61,9 @@ export class DistantVisibleEntityTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: DistantVisibleEntity) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: DistantVisibleEntity) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class DistantVisibleEntityTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: DistantVisibleEntity) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: DistantVisibleEntity) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DistantVisibleEntity, newRow: DistantVisibleEntity) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DistantVisibleEntity,
+      newRow: DistantVisibleEntity
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DistantVisibleEntity, newRow: DistantVisibleEntity) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: DistantVisibleEntity,
+      newRow: DistantVisibleEntity
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

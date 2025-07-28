@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { ResetChunkIndexTimer as __ResetChunkIndexTimer } from './reset_chunk_index_timer_type'
 
@@ -24,15 +29,28 @@ export namespace ResetChunkIndexWithDimension {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __ResetChunkIndexTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __ResetChunkIndexTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ResetChunkIndexWithDimension): void {
-    ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ResetChunkIndexWithDimension
+  ): void {
+    ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): ResetChunkIndexWithDimension {
-    return ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): ResetChunkIndexWithDimension {
+    return ResetChunkIndexWithDimension.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

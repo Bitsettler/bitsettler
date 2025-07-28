@@ -34,11 +34,19 @@ export namespace UserAuthenticationState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: UserAuthenticationState): void {
-    UserAuthenticationState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: UserAuthenticationState
+  ): void {
+    UserAuthenticationState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): UserAuthenticationState {
-    return UserAuthenticationState.getTypeScriptAlgebraicType().deserialize(reader)
+    return UserAuthenticationState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

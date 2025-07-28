@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type LightSourceState = {
   entityId: bigint
   radius: number
@@ -27,7 +32,10 @@ export namespace LightSourceState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: LightSourceState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: LightSourceState
+  ): void {
     LightSourceState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

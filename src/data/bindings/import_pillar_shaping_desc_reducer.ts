@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PillarShapingDesc as __PillarShapingDesc } from './pillar_shaping_desc_type'
 
@@ -24,15 +29,28 @@ export namespace ImportPillarShapingDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__PillarShapingDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __PillarShapingDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ImportPillarShapingDesc): void {
-    ImportPillarShapingDesc.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ImportPillarShapingDesc
+  ): void {
+    ImportPillarShapingDesc.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ImportPillarShapingDesc {
-    return ImportPillarShapingDesc.getTypeScriptAlgebraicType().deserialize(reader)
+    return ImportPillarShapingDesc.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

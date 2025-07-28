@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { SkillCategory as __SkillCategory } from './skill_category_type'
 
 export type SkillDesc = {
@@ -36,7 +41,10 @@ export namespace SkillDesc {
       new ProductTypeElement('description', AlgebraicType.createStringType()),
       new ProductTypeElement('iconAssetName', AlgebraicType.createStringType()),
       new ProductTypeElement('title', AlgebraicType.createStringType()),
-      new ProductTypeElement('skillCategory', __SkillCategory.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'skillCategory',
+        __SkillCategory.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('maxLevel', AlgebraicType.createI32Type())
     ])
   }

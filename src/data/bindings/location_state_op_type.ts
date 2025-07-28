@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { LocationState as __LocationState } from './location_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,29 @@ export namespace LocationStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __LocationState): LocationStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __LocationState): LocationStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __LocationState): LocationStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __LocationState): LocationStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __LocationState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant(
+        'Insert',
+        __LocationState.getTypeScriptAlgebraicType()
+      ),
       new SumTypeVariant('Delete', __LocationState.getTypeScriptAlgebraicType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: LocationStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: LocationStateOp
+  ): void {
     LocationStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type ChunkCoordinatesMessage = {
   x: number
   z: number
@@ -29,11 +34,19 @@ export namespace ChunkCoordinatesMessage {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ChunkCoordinatesMessage): void {
-    ChunkCoordinatesMessage.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: ChunkCoordinatesMessage
+  ): void {
+    ChunkCoordinatesMessage.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): ChunkCoordinatesMessage {
-    return ChunkCoordinatesMessage.getTypeScriptAlgebraicType().deserialize(reader)
+    return ChunkCoordinatesMessage.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

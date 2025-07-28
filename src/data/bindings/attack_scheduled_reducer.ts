@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AttackTimer as __AttackTimer } from './attack_timer_type'
 
@@ -24,11 +29,17 @@ export namespace AttackScheduled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __AttackTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __AttackTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AttackScheduled): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AttackScheduled
+  ): void {
     AttackScheduled.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

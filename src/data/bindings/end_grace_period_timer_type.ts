@@ -19,7 +19,9 @@ import { GracePeriodType as __GracePeriodType } from './grace_period_type_type'
 
 export type EndGracePeriodTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   identity: Identity
   gracePeriodType: __GracePeriodType
 }
@@ -35,13 +37,22 @@ export namespace EndGracePeriodTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('identity', AlgebraicType.createIdentityType()),
-      new ProductTypeElement('gracePeriodType', __GracePeriodType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'gracePeriodType',
+        __GracePeriodType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: EndGracePeriodTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: EndGracePeriodTimer
+  ): void {
     EndGracePeriodTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -18,7 +18,9 @@ import { EntityType as __EntityType } from './entity_type_type'
 
 export type AttackTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   attackerEntityId: bigint
   defenderEntityId: bigint
   combatActionId: number
@@ -37,12 +39,21 @@ export namespace AttackTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('attackerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('defenderEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('combatActionId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('attackerType', __EntityType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('defenderType', __EntityType.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'attackerType',
+        __EntityType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'defenderType',
+        __EntityType.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

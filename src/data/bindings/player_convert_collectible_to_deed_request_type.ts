@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerConvertCollectibleToDeedRequest = {
   vaultIndex: number
 }
@@ -20,14 +25,26 @@ export namespace PlayerConvertCollectibleToDeedRequest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('vaultIndex', AlgebraicType.createI32Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('vaultIndex', AlgebraicType.createI32Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerConvertCollectibleToDeedRequest): void {
-    PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerConvertCollectibleToDeedRequest
+  ): void {
+    PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerConvertCollectibleToDeedRequest {
-    return PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerConvertCollectibleToDeedRequest {
+    return PlayerConvertCollectibleToDeedRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

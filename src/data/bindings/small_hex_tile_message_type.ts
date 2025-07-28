@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type SmallHexTileMessage = {
   x: number
   z: number
@@ -29,7 +34,10 @@ export namespace SmallHexTileMessage {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: SmallHexTileMessage): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: SmallHexTileMessage
+  ): void {
     SmallHexTileMessage.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { GrowthLoopTimer as __GrowthLoopTimer } from './growth_loop_timer_type'
 
@@ -24,11 +29,17 @@ export namespace GrowthAgentLoop {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __GrowthLoopTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __GrowthLoopTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: GrowthAgentLoop): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: GrowthAgentLoop
+  ): void {
     GrowthAgentLoop.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

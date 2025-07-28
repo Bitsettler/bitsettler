@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PavingTileDesc as __PavingTileDesc } from './paving_tile_desc_type'
 
@@ -24,11 +29,19 @@ export namespace StagePavingTileDesc {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('records', AlgebraicType.createArrayType(__PavingTileDesc.getTypeScriptAlgebraicType()))
+      new ProductTypeElement(
+        'records',
+        AlgebraicType.createArrayType(
+          __PavingTileDesc.getTypeScriptAlgebraicType()
+        )
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StagePavingTileDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StagePavingTileDesc
+  ): void {
     StagePavingTileDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

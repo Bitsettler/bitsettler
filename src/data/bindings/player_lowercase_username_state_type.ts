@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerLowercaseUsernameState = {
   entityId: bigint
   usernameLowercase: string
@@ -23,15 +28,28 @@ export namespace PlayerLowercaseUsernameState {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('usernameLowercase', AlgebraicType.createStringType())
+      new ProductTypeElement(
+        'usernameLowercase',
+        AlgebraicType.createStringType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerLowercaseUsernameState): void {
-    PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerLowercaseUsernameState
+  ): void {
+    PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerLowercaseUsernameState {
-    return PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerLowercaseUsernameState {
+    return PlayerLowercaseUsernameState.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

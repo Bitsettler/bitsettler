@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type WeaponDesc = {
   itemId: number
   tier: number
@@ -33,7 +38,10 @@ export namespace WeaponDesc {
       new ProductTypeElement('minDamage', AlgebraicType.createI32Type()),
       new ProductTypeElement('maxDamage', AlgebraicType.createI32Type()),
       new ProductTypeElement('cooldown', AlgebraicType.createF32Type()),
-      new ProductTypeElement('staminaUseMultiplier', AlgebraicType.createF32Type())
+      new ProductTypeElement(
+        'staminaUseMultiplier',
+        AlgebraicType.createF32Type()
+      )
     ])
   }
 

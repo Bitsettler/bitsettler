@@ -5,8 +5,18 @@ import { createContext, useContext } from 'react'
 
 const GameDataContext = createContext<CalculatorGameData | null>(null)
 
-export function GameDataProvider({ children, gameData }: { children: React.ReactNode; gameData: CalculatorGameData }) {
-  return <GameDataContext.Provider value={gameData}>{children}</GameDataContext.Provider>
+export function GameDataProvider({
+  children,
+  gameData
+}: {
+  children: React.ReactNode
+  gameData: CalculatorGameData
+}) {
+  return (
+    <GameDataContext.Provider value={gameData}>
+      {children}
+    </GameDataContext.Provider>
+  )
 }
 
 export function useGameData() {

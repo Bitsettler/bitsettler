@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { OffsetCoordinatesSmallMessage as __OffsetCoordinatesSmallMessage } from './offset_coordinates_small_message_type'
 
@@ -28,7 +33,10 @@ export namespace BlueprintPlace {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('center', __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'center',
+        __OffsetCoordinatesSmallMessage.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('blueprintJson', AlgebraicType.createStringType()),
       new ProductTypeElement('settingsJson', AlgebraicType.createStringType()),
       new ProductTypeElement('rotation', AlgebraicType.createI32Type()),

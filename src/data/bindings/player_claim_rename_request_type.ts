@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type PlayerClaimRenameRequest = {
   claimEntityId: bigint
   claimName: string
@@ -27,11 +32,19 @@ export namespace PlayerClaimRenameRequest {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerClaimRenameRequest): void {
-    PlayerClaimRenameRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerClaimRenameRequest
+  ): void {
+    PlayerClaimRenameRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): PlayerClaimRenameRequest {
-    return PlayerClaimRenameRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerClaimRenameRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

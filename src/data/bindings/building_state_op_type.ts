@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { BuildingState as __BuildingState } from './building_state_type'
 
 // A namespace for generated variants and helper functions.
@@ -23,17 +28,29 @@ export namespace BuildingStateOp {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const Insert = (value: __BuildingState): BuildingStateOp => ({ tag: 'Insert', value })
-  export const Delete = (value: __BuildingState): BuildingStateOp => ({ tag: 'Delete', value })
+  export const Insert = (value: __BuildingState): BuildingStateOp => ({
+    tag: 'Insert',
+    value
+  })
+  export const Delete = (value: __BuildingState): BuildingStateOp => ({
+    tag: 'Delete',
+    value
+  })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('Insert', __BuildingState.getTypeScriptAlgebraicType()),
+      new SumTypeVariant(
+        'Insert',
+        __BuildingState.getTypeScriptAlgebraicType()
+      ),
       new SumTypeVariant('Delete', __BuildingState.getTypeScriptAlgebraicType())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: BuildingStateOp): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: BuildingStateOp
+  ): void {
     BuildingStateOp.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

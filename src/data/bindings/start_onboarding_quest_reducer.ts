@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 export type StartOnboardingQuest = {
   id: number
@@ -21,10 +26,15 @@ export namespace StartOnboardingQuest {
    * This function is derived from the AlgebraicType used to generate this type.
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
-    return AlgebraicType.createProductType([new ProductTypeElement('id', AlgebraicType.createU16Type())])
+    return AlgebraicType.createProductType([
+      new ProductTypeElement('id', AlgebraicType.createU16Type())
+    ])
   }
 
-  export function serialize(writer: BinaryWriter, value: StartOnboardingQuest): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: StartOnboardingQuest
+  ): void {
     StartOnboardingQuest.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -75,11 +75,19 @@ export class EquipmentDescTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EquipmentDesc, newRow: EquipmentDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EquipmentDesc,
+      newRow: EquipmentDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EquipmentDesc, newRow: EquipmentDesc) => void) => {
+  removeOnUpdate = (
+    cb: (ctx: EventContext, onRow: EquipmentDesc, newRow: EquipmentDesc) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

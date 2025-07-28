@@ -62,7 +62,9 @@ export class EnvironmentDebuffDescTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: EnvironmentDebuffDesc) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: EnvironmentDebuffDesc) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -70,16 +72,30 @@ export class EnvironmentDebuffDescTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: EnvironmentDebuffDesc) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: EnvironmentDebuffDesc) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: EnvironmentDebuffDesc, newRow: EnvironmentDebuffDesc) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: EnvironmentDebuffDesc,
+      newRow: EnvironmentDebuffDesc
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: EnvironmentDebuffDesc, newRow: EnvironmentDebuffDesc) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: EnvironmentDebuffDesc,
+      newRow: EnvironmentDebuffDesc
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

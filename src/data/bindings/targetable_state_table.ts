@@ -74,11 +74,23 @@ export class TargetableStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: TargetableState, newRow: TargetableState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: TargetableState,
+      newRow: TargetableState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: TargetableState, newRow: TargetableState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: TargetableState,
+      newRow: TargetableState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

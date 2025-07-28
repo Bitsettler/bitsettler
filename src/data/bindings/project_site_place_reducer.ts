@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerProjectSitePlaceRequest as __PlayerProjectSitePlaceRequest } from './player_project_site_place_request_type'
 
@@ -24,11 +29,17 @@ export namespace ProjectSitePlace {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerProjectSitePlaceRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerProjectSitePlaceRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: ProjectSitePlace): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: ProjectSitePlace
+  ): void {
     ProjectSitePlace.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

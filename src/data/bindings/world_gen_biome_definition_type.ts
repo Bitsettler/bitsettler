@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { WorldGenAnimationCurve as __WorldGenAnimationCurve } from './world_gen_animation_curve_type'
 import { WorldGenNoiseBasedElevationLayer as __WorldGenNoiseBasedElevationLayer } from './world_gen_noise_based_elevation_layer_type'
 import { WorldGenNoiseSpecs as __WorldGenNoiseSpecs } from './world_gen_noise_specs_type'
@@ -39,34 +44,67 @@ export namespace WorldGenBiomeDefinition {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('distanceToSeaCurve', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('distanceToBiomesCurve', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'distanceToSeaCurve',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'distanceToBiomesCurve',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('transitionLength', AlgebraicType.createI32Type()),
-      new ProductTypeElement('noiseSeaMultiplier', __WorldGenAnimationCurve.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'noiseSeaMultiplier',
+        __WorldGenAnimationCurve.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement(
         'noiseBasedElevationLayers',
-        AlgebraicType.createArrayType(__WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType())
+        AlgebraicType.createArrayType(
+          __WorldGenNoiseBasedElevationLayer.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('maxLakeDepth', AlgebraicType.createI32Type()),
       new ProductTypeElement('terracing', AlgebraicType.createBoolType()),
       new ProductTypeElement('grassDensity', AlgebraicType.createI32Type()),
-      new ProductTypeElement('lakeNoiseSpecs', __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('lakeNoiseThreshold', AlgebraicType.createF32Type()),
-      new ProductTypeElement('lakeDepthMultiplier', AlgebraicType.createI32Type()),
-      new ProductTypeElement('lakeDepthSmoothing', AlgebraicType.createF32Type()),
+      new ProductTypeElement(
+        'lakeNoiseSpecs',
+        __WorldGenNoiseSpecs.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'lakeNoiseThreshold',
+        AlgebraicType.createF32Type()
+      ),
+      new ProductTypeElement(
+        'lakeDepthMultiplier',
+        AlgebraicType.createI32Type()
+      ),
+      new ProductTypeElement(
+        'lakeDepthSmoothing',
+        AlgebraicType.createF32Type()
+      ),
       new ProductTypeElement('lakeSeaBarriers', AlgebraicType.createBoolType()),
       new ProductTypeElement(
         'riverGenerationSettings',
-        AlgebraicType.createOptionType(__WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __WorldGenRiverGenerationSettings.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: WorldGenBiomeDefinition): void {
-    WorldGenBiomeDefinition.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: WorldGenBiomeDefinition
+  ): void {
+    WorldGenBiomeDefinition.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): WorldGenBiomeDefinition {
-    return WorldGenBiomeDefinition.getTypeScriptAlgebraicType().deserialize(reader)
+    return WorldGenBiomeDefinition.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

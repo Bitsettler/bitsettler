@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { CheatDiscoverMapRequest as __CheatDiscoverMapRequest } from './cheat_discover_map_request_type'
 
@@ -24,11 +29,17 @@ export namespace CheatDiscoverMap {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __CheatDiscoverMapRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __CheatDiscoverMapRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatDiscoverMap): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatDiscoverMap
+  ): void {
     CheatDiscoverMap.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

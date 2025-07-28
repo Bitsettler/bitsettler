@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { PlayerActionLayer as __PlayerActionLayer } from './player_action_layer_type'
 import { PlayerActionResult as __PlayerActionResult } from './player_action_result_type'
 import { PlayerActionType as __PlayerActionType } from './player_action_type_type'
@@ -41,17 +46,35 @@ export namespace PlayerActionState {
       new ProductTypeElement('entityId', AlgebraicType.createU64Type()),
       new ProductTypeElement('startTime', AlgebraicType.createU64Type()),
       new ProductTypeElement('duration', AlgebraicType.createU64Type()),
-      new ProductTypeElement('target', AlgebraicType.createOptionType(AlgebraicType.createU64Type())),
-      new ProductTypeElement('recipeId', AlgebraicType.createOptionType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('actionType', __PlayerActionType.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('layer', __PlayerActionLayer.getTypeScriptAlgebraicType()),
-      new ProductTypeElement('lastActionResult', __PlayerActionResult.getTypeScriptAlgebraicType()),
+      new ProductTypeElement(
+        'target',
+        AlgebraicType.createOptionType(AlgebraicType.createU64Type())
+      ),
+      new ProductTypeElement(
+        'recipeId',
+        AlgebraicType.createOptionType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'actionType',
+        __PlayerActionType.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'layer',
+        __PlayerActionLayer.getTypeScriptAlgebraicType()
+      ),
+      new ProductTypeElement(
+        'lastActionResult',
+        __PlayerActionResult.getTypeScriptAlgebraicType()
+      ),
       new ProductTypeElement('clientCancel', AlgebraicType.createBoolType()),
       new ProductTypeElement('pad', AlgebraicType.createU32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerActionState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerActionState
+  ): void {
     PlayerActionState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, SumTypeVariant } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  SumTypeVariant
+} from '@clockworklabs/spacetimedb-sdk'
 import { AdminBroadcastMessageMsg as __AdminBroadcastMessageMsg } from './admin_broadcast_message_msg_type'
 import { ClaimCreateEmpireSettlementMsg as __ClaimCreateEmpireSettlementMsg } from './claim_create_empire_settlement_msg_type'
 import { DeleteEmpireMsg as __DeleteEmpireMsg } from './delete_empire_msg_type'
@@ -43,39 +48,120 @@ export namespace MessageContents {
   // These are the generated variant types for each variant of the tagged union.
   // One type is generated per variant and will be used in the `value` field of
   // the tagged union.
-  export type TableUpdate = { tag: 'TableUpdate'; value: __InterModuleTableUpdates }
-  export type TransferPlayerRequest = { tag: 'TransferPlayerRequest'; value: __TransferPlayerMsg }
-  export type TransferPlayerHousingRequest = { tag: 'TransferPlayerHousingRequest'; value: __TransferPlayerHousingMsg }
-  export type PlayerCreateRequest = { tag: 'PlayerCreateRequest'; value: __PlayerCreateMsg }
-  export type UserUpdateRegionRequest = { tag: 'UserUpdateRegionRequest'; value: __UserUpdateRegionMsg }
-  export type OnPlayerNameSetRequest = { tag: 'OnPlayerNameSetRequest'; value: __OnPlayerNameSetMsg }
+  export type TableUpdate = {
+    tag: 'TableUpdate'
+    value: __InterModuleTableUpdates
+  }
+  export type TransferPlayerRequest = {
+    tag: 'TransferPlayerRequest'
+    value: __TransferPlayerMsg
+  }
+  export type TransferPlayerHousingRequest = {
+    tag: 'TransferPlayerHousingRequest'
+    value: __TransferPlayerHousingMsg
+  }
+  export type PlayerCreateRequest = {
+    tag: 'PlayerCreateRequest'
+    value: __PlayerCreateMsg
+  }
+  export type UserUpdateRegionRequest = {
+    tag: 'UserUpdateRegionRequest'
+    value: __UserUpdateRegionMsg
+  }
+  export type OnPlayerNameSetRequest = {
+    tag: 'OnPlayerNameSetRequest'
+    value: __OnPlayerNameSetMsg
+  }
   export type ClaimCreateEmpireSettlementState = {
     tag: 'ClaimCreateEmpireSettlementState'
     value: __ClaimCreateEmpireSettlementMsg
   }
-  export type OnClaimMembersChanged = { tag: 'OnClaimMembersChanged'; value: __OnClaimMembersChangedMsg }
-  export type EmpireCreateBuilding = { tag: 'EmpireCreateBuilding'; value: __EmpireCreateBuildingMsg }
-  export type OnEmpireBuildingDeleted = { tag: 'OnEmpireBuildingDeleted'; value: __OnEmpireBuildingDeletedMsg }
-  export type GlobalDeleteEmpireBuilding = { tag: 'GlobalDeleteEmpireBuilding'; value: __GlobalDeleteEmpireBuildingMsg }
+  export type OnClaimMembersChanged = {
+    tag: 'OnClaimMembersChanged'
+    value: __OnClaimMembersChangedMsg
+  }
+  export type EmpireCreateBuilding = {
+    tag: 'EmpireCreateBuilding'
+    value: __EmpireCreateBuildingMsg
+  }
+  export type OnEmpireBuildingDeleted = {
+    tag: 'OnEmpireBuildingDeleted'
+    value: __OnEmpireBuildingDeletedMsg
+  }
+  export type GlobalDeleteEmpireBuilding = {
+    tag: 'GlobalDeleteEmpireBuilding'
+    value: __GlobalDeleteEmpireBuildingMsg
+  }
   export type DeleteEmpire = { tag: 'DeleteEmpire'; value: __DeleteEmpireMsg }
-  export type EmpireClaimJoin = { tag: 'EmpireClaimJoin'; value: __EmpireClaimJoinMsg }
-  export type EmpireResupplyNode = { tag: 'EmpireResupplyNode'; value: __EmpireResupplyNodeMsg }
-  export type EmpireCollectHexiteCapsule = { tag: 'EmpireCollectHexiteCapsule'; value: __EmpireCollectHexiteCapsuleMsg }
-  export type EmpireStartSiege = { tag: 'EmpireStartSiege'; value: __EmpireStartSiegeMsg }
-  export type EmpireSiegeAddSupplies = { tag: 'EmpireSiegeAddSupplies'; value: __EmpireSiegeAddSuppliesMsg }
-  export type OnPlayerJoinedEmpire = { tag: 'OnPlayerJoinedEmpire'; value: __OnPlayerJoinedEmpireMsg }
-  export type OnPlayerLeftEmpire = { tag: 'OnPlayerLeftEmpire'; value: __OnPlayerLeftEmpireMsg }
-  export type RegionDestroySiegeEngine = { tag: 'RegionDestroySiegeEngine'; value: __RegionDestroySiegeEngineMsg }
-  export type OnRegionPlayerCreated = { tag: 'OnRegionPlayerCreated'; value: __OnRegionPlayerCreatedMsg }
-  export type EmpireQueueSupplies = { tag: 'EmpireQueueSupplies'; value: __EmpireQueueSuppliesMsg }
-  export type EmpireUpdateEmperorCrown = { tag: 'EmpireUpdateEmperorCrown'; value: __EmpireUpdateEmperorCrownMsg }
-  export type EmpireRemoveCrown = { tag: 'EmpireRemoveCrown'; value: __EmpireRemoveCrownMsg }
-  export type SignPlayerOut = { tag: 'SignPlayerOut'; value: __SignPlayerOutMsg }
-  export type AdminBroadcastMessage = { tag: 'AdminBroadcastMessage'; value: __AdminBroadcastMessageMsg }
-  export type PlayerSkipQueue = { tag: 'PlayerSkipQueue'; value: __PlayerSkipQueueMsg }
+  export type EmpireClaimJoin = {
+    tag: 'EmpireClaimJoin'
+    value: __EmpireClaimJoinMsg
+  }
+  export type EmpireResupplyNode = {
+    tag: 'EmpireResupplyNode'
+    value: __EmpireResupplyNodeMsg
+  }
+  export type EmpireCollectHexiteCapsule = {
+    tag: 'EmpireCollectHexiteCapsule'
+    value: __EmpireCollectHexiteCapsuleMsg
+  }
+  export type EmpireStartSiege = {
+    tag: 'EmpireStartSiege'
+    value: __EmpireStartSiegeMsg
+  }
+  export type EmpireSiegeAddSupplies = {
+    tag: 'EmpireSiegeAddSupplies'
+    value: __EmpireSiegeAddSuppliesMsg
+  }
+  export type OnPlayerJoinedEmpire = {
+    tag: 'OnPlayerJoinedEmpire'
+    value: __OnPlayerJoinedEmpireMsg
+  }
+  export type OnPlayerLeftEmpire = {
+    tag: 'OnPlayerLeftEmpire'
+    value: __OnPlayerLeftEmpireMsg
+  }
+  export type RegionDestroySiegeEngine = {
+    tag: 'RegionDestroySiegeEngine'
+    value: __RegionDestroySiegeEngineMsg
+  }
+  export type OnRegionPlayerCreated = {
+    tag: 'OnRegionPlayerCreated'
+    value: __OnRegionPlayerCreatedMsg
+  }
+  export type EmpireQueueSupplies = {
+    tag: 'EmpireQueueSupplies'
+    value: __EmpireQueueSuppliesMsg
+  }
+  export type EmpireUpdateEmperorCrown = {
+    tag: 'EmpireUpdateEmperorCrown'
+    value: __EmpireUpdateEmperorCrownMsg
+  }
+  export type EmpireRemoveCrown = {
+    tag: 'EmpireRemoveCrown'
+    value: __EmpireRemoveCrownMsg
+  }
+  export type SignPlayerOut = {
+    tag: 'SignPlayerOut'
+    value: __SignPlayerOutMsg
+  }
+  export type AdminBroadcastMessage = {
+    tag: 'AdminBroadcastMessage'
+    value: __AdminBroadcastMessageMsg
+  }
+  export type PlayerSkipQueue = {
+    tag: 'PlayerSkipQueue'
+    value: __PlayerSkipQueueMsg
+  }
   export type GrantHubItem = { tag: 'GrantHubItem'; value: __GrantHubItemMsg }
-  export type RecoverDeployable = { tag: 'RecoverDeployable'; value: __RecoverDeployableMsg }
-  export type OnDeployableRecovered = { tag: 'OnDeployableRecovered'; value: __OnDeployableRecoveredMsg }
+  export type RecoverDeployable = {
+    tag: 'RecoverDeployable'
+    value: __RecoverDeployableMsg
+  }
+  export type OnDeployableRecovered = {
+    tag: 'OnDeployableRecovered'
+    value: __OnDeployableRecoveredMsg
+  }
 
   // Helper functions for constructing each variant of the tagged union.
   // ```
@@ -83,148 +169,300 @@ export namespace MessageContents {
   // assert!(foo.tag === "A");
   // assert!(foo.value === 42);
   // ```
-  export const TableUpdate = (value: __InterModuleTableUpdates): MessageContents => ({ tag: 'TableUpdate', value })
-  export const TransferPlayerRequest = (value: __TransferPlayerMsg): MessageContents => ({
+  export const TableUpdate = (
+    value: __InterModuleTableUpdates
+  ): MessageContents => ({ tag: 'TableUpdate', value })
+  export const TransferPlayerRequest = (
+    value: __TransferPlayerMsg
+  ): MessageContents => ({
     tag: 'TransferPlayerRequest',
     value
   })
-  export const TransferPlayerHousingRequest = (value: __TransferPlayerHousingMsg): MessageContents => ({
+  export const TransferPlayerHousingRequest = (
+    value: __TransferPlayerHousingMsg
+  ): MessageContents => ({
     tag: 'TransferPlayerHousingRequest',
     value
   })
-  export const PlayerCreateRequest = (value: __PlayerCreateMsg): MessageContents => ({
+  export const PlayerCreateRequest = (
+    value: __PlayerCreateMsg
+  ): MessageContents => ({
     tag: 'PlayerCreateRequest',
     value
   })
-  export const UserUpdateRegionRequest = (value: __UserUpdateRegionMsg): MessageContents => ({
+  export const UserUpdateRegionRequest = (
+    value: __UserUpdateRegionMsg
+  ): MessageContents => ({
     tag: 'UserUpdateRegionRequest',
     value
   })
-  export const OnPlayerNameSetRequest = (value: __OnPlayerNameSetMsg): MessageContents => ({
+  export const OnPlayerNameSetRequest = (
+    value: __OnPlayerNameSetMsg
+  ): MessageContents => ({
     tag: 'OnPlayerNameSetRequest',
     value
   })
-  export const ClaimCreateEmpireSettlementState = (value: __ClaimCreateEmpireSettlementMsg): MessageContents => ({
+  export const ClaimCreateEmpireSettlementState = (
+    value: __ClaimCreateEmpireSettlementMsg
+  ): MessageContents => ({
     tag: 'ClaimCreateEmpireSettlementState',
     value
   })
-  export const OnClaimMembersChanged = (value: __OnClaimMembersChangedMsg): MessageContents => ({
+  export const OnClaimMembersChanged = (
+    value: __OnClaimMembersChangedMsg
+  ): MessageContents => ({
     tag: 'OnClaimMembersChanged',
     value
   })
-  export const EmpireCreateBuilding = (value: __EmpireCreateBuildingMsg): MessageContents => ({
+  export const EmpireCreateBuilding = (
+    value: __EmpireCreateBuildingMsg
+  ): MessageContents => ({
     tag: 'EmpireCreateBuilding',
     value
   })
-  export const OnEmpireBuildingDeleted = (value: __OnEmpireBuildingDeletedMsg): MessageContents => ({
+  export const OnEmpireBuildingDeleted = (
+    value: __OnEmpireBuildingDeletedMsg
+  ): MessageContents => ({
     tag: 'OnEmpireBuildingDeleted',
     value
   })
-  export const GlobalDeleteEmpireBuilding = (value: __GlobalDeleteEmpireBuildingMsg): MessageContents => ({
+  export const GlobalDeleteEmpireBuilding = (
+    value: __GlobalDeleteEmpireBuildingMsg
+  ): MessageContents => ({
     tag: 'GlobalDeleteEmpireBuilding',
     value
   })
-  export const DeleteEmpire = (value: __DeleteEmpireMsg): MessageContents => ({ tag: 'DeleteEmpire', value })
-  export const EmpireClaimJoin = (value: __EmpireClaimJoinMsg): MessageContents => ({ tag: 'EmpireClaimJoin', value })
-  export const EmpireResupplyNode = (value: __EmpireResupplyNodeMsg): MessageContents => ({
+  export const DeleteEmpire = (value: __DeleteEmpireMsg): MessageContents => ({
+    tag: 'DeleteEmpire',
+    value
+  })
+  export const EmpireClaimJoin = (
+    value: __EmpireClaimJoinMsg
+  ): MessageContents => ({ tag: 'EmpireClaimJoin', value })
+  export const EmpireResupplyNode = (
+    value: __EmpireResupplyNodeMsg
+  ): MessageContents => ({
     tag: 'EmpireResupplyNode',
     value
   })
-  export const EmpireCollectHexiteCapsule = (value: __EmpireCollectHexiteCapsuleMsg): MessageContents => ({
+  export const EmpireCollectHexiteCapsule = (
+    value: __EmpireCollectHexiteCapsuleMsg
+  ): MessageContents => ({
     tag: 'EmpireCollectHexiteCapsule',
     value
   })
-  export const EmpireStartSiege = (value: __EmpireStartSiegeMsg): MessageContents => ({
+  export const EmpireStartSiege = (
+    value: __EmpireStartSiegeMsg
+  ): MessageContents => ({
     tag: 'EmpireStartSiege',
     value
   })
-  export const EmpireSiegeAddSupplies = (value: __EmpireSiegeAddSuppliesMsg): MessageContents => ({
+  export const EmpireSiegeAddSupplies = (
+    value: __EmpireSiegeAddSuppliesMsg
+  ): MessageContents => ({
     tag: 'EmpireSiegeAddSupplies',
     value
   })
-  export const OnPlayerJoinedEmpire = (value: __OnPlayerJoinedEmpireMsg): MessageContents => ({
+  export const OnPlayerJoinedEmpire = (
+    value: __OnPlayerJoinedEmpireMsg
+  ): MessageContents => ({
     tag: 'OnPlayerJoinedEmpire',
     value
   })
-  export const OnPlayerLeftEmpire = (value: __OnPlayerLeftEmpireMsg): MessageContents => ({
+  export const OnPlayerLeftEmpire = (
+    value: __OnPlayerLeftEmpireMsg
+  ): MessageContents => ({
     tag: 'OnPlayerLeftEmpire',
     value
   })
-  export const RegionDestroySiegeEngine = (value: __RegionDestroySiegeEngineMsg): MessageContents => ({
+  export const RegionDestroySiegeEngine = (
+    value: __RegionDestroySiegeEngineMsg
+  ): MessageContents => ({
     tag: 'RegionDestroySiegeEngine',
     value
   })
-  export const OnRegionPlayerCreated = (value: __OnRegionPlayerCreatedMsg): MessageContents => ({
+  export const OnRegionPlayerCreated = (
+    value: __OnRegionPlayerCreatedMsg
+  ): MessageContents => ({
     tag: 'OnRegionPlayerCreated',
     value
   })
-  export const EmpireQueueSupplies = (value: __EmpireQueueSuppliesMsg): MessageContents => ({
+  export const EmpireQueueSupplies = (
+    value: __EmpireQueueSuppliesMsg
+  ): MessageContents => ({
     tag: 'EmpireQueueSupplies',
     value
   })
-  export const EmpireUpdateEmperorCrown = (value: __EmpireUpdateEmperorCrownMsg): MessageContents => ({
+  export const EmpireUpdateEmperorCrown = (
+    value: __EmpireUpdateEmperorCrownMsg
+  ): MessageContents => ({
     tag: 'EmpireUpdateEmperorCrown',
     value
   })
-  export const EmpireRemoveCrown = (value: __EmpireRemoveCrownMsg): MessageContents => ({
+  export const EmpireRemoveCrown = (
+    value: __EmpireRemoveCrownMsg
+  ): MessageContents => ({
     tag: 'EmpireRemoveCrown',
     value
   })
-  export const SignPlayerOut = (value: __SignPlayerOutMsg): MessageContents => ({ tag: 'SignPlayerOut', value })
-  export const AdminBroadcastMessage = (value: __AdminBroadcastMessageMsg): MessageContents => ({
+  export const SignPlayerOut = (
+    value: __SignPlayerOutMsg
+  ): MessageContents => ({ tag: 'SignPlayerOut', value })
+  export const AdminBroadcastMessage = (
+    value: __AdminBroadcastMessageMsg
+  ): MessageContents => ({
     tag: 'AdminBroadcastMessage',
     value
   })
-  export const PlayerSkipQueue = (value: __PlayerSkipQueueMsg): MessageContents => ({ tag: 'PlayerSkipQueue', value })
-  export const GrantHubItem = (value: __GrantHubItemMsg): MessageContents => ({ tag: 'GrantHubItem', value })
-  export const RecoverDeployable = (value: __RecoverDeployableMsg): MessageContents => ({
+  export const PlayerSkipQueue = (
+    value: __PlayerSkipQueueMsg
+  ): MessageContents => ({ tag: 'PlayerSkipQueue', value })
+  export const GrantHubItem = (value: __GrantHubItemMsg): MessageContents => ({
+    tag: 'GrantHubItem',
+    value
+  })
+  export const RecoverDeployable = (
+    value: __RecoverDeployableMsg
+  ): MessageContents => ({
     tag: 'RecoverDeployable',
     value
   })
-  export const OnDeployableRecovered = (value: __OnDeployableRecoveredMsg): MessageContents => ({
+  export const OnDeployableRecovered = (
+    value: __OnDeployableRecoveredMsg
+  ): MessageContents => ({
     tag: 'OnDeployableRecovered',
     value
   })
 
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createSumType([
-      new SumTypeVariant('TableUpdate', __InterModuleTableUpdates.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('TransferPlayerRequest', __TransferPlayerMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('TransferPlayerHousingRequest', __TransferPlayerHousingMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('PlayerCreateRequest', __PlayerCreateMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('UserUpdateRegionRequest', __UserUpdateRegionMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnPlayerNameSetRequest', __OnPlayerNameSetMsg.getTypeScriptAlgebraicType()),
+      new SumTypeVariant(
+        'TableUpdate',
+        __InterModuleTableUpdates.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'TransferPlayerRequest',
+        __TransferPlayerMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'TransferPlayerHousingRequest',
+        __TransferPlayerHousingMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'PlayerCreateRequest',
+        __PlayerCreateMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'UserUpdateRegionRequest',
+        __UserUpdateRegionMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnPlayerNameSetRequest',
+        __OnPlayerNameSetMsg.getTypeScriptAlgebraicType()
+      ),
       new SumTypeVariant(
         'ClaimCreateEmpireSettlementState',
         __ClaimCreateEmpireSettlementMsg.getTypeScriptAlgebraicType()
       ),
-      new SumTypeVariant('OnClaimMembersChanged', __OnClaimMembersChangedMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireCreateBuilding', __EmpireCreateBuildingMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnEmpireBuildingDeleted', __OnEmpireBuildingDeletedMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('GlobalDeleteEmpireBuilding', __GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('DeleteEmpire', __DeleteEmpireMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireClaimJoin', __EmpireClaimJoinMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireResupplyNode', __EmpireResupplyNodeMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireCollectHexiteCapsule', __EmpireCollectHexiteCapsuleMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireStartSiege', __EmpireStartSiegeMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireSiegeAddSupplies', __EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnPlayerJoinedEmpire', __OnPlayerJoinedEmpireMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnPlayerLeftEmpire', __OnPlayerLeftEmpireMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('RegionDestroySiegeEngine', __RegionDestroySiegeEngineMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnRegionPlayerCreated', __OnRegionPlayerCreatedMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireQueueSupplies', __EmpireQueueSuppliesMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireUpdateEmperorCrown', __EmpireUpdateEmperorCrownMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('EmpireRemoveCrown', __EmpireRemoveCrownMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('SignPlayerOut', __SignPlayerOutMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('AdminBroadcastMessage', __AdminBroadcastMessageMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('PlayerSkipQueue', __PlayerSkipQueueMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('GrantHubItem', __GrantHubItemMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('RecoverDeployable', __RecoverDeployableMsg.getTypeScriptAlgebraicType()),
-      new SumTypeVariant('OnDeployableRecovered', __OnDeployableRecoveredMsg.getTypeScriptAlgebraicType())
+      new SumTypeVariant(
+        'OnClaimMembersChanged',
+        __OnClaimMembersChangedMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireCreateBuilding',
+        __EmpireCreateBuildingMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnEmpireBuildingDeleted',
+        __OnEmpireBuildingDeletedMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'GlobalDeleteEmpireBuilding',
+        __GlobalDeleteEmpireBuildingMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'DeleteEmpire',
+        __DeleteEmpireMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireClaimJoin',
+        __EmpireClaimJoinMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireResupplyNode',
+        __EmpireResupplyNodeMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireCollectHexiteCapsule',
+        __EmpireCollectHexiteCapsuleMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireStartSiege',
+        __EmpireStartSiegeMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireSiegeAddSupplies',
+        __EmpireSiegeAddSuppliesMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnPlayerJoinedEmpire',
+        __OnPlayerJoinedEmpireMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnPlayerLeftEmpire',
+        __OnPlayerLeftEmpireMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'RegionDestroySiegeEngine',
+        __RegionDestroySiegeEngineMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnRegionPlayerCreated',
+        __OnRegionPlayerCreatedMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireQueueSupplies',
+        __EmpireQueueSuppliesMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireUpdateEmperorCrown',
+        __EmpireUpdateEmperorCrownMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'EmpireRemoveCrown',
+        __EmpireRemoveCrownMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'SignPlayerOut',
+        __SignPlayerOutMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'AdminBroadcastMessage',
+        __AdminBroadcastMessageMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'PlayerSkipQueue',
+        __PlayerSkipQueueMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'GrantHubItem',
+        __GrantHubItemMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'RecoverDeployable',
+        __RecoverDeployableMsg.getTypeScriptAlgebraicType()
+      ),
+      new SumTypeVariant(
+        'OnDeployableRecovered',
+        __OnDeployableRecoveredMsg.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: MessageContents): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: MessageContents
+  ): void {
     MessageContents.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

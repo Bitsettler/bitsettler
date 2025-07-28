@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { EntityAttackRequest as __EntityAttackRequest } from './entity_attack_request_type'
 
@@ -24,7 +29,10 @@ export namespace AttackStart {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __EntityAttackRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __EntityAttackRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

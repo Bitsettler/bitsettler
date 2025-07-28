@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type CheatTeleportFloatRequest = {
@@ -27,16 +32,26 @@ export namespace CheatTeleportFloatRequest {
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'destination',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: CheatTeleportFloatRequest): void {
-    CheatTeleportFloatRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: CheatTeleportFloatRequest
+  ): void {
+    CheatTeleportFloatRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): CheatTeleportFloatRequest {
-    return CheatTeleportFloatRequest.getTypeScriptAlgebraicType().deserialize(reader)
+    return CheatTeleportFloatRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

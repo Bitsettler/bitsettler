@@ -61,7 +61,9 @@ export class SignedInPlayerStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: SignedInPlayerState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: SignedInPlayerState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class SignedInPlayerStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: SignedInPlayerState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: SignedInPlayerState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: SignedInPlayerState, newRow: SignedInPlayerState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: SignedInPlayerState,
+      newRow: SignedInPlayerState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: SignedInPlayerState, newRow: SignedInPlayerState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: SignedInPlayerState,
+      newRow: SignedInPlayerState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

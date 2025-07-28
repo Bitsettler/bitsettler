@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PlayerTradeDeclineSessionRequest as __PlayerTradeDeclineSessionRequest } from './player_trade_decline_session_request_type'
 
@@ -24,11 +29,17 @@ export namespace TradeDeclineSession {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('request', __PlayerTradeDeclineSessionRequest.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'request',
+        __PlayerTradeDeclineSessionRequest.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TradeDeclineSession): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TradeDeclineSession
+  ): void {
     TradeDeclineSession.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

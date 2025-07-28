@@ -74,11 +74,23 @@ export class DeployableStateTableHandle {
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: DeployableState, newRow: DeployableState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: DeployableState,
+      newRow: DeployableState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: DeployableState, newRow: DeployableState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: DeployableState,
+      newRow: DeployableState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

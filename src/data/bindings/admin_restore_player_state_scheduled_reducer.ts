@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { AdminRestorePlayerStateTimer as __AdminRestorePlayerStateTimer } from './admin_restore_player_state_timer_type'
 
@@ -24,15 +29,28 @@ export namespace AdminRestorePlayerStateScheduled {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __AdminRestorePlayerStateTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AdminRestorePlayerStateScheduled): void {
-    AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: AdminRestorePlayerStateScheduled
+  ): void {
+    AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): AdminRestorePlayerStateScheduled {
-    return AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): AdminRestorePlayerStateScheduled {
+    return AdminRestorePlayerStateScheduled.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

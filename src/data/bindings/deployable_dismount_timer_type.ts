@@ -18,7 +18,9 @@ import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coo
 
 export type DeployableDismountTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   deployableEntityId: bigint
   playerEntityId: bigint
   coordinates: __OffsetCoordinatesFloat | undefined
@@ -36,22 +38,41 @@ export namespace DeployableDismountTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'coordinates',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
-      new ProductTypeElement('skipDeployableIcon', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'skipDeployableIcon',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: DeployableDismountTimer): void {
-    DeployableDismountTimer.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: DeployableDismountTimer
+  ): void {
+    DeployableDismountTimer.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
   export function deserialize(reader: BinaryReader): DeployableDismountTimer {
-    return DeployableDismountTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return DeployableDismountTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

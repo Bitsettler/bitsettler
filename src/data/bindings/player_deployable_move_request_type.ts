@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { OffsetCoordinatesFloat as __OffsetCoordinatesFloat } from './offset_coordinates_float_type'
 
 export type PlayerDeployableMoveRequest = {
@@ -27,25 +32,42 @@ export namespace PlayerDeployableMoveRequest {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('deployableEntityId', AlgebraicType.createU64Type()),
+      new ProductTypeElement(
+        'deployableEntityId',
+        AlgebraicType.createU64Type()
+      ),
       new ProductTypeElement('timestamp', AlgebraicType.createU64Type()),
       new ProductTypeElement(
         'destination',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement(
         'origin',
-        AlgebraicType.createOptionType(__OffsetCoordinatesFloat.getTypeScriptAlgebraicType())
+        AlgebraicType.createOptionType(
+          __OffsetCoordinatesFloat.getTypeScriptAlgebraicType()
+        )
       ),
       new ProductTypeElement('duration', AlgebraicType.createF32Type())
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerDeployableMoveRequest): void {
-    PlayerDeployableMoveRequest.getTypeScriptAlgebraicType().serialize(writer, value)
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerDeployableMoveRequest
+  ): void {
+    PlayerDeployableMoveRequest.getTypeScriptAlgebraicType().serialize(
+      writer,
+      value
+    )
   }
 
-  export function deserialize(reader: BinaryReader): PlayerDeployableMoveRequest {
-    return PlayerDeployableMoveRequest.getTypeScriptAlgebraicType().deserialize(reader)
+  export function deserialize(
+    reader: BinaryReader
+  ): PlayerDeployableMoveRequest {
+    return PlayerDeployableMoveRequest.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

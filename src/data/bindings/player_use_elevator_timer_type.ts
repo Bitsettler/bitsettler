@@ -16,7 +16,9 @@ import {
 } from '@clockworklabs/spacetimedb-sdk'
 export type PlayerUseElevatorTimer = {
   scheduledId: bigint
-  scheduledAt: { tag: 'Interval'; value: TimeDuration } | { tag: 'Time'; value: Timestamp }
+  scheduledAt:
+    | { tag: 'Interval'; value: TimeDuration }
+    | { tag: 'Time'; value: Timestamp }
   playerEntityId: bigint
   originPlatformEntityId: bigint
   destinationPlatformEntityId: bigint
@@ -33,18 +35,32 @@ export namespace PlayerUseElevatorTimer {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('scheduledId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('scheduledAt', AlgebraicType.createScheduleAtType()),
+      new ProductTypeElement(
+        'scheduledAt',
+        AlgebraicType.createScheduleAtType()
+      ),
       new ProductTypeElement('playerEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('originPlatformEntityId', AlgebraicType.createU64Type()),
-      new ProductTypeElement('destinationPlatformEntityId', AlgebraicType.createU64Type())
+      new ProductTypeElement(
+        'originPlatformEntityId',
+        AlgebraicType.createU64Type()
+      ),
+      new ProductTypeElement(
+        'destinationPlatformEntityId',
+        AlgebraicType.createU64Type()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PlayerUseElevatorTimer): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PlayerUseElevatorTimer
+  ): void {
     PlayerUseElevatorTimer.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
   export function deserialize(reader: BinaryReader): PlayerUseElevatorTimer {
-    return PlayerUseElevatorTimer.getTypeScriptAlgebraicType().deserialize(reader)
+    return PlayerUseElevatorTimer.getTypeScriptAlgebraicType().deserialize(
+      reader
+    )
   }
 }

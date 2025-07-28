@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type BiomeDesc = {
   biomeType: number
   name: string
@@ -31,7 +36,10 @@ export namespace BiomeDesc {
       new ProductTypeElement('description', AlgebraicType.createStringType()),
       new ProductTypeElement('hazardLevel', AlgebraicType.createStringType()),
       new ProductTypeElement('iconAddress', AlgebraicType.createStringType()),
-      new ProductTypeElement('disallowPlayerBuild', AlgebraicType.createBoolType())
+      new ProductTypeElement(
+        'disallowPlayerBuild',
+        AlgebraicType.createBoolType()
+      )
     ])
   }
 

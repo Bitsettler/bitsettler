@@ -61,7 +61,9 @@ export class MobileEntityStateTableHandle {
     return this.tableCache.onInsert(cb)
   }
 
-  removeOnInsert = (cb: (ctx: EventContext, row: MobileEntityState) => void) => {
+  removeOnInsert = (
+    cb: (ctx: EventContext, row: MobileEntityState) => void
+  ) => {
     return this.tableCache.removeOnInsert(cb)
   }
 
@@ -69,16 +71,30 @@ export class MobileEntityStateTableHandle {
     return this.tableCache.onDelete(cb)
   }
 
-  removeOnDelete = (cb: (ctx: EventContext, row: MobileEntityState) => void) => {
+  removeOnDelete = (
+    cb: (ctx: EventContext, row: MobileEntityState) => void
+  ) => {
     return this.tableCache.removeOnDelete(cb)
   }
 
   // Updates are only defined for tables with primary keys.
-  onUpdate = (cb: (ctx: EventContext, oldRow: MobileEntityState, newRow: MobileEntityState) => void) => {
+  onUpdate = (
+    cb: (
+      ctx: EventContext,
+      oldRow: MobileEntityState,
+      newRow: MobileEntityState
+    ) => void
+  ) => {
     return this.tableCache.onUpdate(cb)
   }
 
-  removeOnUpdate = (cb: (ctx: EventContext, onRow: MobileEntityState, newRow: MobileEntityState) => void) => {
+  removeOnUpdate = (
+    cb: (
+      ctx: EventContext,
+      onRow: MobileEntityState,
+      newRow: MobileEntityState
+    ) => void
+  ) => {
     return this.tableCache.removeOnUpdate(cb)
   }
 }

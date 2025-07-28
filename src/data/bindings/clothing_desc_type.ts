@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 import { ClothingMask as __ClothingMask } from './clothing_mask_type'
 
 export type ClothingDesc = {
@@ -25,7 +30,10 @@ export namespace ClothingDesc {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement('itemId', AlgebraicType.createI32Type()),
-      new ProductTypeElement('mask', __ClothingMask.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'mask',
+        __ClothingMask.getTypeScriptAlgebraicType()
+      )
     ])
   }
 

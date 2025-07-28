@@ -47,7 +47,10 @@ export namespace AuctionListingState {
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: AuctionListingState): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: AuctionListingState
+  ): void {
     AuctionListingState.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

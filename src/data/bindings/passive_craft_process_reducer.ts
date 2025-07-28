@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 
 import { PassiveCraftTimer as __PassiveCraftTimer } from './passive_craft_timer_type'
 
@@ -24,11 +29,17 @@ export namespace PassiveCraftProcess {
    */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement('timer', __PassiveCraftTimer.getTypeScriptAlgebraicType())
+      new ProductTypeElement(
+        'timer',
+        __PassiveCraftTimer.getTypeScriptAlgebraicType()
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: PassiveCraftProcess): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: PassiveCraftProcess
+  ): void {
     PassiveCraftProcess.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 

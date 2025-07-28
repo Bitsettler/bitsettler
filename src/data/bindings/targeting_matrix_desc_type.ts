@@ -6,7 +6,12 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { AlgebraicType, BinaryReader, BinaryWriter, ProductTypeElement } from '@clockworklabs/spacetimedb-sdk'
+import {
+  AlgebraicType,
+  BinaryReader,
+  BinaryWriter,
+  ProductTypeElement
+} from '@clockworklabs/spacetimedb-sdk'
 export type TargetingMatrixDesc = {
   id: number
   interact: boolean
@@ -26,12 +31,21 @@ export namespace TargetingMatrixDesc {
     return AlgebraicType.createProductType([
       new ProductTypeElement('id', AlgebraicType.createI32Type()),
       new ProductTypeElement('interact', AlgebraicType.createBoolType()),
-      new ProductTypeElement('categoriesAttacked', AlgebraicType.createArrayType(AlgebraicType.createI32Type())),
-      new ProductTypeElement('categoriesWeights', AlgebraicType.createArrayType(AlgebraicType.createF32Type()))
+      new ProductTypeElement(
+        'categoriesAttacked',
+        AlgebraicType.createArrayType(AlgebraicType.createI32Type())
+      ),
+      new ProductTypeElement(
+        'categoriesWeights',
+        AlgebraicType.createArrayType(AlgebraicType.createF32Type())
+      )
     ])
   }
 
-  export function serialize(writer: BinaryWriter, value: TargetingMatrixDesc): void {
+  export function serialize(
+    writer: BinaryWriter,
+    value: TargetingMatrixDesc
+  ): void {
     TargetingMatrixDesc.getTypeScriptAlgebraicType().serialize(writer, value)
   }
 
