@@ -15,8 +15,10 @@ export interface SettlementSyncResult {
 /**
  * Sync master settlements list from BitJita API to local database
  * This enables fast local search without hitting BitJita API for every search
+ * 
+ * @param mode - 'full' for complete sync, 'incremental' for checking just new settlements
  */
-export async function syncSettlementsMaster(): Promise<SettlementSyncResult> {
+export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full'): Promise<SettlementSyncResult> {
   const startTime = Date.now();
   let settlementsAdded = 0;
   let settlementsUpdated = 0;
@@ -39,8 +41,8 @@ export async function syncSettlementsMaster(): Promise<SettlementSyncResult> {
 
     console.log('🔄 Starting settlements master list sync...');
     
-    // Fetch all settlements from BitJita
-    const fetchResult = await BitJitaAPI.fetchAllSettlementsForSync();
+    // Fetch settlements from BitJita (full or incremental mode)
+    const fetchResult = await BitJitaAPI.fetchAllSettlementsForSync(mode);
     
     if (!fetchResult.success || !fetchResult.data) {
       throw new Error(fetchResult.error || 'Failed to fetch settlements from BitJita');
@@ -75,71 +77,35 @@ export async function syncSettlementsMaster(): Promise<SettlementSyncResult> {
       
       for (const settlement of batch) {
         seenSettlementIds.add(settlement.id);
-        const existing = existingSettlementsMap.get(settlement.id);
         
-        if (existing) {
-          // Check if data has changed
-          const hasChanges = 
-            existing.name !== settlement.name ||
-            existing.tier !== settlement.tier ||
-            existing.treasury !== settlement.treasury ||
-            existing.supplies !== settlement.supplies ||
-            existing.tiles !== settlement.tiles ||
-            existing.population !== settlement.population;
+        // Use UPSERT with ON CONFLICT DO UPDATE to handle both insert and update efficiently
+        const { data, error: upsertError } = await supabase
+          .from('settlements_master')
+          .upsert({
+            id: settlement.id,
+            name: settlement.name,
+            name_normalized: settlement.name.toLowerCase(), // Add the normalized field that search needs
+            tier: settlement.tier,
+            treasury: settlement.treasury,
+            supplies: settlement.supplies,
+            tiles: settlement.tiles,
+            population: settlement.population,
+            last_synced_at: new Date().toISOString(),
+            is_active: true,
+            sync_source: 'bitjita',
+            updated_at: new Date().toISOString()
+          }, { 
+            onConflict: 'id' 
+          })
+          .select('*');
 
-          if (hasChanges) {
-            // Update existing settlement
-            const { error: updateError } = await supabase
-              .from('settlements_master')
-              .update({
-                name: settlement.name,
-                tier: settlement.tier,
-                treasury: settlement.treasury,
-                supplies: settlement.supplies,
-                tiles: settlement.tiles,
-                population: settlement.population,
-                last_synced_at: new Date().toISOString(),
-                is_active: true
-              })
-              .eq('id', settlement.id);
-
-            if (updateError) {
-              console.error(`Error updating settlement ${settlement.name}:`, updateError);
-            } else {
-              settlementsUpdated++;
-            }
-          } else {
-            // Just update the sync timestamp
-            const { error: touchError } = await supabase
-              .from('settlements_master')
-              .update({
-                last_synced_at: new Date().toISOString(),
-                is_active: true
-              })
-              .eq('id', settlement.id);
-
-            if (touchError) {
-              console.error(`Error touching settlement ${settlement.name}:`, touchError);
-            }
-          }
+        if (upsertError) {
+          console.error(`Error upserting settlement ${settlement.name}:`, upsertError);
         } else {
-          // Insert new settlement
-          const { error: insertError } = await supabase
-            .from('settlements_master')
-            .insert({
-              id: settlement.id,
-              name: settlement.name,
-              tier: settlement.tier,
-              treasury: settlement.treasury,
-              supplies: settlement.supplies,
-              tiles: settlement.tiles,
-              population: settlement.population,
-              last_synced_at: new Date().toISOString(),
-              is_active: true
-            });
-
-          if (insertError) {
-            console.error(`Error inserting settlement ${settlement.name}:`, insertError);
+          // Determine if this was an insert or update by checking if it existed before
+          const existing = existingSettlementsMap.get(settlement.id);
+          if (existing) {
+            settlementsUpdated++;
           } else {
             settlementsAdded++;
           }

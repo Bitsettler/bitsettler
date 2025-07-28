@@ -72,7 +72,7 @@ export function useSelectedSettlement() {
   }, []);
 
   // Function to select a new settlement
-  const selectSettlement = (settlement: Settlement) => {
+  const selectSettlement = async (settlement: Settlement) => {
     setSelectedSettlement(settlement);
     localStorage.setItem('selectedSettlement', JSON.stringify(settlement));
     
@@ -80,6 +80,39 @@ export function useSelectedSettlement() {
     const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
     setInviteCode(newCode);
     localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
+
+    // 🚀 Trigger immediate settlement data sync for onboarding
+    // This ensures the dashboard isn't empty when user completes selection
+    console.log(`🎯 Settlement selected: ${settlement.name}. Triggering onboarding sync...`);
+    
+    try {
+      const response = await fetch('/api/settlement/sync/onboarding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          settlementId: settlement.id,
+          settlementName: settlement.name
+        })
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        console.log(`✅ Onboarding sync completed for ${settlement.name}:`, {
+          members: `${result.data.membersFound} found, ${result.data.membersAdded} added`,
+          citizens: `${result.data.citizensFound} found, ${result.data.citizensAdded} added`,
+          duration: `${result.data.syncDurationMs}ms`
+        });
+      } else {
+        console.warn(`⚠️ Onboarding sync failed for ${settlement.name}:`, result.error);
+        // Don't throw error - user can still use the app, just with delayed data
+      }
+    } catch (error) {
+      console.warn('⚠️ Onboarding sync request failed:', error);
+      // Silent fail - the scheduled sync will catch this later
+    }
   };
 
   // Function to regenerate invite code

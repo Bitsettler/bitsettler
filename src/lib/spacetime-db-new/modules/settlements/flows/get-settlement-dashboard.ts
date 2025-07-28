@@ -15,13 +15,17 @@ export interface SettlementDashboard {
  * Get complete settlement dashboard data
  * Combines multiple commands to provide dashboard overview
  */
-export async function getSettlementDashboard(): Promise<SettlementDashboard> {
+export async function getSettlementDashboard(settlementId?: string): Promise<SettlementDashboard> {
   try {
     // Fetch all data in parallel for better performance
     const [settlementInfo, stats, allMembers] = await Promise.all([
       getSettlementInfo(),
       getSettlementStats(),
-      getAllMembers({ includeInactive: false, limit: 100 }),
+      getAllMembers({ 
+        includeInactive: false, 
+        limit: 100,
+        settlementId // Pass settlement context to filter members
+      }),
     ]);
 
     // Get recent members (last 10 active members)

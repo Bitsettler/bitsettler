@@ -33,6 +33,21 @@ export interface BitJitaSettlementDetails {
   supplies: number;
   tiles: number;
   population?: number;
+  // Rich BitJita data
+  ownerPlayerEntityId?: string;
+  ownerBuildingEntityId?: string;
+  neutral?: boolean;
+  regionId?: number;
+  regionName?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  buildingMaintenance?: number;
+  locationX?: number;
+  locationZ?: number;
+  locationDimension?: number;
+  learned?: number[];
+  researching?: number;
+  startTimestamp?: string | null;
 }
 
 export interface BitJitaAPIResponse<T = any> {
@@ -189,10 +204,12 @@ export class BitJitaAPI {
   }
 
   /**
-   * Fetch all settlements for sync purposes (uses broad search queries)
-   * Uses common search terms to discover settlements across the game
+   * Fetch all settlements directly from BitJita claims API (no search, just pagination)
+   * Based on BitJita showing 2,323 total settlements across 117 pages
+   * 
+   * @param mode - 'full' for complete sync, 'incremental' for just checking new settlements
    */
-  static async fetchAllSettlementsForSync(): Promise<BitJitaAPIResponse<{
+  static async fetchAllSettlementsForSync(mode: 'full' | 'incremental' = 'full'): Promise<BitJitaAPIResponse<{
     settlements: BitJitaSettlementDetails[];
     totalFound: number;
     queriesUsed: string[];
@@ -200,46 +217,134 @@ export class BitJitaAPI {
     try {
       console.log('🔄 Starting comprehensive settlement sync from BitJita...');
       
-      // Use common search terms to discover settlements
-      const searchTerms = [
-        '', // Empty search to get recent/popular settlements
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'port', 'town', 'city', 'settlement', 'haven', 'valley', 'grove'
-      ];
+      if (mode === 'incremental') {
+        console.log('🔄 Incremental mode: Checking first ~300 settlements for new/updated entries');
+        console.log('⚡ API efficient: ~3 calls instead of 25 (10x reduction)');
+      } else {
+        console.log('🎯 Full mode: All 2,323+ settlements from BitJita claims API');
+        console.log('⚡ Using optimized bulk fetching: 100 settlements per API call');
+      }
       
       const allSettlements = new Map<string, BitJitaSettlementDetails>();
       const queriesUsed: string[] = [];
       let totalApiCalls = 0;
       
-      for (const term of searchTerms) {
+      // Try the claims endpoint without search query first
+      console.log('🔍 Attempting to fetch all settlements using claims API...');
+      
+      let currentPage = 1;
+      let hasMore = true;
+      let totalExpected = 0;
+      
+      const maxPages = mode === 'incremental' ? 3 : 30; // Incremental: 3 pages (~300 settlements), Full: 30 pages (~3000 settlements)
+      
+      while (hasMore && currentPage <= maxPages) {
         try {
-          // Fetch first page only to avoid overwhelming the API
-          const result = await this.searchSettlements(term || 'a', 1);
+          console.log(`📄 Fetching page ${currentPage}...`);
+          
+          // Try direct claims API without search query - GET 100 SETTLEMENTS PER REQUEST
+          const response = await fetch(`${this.BASE_URL}/claims?page=${currentPage}&limit=100`, {
+            method: 'GET',
+            headers: this.HEADERS,
+            signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+
+          const data = await response.json();
           totalApiCalls++;
           
-          if (result.success && result.data) {
-            queriesUsed.push(term || 'default');
+          if (data.claims && data.claims.length > 0) {
+            queriesUsed.push(`page${currentPage}`);
             
-            // Add settlements to our map (deduplicates by ID)
-            result.data.settlements.forEach(settlement => {
+            // Store total for progress tracking - set expected to 2323 if not provided
+            if (currentPage === 1) {
+              totalExpected = data.totalResults || 2323; // Use known total from BitJita website
+              console.log(`🎯 BitJita reports ${totalExpected} total settlements (or using known total: 2323)`);
+            }
+            
+            // Transform and add settlements with ALL rich data from BitJita
+            data.claims.forEach((claim: any) => {
+              const settlement: BitJitaSettlementDetails = {
+                id: claim.entityId,
+                name: claim.name,
+                tier: claim.tier || 0,
+                treasury: parseInt(claim.treasury) || 0,
+                supplies: claim.supplies || 0,
+                tiles: claim.numTiles || 0,
+                population: claim.numTiles || 0,
+                // Rich BitJita data
+                ownerPlayerEntityId: claim.ownerPlayerEntityId,
+                ownerBuildingEntityId: claim.ownerBuildingEntityId,
+                neutral: claim.neutral,
+                regionId: claim.regionId,
+                regionName: claim.regionName,
+                createdAt: claim.createdAt,
+                updatedAt: claim.updatedAt,
+                buildingMaintenance: claim.buildingMaintenance || 0,
+                locationX: claim.locationX,
+                locationZ: claim.locationZ,
+                locationDimension: claim.locationDimension,
+                learned: claim.learned,
+                researching: claim.researching,
+                startTimestamp: claim.startTimestamp
+              };
               allSettlements.set(settlement.id, settlement);
             });
             
-            console.log(`📊 Query "${term}": Found ${result.data.settlements.length} settlements`);
+            console.log(`📊 Page ${currentPage}: Found ${data.claims.length} settlements (total unique: ${allSettlements.size}/${totalExpected}) [${data.claims.length} per call]`);
+            
+            // FORCE continuation - don't trust API pagination metadata
+            // Keep going until we hit an empty page or reach page 120
+            currentPage++;
+            
+            // Rate limiting: wait between requests to be respectful
+            // Longer delays for incremental mode to be extra considerate
+            const delay = mode === 'incremental' ? settlementConfig.delays.betweenApiCalls * 2 : settlementConfig.delays.betweenApiCalls;
+            await new Promise(resolve => setTimeout(resolve, delay));
+            
+          } else {
+            console.log(`📄 Page ${currentPage}: No settlements found, ending pagination`);
+            hasMore = false;
           }
           
-          // Rate limiting: wait between requests
-          await new Promise(resolve => setTimeout(resolve, settlementConfig.delays.betweenApiCalls));
-          
         } catch (error) {
-          console.warn(`⚠️ Failed to search settlements for term "${term}":`, error);
-          continue;
+          console.warn(`⚠️ Failed to fetch page ${currentPage}:`, error);
+          
+          // If direct API fails, fall back to empty search query
+          if (currentPage === 1) {
+            console.log('🔄 Direct claims API failed, trying with empty search query...');
+            try {
+              const fallbackResult = await this.searchSettlements('', currentPage);
+              if (fallbackResult.success && fallbackResult.data) {
+                fallbackResult.data.settlements.forEach(settlement => {
+                  allSettlements.set(settlement.id, settlement);
+                });
+                console.log(`📊 Fallback page ${currentPage}: Found ${fallbackResult.data.settlements.length} settlements`);
+                hasMore = fallbackResult.data.pagination.hasMore;
+                currentPage++;
+              } else {
+                hasMore = false;
+              }
+            } catch (fallbackError) {
+              console.error('❌ Both direct API and fallback failed:', fallbackError);
+              hasMore = false;
+            }
+          } else {
+            hasMore = false;
+          }
         }
       }
       
       const settlements = Array.from(allSettlements.values());
-      console.log(`✅ Settlement sync complete: ${settlements.length} unique settlements found from ${totalApiCalls} API calls`);
+      const foundPercentage = totalExpected > 0 ? ((settlements.length / totalExpected) * 100).toFixed(1) : 'unknown';
+      
+      console.log(`✅ Settlement sync complete:`);
+      console.log(`   📊 Found: ${settlements.length} settlements (${foundPercentage}% of expected ${totalExpected})`);
+      console.log(`   🌐 API calls: ${totalApiCalls} (efficient: ~100 settlements per call)`);
+      console.log(`   📄 Pages processed: ${currentPage - 1}`);
       
       return {
         success: true,

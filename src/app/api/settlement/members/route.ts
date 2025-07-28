@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
 
           // Apply pagination
           const offset = options.offset || 0;
-          const limit = options.limit || 20;
+          const limit = options.limit || 200; // Increased to 200 to show all members
           query = query.range(offset, offset + limit - 1);
 
           const { data: members, error, count } = await query;
@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
 
           console.log(`✅ Found ${members?.length || 0} members in local database`);
 
-          // Transform database results to API format
+          // Transform database results to API format with full member details
           const formattedMembers = (members || []).map(member => ({
             id: member.entity_id,
             name: member.user_name,
@@ -72,16 +72,29 @@ export async function GET(request: NextRequest) {
             totalSkillLevel: member.total_level || 0,
             totalXP: member.total_xp || 0,
             highestLevel: member.highest_level || 0,
+            totalSkills: member.total_skills || 0,
             skills: member.skills || {},
             permissions: {
-              inventory: member.inventory_permission,
-              build: member.build_permission,
-              officer: member.officer_permission,
-              coOwner: member.co_owner_permission
+              inventory: member.inventory_permission || 0,
+              build: member.build_permission || 0,
+              officer: member.officer_permission || 0,
+              coOwner: member.co_owner_permission || 0
             },
             lastLogin: member.last_login_timestamp,
             joinedAt: member.joined_settlement_at,
-            isActive: member.is_recently_active
+            isActive: member.is_active,
+            isRecentlyActive: member.is_recently_active,
+            // Additional useful info
+            professionLevel: member.highest_level || 1,
+            lastOnline: member.last_login_timestamp,
+            joinDate: member.joined_settlement_at,
+            // Calculated fields
+            daysSinceLastLogin: member.last_login_timestamp 
+              ? Math.floor((Date.now() - new Date(member.last_login_timestamp).getTime()) / (1000 * 60 * 60 * 24))
+              : null,
+            membershipDuration: member.joined_settlement_at
+              ? Math.floor((Date.now() - new Date(member.joined_settlement_at).getTime()) / (1000 * 60 * 60 * 24))
+              : null
           }));
 
           return NextResponse.json({

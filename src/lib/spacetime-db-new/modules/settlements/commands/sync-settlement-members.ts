@@ -4,7 +4,7 @@
  * Reduces real-time API hits by serving from local database
  */
 
-import { createServerClient } from '../../../shared/supabase-client';
+import { supabase, isSupabaseAvailable } from '../../../shared/supabase-client';
 import { BitJitaAPI } from '../../integrations/bitjita-api';
 
 interface SyncSettlementMembersOptions {
@@ -34,9 +34,8 @@ interface SyncResults {
  */
 export async function syncSettlementMembers(options: SyncSettlementMembersOptions): Promise<SyncResults> {
   const startTime = Date.now();
-  const supabase = createServerClient();
 
-  if (!supabase) {
+  if (!isSupabaseAvailable()) {
     throw new Error('Supabase client not available for member sync');
   }
 
@@ -77,7 +76,10 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
 
     console.log(`📥 Fetched ${members.length} members and ${citizens.length} citizens from BitJita`);
 
-    // Sync members
+    // Sync members with detailed error handling
+    let memberSuccessCount = 0;
+    let memberErrorCount = 0;
+    
     for (const member of members) {
       const memberData = {
         settlement_id: options.settlementId,
@@ -98,21 +100,35 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
         sync_source: 'bitjita'
       };
 
-      const { error } = await supabase
+      console.log(`🔄 Syncing member: ${member.userName} (${member.entityId})`);
+      
+      const { data, error } = await supabase!
         .from('settlement_members')
         .upsert(memberData, {
           onConflict: 'settlement_id,entity_id',
           ignoreDuplicates: false
-        });
+        })
+        .select('id, user_name'); // Return the inserted/updated data
 
       if (error) {
-        console.error(`Failed to sync member ${member.userName}:`, error);
-      } else {
+        console.error(`❌ Failed to sync member ${member.userName}:`, error);
+        memberErrorCount++;
+      } else if (data && data.length > 0) {
+        console.log(`✅ Successfully synced member ${data[0].user_name}`);
+        memberSuccessCount++;
         results.membersUpdated++;
+      } else {
+        console.error(`⚠️ No data returned for member ${member.userName} - possible silent failure`);
+        memberErrorCount++;
       }
     }
 
-    // Sync citizens
+    console.log(`📊 Member sync results: ${memberSuccessCount} success, ${memberErrorCount} errors`);
+
+    // Sync citizens with detailed error handling
+    let citizenSuccessCount = 0;
+    let citizenErrorCount = 0;
+    
     for (const citizen of citizens) {
       const citizenData = {
         settlement_id: options.settlementId,
@@ -127,25 +143,57 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
         sync_source: 'bitjita'
       };
 
-      const { error } = await supabase
+      const { data, error } = await supabase!
         .from('settlement_citizens')
         .upsert(citizenData, {
           onConflict: 'settlement_id,entity_id',
           ignoreDuplicates: false
-        });
+        })
+        .select('id, user_name'); // Return the inserted/updated data
 
       if (error) {
-        console.error(`Failed to sync citizen ${citizen.userName}:`, error);
-      } else {
+        console.error(`❌ Failed to sync citizen ${citizen.userName}:`, error);
+        citizenErrorCount++;
+      } else if (data && data.length > 0) {
+        citizenSuccessCount++;
         results.citizensUpdated++;
+      } else {
+        console.error(`⚠️ No data returned for citizen ${citizen.userName} - possible silent failure`);
+        citizenErrorCount++;
       }
+    }
+
+    console.log(`📊 Citizen sync results: ${citizenSuccessCount} success, ${citizenErrorCount} errors`);
+
+    // Verify data was actually saved
+    const { count: memberCount, error: verifyError } = await supabase!
+      .from('settlement_members')
+      .select('*', { count: 'exact', head: true })
+      .eq('settlement_id', options.settlementId);
+
+    if (verifyError) {
+      console.error('❌ Error verifying member count:', verifyError);
+    } else {
+      console.log(`🔍 Verification: ${memberCount || 0} members found in database for settlement ${options.settlementId}`);
+    }
+
+    // Verify view works
+    const { count: viewCount, error: viewError } = await supabase!
+      .from('settlement_member_details')
+      .select('*', { count: 'exact', head: true })
+      .eq('settlement_id', options.settlementId);
+
+    if (viewError) {
+      console.error('❌ Error verifying view:', viewError);
+    } else {
+      console.log(`🔍 View verification: ${viewCount || 0} members found in settlement_member_details view`);
     }
 
     // Mark members as inactive if they're no longer in the roster
     const currentMemberIds = members.map(m => m.entityId);
     
     if (currentMemberIds.length > 0) {
-      const { error: deactivateError } = await supabase
+      const { error: deactivateError } = await supabase!
         .from('settlement_members')
         .update({ 
           is_active: false, 
@@ -163,8 +211,8 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     results.syncDurationMs = Date.now() - startTime;
 
     console.log(`✅ Member sync completed for ${options.settlementId}:`);
-    console.log(`   Members: ${results.membersUpdated} synced`);
-    console.log(`   Citizens: ${results.citizensUpdated} synced`);
+    console.log(`   Members: ${results.membersUpdated} synced (${memberSuccessCount}/${members.length} successful)`);
+    console.log(`   Citizens: ${results.citizensUpdated} synced (${citizenSuccessCount}/${citizens.length} successful)`);
     console.log(`   Duration: ${results.syncDurationMs}ms`);
 
   } catch (error) {
@@ -177,7 +225,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
 
   // Log sync attempt
   try {
-    await supabase
+    await supabase!
       .from('settlement_member_sync_log')
       .insert({
         settlement_id: options.settlementId,
@@ -215,16 +263,14 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
   totalCitizens: number;
   errors: string[];
 }> {
-  const supabase = createServerClient();
-  
-  if (!supabase) {
+  if (!isSupabaseAvailable()) {
     throw new Error('Supabase client not available for bulk member sync');
   }
 
   console.log('🔄 Starting bulk member sync for all settlements...');
 
   // Get all active settlements from our master list
-  const { data: settlements, error: fetchError } = await supabase
+  const { data: settlements, error: fetchError } = await supabase!
     .from('settlements_master')
     .select('id, name')
     .eq('is_active', true)

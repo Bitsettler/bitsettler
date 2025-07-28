@@ -40,7 +40,7 @@ export async function GET(
           .select('*')
           .eq('settlement_id', settlementId)
           .eq('entity_id', memberId)
-          .single();
+          .maybeSingle(); // Use maybeSingle() to handle case where no member is found
 
         if (error) {
           console.error('Local database search error:', error);

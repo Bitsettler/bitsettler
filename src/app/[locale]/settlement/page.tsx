@@ -12,8 +12,8 @@ import { useSelectedSettlement, Settlement } from '../../../hooks/use-selected-s
 export default function SettlementDashboardPage() {
   const { selectedSettlement, isLoading, selectSettlement, hasSettlement } = useSelectedSettlement();
 
-  const handleSettlementSelected = (settlement: Settlement) => {
-    selectSettlement(settlement);
+  const handleSettlementSelected = async (settlement: Settlement) => {
+    await selectSettlement(settlement);
   };
 
   // Show loading state briefly while checking localStorage

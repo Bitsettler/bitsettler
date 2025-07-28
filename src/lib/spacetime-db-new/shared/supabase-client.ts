@@ -4,6 +4,12 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+// Debug logging to see what we're getting
+console.log('🔍 Environment Variables Debug:');
+console.log('  NEXT_PUBLIC_SUPABASE_URL:', supabaseUrl ? '✅ Present' : '❌ Missing');
+console.log('  NEXT_PUBLIC_SUPABASE_ANON_KEY:', supabaseAnonKey ? '✅ Present' : '❌ Missing');
+console.log('  URL starts with https:', supabaseUrl?.startsWith('https://') ? '✅ Yes' : '❌ No');
+
 // Only warn once in development
 let hasWarnedAboutSupabase = false;
 
@@ -19,6 +25,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const supabase = supabaseUrl && supabaseAnonKey 
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
+
+console.log('🔍 Supabase Client:', supabase ? '✅ Created successfully' : '❌ Failed to create');
 
 // Server-side client with service role key (for admin operations)
 export function createServerClient() {

@@ -39,7 +39,7 @@ export function SettlementMembersView() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [totalMembers, setTotalMembers] = useState(0);
-  const membersPerPage = 20;
+  const membersPerPage = 200; // Increased to show all members
 
   const { selectedSettlement } = useSelectedSettlement();
 
@@ -54,7 +54,7 @@ export function SettlementMembersView() {
       const params = new URLSearchParams({
         limit: membersPerPage.toString(),
         offset: ((currentPage - 1) * membersPerPage).toString(),
-        includeInactive: statusFilter === 'all' ? 'true' : 'false',
+        includeInactive: 'true', // Changed to always show ALL members
       });
 
       if (professionFilter !== 'all') {
