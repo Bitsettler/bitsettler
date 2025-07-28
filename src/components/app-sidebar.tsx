@@ -44,8 +44,7 @@ import {
   HammerIcon,
   HouseIcon,
   InfoIcon,
-  TwitterLogoIcon,
-  BuildingsIcon
+  TwitterLogoIcon
 } from '@phosphor-icons/react'
 
 // Navigation data with icons and descriptions
@@ -86,10 +85,11 @@ const data = {
     {
       translationLabel: 'sidebar.settlement',
       children: [
-        { translationKey: 'sidebar.settlementDashboard', href: '/settlement', icon: BuildingsIcon },
+        { translationKey: 'sidebar.settlementDashboard', href: '/settlement' },
         { translationKey: 'sidebar.settlementMembers', href: '/settlement/members' },
-                    { translationKey: 'sidebar.settlementProjects', href: '/settlement/projects' },
-                  { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury' }
+        { translationKey: 'sidebar.skills', href: '/settlement/skills' },
+        { translationKey: 'sidebar.projects', href: '/settlement/projects' },
+        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury' }
       ]
     },
     {
@@ -132,15 +132,29 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
   const t = useTranslations()
 
   const isActive = (href: string) => {
+    // Exact match for home page
     if (href === '/') {
       return pathname === '/'
     }
 
+    // Exact match for compendium root
     if (href === '/compendium') {
       return pathname === '/compendium'
     }
 
-    return pathname.includes(href)
+    // For settlement pages, check for exact path matches or proper sub-path
+    if (href.startsWith('/settlement')) {
+      // Exact match for settlement dashboard
+      if (href === '/settlement') {
+        return pathname === '/settlement'
+      }
+      
+      // For sub-pages, check exact match or immediate child pages
+      return pathname === href || pathname.startsWith(href + '/')
+    }
+
+    // For other paths, check if current path starts with the href
+    return pathname === href || pathname.startsWith(href + '/')
   }
 
   const renderNavigationItem = (item: NavigationItem) => {

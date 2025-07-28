@@ -5,6 +5,68 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - Settlement Management System
+
+### Added
+
+- **Settlement Member Detail Pages**: Comprehensive member profiles accessible by clicking member names
+  - Individual member skill statistics and progress visualization
+  - Settlement permissions display (inventory, build, officer, co-owner levels)
+  - Activity timeline showing join date and last seen information
+  - Top skills ranking with visual progress bars
+  - Member profile information including entity ID and profession
+
+- **6-Digit Invite Code System**: Generate and share alphanumeric settlement invite codes
+  - ABC123 format codes (3 letters + 3 numbers, no spaces)
+  - Compact dropdown display in settlement dashboard header
+  - Copy, regenerate, and share functionality
+  - localStorage persistence for invite codes
+  - Large detailed display during settlement onboarding
+
+- **Settlement Management Interface**: Dedicated administration page
+  - Non-navigated page accessible via gear icon from dashboard
+  - Settlement switching and administrative controls
+  - Current settlement information and data management options
+  - System status and sync information display
+
+- **Settlement Onboarding Flow**: Streamlined settlement selection process
+  - BitJita API-powered settlement search and selection
+  - Local settlement selection persistence
+  - Invite code generation upon settlement selection
+
+### Improved
+
+- **Data Architecture**: Implemented polling/caching system eliminating real-time API calls
+  - 3-tier data fallback: Local Database → BitJita API → Demo Data
+  - Cache-only member detail API (Local Database → 404 if not cached)
+  - Sub-100ms response times for cached settlement data
+  - Rate limit compliance and API etiquette with external services
+
+- **Next.js 15 Compatibility**: Updated for latest Next.js App Router patterns
+  - Fixed async params handling in dynamic routes
+  - Resolved route conflicts between [id] and [memberId] patterns
+  - Updated API routes for Next.js 15 compatibility
+
+### Technical
+
+- **Database Schema**: Comprehensive settlement data caching infrastructure
+  - `settlements_master` table with sync logging
+  - `settlement_members` and `settlement_citizens` tables for member data
+  - `settlement_member_details` view for optimized member queries
+  - Auto-updating top profession triggers and sync audit trails
+
+- **BitJita API Integration**: Background synchronization services
+  - Settlement master list sync (every 30 minutes)
+  - Member and citizen data sync (every 20 minutes)
+  - Comprehensive error handling and sync logging
+  - Sync orchestration service with rate limiting
+
+- **API Architecture**: Zero real-time external API calls in user-facing endpoints
+  - Dashboard API: 3-tier fallback (Local DB → Demo Data)
+  - Members List API: 3-tier fallback (Local DB → Demo Data)
+  - Member Detail API: Cache-only (Local DB → 404 if not cached)
+  - Settlement Search API: 2-tier (Local DB → BitJita API)
+
 ## [1.7.0]
 
 ### Added

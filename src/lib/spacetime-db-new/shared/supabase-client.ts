@@ -4,8 +4,15 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+// Only warn once in development
+let hasWarnedAboutSupabase = false;
+
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('⚠️  Supabase configuration missing. Settlement features will be unavailable.');
+  if (process.env.NODE_ENV === 'development' && !hasWarnedAboutSupabase) {
+    console.info('ℹ️  Settlement features running in demo mode (Supabase not configured)');
+    console.info('   To enable full features, add Supabase credentials to .env.local');
+    hasWarnedAboutSupabase = true;
+  }
 }
 
 // Create Supabase client (null if credentials missing)
@@ -18,7 +25,7 @@ export function createServerClient() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   
   if (!supabaseUrl || !serviceRoleKey) {
-    console.warn('⚠️  Supabase service role configuration missing. Admin operations unavailable.');
+    // Don't warn about service role in demo mode
     return null;
   }
   

@@ -129,6 +129,139 @@ export class BitJitaAPI {
   }
 
   /**
+   * Search settlements by name from BitJita API
+   */
+  static async searchSettlements(query: string, page: number = 1): Promise<BitJitaAPIResponse<{
+    settlements: BitJitaSettlementDetails[];
+    pagination: {
+      currentPage: number;
+      totalResults: number;
+      hasMore: boolean;
+    };
+  }>> {
+    try {
+      console.log(`🔍 Searching settlements for "${query}" (page ${page})...`);
+      
+      const response = await fetch(`${this.BASE_URL}/claims?q=${encodeURIComponent(query)}&page=${page}`, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log(`✅ Found ${data.claims?.length || 0} settlements`);
+      
+      // Transform the data to our format
+      const settlements: BitJitaSettlementDetails[] = (data.claims || []).map((claim: any) => ({
+        id: claim.entityId,
+        name: claim.name,
+        tier: claim.tier || 0,
+        treasury: parseInt(claim.treasury) || 0,
+        supplies: claim.supplies || 0,
+        tiles: claim.numTiles || 0,
+        population: claim.numTiles || 0 // Use tiles as population proxy
+      }));
+      
+      return {
+        success: true,
+        data: {
+          settlements,
+          pagination: {
+            currentPage: page,
+            totalResults: data.totalResults || settlements.length,
+            hasMore: data.hasMore || false
+          }
+        }
+      };
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error searching settlements:', errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Fetch all settlements for sync purposes (uses broad search queries)
+   * Uses common search terms to discover settlements across the game
+   */
+  static async fetchAllSettlementsForSync(): Promise<BitJitaAPIResponse<{
+    settlements: BitJitaSettlementDetails[];
+    totalFound: number;
+    queriesUsed: string[];
+  }>> {
+    try {
+      console.log('🔄 Starting comprehensive settlement sync from BitJita...');
+      
+      // Use common search terms to discover settlements
+      const searchTerms = [
+        '', // Empty search to get recent/popular settlements
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'port', 'town', 'city', 'settlement', 'haven', 'valley', 'grove'
+      ];
+      
+      const allSettlements = new Map<string, BitJitaSettlementDetails>();
+      const queriesUsed: string[] = [];
+      let totalApiCalls = 0;
+      
+      for (const term of searchTerms) {
+        try {
+          // Fetch first page only to avoid overwhelming the API
+          const result = await this.searchSettlements(term || 'a', 1);
+          totalApiCalls++;
+          
+          if (result.success && result.data) {
+            queriesUsed.push(term || 'default');
+            
+            // Add settlements to our map (deduplicates by ID)
+            result.data.settlements.forEach(settlement => {
+              allSettlements.set(settlement.id, settlement);
+            });
+            
+            console.log(`📊 Query "${term}": Found ${result.data.settlements.length} settlements`);
+          }
+          
+          // Rate limiting: wait between requests
+          await new Promise(resolve => setTimeout(resolve, settlementConfig.delays.betweenApiCalls));
+          
+        } catch (error) {
+          console.warn(`⚠️ Failed to search settlements for term "${term}":`, error);
+          continue;
+        }
+      }
+      
+      const settlements = Array.from(allSettlements.values());
+      console.log(`✅ Settlement sync complete: ${settlements.length} unique settlements found from ${totalApiCalls} API calls`);
+      
+      return {
+        success: true,
+        data: {
+          settlements,
+          totalFound: settlements.length,
+          queriesUsed
+        }
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error in comprehensive settlement sync:', errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
    * Fetch settlement details from BitJita API
    */
   static async fetchSettlementDetails(settlementId: string): Promise<BitJitaAPIResponse<BitJitaSettlementDetails>> {

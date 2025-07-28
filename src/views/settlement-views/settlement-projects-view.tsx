@@ -171,11 +171,11 @@ export function SettlementProjectsView() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="flex justify-between items-start">
+      {/* Page Header */}
+      <div className="flex justify-between items-start mb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Settlement Projects</h1>
-          <p className="text-muted-foreground mt-2">
+          <h1 className="text-3xl font-bold">Projects</h1>
+          <p className="text-muted-foreground text-sm">
             Track and manage your settlement's active projects and their completion status.
           </p>
         </div>

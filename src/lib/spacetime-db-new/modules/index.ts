@@ -21,6 +21,10 @@ export type {
   BitJitaAPIResponse 
 } from './integrations/bitjita-api';
 
+// Real-time & Notifications
+export * from './integrations/realtime-service';
+export * from './integrations/notification-service';
+
 // Shared utilities
 export { 
   supabase, 

@@ -8,6 +8,7 @@ import { Button } from '../../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { Search, Users, UserCheck, Clock } from 'lucide-react';
 
 interface SettlementMember {
@@ -40,9 +41,11 @@ export function SettlementMembersView() {
   const [totalMembers, setTotalMembers] = useState(0);
   const membersPerPage = 20;
 
+  const { selectedSettlement } = useSelectedSettlement();
+
   useEffect(() => {
     fetchMembers();
-  }, [professionFilter, statusFilter, currentPage]);
+  }, [professionFilter, statusFilter, currentPage, selectedSettlement]);
 
   const fetchMembers = async () => {
     try {
@@ -56,6 +59,11 @@ export function SettlementMembersView() {
 
       if (professionFilter !== 'all') {
         params.append('profession', professionFilter);
+      }
+
+      // Add settlement ID if available
+      if (selectedSettlement) {
+        params.append('settlementId', selectedSettlement.id);
       }
 
       const response = await fetch(`/api/settlement/members?${params}`);
@@ -137,11 +145,11 @@ export function SettlementMembersView() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+      {/* Page Header */}
+      <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">Members Directory</h2>
-          <p className="text-muted-foreground">
+          <h1 className="text-3xl font-bold">Members Directory</h1>
+          <p className="text-muted-foreground text-sm">
             Manage and view all settlement members ({totalMembers} total)
           </p>
         </div>
@@ -209,7 +217,14 @@ export function SettlementMembersView() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold truncate">{member.name}</h3>
+                  <h3 className="font-semibold truncate">
+                    <a 
+                      href={`/en/settlement/members/${encodeURIComponent(member.id)}`}
+                      className="hover:text-primary hover:underline cursor-pointer"
+                    >
+                      {member.name}
+                    </a>
+                  </h3>
                   <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="text-xs">
                       {member.profession}

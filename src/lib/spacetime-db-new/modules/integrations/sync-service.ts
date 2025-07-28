@@ -1,44 +1,30 @@
+import { isSupabaseAvailable } from '../../shared/supabase-client';
+import { getAllMembers } from '../settlements/commands/get-all-members';
 import { BitJitaAPI } from './bitjita-api';
-import { type SettlementMember } from '../settlements/commands';
-import { supabase, isSupabaseAvailable } from '../../shared/supabase-client';
+import { syncSettlementsMaster } from '../settlements/commands/sync-settlements-master';
+import { syncAllSettlementMembers } from '../settlements/commands/sync-settlement-members';
 
-/**
- * Configuration for the sync service
- */
-interface SyncConfig {
-  membersSyncInterval: number; // minutes
-  treasurySyncInterval: number; // minutes
-  settlementStatsInterval: number; // minutes
-  maxRetries: number;
-  retryDelay: number; // seconds
-}
-
-const DEFAULT_SYNC_CONFIG: SyncConfig = {
-  membersSyncInterval: 30,     // Sync members every 30 minutes
-  treasurySyncInterval: 5,     // Sync treasury every 5 minutes
+// Configuration for sync intervals
+const SYNC_CONFIG = {
+  membersInterval: 30, // Sync members every 30 minutes  
+  treasuryInterval: 5, // Sync treasury every 5 minutes
   settlementStatsInterval: 15, // Sync settlement stats every 15 minutes
-  maxRetries: 3,
-  retryDelay: 30,
+  settlementsListInterval: 30, // Sync settlements master list every 30 minutes
 };
 
 /**
  * Settlement Data Sync Service
- * Orchestrates real-time synchronization with BitJita API
+ * Orchestrates automatic synchronization with BitJita API
  */
 export class SettlementSyncService {
-  private config: SyncConfig;
-  private syncIntervals: Map<string, NodeJS.Timeout> = new Map();
-  private retryAttempts: Map<string, number> = new Map();
+  private intervalIds: Map<string, NodeJS.Timeout> = new Map();
   private isRunning = false;
-
-  constructor(config?: Partial<SyncConfig>) {
-    this.config = { ...DEFAULT_SYNC_CONFIG, ...config };
-  }
+  private config = SYNC_CONFIG;
 
   /**
-   * Start the sync service with all configured intervals
+   * Start all sync services with their respective intervals
    */
-  public start(): void {
+  public async start(): Promise<void> {
     if (this.isRunning) {
       console.warn('SettlementSyncService is already running');
       return;
@@ -52,33 +38,38 @@ export class SettlementSyncService {
     console.log('Starting SettlementSyncService...');
     this.isRunning = true;
 
-    // Start periodic sync operations
+    // Start all sync intervals
     this.startMembersSync();
     this.startTreasurySync();
-    this.startStatsSync();
+    this.startSettlementStatsSync();
+    this.startSettlementsMasterSync();
 
     console.log('SettlementSyncService started successfully');
   }
 
   /**
-   * Stop the sync service and clear all intervals
+   * Stop all sync services
    */
-  public stop(): void {
-    if (!this.isRunning) {
-      return;
-    }
+  public stop(): Promise<void> {
+    return new Promise((resolve) => {
+      if (!this.isRunning) {
+        resolve();
+        return;
+      }
 
-    console.log('Stopping SettlementSyncService...');
-    
-    // Clear all intervals
-    this.syncIntervals.forEach(interval => clearInterval(interval));
-    this.syncIntervals.clear();
-    
-    // Clear retry attempts
-    this.retryAttempts.clear();
-    
-    this.isRunning = false;
-    console.log('SettlementSyncService stopped');
+      console.log('Stopping SettlementSyncService...');
+
+      // Clear all intervals
+      for (const [name, intervalId] of this.intervalIds) {
+        clearInterval(intervalId);
+        console.log(`Stopped ${name} sync interval`);
+      }
+
+      this.intervalIds.clear();
+      this.isRunning = false;
+      console.log('SettlementSyncService stopped');
+      resolve();
+    });
   }
 
   /**
@@ -96,6 +87,7 @@ export class SettlementSyncService {
         this.syncMembers(),
         this.syncTreasuryData(),
         this.syncSettlementStats(),
+        this.syncSettlementsMaster(),
       ]);
       
       console.log('Full settlement sync completed');
@@ -106,107 +98,140 @@ export class SettlementSyncService {
   }
 
   /**
-   * Start periodic members synchronization
+   * Get sync service status
+   */
+  public getStatus(): { running: boolean; activeIntervals: string[] } {
+    return {
+      running: this.isRunning,
+      activeIntervals: Array.from(this.intervalIds.keys()),
+    };
+  }
+
+  // =============================================================================
+  // PRIVATE SYNC METHODS
+  // =============================================================================
+
+  /**
+   * Start periodic settlements master list synchronization
+   */
+  private startSettlementsMasterSync(): void {
+    if (this.intervalIds.has('settlementsMaster')) {
+      return;
+    }
+
+    // Sync immediately on start
+    this.syncSettlementsMaster();
+
+    // Then sync every 30 minutes
+    const intervalId = setInterval(() => {
+      this.syncSettlementsMaster();
+    }, this.config.settlementsListInterval * 60 * 1000);
+
+    this.intervalIds.set('settlementsMaster', intervalId);
+    console.log(`Settlements master list sync scheduled every ${this.config.settlementsListInterval} minutes`);
+  }
+
+  /**
+   * Start periodic member synchronization
    */
   private startMembersSync(): void {
-    const intervalMs = this.config.membersSyncInterval * 60 * 1000;
-    
-    // Immediate sync
+    if (this.intervalIds.has('members')) {
+      return;
+    }
+
+    // Sync immediately on start
     this.syncMembers();
-    
-    // Set up interval
-    const interval = setInterval(() => {
+
+    // Then sync every 30 minutes
+    const intervalId = setInterval(() => {
       this.syncMembers();
-    }, intervalMs);
-    
-    this.syncIntervals.set('members', interval);
-    console.log(`Members sync scheduled every ${this.config.membersSyncInterval} minutes`);
+    }, this.config.membersInterval * 60 * 1000);
+
+    this.intervalIds.set('members', intervalId);
+    console.log(`Members sync scheduled every ${this.config.membersInterval} minutes`);
+  }
+
+  /**
+   * Start periodic settlement stats synchronization
+   */
+  private startSettlementStatsSync(): void {
+    if (this.intervalIds.has('settlementStats')) {
+      return;
+    }
+
+    // Sync immediately on start
+    this.syncSettlementStats();
+
+    // Then sync every 15 minutes
+    const intervalId = setInterval(() => {
+      this.syncSettlementStats();
+    }, this.config.settlementStatsInterval * 60 * 1000);
+
+    this.intervalIds.set('settlementStats', intervalId);
+    console.log(`Settlement stats sync scheduled every ${this.config.settlementStatsInterval} minutes`);
   }
 
   /**
    * Start periodic treasury synchronization
    */
   private startTreasurySync(): void {
-    const intervalMs = this.config.treasurySyncInterval * 60 * 1000;
-    
-    // Immediate sync
+    if (this.intervalIds.has('treasury')) {
+      return;
+    }
+
+    // Sync immediately on start
     this.syncTreasuryData();
-    
-    // Set up interval
-    const interval = setInterval(() => {
+
+    // Then sync every 5 minutes
+    const intervalId = setInterval(() => {
       this.syncTreasuryData();
-    }, intervalMs);
-    
-    this.syncIntervals.set('treasury', interval);
-    console.log(`Treasury sync scheduled every ${this.config.treasurySyncInterval} minutes`);
+    }, this.config.treasuryInterval * 60 * 1000);
+
+    this.intervalIds.set('treasury', intervalId);
+    console.log(`Treasury sync scheduled every ${this.config.treasuryInterval} minutes`);
   }
 
   /**
-   * Start periodic settlement stats synchronization
+   * Sync settlements master list from BitJita API
    */
-  private startStatsSync(): void {
-    const intervalMs = this.config.settlementStatsInterval * 60 * 1000;
+  private async syncSettlementsMaster(): Promise<void> {
+    const syncKey = 'settlementsMaster';
     
-    // Immediate sync
-    this.syncSettlementStats();
-    
-    // Set up interval
-    const interval = setInterval(() => {
-      this.syncSettlementStats();
-    }, intervalMs);
-    
-    this.syncIntervals.set('stats', interval);
-    console.log(`Settlement stats sync scheduled every ${this.config.settlementStatsInterval} minutes`);
+    try {
+      console.log('Syncing settlements master list...');
+      
+      const result = await syncSettlementsMaster();
+      
+      if (result.success) {
+        console.log(`✅ Settlements master sync successful: ${result.settlementsFound} found, ${result.settlementsAdded} added, ${result.settlementsUpdated} updated`);
+      } else {
+        console.error('❌ Settlements master sync failed:', result.error);
+        await this.handleSyncError(syncKey, () => this.syncSettlementsMaster());
+      }
+      
+    } catch (error) {
+      console.error('Error syncing settlements master list:', error);
+      await this.handleSyncError(syncKey, () => this.syncSettlementsMaster());
+    }
   }
 
   /**
-   * Sync settlement members from BitJita API
+   * Sync settlement members from BitJita API using the new sync command
    */
   private async syncMembers(): Promise<void> {
     const syncKey = 'members';
     
     try {
-      console.log('Syncing settlement members...');
+      console.log('Syncing settlement members for all active settlements...');
       
-      // Fetch settlement roster from BitJita API
-      const settlementId = 'main-settlement'; // Configure this appropriately
-      const rosterResponse = await BitJitaAPI.fetchSettlementRoster(settlementId);
+      const result = await syncAllSettlementMembers('scheduled');
       
-      if (!rosterResponse.success || !rosterResponse.data?.members) {
-        console.log('No member data received from BitJita API');
-        return;
+      if (result.success) {
+        console.log(`✅ Settlement members sync successful: ${result.totalMembers} members, ${result.totalCitizens} citizens synced across ${result.settlementsProcessed} settlements`);
+      } else {
+        console.warn(`⚠️  Settlement members sync completed with errors: ${result.errors.length} failures`);
+        result.errors.forEach(error => console.error(`   - ${error}`));
       }
-
-      // Process and upsert each member
-      let syncedCount = 0;
-      for (const memberData of rosterResponse.data.members) {
-        try {
-          // Upsert member data directly to database
-          const { error } = await supabase!
-            .from('settlement_members')
-            .upsert({
-              id: memberData.entityId,
-              name: memberData.userName,
-              join_date: memberData.createdAt,
-              last_seen: memberData.lastLoginTimestamp || null,
-              is_active: true,
-              contribution_score: 0,
-              updated_at: new Date().toISOString(),
-            });
-
-          if (error) {
-            console.error(`Error syncing member ${memberData.entityId}:`, error);
-          } else {
-            syncedCount++;
-          }
-          
-        } catch (memberError) {
-          console.error(`Error syncing member ${memberData.entityId}:`, memberError);
-        }
-      }
-
-      console.log(`Successfully synced ${syncedCount} settlement members`);
-      this.retryAttempts.delete(syncKey);
       
     } catch (error) {
       console.error('Error syncing settlement members:', error);
@@ -221,14 +246,8 @@ export class SettlementSyncService {
     const syncKey = 'treasury';
     
     try {
-      console.log('Syncing treasury data...');
-      
-      // Note: BitJita API doesn't currently provide treasury data
-      // This is a placeholder for future BitJita treasury integration
-      console.log('Treasury sync not yet available from BitJita API');
-      
-      // Treasury sync will be implemented when BitJita adds treasury endpoints
-      this.retryAttempts.delete(syncKey);
+      // TODO: Implement treasury sync when BitJita provides treasury endpoints
+      console.log('Treasury sync placeholder - BitJita treasury API not yet available');
       
     } catch (error) {
       console.error('Error syncing treasury data:', error);
@@ -240,20 +259,19 @@ export class SettlementSyncService {
    * Sync settlement statistics from BitJita API
    */
   private async syncSettlementStats(): Promise<void> {
-    const syncKey = 'stats';
+    const syncKey = 'settlementStats';
     
     try {
       console.log('Syncing settlement statistics...');
       
-      // Note: Use BitJita API to get settlement details
-      const settlementId = 'main-settlement'; // Configure this appropriately
-      // BitJita doesn't have a single settlement info endpoint yet
-      // For now, we'll aggregate from available endpoints
+      // Get current settlement ID
+      const defaultSettlementId = '504403158277057776'; // Port Taverna for now
+      
+      // Fetch settlement details for stats
+      const detailsResult = await BitJitaAPI.fetchSettlementDetails(defaultSettlementId);
       
       // Placeholder for future settlement stats sync
       console.log('Settlement stats sync placeholder - will be implemented when BitJita adds more endpoints');
-      
-      this.retryAttempts.delete(syncKey);
       
     } catch (error) {
       console.error('Error syncing settlement stats:', error);
@@ -262,40 +280,14 @@ export class SettlementSyncService {
   }
 
   /**
-   * Handle sync errors with retry logic
+   * Handle sync errors with exponential backoff
    */
-  private async handleSyncError(syncKey: string, retryFn: () => Promise<void>): Promise<void> {
-    const currentAttempts = this.retryAttempts.get(syncKey) || 0;
-    
-    if (currentAttempts < this.config.maxRetries) {
-      this.retryAttempts.set(syncKey, currentAttempts + 1);
-      
-      console.log(`Retrying ${syncKey} sync in ${this.config.retryDelay} seconds (attempt ${currentAttempts + 1}/${this.config.maxRetries})`);
-      
-      setTimeout(async () => {
-        await retryFn();
-      }, this.config.retryDelay * 1000);
-    } else {
-      console.error(`Max retries reached for ${syncKey} sync, giving up`);
-      this.retryAttempts.delete(syncKey);
-    }
-  }
-
-  /**
-   * Get the current status of the sync service
-   */
-  public getStatus(): {
-    isRunning: boolean;
-    intervals: string[];
-    retryAttempts: Record<string, number>;
-  } {
-    return {
-      isRunning: this.isRunning,
-      intervals: Array.from(this.syncIntervals.keys()),
-      retryAttempts: Object.fromEntries(this.retryAttempts),
-    };
+  private async handleSyncError(syncKey: string, retryFunction: () => Promise<void>): Promise<void> {
+    // For now, just log the error
+    // TODO: Implement exponential backoff retry logic
+    console.error(`Sync error for ${syncKey}, will retry on next scheduled interval`);
   }
 }
 
-// Export a singleton instance
+// Export singleton instance
 export const settlementSyncService = new SettlementSyncService(); 

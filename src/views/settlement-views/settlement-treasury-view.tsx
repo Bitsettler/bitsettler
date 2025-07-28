@@ -243,11 +243,11 @@ export function SettlementTreasuryView() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="flex justify-between items-start">
+      {/* Page Header */}
+      <div className="flex justify-between items-start mb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Settlement Treasury</h1>
-          <p className="text-muted-foreground mt-2">
+          <h1 className="text-3xl font-bold">Treasury</h1>
+          <p className="text-muted-foreground text-sm">
             Monitor your settlement's financial health and transaction history.
           </p>
         </div>
