@@ -15,16 +15,22 @@ import {
 } from './ui/breadcrumb'
 
 // Mapping of path segments to translation keys
-const pathTranslationMap: Record<string, string> = {
+const pathTranslations: Record<string, string> = {
   compendium: 'sidebar.compendium',
   calculator: 'sidebar.calculator',
   changelog: 'sidebar.changelog',
   about: 'sidebar.aboutUs',
-  contact: 'sidebar.contactUs',
-  donate: 'sidebar.donate',
-  random: 'sidebar.randomPage',
-  dashboard: 'sidebar.dashboard',
-  projects: 'sidebar.projects'
+  settlement: 'sidebar.settlement',
+  // Item categories
+  buildings: 'sidebar.buildings',
+  resources: 'sidebar.resources',
+  tools: 'sidebar.tools',
+  // Settlement pages
+  dashboard: 'sidebar.settlementDashboard',
+  members: 'sidebar.settlementMembers',
+  projects: 'sidebar.settlementProjects',
+  treasury: 'sidebar.settlementTreasury',
+  skills: 'sidebar.skills'
 }
 
 export function Header() {
@@ -32,33 +38,26 @@ export function Header() {
   const t = useTranslations()
 
   // Generate breadcrumb items from current pathname
-  const generateBreadcrumbs = () => {
-    // Remove locale prefix (e.g., /en, /fr, /es) and split by /
-    const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/'
-    const segments = pathWithoutLocale.split('/').filter(Boolean)
+  const generateBreadcrumbs = (path: string) => {
+    const segments = path.split('/').filter(Boolean).slice(1) // Remove locale
+    const breadcrumbs = []
 
-    const breadcrumbs = [
-      {
-        label: t('sidebar.mainPage'),
-        href: '/',
-        isLast: segments.length === 0
-      }
-    ]
+         // Add home
+     breadcrumbs.push({
+       label: t('sidebar.mainPage'),
+       href: '/',
+       isLast: segments.length === 0
+     })
 
-    // Build breadcrumbs for each segment
+    // Add segments
     let currentPath = ''
     segments.forEach((segment, index) => {
       currentPath += `/${segment}`
       const isLast = index === segments.length - 1
-
-      // Get translation for the segment or use the segment itself (capitalized)
-      const translationKey = pathTranslationMap[segment]
-      const label = translationKey
-        ? t(translationKey)
-        : segment.charAt(0).toUpperCase() + segment.slice(1)
-
+      const translationKey = pathTranslations[segment]
+      
       breadcrumbs.push({
-        label,
+        label: translationKey ? t(translationKey) : segment.charAt(0).toUpperCase() + segment.slice(1),
         href: currentPath,
         isLast
       })
@@ -67,7 +66,7 @@ export function Header() {
     return breadcrumbs
   }
 
-  const breadcrumbs = generateBreadcrumbs()
+  const breadcrumbs = generateBreadcrumbs(pathname)
 
   return (
     <header className="bg-background border-border sticky top-0 z-50 w-full border-b">

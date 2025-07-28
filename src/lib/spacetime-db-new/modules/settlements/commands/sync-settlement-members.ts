@@ -70,17 +70,39 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
 
     const members = rosterResult.data?.members || [];
     const citizens = citizensResult.data?.citizens || [];
+    const skillNames = citizensResult.data?.skillNames || {};
 
     results.membersFound = members.length;
     results.citizensFound = citizens.length;
 
     console.log(`📥 Fetched ${members.length} members and ${citizens.length} citizens from BitJita`);
 
+    // Store/update skill names in database for caching
+    if (Object.keys(skillNames).length > 0) {
+      console.log(`💾 Caching ${Object.keys(skillNames).length} skill names...`);
+      for (const [skillId, skillName] of Object.entries(skillNames)) {
+        await supabase!
+          .from('skill_names')
+          .upsert({ 
+            skill_id: skillId, 
+            skill_name: skillName as string,
+            updated_at: new Date().toISOString()
+          }, {
+            onConflict: 'skill_id',
+            ignoreDuplicates: false
+          });
+      }
+      console.log(`✅ Cached skill names in database`);
+    }
+
     // Sync members with detailed error handling
     let memberSuccessCount = 0;
     let memberErrorCount = 0;
     
     for (const member of members) {
+      console.log(`🔄 Syncing member: ${member.userName} (${member.entityId})`);
+      console.log(`   📊 Permissions: Inventory=${member.inventoryPermission}, Build=${member.buildPermission}, Officer=${member.officerPermission}, CoOwner=${member.coOwnerPermission}`);
+      
       const memberData = {
         settlement_id: options.settlementId,
         entity_id: member.entityId,
@@ -100,8 +122,6 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
         sync_source: 'bitjita'
       };
 
-      console.log(`🔄 Syncing member: ${member.userName} (${member.entityId})`);
-      
       const { data, error } = await supabase!
         .from('settlement_members')
         .upsert(memberData, {
@@ -130,6 +150,10 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     let citizenErrorCount = 0;
     
     for (const citizen of citizens) {
+      console.log(`🎓 Syncing citizen: ${citizen.userName} (${citizen.entityId})`);
+      console.log(`   🎯 Skills: ${JSON.stringify(citizen.skills)} (${Object.keys(citizen.skills || {}).length} skills)`);
+      console.log(`   📊 Levels: Total=${citizen.totalLevel}, Highest=${citizen.highestLevel}, XP=${citizen.totalXP}`);
+      
       const citizenData = {
         settlement_id: options.settlementId,
         entity_id: citizen.entityId,

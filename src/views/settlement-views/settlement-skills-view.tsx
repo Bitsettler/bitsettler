@@ -1,142 +1,381 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Badge } from '../../components/ui/badge';
-import { Progress } from '../../components/ui/progress';
-import { Award, TrendingUp, Users, Target } from 'lucide-react';
+import { Button } from '../../components/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
+import { Container } from '../../components/container';
+import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+
+interface CitizenSkills {
+  name: string;
+  entityId: string;
+  profession: string;
+  totalSkillLevel: number;
+  totalXP: number;
+  highestLevel: number;
+  skills: Record<string, number>;
+  isActive: boolean;
+}
+
+interface SkillsAnalytics {
+  totalSkills: number;
+  averageLevel: number;
+  topProfession: string;
+  totalSkillPoints: number;
+  professionDistribution: Array<{
+    profession: string;
+    members: number;
+    avgLevel: number;
+    maxLevel: number;
+  }>;
+  topSkills: Array<{
+    name: string;
+    totalMembers: number;
+    averageLevel: number;
+    maxLevel: number;
+  }>;
+  skillLevelDistribution: Array<{
+    levelRange: string;
+    count: number;
+  }>;
+}
+
+interface SkillsResponse {
+  success: boolean;
+  data?: SkillsAnalytics;
+  error?: string;
+  meta?: {
+    totalMembers: number;
+    dataSource: string;
+    generatedAt: string;
+  };
+}
+
+interface MembersResponse {
+  success: boolean;
+  data?: CitizenSkills[];
+  error?: string;
+}
+
+type SortDirection = 'asc' | 'desc' | null;
+
+
 
 export function SettlementSkillsView() {
+  const [skillsData, setSkillsData] = useState<SkillsAnalytics | null>(null);
+  const [citizensData, setCitizensData] = useState<CitizenSkills[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [meta, setMeta] = useState<SkillsResponse['meta'] | null>(null);
+  
+  // Sorting state
+  const [sortField, setSortField] = useState<string>('name');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+
+  const { selectedSettlement } = useSelectedSettlement();
+
+  useEffect(() => {
+    fetchSkillsData();
+  }, [selectedSettlement]);
+
+  const fetchSkillsData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const params = new URLSearchParams();
+      if (selectedSettlement) {
+        params.append('settlementId', selectedSettlement.id);
+      }
+
+      // Fetch both analytics and detailed member data
+      const [analyticsResponse, membersResponse] = await Promise.all([
+        fetch(`/api/settlement/skills?${params}`),
+        fetch(`/api/settlement/members?${params}`)
+      ]);
+
+      const analyticsResult: SkillsResponse = await analyticsResponse.json();
+      const membersResult: MembersResponse = await membersResponse.json();
+
+      if (!analyticsResult.success) {
+        throw new Error(analyticsResult.error || 'Failed to fetch skills analytics');
+      }
+
+      if (!membersResult.success) {
+        throw new Error(membersResult.error || 'Failed to fetch member data');
+      }
+
+      setSkillsData(analyticsResult.data || null);
+      setCitizensData(membersResult.data || []);
+      setMeta(analyticsResult.meta || null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+      console.error('Skills fetch error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatNumber = (num: number): string => {
+    return new Intl.NumberFormat().format(num);
+  };
+
+  // Get all unique skills across all citizens
+  const allSkills = Array.from(
+    new Set(
+      citizensData.flatMap(citizen => Object.keys(citizen.skills))
+    )
+  ).sort();
+
+  // Sorting logic
+  const handleSort = (field: string) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : sortDirection === 'desc' ? null : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+
+  const sortedCitizens = [...citizensData].sort((a, b) => {
+    if (!sortDirection) return 0;
+
+    let aValue: any, bValue: any;
+
+    if (sortField === 'name') {
+      aValue = a.name.toLowerCase();
+      bValue = b.name.toLowerCase();
+    } else if (sortField === 'profession') {
+      aValue = a.profession.toLowerCase();
+      bValue = b.profession.toLowerCase();
+    } else if (sortField === 'totalSkillLevel') {
+      aValue = a.totalSkillLevel;
+      bValue = b.totalSkillLevel;
+    } else if (allSkills.includes(sortField)) {
+      aValue = a.skills[sortField] || 0;
+      bValue = b.skills[sortField] || 0;
+    } else {
+      return 0;
+    }
+
+    if (sortDirection === 'asc') {
+      return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+    } else {
+      return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+    }
+  });
+
+  const renderSortIcon = (field: string) => {
+    if (sortField !== field) return <ArrowUpDown className="h-3 w-3 opacity-50" />;
+    if (sortDirection === 'asc') return <ArrowUp className="h-3 w-3" />;
+    if (sortDirection === 'desc') return <ArrowDown className="h-3 w-3" />;
+    return <ArrowUpDown className="h-3 w-3 opacity-50" />;
+  };
+
+  if (loading) {
+    return (
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold">Skills Overview</h1>
+            <p className="text-muted-foreground text-sm">
+              Track member skills, progression, and settlement capabilities across all professions.
+            </p>
+          </div>
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              <p className="text-muted-foreground mt-2">Loading skills data...</p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold">Skills Overview</h1>
+            <p className="text-muted-foreground text-sm">
+              Track member skills, progression, and settlement capabilities across all professions.
+            </p>
+          </div>
+          <Card>
+            <CardContent className="flex items-center justify-center min-h-[400px]">
+              <div className="text-center">
+                <AlertCircle className="h-8 w-8 text-red-500 mx-auto mb-2" />
+                <p className="text-red-500 font-medium">Error loading skills data</p>
+                <p className="text-muted-foreground text-sm mt-1">{error}</p>
+                <Button variant="outline" size="sm" onClick={fetchSkillsData} className="mt-4">
+                  <RefreshCw className="h-4 w-4 mr-2" />
+                  Retry
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
+    );
+  }
+
   return (
-    <div className="space-y-6">
-      {/* Page Header */}
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold">Skills</h1>
-        <p className="text-muted-foreground text-sm">
-          Track member skills, progression, and settlement capabilities across all professions.
-        </p>
-      </div>
-
-      {/* Skills Overview */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Skills</CardTitle>
-            <Award className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">156</div>
-            <p className="text-xs text-muted-foreground">
-              Across all members
+    <Container>
+      <div className="space-y-6 py-8">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">Skills Overview</h1>
+            <p className="text-muted-foreground text-sm">
+              Track member skills, progression, and settlement capabilities across all professions.
             </p>
-          </CardContent>
-        </Card>
+          </div>
+          <Button variant="outline" size="sm" onClick={fetchSkillsData}>
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Refresh
+          </Button>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Average Level</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">7.8</div>
-            <p className="text-xs text-muted-foreground">
-              Settlement-wide average
-            </p>
-          </CardContent>
-        </Card>
+      {/* High-level Analytics */}
+      {skillsData && (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Members</CardTitle>
+              <Users className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{formatNumber(meta?.totalMembers || 0)}</div>
+              <p className="text-xs text-muted-foreground">
+                {formatNumber(citizensData.filter(c => c.totalSkillLevel > 0).length)} with skills
+              </p>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Top Profession</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">Combat</div>
-            <p className="text-xs text-muted-foreground">
-              15 members
-            </p>
-          </CardContent>
-        </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Top Profession</CardTitle>
+              <Award className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{skillsData.topProfession}</div>
+              <p className="text-xs text-muted-foreground">Most common specialty</p>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Skill Points</CardTitle>
-            <Target className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">1,247</div>
-            <p className="text-xs text-muted-foreground">
-              Total earned
-            </p>
-          </CardContent>
-        </Card>
-      </div>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Average Level</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{skillsData.averageLevel.toFixed(1)}</div>
+              <p className="text-xs text-muted-foreground">Across all skills</p>
+            </CardContent>
+          </Card>
 
-      {/* Profession Distribution */}
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total XP</CardTitle>
+              <Target className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{formatNumber(skillsData.totalSkillPoints)}</div>
+              <p className="text-xs text-muted-foreground">Combined experience</p>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+
+
+      {/* Citizens Skills Matrix */}
       <Card>
         <CardHeader>
-          <CardTitle>Profession Skill Distribution</CardTitle>
-          <CardDescription>Settlement capabilities across different professions</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {[
-              { profession: 'Combat', members: 15, avgLevel: 9.1, maxLevel: 12 },
-              { profession: 'Construction', members: 12, avgLevel: 8.5, maxLevel: 11 },
-              { profession: 'Crafting', members: 10, avgLevel: 7.8, maxLevel: 10 },
-              { profession: 'Gathering', members: 8, avgLevel: 6.2, maxLevel: 9 }
-            ].map((prof) => (
-              <div key={prof.profession} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="font-medium">{prof.profession}</span>
-                    <Badge variant="outline">{prof.members} members</Badge>
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Avg Level: {prof.avgLevel} / Max: {prof.maxLevel}
-                  </div>
-                </div>
-                <Progress 
-                  value={(prof.avgLevel / prof.maxLevel) * 100} 
-                  className="h-2"
-                />
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Coming Soon Notice */}
-      <Card className="border-dashed">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Award className="h-5 w-5 text-muted-foreground" />
-            Detailed Skills Tracking Coming Soon
-          </CardTitle>
+          <CardTitle>Citizen Skills Matrix</CardTitle>
           <CardDescription>
-            Advanced features planned for skills management
+            Click column headers to sort by skill level.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="grid gap-3 md:grid-cols-2 text-sm text-muted-foreground">
-            <div>
-              <h4 className="font-medium text-foreground mb-2">Individual Member Skills</h4>
-              <ul className="space-y-1">
-                <li>• Detailed skill progression tracking</li>
-                <li>• Personal skill trees and specializations</li>
-                <li>• Skill comparison and recommendations</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium text-foreground mb-2">Settlement Capabilities</h4>
-              <ul className="space-y-1">
-                <li>• Required vs available skills for projects</li>
-                <li>• Skill gap analysis and training priorities</li>
-                <li>• Settlement expertise ratings</li>
-              </ul>
-            </div>
+        <CardContent className="p-0">
+          <div className="overflow-x-auto">
+            <Table className="table-fixed">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="sticky left-0 bg-background z-10 border-r w-48">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleSort('name')}
+                      className="h-auto p-2 font-medium hover:bg-muted"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>Citizen</span>
+                        {renderSortIcon('name')}
+                      </div>
+                    </Button>
+                  </TableHead>
+                  {allSkills.map((skill) => (
+                    <TableHead key={skill} className="text-center min-w-[100px] p-2">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleSort(skill)}
+                        className="h-auto p-2 font-medium text-xs hover:bg-muted"
+                      >
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="font-medium">{skill}</span>
+                          {renderSortIcon(skill)}
+                        </div>
+                      </Button>
+                    </TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sortedCitizens.map((citizen) => (
+                  <TableRow key={citizen.entityId}>
+                    <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3">
+                      <div className="truncate">
+                        <div className="font-medium text-sm">{citizen.name}</div>
+                        <div className="text-xs text-muted-foreground truncate">{citizen.profession}</div>
+                      </div>
+                    </TableCell>
+                    {allSkills.map((skill) => {
+                      const level = citizen.skills[skill] || 0;
+                      return (
+                        <TableCell key={skill} className="text-center p-2">
+                          {level > 0 ? (
+                            <span className="text-sm font-medium">
+                              {level}
+                            </span>
+                          ) : (
+                            <span className="text-muted-foreground text-sm">-</span>
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
+          
+          {citizensData.length === 0 && (
+            <div className="text-center py-8 text-muted-foreground">
+              <Users className="h-8 w-8 mx-auto mb-2 opacity-50" />
+              <p>No citizen skill data available</p>
+              <p className="text-sm">Data may still be syncing from the game</p>
+            </div>
+          )}
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </Container>
   );
 } 

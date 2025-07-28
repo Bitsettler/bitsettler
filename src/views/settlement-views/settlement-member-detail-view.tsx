@@ -6,6 +6,7 @@ import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Separator } from '../../components/ui/separator';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { 
   ArrowLeft,
@@ -130,10 +131,8 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   };
 
   const getPermissionLevel = (permission: number): { label: string; color: string; icon: any } => {
-    if (permission >= 3) return { label: 'Full Access', color: 'text-green-600 bg-green-50 border-green-200', icon: Crown };
-    if (permission >= 2) return { label: 'Officer', color: 'text-blue-600 bg-blue-50 border-blue-200', icon: Shield };
-    if (permission >= 1) return { label: 'Limited', color: 'text-yellow-600 bg-yellow-50 border-yellow-200', icon: Key };
-    return { label: 'None', color: 'text-gray-600 bg-gray-50 border-gray-200', icon: UserX };
+    if (permission >= 1) return { label: 'Yes', color: 'text-green-600 bg-green-50 border-green-200', icon: UserCheck };
+    return { label: 'No', color: 'text-gray-600 bg-gray-50 border-gray-200', icon: UserX };
   };
 
   const getTopSkills = (skills: Record<string, number>): Array<{ name: string; level: number }> => {
@@ -145,42 +144,46 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Members
-          </Button>
-        </div>
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-            <p className="text-muted-foreground mt-2">Loading member details...</p>
+      <Container className="py-6">
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Members
+            </Button>
+          </div>
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              <p className="text-muted-foreground mt-2">Loading member details...</p>
+            </div>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 
   if (error || !member) {
     return (
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Members
-          </Button>
-        </div>
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-center">
-            <p className="text-red-500 mb-2">Error loading member details</p>
-            <p className="text-muted-foreground">{error || 'Member not found'}</p>
-            <Button variant="outline" onClick={fetchMemberDetails} className="mt-4">
-              Try Again
+      <Container className="py-6">
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Members
             </Button>
           </div>
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <p className="text-red-500 mb-2">Error loading member details</p>
+              <p className="text-muted-foreground">{error || 'Member not found'}</p>
+              <Button variant="outline" onClick={fetchMemberDetails} className="mt-4">
+                Try Again
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     );
   }
 
@@ -192,31 +195,32 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   const topSkills = getTopSkills(member.skills);
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Members
-          </Button>
-          <div>
-            <h1 className="text-3xl font-bold">Member Details</h1>
-            <p className="text-muted-foreground">Detailed information about {member.name}</p>
+    <Container className="py-6">
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Members
+            </Button>
+            <div>
+              <h1 className="text-3xl font-bold">Member Details</h1>
+              <p className="text-muted-foreground">Detailed information about {member.name}</p>
+            </div>
           </div>
+          {member.isActive ? (
+            <Badge className="bg-green-500">
+              <UserCheck className="h-3 w-3 mr-1" />
+              Active
+            </Badge>
+          ) : (
+            <Badge variant="secondary">
+              <UserX className="h-3 w-3 mr-1" />
+              Inactive
+            </Badge>
+          )}
         </div>
-        {member.isActive ? (
-          <Badge className="bg-green-500">
-            <UserCheck className="h-3 w-3 mr-1" />
-            Active
-          </Badge>
-        ) : (
-          <Badge variant="secondary">
-            <UserX className="h-3 w-3 mr-1" />
-            Inactive
-          </Badge>
-        )}
-      </div>
 
       {/* Member Profile */}
       <Card>
@@ -424,6 +428,7 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
           </div>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </Container>
   );
 } 

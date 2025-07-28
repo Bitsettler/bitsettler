@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
+import { Container } from '../../components/container';
 import { LiveActivityFeed } from '../../components/live-activity-feed';
 import { RealtimeStatusIndicator } from '../../components/realtime-status-indicator';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
@@ -15,7 +16,11 @@ import {
   TrendingUp, 
   Activity, 
   Settings,
-  User
+  User,
+  Zap,
+  Award,
+  Target,
+  Wallet
 } from 'lucide-react';
 
 interface DashboardStats {
@@ -27,10 +32,19 @@ interface DashboardStats {
   monthlyIncome: number;
 }
 
+interface SkillsInsights {
+  totalSkilledMembers: number;
+  avgSkillLevel: number;
+  topProfession: string;
+  totalSkillPoints: number;
+  topSkills: Array<{name: string, members: number, avgLevel: number}>;
+}
+
 interface DashboardData {
   settlement: any;
   treasury: any;
   stats: DashboardStats;
+  skills?: SkillsInsights;
   lastUpdated: string;
 }
 
@@ -41,70 +55,83 @@ export function SettlementDashboardView() {
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
 
-  useEffect(() => {
-    const fetchDashboardData = async () => {
-      try {
-        setIsLoading(true);
-        
-        // Add settlement ID to API call if available
-        const url = selectedSettlement 
-          ? `/api/settlement/dashboard?settlementId=${encodeURIComponent(selectedSettlement.id)}`
-          : '/api/settlement/dashboard';
-          
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch dashboard data');
-        }
-        
-        const data = await response.json();
-        setDashboardData(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-      } finally {
-        setIsLoading(false);
+  const fetchDashboardData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      
+      // Only fetch if we have a selected settlement
+      if (!selectedSettlement) {
+        setError('No settlement selected');
+        return;
       }
-    };
-
-    fetchDashboardData();
-    
-    // Refresh data every 30 seconds
-    const interval = setInterval(fetchDashboardData, 30000);
-    return () => clearInterval(interval);
+      
+      const url = `/api/settlement/dashboard?settlementId=${encodeURIComponent(selectedSettlement.id)}`;
+        
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch dashboard data');
+      }
+      
+      const data = await response.json();
+      setDashboardData(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setIsLoading(false);
+    }
   }, [selectedSettlement]);
+
+  useEffect(() => {
+    // Only fetch data if we have a selected settlement
+    if (selectedSettlement) {
+      fetchDashboardData();
+      
+      // Refresh data every 5 minutes (less aggressive to prevent blinking)
+      const interval = setInterval(fetchDashboardData, 300000);
+      return () => clearInterval(interval);
+    }
+  }, [fetchDashboardData, selectedSettlement]);
 
   const formatNumber = (num: number): string => {
     return new Intl.NumberFormat().format(num);
   };
 
   const formatCurrency = (num: number): string => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(num);
+    return new Intl.NumberFormat('en-US').format(num);
+  };
+
+  const formatHexcoin = (num: number): string => {
+    return `${formatCurrency(num)} 🪙`;
   };
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-          <p className="text-muted-foreground mt-2">Loading dashboard...</p>
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              <p className="text-muted-foreground mt-2">Loading dashboard...</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center">
-          <p className="text-red-500 mb-2">Error loading dashboard</p>
-          <p className="text-muted-foreground">{error}</p>
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <p className="text-red-500 mb-2">Error loading dashboard</p>
+              <p className="text-muted-foreground">{error}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     );
   }
 
@@ -118,13 +145,14 @@ export function SettlementDashboardView() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Settlement Dashboard</h1>
-          <p className="text-muted-foreground">Real-time overview of your settlement</p>
-        </div>
+    <Container>
+      <div className="space-y-6 py-8">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">Settlement Dashboard</h1>
+            <p className="text-muted-foreground">Real-time overview of your settlement</p>
+          </div>
         <div className="flex items-center gap-3">
           <RealtimeStatusIndicator showLastUpdate showActivityCount />
           {inviteCode && (
@@ -199,10 +227,10 @@ export function SettlementDashboardView() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Treasury</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <Wallet className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatCurrency(stats.currentBalance)}</div>
+            <div className="text-2xl font-bold">{formatHexcoin(stats.currentBalance)}</div>
             <p className="text-xs text-muted-foreground">Current balance</p>
           </CardContent>
         </Card>
@@ -213,11 +241,84 @@ export function SettlementDashboardView() {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatCurrency(stats.monthlyIncome)}</div>
+            <div className="text-2xl font-bold">{formatHexcoin(stats.monthlyIncome)}</div>
             <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
       </div>
+
+      {/* Skills Insights */}
+      {dashboardData?.skills && (
+        <div className="grid gap-4 lg:grid-cols-3">
+          {/* Skills Summary */}
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Avg Skill Level</CardTitle>
+                <Target className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{dashboardData.skills?.avgSkillLevel || 0}</div>
+                <p className="text-xs text-muted-foreground">Settlement average</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Top Profession</CardTitle>
+                <Award className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold truncate">{dashboardData.skills?.topProfession || 'Unknown'}</div>
+                <p className="text-xs text-muted-foreground">Most common</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Top Skills Chart */}
+          <div className="lg:col-span-2">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Zap className="h-4 w-4" />
+                  Top Skills by Participation
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {dashboardData.skills?.topSkills?.slice(0, 5).map((skill, index) => {
+                    const maxMembers = dashboardData.skills?.topSkills?.[0]?.members || 1;
+                    const percentage = (skill.members / maxMembers) * 100;
+                    
+                    return (
+                      <div key={skill.name} className="space-y-1">
+                        <div className="flex items-center justify-between text-sm">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="outline" className="w-5 h-5 p-0 flex items-center justify-center text-xs">
+                              {index + 1}
+                            </Badge>
+                            <span className="font-medium">{skill.name}</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-muted-foreground">
+                            <span>{skill.members} members</span>
+                            <span className="font-medium">Lvl {skill.avgLevel}</span>
+                          </div>
+                        </div>
+                        <div className="w-full bg-secondary rounded-full h-2">
+                          <div 
+                            className="bg-primary h-2 rounded-full transition-all duration-300" 
+                            style={{ width: `${percentage}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      )}
 
       {/* Recent Activity & Live Feed */}
       <div className="grid gap-4 lg:grid-cols-2">
@@ -244,6 +345,7 @@ export function SettlementDashboardView() {
           </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+    </Container>
   );
 } 

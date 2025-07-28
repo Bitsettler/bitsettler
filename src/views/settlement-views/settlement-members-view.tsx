@@ -8,6 +8,7 @@ import { Button } from '../../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { Search, Users, UserCheck, Clock } from 'lucide-react';
 
@@ -121,30 +122,35 @@ export function SettlementMembersView() {
 
   if (error) {
     return (
-      <Card className="border-destructive">
-        <CardHeader>
-          <CardTitle className="text-destructive flex items-center gap-2">
-            <Users className="h-5 w-5" />
-            Error Loading Members
-          </CardTitle>
-          <CardDescription>{error}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">
-            Settlement features may be disabled if Supabase is not configured.
-          </p>
-          <Button onClick={fetchMembers} className="mt-4">
-            Try Again
-          </Button>
-        </CardContent>
-      </Card>
+      <Container>
+        <div className="space-y-6 py-8">
+          <Card className="border-destructive">
+            <CardHeader>
+              <CardTitle className="text-destructive flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                Error Loading Members
+              </CardTitle>
+              <CardDescription>{error}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Settlement features may be disabled if Supabase is not configured.
+              </p>
+              <Button onClick={fetchMembers} className="mt-4">
+                Try Again
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
     );
   }
 
   const totalPages = Math.ceil(totalMembers / membersPerPage);
 
   return (
-    <div className="space-y-6">
+    <Container>
+      <div className="space-y-6 py-8">
       {/* Page Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
@@ -313,13 +319,15 @@ export function SettlementMembersView() {
           </CardContent>
         </Card>
       )}
-    </div>
+      </div>
+    </Container>
   );
 }
 
 function MembersLoadingSkeleton() {
   return (
-    <div className="space-y-6">
+    <Container>
+      <div className="space-y-6 py-8">
       <div className="flex items-center justify-between">
         <div>
           <Skeleton className="h-8 w-48 mb-2" />
@@ -372,6 +380,7 @@ function MembersLoadingSkeleton() {
           </Card>
         ))}
       </div>
-    </div>
+      </div>
+    </Container>
   );
 } 

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllMembers, type GetAllMembersOptions } from '../../../../lib/spacetime-db-new/modules';
+import { type GetAllMembersOptions } from '../../../../lib/spacetime-db-new/modules';
 import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
 
@@ -31,92 +31,119 @@ export async function GET(request: NextRequest) {
         // Check local database first if we have a settlement ID
     if (settlementId) {
       if (supabase) {
-        console.log(`🔍 Fetching member data for settlement ${settlementId} from local database`);
-        
         try {
-          // Use the settlement_member_details view for combined data
-          let query = supabase
-            .from('settlement_member_details')
-            .select('*', { count: 'exact' })
+          console.log(`🔍 Fetching member data for settlement ${settlementId} from local database`);
+          
+          // Get members from settlement_members table
+          let membersQuery = supabase
+            .from('settlement_members')
+            .select('*')
             .eq('settlement_id', settlementId);
 
-          // Apply filters
-          if (options.profession && options.profession !== 'all') {
-            query = query.ilike('top_profession', `%${options.profession}%`);
-          }
-          
           if (!options.includeInactive) {
-            query = query.eq('is_recently_active', true);
+            membersQuery = membersQuery.eq('is_active', true);
           }
 
-          // Apply pagination
-          const offset = options.offset || 0;
-          const limit = options.limit || 200; // Increased to 200 to show all members
-          query = query.range(offset, offset + limit - 1);
+          const { data: members, error: membersError } = await membersQuery;
 
-          const { data: members, error, count } = await query;
+          if (membersError) {
+            console.error('Members query error:', membersError);
+            throw membersError;
+          }
 
-          if (error) {
-            console.error('Local database search error:', error);
-            throw error; // Fall through to BitJita API
+          // Get citizens data (skills) for the same settlement
+          const { data: citizens, error: citizensError } = await supabase
+            .from('settlement_citizens')
+            .select('*')
+            .eq('settlement_id', settlementId);
+
+          if (citizensError) {
+            console.warn('Citizens query error (some members may not have skills data):', citizensError);
           }
 
           console.log(`✅ Found ${members?.length || 0} members in local database`);
 
-          // Transform database results to API format with full member details
-          const formattedMembers = (members || []).map(member => ({
-            id: member.entity_id,
-            name: member.user_name,
-            entityId: member.entity_id,
-            profession: member.top_profession || 'Unknown',
-            totalSkillLevel: member.total_level || 0,
-            totalXP: member.total_xp || 0,
-            highestLevel: member.highest_level || 0,
-            totalSkills: member.total_skills || 0,
-            skills: member.skills || {},
-            permissions: {
-              inventory: member.inventory_permission || 0,
-              build: member.build_permission || 0,
-              officer: member.officer_permission || 0,
-              coOwner: member.co_owner_permission || 0
-            },
-            lastLogin: member.last_login_timestamp,
-            joinedAt: member.joined_settlement_at,
-            isActive: member.is_active,
-            isRecentlyActive: member.is_recently_active,
-            // Additional useful info
-            professionLevel: member.highest_level || 1,
-            lastOnline: member.last_login_timestamp,
-            joinDate: member.joined_settlement_at,
-            // Calculated fields
-            daysSinceLastLogin: member.last_login_timestamp 
-              ? Math.floor((Date.now() - new Date(member.last_login_timestamp).getTime()) / (1000 * 60 * 60 * 24))
-              : null,
-            membershipDuration: member.joined_settlement_at
-              ? Math.floor((Date.now() - new Date(member.joined_settlement_at).getTime()) / (1000 * 60 * 60 * 24))
-              : null
-          }));
+          if (members && members.length > 0) {
+            // Create a lookup map for citizens data - using username since entity_ids don't match
+            const citizensMap = new Map();
+            (citizens || []).forEach(citizen => {
+              citizensMap.set(citizen.user_name, citizen);
+            });
 
-          return NextResponse.json({
-            success: true,
-            data: formattedMembers,
-            count: formattedMembers.length,
-            total: count || 0,
-            pagination: {
-              limit: options.limit,
-              offset: options.offset,
-              hasMore: (count || 0) > (offset + formattedMembers.length)
-            },
-            meta: {
-              dataSource: 'local_database',
-              lastUpdated: new Date().toISOString(),
-              settlementId,
-              lastSyncInfo: members && members.length > 0 
-                ? `Last synced: ${new Date(members[0].last_synced_at).toLocaleString()}`
-                : null
+                         // Transform database results to API format with full member details
+             let formattedMembers = members.map(member => {
+              const citizenData = citizensMap.get(member.user_name);
+              
+              return {
+                id: member.entity_id,
+                name: member.user_name,
+                entityId: member.entity_id,
+                profession: citizenData?.top_profession || 'Unknown',
+                totalSkillLevel: citizenData?.total_level || 0,
+                totalXP: citizenData?.total_xp || 0,
+                highestLevel: citizenData?.highest_level || 0,
+                totalSkills: citizenData?.total_skills || 0,
+                skills: citizenData?.skills || {},
+                permissions: {
+                  inventory: member.inventory_permission || 0,
+                  build: member.build_permission || 0,
+                  officer: member.officer_permission || 0,
+                  coOwner: member.co_owner_permission || 0
+                },
+                lastLogin: member.last_login_timestamp,
+                joinedAt: member.joined_settlement_at,
+                isActive: member.is_active,
+                isRecentlyActive: member.last_login_timestamp && 
+                                  (Date.now() - new Date(member.last_login_timestamp).getTime()) < (7 * 24 * 60 * 60 * 1000),
+                // Additional useful info
+                professionLevel: citizenData?.highest_level || 1,
+                lastOnline: member.last_login_timestamp,
+                joinDate: member.joined_settlement_at,
+                // Calculated fields
+                daysSinceLastLogin: member.last_login_timestamp 
+                  ? Math.floor((Date.now() - new Date(member.last_login_timestamp).getTime()) / (1000 * 60 * 60 * 24))
+                  : null,
+                membershipDuration: member.joined_settlement_at
+                  ? Math.floor((Date.now() - new Date(member.joined_settlement_at).getTime()) / (1000 * 60 * 60 * 24))
+                  : null
+              };
+            });
+
+            // Apply filters and pagination
+            if (options.profession) {
+              formattedMembers = formattedMembers.filter(m => m.profession.toLowerCase().includes(options.profession!.toLowerCase()));
             }
-          });
+            
+            if (!options.includeInactive) {
+              formattedMembers = formattedMembers.filter(m => m.isActive);
+            }
 
+            // Apply pagination
+            const total = formattedMembers.length;
+            const offset = options.offset || 0;
+            const limit = options.limit || 20;
+            formattedMembers = formattedMembers.slice(offset, offset + limit);
+
+            return NextResponse.json({
+              success: true,
+              data: formattedMembers,
+              count: formattedMembers.length,
+              total: total,
+              pagination: {
+                limit: options.limit,
+                offset: options.offset,
+                hasMore: total > (offset + formattedMembers.length)
+              },
+              meta: {
+                dataSource: 'local_database',
+                lastUpdated: new Date().toISOString(),
+                settlementId,
+                lastSyncInfo: members && members.length > 0 
+                  ? `Last synced: ${new Date(members[0].last_synced_at).toLocaleString()}`
+                  : null
+              }
+            });
+          }
         } catch (dbError) {
           console.error('Local database query failed:', dbError);
           // Fall through to BitJita API fallback
@@ -137,10 +164,20 @@ export async function GET(request: NextRequest) {
         if (rosterResult.success && citizensResult.success) {
           const roster = rosterResult.data?.members || [];
           const citizens = citizensResult.data?.citizens || [];
+          const skillNames = citizensResult.data?.skillNames || {};
           
           // Combine roster and citizen data
           members = roster.map(member => {
             const citizen = citizens.find(c => c.userName === member.userName);
+            
+            // Transform skills from {skillId: level} to {skillName: level} using real BitJita skill names
+            const mappedSkills: Record<string, number> = {};
+            if (citizen?.skills) {
+              Object.entries(citizen.skills).forEach(([skillId, level]) => {
+                const skillName = skillNames[skillId] || `Skill ${skillId}`;
+                mappedSkills[skillName] = level as number;
+              });
+            }
             
             return {
               id: member.entityId,
@@ -150,7 +187,7 @@ export async function GET(request: NextRequest) {
               totalSkillLevel: citizen?.totalLevel || 0,
               totalXP: citizen?.totalXP || 0,
               highestLevel: citizen?.highestLevel || 0,
-              skills: citizen?.skills || {},
+              skills: mappedSkills,
               permissions: {
                 inventory: member.inventoryPermission,
                 build: member.buildPermission,
@@ -203,23 +240,133 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Use Supabase if available
+    // Use Supabase if available - query settlement_members and settlement_citizens directly
     if (supabase) {
-      const members = await getAllMembers(options);
+      console.log('🔍 Fetching all members from settlement_members table (no settlement filter)');
+      
+      // Get all members from settlement_members table
+      let membersQuery = supabase
+        .from('settlement_members')
+        .select('*');
 
-      return NextResponse.json({
-        success: true,
-        data: members,
-        count: members.length,
-        pagination: {
-          limit: options.limit,
-          offset: options.offset,
-        },
-        meta: {
-          dataSource: 'supabase',
-          lastUpdated: new Date().toISOString()
+      if (!options.includeInactive) {
+        membersQuery = membersQuery.eq('is_active', true);
+      }
+
+      const { data: members, error: membersError } = await membersQuery;
+
+      if (membersError) {
+        console.error('Members query error:', membersError);
+        throw membersError;
+      }
+
+      // Get all citizens data (skills)
+      const { data: citizens, error: citizensError } = await supabase
+        .from('settlement_citizens')
+        .select('*');
+
+      if (citizensError) {
+        console.warn('Citizens query error (some members may not have skills data):', citizensError);
+      }
+
+              console.log(`✅ Found ${members?.length || 0} members in settlement_members table`);
+
+        if (members && members.length > 0) {
+          // Get cached skill names from database (no BitJita API call)
+          const { data: skillNamesData } = await supabase
+            .from('skill_names')
+            .select('skill_id, skill_name');
+          
+          const skillNames: Record<string, string> = {};
+          (skillNamesData || []).forEach(row => {
+            skillNames[row.skill_id] = row.skill_name;
+          });
+
+          // Create a lookup map for citizens data
+          const citizensMap = new Map();
+          (citizens || []).forEach(citizen => {
+            citizensMap.set(citizen.entity_id, citizen);
+          });
+
+           let formattedMembers = members.map(member => {
+            const citizenData = citizensMap.get(member.user_name);
+            
+            // Map profession ID to name using real BitJita skill names
+            const professionName = citizenData?.top_profession ? skillNames[citizenData.top_profession] || 'Unknown' : 'Unknown';
+
+            // Transform skills from {skillId: level} to {skillName: level} using real BitJita skill names
+            const mappedSkills: Record<string, number> = {};
+            if (citizenData?.skills) {
+              Object.entries(citizenData.skills).forEach(([skillId, level]) => {
+                const skillName = skillNames[skillId] || `Skill ${skillId}`;
+                mappedSkills[skillName] = level as number;
+              });
+            }
+          
+          return {
+            id: member.entity_id,
+            name: member.user_name,
+            entityId: member.entity_id,
+            profession: professionName,
+            totalSkillLevel: citizenData?.total_level || 0,
+            totalXP: citizenData?.total_xp || 0,
+            highestLevel: citizenData?.highest_level || 0,
+            totalSkills: citizenData?.total_skills || 0,
+            skills: mappedSkills,
+            professionLevel: citizenData?.highest_level || 1,
+            permissions: {
+              inventory: member.inventory_permission,
+              build: member.build_permission,
+              officer: member.officer_permission,
+              coOwner: member.co_owner_permission
+            },
+            lastOnline: member.last_login_timestamp,
+            joinDate: member.joined_settlement_at,
+            isActive: member.is_active,
+            // Calculated fields
+            daysSinceLastLogin: member.last_login_timestamp 
+              ? Math.floor((Date.now() - new Date(member.last_login_timestamp).getTime()) / (1000 * 60 * 60 * 24))
+              : null,
+            membershipDuration: member.joined_settlement_at
+              ? Math.floor((Date.now() - new Date(member.joined_settlement_at).getTime()) / (1000 * 60 * 60 * 24))
+              : null
+          };
+        });
+
+        // Apply filters
+        if (options.profession) {
+          formattedMembers = formattedMembers.filter(m => m.profession.toLowerCase().includes(options.profession!.toLowerCase()));
         }
-      });
+        
+        if (!options.includeInactive) {
+          formattedMembers = formattedMembers.filter(m => m.isActive);
+        }
+
+        // Apply pagination
+        const total = formattedMembers.length;
+        const offset = options.offset || 0;
+        const limit = options.limit || 20;
+        formattedMembers = formattedMembers.slice(offset, offset + limit);
+
+        return NextResponse.json({
+          success: true,
+          data: formattedMembers,
+          count: formattedMembers.length,
+          total: total,
+          pagination: {
+            limit: options.limit,
+            offset: options.offset,
+            hasMore: total > (offset + formattedMembers.length)
+          },
+          meta: {
+            dataSource: 'settlement_tables_direct_all',
+            lastUpdated: new Date().toISOString(),
+            lastSyncInfo: members && members.length > 0 
+              ? `Last synced: ${new Date(members[0].last_synced_at).toLocaleString()}`
+              : null
+          }
+        });
+      }
     }
 
     // Return empty response if no data source available

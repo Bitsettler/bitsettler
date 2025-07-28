@@ -7,6 +7,8 @@ import {
   getTreasuryCategories,
   type GetTransactionsOptions 
 } from '../../../../lib/spacetime-db-new/modules';
+import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { treasuryPollingService } from '../../../../lib/spacetime-db-new/modules/treasury/services/treasury-polling-service';
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,17 +17,50 @@ export async function GET(request: NextRequest) {
 
     switch (action) {
       case 'summary': {
-        const [summary, stats] = await Promise.all([
+        console.log('🏛️ Fetching treasury summary with BitJita integration...');
+        
+        // Get settlement ID from query params or use default
+        const settlementId = searchParams.get('settlementId') || '504403158277057776'; // Port Taverna
+        
+        // Fetch real-time treasury balance from BitJita
+        const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
+        
+        // Get local transaction data for statistics
+        const [localSummary, stats] = await Promise.all([
           getTreasurySummary(),
           getTreasuryStats(),
         ]);
 
+        // Build enhanced summary with BitJita balance
+        let enhancedSummary = {
+          ...localSummary,
+          currentBalance: 0, // Will be updated with BitJita data
+          lastUpdated: new Date().toISOString(),
+        };
+
+        // Use BitJita treasury balance if available
+        if (bitjitaResult.success && bitjitaResult.data) {
+          console.log(`✅ Using BitJita treasury balance: ${bitjitaResult.data.treasury}`);
+          enhancedSummary.currentBalance = bitjitaResult.data.treasury;
+        } else {
+          console.warn(`⚠️ Failed to fetch BitJita balance: ${bitjitaResult.error}`);
+          // Fallback to local summary balance
+          enhancedSummary.currentBalance = localSummary?.currentBalance || 0;
+        }
+
+        console.log(`📊 Treasury summary: Current Balance: ${enhancedSummary.currentBalance}, Transactions: ${stats?.transactionCount || 0}`);
+
         return NextResponse.json({
           success: true,
           data: {
-            summary,
+            summary: enhancedSummary,
             stats,
           },
+          meta: {
+            dataSource: bitjitaResult.success ? 'bitjita_realtime' : 'local_database',
+            lastUpdated: enhancedSummary.lastUpdated,
+            settlementId
+          }
         });
       }
 
@@ -68,11 +103,78 @@ export async function GET(request: NextRequest) {
         });
       }
 
+      case 'history': {
+        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const timeRangeMonths = parseInt(searchParams.get('timeRange') || '6');
+        
+        const history = await treasuryPollingService.getTreasuryHistory(settlementId, timeRangeMonths);
+
+        return NextResponse.json({
+          success: true,
+          data: history,
+          count: history.length,
+          meta: {
+            settlementId,
+            timeRangeMonths,
+            dataSource: 'treasury_history_polling'
+          }
+        });
+      }
+
+      case 'start_polling': {
+        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        treasuryPollingService.startPolling(settlementId);
+        
+        return NextResponse.json({
+          success: true,
+          message: 'Treasury polling started',
+          status: treasuryPollingService.getStatus()
+        });
+      }
+
+      case 'stop_polling': {
+        treasuryPollingService.stopPolling();
+        
+        return NextResponse.json({
+          success: true,
+          message: 'Treasury polling stopped',
+          status: treasuryPollingService.getStatus()
+        });
+      }
+
+      case 'polling_status': {
+        return NextResponse.json({
+          success: true,
+          status: treasuryPollingService.getStatus()
+        });
+      }
+
+      case 'poll_now': {
+        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const snapshot = await treasuryPollingService.pollTreasuryData(settlementId);
+        
+        return NextResponse.json({
+          success: true,
+          data: snapshot,
+          message: snapshot ? 'Treasury data polled successfully' : 'No changes detected'
+        });
+      }
+
+      case 'cleanup_snapshots': {
+        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        await treasuryPollingService.cleanupExcessiveSnapshots(settlementId);
+        
+        return NextResponse.json({
+          success: true,
+          message: 'Excessive treasury snapshots cleaned up'
+        });
+      }
+
       default: {
         return NextResponse.json(
           {
             success: false,
-            error: 'Invalid action. Use: summary, transactions, or categories',
+            error: 'Invalid action. Use: summary, transactions, categories, history, start_polling, stop_polling, polling_status, poll_now, or cleanup_snapshots',
           },
           { status: 400 }
         );

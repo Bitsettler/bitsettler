@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { generateSettlementInviteCode } from '../lib/utils/invite-codes';
+import { useUserProfile } from './use-user-profile';
 
 export interface Settlement {
   id: string;
@@ -25,6 +26,7 @@ export function useSelectedSettlement() {
   const [selectedSettlement, setSelectedSettlement] = useState<Settlement | null>(null);
   const [inviteCode, setInviteCode] = useState<SettlementInviteCode | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { addActivity, addFavoriteSettlement, updateProfile } = useUserProfile();
 
   // Load settlement and invite code from localStorage on mount
   useEffect(() => {
@@ -80,6 +82,27 @@ export function useSelectedSettlement() {
     const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
     setInviteCode(newCode);
     localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
+
+    // Track user activity
+    addActivity({
+      type: 'settlement_connected',
+      description: `Connected to ${settlement.name} (Tier ${settlement.tier})`,
+      metadata: {
+        settlementId: settlement.id,
+        settlementName: settlement.name,
+        tier: settlement.tier,
+        population: settlement.population
+      }
+    });
+
+    // Update settlement stats
+    updateProfile({
+      stats: {
+        settlementsConnected: 1, // This will be computed properly in a real implementation
+        calculationsRun: 0,
+        totalAppTime: 0
+      }
+    });
 
     // 🚀 Trigger immediate settlement data sync for onboarding
     // This ensures the dashboard isn't empty when user completes selection

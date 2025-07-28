@@ -5,6 +5,88 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.1] - Settlement Layout Consistency - 2025-01-29
+
+### Fixed
+
+- **Settlement Layout Constraints**: Fixed layout width inconsistencies across settlement pages
+  - Removed restrictive `container` class from settlement layout that was limiting page width
+  - Updated all settlement views (Dashboard, Skills, Treasury, Members, Projects) to use proper `Container` component
+  - Implemented consistent layout pattern matching Compendium/Tools pages with responsive padding
+  - Applied `space-y-6 py-8` spacing pattern for uniform visual consistency
+  - Settlement pages now use full available width with proper responsive design
+  - Resolved "skinny" appearance compared to other sections of the application
+
+### Technical
+
+- Modified `src/app/[locale]/settlement/layout.tsx` to remove hard width constraints
+- Updated settlement view components to import and use `Container` component:
+  - `settlement-dashboard-view.tsx`
+  - `settlement-skills-view.tsx` 
+  - `settlement-treasury-view.tsx`
+  - `settlement-members-view.tsx`
+  - `settlement-projects-view.tsx`
+- Standardized layout structure across all settlement pages for maintainability
+
+## [1.9.0] - User Profiles & Enhanced UX - 2024-12-28
+
+### Added
+
+- **User Profile System**: Complete localStorage-based profile system for settlement users
+  - 4-step profile setup integrated into settlement onboarding flow
+  - Display name, contact info (Discord/in-game), and bio management
+  - Optional profession-based avatars with 18 BitCraft professions
+  - Color theme customization with profession fallbacks
+  - Activity tracking and statistics (settlements connected, app usage)
+  - Profile management via dropdown in settlement header
+  - Sign out functionality to clear all local data
+
+- **Profession Avatar System**: Visual identity system for settlement members
+  - 18 profession-specific avatar options (Alchemy, Combat, Farming, etc.)
+  - Flexible choice between profession avatars or color themes
+  - Graceful fallbacks from profession images to colored initials
+  - Consistent avatar display across all settlement interfaces
+  - Professional color schemes for each BitCraft profession
+
+- **Enhanced Settlement Connection Flow**: Improved onboarding experience
+  - Multi-stage progress indicators during settlement connection
+  - Real-time sync status with detailed messaging and ETA
+  - Global sync status indicator visible across settlement interface
+  - Comprehensive error handling with retry mechanisms
+  - "Profile setup in progress..." clear status messaging
+
+### Fixed
+
+- **Skills Analytics**: Replaced static mock data with real-time settlement skills analytics
+  - Created `/api/settlement/skills` endpoint with live data aggregation
+  - Real skill statistics: total skills, average levels, profession distribution
+  - Top skills analysis and skill level distribution charts
+  - Comprehensive loading states and error handling
+
+- **UI/UX Improvements**: Enhanced interface consistency and user experience
+  - Scoped profile system to settlement area only (removed from main site navigation)
+  - Fixed member detail page layout width issues
+  - Improved breadcrumb navigation with proper translation keys
+  - Settlement-specific header with clean navigation and profile access
+
+### Technical
+
+- **New Components**:
+  - `ProfessionAvatar` - Smart avatar component with profession/color fallbacks
+  - `SettlementHeader` - Settlement-specific navigation with profile integration
+  - `UserProfileManager` - Complete profile editing interface
+  - `SettlementConnectionProgress` - Detailed connection progress display
+
+- **New Constants & Utilities**:
+  - `constants/professions.ts` - 18 BitCraft professions with colors and descriptions
+  - `hooks/use-user-profile.ts` - Profile state management with localStorage
+  - `public/assets/ProfessionAvatars/` - Directory structure for profession images
+
+- **Enhanced Components**:
+  - `SettlementOnboarding` - Integrated 4-step profile setup
+  - `SettlementSkillsView` - Real data integration replacing mock data
+  - Main header component cleaned up with profile functionality moved to settlement area
+
 ## [1.8.0] - Settlement Management System
 
 ### Added

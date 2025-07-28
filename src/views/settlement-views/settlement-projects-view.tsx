@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Container } from '@/components/container';
 import { AlertCircle, Plus, Search, Filter, CheckCircle2, Clock, XCircle } from 'lucide-react';
 import Link from 'next/link';
 
@@ -118,59 +119,66 @@ export function SettlementProjectsView() {
 
   if (loading) {
     return (
-      <div className="space-y-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <Skeleton className="h-8 w-48" />
-            <Skeleton className="h-4 w-96 mt-2" />
+      <Container>
+        <div className="space-y-8 py-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <Skeleton className="h-8 w-48" />
+              <Skeleton className="h-4 w-96 mt-2" />
+            </div>
+            <Skeleton className="h-10 w-32" />
           </div>
-          <Skeleton className="h-10 w-32" />
-        </div>
 
-        <div className="flex gap-4">
-          <Skeleton className="h-10 w-80" />
-          <Skeleton className="h-10 w-40" />
-        </div>
+          <div className="flex gap-4">
+            <Skeleton className="h-10 w-80" />
+            <Skeleton className="h-10 w-40" />
+          </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Card key={i}>
-              <CardHeader>
-                <Skeleton className="h-6 w-32" />
-                <Skeleton className="h-4 w-24" />
-              </CardHeader>
-              <CardContent>
-                <Skeleton className="h-4 w-full mb-2" />
-                <Skeleton className="h-2 w-full" />
-              </CardContent>
-            </Card>
-          ))}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i}>
+                <CardHeader>
+                  <Skeleton className="h-6 w-32" />
+                  <Skeleton className="h-4 w-24" />
+                </CardHeader>
+                <CardContent>
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-2 w-full" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Card className="w-full max-w-md">
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3 text-destructive mb-4">
-              <AlertCircle className="h-5 w-5" />
-              <span className="font-medium">Failed to load projects</span>
-            </div>
-            <p className="text-sm text-muted-foreground mb-4">{error}</p>
-            <Button onClick={fetchProjects} variant="outline" className="w-full">
-              Try Again
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+      <Container>
+        <div className="space-y-8 py-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <Card className="w-full max-w-md">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-3 text-destructive mb-4">
+                  <AlertCircle className="h-5 w-5" />
+                  <span className="font-medium">Failed to load projects</span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">{error}</p>
+                <Button onClick={fetchProjects} variant="outline" className="w-full">
+                  Try Again
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Container>
     );
   }
 
   return (
-    <div className="space-y-8">
+    <Container>
+      <div className="space-y-8 py-8">
       {/* Page Header */}
       <div className="flex justify-between items-start mb-6">
         <div>
@@ -312,6 +320,7 @@ export function SettlementProjectsView() {
           {searchTerm && ' matching your search'}
         </div>
       )}
-    </div>
+      </div>
+    </Container>
   );
 } 

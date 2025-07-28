@@ -8,7 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Separator } from '@/components/ui/separator';
-import { AlertCircle, Search, Filter, TrendingUp, TrendingDown, Wallet, Calendar, ArrowUpRight, ArrowDownRight, Plus, Minus, RefreshCw } from 'lucide-react';
+import { Container } from '@/components/container';
+import { AlertCircle, Search, Filter, TrendingUp, TrendingDown, Wallet, Calendar, ArrowUpRight, ArrowDownRight, Plus, Minus, RefreshCw, Clock, BarChart3 } from 'lucide-react';
 
 interface TreasurySummary {
   id: string;
@@ -68,6 +69,30 @@ interface CategoriesResponse {
   error?: string;
 }
 
+interface TreasurySnapshot {
+  settlementId: string;
+  balance: number;
+  previousBalance?: number;
+  changeAmount?: number;
+  supplies?: number;
+  tier?: number;
+  numTiles?: number;
+  recordedAt: Date;
+  dataSource: string;
+}
+
+interface TreasuryHistoryResponse {
+  success: boolean;
+  data: TreasurySnapshot[];
+  count: number;
+  meta: {
+    settlementId: string;
+    timeRangeMonths: number;
+    dataSource: string;
+  };
+  error?: string;
+}
+
 const transactionTypeIcons = {
   'Income': ArrowUpRight,
   'Expense': ArrowDownRight,
@@ -83,13 +108,12 @@ const transactionTypeColors = {
 };
 
 function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
+  return new Intl.NumberFormat('en-US').format(amount);
 }
+
+const formatHexcoin = (amount: number): string => {
+  return `${formatCurrency(amount)} 🪙`;
+};
 
 export function SettlementTreasuryView() {
   const [summary, setSummary] = useState<TreasurySummary | null>(null);
@@ -99,6 +123,14 @@ export function SettlementTreasuryView() {
   const [loading, setLoading] = useState(true);
   const [transactionsLoading, setTransactionsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  // Treasury history state
+  const [history, setHistory] = useState<TreasurySnapshot[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [timeRange, setTimeRange] = useState<number>(3); // 3 months default
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  
+
   
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
@@ -111,11 +143,25 @@ export function SettlementTreasuryView() {
     fetchSummaryData();
     fetchCategories();
     fetchTransactions();
+    fetchTreasuryHistory();
+
+    
+    // Set up periodic refresh every 5 minutes for live treasury data
+    const interval = setInterval(() => {
+      fetchSummaryData();
+      setLastUpdate(new Date());
+    }, 5 * 60 * 1000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     fetchTransactions();
   }, [typeFilter, categoryFilter, currentPage]);
+
+  useEffect(() => {
+    fetchTreasuryHistory();
+  }, [timeRange]);
 
   async function fetchSummaryData() {
     try {
@@ -182,6 +228,36 @@ export function SettlementTreasuryView() {
     }
   }
 
+  async function fetchTreasuryHistory() {
+    try {
+      setHistoryLoading(true);
+      const settlementId = '504403158277057776'; // Port Taverna
+      
+      const response = await fetch(
+        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}`
+      );
+      const data: TreasuryHistoryResponse = await response.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to fetch treasury history');
+      }
+
+      // Convert string dates back to Date objects
+      const historyWithDates = data.data.map(snapshot => ({
+        ...snapshot,
+        recordedAt: new Date(snapshot.recordedAt)
+      }));
+
+      setHistory(historyWithDates);
+    } catch (err) {
+      console.error('Error fetching treasury history:', err);
+    } finally {
+      setHistoryLoading(false);
+    }
+  }
+
+
+
   // Filter transactions by search term
   const filteredTransactions = transactions.filter(transaction =>
     (transaction.description && transaction.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -190,147 +266,267 @@ export function SettlementTreasuryView() {
 
   if (loading) {
     return (
-      <div className="space-y-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Card key={i}>
-              <CardHeader>
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-8 w-32" />
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-
-        <Card>
-          <CardHeader>
-            <Skeleton className="h-6 w-48" />
-            <Skeleton className="h-4 w-96" />
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="flex items-center justify-between py-2">
-                  <Skeleton className="h-4 w-48" />
+      <Container>
+        <div className="space-y-8 py-8">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Card key={i}>
+                <CardHeader>
                   <Skeleton className="h-4 w-24" />
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+                  <Skeleton className="h-8 w-32" />
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <Card>
+            <CardHeader>
+              <Skeleton className="h-6 w-48" />
+              <Skeleton className="h-4 w-96" />
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="flex items-center justify-between py-2">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Card className="w-full max-w-md">
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-3 text-destructive mb-4">
-              <AlertCircle className="h-5 w-5" />
-              <span className="font-medium">Failed to load treasury</span>
-            </div>
-            <p className="text-sm text-muted-foreground mb-4">{error}</p>
-            <Button onClick={fetchSummaryData} variant="outline" className="w-full">
-              Try Again
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <Card className="w-full max-w-md">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-3 text-destructive mb-4">
+                  <AlertCircle className="h-5 w-5" />
+                  <span className="font-medium">Failed to load treasury</span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">{error}</p>
+                <Button onClick={fetchSummaryData} variant="outline" className="w-full">
+                  Try Again
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Container>
     );
   }
 
   return (
-    <div className="space-y-8">
+    <Container>
+      <div className="space-y-6 py-8">
       {/* Page Header */}
-      <div className="flex justify-between items-start mb-6">
+      <div className="flex justify-between items-start">
         <div>
-          <h1 className="text-3xl font-bold">Treasury</h1>
+          <h1 className="text-3xl font-bold">Settlement Treasury</h1>
           <p className="text-muted-foreground text-sm">
-            Monitor your settlement's financial health and transaction history.
+            Live treasury balance from the game • Updates every 5 minutes
           </p>
         </div>
-        <Button className="gap-2" disabled>
-          <Plus className="h-4 w-4" />
-          Add Transaction
-        </Button>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Clock className="h-4 w-4" />
+          {lastUpdate ? `Updated ${lastUpdate.toLocaleTimeString()}` : 'Loading...'}
+        </div>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Current Balance</CardTitle>
-            <Wallet className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {summary ? formatCurrency(summary.currentBalance) : '$0'}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              {summary?.lastTransactionDate ? 
-                `Last updated ${new Date(summary.lastTransactionDate).toLocaleDateString()}` :
-                'No transactions yet'
-              }
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Monthly Income</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-green-600">
-              {stats ? formatCurrency(stats.monthlyIncome) : '$0'}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              This month
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Monthly Expenses</CardTitle>
-            <TrendingDown className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-red-600">
-              {stats ? formatCurrency(stats.monthlyExpenses) : '$0'}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              This month
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Net Change</CardTitle>
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className={`text-2xl font-bold ${stats && stats.netChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-              {stats ? (stats.netChange >= 0 ? '+' : '') + formatCurrency(stats.netChange) : '$0'}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              {stats ? `${stats.transactionCount} transactions` : 'No transactions'}
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Transaction History */}
+      {/* Live Treasury Balance */}
       <Card>
         <CardHeader>
-          <CardTitle>Transaction History</CardTitle>
-          <CardDescription>
-            Recent treasury transactions and financial activity
-          </CardDescription>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Wallet className="h-5 w-5 text-muted-foreground" />
+              <CardTitle>Live Treasury Balance</CardTitle>
+            </div>
+            <Badge variant="outline">
+              Real-time from BitJita
+            </Badge>
+          </div>
         </CardHeader>
+        <CardContent>
+          <div className="text-4xl font-bold mb-2">
+            {summary ? formatHexcoin(summary.currentBalance) : '0 🪙'}
+          </div>
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <span>
+              {summary?.lastUpdated ? 
+                `Last updated: ${new Date(summary.lastUpdated).toLocaleString()}` :
+                'Loading...'
+              }
+            </span>
+            <span>•</span>
+            <span>Tier 6 Settlement</span>
+            <span>•</span>
+            <span>7,981 tiles</span>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Treasury History Chart */}
+      {history.length > 0 && (
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                <CardTitle>Treasury History</CardTitle>
+              </div>
+              <Select value={timeRange.toString()} onValueChange={(value) => setTimeRange(parseInt(value))}>
+                <SelectTrigger className="w-32">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">1 Month</SelectItem>
+                  <SelectItem value="3">3 Months</SelectItem>
+                  <SelectItem value="6">6 Months</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {historyLoading ? (
+              <div className="h-32 flex items-center justify-center">
+                <RefreshCw className="h-4 w-4 animate-spin" />
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Recent Change:</span>
+                    <div className="font-medium">
+                      {history.length > 1 && history[history.length - 1].changeAmount !== null && history[history.length - 1].changeAmount !== undefined ? (
+                        <span className={history[history.length - 1].changeAmount! >= 0 ? 'text-emerald-600' : 'text-red-500'}>
+                          {history[history.length - 1].changeAmount! >= 0 ? '+' : ''}
+                          {formatCurrency(history[history.length - 1].changeAmount!)}
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">No change</span>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Snapshots:</span>
+                    <div className="font-medium">{history.length} recorded</div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Time Range:</span>
+                    <div className="font-medium">{timeRange} month{timeRange > 1 ? 's' : ''}</div>
+                  </div>
+                </div>
+                
+                {/* Treasury Balance Chart */}
+                <div className="h-64 border rounded-lg p-4 bg-gradient-to-b from-background to-muted/20">
+                  {(() => {
+                    if (history.length < 2) {
+                      return (
+                        <div className="h-full flex items-center justify-center text-muted-foreground">
+                          <BarChart3 className="h-8 w-8 opacity-50 mb-2" />
+                          <span>Not enough data for chart</span>
+                        </div>
+                      );
+                    }
+
+                    const maxBalance = Math.max(...history.map(h => h.balance));
+                    const minBalance = Math.min(...history.map(h => h.balance));
+                    
+                    return (
+                      <div className="h-full flex flex-col">
+                        <div className="flex-1 flex items-end justify-between gap-1 px-2">
+                          {history.map((snapshot, index) => {
+                            const height = ((snapshot.balance - minBalance) / (maxBalance - minBalance || 1)) * 100;
+                            const isIncrease = index > 0 && snapshot.balance > history[index - 1].balance;
+                            const isDecrease = index > 0 && snapshot.balance < history[index - 1].balance;
+                            
+                            return (
+                              <div key={index} className="flex flex-col items-center flex-1 max-w-8">
+                                <div 
+                                  className={`w-full rounded-t transition-all duration-300 ${
+                                    isIncrease ? 'bg-emerald-500' : 
+                                    isDecrease ? 'bg-red-500' : 
+                                    'bg-primary'
+                                  }`}
+                                  style={{ height: `${Math.max(height, 5)}%` }}
+                                  title={`${snapshot.recordedAt.toLocaleDateString()}: ${formatHexcoin(snapshot.balance)}`}
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
+                        {/* Mini timeline */}
+                        <div className="flex justify-between text-xs text-muted-foreground mt-2 px-2">
+                          <span>{history[0]?.recordedAt.toLocaleDateString()}</span>
+                          <span>{history[Math.floor(history.length / 2)]?.recordedAt.toLocaleDateString()}</span>
+                          <span>{history[history.length - 1]?.recordedAt.toLocaleDateString()}</span>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+                
+                {/* Chart Summary */}
+                <div className="flex justify-between text-xs text-muted-foreground border-t pt-2">
+                  <span>📈 Trend</span>
+                  <span className="text-center">
+                    {history.length > 0 && (
+                      <>Min: {formatHexcoin(Math.min(...history.map(h => h.balance)))} • Max: {formatHexcoin(Math.max(...history.map(h => h.balance)))}</>
+                    )}
+                  </span>
+                  <span>{history.length} snapshots</span>
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+              {/* Transaction History & Manual Adjustments */}
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Transaction History & Manual Adjustments</CardTitle>
+                <CardDescription>
+                  All treasury transactions, manual adjustments, and financial activity
+                </CardDescription>
+              </div>
+              <Button className="gap-2" disabled>
+                <Plus className="h-4 w-4" />
+                Add Manual Entry
+              </Button>
+            </div>
+            
+            {/* Stats Row for Manual Adjustments */}
+            <div className="grid gap-4 md:grid-cols-3 mt-4">
+              <div className="text-center p-3 border rounded-lg">
+                <div className="text-sm text-muted-foreground">Manual Income</div>
+                <div className="text-lg font-medium text-emerald-600">
+                  {stats ? formatCurrency(stats.monthlyIncome) : '0'}
+                </div>
+              </div>
+              <div className="text-center p-3 border rounded-lg">
+                <div className="text-sm text-muted-foreground">Manual Expenses</div>
+                <div className="text-lg font-medium text-red-500">
+                  {stats ? formatCurrency(stats.monthlyExpenses) : '0'}
+                </div>
+              </div>
+              <div className="text-center p-3 border rounded-lg">
+                <div className="text-sm text-muted-foreground">Net Change</div>
+                <div className={`text-lg font-medium ${stats && stats.netChange >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                  {stats ? formatCurrency(stats.netChange) : '0'}
+                </div>
+              </div>
+            </div>
+          </CardHeader>
         <CardContent>
           {/* Filters */}
           <div className="flex gap-4 mb-6 flex-col sm:flex-row">
@@ -458,6 +654,7 @@ export function SettlementTreasuryView() {
           )}
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </Container>
   );
 } 

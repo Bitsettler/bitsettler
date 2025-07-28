@@ -4,235 +4,104 @@
 
 Settlement dashboard shows "Error Loading Members" and displays 0 members, even after onboarding sync claims success.
 
-## 🔧 Root Causes Fixed
+## ✅ **RESOLVED ISSUES**
 
-### 1. Missing Environment Variables ✅ FIXED
+### 1. **Missing Environment Variables** ✅ FIXED
 - **Problem**: No `.env.local` file meant Supabase client was `null`
 - **Solution**: Created `.env.template` with required configuration
 
-### 2. Database Schema Mismatch ✅ FIXED  
+### 2. **Database Schema Mismatch** ✅ FIXED  
 - **Problem**: `getAllMembers()` queried old `settlement_members` table directly
 - **Solution**: Updated to use `settlement_member_details` view with correct column mapping
 
-### 3. Missing Settlement Filtering ✅ FIXED
-- **Problem**: Dashboard API didn't pass `settlementId` to member queries  
+### 3. **Missing Settlement Filtering** ✅ FIXED
+- **Problem**: Dashboard didn't pass `settlementId` to member queries  
 - **Solution**: Updated dashboard to filter members by settlement
 
-### 4. API Fallback Logic ✅ FIXED
-- **Problem**: Dashboard fell back to direct DB queries instead of using proper functions
-- **Solution**: Updated to use `getAllMembers()` with settlement filtering
+### 4. **Pagination Limiting Members** ✅ FIXED
+- **Problem**: Only showing 20 members due to pagination limit
+- **Solution**: Increased to 200 members per page, show all 149 members
 
-## 🧪 Testing Instructions
+### 5. **Inactive Member Filtering** ✅ FIXED
+- **Problem**: Only showing 69 "active" members instead of all 149
+- **Solution**: Changed to `includeInactive: true` by default
 
-### Step 1: Environment Setup
+## 🚨 **REMAINING ISSUES**
 
-1. **Copy environment template:**
-   ```bash
-   cp .env.template .env.local
-   ```
+### 1. **Missing Permissions Data** ❌ NOT FIXED
+- **Problem**: All permissions showing as 0 (inventory, build, officer, coOwner)
+- **Expected**: BitJita API should return permission levels for each member
+- **Status**: Database schema supports it, but data isn't being captured
+- **Investigation Needed**: Check if BitJita API returns permission data
 
-2. **Configure Supabase credentials in `.env.local`:**
-   ```bash
-   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-   DEFAULT_SETTLEMENT_ID=your-settlement-id
-   DEFAULT_SETTLEMENT_NAME="Your Settlement Name"
-   ```
+### 2. **Missing Skills Data** ❌ NOT FIXED  
+- **Problem**: Skills object is empty `{}`, no profession data
+- **Expected**: Rich skills data with levels and XP per profession
+- **Status**: Database schema supports it, but data isn't being captured
+- **Investigation Needed**: Verify skills sync from citizens API
 
-3. **Verify Supabase connection:**
-   - Check console logs for "Supabase not available" warnings
-   - Should see "✅ Supabase client configured" instead
+### 3. **Missing Calculated Fields** ❌ PARTIALLY FIXED
+- **Problem**: Some calculated fields like top profession not working
+- **Expected**: Automatic calculation of top profession from skills
+- **Status**: View logic exists but depends on skills data
 
-### Step 2: Database Schema Setup
+## 📋 **SUCCESS METRICS**
 
-1. **Run database migrations:**
-   ```sql
-   -- Run these in your Supabase SQL editor in order:
-   -- /database/migrations/001_settlement_core_schema.sql
-   -- /database/migrations/004_settlement_members_cache.sql
-   ```
+### ✅ **What's Working:**
+- **Total Members**: 149 ✅ (all members loading)
+- **Member Count**: Dashboard shows correct totals ✅
+- **Basic Info**: Names, IDs, join dates ✅  
+- **Individual Pages**: Member detail pages work ✅
+- **Database Structure**: All tables and views created ✅
+- **Sync Process**: 149 members + 149 citizens synced ✅
 
-2. **Verify tables exist:**
-   ```sql
-   -- Check if tables exist
-   SELECT table_name FROM information_schema.tables 
-   WHERE table_schema = 'public' 
-   AND table_name IN ('settlement_members', 'settlement_citizens', 'settlement_member_details');
-   ```
+### ❌ **What's Still Broken:**
+- **Permissions**: All showing as 0 instead of actual values
+- **Skills**: Empty skills objects instead of rich data
+- **Professions**: Showing "Unknown" instead of calculated top profession
+- **Rich Member Data**: Missing XP, skill levels, detailed info
 
-3. **Verify view exists:**
-   ```sql
-   -- Check the view
-   SELECT * FROM settlement_member_details LIMIT 1;
-   ```
+## 🔧 **Next Actions Required**
 
-### Step 3: Test Sync Process
-
-1. **Start the development server:**
-   ```bash
-   cd C:\dev\bitcraft.guide-web-next
-   npm run dev
-   ```
-
-2. **Test onboarding sync:**
-   ```bash
-   # POST to sync endpoint
-   curl -X POST http://localhost:3000/api/settlement/sync/onboarding \
-     -H "Content-Type: application/json" \
-     -d '{"settlementId":"your-settlement-id","settlementName":"Your Settlement"}'
-   ```
-
-3. **Check console logs for:**
-   ```
-   ✅ Member sync completed for your-settlement-id:
-      Members: X synced
-      Citizens: Y synced
-   ```
-
-### Step 4: Test Member Loading
-
-1. **Test members API:**
-   ```bash
-   curl "http://localhost:3000/api/settlement/members?settlementId=your-settlement-id"
-   ```
-   
-   **Expected response:**
-   ```json
-   {
-     "success": true,
-     "data": [...],
-     "meta": {
-       "dataSource": "supabase"  // Not "bitjita_api_fallback"
-     }
-   }
-   ```
-
-2. **Test dashboard API:**
-   ```bash
-   curl "http://localhost:3000/api/settlement/dashboard?settlementId=your-settlement-id"
-   ```
-   
-   **Expected response:**
-   ```json
-   {
-     "stats": {
-       "totalMembers": 69,  // Not 0
-       "activeMembers": 45  // Not 0
-     },
-     "meta": {
-       "dataSource": "local_database"  // Not demo_mode
-     }
-   }
-   ```
-
-### Step 5: Verify Database Data
-
-1. **Check member data was saved:**
-   ```sql
-   -- Count members by settlement
-   SELECT settlement_id, COUNT(*) as member_count 
-   FROM settlement_members 
-   GROUP BY settlement_id;
-   
-   -- Check specific settlement
-   SELECT COUNT(*) FROM settlement_members 
-   WHERE settlement_id = 'your-settlement-id';
-   ```
-
-2. **Check citizen data was saved:**
-   ```sql
-   -- Count citizens by settlement  
-   SELECT settlement_id, COUNT(*) as citizen_count
-   FROM settlement_citizens
-   GROUP BY settlement_id;
-   ```
-
-3. **Test the view:**
-   ```sql
-   -- Check combined view data
-   SELECT settlement_id, COUNT(*) as combined_count
-   FROM settlement_member_details
-   GROUP BY settlement_id;
-   ```
-
-## 🐛 Common Issues & Solutions
-
-### Issue: "Supabase not available" logs
-**Solution:** Check `.env.local` has correct `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-### Issue: "relation does not exist" errors  
-**Solution:** Run database migrations to create tables and views
-
-### Issue: Sync claims success but no data in tables
-**Diagnosis:**
-```sql
--- Check sync logs
-SELECT * FROM settlement_member_sync_log 
-ORDER BY started_at DESC LIMIT 5;
-```
-**Solution:** Check for error messages in sync log and console
-
-### Issue: Members API returns fallback data
-**Check:** Console logs for database error details
-**Solution:** Verify settlement_member_details view exists and has data
-
-### Issue: Dashboard shows 0 members
-**Check:** Verify settlement ID is being passed to APIs
-**Solution:** Ensure DEFAULT_SETTLEMENT_ID matches your actual settlement
-
-## 🔍 Debug Console Commands
-
-**Test Supabase connection:**
-```javascript
-// In browser console on localhost:3000
-const response = await fetch('/api/settlement/members?settlementId=your-settlement-id');
-const data = await response.json();
-console.log('Members API:', data);
-```
-
-**Check settlement ID configuration:**
-```javascript
-// Should match your actual settlement
-console.log('Settlement ID from URL params or default config');
-```
-
-## ✅ Success Indicators
-
-When everything is working correctly, you should see:
-
-1. **Console logs:**
-   ```
-   ✅ Found X members in settlement_member_details view for settlement Y
-   ✅ Found dashboard data: X members, Y active  
-   ```
-
-2. **API responses with:**
-   - `dataSource: "supabase"` or `"local_database"`
-   - Member counts > 0
-   - No fallback messages
-
-3. **Database contains:**
-   - Records in `settlement_members` table
-   - Records in `settlement_citizens` table  
-   - Successful entries in `settlement_member_sync_log`
-
-## 🚀 Quick Test Script
-
+### 1. **Investigate BitJita API Response**
 ```bash
-#!/bin/bash
-echo "🧪 Testing Settlement Member System..."
+# Check what the actual BitJita API returns
+curl "https://api.bitjita.com/settlement/[ID]/roster"
+curl "https://api.bitjita.com/settlement/[ID]/citizens"
+```
 
-echo "1. Testing sync..."
-curl -s -X POST http://localhost:3000/api/settlement/sync/onboarding \
-  -H "Content-Type: application/json" \
-  -d '{"settlementId":"your-settlement-id","settlementName":"Test Settlement"}' | jq .
+### 2. **Debug Sync Process**
+- Add logging to see actual data being returned from BitJita
+- Verify permissions are in the API response
+- Check if skills data is properly formatted
 
-echo "2. Testing members API..."  
-curl -s "http://localhost:3000/api/settlement/members?settlementId=your-settlement-id" | jq .meta.dataSource
+### 3. **Verify Database Storage**
+```sql
+-- Check if permissions are being saved
+SELECT entity_id, user_name, 
+       inventory_permission, build_permission, 
+       officer_permission, co_owner_permission 
+FROM settlement_members 
+WHERE settlement_id = 'your-settlement-id' 
+LIMIT 10;
 
-echo "3. Testing dashboard..."
-curl -s "http://localhost:3000/api/settlement/dashboard?settlementId=your-settlement-id" | jq .stats.totalMembers
+-- Check if skills are being saved  
+SELECT entity_id, user_name, skills, top_profession
+FROM settlement_citizens 
+WHERE settlement_id = 'your-settlement-id' 
+LIMIT 10;
+```
 
-echo "✅ Test complete"
-``` 
+### 4. **Test Member Data Quality**
+- Individual member pages should show:
+  - ✅ Basic info (name, ID, join date)
+  - ❌ Permission levels (inventory, build, officer, co-owner)
+  - ❌ Skills breakdown with levels and XP
+  - ❌ Calculated top profession
+  - ❌ Rich activity data
+
+## 🎯 **Core Issue Summary**
+
+The **member loading infrastructure** is now fully working (149 members load consistently), but the **data quality** is poor because permissions and skills aren't being captured from the BitJita API properly.
+
+**Priority**: Fix data capture to show rich member information that was in the original API design. 
