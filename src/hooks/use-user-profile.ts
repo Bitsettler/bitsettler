@@ -133,16 +133,13 @@ export function useUserProfile(): UserProfileHook {
   useEffect(() => {
     try {
       const storedProfile = localStorage.getItem(STORAGE_KEY);
-      console.log('🔍 Raw localStorage data:', storedProfile);
       
       if (storedProfile) {
         const parsedProfile = JSON.parse(storedProfile) as UserProfile;
-        console.log('🔍 Parsed profile:', parsedProfile);
         
         // Validate that essential fields exist
         if (!parsedProfile.displayName || typeof parsedProfile.displayName !== 'string' || parsedProfile.displayName.trim() === '') {
-          console.warn('⚠️ Invalid profile data detected - missing or invalid displayName:', parsedProfile.displayName);
-          console.warn('🔄 Profile will be reset. Raw data:', JSON.stringify(parsedProfile, null, 2));
+          console.warn('⚠️ Invalid profile data detected - resetting profile');
           localStorage.removeItem(STORAGE_KEY);
           setIsFirstTime(true);
           return;
@@ -150,7 +147,6 @@ export function useUserProfile(): UserProfileHook {
         
         // Additional validation for critical fields
         if (!parsedProfile.joinedAt || !parsedProfile.profileColor) {
-          console.warn('⚠️ Profile missing critical fields, attempting repair...');
           // Try to repair instead of clearing
           const repairedProfile = {
             ...createDefaultProfile(parsedProfile.displayName),
@@ -159,7 +155,6 @@ export function useUserProfile(): UserProfileHook {
           };
           localStorage.setItem(STORAGE_KEY, JSON.stringify(repairedProfile));
           setProfile(repairedProfile);
-          console.log('✅ Profile repaired and loaded:', repairedProfile.displayName);
           return;
         }
         
@@ -170,7 +165,6 @@ export function useUserProfile(): UserProfileHook {
         
         // Save updated last active time
         localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedProfile));
-        console.log('✅ Profile loaded successfully:', parsedProfile.displayName);
       } else {
         // Only log this message if it's the first hook instance to avoid spam
         if (!window.userProfileSetupLogged) {
@@ -181,8 +175,7 @@ export function useUserProfile(): UserProfileHook {
       }
     } catch (error) {
       console.error('❌ Error loading user profile:', error);
-      console.error('❌ Raw localStorage data that failed to parse:', localStorage.getItem(STORAGE_KEY));
-      console.warn('🔄 Clearing corrupted profile data and resetting to first-time user flow.');
+      console.warn('🔄 Clearing corrupted profile data');
       // Clear corrupted data
       localStorage.removeItem(STORAGE_KEY);
       setIsFirstTime(true);
