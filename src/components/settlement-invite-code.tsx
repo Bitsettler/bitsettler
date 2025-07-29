@@ -57,7 +57,7 @@ export function SettlementInviteCodeDisplay({
           url: window.location.origin
         });
         toast.success('Invite shared successfully!');
-      } catch (error) {
+      } catch (_error) {
         // User cancelled or share failed, fall back to copy
         const success = await copyInviteCodeToClipboard(message);
         if (success) {

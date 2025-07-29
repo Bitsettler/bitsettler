@@ -26,7 +26,7 @@ export function useSelectedSettlement() {
   const [selectedSettlement, setSelectedSettlement] = useState<Settlement | null>(null);
   const [inviteCode, setInviteCode] = useState<SettlementInviteCode | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { addActivity, addFavoriteSettlement, updateProfile, profile } = useUserProfile();
+  const { addActivity, updateProfile, profile } = useUserProfile();
 
   // Load settlement and invite code from localStorage on mount
   useEffect(() => {
@@ -51,7 +51,7 @@ export function useSelectedSettlement() {
               setInviteCode(newCode);
               localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
             }
-          } catch (codeError) {
+          } catch {
             // Generate new code if stored code is invalid
             const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
             setInviteCode(newCode);

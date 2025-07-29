@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -30,10 +31,11 @@ interface CreateProjectModalProps {
 }
 
 export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: CreateProjectModalProps) {
+  const { data: session } = useSession();
+  
   const [formData, setFormData] = useState({
     name: '',
-    description: '',
-    createdBy: 'Settlement Leader'
+    description: ''
   });
   
   const [items, setItems] = useState<ProjectItem[]>([]);
@@ -53,8 +55,7 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
   const resetForm = () => {
     setFormData({
       name: '',
-      description: '',
-      createdBy: 'Settlement Leader'
+      description: ''
     });
     setItems([]);
     setCurrentItem({
@@ -76,8 +77,8 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
       newErrors.name = 'Project name is required';
     }
     
-    if (!formData.createdBy.trim()) {
-      newErrors.createdBy = 'Creator name is required';
+    if (!session?.user) {
+      newErrors.auth = 'You must be signed in to create projects';
     }
     
     if (items.length === 0) {
@@ -96,7 +97,7 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
     );
   };
 
-  const handleItemSelect = (selectedItem: any) => {
+  const handleItemSelect = (selectedItem: { name: string; slug: string; category: string; tier?: number } | null) => {
     if (selectedItem) {
       setCurrentItem({
         ...currentItem,
@@ -110,7 +111,7 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
 
   const addItem = () => {
     if (validateCurrentItem()) {
-      setItems([...items, { ...currentItem, itemName: currentItem.itemName.trim() }]);
+      setItems([...items, { ...currentItem }]);
       setCurrentItem({
         itemName: '',
         itemSlug: '',
@@ -131,14 +132,16 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
     e.preventDefault();
     
     if (!validateForm()) return;
+    if (!session?.user) return;
     
     setIsSubmitting(true);
     
     try {
+      // Use authenticated user information
       const projectData: CreateProjectRequest = {
         name: formData.name.trim(),
         description: formData.description.trim() || undefined,
-        createdBy: formData.createdBy.trim(),
+        createdBy: session.user.name!, // Use NextAuth user name
         items: items.map(item => ({
           itemName: item.itemName,
           requiredQuantity: item.requiredQuantity,
@@ -204,6 +207,25 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
     return labels[priority as keyof typeof labels] || 'Low';
   };
 
+  // Show sign-in message if not authenticated
+  if (!session) {
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Sign In Required</DialogTitle>
+            <DialogDescription>
+              You need to sign in to create settlement projects.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="text-center py-4">
+            <p className="text-muted-foreground">Please sign in to continue.</p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
@@ -214,12 +236,15 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
           </DialogTitle>
           <DialogDescription>
             Create a new settlement project to track resource needs and contributions.
+            <span className="block mt-1 text-sm">
+              Creating as: <span className="font-medium">{session.user.name}</span>
+            </span>
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Project Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Project Details - Removed Created By field */}
+          <div className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name">Project Name *</Label>
               <Input
@@ -233,27 +258,15 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="createdBy">Created By *</Label>
-              <Input
-                id="createdBy"
-                value={formData.createdBy}
-                onChange={(e) => setFormData({ ...formData, createdBy: e.target.value })}
-                placeholder="Your name"
-                className={errors.createdBy ? 'border-red-500' : ''}
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                id="description"
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                placeholder="Describe the project goals and requirements..."
+                rows={4}
               />
-              {errors.createdBy && <p className="text-sm text-red-500">{errors.createdBy}</p>}
             </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              id="description"
-              value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              placeholder="Describe the project goals and requirements..."
-              rows={4}
-            />
           </div>
 
           {/* Add Items Section */}
@@ -281,36 +294,63 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
                           itemCategory: '',
                           tier: 1
                         });
+                        return;
                       }
                     }}
                     onItemSelect={handleItemSelect}
-                    placeholder="Search items from compendium..."
+                    placeholder="Search for an item..."
                   />
-                  {currentItem.itemCategory && (
-                    <div className="text-xs text-muted-foreground">
-                      Category: {currentItem.itemCategory}
-                    </div>
+                  {currentItem.itemName && (
+                    <p className="text-sm text-green-600">Selected: {currentItem.itemName}</p>
                   )}
                 </div>
-
-                {/* Item Properties - Separate Row */}
+                
+                {/* Item Details Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="quantity">Quantity</Label>
+                    <Label htmlFor="requiredQuantity">Required Quantity</Label>
                     <Input
-                      id="quantity"
+                      id="requiredQuantity"
                       type="number"
                       min="1"
                       value={currentItem.requiredQuantity}
-                      onChange={(e) => setCurrentItem({ ...currentItem, requiredQuantity: parseInt(e.target.value) || 1 })}
+                      onChange={(e) => setCurrentItem({
+                        ...currentItem,
+                        requiredQuantity: parseInt(e.target.value) || 1
+                      })}
                     />
                   </div>
-
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="tier">Tier</Label>
+                    <Select 
+                      value={currentItem.tier.toString()} 
+                      onValueChange={(value) => setCurrentItem({
+                        ...currentItem,
+                        tier: parseInt(value)
+                      })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {[1, 2, 3, 4, 5, 6].map(tier => (
+                          <SelectItem key={tier} value={tier.toString()}>
+                            Tier {tier}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
                   <div className="space-y-2">
                     <Label htmlFor="priority">Priority</Label>
-                    <Select
-                      value={currentItem.priority.toString()}
-                      onValueChange={(value) => setCurrentItem({ ...currentItem, priority: parseInt(value) })}
+                    <Select 
+                      value={currentItem.priority.toString()} 
+                      onValueChange={(value) => setCurrentItem({
+                        ...currentItem,
+                        priority: parseInt(value)
+                      })}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -322,49 +362,62 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
                       </SelectContent>
                     </Select>
                   </div>
-
-                  <div className="flex items-end">
-                    <Button
-                      type="button"
-                      onClick={addItem}
-                      disabled={!validateCurrentItem()}
-                      className="w-full h-10"
-                    >
-                      <Plus className="h-4 w-4 mr-2" />
-                      Add
-                    </Button>
-                  </div>
                 </div>
+                
+                {/* Notes */}
+                <div className="space-y-2">
+                  <Label htmlFor="itemNotes">Notes (Optional)</Label>
+                  <Textarea
+                    id="itemNotes"
+                    value={currentItem.notes}
+                    onChange={(e) => setCurrentItem({
+                      ...currentItem,
+                      notes: e.target.value
+                    })}
+                    placeholder="Any special requirements or notes..."
+                    rows={2}
+                  />
+                </div>
+                
+                <Button 
+                  type="button"
+                  onClick={addItem}
+                  disabled={!validateCurrentItem()}
+                  className="w-full"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Item to Project
+                </Button>
               </div>
 
-              {/* Items List */}
+              {/* Current Items List */}
               {items.length > 0 && (
-                <div className="space-y-2">
-                  <Label>Items ({items.length})</Label>
-                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                <div className="space-y-4">
+                  <h4 className="font-medium">Project Items ({items.length})</h4>
+                  <div className="space-y-3">
                     {items.map((item, index) => (
-                      <div key={index} className="flex items-center gap-3 p-3 border rounded-lg bg-background">
-                        <div className="flex-1">
-                          <div className="font-medium">{item.itemName}</div>
+                      <div key={index} className="flex items-center justify-between p-4 border rounded-lg bg-background">
+                        <div className="flex-1 space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">{item.itemName}</span>
+                            <Badge className={getTierColor(item.tier)}>
+                              Tier {item.tier}
+                            </Badge>
+                            <Badge className={getPriorityColor(item.priority)}>
+                              {getPriorityLabel(item.priority)}
+                            </Badge>
+                          </div>
                           <div className="text-sm text-muted-foreground">
                             Quantity: {item.requiredQuantity.toLocaleString()}
-                            {item.itemCategory && ` • ${item.itemCategory}`}
+                            {item.notes && ` • ${item.notes}`}
                           </div>
-                        </div>
-                        <div className="flex gap-2">
-                          <Badge className={getTierColor(item.tier)}>
-                            T{item.tier}
-                          </Badge>
-                          <Badge className={getPriorityColor(item.priority)}>
-                            {getPriorityLabel(item.priority)}
-                          </Badge>
                         </div>
                         <Button
                           type="button"
-                          variant="ghost"
+                          variant="outline"
                           size="sm"
                           onClick={() => removeItem(index)}
-                          className="text-red-500 hover:text-red-700"
+                          className="text-red-600 hover:text-red-700"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -374,13 +427,16 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
                 </div>
               )}
 
-              {errors.items && <p className="text-sm text-red-500">{errors.items}</p>}
+              {errors.items && (
+                <p className="text-sm text-red-500">{errors.items}</p>
+              )}
             </CardContent>
           </Card>
 
-          {errors.submit && (
+          {/* Error Display */}
+          {(errors.submit || errors.auth) && (
             <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-sm text-red-600">{errors.submit}</p>
+              <p className="text-sm text-red-600">{errors.submit || errors.auth}</p>
             </div>
           )}
 
@@ -388,7 +444,11 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
             <Button type="button" variant="outline" onClick={handleClose}>
               Cancel
             </Button>
-            <Button type="submit" disabled={isSubmitting || items.length === 0}>
+            <Button 
+              type="submit" 
+              disabled={isSubmitting || items.length === 0}
+              className="min-w-24"
+            >
               {isSubmitting ? 'Creating...' : 'Create Project'}
             </Button>
           </DialogFooter>

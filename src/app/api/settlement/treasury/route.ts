@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
         ]);
 
         // Build enhanced summary with BitJita balance
-        let enhancedSummary = {
+        const enhancedSummary = {
           ...localSummary,
           currentBalance: 0, // Will be updated with BitJita data
           lastUpdated: new Date().toISOString(),

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '../../../../../lib/spacetime-db-new/shared/supabase-client';
 
 // Helper function to determine top profession from skills
 function getTopProfession(skills: Record<string, number>): string {

@@ -421,7 +421,7 @@ export async function GET(request: NextRequest) {
   }
 } 
 
-export async function DELETE(request: NextRequest) {
+export async function DELETE(_request: NextRequest) {
   try {
     // Import supabase client
     const { createServerClient } = await import('../../../../lib/spacetime-db-new/shared/supabase-client');

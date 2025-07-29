@@ -388,7 +388,7 @@ export class SettlementNotificationService {
   /**
    * Check if notification type should be shown based on user preferences
    */
-  shouldNotify(type: NotificationType): boolean {
+  shouldNotify(_type: NotificationType): boolean {
     if (!this.canShow()) return false;
 
     // Could implement user preference checks here

@@ -1,135 +1,15 @@
 {
   "common": {
+    "welcome": "Bienvenue",
     "loading": "Chargement...",
-    "error": "Une erreur s'est produite",
-    "search": "Rechercher",
-    "quantity": "Quantité",
-    "calculate": "Calculer",
-    "total": "Total",
-    "effort": "Effort",
-    "category": "Catégorie",
-    "description": "Description",
-    "info": "Info",
-    "usage": "Utilisation",
-    "latest": "Dernier",
-    "previous": "Précédent",
-    "firstRelease": "Première version",
-    "menu": "Menu"
+    "error": "Erreur",
+    "save": "Sauvegarder",
+    "cancel": "Annuler"
   },
-  "header": {
-    "title": "Bienvenue sur Bitcraft.Guide !",
-    "subtitle": "Nous sommes l'encyclopédie non officielle de BitCraft Online, écrite et maintenue par les joueurs.",
-    "navigation": {
-      "calculator": "Calculateur",
-      "compendium": "Compendium",
-      "wiki": "Wiki",
-      "projects": "Projets",
-      "about": "À propos",
-      "changelog": "Journal des modifications"
-    },
-    "language": {
-      "en": "English",
-      "fr": "Français",
-      "es": "Español"
-    },
-    "discord": "Serveur Discord",
-    "github": "Dépôt GitHub"
-  },
-  "notFound": {
-    "title": "Page Non Trouvée",
-    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
-    "goHome": "Retour à l'Accueil",
-    "browseCompendium": "Parcourir le Compendium",
-    "helpText": "Besoin d'aide ? Consultez notre :"
-  },
-  "calculator": {
-    "title": "Calculateur de Fabrication",
-    "selectItem": "Sélectionner un objet à fabriquer",
-    "searchPlaceholder": "Rechercher des objets...",
-    "searchItems": "Rechercher des objets...",
-    "noItemsFound": "Aucun objet trouvé.",
-    "quantityLabel": "Quantité",
-    "calculateButton": "Calculer les exigences de fabrication",
-    "requirements": "Exigences de fabrication",
-    "targetItem": "Objet cible",
-    "baseResources": "Ressources de base nécessaires",
-    "craftingSteps": "Étapes de fabrication",
-    "selectItemPrompt": "Sélectionnez un objet et une quantité pour voir les exigences de fabrication",
-    "totalEffort": "Effort total",
-    "materialsNeeded": "Matériaux nécessaires",
-    "craftingQuantity": "Quantité de fabrication",
-    "itemsToCraft": "objets à fabriquer",
-    "noRecipes": "Cet objet n'est utilisé dans aucune recette",
-    "produces": "Produit"
-  },
-  "items": {
-    "categories": {
-      "wood": "Bois",
-      "stone": "Pierre",
-      "metal": "Métal",
-      "textile": "Textile",
-      "fuel": "Combustible",
-      "tool": "Outil",
-      "vehicle": "Véhicule",
-      "container": "Conteneur"
-    }
-  },
-  "errors": {
-    "itemNotFound": "Objet non trouvé",
-    "calculationError": "Erreur lors du calcul des exigences de fabrication"
-  },
-  "footer": {
-    "allRightsReserved": "Tous droits réservés.",
-    "github": "GitHub",
-    "twitter": "Twitter",
-    "discord": "Discord",
-    "unofficialDisclaimer": "Il s'agit d'un projet de fan non officiel et n'est pas affilié à BitCraft ou ses développeurs.",
-    "assetsDisclaimer": "Toutes les données et ressources du jeu appartiennent à leurs propriétaires respectifs."
-  },
-  "languageSwitcher": {
-    "switchLanguage": "Changer de langue",
-    "switchLanguageSr": "Changer de langue"
-  },
-  "sidebar": {
-    "navigation": "Navigation",
-    "mainPage": "Page principale",
-    "compendium": "Compendium",
-    "aboutUs": "À propos de nous",
-    "randomPage": "Page aléatoire",
-    "contactUs": "Nous contacter",
-    "donate": "Faire un don",
-    "recentChanges": "Modifications récentes",
-    "changelog": "Journal des modifications",
-    "recentChangesDescription": "Mises à jour du jeu, blogs des développeurs, et plus encore bientôt !",
-    "guides": "Guides",
-    "guidesComingSoon": "Bientôt disponible ! 🚀",
-    "community": "Communauté",
-    "bitcraftGuideDiscord": "Discord",
-    "bitcraftGuideGithub": "GitHub",
-    "bitcraftGuideTwitter": "Twitter",
-    "codex": "Codex",
-    "compendiumTools": "Outils",
-    "resources": "Ressources",
-    "buildings": "Bâtiments",
-    "deployables": "Déployables",
-    "seeAll": "Voir tout",
-    "tools": "Outils",
-    "calculator": "Calculateur",
-    "projects": "Projets",
-    "skills": "Compétences",
-    "research": "Recherche",
+  "navigation": {
+    "home": "Accueil",
     "settlement": "Colonie",
-    "settlementDashboard": "Tableau de bord",
-    "settlementMembers": "Membres",
-    "settlementProjects": "Projets de colonie",
-    "settlementTreasury": "Trésorerie",
-    "comingSoon": "Bientôt"
-  },
-  "search": {
-    "globalPlaceholder": "Rechercher dans le guide..."
-  },
-  "toast": {
-    "quantityAdjusted": "Quantité ajustée au minimum de {minQuantity}. Cette recette produit {minQuantity} objets par fabrication.",
-    "quantityAdjustedDescription": "Vous ne pouvez pas fabriquer moins que ce qu'une exécution de recette produit."
+    "projects": "Projets", 
+    "compendium": "Compendium"
   }
 }

@@ -6,7 +6,6 @@ import { Container } from './container';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Badge } from './ui/badge';
 import { ScrollArea } from './ui/scroll-area';
 import { Separator } from './ui/separator';
 import { Search, Users, Coins, Building, MapPin, Loader2, ArrowRight } from 'lucide-react';
@@ -77,7 +76,7 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
     }
   };
 
-  const handleConnectionComplete = (settlement: Settlement, syncResult: any) => {
+  const handleConnectionComplete = (settlement: Settlement, _syncResult: any) => {
     onSettlementSelected(settlement);
     setShowConnectionProgress(false);
     setShowInviteCode(true);
@@ -139,7 +138,7 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
           <div className="text-center space-y-2">
             <h1 className="text-4xl font-bold tracking-tight">Settlement Connected!</h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Your settlement has been connected successfully. Here's your invite code to share with others.
+              Your settlement has been connected successfully. Here&apos;s your invite code to share with others.
             </p>
           </div>
 
@@ -155,7 +154,7 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
               <div className="text-center space-y-4">
                 <h3 className="font-semibold">Ready to explore your settlement?</h3>
                 <p className="text-muted-foreground text-sm">
-                  Access your dashboard to view members, projects, treasury, and more.
+                  You&apos;ll be able to view settlement analytics, member profiles, treasury data, and more.
                 </p>
                 <Button onClick={handleContinueToApp} size="lg" className="w-full">
                   Continue to Settlement Dashboard
@@ -184,7 +183,7 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
               )}
               <div className="text-center">
                 <h1 className="text-4xl font-bold tracking-tight">Welcome{session.user?.name ? `, ${session.user.name}` : ''}!</h1>
-                <p className="text-muted-foreground text-lg">Let's connect you to your settlement</p>
+                <p className="text-muted-foreground text-lg">Let&apos;s connect you to your settlement</p>
               </div>
             </div>
           </div>
@@ -314,10 +313,10 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
         {/* Helpful Information */}
         <div className="max-w-2xl mx-auto text-center">
           <div className="text-sm text-muted-foreground bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg">
-            <p className="font-medium mb-2">🏘️ Don't see your settlement?</p>
-            <p>
-              Settlement data is synced from the BitCraft game. If your settlement isn't listed, 
-              it may be new or the data hasn't been updated yet.
+            <p className="font-medium mb-2">🏘️ Don&apos;t see your settlement?</p>
+            <p className="text-sm text-muted-foreground">
+              Settlement data is synced from the BitCraft game. If your settlement isn&apos;t listed,
+              it may be new or the data hasn&apos;t been updated yet.
             </p>
           </div>
         </div>

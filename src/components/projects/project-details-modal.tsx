@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -152,10 +151,6 @@ export function ProjectDetailsModal({
     return new Date(dateString).toLocaleString();
   };
 
-  const formatDateShort = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString();
-  };
-
   // Calculate contribution stats
   const contributorStats = contributions.reduce((stats, contrib) => {
     const name = contrib.contributorName;
@@ -273,7 +268,7 @@ export function ProjectDetailsModal({
                       />
                     ) : (
                       <p className="text-muted-foreground">
-                        {project.description || 'No description provided.'}
+                        Created &quot;{project.name}&quot; to track resource needs and contributions.
                       </p>
                     )}
                   </CardContent>
@@ -519,7 +514,7 @@ export function ProjectDetailsModal({
                                 </div>
                                 {contribution.notes && (
                                   <div className="text-sm text-muted-foreground mt-1">
-                                    "{contribution.notes}"
+                                    &quot;{contribution.notes}&quot;
                                   </div>
                                 )}
                               </div>

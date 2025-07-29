@@ -235,8 +235,8 @@ export async function GET(request: NextRequest) {
       }
     });
 
-  } catch (error) {
-    console.error('Skills analytics error:', error);
+  } catch (e) {
+    console.error('Skills analytics error:', e);
     return NextResponse.json({
       success: false,
       error: 'Internal server error'

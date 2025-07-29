@@ -3,17 +3,16 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Plus, Package, Filter, RefreshCw, Users, Clock, CheckCircle2, XCircle, Calendar, Gift, Search } from 'lucide-react';
+import { Plus, Package, Filter, Users, Clock, CheckCircle2, XCircle, Gift, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CreateProjectModal } from '@/components/projects/create-project-modal';
 import { ContributeModal } from '@/components/projects/contribute-modal';
 import { Container } from '@/components/container';
-import { type SettlementProject, type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
+import { type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -194,7 +193,7 @@ export function SettlementProjectsView() {
           <div>
             <h1 className="text-3xl font-bold">Projects</h1>
             <p className="text-muted-foreground text-sm">
-              Track and manage your settlement's {statusFilter} projects and their completion status.
+              Track and manage your settlement&apos;s {statusFilter} projects and their completion status.
             </p>
           </div>
           <div className="flex gap-2">

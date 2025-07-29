@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Package, AlertCircle, LogIn } from 'lucide-react';
+
 import { type ProjectDetails, type AddContributionRequest } from '@/lib/spacetime-db-new/modules';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -39,20 +40,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
     return value.toLocaleString();
   };
 
-  // Load project data when modal opens
-  useEffect(() => {
-    if (open && projectId) {
-      fetchProjectData();
-      
-      // Reset form
-      setSelectedItemName('');
-      setQuantity(1);
-      setNotes('');
-      setErrors({});
-    }
-  }, [open, projectId]);
-
-  const fetchProjectData = async () => {
+  const fetchProjectData = useCallback(async () => {
     if (!projectId) return;
     
     try {
@@ -71,7 +59,20 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
     } finally {
       setLoading(false);
     }
-  };
+  }, [projectId]);
+
+  // Load project data when modal opens
+  useEffect(() => {
+    if (open && projectId) {
+      fetchProjectData();
+      
+      // Reset form
+      setSelectedItemName('');
+      setQuantity(1);
+      setNotes('');
+      setErrors({});
+    }
+  }, [open, projectId, fetchProjectData]);
 
   const selectedItem = project?.items.find(item => item.itemName === selectedItemName);
   const remainingNeeded = selectedItem ? Math.max(0, selectedItem.requiredQuantity - selectedItem.currentQuantity) : 0;
@@ -257,7 +258,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
               Contribute to {projectId ? 'Project Not Found' : 'Project'}
             </DialogTitle>
             <DialogDescription>
-              The project with ID "{projectId}" was not found.
+              The project with ID &quot;{projectId}&quot; was not found.
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-center items-center h-32">
@@ -412,20 +413,6 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
                     </p>
                   )}
                   {errors.quantity && <p className="text-sm text-red-500">{errors.quantity}</p>}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="contributorName">Contributor</Label>
-                  <div className="flex items-center gap-2 p-2 border rounded-md bg-muted">
-                    {session.user.image && (
-                      <img 
-                        src={session.user.image} 
-                        alt={session.user.name || 'User'} 
-                        className="h-6 w-6 rounded-full"
-                      />
-                    )}
-                    <span className="text-sm font-medium">{session.user.name}</span>
-                  </div>
                 </div>
               </div>
 

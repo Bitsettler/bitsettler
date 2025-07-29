@@ -1,24 +1,15 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Button } from '../../components/ui/button';
-import { Container } from '../../components/container';
-import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useState, useEffect } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Container } from '@/components/container';
 import { 
   Users, 
-  Building, 
-  DollarSign, 
-  TrendingUp, 
-  Activity, 
-  Settings,
-  User,
-  Zap,
-  Award,
-  Target,
-  Wallet
+  Package, 
+  Coins, 
+  Calendar, 
 } from 'lucide-react';
 
 interface DashboardStats {

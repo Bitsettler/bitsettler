@@ -94,7 +94,7 @@ export async function copyInviteCodeToClipboard(code: string): Promise<boolean> 
   try {
     await navigator.clipboard.writeText(code);
     return true;
-  } catch (error) {
+  } catch (_error) {
     // Fallback for older browsers
     try {
       const textArea = document.createElement('textarea');

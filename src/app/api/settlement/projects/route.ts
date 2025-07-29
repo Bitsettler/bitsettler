@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/lib/auth-config';
 import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function GET(request: NextRequest) {
@@ -43,20 +45,41 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const body: CreateProjectRequest = await request.json();
-
-    // Validate required fields
-    if (!body.name || !body.createdBy) {
+    // Validate NextAuth session
+    const session = await getServerSession(authOptions);
+    
+    if (!session || !session.user) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Project name and createdBy are required',
+          error: 'Authentication required to create projects',
+        },
+        { status: 401 }
+      );
+    }
+
+    const body = await request.json();
+
+    // Validate required fields (no longer need createdBy in body)
+    if (!body.name) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Project name is required',
         },
         { status: 400 }
       );
     }
 
-    const result = await createProject(body);
+    // Create project data using authenticated user
+    const projectData: CreateProjectRequest = {
+      name: body.name,
+      description: body.description,
+      createdBy: session.user.name!, // Use NextAuth user name
+      items: body.items || []
+    };
+
+    const result = await createProject(projectData);
 
     return NextResponse.json({
       success: true,
@@ -75,7 +98,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function DELETE(request: NextRequest) {
+export async function DELETE(_request: NextRequest) {
   try {
     // Import supabase client
     const { createServerClient } = await import('../../../../lib/spacetime-db-new/shared/supabase-client');

@@ -61,7 +61,7 @@ export function CompactSettlementInviteCode({
           url: window.location.origin
         });
         toast.success('Invite shared!');
-      } catch (error) {
+      } catch (_error) {
         // User cancelled or share failed, fall back to copy
         const success = await copyInviteCodeToClipboard(message);
         if (success) {

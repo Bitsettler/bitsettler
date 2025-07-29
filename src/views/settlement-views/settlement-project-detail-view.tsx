@@ -1,15 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect, useCallback } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Separator } from '@/components/ui/separator';
-import { AlertCircle, ArrowLeft, CheckCircle2, Clock, XCircle, User, Package, Calendar, TrendingUp, RefreshCw } from 'lucide-react';
-import Link from 'next/link';
 import { Container } from '@/components/container';
+import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift } from 'lucide-react';
+import Link from 'next/link';
 import { type ProjectDetails } from '@/lib/spacetime-db-new/modules';
 
 interface ProjectItem {
@@ -87,28 +87,14 @@ const itemStatusColors = {
   'Completed': 'text-green-600 bg-green-50 border-green-200',
 };
 
-export function SettlementProjectDetailView({ projectId }: { projectId: string }) {
+export function SettlementProjectDetailView() {
+  const { projectId } = useParams<{ projectId: string }>();
+  const router = useRouter();
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchProjectDetails();
-  }, [projectId]);
-
-  // Auto-refresh data when window regains focus (user comes back from contributing)
-  useEffect(() => {
-    const handleFocus = () => {
-      if (project) {
-        fetchProjectDetails();
-      }
-    };
-
-    window.addEventListener('focus', handleFocus);
-    return () => window.removeEventListener('focus', handleFocus);
-  }, [project]);
-
-  async function fetchProjectDetails() {
+  const fetchProjectDetails = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -131,7 +117,23 @@ export function SettlementProjectDetailView({ projectId }: { projectId: string }
     } finally {
       setLoading(false);
     }
-  }
+  }, [projectId]);
+
+  useEffect(() => {
+    fetchProjectDetails();
+  }, [projectId, fetchProjectDetails]);
+
+  // Auto-refresh data when window regains focus (user comes back from contributing)
+  useEffect(() => {
+    const handleFocus = () => {
+      if (project) {
+        fetchProjectDetails();
+      }
+    };
+
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
+  }, [project, fetchProjectDetails]);
 
   if (loading) {
     return (

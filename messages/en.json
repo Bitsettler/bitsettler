@@ -1,135 +1,15 @@
 {
   "common": {
+    "welcome": "Welcome",
     "loading": "Loading...",
-    "error": "An error occurred",
-    "search": "Search",
-    "quantity": "Quantity",
-    "calculate": "Calculate",
-    "total": "Total",
-    "effort": "Effort",
-    "category": "Category",
-    "description": "Description",
-    "info": "Info",
-    "usage": "Usage",
-    "latest": "Latest",
-    "previous": "Previous",
-    "firstRelease": "First Release",
-    "menu": "Menu"
+    "error": "Error",
+    "save": "Save",
+    "cancel": "Cancel"
   },
-  "header": {
-    "title": "Welcome to Bitcraft.Guide!",
-    "subtitle": "We are the unofficial BitCraft Online encyclopaedia, written and maintained by the players.",
-    "navigation": {
-      "calculator": "Calculator",
-      "compendium": "Compendium",
-      "wiki": "Wiki",
-      "projects": "Projects",
-      "about": "About",
-      "changelog": "Changelog"
-    },
-    "language": {
-      "en": "English",
-      "fr": "Français",
-      "es": "Español"
-    },
-    "discord": "Discord Server",
-    "github": "GitHub Repository"
-  },
-  "notFound": {
-    "title": "Page Not Found",
-    "description": "The page you're looking for doesn't exist or has been moved.",
-    "goHome": "Go Home",
-    "browseCompendium": "Browse Compendium",
-    "helpText": "Need help? Check out our:"
-  },
-  "calculator": {
-    "title": "Crafting Calculator",
-    "selectItem": "Select Item to Craft",
-    "searchPlaceholder": "Search for items...",
-    "searchItems": "Search items...",
-    "noItemsFound": "No items found.",
-    "quantityLabel": "Quantity",
-    "calculateButton": "Calculate Crafting Requirements",
-    "requirements": "Crafting Requirements",
-    "targetItem": "Target Item",
-    "baseResources": "Base Resources Needed",
-    "craftingSteps": "Crafting Steps",
-    "selectItemPrompt": "Select an item and quantity to see crafting requirements",
-    "totalEffort": "Total Effort",
-    "materialsNeeded": "Materials Needed",
-    "craftingQuantity": "Crafting Quantity",
-    "itemsToCraft": "items to craft",
-    "noRecipes": "This item is not used in any recipes",
-    "produces": "Produces"
-  },
-  "items": {
-    "categories": {
-      "wood": "Wood",
-      "stone": "Stone",
-      "metal": "Metal",
-      "textile": "Textile",
-      "fuel": "Fuel",
-      "tool": "Tool",
-      "vehicle": "Vehicle",
-      "container": "Container"
-    }
-  },
-  "errors": {
-    "itemNotFound": "Item not found",
-    "calculationError": "Error calculating crafting requirements"
-  },
-  "footer": {
-    "allRightsReserved": "All rights reserved.",
-    "github": "GitHub",
-    "twitter": "Twitter",
-    "discord": "Discord",
-    "unofficialDisclaimer": "This is an unofficial fan project and is not affiliated with BitCraft or its developers.",
-    "assetsDisclaimer": "All game data and assets belong to their respective owners."
-  },
-  "languageSwitcher": {
-    "switchLanguage": "Switch language",
-    "switchLanguageSr": "Switch language"
-  },
-  "sidebar": {
-    "navigation": "Navigation",
-    "mainPage": "Main page",
-    "compendium": "Compendium",
-    "aboutUs": "About us",
-    "randomPage": "Random page",
-    "contactUs": "Contact us",
-    "donate": "Donate",
-    "recentChanges": "Recent Changes",
-    "changelog": "Changelog",
-    "recentChangesDescription": "Game updates, dev blogs, and more coming soon!",
-    "guides": "Guides",
-    "guidesComingSoon": "Coming soon! 🚀",
-    "community": "Community",
-    "bitcraftGuideDiscord": "Discord",
-    "bitcraftGuideGithub": "GitHub",
-    "bitcraftGuideTwitter": "Twitter",
-    "codex": "Codex",
-    "compendiumTools": "Tools",
-    "resources": "Resources",
-    "buildings": "Buildings",
-    "deployables": "Deployables",
-    "seeAll": "See all",
-    "tools": "Tools",
-    "calculator": "Calculator",
-    "projects": "Projects",
-    "skills": "Skills",
-    "research": "Research",
+  "navigation": {
+    "home": "Home",
     "settlement": "Settlement",
-    "settlementDashboard": "Dashboard",
-    "settlementMembers": "Members",
-    "settlementProjects": "Settlement Projects",
-    "settlementTreasury": "Treasury",
-    "comingSoon": "Soon"
-  },
-  "search": {
-    "globalPlaceholder": "Search the guide..."
-  },
-  "toast": {
-    "quantityAdjusted": "Quantity adjusted to minimum of {minQuantity}. This recipe produces {minQuantity} items per craft.",
-    "quantityAdjustedDescription": "You cannot craft less than what one recipe execution produces."
+    "projects": "Projects",
+    "compendium": "Compendium"
   }
 }

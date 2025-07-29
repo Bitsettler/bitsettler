@@ -79,7 +79,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         seenSettlementIds.add(settlement.id);
         
         // Use UPSERT with ON CONFLICT DO UPDATE to handle both insert and update efficiently
-        const { data, error: upsertError } = await supabase
+        const { error: upsertError } = await supabase
           .from('settlements_master')
           .upsert({
             id: settlement.id,
@@ -96,8 +96,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
             updated_at: new Date().toISOString()
           }, { 
             onConflict: 'id' 
-          })
-          .select('*');
+          });
 
         if (upsertError) {
           console.error(`Error upserting settlement ${settlement.name}:`, upsertError);

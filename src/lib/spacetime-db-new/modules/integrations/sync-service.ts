@@ -1,5 +1,4 @@
-import { isSupabaseAvailable } from '../../shared/supabase-client';
-import { getAllMembers } from '../settlements/commands/get-all-members';
+import { supabase } from '../../shared/supabase-client';
 import { BitJitaAPI } from './bitjita-api';
 import { syncSettlementsMaster } from '../settlements/commands/sync-settlements-master';
 import { syncAllSettlementMembers } from '../settlements/commands/sync-settlement-members';
@@ -30,7 +29,7 @@ export class SettlementSyncService {
       return;
     }
 
-    if (!isSupabaseAvailable()) {
+    if (!supabase) {
       console.warn('Supabase not available, sync service cannot start');
       return;
     }
@@ -76,7 +75,7 @@ export class SettlementSyncService {
    * Manually trigger a full sync of all data
    */
   public async syncAll(): Promise<void> {
-    if (!isSupabaseAvailable()) {
+    if (!supabase) {
       throw new Error('Supabase not available for sync');
     }
 
@@ -268,10 +267,14 @@ export class SettlementSyncService {
       const defaultSettlementId = '504403158277057776'; // Port Taverna for now
       
       // Fetch settlement details for stats
-      const detailsResult = await BitJitaAPI.fetchSettlementDetails(defaultSettlementId);
+      const details = await BitJitaAPI.fetchSettlementDetails(defaultSettlementId);
       
-      // Placeholder for future settlement stats sync
-      console.log('Settlement stats sync placeholder - will be implemented when BitJita adds more endpoints');
+      if (details.success && details.data) {
+        // Placeholder for future settlement stats sync
+        console.log('Settlement stats sync placeholder - will be implemented when BitJita adds more endpoints');
+      } else {
+        console.error('Error fetching settlement details for stats:', details.error);
+      }
       
     } catch (error) {
       console.error('Error syncing settlement stats:', error);

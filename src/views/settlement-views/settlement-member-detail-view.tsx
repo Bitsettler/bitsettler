@@ -1,28 +1,23 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Button } from '../../components/ui/button';
-import { Separator } from '../../components/ui/separator';
-import { Avatar, AvatarFallback } from '../../components/ui/avatar';
-import { Container } from '../../components/container';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Container } from '@/components/container';
 import { 
-  ArrowLeft,
   User, 
-  Shield, 
-  Calendar,
-  Clock,
-  TrendingUp,
-  Award,
-  Activity,
-  UserCheck,
-  UserX,
-  Crown,
-  Key,
-  Package,
-  Hammer
+  Calendar, 
+  Clock, 
+  Activity, 
+  TrendingUp, 
+  Star, 
+  Award, 
+  Target, 
+  ChevronRight, 
+  MapPin 
 } from 'lucide-react';
 
 interface MemberDetail {

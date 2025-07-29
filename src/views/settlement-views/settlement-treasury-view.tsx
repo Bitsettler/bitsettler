@@ -7,9 +7,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Separator } from '@/components/ui/separator';
 import { Container } from '@/components/container';
-import { AlertCircle, Search, Filter, TrendingUp, TrendingDown, Wallet, Calendar, ArrowUpRight, ArrowDownRight, Plus, Minus, RefreshCw, Clock, BarChart3 } from 'lucide-react';
+import { 
+  ArrowUpRight, 
+  ArrowDownRight, 
+  Wallet, 
+  Filter, 
+  Search, 
+  Plus, 
+  RefreshCw, 
+  Clock, 
+  BarChart3 
+} from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 
@@ -312,7 +321,7 @@ export function SettlementTreasuryView() {
             <Card className="w-full max-w-md">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 text-destructive mb-4">
-                  <AlertCircle className="h-5 w-5" />
+                  <Search className="h-5 w-5" />
                   <span className="font-medium">Failed to load treasury</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">{error}</p>
@@ -681,7 +690,7 @@ export function SettlementTreasuryView() {
                 <>
                   <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p className="text-lg font-medium mb-2">No transactions yet</p>
-                  <p>Treasury transactions will appear here when they're recorded.</p>
+                  <p>Treasury transactions will appear here when they&apos;re recorded.</p>
                 </>
               )}
             </div>

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../../auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth-config';
 import { addContribution, updateProjectItemQuantity, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function POST(request: NextRequest) {
