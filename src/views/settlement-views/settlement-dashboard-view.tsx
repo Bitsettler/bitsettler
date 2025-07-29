@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
+import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCallback } from 'react';
 import { 
   Users, 
   Package, 

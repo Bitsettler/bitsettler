@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
+import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { 
   User, 
   Calendar, 
