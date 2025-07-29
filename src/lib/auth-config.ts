@@ -4,6 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET || 'fallback-secret-for-development-only-change-in-production',
   debug: process.env.NODE_ENV === 'development',
+  trustHost: true, // Required for Vercel deployments
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -27,7 +28,7 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/en/auth/signin',
   },
   session: {
     strategy: 'jwt',
@@ -44,6 +45,17 @@ export const authOptions: NextAuthOptions = {
         session.user.id = token.id as string;
       }
       return session;
+    },
+  },
+  events: {
+    async signIn(message) {
+      console.log('NextAuth signIn event:', message);
+    },
+    async session(message) {
+      console.log('NextAuth session event:', message);
+    },
+    async error(message) {
+      console.error('NextAuth error event:', message);
     },
   },
 };
