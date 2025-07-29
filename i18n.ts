@@ -1,19 +1,22 @@
-import {defineRouting} from 'next-intl/routing';
+import {getRequestConfig} from 'next-intl/server';
+import {notFound} from 'next/navigation';
 
-export const routing = defineRouting({
-  // A list of all locales that are supported
-  locales: ['en', 'fr', 'es'],
+// Can be imported from a shared config
+export const locales = ['en', 'fr', 'es'];
 
-  // Used when no locale matches
-  defaultLocale: 'en',
-  
-  // Optional: configure pathnames for each locale
-  pathnames: {
-    '/': '/',
-    '/settlement': '/settlement',
-    '/professions': '/professions',
-    '/compendium': '/compendium'
+export default getRequestConfig(async ({locale}) => {
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(locale as any)) notFound();
+
+  try {
+    return {
+      messages: (await import(`./messages/${locale}.json`)).default
+    };
+  } catch (error) {
+    // Fallback to English if the locale file doesn't exist
+    console.warn(`Could not load messages for locale "${locale}", falling back to "en"`);
+    return {
+      messages: (await import(`./messages/en.json`)).default
+    };
   }
 });
-
-export const {Link, redirect, usePathname, useRouter} = routing;
