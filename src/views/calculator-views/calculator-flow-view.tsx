@@ -20,7 +20,7 @@ interface FlowVisualizeViewProps {
 
 const AUTO_EXPAND_DEPTH = 4
 
-export function CalcultorFlowView({
+export function CalculatorFlowView({
   slug,
   quantity = 1
 }: FlowVisualizeViewProps) {
