@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
+// Extend window interface for our setup tracking
+declare global {
+  interface Window {
+    userProfileSetupLogged?: boolean;
+  }
+}
+
 export interface UserProfile {
   // Core Identity
   displayName: string;
@@ -165,7 +172,11 @@ export function useUserProfile(): UserProfileHook {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedProfile));
         console.log('✅ Profile loaded successfully:', parsedProfile.displayName);
       } else {
-        console.log('ℹ️ No existing profile found, starting first-time setup');
+        // Only log this message if it's the first hook instance to avoid spam
+        if (!window.userProfileSetupLogged) {
+          console.log('ℹ️ No existing profile found, starting first-time setup');
+          window.userProfileSetupLogged = true;
+        }
         setIsFirstTime(true);
       }
     } catch (error) {

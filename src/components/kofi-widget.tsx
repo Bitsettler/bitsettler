@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 interface KofiWidgetProps {
   className?: string
 }
@@ -12,7 +10,8 @@ export function KofiWidget({ className }: KofiWidgetProps) {
       rel="noopener noreferrer"
       className={className}
     >
-      <Image
+      {/* Use standard img instead of Next.js Image to avoid Ko-fi CDN issues */}
+      <img
         src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
         alt="Buy Me a Coffee at ko-fi.com"
         width={150}
