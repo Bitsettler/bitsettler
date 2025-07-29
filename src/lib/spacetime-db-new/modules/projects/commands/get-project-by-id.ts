@@ -64,7 +64,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       throw handleSupabaseError(itemsError, 'getting project items');
     }
 
-    // Get project contributions with member names
+    // Get project contributions with member names (allow empty results)
     const { data: contributionsData, error: contributionsError } = await supabase!
       .from('member_contributions')
       .select(`
@@ -75,29 +75,31 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
         quantity,
         description,
         contributed_at,
-        settlement_members!inner(name)
+        settlement_members(name)
       `)
       .eq('project_id', projectId)
       .order('contributed_at', { ascending: false });
 
-    if (contributionsError) {
-      throw handleSupabaseError(contributionsError, 'getting project contributions');
+    // Don't throw error if no contributions found, just log and continue
+    if (contributionsError && contributionsError.code !== 'PGRST116') {
+      console.warn('Error fetching contributions:', contributionsError);
     }
 
-    // Get assigned members
+    // Get assigned members (allow empty results)
     const { data: assignedData, error: assignedError } = await supabase!
       .from('project_members')
       .select(`
         id,
         role,
         assigned_at,
-        settlement_members!inner(id, name)
+        settlement_members(id, name)
       `)
       .eq('project_id', projectId)
       .order('assigned_at');
 
-    if (assignedError) {
-      throw handleSupabaseError(assignedError, 'getting assigned members');
+    // Don't throw error if no assignments found, just log and continue
+    if (assignedError && assignedError.code !== 'PGRST116') {
+      console.warn('Error fetching assigned members:', assignedError);
     }
 
     // Process the data
@@ -120,7 +122,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     const contributions: MemberContribution[] = (contributionsData || []).map(contrib => ({
       id: contrib.id,
       memberId: contrib.member_id,
-      memberName: (contrib.settlement_members as any).name,
+      memberName: contrib.settlement_members?.name || 'Unknown Member',
       contributionType: contrib.contribution_type,
       itemName: contrib.item_name,
       quantity: contrib.quantity,
@@ -129,8 +131,8 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     }));
 
     const assignedMembers = (assignedData || []).map(assigned => ({
-      id: (assigned.settlement_members as any).id,
-      name: (assigned.settlement_members as any).name,
+      id: assigned.settlement_members?.id || assigned.id,
+      name: assigned.settlement_members?.name || 'Unknown Member',
       role: assigned.role,
       assignedAt: new Date(assigned.assigned_at),
     }));

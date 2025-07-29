@@ -1,0 +1,216 @@
+[1mdiff --git a/src/views/settlement-views/settlement-treasury-view.tsx b/src/views/settlement-views/settlement-treasury-view.tsx[m
+[1mindex 67dfd4e..dd61e0e 100644[m
+[1m--- a/src/views/settlement-views/settlement-treasury-view.tsx[m
+[1m+++ b/src/views/settlement-views/settlement-treasury-view.tsx[m
+[36m@@ -10,6 +10,7 @@[m [mimport { Skeleton } from '@/components/ui/skeleton';[m
+ import { Separator } from '@/components/ui/separator';[m
+ import { Container } from '@/components/container';[m
+ import { AlertCircle, Search, Filter, TrendingUp, TrendingDown, Wallet, Calendar, ArrowUpRight, ArrowDownRight, Plus, Minus, RefreshCw, Clock, BarChart3 } from 'lucide-react';[m
+[32m+[m[32mimport { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';[m
+ [m
+ interface TreasurySummary {[m
+   id: string;[m
+[36m@@ -87,7 +88,8 @@[m [minterface TreasuryHistoryResponse {[m
+   count: number;[m
+   meta: {[m
+     settlementId: string;[m
+[31m-    timeRangeMonths: number;[m
+[32m+[m[32m    timeRange: number;[m
+[32m+[m[32m    timeUnit: string;[m
+     dataSource: string;[m
+   };[m
+   error?: string;[m
+[36m@@ -127,7 +129,8 @@[m [mexport function SettlementTreasuryView() {[m
+   // Treasury history state[m
+   const [history, setHistory] = useState<TreasurySnapshot[]>([]);[m
+   const [historyLoading, setHistoryLoading] = useState(false);[m
+[31m-  const [timeRange, setTimeRange] = useState<number>(3); // 3 months default[m
+[32m+[m[32m  const [timeRange, setTimeRange] = useState<number>(30); // 30 days default instead of 7 days[m
+[32m+[m[32m  const [timeUnit, setTimeUnit] = useState<'days' | 'months'>('days'); // New time unit state[m
+   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);[m
+   [m
+ [m
+[36m@@ -161,7 +164,7 @@[m [mexport function SettlementTreasuryView() {[m
+ [m
+   useEffect(() => {[m
+     fetchTreasuryHistory();[m
+[31m-  }, [timeRange]);[m
+[32m+[m[32m  }, [timeRange, timeUnit]); // Add timeUnit to dependencies[m
+ [m
+   async function fetchSummaryData() {[m
+     try {[m
+[36m@@ -234,7 +237,7 @@[m [mexport function SettlementTreasuryView() {[m
+       const settlementId = '504403158277057776'; // Port Taverna[m
+       [m
+       const response = await fetch([m
+[31m-        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}`[m
+[32m+[m[32m        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}&timeUnit=${timeUnit}`[m
+       );[m
+       const data: TreasuryHistoryResponse = await response.json();[m
+ [m
+[36m@@ -381,16 +384,30 @@[m [mexport function SettlementTreasuryView() {[m
+                 <BarChart3 className="h-5 w-5" />[m
+                 <CardTitle>Treasury History</CardTitle>[m
+               </div>[m
+[31m-              <Select value={timeRange.toString()} onValueChange={(value) => setTimeRange(parseInt(value))}>[m
+[31m-                <SelectTrigger className="w-32">[m
+[31m-                  <SelectValue />[m
+[31m-                </SelectTrigger>[m
+[31m-                <SelectContent>[m
+[31m-                  <SelectItem value="1">1 Month</SelectItem>[m
+[31m-                  <SelectItem value="3">3 Months</SelectItem>[m
+[31m-                  <SelectItem value="6">6 Months</SelectItem>[m
+[31m-                </SelectContent>[m
+[31m-              </Select>[m
+[32m+[m[32m              <div className="flex items-center gap-2">[m
+[32m+[m[32m                <Select[m[41m [m
+[32m+[m[32m                  value={`${timeRange}-${timeUnit}`}[m[41m [m
+[32m+[m[32m                  onValueChange={(value) => {[m
+[32m+[m[32m                    const [range, unit] = value.split('-');[m
+[32m+[m[32m                    setTimeRange(parseInt(range));[m
+[32m+[m[32m                    setTimeUnit(unit as 'days' | 'months');[m
+[32m+[m[32m                  }}[m
+[32m+[m[32m                >[m
+[32m+[m[32m                  <SelectTrigger className="w-40">[m
+[32m+[m[32m                    <SelectValue />[m
+[32m+[m[32m                  </SelectTrigger>[m
+[32m+[m[32m                  <SelectContent>[m
+[32m+[m[32m                    <SelectItem value="1-days">1 Day</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="3-days">3 Days</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="7-days">7 Days</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="14-days">2 Weeks</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="30-days">30 Days</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="1-months">1 Month</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="3-months">3 Months</SelectItem>[m
+[32m+[m[32m                    <SelectItem value="6-months">6 Months</SelectItem>[m
+[32m+[m[32m                  </SelectContent>[m
+[32m+[m[32m                </Select>[m
+[32m+[m[32m              </div>[m
+             </div>[m
+           </CardHeader>[m
+           <CardContent>[m
+[36m@@ -420,55 +437,89 @@[m [mexport function SettlementTreasuryView() {[m
+                   </div>[m
+                   <div>[m
+                     <span className="text-muted-foreground">Time Range:</span>[m
+[31m-                    <div className="font-medium">{timeRange} month{timeRange > 1 ? 's' : ''}</div>[m
+[32m+[m[32m                    <div className="font-medium">[m
+[32m+[m[32m                      {timeRange} {timeUnit === 'days' ? (timeRange === 1 ? 'day' : 'days') : (timeRange === 1 ? 'month' : 'months')}[m
+[32m+[m[32m                    </div>[m
+                   </div>[m
+                 </div>[m
+                 [m
+                 {/* Treasury Balance Chart */}[m
+                 <div className="h-64 border rounded-lg p-4 bg-gradient-to-b from-background to-muted/20">[m
+                   {(() => {[m
+[32m+[m[32m                    if (history.length === 0) {[m
+[32m+[m[32m                      return ([m
+[32m+[m[32m                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground">[m
+[32m+[m[32m                          <BarChart3 className="h-8 w-8 opacity-50 mb-2" />[m
+[32m+[m[32m                          <span className="font-medium">No treasury data available</span>[m
+[32m+[m[32m                          <span className="text-xs mt-1">Try selecting a different time range</span>[m
+[32m+[m[32m                        </div>[m
+[32m+[m[32m                      );[m
+[32m+[m[32m                    }[m
+[32m+[m
+                     if (history.length < 2) {[m
+                       return ([m
+[31m-                        <div className="h-full flex items-center justify-center text-muted-foreground">[m
+[32m+[m[32m                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground">[m
+                           <BarChart3 className="h-8 w-8 opacity-50 mb-2" />[m
+[31m-                          <span>Not enough data for chart</span>[m
+[32m+[m[32m                          <span className="font-medium">Not enough data for chart</span>[m
+[32m+[m[32m                          <span className="text-xs mt-1">Need at least 2 data points • Currently have {history.length}</span>[m
+                         </div>[m
+                       );[m
+                     }[m
+ [m
+[31m-                    const maxBalance = Math.max(...history.map(h => h.balance));[m
+[31m-                    const minBalance = Math.min(...history.map(h => h.balance));[m
+[31m-                    [m
+[32m+[m[32m                    // Transform data for Recharts[m
+[32m+[m[32m                    const chartData = history.map((snapshot, index) => ({[m
+[32m+[m[32m                      date: snapshot.recordedAt.toLocaleDateString(),[m
+[32m+[m[32m                      balance: snapshot.balance,[m
+[32m+[m[32m                      changeAmount: snapshot.changeAmount || 0,[m
+[32m+[m[32m                      isIncrease: index > 0 && snapshot.balance > history[index - 1].balance,[m
+[32m+[m[32m                      isDecrease: index > 0 && snapshot.balance < history[index - 1].balance,[m
+[32m+[m[32m                      fullDate: snapshot.recordedAt.toLocaleString()[m
+[32m+[m[32m                    }));[m
+[32m+[m
+[32m+[m[32m                    const CustomTooltip = ({ active, payload, label }: any) => {[m
+[32m+[m[32m                      if (active && payload && payload.length) {[m
+[32m+[m[32m                        const data = payload[0].payload;[m
+[32m+[m[32m                        return ([m
+[32m+[m[32m                          <div className="bg-background border rounded-lg p-3 shadow-lg">[m
+[32m+[m[32m                            <p className="font-medium">{data.fullDate}</p>[m
+[32m+[m[32m                            <p className="text-sm text-muted-foreground mb-1">Treasury Balance</p>[m
+[32m+[m[32m                            <p className="text-lg font-bold text-primary">{formatHexcoin(data.balance)}</p>[m
+[32m+[m[32m                            {data.changeAmount !== 0 && ([m
+[32m+[m[32m                              <p className={`text-sm ${data.changeAmount >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>[m
+[32m+[m[32m                                Change: {data.changeAmount >= 0 ? '+' : ''}{formatCurrency(data.changeAmount)}[m
+[32m+[m[32m                              </p>[m
+[32m+[m[32m                            )}[m
+[32m+[m[32m                          </div>[m
+[32m+[m[32m                        );[m
+[32m+[m[32m                      }[m
+[32m+[m[32m                      return null;[m
+[32m+[m[32m                    };[m
+[32m+[m
+                     return ([m
+[31m-                      <div className="h-full flex flex-col">[m
+[31m-                        <div className="flex-1 flex items-end justify-between gap-1 px-2">[m
+[31m-                          {history.map((snapshot, index) => {[m
+[31m-                            const height = ((snapshot.balance - minBalance) / (maxBalance - minBalance || 1)) * 100;[m
+[31m-                            const isIncrease = index > 0 && snapshot.balance > history[index - 1].balance;[m
+[31m-                            const isDecrease = index > 0 && snapshot.balance < history[index - 1].balance;[m
+[31m-                            [m
+[31m-                            return ([m
+[31m-                              <div key={index} className="flex flex-col items-center flex-1 max-w-8">[m
+[31m-                                <div [m
+[31m-                                  className={`w-full rounded-t transition-all duration-300 ${[m
+[31m-                                    isIncrease ? 'bg-emerald-500' : [m
+[31m-                                    isDecrease ? 'bg-red-500' : [m
+[31m-                                    'bg-primary'[m
+[31m-                                  }`}[m
+[31m-                                  style={{ height: `${Math.max(height, 5)}%` }}[m
+[31m-                                  title={`${snapshot.recordedAt.toLocaleDateString()}: ${formatHexcoin(snapshot.balance)}`}[m
+[31m-                                />[m
+[31m-                              </div>[m
+[31m-                            );[m
+[31m-                          })}[m
+[31m-                        </div>[m
+[31m-                        {/* Mini timeline */}[m
+[31m-                        <div className="flex justify-between text-xs text-muted-foreground mt-2 px-2">[m
+[31m-                          <span>{history[0]?.recordedAt.toLocaleDateString()}</span>[m
+[31m-                          <span>{history[Math.floor(history.length / 2)]?.recordedAt.toLocaleDateString()}</span>[m
+[31m-                          <span>{history[history.length - 1]?.recordedAt.toLocaleDateString()}</span>[m
+[31m-                        </div>[m
+[31m-                      </div>[m
+[32m+[m[32m                      <ResponsiveContainer width="100%" height="100%">[m
+[32m+[m[32m                        <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>[m
+[32m+[m[32m                          <CartesianGrid strokeDasharray="3 3" className="opacity-30" />[m
+[32m+[m[32m                          <XAxis[m[41m [m
+[32m+[m[32m                            dataKey="date"[m[41m [m
+[32m+[m[32m                            tick={{ fontSize: 12, fill: 'currentColor' }}[m
+[32m+[m[32m                            className="text-muted-foreground"[m
+[32m+[m[32m                          />[m
+[32m+[m[32m                          <YAxis[m[41m [m
+[32m+[m[32m                            tick={{ fontSize: 12, fill: 'currentColor' }}[m
+[32m+[m[32m                            className="text-muted-foreground"[m
+[32m+[m[32m                            tickFormatter={(value) => formatCurrency(value)}[m
+[32m+[m[32m                          />[m
+[32m+[m[32m                          <Tooltip content={<CustomTooltip />} />[m
+[32m+[m[32m                          <Line[m[41m [m
+[32m+[m[32m                            type="monotone"[m[41m [m
+[32m+[m[32m                            dataKey="balance"[m[41m [m
+[32m+[m[32m                            stroke="hsl(var(--primary))"[m[41m [m
+[32m+[m[32m                            strokeWidth={2}[m
+[32m+[m[32m                            dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 4 }}[m
+[32m+[m[32m                            activeDot={{ r: 6, fill: 'hsl(var(--primary))' }}[m
+[32m+[m[32m                          />[m
+[32m+[m[32m                        </LineChart>[m
+[32m+[m[32m                      </ResponsiveContainer>[m
+                     );[m
+                   })()}[m
+                 </div>[m

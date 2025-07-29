@@ -5,8 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/ca
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Container } from '../../components/container';
-import { LiveActivityFeed } from '../../components/live-activity-feed';
-import { RealtimeStatusIndicator } from '../../components/realtime-status-indicator';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { 
@@ -151,22 +149,17 @@ export function SettlementDashboardView() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Settlement Dashboard</h1>
-            <p className="text-muted-foreground">Real-time overview of your settlement</p>
+            <p className="text-muted-foreground">Overview of your settlement</p>
           </div>
         <div className="flex items-center gap-3">
-          <RealtimeStatusIndicator showLastUpdate showActivityCount />
           {inviteCode && (
             <CompactSettlementInviteCode 
               inviteCode={inviteCode}
-              onRegenerate={regenerateInviteCode}
+              className="ml-auto"
             />
           )}
-          <Button variant="outline" size="sm" onClick={() => window.location.href = '/en/settlement/manage'}>
-            <Settings className="h-4 w-4 mr-2" />
-            Manage Settlement
-          </Button>
         </div>
-      </div>
+        </div>
 
       {/* Settlement Info */}
       {selectedSettlement && (
@@ -333,15 +326,6 @@ export function SettlementDashboardView() {
             <p className="text-muted-foreground text-sm">
               Recent activities will appear here when settlement data is connected.
             </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Live Activity Feed</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <LiveActivityFeed maxItems={15} autoScroll showControls />
           </CardContent>
         </Card>
       </div>

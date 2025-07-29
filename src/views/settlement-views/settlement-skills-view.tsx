@@ -82,19 +82,35 @@ export function SettlementSkillsView() {
   }, [selectedSettlement]);
 
   const fetchSkillsData = async () => {
+    // Don't fetch data if no settlement is selected
+    if (!selectedSettlement) {
+      console.log('🔍 No settlement selected, skipping data fetch');
+      setLoading(false);
+      setCitizensData([]);
+      setSkillsData(null);
+      setMeta(null);
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
 
       const params = new URLSearchParams();
-      if (selectedSettlement) {
-        params.append('settlementId', selectedSettlement.id);
-      }
+      params.append('settlementId', selectedSettlement.id);
+
+      // Prepare members params with high limit to show all members
+      const membersParams = new URLSearchParams();
+      membersParams.append('settlementId', selectedSettlement.id);
+      membersParams.append('limit', '500'); // High limit to show all members
+      membersParams.append('includeInactive', 'true'); // Include all members
+
+      console.log(`🔍 Fetching skills data for settlement: ${selectedSettlement.name} (${selectedSettlement.id})`);
 
       // Fetch both analytics and detailed member data
       const [analyticsResponse, membersResponse] = await Promise.all([
         fetch(`/api/settlement/skills?${params}`),
-        fetch(`/api/settlement/members?${params}`)
+        fetch(`/api/settlement/members?${membersParams}`)
       ]);
 
       const analyticsResult: SkillsResponse = await analyticsResponse.json();
@@ -216,6 +232,66 @@ export function SettlementSkillsView() {
                   <RefreshCw className="h-4 w-4 mr-2" />
                   Retry
                 </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
+    );
+  }
+
+  if (loading) {
+    return (
+      <Container>
+        <div className="space-y-6 py-8">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold">Skills Overview</h1>
+              <p className="text-muted-foreground text-sm">
+                Track member skills, progression, and settlement capabilities across all professions.
+              </p>
+            </div>
+            <Button variant="outline" size="sm" disabled>
+              <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+              Loading...
+            </Button>
+          </div>
+
+          {/* Loading Analytics Cards */}
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {[1, 2, 3, 4].map((i) => (
+              <Card key={i}>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <div className="h-4 w-24 bg-muted rounded animate-pulse" />
+                  <div className="h-4 w-4 bg-muted rounded animate-pulse" />
+                </CardHeader>
+                <CardContent>
+                  <div className="h-8 w-16 bg-muted rounded animate-pulse mb-2" />
+                  <div className="h-3 w-20 bg-muted rounded animate-pulse" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Loading Skills Table */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="h-6 w-32 bg-muted rounded animate-pulse mb-2" />
+                  <div className="h-4 w-48 bg-muted rounded animate-pulse" />
+                </div>
+                <div className="h-9 w-24 bg-muted rounded animate-pulse" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-12">
+                <div className="animate-spin h-8 w-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4" />
+                <p className="text-muted-foreground font-medium">Loading settlement member data...</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Fetching skills and member information from the game database
+                </p>
               </div>
             </CardContent>
           </Card>

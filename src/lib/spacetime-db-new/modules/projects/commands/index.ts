@@ -12,4 +12,17 @@ export {
   getProjectById, 
   type MemberContribution, 
   type ProjectDetails 
-} from './get-project-by-id'; 
+} from './get-project-by-id';
+
+export {
+  createProject,
+  type CreateProjectRequest,
+  type CreateProjectItemRequest, 
+  type CreateProjectResponse
+} from './create-project';
+
+export {
+  addContribution,
+  updateProjectItemQuantity,
+  type AddContributionRequest
+} from './add-contribution'; 

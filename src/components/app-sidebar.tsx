@@ -107,6 +107,7 @@ const data = {
         { translationKey: 'sidebar.settlementDashboard', href: '/settlement' },
         { translationKey: 'sidebar.settlementMembers', href: '/settlement/members' },
         { translationKey: 'sidebar.skills', href: '/settlement/skills' },
+        { translationKey: 'sidebar.research', href: '/settlement/research' },
         { translationKey: 'sidebar.projects', href: '/settlement/projects' },
         { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury' }
       ]

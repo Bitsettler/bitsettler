@@ -64,6 +64,16 @@ export async function GET(request: NextRequest) {
           console.log(`✅ Found ${members?.length || 0} members in local database`);
 
           if (members && members.length > 0) {
+            // Get cached skill names from database (no BitJita API call)
+            const { data: skillNamesData } = await supabase
+              .from('skill_names')
+              .select('skill_id, skill_name');
+            
+            const skillNames: Record<string, string> = {};
+            (skillNamesData || []).forEach(row => {
+              skillNames[row.skill_id] = row.skill_name;
+            });
+
             // Create a lookup map for citizens data - using username since entity_ids don't match
             const citizensMap = new Map();
             (citizens || []).forEach(citizen => {
@@ -74,16 +84,28 @@ export async function GET(request: NextRequest) {
              let formattedMembers = members.map(member => {
               const citizenData = citizensMap.get(member.user_name);
               
+              // Map profession ID to name using cached skill names
+              const professionName = citizenData?.top_profession ? skillNames[citizenData.top_profession] || 'Unknown' : 'Unknown';
+
+              // Transform skills from {skillId: level} to {skillName: level} using cached skill names
+              const mappedSkills: Record<string, number> = {};
+              if (citizenData?.skills) {
+                Object.entries(citizenData.skills).forEach(([skillId, level]) => {
+                  const skillName = skillNames[skillId] || `Skill ${skillId}`;
+                  mappedSkills[skillName] = level as number;
+                });
+              }
+              
               return {
                 id: member.entity_id,
                 name: member.user_name,
                 entityId: member.entity_id,
-                profession: citizenData?.top_profession || 'Unknown',
+                profession: professionName,
                 totalSkillLevel: citizenData?.total_level || 0,
                 totalXP: citizenData?.total_xp || 0,
                 highestLevel: citizenData?.highest_level || 0,
                 totalSkills: citizenData?.total_skills || 0,
-                skills: citizenData?.skills || {},
+                skills: mappedSkills,
                 permissions: {
                   inventory: member.inventory_permission || 0,
                   build: member.build_permission || 0,

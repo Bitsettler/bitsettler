@@ -1,4 +1,5 @@
 import { SettlementProjectsView } from '../../../../views/settlement-views/settlement-projects-view';
+import { SettlementAuthGuard } from '../../../../components/settlement-auth-guard';
 
 // Settlement Projects Page
 // Data > Page > View architecture:
@@ -6,6 +7,10 @@ import { SettlementProjectsView } from '../../../../views/settlement-views/settl
 // - Page Layer: This file (routing and data orchestration)  
 // - View Layer: SettlementProjectsView component
 
-export default async function SettlementProjectsPage() {
-  return <SettlementProjectsView />;
+export default function SettlementProjectsPage() {
+  return (
+    <SettlementAuthGuard>
+      <SettlementProjectsView />
+    </SettlementAuthGuard>
+  );
 } 

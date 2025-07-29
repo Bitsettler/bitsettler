@@ -15,8 +15,11 @@ export interface TreasurySnapshot {
 
 export class TreasuryPollingService {
   private static instance: TreasuryPollingService;
+  private isPolling: boolean = false;
   private intervalId: NodeJS.Timeout | null = null;
-  private isPolling = false;
+  
+  // Global flag to prevent multiple services across hot reloads
+  private static globalPollingActive = false;
 
   private constructor() {}
 
@@ -31,13 +34,15 @@ export class TreasuryPollingService {
    * Start polling treasury data every 5 minutes
    */
   startPolling(settlementId: string = '504403158277057776'): void {
-    if (this.isPolling) {
-      console.log('🏛️ Treasury polling already active');
+    // Check both instance and global flags to prevent multiple polling
+    if (this.isPolling || TreasuryPollingService.globalPollingActive) {
+      console.log('🏛️ Treasury polling already active (skipping duplicate start)');
       return;
     }
 
     console.log('🏛️ Starting treasury polling service (5-minute intervals)');
     this.isPolling = true;
+    TreasuryPollingService.globalPollingActive = true;
 
     // Run immediately
     this.pollTreasuryData(settlementId);
@@ -57,6 +62,7 @@ export class TreasuryPollingService {
       this.intervalId = null;
     }
     this.isPolling = false;
+    TreasuryPollingService.globalPollingActive = false;
     console.log('🏛️ Treasury polling service stopped');
   }
 
@@ -95,10 +101,10 @@ export class TreasuryPollingService {
       const changeAmount = currentBalance - previousBalance;
 
       // Only record snapshots under specific conditions to avoid clutter:
-      // 1. Significant balance change (>1000 coins)
+      // 1. Significant balance change (>100 coins for better granularity)
       // 2. It's been more than 24 hours since last record (daily snapshot)
       // 3. No previous record exists
-      const significantChange = Math.abs(changeAmount) >= 1000;
+      const significantChange = Math.abs(changeAmount) >= 100; // Lowered from 1000 to 100
       const daysSinceLastRecord = lastRecord ? 
         (new Date().getTime() - new Date(lastRecord.recorded_at).getTime()) / (24 * 60 * 60 * 1000) : 999;
       
@@ -145,10 +151,13 @@ export class TreasuryPollingService {
         console.log(`💰 Treasury snapshot recorded: ${currentBalance} (${reason})`);
         return snapshot;
       } else {
-        const skipReason = Math.abs(changeAmount) < 1000 ? 
-          `small change (${changeAmount >= 0 ? '+' : ''}${changeAmount})` : 
-          `recent record (${daysSinceLastRecord.toFixed(1)}h ago)`;
-        console.log(`📊 Treasury snapshot skipped: ${currentBalance} (${skipReason})`);
+        // Only log skips for larger changes to reduce noise
+        if (Math.abs(changeAmount) >= 50) {
+          const skipReason = Math.abs(changeAmount) < 100 ? 
+            `small change (${changeAmount >= 0 ? '+' : ''}${changeAmount})` : 
+            `recent record (${daysSinceLastRecord.toFixed(1)}h ago)`;
+          console.log(`📊 Treasury snapshot skipped: ${currentBalance} (${skipReason})`);
+        }
         return null;
       }
 
@@ -163,13 +172,20 @@ export class TreasuryPollingService {
    */
   async getTreasuryHistory(
     settlementId: string,
-    timeRangeMonths: number = 6
+    timeRange: number = 30, // Changed from 7 to 30 days
+    timeUnit: 'days' | 'months' = 'days'
   ): Promise<TreasurySnapshot[]> {
     if (!supabase) return [];
 
     try {
       const startDate = new Date();
-      startDate.setMonth(startDate.getMonth() - timeRangeMonths);
+      
+      // Calculate start date based on time unit
+      if (timeUnit === 'days') {
+        startDate.setDate(startDate.getDate() - timeRange);
+      } else {
+        startDate.setMonth(startDate.getMonth() - timeRange);
+      }
 
       const { data, error } = await supabase
         .from('treasury_history')
@@ -182,6 +198,8 @@ export class TreasuryPollingService {
         console.error('❌ Failed to fetch treasury history:', error);
         return [];
       }
+
+      console.log(`📊 Fetched ${data?.length || 0} treasury snapshots for ${timeRange} ${timeUnit}`);
 
       return (data || []).map((record: any) => ({
         settlementId: record.settlement_id,

@@ -242,12 +242,6 @@ export function SettlementManageView() {
               <h4 className="font-medium text-sm">Settlement ID</h4>
               <p className="text-sm text-muted-foreground font-mono">{selectedSettlement.id}</p>
             </div>
-            <div className="space-y-1">
-              <h4 className="font-medium text-sm">Connection Status</h4>
-              <div className="flex items-center gap-2">
-                <Badge variant="secondary">Demo Mode</Badge>
-              </div>
-            </div>
           </div>
         </CardContent>
       </Card>

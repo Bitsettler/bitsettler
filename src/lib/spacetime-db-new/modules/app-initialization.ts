@@ -34,17 +34,21 @@ export function cleanupApp(): void {
 
 // Auto-initialize when this module is imported
 if (typeof window === 'undefined') {
-  // Only run on server-side
-  initializeApp();
-  
-  // Cleanup on process termination
-  process.on('SIGINT', () => {
-    cleanupApp();
-    process.exit(0);
-  });
-  
-  process.on('SIGTERM', () => {
-    cleanupApp();
-    process.exit(0);
-  });
+  // Only run on server-side in production to avoid hot reload issues
+  if (process.env.NODE_ENV === 'production') {
+    initializeApp();
+    
+    // Cleanup on process termination
+    process.on('SIGINT', () => {
+      cleanupApp();
+      process.exit(0);
+    });
+    
+    process.on('SIGTERM', () => {
+      cleanupApp();
+      process.exit(0);
+    });
+  } else {
+    console.log('🔧 Development mode: Treasury polling disabled to prevent hot reload conflicts. Start manually if needed.');
+  }
 } 

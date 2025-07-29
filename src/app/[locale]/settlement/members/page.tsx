@@ -1,4 +1,5 @@
 import { SettlementMembersView } from '../../../../views/settlement-views/settlement-members-view';
+import { SettlementAuthGuard } from '../../../../components/settlement-auth-guard';
 
 // Settlement Members Directory Page
 // Data > Page > View architecture:
@@ -6,6 +7,10 @@ import { SettlementMembersView } from '../../../../views/settlement-views/settle
 // - Page Layer: This file (routing and data orchestration)  
 // - View Layer: SettlementMembersView component
 
-export default async function SettlementMembersPage() {
-  return <SettlementMembersView />;
+export default function SettlementMembersPage() {
+  return (
+    <SettlementAuthGuard>
+      <SettlementMembersView />
+    </SettlementAuthGuard>
+  );
 } 

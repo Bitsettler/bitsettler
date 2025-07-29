@@ -1,18 +1,31 @@
 'use client'
 
-import { LanguageSwitcher } from '@/components/language-switcher'
-import { ThemeSwitcher } from '@/components/theme-switcher'
-import { SidebarTrigger } from '@/components/ui/sidebar'
+import { Fragment } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import { Fragment } from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator
-} from './ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
+import { SidebarTrigger } from '@/components/ui/sidebar'
+import { LanguageSwitcher } from './language-switcher'
+import { ThemeSwitcher } from './theme-switcher'
+import { ProfessionAvatar } from './profession-avatar'
+import { Button } from './ui/button'
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu'
+import { Settings, LogOut } from 'lucide-react'
+import { useUserProfile } from '../hooks/use-user-profile'
+import { useSelectedSettlement } from '../hooks/use-selected-settlement'
+import { UserProfileManager } from './user-profile-manager'
 
 // Mapping of path segments to translation keys
 const pathTranslations: Record<string, string> = {
@@ -30,12 +43,24 @@ const pathTranslations: Record<string, string> = {
   members: 'sidebar.settlementMembers',
   projects: 'sidebar.settlementProjects',
   treasury: 'sidebar.settlementTreasury',
-  skills: 'sidebar.skills'
+  skills: 'sidebar.skills',
+  research: 'sidebar.research'
 }
 
 export function Header() {
   const pathname = usePathname()
   const t = useTranslations()
+  const { profile, isLoading, clearProfile } = useUserProfile()
+  const { clearSettlement } = useSelectedSettlement()
+
+  // Check if we're in a settlement area
+  const isSettlementArea = pathname.includes('/settlement')
+
+  const handleSignOut = () => {
+    clearProfile()
+    clearSettlement()
+    window.location.href = '/'
+  }
 
   // Generate breadcrumb items from current pathname
   const generateBreadcrumbs = (path: string) => {
@@ -97,6 +122,39 @@ export function Header() {
         <div className="flex items-center justify-end gap-2">
           <LanguageSwitcher />
           <ThemeSwitcher />
+          
+          {/* User Profile - only show in settlement areas */}
+          {isSettlementArea && !isLoading && profile && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <ProfessionAvatar
+                    profession={profile.profession}
+                    displayName={profile.displayName}
+                    profileColor={profile.profileColor}
+                    profileInitials={profile.profileInitials}
+                    size="sm"
+                  />
+                  <span className="hidden md:inline">{profile.displayName}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <UserProfileManager
+                  trigger={
+                    <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                      <Settings className="mr-2 h-4 w-4" />
+                      Profile Settings
+                    </DropdownMenuItem>
+                  }
+                />
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleSignOut} className="text-red-600 focus:text-red-600 focus:bg-red-50">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
       </div>
     </header>

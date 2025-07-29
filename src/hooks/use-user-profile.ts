@@ -58,6 +58,7 @@ interface UserProfileHook {
   addFavoriteSettlement: (settlementId: string) => void;
   removeFavoriteSettlement: (settlementId: string) => void;
   clearProfile: () => void;
+  recoverProfile: (displayName: string) => void;
   hasProfile: boolean;
   isFirstTime: boolean;
 }
@@ -119,9 +120,35 @@ export function useUserProfile(): UserProfileHook {
   useEffect(() => {
     try {
       const storedProfile = localStorage.getItem(STORAGE_KEY);
+      console.log('🔍 Raw localStorage data:', storedProfile);
       
       if (storedProfile) {
         const parsedProfile = JSON.parse(storedProfile) as UserProfile;
+        console.log('🔍 Parsed profile:', parsedProfile);
+        
+        // Validate that essential fields exist
+        if (!parsedProfile.displayName || typeof parsedProfile.displayName !== 'string' || parsedProfile.displayName.trim() === '') {
+          console.warn('⚠️ Invalid profile data detected - missing or invalid displayName:', parsedProfile.displayName);
+          console.warn('🔄 Profile will be reset. Raw data:', JSON.stringify(parsedProfile, null, 2));
+          localStorage.removeItem(STORAGE_KEY);
+          setIsFirstTime(true);
+          return;
+        }
+        
+        // Additional validation for critical fields
+        if (!parsedProfile.joinedAt || !parsedProfile.profileColor) {
+          console.warn('⚠️ Profile missing critical fields, attempting repair...');
+          // Try to repair instead of clearing
+          const repairedProfile = {
+            ...createDefaultProfile(parsedProfile.displayName),
+            ...parsedProfile, // Keep existing data
+            displayName: parsedProfile.displayName // Ensure displayName is preserved
+          };
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(repairedProfile));
+          setProfile(repairedProfile);
+          console.log('✅ Profile repaired and loaded:', repairedProfile.displayName);
+          return;
+        }
         
         // Update last active timestamp
         parsedProfile.lastActiveAt = new Date().toISOString();
@@ -130,11 +157,15 @@ export function useUserProfile(): UserProfileHook {
         
         // Save updated last active time
         localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedProfile));
+        console.log('✅ Profile loaded successfully:', parsedProfile.displayName);
       } else {
+        console.log('ℹ️ No existing profile found, starting first-time setup');
         setIsFirstTime(true);
       }
     } catch (error) {
-      console.error('Error loading user profile:', error);
+      console.error('❌ Error loading user profile:', error);
+      console.error('❌ Raw localStorage data that failed to parse:', localStorage.getItem(STORAGE_KEY));
+      console.warn('🔄 Clearing corrupted profile data and resetting to first-time user flow.');
       // Clear corrupted data
       localStorage.removeItem(STORAGE_KEY);
       setIsFirstTime(true);
@@ -147,17 +178,22 @@ export function useUserProfile(): UserProfileHook {
   const updateProfile = useCallback((updates: Partial<UserProfile>) => {
     setProfile(currentProfile => {
       if (!currentProfile) {
-        // If no profile exists, create a new one
-        const displayName = updates.displayName?.trim() || 'BitCraft User';
+        // Only create a new profile if displayName is explicitly provided
+        if (!updates.displayName?.trim()) {
+          console.warn('⚠️ Attempted to update profile without existing profile or displayName. Skipping update to prevent data loss.');
+          return null; // Don't create a profile without a name
+        }
+        
+        // If no profile exists, create a new one with the provided displayName
+        const displayName = updates.displayName.trim();
         const newProfile = createDefaultProfile(displayName);
         const updatedProfile = { ...newProfile, ...updates };
         
         // Update computed fields
-        if (updates.displayName?.trim()) {
-          updatedProfile.profileInitials = generateInitials(updates.displayName.trim());
-        }
+        updatedProfile.profileInitials = generateInitials(displayName);
         
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+        console.log('✅ Created new profile:', displayName);
         return updatedProfile;
       }
 
@@ -250,6 +286,16 @@ export function useUserProfile(): UserProfileHook {
     setIsFirstTime(true);
   }, []);
 
+  // Manual profile recovery function
+  const recoverProfile = useCallback((displayName: string) => {
+    console.log('🔧 Manually recovering profile for:', displayName);
+    const recoveredProfile = createDefaultProfile(displayName);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(recoveredProfile));
+    setProfile(recoveredProfile);
+    setIsFirstTime(false);
+    console.log('✅ Profile manually recovered:', displayName);
+  }, []);
+
   return {
     profile,
     isLoading,
@@ -258,6 +304,7 @@ export function useUserProfile(): UserProfileHook {
     addFavoriteSettlement,
     removeFavoriteSettlement,
     clearProfile,
+    recoverProfile, // New recovery function
     hasProfile: !!profile,
     isFirstTime,
   };

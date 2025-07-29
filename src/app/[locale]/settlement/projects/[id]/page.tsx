@@ -2,14 +2,16 @@ import { SettlementProjectDetailView } from '../../../../../views/settlement-vie
 
 // Individual Project Detail Page
 // Data > Page > View architecture:
-// - Data Layer: getProjectById command (already built)
+// - Data Layer: getProjectById/getProjectBySlug commands (already built)
 // - Page Layer: This file (routing and data orchestration)  
 // - View Layer: SettlementProjectDetailView component
+// Supports both slug-based URLs (/projects/town-hall-construction) and ID-based URLs (/projects/proj_123) for backwards compatibility
 
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>; // Can be either a slug or project ID
 }) {
-  return <SettlementProjectDetailView projectId={params.id} />;
+  const { id } = await params; // This is actually a slug or ID
+  return <SettlementProjectDetailView projectId={id} />;
 } 

@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { GlobalSyncStatus } from '../../../components/global-sync-status';
-import { SettlementHeader } from '../../../components/settlement-header';
 
 export const metadata: Metadata = {
   title: 'Settlement - BitCraft.Guide',
@@ -14,17 +12,7 @@ export default function SettlementLayout({
 }) {
   return (
     <div className="min-h-screen bg-background">
-      <SettlementHeader />
-      <div className="py-6">
-        {children}
-      </div>
-      
-      {/* Global sync status indicator - always visible in settlement areas */}
-      <GlobalSyncStatus 
-        position="top-right"
-        autoHide={true}
-        autoHideDelay={4000}
-      />
+      {children}
     </div>
   );
 } 

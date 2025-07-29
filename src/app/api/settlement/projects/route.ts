@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllProjects, getAllProjectsWithItems, type GetAllProjectsOptions } from '../../../../lib/spacetime-db-new/modules';
+import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function GET(request: NextRequest) {
   try {
@@ -35,6 +35,83 @@ export async function GET(request: NextRequest) {
       {
         success: false,
         error: error instanceof Error ? error.message : 'Failed to fetch projects',
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body: CreateProjectRequest = await request.json();
+
+    // Validate required fields
+    if (!body.name || !body.createdBy) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Project name and createdBy are required',
+        },
+        { status: 400 }
+      );
+    }
+
+    const result = await createProject(body);
+
+    return NextResponse.json({
+      success: true,
+      data: result,
+    });
+
+  } catch (error) {
+    console.error('Settlement project creation error:', error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : 'Failed to create project',
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    // Import supabase client
+    const { createServerClient } = await import('../../../../lib/spacetime-db-new/shared/supabase-client');
+    const supabase = createServerClient();
+
+    if (!supabase) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database not available',
+        },
+        { status: 503 }
+      );
+    }
+
+    // Delete all projects (cascade will handle related data)
+    const { error } = await supabase
+      .from('settlement_projects')
+      .delete()
+      .gte('created_at', '1970-01-01'); // Delete all records (created_at is always >= epoch)
+
+    if (error) {
+      throw error;
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'All projects deleted successfully',
+    });
+
+  } catch (error) {
+    console.error('Settlement projects deletion error:', error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : 'Failed to delete projects',
       },
       { status: 500 }
     );

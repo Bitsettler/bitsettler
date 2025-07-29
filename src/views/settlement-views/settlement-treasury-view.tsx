@@ -10,6 +10,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Separator } from '@/components/ui/separator';
 import { Container } from '@/components/container';
 import { AlertCircle, Search, Filter, TrendingUp, TrendingDown, Wallet, Calendar, ArrowUpRight, ArrowDownRight, Plus, Minus, RefreshCw, Clock, BarChart3 } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 
 interface TreasurySummary {
   id: string;
@@ -87,7 +89,8 @@ interface TreasuryHistoryResponse {
   count: number;
   meta: {
     settlementId: string;
-    timeRangeMonths: number;
+    timeRange: number;
+    timeUnit: string;
     dataSource: string;
   };
   error?: string;
@@ -127,7 +130,8 @@ export function SettlementTreasuryView() {
   // Treasury history state
   const [history, setHistory] = useState<TreasurySnapshot[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
-  const [timeRange, setTimeRange] = useState<number>(3); // 3 months default
+  const [timeRange, setTimeRange] = useState<number>(30); // 30 days default instead of 7 days
+  const [timeUnit, setTimeUnit] = useState<'days' | 'months'>('days'); // New time unit state
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   
 
@@ -161,7 +165,7 @@ export function SettlementTreasuryView() {
 
   useEffect(() => {
     fetchTreasuryHistory();
-  }, [timeRange]);
+  }, [timeRange, timeUnit]); // Add timeUnit to dependencies
 
   async function fetchSummaryData() {
     try {
@@ -234,7 +238,7 @@ export function SettlementTreasuryView() {
       const settlementId = '504403158277057776'; // Port Taverna
       
       const response = await fetch(
-        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}`
+        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}&timeUnit=${timeUnit}`
       );
       const data: TreasuryHistoryResponse = await response.json();
 
@@ -346,11 +350,8 @@ export function SettlementTreasuryView() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Wallet className="h-5 w-5 text-muted-foreground" />
-              <CardTitle>Live Treasury Balance</CardTitle>
+              <CardTitle>Treasury Balance</CardTitle>
             </div>
-            <Badge variant="outline">
-              Real-time from BitJita
-            </Badge>
           </div>
         </CardHeader>
         <CardContent>
@@ -381,16 +382,30 @@ export function SettlementTreasuryView() {
                 <BarChart3 className="h-5 w-5" />
                 <CardTitle>Treasury History</CardTitle>
               </div>
-              <Select value={timeRange.toString()} onValueChange={(value) => setTimeRange(parseInt(value))}>
-                <SelectTrigger className="w-32">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">1 Month</SelectItem>
-                  <SelectItem value="3">3 Months</SelectItem>
-                  <SelectItem value="6">6 Months</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex items-center gap-2">
+                <Select 
+                  value={`${timeRange}-${timeUnit}`} 
+                  onValueChange={(value) => {
+                    const [range, unit] = value.split('-');
+                    setTimeRange(parseInt(range));
+                    setTimeUnit(unit as 'days' | 'months');
+                  }}
+                >
+                  <SelectTrigger className="w-40">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1-days">1 Day</SelectItem>
+                    <SelectItem value="3-days">3 Days</SelectItem>
+                    <SelectItem value="7-days">7 Days</SelectItem>
+                    <SelectItem value="14-days">2 Weeks</SelectItem>
+                    <SelectItem value="30-days">30 Days</SelectItem>
+                    <SelectItem value="1-months">1 Month</SelectItem>
+                    <SelectItem value="3-months">3 Months</SelectItem>
+                    <SelectItem value="6-months">6 Months</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </CardHeader>
           <CardContent>
@@ -420,55 +435,124 @@ export function SettlementTreasuryView() {
                   </div>
                   <div>
                     <span className="text-muted-foreground">Time Range:</span>
-                    <div className="font-medium">{timeRange} month{timeRange > 1 ? 's' : ''}</div>
+                    <div className="font-medium">
+                      {timeRange} {timeUnit === 'days' ? (timeRange === 1 ? 'day' : 'days') : (timeRange === 1 ? 'month' : 'months')}
+                    </div>
                   </div>
                 </div>
                 
                 {/* Treasury Balance Chart */}
                 <div className="h-64 border rounded-lg p-4 bg-gradient-to-b from-background to-muted/20">
                   {(() => {
-                    if (history.length < 2) {
+                    if (history.length === 0) {
                       return (
-                        <div className="h-full flex items-center justify-center text-muted-foreground">
+                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground">
                           <BarChart3 className="h-8 w-8 opacity-50 mb-2" />
-                          <span>Not enough data for chart</span>
+                          <span className="font-medium">No treasury data available</span>
+                          <span className="text-xs mt-1">Try selecting a different time range</span>
                         </div>
                       );
                     }
 
-                    const maxBalance = Math.max(...history.map(h => h.balance));
-                    const minBalance = Math.min(...history.map(h => h.balance));
-                    
+                    if (history.length < 2) {
+                      return (
+                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground">
+                          <BarChart3 className="h-8 w-8 opacity-50 mb-2" />
+                          <span className="font-medium">Not enough data for chart</span>
+                          <span className="text-xs mt-1">Need at least 2 data points • Currently have {history.length}</span>
+                        </div>
+                      );
+                    }
+
+                    // Transform data for the chart - handle same-date scenarios
+                    const chartData = history.map((snapshot, index) => ({
+                      date: snapshot.recordedAt.toLocaleDateString(),
+                      time: snapshot.recordedAt.toLocaleTimeString('en-US', { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                      }),
+                      dateTime: `${snapshot.recordedAt.toLocaleDateString()} ${snapshot.recordedAt.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`,
+                      balance: snapshot.balance,
+                      formattedDate: snapshot.recordedAt.toLocaleString(),
+                      index: index,
+                      label: `#${index + 1}` // Sequential label for same-date data
+                    }));
+
+                    // Check if all dates are the same
+                    const uniqueDates = [...new Set(chartData.map(d => d.date))];
+                    const allSameDate = uniqueDates.length === 1;
+                    const balanceMin = Math.min(...chartData.map(d => d.balance));
+                    const balanceMax = Math.max(...chartData.map(d => d.balance));
+                    const balanceRange = balanceMax - balanceMin;
+
+                    // Debug the data
+                    console.log('📊 Chart Data Debug:');
+                    console.log('   History Length:', history.length);
+                    console.log('   Unique Dates:', uniqueDates);
+                    console.log('   Balance Range:', { min: balanceMin, max: balanceMax, range: balanceRange });
+                    console.log('   All Same Date:', allSameDate);
+                    console.log('   Sample Data:', chartData.slice(0, 3));
+
+                    // Chart configuration for ShadCN theming
+                    const chartConfig: ChartConfig = {
+                      balance: {
+                        label: "Treasury Balance",
+                        color: "hsl(var(--primary))",
+                      },
+                    };
+
                     return (
-                      <div className="h-full flex flex-col">
-                        <div className="flex-1 flex items-end justify-between gap-1 px-2">
-                          {history.map((snapshot, index) => {
-                            const height = ((snapshot.balance - minBalance) / (maxBalance - minBalance || 1)) * 100;
-                            const isIncrease = index > 0 && snapshot.balance > history[index - 1].balance;
-                            const isDecrease = index > 0 && snapshot.balance < history[index - 1].balance;
-                            
-                            return (
-                              <div key={index} className="flex flex-col items-center flex-1 max-w-8">
-                                <div 
-                                  className={`w-full rounded-t transition-all duration-300 ${
-                                    isIncrease ? 'bg-emerald-500' : 
-                                    isDecrease ? 'bg-red-500' : 
-                                    'bg-primary'
-                                  }`}
-                                  style={{ height: `${Math.max(height, 5)}%` }}
-                                  title={`${snapshot.recordedAt.toLocaleDateString()}: ${formatHexcoin(snapshot.balance)}`}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-                        {/* Mini timeline */}
-                        <div className="flex justify-between text-xs text-muted-foreground mt-2 px-2">
-                          <span>{history[0]?.recordedAt.toLocaleDateString()}</span>
-                          <span>{history[Math.floor(history.length / 2)]?.recordedAt.toLocaleDateString()}</span>
-                          <span>{history[history.length - 1]?.recordedAt.toLocaleDateString()}</span>
-                        </div>
-                      </div>
+                      <ChartContainer config={chartConfig} className="h-full w-full">
+                        <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+                          <XAxis 
+                            dataKey={allSameDate ? "label" : "dateTime"}
+                            tick={{ fontSize: 12 }}
+                            tickMargin={8}
+                            tickLine={false}
+                            axisLine={false}
+                            tickFormatter={(value) => {
+                              if (allSameDate) {
+                                return value; // Show #1, #2, #3, etc.
+                              }
+                              return value.split(' ')[0]; // Show date
+                            }}
+                          />
+                          <YAxis 
+                            tick={{ fontSize: 12 }}
+                            tickMargin={8}
+                            tickLine={false}
+                            axisLine={false}
+                            tickFormatter={(value) => formatCurrency(value)}
+                            domain={
+                              balanceRange < 100 
+                                ? [balanceMin - 50, balanceMax + 50] // Tight range for small changes
+                                : ['dataMin - 100', 'dataMax + 100'] // Normal range
+                            }
+                          />
+                          <ChartTooltip 
+                            content={
+                              <ChartTooltipContent 
+                                labelFormatter={(label, payload) => {
+                                  if (payload && payload.length > 0) {
+                                    return payload[0]?.payload?.formattedDate || label;
+                                  }
+                                  return label;
+                                }}
+                                formatter={(value) => [formatHexcoin(value as number), "Balance"]}
+                              />
+                            }
+                          />
+                          <Line 
+                            type="monotone" 
+                            dataKey="balance" 
+                            stroke="var(--color-balance)" 
+                            strokeWidth={3} // Thicker line for better visibility
+                            dot={{ fill: "var(--color-balance)", strokeWidth: 2, r: 5 }} // Bigger dots
+                            activeDot={{ r: 8, fill: "var(--color-balance)" }}
+                          />
+                        </LineChart>
+                      </ChartContainer>
                     );
                   })()}
                 </div>

@@ -105,9 +105,10 @@ export async function GET(request: NextRequest) {
 
       case 'history': {
         const settlementId = searchParams.get('settlementId') || '504403158277057776';
-        const timeRangeMonths = parseInt(searchParams.get('timeRange') || '6');
+        const timeRange = parseInt(searchParams.get('timeRange') || '30'); // Changed from 7 to 30 days
+        const timeUnit = (searchParams.get('timeUnit') || 'days') as 'days' | 'months';
         
-        const history = await treasuryPollingService.getTreasuryHistory(settlementId, timeRangeMonths);
+        const history = await treasuryPollingService.getTreasuryHistory(settlementId, timeRange, timeUnit);
 
         return NextResponse.json({
           success: true,
@@ -115,7 +116,8 @@ export async function GET(request: NextRequest) {
           count: history.length,
           meta: {
             settlementId,
-            timeRangeMonths,
+            timeRange,
+            timeUnit,
             dataSource: 'treasury_history_polling'
           }
         });

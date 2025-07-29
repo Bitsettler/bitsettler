@@ -1,141 +1,168 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Plus, Package, Filter, RefreshCw, Users, Clock, CheckCircle2, XCircle, Calendar, Gift, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { CreateProjectModal } from '@/components/projects/create-project-modal';
+import { ContributeModal } from '@/components/projects/contribute-modal';
 import { Container } from '@/components/container';
-import { AlertCircle, Plus, Search, Filter, CheckCircle2, Clock, XCircle } from 'lucide-react';
-import Link from 'next/link';
-
-interface ProjectItem {
-  id: string;
-  projectId: string;
-  itemName: string;
-  requiredQuantity: number;
-  currentQuantity: number;
-  tier: number;
-  priority: number;
-  rankOrder: number;
-  status: 'Needed' | 'In Progress' | 'Completed';
-  assignedMemberId: string | null;
-  notes: string | null;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-interface ProjectWithItems {
-  id: string;
-  name: string;
-  description: string | null;
-  status: 'Active' | 'Completed' | 'Cancelled';
-  priority: number;
-  createdBy: string;
-  createdAt: Date;
-  updatedAt: Date;
-  items: ProjectItem[];
-  completionPercentage: number;
-  totalItems: number;
-  completedItems: number;
-}
-
-interface ProjectsResponse {
-  success: boolean;
-  data: ProjectWithItems[];
-  count: number;
-  pagination: {
-    limit?: number;
-    offset?: number;
-  };
-  includesItems: boolean;
-  error?: string;
-}
+import { type SettlementProject, type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
+import { Progress } from '@/components/ui/progress';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useUserProfile } from '@/hooks/use-user-profile';
 
 const statusIcons = {
   'Active': Clock,
   'Completed': CheckCircle2,
-  'Cancelled': XCircle,
-};
-
-const statusColors = {
-  'Active': 'bg-blue-500',
-  'Completed': 'bg-green-500',
-  'Cancelled': 'bg-gray-500',
+  'Cancelled': XCircle
 };
 
 export function SettlementProjectsView() {
+  const { profile } = useUserProfile();
+  const router = useRouter();
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<ProjectWithItems[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Modals
+  const [createModalOpen, setCreateModalOpen] = useState(false);
+  const [contributeModalOpen, setContributeModalOpen] = useState(false);
+  const [selectedProjectForContribution, setSelectedProjectForContribution] = useState<string | null>(null);
+  
+  // Filters
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState<string>('all');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled'>('Active');
+  const [priorityFilter, setPriorityFilter] = useState<'all' | '1' | '2' | '3' | '4' | '5'>('all');
 
-  useEffect(() => {
-    fetchProjects();
-  }, [statusFilter, currentPage]);
-
-  async function fetchProjects() {
+  // Fetch projects from API
+  const fetchProjects = async () => {
     try {
       setLoading(true);
       setError(null);
-
+      
       const params = new URLSearchParams({
         includeItems: 'true',
-        limit: itemsPerPage.toString(),
-        offset: ((currentPage - 1) * itemsPerPage).toString(),
+        ...(statusFilter !== 'all' && { status: statusFilter }),
       });
 
-      if (statusFilter !== 'all') {
-        params.append('status', statusFilter);
-      }
-
       const response = await fetch(`/api/settlement/projects?${params}`);
-      const data: ProjectsResponse = await response.json();
+      const result = await response.json();
 
-      if (!data.success) {
-        throw new Error(data.error || 'Failed to fetch projects');
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to fetch projects');
       }
 
-      setProjects(data.data || []);
+      setProjects(result.data);
     } catch (err) {
       console.error('Error fetching projects:', err);
       setError(err instanceof Error ? err.message : 'Failed to load projects');
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  // Filter projects by search term
-  const filteredProjects = projects.filter(project =>
-    project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (project.description && project.description.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  // Load projects on mount and when status filter changes
+  useEffect(() => {
+    fetchProjects();
+  }, [statusFilter]);
+
+  // Apply client-side filters
+  useEffect(() => {
+    let filtered = [...projects];
+
+    // Search filter
+    if (searchTerm) {
+      filtered = filtered.filter(project =>
+        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (project.description && project.description.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+    }
+
+    // Priority filter
+    if (priorityFilter !== 'all') {
+      filtered = filtered.filter(project => project.priority === parseInt(priorityFilter));
+    }
+
+    setFilteredProjects(filtered);
+  }, [projects, searchTerm, priorityFilter]);
+
+  const handleCreateProject = () => {
+    setCreateModalOpen(true);
+  };
+
+  const handleViewDetails = (projectId: string) => {
+    router.push(`/settlement/projects/${projectId}`);
+  };
+
+  const handleContribute = (projectId: string) => {
+    setSelectedProjectForContribution(projectId);
+    setContributeModalOpen(true);
+  };
+
+  const handleProjectCreated = () => {
+    setCreateModalOpen(false);
+    fetchProjects(); // Refresh the list
+  };
+
+  const handleContributionAdded = () => {
+    setContributeModalOpen(false);
+    setSelectedProjectForContribution(null);
+    fetchProjects(); // Refresh the list
+  };
+
+  const getStatusColor = (status: string) => {
+    const colors = {
+      'Active': 'bg-blue-100 text-blue-800',
+      'Completed': 'bg-green-100 text-green-800',
+      'Cancelled': 'bg-red-100 text-red-800'
+    };
+    return colors[status as keyof typeof colors] || colors['Active'];
+  };
+
+  const getPriorityColor = (priority: number) => {
+    const colors = {
+      1: 'bg-green-100 text-green-800',
+      2: 'bg-yellow-100 text-yellow-800',
+      3: 'bg-red-100 text-red-800'
+    };
+    return colors[priority as keyof typeof colors] || colors[1];
+  };
+
+  const getPriorityLabel = (priority: number) => {
+    const labels = { 1: 'Low', 2: 'Medium', 3: 'High' };
+    return labels[priority as keyof typeof labels] || 'Low';
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString();
+  };
 
   if (loading) {
     return (
       <Container>
         <div className="space-y-8 py-8">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start mb-6">
             <div>
-              <Skeleton className="h-8 w-48" />
-              <Skeleton className="h-4 w-96 mt-2" />
+              <Skeleton className="h-8 w-32 mb-2" />
+              <Skeleton className="h-4 w-96" />
             </div>
             <Skeleton className="h-10 w-32" />
           </div>
-
-          <div className="flex gap-4">
-            <Skeleton className="h-10 w-80" />
-            <Skeleton className="h-10 w-40" />
+          
+          <div className="flex gap-4 flex-col sm:flex-row">
+            <Skeleton className="h-10 flex-1" />
+            <Skeleton className="h-10 w-32" />
           </div>
-
+          
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
+            {[1, 2, 3].map(i => (
               <Card key={i}>
                 <CardHeader>
                   <Skeleton className="h-6 w-32" />
@@ -153,173 +180,355 @@ export function SettlementProjectsView() {
     );
   }
 
-  if (error) {
-    return (
-      <Container>
-        <div className="space-y-8 py-8">
-          <div className="flex items-center justify-center min-h-[400px]">
-            <Card className="w-full max-w-md">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-3 text-destructive mb-4">
-                  <AlertCircle className="h-5 w-5" />
-                  <span className="font-medium">Failed to load projects</span>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">{error}</p>
-                <Button onClick={fetchProjects} variant="outline" className="w-full">
-                  Try Again
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <div className="space-y-8 py-8">
-      {/* Page Header */}
-      <div className="flex justify-between items-start mb-6">
-        <div>
-          <h1 className="text-3xl font-bold">Projects</h1>
-          <p className="text-muted-foreground text-sm">
-            Track and manage your settlement's active projects and their completion status.
-          </p>
-        </div>
-        <Button className="gap-2" disabled>
-          <Plus className="h-4 w-4" />
-          New Project
-        </Button>
-      </div>
-
-      {/* Search and Filters */}
-      <div className="flex gap-4 flex-col sm:flex-row">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-          <Input
-            placeholder="Search projects..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-        </div>
-        <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-[180px]">
-            <Filter className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Filter by status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Status</SelectItem>
-            <SelectItem value="Active">Active</SelectItem>
-            <SelectItem value="Completed">Completed</SelectItem>
-            <SelectItem value="Cancelled">Cancelled</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Projects Grid */}
-      {filteredProjects.length === 0 ? (
-        <Card>
-          <CardContent className="pt-12 pb-12 text-center">
-            <div className="text-muted-foreground">
-              {searchTerm ? (
-                <>
-                  <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No projects found</p>
-                  <p>Try adjusting your search terms or filters.</p>
-                </>
-              ) : (
-                <>
-                  <Clock className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No projects yet</p>
-                  <p>Settlement projects will appear here when they're created.</p>
-                </>
-              )}
+        {/* Page Header */}
+        <div className="flex justify-between items-start mb-6">
+          <div>
+            <h1 className="text-3xl font-bold">Projects</h1>
+            <p className="text-muted-foreground text-sm">
+              Track and manage your settlement's {statusFilter} projects and their completion status.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            {/* View Mode Toggle */}
+            <div className="flex bg-muted rounded-lg p-1">
+              <Button
+                variant={statusFilter === 'Active' ? 'secondary' : 'ghost'}
+                size="sm"
+                onClick={() => setStatusFilter('Active')}
+                className="gap-2"
+              >
+                <Package className="h-4 w-4" />
+                Active
+              </Button>
+              <Button
+                variant={statusFilter === 'Completed' ? 'secondary' : 'ghost'}
+                size="sm"
+                onClick={() => setStatusFilter('Completed')}
+                className="gap-2"
+              >
+                <Package className="h-4 w-4" />
+                Completed
+              </Button>
+              <Button
+                variant={statusFilter === 'Cancelled' ? 'secondary' : 'ghost'}
+                size="sm"
+                onClick={() => setStatusFilter('Cancelled')}
+                className="gap-2"
+              >
+                <Package className="h-4 w-4" />
+                Cancelled
+              </Button>
             </div>
-          </CardContent>
-        </Card>
-      ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project) => {
-            const StatusIcon = statusIcons[project.status];
-            return (
-              <Card key={project.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-lg leading-tight">
-                        <Link 
-                          href={`/settlement/projects/${project.id}`}
-                          className="hover:text-primary transition-colors"
-                        >
-                          {project.name}
-                        </Link>
-                      </CardTitle>
-                      <div className="flex items-center gap-2 mt-2">
-                        <Badge variant="outline" className="gap-1">
-                          <StatusIcon className="h-3 w-3" />
-                          {project.status}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground">
-                          Priority {project.priority}
-                        </span>
+            {/* Only show create button for active projects */}
+            {(statusFilter === 'Active' || statusFilter === 'all') && (
+              <Button className="gap-2" onClick={handleCreateProject}>
+                <Plus className="h-4 w-4" />
+                New Project
+              </Button>
+            )}
+          </div>
+        </div>
+
+        {/* Search and Filters */}
+        <div className="flex gap-4 flex-col sm:flex-row">
+          <div className="relative flex-1">
+            <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Input
+              placeholder={`Search ${statusFilter} projects...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+          <Select value={priorityFilter} onValueChange={setPriorityFilter}>
+            <SelectTrigger className="w-[180px]">
+              <Filter className="h-4 w-4 mr-2" />
+              <SelectValue placeholder="Filter by Priority" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Priorities</SelectItem>
+              <SelectItem value="1">Low Priority</SelectItem>
+              <SelectItem value="2">Medium Priority</SelectItem>
+              <SelectItem value="3">High Priority</SelectItem>
+              <SelectItem value="4">Very High Priority</SelectItem>
+              <SelectItem value="5">Critical Priority</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Summary Stats */}
+        {projects.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex items-center">
+                  {statusFilter === 'Active' ? (
+                    <Package className="h-4 w-4 text-muted-foreground" />
+                  ) : (
+                    <Package className="h-4 w-4 text-muted-foreground" />
+                  )}
+                  <div className="ml-2">
+                    <p className="text-sm font-medium">Total {statusFilter}</p>
+                    <p className="text-2xl font-bold">{projects.length}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            {statusFilter === 'Active' ? (
+              <>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 text-blue-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Active</p>
+                        <p className="text-2xl font-bold">{projects.filter(p => p.status === 'Active').length}</p>
                       </div>
                     </div>
-                  </div>
-                  {project.description && (
-                    <CardDescription className="text-sm line-clamp-2">
-                      {project.description}
-                    </CardDescription>
-                  )}
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Completed</p>
+                        <p className="text-2xl font-bold">{projects.filter(p => p.status === 'Completed').length}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <div className="h-4 w-4 rounded-full bg-gradient-to-r from-blue-500 to-green-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Avg Progress</p>
+                        <p className="text-2xl font-bold">
+                          {projects.length > 0 ? Math.round(projects.reduce((sum, p) => sum + p.completionPercentage, 0) / projects.length) : 0}%
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </>
+            ) : (
+              <>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 text-blue-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Unique Contributors</p>
+                        <p className="text-2xl font-bold">
+                          {projects.reduce((contributors, project) => {
+                            // This part needs to be implemented in the API or handled by the backend
+                            // For now, we'll just show a placeholder or a placeholder for contributors
+                            return contributors;
+                          }, new Set()).size}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <Calendar className="h-4 w-4 text-green-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Completion Rate</p>
+                        <p className="text-2xl font-bold">
+                          {Math.round(
+                            projects.filter(p => p.status === 'Completed').length /
+                            projects.length * 100
+                          )}%
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center">
+                      <CheckCircle2 className="h-4 w-4 text-purple-500" />
+                      <div className="ml-2">
+                        <p className="text-sm font-medium">Total Items</p>
+                        <p className="text-2xl font-bold">
+                          {projects.reduce((sum, p) => sum + (p.items?.reduce((itemSum, item) => itemSum + item.requiredQuantity, 0) || 0), 0).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Projects Grid */}
+        {filteredProjects.length === 0 ? (
+          <Card>
+            <CardContent className="pt-12 pb-12 text-center">
+              <div className="text-muted-foreground">
+                {searchTerm || statusFilter !== 'all' ? (
+                  <>
+                    <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p className="text-lg font-medium mb-2">No projects found</p>
+                    <p>Try adjusting your search terms or filters.</p>
+                  </>
+                ) : statusFilter === 'Active' ? (
+                  <>
+                    <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p className="text-lg font-medium mb-2">No active projects yet</p>
+                    <p className="mb-4">Create your first settlement project to get started.</p>
+                    <div className="flex gap-2 justify-center">
+                      <Button onClick={handleCreateProject}>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Create Project
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p className="text-lg font-medium mb-2">No {statusFilter.toLowerCase()} projects</p>
+                    <p>Projects with this status will appear here.</p>
+                  </>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project) => {
+              const StatusIcon = statusIcons[project.status as keyof typeof statusIcons] || Clock;
+              return (
+                <Card key={project.id} className="hover:shadow-lg transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <CardTitle className="text-lg line-clamp-1">{project.name}</CardTitle>
+                        <div className="flex items-center gap-2 mt-2">
+                          <Badge className={getStatusColor(project.status)}>
+                            <StatusIcon className="h-3 w-3 mr-1" />
+                            {project.status}
+                          </Badge>
+                          <Badge className={getPriorityColor(project.priority)} variant="outline">
+                            {getPriorityLabel(project.priority)} Priority
+                          </Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-4">
+                    {/* Description */}
+                    {project.description && (
+                      <CardDescription className="line-clamp-2">
+                        {project.description}
+                      </CardDescription>
+                    )}
+
                     {/* Progress */}
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
                         <span>Progress</span>
                         <span className="font-medium">{project.completionPercentage}%</span>
                       </div>
-                      <Progress value={project.completionPercentage} className="h-2" />
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {project.completedItems} of {project.totalItems} items completed
-                      </p>
+                      <Progress value={project.completionPercentage} className="w-full" />
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>
+                          {project.totalItems > 0 
+                            ? `${(project.items?.reduce((sum, item) => sum + item.currentQuantity, 0) || 0).toLocaleString()} / ${(project.items?.reduce((sum, item) => sum + item.requiredQuantity, 0) || 0).toLocaleString()} items`
+                            : "No items defined"
+                          }
+                        </span>
+                        <span>
+                          {project.totalItems > 0 
+                            ? `${project.completedItems} / ${project.totalItems} types`
+                            : "Add items to track progress"
+                          }
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Key Stats */}
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="text-muted-foreground">Total Items</p>
-                        <p className="font-medium">{project.totalItems}</p>
+                    {/* Meta Info */}
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Users className="h-3 w-3" />
+                        <span>{project.createdBy}</span>
                       </div>
-                      <div>
-                        <p className="text-muted-foreground">Completed</p>
-                        <p className="font-medium">{project.completedItems}</p>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Calendar className="h-3 w-3" />
+                        <span>
+                          Created {new Date(project.createdAt).toLocaleDateString()}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Action */}
-                    <Link href={`/settlement/projects/${project.id}`}>
-                      <Button variant="outline" size="sm" className="w-full mt-2">
-                        View Details
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      )}
+                    {/* Actions */}
+                    <div className="flex gap-2 pt-2">
+                      {statusFilter === 'Active' ? (
+                        <>
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="flex-1"
+                            onClick={() => handleContribute(project.id)}
+                            disabled={project.status !== 'Active'}
+                          >
+                            <Gift className="h-4 w-4 mr-1" />
+                            Contribute
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="ghost" 
+                            className="px-3"
+                            onClick={() => handleViewDetails(project.id)}
+                          >
+                            View Details
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button size="sm" variant="outline" className="flex-1" disabled>
+                            <Package className="h-4 w-4 mr-1" />
+                            Archived
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="ghost" 
+                            className="px-3"
+                            onClick={() => handleViewDetails(project.id)}
+                          >
+                            View History
+                          </Button>
+                        </>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
-      {/* Pagination Info */}
-      {filteredProjects.length > 0 && (
-        <div className="text-sm text-muted-foreground text-center">
-          Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
-          {searchTerm && ' matching your search'}
-        </div>
-      )}
+        {/* Modals */}
+        <CreateProjectModal
+          open={createModalOpen}
+          onOpenChange={setCreateModalOpen}
+          onProjectCreated={handleProjectCreated}
+        />
+
+        <ContributeModal
+          open={contributeModalOpen}
+          onOpenChange={setContributeModalOpen}
+          projectId={selectedProjectForContribution}
+          onContributionAdded={handleContributionAdded}
+        />
       </div>
     </Container>
   );
