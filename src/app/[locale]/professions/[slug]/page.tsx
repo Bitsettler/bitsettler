@@ -21,14 +21,8 @@ interface ProfessionPageProps {
   }>
 }
 
-export function generateStaticParams() {
-  const skills = getSkillsByCategories([
-    'Profession',
-    'Adventure',
-    'None'
-  ]).filter((skill) => skill.name !== 'ANY')
-  return skills.map((skill) => ({ slug: createSlug(skill.name) }))
-}
+// Disable static generation for internationalized routes to avoid next-intl config issues
+export const dynamic = 'force-dynamic'
 
 export default async function ProfessionPage({ params }: ProfessionPageProps) {
   const { slug } = await params

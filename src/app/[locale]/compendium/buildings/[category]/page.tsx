@@ -44,10 +44,6 @@ export default async function BuildingsCategoryPage({
   )
 }
 
-export async function generateStaticParams() {
-  const buildingTypes = getAllBuildingTypes()
-
-  return buildingTypes.map((buildingType) => ({
-    category: createSlug(buildingType.name)
-  }))
-}
+// Disable static generation for internationalized routes to avoid next-intl config issues
+// Pages will be generated on-demand instead
+export const dynamic = 'force-dynamic'
