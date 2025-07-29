@@ -1,8 +1,19 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
+// Ensure we always have a secret - critical for NextAuth to function
+const getAuthSecret = () => {
+  const secret = process.env.NEXTAUTH_SECRET;
+  if (!secret) {
+    console.warn('⚠️ NEXTAUTH_SECRET not found in environment variables');
+    // Generate a consistent fallback secret for development
+    return 'development-fallback-secret-' + (process.env.NODE_ENV || 'development');
+  }
+  return secret;
+};
+
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET || 'fallback-secret-for-development-only-change-in-production',
+  secret: getAuthSecret(),
   debug: process.env.NODE_ENV === 'development',
   trustHost: true, // Required for Vercel deployments
   providers: [
