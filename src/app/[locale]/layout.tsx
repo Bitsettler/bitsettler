@@ -4,6 +4,7 @@ import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
+import { AuthProvider } from '@/components/auth-provider'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { getSearchGameData } from '@/lib/spacetime-db-new/modules/search/flows'
 import { geistSans } from '@/styles/typography'
@@ -72,25 +73,27 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <SidebarProvider>
-              <AppSidebar searchData={searchData} />
-              <SidebarInset className="flex min-h-screen flex-col">
-                <Header />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </SidebarInset>
-            </SidebarProvider>
-            <Analytics />
-            <Toaster />
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextIntlClientProvider messages={messages}>
+              <SidebarProvider>
+                <AppSidebar searchData={searchData} />
+                <SidebarInset className="flex min-h-screen flex-col">
+                  <Header />
+                  <main className="flex-1">{children}</main>
+                  <Footer />
+                </SidebarInset>
+              </SidebarProvider>
+              <Analytics />
+              <Toaster />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )
