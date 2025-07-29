@@ -68,5 +68,12 @@
     "searchPlaceholder": "Search for items...",
     "searchItems": "Search Items",
     "noItemsFound": "No items found"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home",
+    "browseCompendium": "Browse Compendium",
+    "helpText": "Need help? Check out our changelog or use the calculator to find what you're looking for."
   }
 }

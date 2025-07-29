@@ -63,5 +63,12 @@
   "languageSwitcher": {
     "switchLanguage": "Cambiar idioma",
     "switchLanguageSr": "Cambiar idioma"
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio",
+    "browseCompendium": "Explorar Compendio",
+    "helpText": "¿Necesitas ayuda? Consulta nuestro registro de cambios o usa la calculadora para encontrar lo que buscas."
   }
 }

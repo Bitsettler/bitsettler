@@ -63,5 +63,12 @@
   "languageSwitcher": {
     "switchLanguage": "Changer de langue",
     "switchLanguageSr": "Changer de langue"
+  },
+  "notFound": {
+    "title": "Page Introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "goHome": "Retour à l'Accueil",
+    "browseCompendium": "Parcourir le Compendium",
+    "helpText": "Besoin d'aide ? Consultez notre journal des modifications ou utilisez le calculateur pour trouver ce que vous cherchez."
   }
 }
