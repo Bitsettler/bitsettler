@@ -63,5 +63,10 @@
   "languageSwitcher": {
     "switchLanguage": "Switch Language",
     "switchLanguageSr": "Switch Language"
+  },
+  "calculator": {
+    "searchPlaceholder": "Search for items...",
+    "searchItems": "Search Items",
+    "noItemsFound": "No items found"
   }
 }
