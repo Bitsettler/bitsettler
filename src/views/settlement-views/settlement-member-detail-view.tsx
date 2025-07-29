@@ -19,7 +19,8 @@ import {
   Award, 
   Target, 
   ChevronRight, 
-  MapPin 
+  MapPin,
+  ArrowLeft
 } from 'lucide-react';
 
 interface MemberDetail {

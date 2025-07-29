@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
-import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift } from 'lucide-react';
+import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift, AlertCircle, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import { type ProjectDetails } from '@/lib/spacetime-db-new/modules';
 
