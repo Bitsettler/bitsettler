@@ -2,7 +2,13 @@ import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../sha
 import { MemberContribution } from './get-project-by-id';
 
 export interface AddContributionRequest {
-  memberId: string;
+  // NextAuth user data
+  authUser: {
+    id: string;           // NextAuth user.id
+    name: string;         // NextAuth user.name  
+    email?: string;       // NextAuth user.email
+    image?: string;       // NextAuth user.image
+  };
   projectId: string;
   projectItemId?: string;
   contributionType: 'Item' | 'Crafting' | 'Gathering' | 'Other';
@@ -12,7 +18,74 @@ export interface AddContributionRequest {
 }
 
 /**
- * Add a new member contribution to a project
+ * Find or create settlement member for NextAuth user
+ * This links authenticated users to settlement member records
+ */
+async function ensureSettlementMember(authUser: {
+  id: string;
+  name: string;
+  email?: string;
+  image?: string;
+}): Promise<string> {
+  
+  // First, check if this auth user already has a linked settlement member
+  const { data: existingMember } = await supabase!
+    .from('settlement_members')
+    .select('id')
+    .eq('auth_user_id', authUser.id)
+    .single();
+
+  if (existingMember) {
+    console.log('✅ Found existing settlement member for auth user:', existingMember.id);
+    return existingMember.id;
+  }
+
+  // Look for existing member by name (for migration from localStorage users)
+  const { data: memberByName } = await supabase!
+    .from('settlement_members')
+    .select('id, auth_user_id')
+    .eq('name', authUser.name)
+    .is('auth_user_id', null) // Only unlinked members
+    .single();
+
+  if (memberByName) {
+    // Link existing member to this auth user
+    const { error: linkError } = await supabase!
+      .from('settlement_members')
+      .update({ auth_user_id: authUser.id })
+      .eq('id', memberByName.id);
+
+    if (linkError) {
+      console.error('🔴 Failed to link existing member:', linkError);
+    } else {
+      console.log('🔗 Linked existing member to auth user:', memberByName.id);
+      return memberByName.id;
+    }
+  }
+
+  // Create new settlement member for this auth user
+  console.log('🆕 Creating new settlement member for auth user:', authUser.name);
+  const { data: newMember, error: createError } = await supabase!
+    .from('settlement_members')
+    .insert({
+      auth_user_id: authUser.id,
+      name: authUser.name,
+      profession: 'Contributor', // Default profession
+    })
+    .select('id')
+    .single();
+
+  if (createError) {
+    console.error('🔴 MEMBER CREATION FAILED:', createError);
+    throw new Error(`Failed to create settlement member: ${createError.message}`);
+  }
+
+  console.log('✅ Created settlement member:', newMember.id);
+  return newMember.id;
+}
+
+/**
+ * Add a new member contribution to a project (NextAuth version)
  */
 export async function addContribution(contributionData: AddContributionRequest): Promise<MemberContribution> {
   if (!isSupabaseAvailable()) {
@@ -20,51 +93,36 @@ export async function addContribution(contributionData: AddContributionRequest):
   }
 
   try {
-    // First, ensure the member exists or create them
-    let memberId = contributionData.memberId;
-    
-    // If memberId looks like a name (not UUID), try to find or create the member
-    if (!contributionData.memberId.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
-      // Look for existing member by name
-      const { data: existingMember } = await supabase!
-        .from('settlement_members')
-        .select('id')
-        .eq('name', contributionData.memberId)
-        .single();
-
-      if (existingMember) {
-        memberId = existingMember.id;
-      } else {
-        // Create new member if not found
-        const { data: newMember, error: memberError } = await supabase!
-          .from('settlement_members')
-          .insert({
-            name: contributionData.memberId,
-            profession: 'Contributor', // Default profession
-          })
-          .select('id')
-          .single();
-
-        if (memberError) {
-          throw handleSupabaseError(memberError, 'creating member');
-        }
-
-        memberId = newMember.id;
-      }
-    }
+    // Ensure settlement member exists for this auth user
+    const memberId = await ensureSettlementMember(contributionData.authUser);
+    console.log('🔗 Using settlement member:', memberId, 'for auth user:', contributionData.authUser.name);
 
     // Insert the contribution
+    console.log('🔄 Attempting to insert contribution:', {
+      member_id: memberId,
+      project_id: contributionData.projectId,
+      project_item_id: contributionData.projectItemId,
+      contribution_type: contributionData.contributionType,
+      item_name: contributionData.itemName,
+      quantity: contributionData.quantity,
+      description: contributionData.description
+    });
+
+    const insertData = {
+      member_id: memberId,
+      project_id: contributionData.projectId,
+      project_item_id: contributionData.projectItemId,
+      contribution_type: contributionData.contributionType,
+      item_name: contributionData.itemName || null,
+      quantity: contributionData.quantity,
+      description: contributionData.description || null,
+    };
+
+    console.log('🔍 Final insert data:', insertData);
+
     const { data: contribution, error: contributionError } = await supabase!
       .from('member_contributions')
-      .insert({
-        member_id: memberId,
-        project_id: contributionData.projectId,
-        project_item_id: contributionData.projectItemId || null,
-        contribution_type: contributionData.contributionType,
-        item_name: contributionData.itemName || null,
-        quantity: contributionData.quantity,
-        description: contributionData.description || null,
-      })
+      .insert(insertData)
       .select(`
         id,
         member_id,
@@ -72,19 +130,30 @@ export async function addContribution(contributionData: AddContributionRequest):
         item_name,
         quantity,
         description,
-        contributed_at,
-        settlement_members!inner(name)
+        contributed_at
       `)
       .single();
 
     if (contributionError) {
-      throw handleSupabaseError(contributionError, 'adding contribution');
+      console.error('🔴 CONTRIBUTION INSERT FAILED:', {
+        error: contributionError,
+        errorCode: contributionError.code,
+        errorMessage: contributionError.message,
+        errorDetails: contributionError.details,
+        errorHint: contributionError.hint,
+        insertData
+      });
+      
+      // Show the actual Supabase error instead of generic message
+      throw new Error(`Supabase Error [${contributionError.code}]: ${contributionError.message}. Details: ${contributionError.details || 'None'}. Hint: ${contributionError.hint || 'None'}`);
     }
+
+    console.log('✅ Contribution inserted successfully:', contribution.id);
 
     return {
       id: contribution.id,
       memberId: contribution.member_id,
-      memberName: (contribution.settlement_members as any).name,
+      memberName: contributionData.authUser.name, // Use the auth user's name
       contributionType: contribution.contribution_type,
       itemName: contribution.item_name,
       quantity: contribution.quantity,

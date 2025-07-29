@@ -1,27 +1,70 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../../auth/[...nextauth]/route';
 import { addContribution, updateProjectItemQuantity, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function POST(request: NextRequest) {
+  console.log('🔄 Settlement contribution API called');
+  
   try {
-    const body: AddContributionRequest = await request.json();
-
-    // Validate required fields
-    if (!body.memberId || !body.projectId || !body.contributionType || !body.quantity) {
+    // Validate NextAuth session
+    const session = await getServerSession(authOptions);
+    
+    if (!session || !session.user) {
+      console.log('❌ No valid session found');
       return NextResponse.json(
         {
           success: false,
-          error: 'memberId, projectId, contributionType, and quantity are required',
+          error: 'Authentication required',
+        },
+        { status: 401 }
+      );
+    }
+
+    console.log('✅ Valid session found for user:', session.user.name);
+
+    const body = await request.json();
+    console.log('📋 Request body:', body);
+
+    // Validate required fields
+    if (!body.projectId || !body.contributionType || !body.quantity) {
+      console.log('❌ Missing required fields');
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'projectId, contributionType, and quantity are required',
         },
         { status: 400 }
       );
     }
 
+    // Create contribution data using session user info
+    const contributionData: AddContributionRequest = {
+      authUser: {
+        id: session.user.id!,
+        name: session.user.name!,
+        email: session.user.email || undefined,
+        image: session.user.image || undefined,
+      },
+      projectId: body.projectId,
+      projectItemId: body.projectItemId,
+      contributionType: body.contributionType,
+      itemName: body.itemName,
+      quantity: body.quantity,
+      description: body.description,
+    };
+
+    console.log('✅ Validation passed, calling addContribution');
+    
     // Add the contribution
-    const contribution = await addContribution(body);
+    const contribution = await addContribution(contributionData);
+    console.log('✅ Contribution added:', contribution.id);
 
     // Update project item quantity if this is an item contribution
     if (body.projectItemId && body.contributionType === 'Item') {
+      console.log('🔄 Updating project item quantity');
       await updateProjectItemQuantity(body.projectItemId, body.quantity);
+      console.log('✅ Project item quantity updated');
     }
 
     return NextResponse.json({
@@ -30,7 +73,12 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Settlement contribution creation error:', error);
+    console.error('🔴 SETTLEMENT CONTRIBUTION API ERROR:', {
+      error: error,
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack'
+    });
+    
     return NextResponse.json(
       {
         success: false,

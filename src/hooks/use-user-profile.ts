@@ -9,6 +9,9 @@ export interface UserProfile {
   inGameName?: string;
   bio?: string;
   
+  // Database Linking (NEW)
+  settlementMemberId?: string; // Links to settlement_members.id in database
+  
   // Timestamps
   joinedAt: string;
   lastActiveAt: string;
@@ -59,6 +62,9 @@ interface UserProfileHook {
   removeFavoriteSettlement: (settlementId: string) => void;
   clearProfile: () => void;
   recoverProfile: (displayName: string) => void;
+  // NEW: Settlement member linking
+  linkSettlementMember: (memberId: string) => void;
+  getLinkedMemberId: () => string | null;
   hasProfile: boolean;
   isFirstTime: boolean;
 }
@@ -296,6 +302,28 @@ export function useUserProfile(): UserProfileHook {
     console.log('✅ Profile manually recovered:', displayName);
   }, []);
 
+  // Link settlement member ID to profile
+  const linkSettlementMember = useCallback((memberId: string) => {
+    setProfile(currentProfile => {
+      if (!currentProfile) return null;
+
+      const updatedProfile = {
+        ...currentProfile,
+        settlementMemberId: memberId,
+        lastActiveAt: new Date().toISOString(),
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+      console.log('🔗 Linked settlement member to profile:', currentProfile.displayName, '→', memberId);
+      return updatedProfile;
+    });
+  }, []);
+
+  // Get linked member ID (for contribution system)
+  const getLinkedMemberId = useCallback((): string | null => {
+    return profile?.settlementMemberId || null;
+  }, [profile]);
+
   return {
     profile,
     isLoading,
@@ -304,7 +332,10 @@ export function useUserProfile(): UserProfileHook {
     addFavoriteSettlement,
     removeFavoriteSettlement,
     clearProfile,
-    recoverProfile, // New recovery function
+    recoverProfile,
+    // NEW: Settlement member linking
+    linkSettlementMember,
+    getLinkedMemberId,
     hasProfile: !!profile,
     isFirstTime,
   };

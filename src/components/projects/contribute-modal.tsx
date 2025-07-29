@@ -1,18 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession, signIn } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Package, Gift, CheckCircle2, Info } from 'lucide-react';
-import { useUserProfile } from '@/hooks/use-user-profile';
+import { Package, AlertCircle, LogIn } from 'lucide-react';
 import { type ProjectDetails, type AddContributionRequest } from '@/lib/spacetime-db-new/modules';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 
 interface ContributeModalProps {
   open: boolean;
@@ -22,19 +22,18 @@ interface ContributeModalProps {
 }
 
 export function ContributeModal({ open, onOpenChange, projectId, onContributionAdded }: ContributeModalProps) {
-  const { profile } = useUserProfile();
+  const { data: session, status } = useSession(); // NextAuth session
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [selectedItemName, setSelectedItemName] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(1);
-  const [contributorName, setContributorName] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Helper function to safely format numbers
-  const safeToLocaleString = (value: number | undefined | null): string => {
-    if (value === undefined || value === null || isNaN(value)) {
+  const safeToLocaleString = (value: number | null | undefined): string => {
+    if (value === null || value === undefined || isNaN(value)) {
       return '0';
     }
     return value.toLocaleString();
@@ -48,12 +47,10 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
       // Reset form
       setSelectedItemName('');
       setQuantity(1);
-      // Use DisplayName from user profile, fallback to stored name if no profile
-      setContributorName(profile?.displayName || localStorage.getItem('lastContributorName') || '');
       setNotes('');
       setErrors({});
     }
-  }, [open, projectId, profile]);
+  }, [open, projectId]);
 
   const fetchProjectData = async () => {
     if (!projectId) return;
@@ -86,10 +83,6 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
       newErrors.item = 'Please select an item to contribute';
     }
     
-    if (!contributorName.trim()) {
-      newErrors.contributorName = 'Contributor name is required';
-    }
-    
     if (quantity <= 0) {
       newErrors.quantity = 'Quantity must be greater than 0';
     }
@@ -102,16 +95,18 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
     e.preventDefault();
     
     if (!validateForm()) return;
-    if (!projectId || !project) return;
+    if (!projectId || !project || !session?.user) return;
     
     setIsSubmitting(true);
     
     try {
-      // Store contributor name for future use
-      localStorage.setItem('lastContributorName', contributorName.trim());
-      
       const contributionData: AddContributionRequest = {
-        memberId: profile?.id || contributorName.trim(), // Use profile ID or name as fallback
+        authUser: {
+          id: session.user.id!,
+          name: session.user.name!,
+          email: session.user.email || undefined,
+          image: session.user.image || undefined,
+        },
         projectId: projectId,
         projectItemId: selectedItem?.id,
         contributionType: 'Item',
@@ -157,7 +152,6 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
   const resetForm = () => {
     setSelectedItemName('');
     setQuantity(1);
-    setContributorName(profile?.displayName || '');
     setNotes('');
     setErrors({});
   };
@@ -183,13 +177,61 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
     return colors[status as keyof typeof colors] || colors['Needed'];
   };
 
+  // If user is not authenticated, show sign-in prompt
+  if (status === 'loading') {
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="sm:max-w-md">
+          <div className="flex items-center justify-center py-8">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+              <p className="mt-2 text-sm text-muted-foreground">Loading...</p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  if (!session) {
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <LogIn className="h-5 w-5" />
+              Sign In Required
+            </DialogTitle>
+            <DialogDescription>
+              You need to sign in to contribute to settlement projects.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex flex-col gap-4 py-4">
+            <Button
+              onClick={() => signIn()}
+              className="w-full"
+            >
+              <LogIn className="h-4 w-4 mr-2" />
+              Sign In
+            </Button>
+            
+            <p className="text-xs text-muted-foreground text-center">
+              For now, you can sign in with any username and password
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
   if (loading) {
     return (
       <Dialog open={open} onOpenChange={handleClose}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Gift className="h-5 w-5" />
+              <Package className="h-5 w-5" />
               Contribute to {project?.name || 'Project'}
             </DialogTitle>
             <DialogDescription>
@@ -197,7 +239,8 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-center items-center h-32">
-            <Progress value={50} className="w-1/2" />
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-2 text-sm text-muted-foreground">Loading...</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -210,7 +253,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Gift className="h-5 w-5" />
+              <Package className="h-5 w-5" />
               Contribute to {projectId ? 'Project Not Found' : 'Project'}
             </DialogTitle>
             <DialogDescription>
@@ -218,7 +261,8 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-center items-center h-32">
-            <Progress value={50} className="w-1/2" />
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-2 text-sm text-muted-foreground">Loading...</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -232,7 +276,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
       <DialogContent className="max-w-2xl">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Gift className="h-5 w-5" />
+            <Package className="h-5 w-5" />
             Contribute to {project?.name || 'Project'}
           </DialogTitle>
           <DialogDescription>
@@ -242,34 +286,33 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Project Progress */}
-          <Card>
-            <CardContent className="pt-4">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">Project Progress</span>
-                  <span className="text-sm text-muted-foreground">
-                    {project.completionPercentage}% Complete
-                  </span>
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium">Project Progress</span>
+              <span className="text-sm text-muted-foreground">
+                {project.completionPercentage}% Complete
+              </span>
+            </div>
+            <div className="w-full">
+              <div className="w-full">
+                <div className="text-sm text-muted-foreground">
+                  {safeToLocaleString(project.totalFulfilled)} / {safeToLocaleString(project.totalRequired)} items
                 </div>
-                <Progress value={project.completionPercentage} className="w-full" />
-                                  <div className="text-sm text-muted-foreground">
-                    {safeToLocaleString(project.totalFulfilled)} / {safeToLocaleString(project.totalRequired)} items
-                  </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           {/* Item Selection */}
           <div className="space-y-2">
             <Label htmlFor="item">Select Item to Contribute *</Label>
             {project.items.length === 0 ? (
               <div className="flex items-center gap-2 p-4 border rounded-lg bg-blue-50">
-                <Info className="h-5 w-5 text-blue-600" />
+                <AlertCircle className="h-5 w-5 text-blue-600" />
                 <span className="text-blue-800">No items have been defined for this project yet. The project creator needs to add items first.</span>
               </div>
             ) : availableItems.length === 0 ? (
               <div className="flex items-center gap-2 p-4 border rounded-lg bg-green-50">
-                <CheckCircle2 className="h-5 w-5 text-green-600" />
+                <AlertCircle className="h-5 w-5 text-green-600" />
                 <span className="text-green-800">All items for this project have been completed!</span>
               </div>
             ) : (
@@ -372,15 +415,17 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="contributorName">Your Name *</Label>
-                  <Input
-                    id="contributorName"
-                    value={contributorName}
-                    onChange={(e) => setContributorName(e.target.value)}
-                    placeholder="Enter your name"
-                    className={errors.contributorName ? 'border-red-500' : ''}
-                  />
-                  {errors.contributorName && <p className="text-sm text-red-500">{errors.contributorName}</p>}
+                  <Label htmlFor="contributorName">Contributor</Label>
+                  <div className="flex items-center gap-2 p-2 border rounded-md bg-muted">
+                    {session.user.image && (
+                      <img 
+                        src={session.user.image} 
+                        alt={session.user.name || 'User'} 
+                        className="h-6 w-6 rounded-full"
+                      />
+                    )}
+                    <span className="text-sm font-medium">{session.user.name}</span>
+                  </div>
                 </div>
               </div>
 
@@ -396,22 +441,47 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
               </div>
 
               {/* Contribution Summary */}
-              {quantity > 0 && contributorName && selectedItem && (
-                <Card className="bg-blue-50 border-blue-200">
-                  <CardContent className="pt-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Package className="h-4 w-4 text-blue-600" />
-                      <span className="font-medium text-blue-800">Contribution Summary</span>
+              {quantity > 0 && session?.user?.name && selectedItem && (
+                <div className="relative overflow-hidden rounded-lg border border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 p-4 shadow-sm">
+                  <div className="absolute right-2 top-2 opacity-10">
+                    <Package className="h-12 w-12" />
+                  </div>
+                  
+                  <div className="relative space-y-3">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
+                        <Package className="h-4 w-4 text-green-600" />
+                      </div>
+                      <h3 className="font-semibold text-green-800">Contribution Summary</h3>
                     </div>
-                    <div className="text-sm text-blue-700">
-                      <strong>{contributorName}</strong> will contribute{' '}
-                      <strong>{safeToLocaleString(quantity)} {selectedItem.itemName}</strong>
-                      {remainingNeeded > 0 && quantity >= remainingNeeded && (
-                        <span className="text-green-700 font-medium"> (This will complete the item!)</span>
-                      )}
+                    
+                    <div className="space-y-2">
+                      <div className="text-sm text-green-700">
+                        <span className="font-medium text-green-800">{session.user.name}</span> will contribute:
+                      </div>
+                      
+                      <div className="flex items-center gap-2 rounded-md bg-white/60 p-3 border border-green-200/50">
+                        <div className="flex-1">
+                          <div className="font-semibold text-green-900">
+                            {safeToLocaleString(quantity)} × {selectedItem.itemName}
+                          </div>
+                          <div className="text-xs text-green-600">
+                            Tier {selectedItem.tier} • Priority {selectedItem.priority}
+                          </div>
+                        </div>
+                        
+                        {remainingNeeded > 0 && quantity >= remainingNeeded && (
+                          <div className="flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1">
+                            <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+                            <span className="text-xs font-medium text-emerald-700">
+                              Completes item!
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               )}
             </>
           )}
@@ -428,7 +498,8 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
             </Button>
             <Button 
               type="submit" 
-              disabled={isSubmitting || availableItems.length === 0 || !selectedItem}
+              disabled={isSubmitting || !selectedItemName || quantity <= 0}
+              className="min-w-24"
             >
               {isSubmitting ? 'Adding...' : 'Add Contribution'}
             </Button>

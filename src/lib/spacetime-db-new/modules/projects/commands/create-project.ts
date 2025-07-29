@@ -89,7 +89,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         tier: Math.max(1, Math.min(4, item.tier || 1)), // Ensure tier is 1-4
         priority: Math.max(1, Math.min(5, item.priority || 3)), // Ensure priority is 1-5
         rank_order: item.rankOrder !== undefined ? item.rankOrder : index,
-        notes: item.notes && item.notes.trim() ? item.notes.trim() : null,
+        // notes: item.notes && item.notes.trim() ? item.notes.trim() : null, // TEMPORARILY REMOVED
       }));
 
       console.log('Attempting to insert project items:', {
@@ -104,21 +104,19 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         .select();
 
       if (itemsError) {
-        console.error('Project items creation failed:', {
+        console.error('🔴 PROJECT ITEMS CREATION FAILED:', {
           error: itemsError,
           errorCode: itemsError.code,
           errorMessage: itemsError.message,
           errorDetails: itemsError.details,
+          errorHint: itemsError.hint,
           projectId: project.id,
-          itemsToInsert
+          itemsToInsert,
+          itemCount: itemsToInsert.length
         });
         
-        // Instead of throwing, return project without items and let user know
-        console.warn('Project created but items could not be added. Project can be edited later.');
-        return {
-          project: createdProject,
-          items: [],
-        };
+        // THROW the error instead of silently failing
+        throw new Error(`Failed to create project items: ${itemsError.message}. ${itemsError.hint || ''}`);
       }
 
       createdItems = (items || []).map(item => ({
@@ -132,7 +130,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         rankOrder: item.rank_order,
         status: item.status,
         assignedMemberId: item.assigned_member_id,
-        notes: item.notes,
+        notes: null, // TEMPORARILY SET TO NULL since column doesn't exist
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),
       }));

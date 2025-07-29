@@ -420,3 +420,46 @@ export async function GET(request: NextRequest) {
     );
   }
 } 
+
+export async function DELETE(request: NextRequest) {
+  try {
+    // Import supabase client
+    const { createServerClient } = await import('../../../../lib/spacetime-db-new/shared/supabase-client');
+    const supabase = createServerClient();
+
+    if (!supabase) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Database not available',
+        },
+        { status: 503 }
+      );
+    }
+
+    // Delete all settlement members (cascade will handle related data)
+    const { error } = await supabase
+      .from('settlement_members')
+      .delete()
+      .gte('created_at', '1970-01-01'); // Delete all records (created_at is always >= epoch)
+
+    if (error) {
+      throw error;
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'All settlement members deleted successfully',
+    });
+
+  } catch (error) {
+    console.error('Settlement members deletion error:', error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : 'Failed to delete settlement members',
+      },
+      { status: 500 }
+    );
+  }
+} 

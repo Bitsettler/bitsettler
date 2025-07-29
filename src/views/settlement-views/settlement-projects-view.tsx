@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Plus, Package, Filter, RefreshCw, Users, Clock, CheckCircle2, XCircle, Calendar, Gift, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,7 +16,6 @@ import { Container } from '@/components/container';
 import { type SettlementProject, type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useUserProfile } from '@/hooks/use-user-profile';
 
 const statusIcons = {
   'Active': Clock,
@@ -24,7 +24,7 @@ const statusIcons = {
 };
 
 export function SettlementProjectsView() {
-  const { profile } = useUserProfile();
+  const { data: session } = useSession(); // NextAuth session instead of profile
   const router = useRouter();
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectWithItems[]>([]);
@@ -93,7 +93,13 @@ export function SettlementProjectsView() {
     setFilteredProjects(filtered);
   }, [projects, searchTerm, priorityFilter]);
 
+  // Create project handler
   const handleCreateProject = () => {
+    if (!session?.user) {
+      // Redirect to sign in if not authenticated
+      router.push('/api/auth/signin');
+      return;
+    }
     setCreateModalOpen(true);
   };
 

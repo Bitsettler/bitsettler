@@ -114,7 +114,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       rankOrder: item.rank_order,
       status: item.status,
       assignedMemberId: item.assigned_member_id,
-      notes: item.notes,
+      notes: null, // TEMPORARILY SET TO NULL since column doesn't exist  
       createdAt: new Date(item.created_at),
       updatedAt: new Date(item.updated_at),
     }));
