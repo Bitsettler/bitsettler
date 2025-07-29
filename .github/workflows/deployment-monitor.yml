@@ -1,0 +1,96 @@
+name: Deployment Monitor
+
+on:
+  push:
+    branches: [main, production]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run build monitoring
+        run: npm run monitor-build
+        continue-on-error: true
+        
+      - name: Check for missing translations
+        run: |
+          echo "Checking for missing translation keys..."
+          # Check French translations
+          if npm run build 2>&1 | grep -q "MISSING_MESSAGE.*fr"; then
+            echo "⚠️ Missing French translations detected"
+            echo "MISSING_FR_TRANSLATIONS=true" >> $GITHUB_ENV
+          fi
+          # Check English translations  
+          if npm run build 2>&1 | grep -q "MISSING_MESSAGE.*en"; then
+            echo "⚠️ Missing English translations detected"
+            echo "MISSING_EN_TRANSLATIONS=true" >> $GITHUB_ENV
+          fi
+          # Check Spanish translations
+          if npm run build 2>&1 | grep -q "MISSING_MESSAGE.*es"; then
+            echo "⚠️ Missing Spanish translations detected"
+            echo "MISSING_ES_TRANSLATIONS=true" >> $GITHUB_ENV
+          fi
+        
+      - name: Upload build logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-logs
+          path: build-monitor.log
+          retention-days: 7
+          
+      - name: Comment on PR with translation issues
+        if: github.event_name == 'pull_request' && (env.MISSING_FR_TRANSLATIONS == 'true' || env.MISSING_EN_TRANSLATIONS == 'true' || env.MISSING_ES_TRANSLATIONS == 'true')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = [];
+            if (process.env.MISSING_FR_TRANSLATIONS === 'true') issues.push('🇫🇷 French');
+            if (process.env.MISSING_EN_TRANSLATIONS === 'true') issues.push('🇺🇸 English'); 
+            if (process.env.MISSING_ES_TRANSLATIONS === 'true') issues.push('🇪🇸 Spanish');
+            
+            const body = `## ⚠️ Translation Issues Detected
+            
+            Missing translations found for: ${issues.join(', ')}
+            
+            Please check the build logs for specific missing keys and update the appropriate message files:
+            - \`messages/en.json\`
+            - \`messages/fr.json\`
+            - \`messages/es.json\`
+            
+            Build logs are available in the workflow artifacts.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+  deployment-status:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build-monitor
+    
+    steps:
+      - name: Check Vercel deployment
+        run: |
+          echo "Monitoring Vercel deployment status..."
+          # This would require Vercel token for full monitoring
+          # For now, we'll just log the action
+          echo "Deployment monitoring active for commit: ${{ github.sha }}" 

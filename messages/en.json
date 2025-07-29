@@ -11,5 +11,57 @@
     "settlement": "Settlement",
     "projects": "Projects",
     "compendium": "Compendium"
+  },
+  "header": {
+    "title": "BitCraft Settlement Guide",
+    "subtitle": "Your comprehensive guide to BitCraft settlements, resources, and crafting",
+    "navigation": {
+      "calculator": "Calculator",
+      "compendium": "Compendium", 
+      "wiki": "Wiki",
+      "projects": "Projects"
+    }
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "discord": "Discord",
+    "github": "GitHub", 
+    "twitter": "Twitter",
+    "unofficialDisclaimer": "This is an unofficial fan site and is not affiliated with BitCraft or Clockwork Labs.",
+    "assetsDisclaimer": "All game assets and content are the property of their respective owners."
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "mainPage": "Home",
+    "aboutUs": "About Us",
+    "compendium": "Compendium",
+    "codex": "Codex",
+    "compendiumTools": "Tools",
+    "resources": "Resources", 
+    "buildings": "Buildings",
+    "deployables": "Deployables",
+    "seeAll": "See All",
+    "tools": "Tools",
+    "calculator": "Calculator",
+    "projects": "Projects",
+    "comingSoon": "Coming Soon",
+    "settlement": "Settlement",
+    "settlementDashboard": "Dashboard",
+    "settlementMembers": "Members",
+    "skills": "Skills",
+    "research": "Research",
+    "settlementProjects": "Projects",
+    "settlementTreasury": "Treasury",
+    "community": "Community",
+    "bitcraftGuideDiscord": "BitCraft Guide Discord",
+    "bitcraftGuideGithub": "BitCraft Guide GitHub",
+    "bitcraftGuideTwitter": "BitCraft Guide Twitter",
+    "recentChanges": "Recent Changes",
+    "changelog": "Changelog",
+    "recentChangesDescription": "Latest updates and changes"
+  },
+  "languageSwitcher": {
+    "switchLanguage": "Switch Language",
+    "switchLanguageSr": "Switch Language"
   }
 }
