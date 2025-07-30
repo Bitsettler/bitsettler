@@ -82,6 +82,7 @@ export async function getSupabaseSession(request?: NextRequest) {
             key.includes('supabase-auth-token') || (key.includes('sb-') && key.includes('auth-token'))
           )
           
+          console.log('ALL cookies found:', Object.keys(cookies));
           console.log('Found Supabase cookies:', Object.keys(cookies).filter(k => k.includes('supabase') || k.includes('sb-')));
           
           if (accessTokenCookie) {

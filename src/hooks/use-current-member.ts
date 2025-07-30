@@ -59,13 +59,17 @@ export function useCurrentMember() {
     
     if (status === 'loading') return;
     
-    if (!session?.user?.id) {
+    if (status === 'unauthenticated' || !session?.user?.id) {
       setMember(null);
       setIsLoading(false);
+      setError(null);
       return;
     }
 
-    fetchCurrentMember();
+    // Only fetch if we're definitely authenticated
+    if (status === 'authenticated' && session?.user?.id) {
+      fetchCurrentMember();
+    }
   }, [session, status]);
 
   const fetchCurrentMember = async () => {
