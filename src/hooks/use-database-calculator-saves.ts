@@ -29,16 +29,7 @@ export function useDatabaseCalculatorSaves() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Load saves from database when member is available
-  useEffect(() => {
-    if (isClaimed && member) {
-      fetchSaves()
-    } else {
-      setSaves({})
-    }
-  }, [member, isClaimed])
-
-  const fetchSaves = async () => {
+  const fetchSaves = useCallback(async () => {
     if (!member?.id) return
 
     try {
@@ -65,7 +56,16 @@ export function useDatabaseCalculatorSaves() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [member?.id]) // Only recreate when member ID changes
+
+  // Load saves from database when member is available
+  useEffect(() => {
+    if (isClaimed && member) {
+      fetchSaves()
+    } else {
+      setSaves({})
+    }
+  }, [fetchSaves, member?.id, isClaimed]) // Include the memoized function
 
   const saveCalculator = useCallback(
     async (slug: string, quantity: number, nodes: Node[], edges: Edge[]) => {

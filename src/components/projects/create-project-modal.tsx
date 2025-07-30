@@ -141,7 +141,7 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
       const projectData: CreateProjectRequest = {
         name: formData.name.trim(),
         description: formData.description.trim() || undefined,
-        createdBy: session.user.name!, // Use NextAuth user name
+        createdBy: session.user.name!,
         items: items.map(item => ({
           itemName: item.itemName,
           requiredQuantity: item.requiredQuantity,

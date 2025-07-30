@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
     const projectData: CreateProjectRequest = {
       name: body.name,
       description: body.description,
-      createdBy: session.user.name!, // Use NextAuth user name
+      createdBy: session.user.name!,
       items: body.items || []
     };
 

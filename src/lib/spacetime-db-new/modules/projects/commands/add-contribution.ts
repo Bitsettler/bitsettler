@@ -2,12 +2,12 @@ import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../sha
 import { MemberContribution } from './get-project-by-id';
 
 export interface AddContributionRequest {
-  // NextAuth user data
+  // Authenticated user data
   authUser: {
-    id: string;           // NextAuth user.id
-    name: string;         // NextAuth user.name  
-    email?: string;       // NextAuth user.email
-    image?: string;       // NextAuth user.image
+    id: string;           // Supabase user.id
+    name: string;         // User display name  
+    email?: string;       // User email
+    image?: string;       // User avatar
   };
   projectId: string;
   projectItemId?: string;
@@ -18,7 +18,7 @@ export interface AddContributionRequest {
 }
 
 /**
- * Find or create settlement member for NextAuth user
+ * Find or create settlement member for authenticated user
  * This links authenticated users to settlement member records
  */
 async function ensureSettlementMember(authUser: {
@@ -85,7 +85,7 @@ async function ensureSettlementMember(authUser: {
 }
 
 /**
- * Add a new member contribution to a project (NextAuth version)
+ * Add a new member contribution to a project
  */
 export async function addContribution(contributionData: AddContributionRequest): Promise<MemberContribution> {
   if (!isSupabaseAvailable()) {

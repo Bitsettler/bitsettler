@@ -29,11 +29,29 @@ export async function createServerSupabaseClient() {
 // Get session for API routes - replacement for getServerSession
 export async function getSupabaseSession(request?: NextRequest) {
   try {
+    // First try Authorization header (client-provided token)
+    if (request) {
+      const authHeader = request.headers.get('authorization')
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.replace('Bearer ', '')
+        const supabase = await createServerSupabaseClient()
+        
+        const { data: { user }, error } = await supabase.auth.getUser(token)
+        if (!error && user) {
+          return {
+            user,
+            access_token: token,
+            expires_at: undefined // We don't have this from the token
+          }
+        }
+      }
+    }
+
+    // Fallback to cookies
     const supabase = await createServerSupabaseClient()
     const { data: { session }, error } = await supabase.auth.getSession()
     
     if (error) {
-      console.error('Error getting session:', error)
       return null
     }
     
@@ -74,7 +92,7 @@ export async function getCurrentUser() {
   return user
 }
 
-// Type definitions matching NextAuth structure for easier migration
+// Type definitions for session and user data
 export type SupabaseSession = {
   user: {
     id: string

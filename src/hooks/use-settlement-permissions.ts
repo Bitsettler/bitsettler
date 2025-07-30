@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useAuth } from './use-auth'
+import { useCurrentMember } from './use-current-member'
 
 export interface SettlementPermissions {
   inventory_permission: boolean
@@ -25,9 +26,48 @@ export interface UserRole {
 
 export function useSettlementPermissions() {
   const { user, session } = useAuth()
+  const { member, isClaimed, isLoading: memberLoading } = useCurrentMember()
   const [permissions, setPermissions] = useState<SettlementPermissions | null>(null)
   const [userRole, setUserRole] = useState<UserRole | null>(null)
   const [loading, setLoading] = useState(true)
+
+  const calculatePermissions = useCallback(() => {
+    try {
+      // Don't calculate if member data is still loading
+      if (memberLoading) {
+        return
+      }
+
+      // If user doesn't have a claimed character, set null permissions and finish
+      if (!isClaimed || !member) {
+        setPermissions(null)
+        setUserRole(null)
+        setLoading(false)
+        return
+      }
+
+      // User has a claimed character - use the member data directly
+      const perms: SettlementPermissions = {
+        inventory_permission: member.inventory_permission === 1,
+        build_permission: member.build_permission === 1,
+        officer_permission: member.officer_permission === 1,
+        co_owner_permission: member.co_owner_permission === 1,
+        canViewTreasury: true, // All members can view treasury
+        canViewMembers: true   // All members can view member list
+      }
+
+      const role = calculateUserRole(perms)
+      
+      setPermissions(perms)
+      setUserRole(role)
+      setLoading(false)
+    } catch (error) {
+      console.error('Error calculating permissions:', error)
+      setPermissions(null)
+      setUserRole(null)
+      setLoading(false)
+    }
+  }, [member, isClaimed, memberLoading]) // Depend on member data
 
   useEffect(() => {
     if (!session?.user) {
@@ -37,41 +77,8 @@ export function useSettlementPermissions() {
       return
     }
 
-    fetchUserPermissions()
-  }, [session])
-
-  const fetchUserPermissions = async () => {
-    try {
-      const response = await fetch('/api/user/current-member', {
-        headers: {
-          'Authorization': `Bearer ${session?.access_token}`
-        }
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        const member = data.member
-
-        if (member) {
-          const perms: SettlementPermissions = {
-            inventory_permission: member.inventory_permission === 1,
-            build_permission: member.build_permission === 1,
-            officer_permission: member.officer_permission === 1,
-            co_owner_permission: member.co_owner_permission === 1
-          }
-
-          const role = calculateUserRole(perms)
-          
-          setPermissions(perms)
-          setUserRole(role)
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching permissions:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+    calculatePermissions()
+  }, [calculatePermissions, session?.user?.id]) // Include the memoized function
 
   const calculateUserRole = (perms: SettlementPermissions): UserRole => {
     // Determine role based on highest permission level

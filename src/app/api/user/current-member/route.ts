@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
-import { supabase } from '@/lib/spacetime-db-new/shared/supabase-client';
+import { supabase } from '@/lib/supabase-auth';
 
 export async function GET(request: Request) {
   try {
-    const session = await getSupabaseSession(request);
+    const session = await getSupabaseSession(request as any);
     
     if (!session?.user?.id) {
       return NextResponse.json(
@@ -24,7 +24,7 @@ export async function GET(request: Request) {
     const { data: member, error } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('auth_user_id', session.user.id.toString())
+      .eq('supabase_user_id', session.user.id.toString())
       .maybeSingle();
 
     if (error) {

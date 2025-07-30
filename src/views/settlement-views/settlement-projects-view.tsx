@@ -23,7 +23,7 @@ const statusIcons = {
 };
 
 export function SettlementProjectsView() {
-  const { data: session } = useSession(); // NextAuth session instead of profile
+  const { data: session } = useSession();
   const router = useRouter();
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectWithItems[]>([]);
@@ -96,7 +96,7 @@ export function SettlementProjectsView() {
   const handleCreateProject = () => {
     if (!session?.user) {
       // Redirect to sign in if not authenticated
-      router.push('/api/auth/signin');
+      router.push('/en/auth/signin');
       return;
     }
     setCreateModalOpen(true);

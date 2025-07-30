@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useAuth } from '@/hooks/use-auth'
+import { useSession } from '@/hooks/use-auth'
 import { supabase } from '@/lib/supabase-auth'
 
 export default function SignInPage() {
-  const { session, loading } = useAuth()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -15,10 +15,10 @@ export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    if (session && !loading) {
+    if (status === 'authenticated' && session) {
       router.push('/en/settlement')
     }
-  }, [session, loading, router])
+  }, [session, status, router])
 
   const handleOAuthSignIn = async (provider: 'google' | 'discord') => {
     try {
@@ -63,7 +63,7 @@ export default function SignInPage() {
     }
   }
 
-  if (loading) {
+  if (status === 'loading') {
     return (
       <div style={{ 
         minHeight: '100vh', 
@@ -78,7 +78,7 @@ export default function SignInPage() {
     )
   }
 
-  if (session) {
+  if (status === 'authenticated') {
     return null
   }
 

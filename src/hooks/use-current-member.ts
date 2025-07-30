@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
 
 export interface SettlementMember {
@@ -27,7 +27,8 @@ export interface SettlementMember {
   is_active: boolean;
   
   // App user data (if claimed)
-  auth_user_id: string | null;
+  supabase_user_id: string | null;
+  bitjita_user_id: string | null;
   display_name: string | null;
   discord_handle: string | null;
   bio: string | null;
@@ -54,6 +55,42 @@ export function useCurrentMember() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const fetchCurrentMember = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      if (!session?.user?.id) {
+        setMember(null);
+        setIsLoading(false);
+        return;
+      }
+
+      // Query Supabase directly - RLS will protect the data
+      const { supabase } = await import('@/lib/supabase-auth');
+      
+      const { data: member, error } = await supabase
+        .from('settlement_members')
+        .select('*')
+        .eq('supabase_user_id', session.user.id)
+        .maybeSingle();
+
+      if (error) {
+        console.error('Failed to fetch current member:', error);
+        setError('Failed to fetch member data');
+        setMember(null);
+      } else {
+        setMember(member);
+      }
+    } catch (err) {
+      console.error('Failed to fetch current member:', err);
+      setError(err instanceof Error ? err.message : 'Failed to fetch member data');
+      setMember(null);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [session?.user?.id]); // Only recreate when user ID changes
+
   useEffect(() => {
     if (status === 'loading') return;
     
@@ -67,75 +104,64 @@ export function useCurrentMember() {
     if (status === 'authenticated' && session?.user?.id) {
       fetchCurrentMember();
     }
-  }, [session, status]);
-
-  const fetchCurrentMember = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const response = await fetch('/api/user/current-member');
-      const result = await response.json();
-
-      if (!response.ok) {
-        // Handle "No character claimed" as a normal state, not an error
-        if (response.status === 404 && result.code === 'NO_CHARACTER') {
-          setMember(null);
-          return;
-        }
-        throw new Error(result.error || 'Failed to fetch member data');
-      }
-
-      setMember(result.data);
-    } catch (err) {
-      console.error('Failed to fetch current member:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch member data');
-      setMember(null);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [fetchCurrentMember, session?.user?.id, status]); // Include the memoized function
 
   const updateMember = async (updates: Partial<SettlementMember>) => {
-    if (!member) return null;
+    if (!member || !session?.user?.id) return null;
 
     try {
-      const response = await fetch('/api/user/profile', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updates)
-      });
+      // Update Supabase directly - RLS will protect the data
+      const { supabase } = await import('@/lib/supabase-auth');
+      
+      const { data: updatedMember, error } = await supabase
+        .from('settlement_members')
+        .update(updates)
+        .eq('auth_user_id', session.user.id)
+        .select()
+        .single();
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to update member');
+      if (error) {
+        throw new Error(error.message || 'Failed to update member');
       }
 
-      setMember(result.data);
-      return result.data;
+      setMember(updatedMember);
+      return updatedMember;
     } catch (err) {
       console.error('Failed to update member:', err);
       throw err;
     }
   };
 
-  const claimCharacter = async (memberId: string, displayName?: string) => {
+  const claimCharacter = async (memberId: string, bitjitaUserId: string, displayName?: string) => {
+    if (!session?.user?.id) throw new Error('Must be authenticated to claim character');
+
     try {
-      const response = await fetch('/api/auth/claim-character', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ memberId, displayName })
-      });
+      // Claim character directly with Supabase - RLS will protect the data
+      const { supabase } = await import('@/lib/supabase-auth');
+      
+      const { data: claimedMember, error } = await supabase
+        .from('settlement_members')
+        .update({
+          supabase_user_id: session.user.id,
+          bitjita_user_id: bitjitaUserId,
+          display_name: displayName || null,
+          app_joined_at: new Date().toISOString(),
+          app_last_active_at: new Date().toISOString()
+        })
+        .eq('id', memberId)
+        .eq('supabase_user_id', null) // Only unclaimed characters
+        .select()
+        .single();
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to claim character');
+      if (error) {
+        if (error.code === 'PGRST116') {
+          throw new Error('Character not found or already claimed');
+        }
+        throw new Error(error.message || 'Failed to claim character');
       }
 
-      setMember(result.data);
-      return result.data;
+      setMember(claimedMember);
+      return claimedMember;
     } catch (err) {
       console.error('Failed to claim character:', err);
       throw err;
@@ -150,7 +176,7 @@ export function useCurrentMember() {
     claimCharacter,
     refetch: fetchCurrentMember,
     isAuthenticated: !!session,
-    isClaimed: !!member?.auth_user_id,
+    isClaimed: !!member?.supabase_user_id,
     displayName: member?.display_name || member?.name || 'User'
   };
 } 

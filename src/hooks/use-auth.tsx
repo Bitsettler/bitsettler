@@ -75,7 +75,7 @@ export function useAuth() {
   return context
 }
 
-// Compatibility hook that mimics NextAuth's useSession
+// Compatibility hook for session access
 export function useSession() {
   const { user, session, loading } = useAuth()
   
@@ -86,7 +86,8 @@ export function useSession() {
         name: user?.user_metadata?.name || user?.user_metadata?.preferred_username || user?.email?.split('@')[0],
         email: user?.email,
         image: user?.user_metadata?.avatar_url
-      }
+      },
+      access_token: session.access_token
     } : null,
     status: loading ? 'loading' : (session ? 'authenticated' : 'unauthenticated')
   }

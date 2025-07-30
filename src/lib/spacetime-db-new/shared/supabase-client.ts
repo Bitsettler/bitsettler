@@ -23,7 +23,13 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // Create Supabase client (null if credentials missing)
 export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true
+      }
+    })
   : null;
 
 console.log('🔍 Supabase Client:', supabase ? '✅ Created successfully' : '❌ Failed to create');
