@@ -54,9 +54,9 @@
     "settlementTreasury": "Treasury",
     "settlementManage": "Manage",
     "community": "Community",
-    "bitcraftGuideDiscord": "BitCraft Guide Discord",
-    "bitcraftGuideGithub": "BitCraft Guide GitHub",
-    "bitcraftGuideTwitter": "BitCraft Guide Twitter",
+    "bitcraftGuideDiscord": "Discord",
+    "bitcraftGuideGithub": "GitHub",
+    "bitcraftGuideTwitter": "Twitter",
     "recentChanges": "Recent Changes",
     "changelog": "Changelog",
     "recentChangesDescription": "Latest updates and changes"
