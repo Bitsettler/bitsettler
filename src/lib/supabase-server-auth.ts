@@ -27,7 +27,17 @@ export function createServerClientWithAuth() {
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value
+          const cookie = cookieStore.get(name)
+          console.log(`Cookie get: ${name} = ${cookie?.value ? 'EXISTS' : 'MISSING'}`);
+          return cookie?.value
+        },
+        set(name: string, value: string, options: any) {
+          console.log(`Cookie set: ${name}`);
+          // For server components, we can't set cookies
+        },
+        remove(name: string, options: any) {
+          console.log(`Cookie remove: ${name}`);
+          // For server components, we can't remove cookies
         },
       },
     }
@@ -50,6 +60,49 @@ export async function getSupabaseSession(request?: NextRequest) {
       }
     } catch (cookieError) {
       console.warn('Could not read session from cookies:', cookieError)
+    }
+
+    // Try alternative approach: read cookies from request headers
+    if (request) {
+      try {
+        const cookieHeader = request.headers.get('cookie')
+        console.log('Request cookie header exists:', !!cookieHeader);
+        
+        if (cookieHeader) {
+          // Parse cookies manually to find Supabase session
+          const cookies = Object.fromEntries(
+            cookieHeader.split('; ').map(cookie => {
+              const [name, ...rest] = cookie.split('=')
+              return [name, rest.join('=')]
+            })
+          )
+          
+          // Look for Supabase access token cookie
+          const accessTokenCookie = Object.keys(cookies).find(key => 
+            key.includes('supabase-auth-token') || (key.includes('sb-') && key.includes('auth-token'))
+          )
+          
+          console.log('Found Supabase cookies:', Object.keys(cookies).filter(k => k.includes('supabase') || k.includes('sb-')));
+          
+          if (accessTokenCookie) {
+            const tokenData = JSON.parse(decodeURIComponent(cookies[accessTokenCookie]))
+            if (tokenData.access_token) {
+              const supabase = createServerSupabaseClient()
+              const { data: { user }, error } = await supabase.auth.getUser(tokenData.access_token)
+              
+              if (!error && user) {
+                return {
+                  user,
+                  access_token: tokenData.access_token,
+                  expires_at: tokenData.expires_at
+                }
+              }
+            }
+          }
+        }
+      } catch (requestCookieError) {
+        console.warn('Could not parse request cookies:', requestCookieError)
+      }
     }
 
     // Fallback to authorization header (for direct API calls with tokens)
