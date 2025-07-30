@@ -4,8 +4,8 @@ import { NextRequest } from 'next/server'
 import type { Database } from '@/lib/spacetime-db-new/shared/supabase-client'
 
 // Create proper server client for API routes
-export function createServerSupabaseClient() {
-  const cookieStore = cookies()
+export async function createServerSupabaseClient() {
+  const cookieStore = await cookies()
   
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -29,7 +29,7 @@ export function createServerSupabaseClient() {
 // Get session for API routes - replacement for getServerSession
 export async function getSupabaseSession(request?: NextRequest) {
   try {
-    const supabase = createServerSupabaseClient()
+    const supabase = await createServerSupabaseClient()
     const { data: { session }, error } = await supabase.auth.getSession()
     
     if (error) {
@@ -63,7 +63,7 @@ export async function requireAuth(request: NextRequest) {
 
 // Helper to get user from Supabase auth
 export async function getCurrentUser() {
-  const supabase = createServerClientWithAuth()
+  const supabase = await createServerSupabaseClient()
   const { data: { user }, error } = await supabase.auth.getUser()
   
   if (error) {
