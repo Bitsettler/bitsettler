@@ -252,9 +252,18 @@ export default function SignInPage() {
 
           <form onSubmit={handleEmailAuth} style={{ marginBottom: '1rem' }}>
             <div style={{ marginBottom: '1rem' }}>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '0.5rem', 
+                fontSize: '0.875rem', 
+                fontWeight: '500', 
+                color: '#374151' 
+              }}>
+                Email Address
+              </label>
               <input
                 type="email"
-                placeholder="Email address"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -265,14 +274,34 @@ export default function SignInPage() {
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  backgroundColor: '#ffffff',
+                  color: '#1f2937',
+                  outline: 'none'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#3b82f6'
+                  e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = '#d1d5db'
+                  e.target.style.boxShadow = 'none'
                 }}
               />
             </div>
             <div style={{ marginBottom: '1rem' }}>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '0.5rem', 
+                fontSize: '0.875rem', 
+                fontWeight: '500', 
+                color: '#374151' 
+              }}>
+                Password
+              </label>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -283,7 +312,18 @@ export default function SignInPage() {
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  backgroundColor: '#ffffff',
+                  color: '#1f2937',
+                  outline: 'none'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#3b82f6'
+                  e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = '#d1d5db'
+                  e.target.style.boxShadow = 'none'
                 }}
               />
             </div>

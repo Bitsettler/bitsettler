@@ -55,6 +55,8 @@ export function useCurrentMember() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log('useCurrentMember effect:', { status, session, userId: session?.user?.id });
+    
     if (status === 'loading') return;
     
     if (!session?.user?.id) {

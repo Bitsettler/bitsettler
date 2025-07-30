@@ -37,10 +37,14 @@ export function createServerClientWithAuth() {
 // Get session for API routes - replacement for getServerSession
 export async function getSupabaseSession(request?: NextRequest) {
   try {
+    console.log('getSupabaseSession called');
+    
     // First try to get from cookies (this works for browser requests to API routes)
     try {
       const supabase = createServerClientWithAuth()
       const { data: { session }, error } = await supabase.auth.getSession()
+      console.log('Cookie session result:', { hasSession: !!session, error, userId: session?.user?.id });
+      
       if (!error && session?.user) {
         return session
       }

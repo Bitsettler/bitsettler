@@ -5,8 +5,14 @@ import { supabase } from '@/lib/spacetime-db-new/shared/supabase-client';
 export async function GET(request: Request) {
   try {
     const session = await getSupabaseSession(request);
+    console.log('Current member API - session:', { 
+      hasSession: !!session, 
+      userId: session?.user?.id,
+      userEmail: session?.user?.email 
+    });
     
     if (!session?.user?.id) {
+      console.log('No session or user ID found');
       return NextResponse.json(
         { error: 'Authentication required' },
         { status: 401 }
