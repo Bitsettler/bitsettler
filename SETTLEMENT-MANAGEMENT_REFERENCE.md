@@ -4,8 +4,11 @@
 
 This document outlines the integration with BitJita.com API for settlement data synchronization. Our system implements a **local-first approach** with automated background sync to provide fast user experiences while being respectful to BitJita's servers.
 
+> **📚 Related Documentation**: This covers external API integration. For authentication and user management, see [Authentication Documentation](./docs/README.md).
+
 ## 📋 **Table of Contents**
 
+### 🌐 **BitJita API Integration** (This Document)
 - [Architecture Overview](#architecture-overview)
 - [BitJita API Endpoints](#bitjita-api-endpoints)
 - [Settlement Master List Sync](#settlement-master-list-sync)
@@ -17,22 +20,30 @@ This document outlines the integration with BitJita.com API for settlement data 
 - [Monitoring & Debugging](#monitoring--debugging)
 - [Fallback Strategies](#fallback-strategies)
 
+### 🔐 **Related Documentation**
+- [Authentication System](./docs/AUTHENTICATION.md) - Supabase Auth architecture
+- [Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md) - Auth implementation patterns
+- [Complete Documentation Index](./docs/README.md) - All project documentation
+- [Current Status](./CURRENT_STATUS.md) - Production readiness overview
+
 ---
 
 ## 🏗️ **Architecture Overview**
 
-### **2-Tier Data System**
+### **3-Tier Data System with Authentication**
 
 ```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│                 │    │                  │    │                 │
-│   User Request  │    │  Local Database  │    │  BitJita API    │
-│                 │    │                  │    │                 │
-│  "Search Port"  │───►│  Cached Results  │───►│  Real-time API  │
-│     <50ms       │    │   <100ms         │    │  300-800ms      │
-│                 │    │                  │    │                 │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
+┌─────────────────┐    ┌──────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│                 │    │                  │    │                  │    │                 │
+│   User Request  │    │  Supabase Auth   │    │  Local Database  │    │  BitJita API    │
+│                 │    │  + Permissions   │    │  + RLS Policies  │    │                 │
+│  "Search Port"  │───►│   Role Check     │───►│  Cached Results  │───►│  Real-time API  │
+│     <50ms       │    │    <10ms         │    │   <100ms         │    │  300-800ms      │
+│                 │    │                  │    │                  │    │                 │
+└─────────────────┘    └──────────────────┘    └──────────────────┘    └─────────────────┘
 ```
+
+**Authentication Integration**: All settlement data access is protected by [Supabase Auth](./docs/AUTHENTICATION.md) with role-based permissions that mirror in-game settlement hierarchy.
 
 ### **Treasury Real-Time Monitoring**
 
@@ -55,11 +66,68 @@ This document outlines the integration with BitJita.com API for settlement data 
 
 - ⚡ **Fast Search**: <50ms local database queries vs 300-800ms API calls
 - 🤝 **API Respectful**: Background sync reduces API load by 95%+
-- 🛡️ **Reliable**: 2-tier system ensures accurate results only
+- 🛡️ **Reliable**: 3-tier system ensures accurate results with proper security
 - 📱 **Better UX**: Instant results, no loading delays for search
 - 💰 **Real-Time Treasury**: 5-minute polling for accurate balance tracking
 - 📊 **Historical Data**: Time series treasury analytics and trending
 - ✅ **No False Positives**: Only real settlements, never fake demo data
+- 🔒 **Secure Access**: Row Level Security (RLS) protects all settlement data
+- 👤 **Role-Based**: Access controls mirror exact in-game settlement permissions
+- 🔐 **Authenticated**: All data access requires valid Supabase Auth session
+
+---
+
+## 🔐 **Authentication Requirements**
+
+### **Settlement Data Access Control**
+
+All settlement data access through our system requires proper authentication and authorization:
+
+```typescript
+// Example: Accessing settlement data requires valid session
+const session = await getSupabaseSession(request);
+if (!session?.user) {
+  return new Response('Unauthorized', { status: 401 });
+}
+
+// User must have claimed a settlement character
+const { data: member } = await supabase
+  .from('settlement_members')
+  .select('*')
+  .eq('auth_user_id', session.user.id)
+  .single();
+
+if (!member) {
+  return new Response('Character not claimed', { status: 403 });
+}
+```
+
+### **Role-Based Data Access**
+
+Settlement data visibility depends on user's in-game role:
+
+| **Data Type** | **Member** | **Storage** | **Builder** | **Officer** | **Co-Owner** |
+|---------------|------------|-------------|-------------|-------------|---------------|
+| **Dashboard** | ✅ View | ✅ View | ✅ View | ✅ View | ✅ View |
+| **Member List** | ✅ View | ✅ View | ✅ View | ✅ Manage | ✅ Manage |
+| **Treasury** | ✅ View | ✅ View | ✅ View | ✅ Manage | ✅ Manage |
+| **Projects** | ✅ View | ✅ Manage | ✅ Manage | ✅ Manage | ✅ Manage |
+
+> **📚 Authentication Details**: For complete authentication implementation, see [Authentication Documentation](./docs/AUTHENTICATION.md).
+
+### **Database Security Integration**
+
+```sql
+-- Example RLS policy protecting settlement data
+CREATE POLICY "Users can view settlement data" ON settlement_projects
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM settlement_members 
+      WHERE auth_user_id = auth.uid()::text 
+      AND settlement_id = settlement_projects.settlement_id
+    )
+  );
+```
 
 ---
 
