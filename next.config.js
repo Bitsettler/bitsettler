@@ -8,10 +8,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true, // Bypass TypeScript errors for deployment
   },
-  // Exclude problematic pages from static generation
-  async generateStaticParams() {
-    return [];
-  },
   // Force dynamic rendering for internationalized routes that cause issues
   async headers() {
     return [
