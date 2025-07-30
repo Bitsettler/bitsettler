@@ -2,17 +2,23 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Auth } from '@supabase/auth-ui-react'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { supabase } from '@/lib/supabase-auth'
 import { useAuth } from '@/hooks/use-auth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { LogIn, Mail, MessageCircle, Github } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Loader2, Mail, MessageCircle, Github, Shield, Zap, AlertCircle } from 'lucide-react'
 
 export default function SignInPage() {
-  const [authView, setAuthView] = useState<'sign_in' | 'sign_up'>('sign_in')
+  const [authView, setAuthView] = useState<'sign_in' | 'sign_up' | 'magic_link'>('sign_in')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
   const { session, loading } = useAuth()
   const router = useRouter()
 
@@ -24,12 +30,102 @@ export default function SignInPage() {
     }
   }, [session, loading, router])
 
+  const handleOAuthSignIn = async (provider: 'google' | 'discord' | 'github') => {
+    setIsLoading(true)
+    setError(null)
+    
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: { 
+          redirectTo: `${window.location.origin}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          }
+        }
+      })
+      
+      if (error) {
+        setError(error.message)
+      }
+    } catch (err) {
+      setError('An unexpected error occurred. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleEmailAuth = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError(null)
+    setSuccess(null)
+
+    try {
+      if (authView === 'sign_up') {
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/auth/callback`
+          }
+        })
+        
+        if (error) {
+          setError(error.message)
+        } else {
+          setSuccess('Check your email for a confirmation link!')
+        }
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        })
+        
+        if (error) {
+          setError(error.message)
+        }
+      }
+    } catch (err) {
+      setError('An unexpected error occurred. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleMagicLink = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError(null)
+    setSuccess(null)
+
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`
+        }
+      })
+      
+      if (error) {
+        setError(error.message)
+      } else {
+        setSuccess('Check your email for a magic link!')
+      }
+    } catch (err) {
+      setError('An unexpected error occurred. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
         <div className="w-full max-w-md space-y-4">
           <div className="text-center">
-            <div className="h-8 w-8 mx-auto rounded-full bg-muted animate-pulse mb-4" />
+            <Loader2 className="h-8 w-8 mx-auto animate-spin text-primary mb-4" />
             <div className="h-4 w-32 bg-muted rounded animate-pulse mx-auto" />
           </div>
         </div>
@@ -42,63 +138,97 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md space-y-6">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight">Welcome to BitCraft.guide</h1>
-          <p className="text-muted-foreground mt-2">
-            Sign in to access settlement management features
-          </p>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-4">
+      <div className="w-full max-w-md space-y-8">
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6">
+            <Shield className="h-8 w-8 text-primary-foreground" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
+              Welcome to BitCraft.guide
+            </h1>
+            <p className="text-lg text-muted-foreground mt-3">
+              Sign in to access settlement management features
+            </p>
+          </div>
         </div>
 
-        <Card>
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">
-              {authView === 'sign_in' ? 'Sign In' : 'Create Account'}
+        <Card className="shadow-2xl border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+          <CardHeader className="space-y-2 pb-6">
+            <CardTitle className="text-2xl text-center font-semibold">
+              {authView === 'sign_in' && 'Sign In'}
+              {authView === 'sign_up' && 'Create Account'} 
+              {authView === 'magic_link' && 'Magic Link'}
             </CardTitle>
-            <CardDescription className="text-center">
-              {authView === 'sign_in' 
-                ? 'Choose your preferred sign-in method'
-                : 'Create your account to get started'
-              }
+            <CardDescription className="text-center text-base">
+              {authView === 'sign_in' && 'Welcome back! Choose your preferred sign-in method'}
+              {authView === 'sign_up' && 'Create your account to start managing settlements'}
+              {authView === 'magic_link' && 'Get a secure sign-in link sent to your email'}
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {/* Quick OAuth Buttons */}
-            <div className="grid grid-cols-1 gap-3">
+          
+          <CardContent className="space-y-6">
+            {/* Error/Success Messages */}
+            {error && (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+            
+            {success && (
+              <Alert className="border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-950 dark:text-green-200">
+                <Mail className="h-4 w-4" />
+                <AlertDescription>{success}</AlertDescription>
+              </Alert>
+            )}
+
+            {/* OAuth Providers */}
+            <div className="space-y-3">
               <Button
+                type="button"
                 variant="outline"
-                onClick={() => supabase.auth.signInWithOAuth({
-                  provider: 'google',
-                  options: { redirectTo: `${window.location.origin}/auth/callback` }
-                })}
-                className="w-full"
+                onClick={() => handleOAuthSignIn('google')}
+                disabled={isLoading}
+                className="w-full h-12 text-base font-medium hover:bg-red-50 hover:border-red-200 dark:hover:bg-red-950 transition-colors"
               >
-                <Mail className="mr-2 h-4 w-4" />
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
+                  <Mail className="mr-2 h-5 w-5 text-red-500" />
+                )}
                 Continue with Google
               </Button>
               
               <Button
+                type="button"
                 variant="outline"
-                onClick={() => supabase.auth.signInWithOAuth({
-                  provider: 'discord',
-                  options: { redirectTo: `${window.location.origin}/auth/callback` }
-                })}
-                className="w-full"
+                onClick={() => handleOAuthSignIn('discord')}
+                disabled={isLoading}
+                className="w-full h-12 text-base font-medium hover:bg-indigo-50 hover:border-indigo-200 dark:hover:bg-indigo-950 transition-colors"
               >
-                <MessageCircle className="mr-2 h-4 w-4" />
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
+                  <MessageCircle className="mr-2 h-5 w-5 text-indigo-500" />
+                )}
                 Continue with Discord
               </Button>
 
               <Button
+                type="button"
                 variant="outline"
-                onClick={() => supabase.auth.signInWithOAuth({
-                  provider: 'github',
-                  options: { redirectTo: `${window.location.origin}/auth/callback` }
-                })}
-                className="w-full"
+                onClick={() => handleOAuthSignIn('github')}
+                disabled={isLoading}
+                className="w-full h-12 text-base font-medium hover:bg-gray-50 hover:border-gray-200 dark:hover:bg-gray-950 transition-colors"
               >
-                <Github className="mr-2 h-4 w-4" />
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
+                  <Github className="mr-2 h-5 w-5 text-gray-700 dark:text-gray-300" />
+                )}
                 Continue with GitHub
               </Button>
             </div>
@@ -107,57 +237,152 @@ export default function SignInPage() {
               <div className="absolute inset-0 flex items-center">
                 <Separator className="w-full" />
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
+              <div className="relative flex justify-center text-sm uppercase">
+                <span className="bg-background px-4 text-muted-foreground font-medium">
                   Or continue with email
                 </span>
               </div>
             </div>
 
-            {/* Supabase Auth UI for email/password */}
-            <Auth
-              supabaseClient={supabase}
-              view={authView}
-              appearance={{
-                theme: ThemeSupa,
-                variables: {
-                  default: {
-                    colors: {
-                      brand: 'hsl(var(--primary))',
-                      brandAccent: 'hsl(var(--primary))',
-                    }
-                  }
-                },
-                className: {
-                  container: 'space-y-4',
-                  button: 'w-full px-4 py-2 rounded-md font-medium transition-colors',
-                  input: 'w-full px-3 py-2 border rounded-md',
-                }
-              }}
-              providers={[]}
-              redirectTo={`${window.location.origin}/auth/callback`}
-              onlyThirdPartyProviders={false}
-              magicLink={true}
-            />
+            {/* Email Forms */}
+            {authView === 'magic_link' ? (
+              <form onSubmit={handleMagicLink} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">Email address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="h-11"
+                  />
+                </div>
+                
+                <Button type="submit" disabled={isLoading} className="w-full h-11 text-base font-medium">
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending magic link...
+                    </>
+                  ) : (
+                    <>
+                      <Zap className="mr-2 h-4 w-4" />
+                      Send magic link
+                    </>
+                  )}
+                </Button>
+              </form>
+            ) : (
+              <form onSubmit={handleEmailAuth} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">Email address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="h-11"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    required
+                    className="h-11"
+                  />
+                </div>
+                
+                <Button type="submit" disabled={isLoading} className="w-full h-11 text-base font-medium">
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {authView === 'sign_in' ? 'Signing in...' : 'Creating account...'}
+                    </>
+                  ) : (
+                    <>
+                      <Shield className="mr-2 h-4 w-4" />
+                      {authView === 'sign_in' ? 'Sign in' : 'Create account'}
+                    </>
+                  )}
+                </Button>
+              </form>
+            )}
 
-            <div className="text-center">
-              <Button
-                variant="ghost"
-                onClick={() => setAuthView(authView === 'sign_in' ? 'sign_up' : 'sign_in')}
-                className="text-sm"
-              >
-                {authView === 'sign_in' 
-                  ? "Don't have an account? Sign up"
-                  : "Already have an account? Sign in"
-                }
-              </Button>
+            {/* Toggle between views */}
+            <div className="space-y-2 text-center">
+              {authView === 'sign_in' ? (
+                <>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => setAuthView('sign_up')}
+                    className="text-sm font-medium"
+                  >
+                    Don't have an account? <span className="text-primary ml-1">Sign up</span>
+                  </Button>
+                  <div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={() => setAuthView('magic_link')}
+                      className="text-sm font-medium"
+                    >
+                      Prefer passwordless? <span className="text-primary ml-1">Use magic link</span>
+                    </Button>
+                  </div>
+                </>
+              ) : authView === 'sign_up' ? (
+                <>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => setAuthView('sign_in')}
+                    className="text-sm font-medium"
+                  >
+                    Already have an account? <span className="text-primary ml-1">Sign in</span>
+                  </Button>
+                  <div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={() => setAuthView('magic_link')}
+                      className="text-sm font-medium"
+                    >
+                      Prefer passwordless? <span className="text-primary ml-1">Use magic link</span>
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => setAuthView('sign_in')}
+                  className="text-sm font-medium"
+                >
+                  Back to <span className="text-primary ml-1">traditional sign-in</span>
+                </Button>
+              )}
             </div>
           </CardContent>
         </Card>
 
-        <div className="text-center text-sm text-muted-foreground">
-          <p>
-            By signing in, you agree to our terms of service and privacy policy.
+        {/* Footer */}
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">
+            By signing in, you agree to our{' '}
+            <a href="#" className="text-primary hover:underline font-medium">terms of service</a>
+            {' '}and{' '}
+            <a href="#" className="text-primary hover:underline font-medium">privacy policy</a>.
           </p>
         </div>
       </div>
