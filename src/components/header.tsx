@@ -13,19 +13,9 @@ import {
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { LanguageSwitcher } from './language-switcher'
 import { ThemeSwitcher } from './theme-switcher'
-import { ProfessionAvatar } from './profession-avatar'
-import { Button } from './ui/button'
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from './ui/dropdown-menu'
-import { Settings, LogOut } from 'lucide-react'
-import { useUserProfile } from '../hooks/use-user-profile'
 import { useSelectedSettlement } from '../hooks/use-selected-settlement'
-import { UserProfileManager } from './user-profile-manager'
+import { ModeToggle } from './mode-toggle'
+import { cn } from '@/lib/utils'
 
 // Mapping of path segments to translation keys
 const pathTranslations: Record<string, string> = {
@@ -44,23 +34,18 @@ const pathTranslations: Record<string, string> = {
   projects: 'sidebar.settlementProjects',
   treasury: 'sidebar.settlementTreasury',
   skills: 'sidebar.skills',
-  research: 'sidebar.research'
+  research: 'sidebar.research',
+  manage: 'sidebar.settlementManage'
 }
 
-export function Header() {
+interface HeaderProps {
+  className?: string;
+}
+
+export function Header({ className }: HeaderProps) {
   const pathname = usePathname()
   const t = useTranslations()
-  const { profile, isLoading, clearProfile } = useUserProfile()
   const { clearSettlement } = useSelectedSettlement()
-
-  // Check if we're in a settlement area
-  const isSettlementArea = pathname.includes('/settlement')
-
-  const handleSignOut = () => {
-    clearProfile()
-    clearSettlement()
-    window.location.href = '/'
-  }
 
   // Generate breadcrumb items from current pathname
   const generateBreadcrumbs = (path: string) => {
@@ -75,18 +60,22 @@ export function Header() {
      })
 
     // Add segments
-    let currentPath = ''
-    segments.forEach((segment, index) => {
-      currentPath += `/${segment}`
-      const isLast = index === segments.length - 1
-      const translationKey = pathTranslations[segment]
+    for (let i = 0; i < segments.length; i++) {
+      const segment = segments[i]
+      const href = '/' + segments.slice(0, i + 1).join('/')
+      const isLast = i === segments.length - 1
+      
+      // Try to translate the segment
+      const translatedLabel = pathTranslations[segment] 
+        ? t(pathTranslations[segment])
+        : segment.charAt(0).toUpperCase() + segment.slice(1)
       
       breadcrumbs.push({
-        label: translationKey ? t(translationKey) : segment.charAt(0).toUpperCase() + segment.slice(1),
-        href: currentPath,
+        label: translatedLabel,
+        href,
         isLast
       })
-    })
+    }
 
     return breadcrumbs
   }
@@ -94,7 +83,7 @@ export function Header() {
   const breadcrumbs = generateBreadcrumbs(pathname)
 
   return (
-    <header className="bg-background border-border sticky top-0 z-50 w-full border-b">
+    <header className={cn("bg-background border-b", className)}>
       <div className="flex h-14 items-center justify-between gap-4 px-4">
         <div className="flex items-center gap-2">
           <SidebarTrigger />
@@ -123,38 +112,7 @@ export function Header() {
           <LanguageSwitcher />
           <ThemeSwitcher />
           
-          {/* User Profile - only show in settlement areas */}
-          {isSettlementArea && !isLoading && profile && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                  <ProfessionAvatar
-                    profession={profile.profession}
-                    displayName={profile.displayName}
-                    profileColor={profile.profileColor}
-                    profileInitials={profile.profileInitials}
-                    size="sm"
-                  />
-                  <span className="hidden md:inline">{profile.displayName}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <UserProfileManager
-                  trigger={
-                    <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                      <Settings className="mr-2 h-4 w-4" />
-                      Profile Settings
-                    </DropdownMenuItem>
-                  }
-                />
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleSignOut} className="text-red-600 focus:text-red-600 focus:bg-red-50">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Sign Out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+
         </div>
       </div>
     </header>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useSession } from '@/hooks/use-auth';
 import { SettlementSkillsView } from '../../../../views/settlement-views/settlement-skills-view';
 import { Container } from '../../../../components/container';
 

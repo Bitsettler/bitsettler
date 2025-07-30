@@ -28,7 +28,6 @@ import {
   BarChart3
 } from 'lucide-react';
 import { projectsStorage, type ProjectWithProgress, type Contribution } from '@/lib/local-storage/projects-storage';
-import { useUserProfile } from '@/hooks/use-user-profile';
 
 interface ProjectDetailsModalProps {
   open: boolean;
@@ -50,7 +49,6 @@ export function ProjectDetailsModal({
   projectId, 
   onProjectUpdated 
 }: ProjectDetailsModalProps) {
-  const { profile } = useUserProfile();
   const [project, setProject] = useState<ProjectWithProgress | null>(null);
   const [contributions, setContributions] = useState<Contribution[]>([]);
   const [activeTab, setActiveTab] = useState('overview');
@@ -107,10 +105,10 @@ export function ProjectDetailsModal({
   };
 
   const handleArchive = () => {
-    if (!project || !profile?.displayName) return;
+    if (!project || !projectId) return;
 
     if (confirm(`Are you sure you want to archive "${project.name}"?`)) {
-      const archived = projectsStorage.archiveProject(project.id, profile.displayName);
+      const archived = projectsStorage.archiveProject(project.id, 'User'); // Assuming 'User' is the current user
       if (archived) {
         setProject({ ...project, ...archived });
         onProjectUpdated?.();
@@ -119,7 +117,7 @@ export function ProjectDetailsModal({
   };
 
   const handleUnarchive = () => {
-    if (!project || !profile?.displayName) return;
+    if (!project || !projectId) return;
 
     if (confirm(`Are you sure you want to restore "${project.name}" from archive?`)) {
       const updated = projectsStorage.updateProject(project.id, { 
@@ -134,8 +132,8 @@ export function ProjectDetailsModal({
     }
   };
 
-  const canManageProject = project && profile?.displayName && 
-    projectsStorage.canArchiveProject(project, profile.displayName);
+  const canManageProject = project && projectId && 
+    projectsStorage.canArchiveProject(project, 'User'); // Assuming 'User' is the current user
 
   const getStatusColor = (status: string) => {
     const colors = {

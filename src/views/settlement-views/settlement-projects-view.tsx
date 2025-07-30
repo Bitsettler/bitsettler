@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession } from '@/hooks/use-auth';
 import { useRouter } from 'next/navigation';
 import { Plus, Package, Filter, Users, Clock, CheckCircle2, XCircle, Gift, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';

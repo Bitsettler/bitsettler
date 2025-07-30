@@ -6,13 +6,22 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCurrentMember } from '../../hooks/use-current-member';
 import { useCallback } from 'react';
 import { 
   Users, 
   Package, 
   Coins, 
-  Calendar, 
+  Calendar,
+  Activity,
+  Wallet,
+  TrendingUp,
+  Target,
+  Building,
+  Award,
+  Zap,
 } from 'lucide-react';
+import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 
 interface DashboardStats {
   totalMembers: number;
@@ -45,18 +54,21 @@ export function SettlementDashboardView() {
   const [error, setError] = useState<string | null>(null);
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
+  const { member } = useCurrentMember();
 
   const fetchDashboardData = useCallback(async () => {
     try {
       setIsLoading(true);
       
-      // Only fetch if we have a selected settlement
-      if (!selectedSettlement) {
-        setError('No settlement selected');
+      // Use selectedSettlement or fall back to member's settlement
+      const settlementId = selectedSettlement?.id || member?.settlement_id;
+      
+      if (!settlementId) {
+        setError('No settlement available');
         return;
       }
       
-      const url = `/api/settlement/dashboard?settlementId=${encodeURIComponent(selectedSettlement.id)}`;
+      const url = `/api/settlement/dashboard?settlementId=${encodeURIComponent(settlementId)}`;
         
       const response = await fetch(url);
       
@@ -71,18 +83,19 @@ export function SettlementDashboardView() {
     } finally {
       setIsLoading(false);
     }
-  }, [selectedSettlement]);
+  }, [selectedSettlement, member]);
 
   useEffect(() => {
-    // Only fetch data if we have a selected settlement
-    if (selectedSettlement) {
+    // Fetch data if we have a selected settlement or member with settlement
+    const settlementId = selectedSettlement?.id || member?.settlement_id;
+    if (settlementId) {
       fetchDashboardData();
       
       // Refresh data every 5 minutes (less aggressive to prevent blinking)
       const interval = setInterval(fetchDashboardData, 300000);
       return () => clearInterval(interval);
     }
-  }, [fetchDashboardData, selectedSettlement]);
+  }, [fetchDashboardData, selectedSettlement, member]);
 
   const formatNumber = (num: number): string => {
     return new Intl.NumberFormat().format(num);

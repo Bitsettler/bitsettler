@@ -1,7 +1,7 @@
 'use client'
 
 import type { Edge, Node } from '@xyflow/react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export interface CalculatorSave {
   quantity: number
@@ -15,37 +15,9 @@ export interface CalculatorSavesMap {
   [slug: string]: CalculatorSave
 }
 
-const STORAGE_KEY = 'calculator-saves'
-
+// TODO: Replace with database storage using settlement member ID
 export function useCalculatorSaves() {
   const [saves, setSaves] = useState<CalculatorSavesMap>({})
-  const [isInitialized, setIsInitialized] = useState(false)
-
-  // Load saves from localStorage on mount
-  useEffect(() => {
-    try {
-      const savedData = localStorage.getItem(STORAGE_KEY)
-      if (savedData) {
-        const parsedSaves = JSON.parse(savedData) as CalculatorSavesMap
-        setSaves(parsedSaves)
-      }
-      setIsInitialized(true)
-    } catch (error) {
-      console.error('Failed to load calculator saves:', error)
-      setIsInitialized(true)
-    }
-  }, [])
-
-  // Save to localStorage whenever saves change (but not on initial load)
-  useEffect(() => {
-    if (!isInitialized) return
-
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(saves))
-    } catch (error) {
-      console.error('Failed to save calculator saves:', error)
-    }
-  }, [saves, isInitialized])
 
   const saveCalculator = useCallback(
     (slug: string, quantity: number, nodes: Node[], edges: Edge[]) => {
@@ -100,7 +72,7 @@ export function useCalculatorSaves() {
 
   const getAllSaves = useCallback((): CalculatorSavesMap => {
     return saves
-  }, [saves])
+  }, [])
 
   return {
     saves,

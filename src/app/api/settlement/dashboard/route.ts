@@ -40,8 +40,8 @@ export async function GET(request: NextRequest) {
           topSkills: [] as Array<{name: string, members: number, avgLevel: number}>
         };
 
-        if (citizensData && citizensData.length > 0) {
-          const skilledMembers = citizensData.filter(c => c.total_skills > 0);
+        if (allMembers && allMembers.length > 0) {
+          const skilledMembers = allMembers.filter(c => c.total_skills > 0);
           skillsInsights.totalSkilledMembers = skilledMembers.length;
           
           if (skilledMembers.length > 0) {
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
             // Find top profession
             const professionCounts: Record<string, number> = {};
             skilledMembers.forEach(member => {
-              const profession = skillNames[member.top_profession] || 'Unknown';
+              const profession = member.top_profession || 'Unknown';
               professionCounts[profession] = (professionCounts[profession] || 0) + 1;
             });
             
@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
             skilledMembers.forEach(member => {
               if (member.skills) {
                 Object.entries(member.skills).forEach(([skillId, level]) => {
-                  const skillName = skillNames[skillId] || `Skill ${skillId}`;
+                  const skillName = skillId; // skillId is already the skill name in our unified schema
                   if (!skillStats[skillName]) {
                     skillStats[skillName] = {members: 0, totalLevels: 0};
                   }
@@ -100,7 +100,7 @@ export async function GET(request: NextRequest) {
           ]);
 
           // Fetch real treasury balance from BitJita if we have settlement ID
-          const enhancedSummary = localSummary;
+          let enhancedSummary = localSummary;
           let dataSource = 'local_database';
           
           if (settlementId) {
@@ -192,7 +192,6 @@ export async function GET(request: NextRequest) {
 
         const members = rosterResult.success ? rosterResult.data?.members || [] : [];
         const citizens = citizensResult.success ? citizensResult.data?.citizens || [] : [];
-        const skillNames = citizensResult.success ? citizensResult.data?.skillNames || {} : {};
         
         // Calculate stats from real data
         const totalMembers = members.length;
@@ -234,7 +233,7 @@ export async function GET(request: NextRequest) {
                 }
               });
               
-              const profession = skillNames[topSkillId] || 'Unknown';
+              const profession = topSkillId || 'Unknown';
               professionCounts[profession] = (professionCounts[profession] || 0) + 1;
             });
             
@@ -246,7 +245,7 @@ export async function GET(request: NextRequest) {
             skilledMembers.forEach(member => {
               if (member.skills) {
                 Object.entries(member.skills).forEach(([skillId, level]) => {
-                  const skillName = skillNames[skillId] || `Skill ${skillId}`;
+                  const skillName = skillId; // skillId is already the skill name in our unified schema
                   if (!skillStats[skillName]) {
                     skillStats[skillName] = {members: 0, totalLevels: 0};
                   }
@@ -365,7 +364,7 @@ export async function GET(request: NextRequest) {
       ]);
 
       // Fetch real treasury balance from BitJita if we have settlement ID
-      const enhancedSummary = localSummary;
+      let enhancedSummary = localSummary;
       let dataSource = 'local_database';
       
       if (settlementId) {

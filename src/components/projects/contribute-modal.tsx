@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession } from '@/hooks/use-auth';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,7 +24,8 @@ interface ContributeModalProps {
 }
 
 export function ContributeModal({ open, onOpenChange, projectId, onContributionAdded }: ContributeModalProps) {
-  const { data: session, status } = useSession(); // NextAuth session
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [selectedItemName, setSelectedItemName] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(1);
@@ -210,7 +212,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
           
           <div className="flex flex-col gap-4 py-4">
             <Button
-              onClick={() => signIn()}
+              onClick={() => router.push('/en/auth/signin')}
               className="w-full"
             >
               <LogIn className="h-4 w-4 mr-2" />

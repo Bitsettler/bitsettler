@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth-config';
+import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest } from '../../../../lib/spacetime-db-new/modules';
 
@@ -46,8 +45,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    // Validate NextAuth session
-    const session = await getServerSession(authOptions);
+    // Validate Supabase Auth session
+    const session = await getSupabaseSession(request);
     
     if (!session || !session.user) {
       return NextResponse.json(

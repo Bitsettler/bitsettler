@@ -4,14 +4,14 @@ import { CustomNode } from '@/components/custom-react-flow-nodes/custom-node'
 import { FlowCanvas } from '@/components/flow-canvas'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import { useGameData } from '@/contexts/game-data-context'
-import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
+import { useDatabaseCalculatorSaves } from '@/hooks/use-database-calculator-saves'
 import { useEdgeColors } from '@/hooks/use-edge-colors'
 import { useLayoutedElements } from '@/hooks/use-layouted-elements'
 import { calculateQuantitiesFromEdges } from '@/lib/spacetime-db-new/shared/calculator-utils'
 import type { CalculatorRecipe } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import type { Edge, Node } from '@xyflow/react'
 import { useEdgesState, useNodesState } from '@xyflow/react'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface FlowVisualizeViewProps {
   slug: string
@@ -26,7 +26,7 @@ export function CalculatorFlowView({
 }: FlowVisualizeViewProps) {
   const gameData = useGameData()
   const { items, recipes } = gameData
-  const { loadCalculator } = useCalculatorSaves()
+  const { loadCalculator } = useDatabaseCalculatorSaves()
 
   // Find the item by slug
   const selectedItem = items.find((item) => item.slug === slug)

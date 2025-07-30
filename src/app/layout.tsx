@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { GameDataProvider } from '@/contexts/game-data-context';
-import { AuthProvider } from '@/components/auth-provider';
+import { geistSans } from '@/styles/typography';
 
 export const metadata: Metadata = {
   title: 'BitCraft Settlement Guide',
@@ -15,15 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="font-sans">
-        <AuthProvider>
-          <GameDataProvider>
-            <SidebarProvider>
-              {children}
-            </SidebarProvider>
-          </GameDataProvider>
-        </AuthProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} antialiased font-sans`}>
+        <GameDataProvider>
+          <SidebarProvider>
+            {children}
+          </SidebarProvider>
+        </GameDataProvider>
       </body>
     </html>
   );

@@ -71,30 +71,26 @@ export default async function LocaleLayout({
   const searchData = await getSearchGameData()
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.variable} antialiased`}>
-        <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NextIntlClientProvider messages={messages}>
-              <SidebarProvider>
-                <AppSidebar searchData={searchData} />
-                <SidebarInset className="flex min-h-screen flex-col">
-                  <Header />
-                  <main className="flex-1">{children}</main>
-                  <Footer />
-                </SidebarInset>
-              </SidebarProvider>
-              <Analytics />
-              <Toaster />
-            </NextIntlClientProvider>
-          </ThemeProvider>
-        </AuthProvider>
-      </body>
-    </html>
+    <AuthProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <NextIntlClientProvider messages={messages}>
+          <SidebarProvider>
+            <AppSidebar searchData={searchData} />
+            <SidebarInset className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </SidebarInset>
+          </SidebarProvider>
+          <Analytics />
+          <Toaster />
+        </NextIntlClientProvider>
+      </ThemeProvider>
+    </AuthProvider>
   )
 }

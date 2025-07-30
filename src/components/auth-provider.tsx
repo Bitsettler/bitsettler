@@ -1,6 +1,6 @@
 'use client'
 
-import { SessionProvider } from 'next-auth/react'
+import { AuthProvider as SupabaseAuthProvider } from '@/hooks/use-auth'
 import { ReactNode } from 'react'
 
 interface AuthProviderProps {
@@ -8,5 +8,5 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  return <SessionProvider>{children}</SessionProvider>
+  return <SupabaseAuthProvider>{children}</SupabaseAuthProvider>
 }

@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
+import { useDatabaseCalculatorSaves } from '@/hooks/use-database-calculator-saves'
 import type { CalculatorItem } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { getRarityColor } from '@/lib/spacetime-db-new/shared/utils/rarity'
@@ -9,6 +9,7 @@ import { CalculatorSearchInput } from '@/views/calculator-views/calculator-searc
 import { useReactFlow } from '@xyflow/react'
 import { Save } from 'lucide-react'
 import { toast } from 'sonner'
+import { useState } from 'react'
 
 interface CalculatorHeaderProps {
   items: CalculatorItem[]
@@ -25,8 +26,9 @@ export function CalculatorHeader({
   onItemSelect,
   onQuantityChange
 }: CalculatorHeaderProps) {
-  const { saveCalculator } = useCalculatorSaves()
+  const { saveCalculator, canSave } = useDatabaseCalculatorSaves()
   const { getNodes, getEdges } = useReactFlow()
+  const [isSaving, setIsSaving] = useState(false)
 
   const handleQuantityInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -40,7 +42,12 @@ export function CalculatorHeader({
     onQuantityChange(Math.max(1, newQuantity))
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    if (!canSave) {
+      toast.error('You must be signed in and claim a character to save calculations.')
+      return
+    }
+
     if (!selectedItem) {
       toast.error('Cannot save: No item selected to save.')
       return
@@ -55,12 +62,17 @@ export function CalculatorHeader({
     }
 
     try {
-      saveCalculator(selectedItem.slug, desiredQuantity, nodes, edges)
+      setIsSaving(true)
+      await saveCalculator(selectedItem.slug, desiredQuantity, nodes, edges)
       toast.success(
         `Calculator saved! Saved "${selectedItem.name}" with ${desiredQuantity}x quantity.`
       )
-    } catch {
-      toast.error('Save failed: Failed to save calculator state.')
+    } catch (error) {
+      console.error('Save failed:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save calculator state.'
+      toast.error(`Save failed: ${errorMessage}`)
+    } finally {
+      setIsSaving(false)
     }
   }
 
@@ -291,9 +303,15 @@ export function CalculatorHeader({
 
       {/* Action Buttons */}
       <div className="flex items-center gap-2">
-        <Button variant="default" size="sm" onClick={handleSave}>
+        <Button 
+          variant="default" 
+          size="sm" 
+          onClick={handleSave} 
+          disabled={isSaving || !canSave}
+          title={!canSave ? 'Sign in and claim a character to save calculations' : undefined}
+        >
           <Save className="mr-2 h-4 w-4" />
-          Save
+          {isSaving ? 'Saving...' : 'Save'}
         </Button>
 
         {/* <Popover>

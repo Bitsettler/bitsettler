@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
   const settlementId = searchParams.get('settlementId');
 
   try {
-    console.log('🎓 Fetching settlement skills analytics...');
+    console.log('🎓 Fetching settlement skills analytics from unified table...');
 
     if (!supabase) {
       return NextResponse.json({
@@ -38,31 +38,28 @@ export async function GET(request: NextRequest) {
       }, { status: 503 });
     }
 
-    // First, let's check what tables exist and have data
-    console.log('🔍 Comprehensive database debugging...');
-    
-    // Check settlement_citizens table directly (where skills are actually stored)
-    const { data: directCitizens, error: directCitizensError } = await supabase
-      .from('settlement_citizens')
+    // Query the unified settlement_members table - much simpler!
+    let query = supabase
+      .from('settlement_members')
       .select('*')
-      .eq('settlement_id', settlementId || '504403158277057776');
-      
-    console.log('🔍 Direct settlement_citizens query:', {
-      count: directCitizens?.length || 0,
-      error: directCitizensError,
-      sample: directCitizens?.[0] || null
-    });
+      .eq('is_active', true);
 
-    if (directCitizensError) {
-      console.error('Error querying settlement_citizens:', directCitizensError);
+    if (settlementId) {
+      query = query.eq('settlement_id', settlementId);
+    }
+
+    const { data: members, error } = await query;
+
+    if (error) {
+      console.error('Error querying settlement_members:', error);
       return NextResponse.json({
         success: false,
-        error: 'Failed to fetch skills data from settlement_citizens table'
+        error: 'Failed to fetch skills data'
       }, { status: 500 });
     }
 
-    if (!directCitizens || directCitizens.length === 0) {
-      console.log('🔍 No citizens found in settlement_citizens table');
+    if (!members || members.length === 0) {
+      console.log('🔍 No members found in settlement_members table');
       return NextResponse.json({
         success: true,
         data: {
@@ -74,46 +71,23 @@ export async function GET(request: NextRequest) {
           topSkills: [],
           skillLevelDistribution: []
         },
-        debug: {
-          message: "No citizens found in settlement_citizens table",
-          directCitizensCount: 0
+        meta: {
+          totalMembers: 0,
+          dataSource: 'unified_settlement_members',
+          generatedAt: new Date().toISOString()
         }
       });
     }
 
-    // Get cached skill names from database (no BitJita API call)
-    const { data: skillNamesData } = await supabase
-      .from('skill_names')
-      .select('skill_id, skill_name');
-    
-    const skillNames: Record<string, string> = {};
-    (skillNamesData || []).forEach(row => {
-      skillNames[row.skill_id] = row.skill_name;
-    });
+    console.log(`📊 Analyzing ${members.length} members from unified table`);
 
-    // Use the citizens data directly (this has the real skills)
-    const members = directCitizens;
-
-    console.log(`📊 Using ${members.length} citizens directly from settlement_citizens table`);
-    if (members.length > 0) {
-      console.log(`🔍 Sample citizen data:`, {
-        user_name: members[0].user_name,
-        skills: members[0].skills,
-        total_skills: members[0].total_skills,
-        highest_level: members[0].highest_level,
-        top_profession: members[0].top_profession,
-        skillsType: typeof members[0].skills,
-        allFields: Object.keys(members[0])
-      });
-    }
-
-    // Calculate basic stats using correct field names from settlement_citizens table
+    // Calculate basic stats - data already aggregated!
     const totalMembers = members.length;
     const totalSkillPoints = members.reduce((sum, member) => sum + (member.total_xp || 0), 0);
     const totalSkillsCount = members.reduce((sum, member) => sum + (member.total_skills || 0), 0);
     const averageLevel = totalMembers > 0 ? totalSkillPoints / totalMembers : 0;
 
-    // Find top profession using the correct field
+    // Find top profession - already calculated per member!
     const professionCounts: Record<string, number> = {};
     members.forEach(member => {
       const profession = member.top_profession || 'Unknown';
@@ -140,27 +114,15 @@ export async function GET(request: NextRequest) {
       maxLevel: stats.levels.length > 0 ? Math.max(...stats.levels) : 0
     })).sort((a, b) => b.members - a.members);
 
-    // Aggregate individual skills across all members
+    // Aggregate individual skills - skills already in correct format!
     const skillAggregation: Record<string, { levels: number[]; members: Set<string> }> = {};
-    let totalUniqueSkills = 0;
     
     members.forEach(member => {
-      // Parse skills from JSONB field 
-      let skills: Record<string, number> = {};
-      try {
-        if (typeof member.skills === 'string') {
-          skills = JSON.parse(member.skills);
-        } else if (typeof member.skills === 'object' && member.skills !== null) {
-          skills = member.skills;
-        }
-      } catch (e) {
-        console.warn('Failed to parse skills for member:', member.entity_id);
-        return;
-      }
-
-      Object.entries(skills).forEach(([skillId, level]) => {
+      // Skills are already in {skillName: level} format!
+      const skills = member.skills || {};
+      
+      Object.entries(skills).forEach(([skillName, level]) => {
         if (typeof level === 'number' && level > 0) {
-          const skillName = skillNames[skillId] || `Skill ${skillId}`;
           if (!skillAggregation[skillName]) {
             skillAggregation[skillName] = { levels: [], members: new Set() };
           }
@@ -169,9 +131,6 @@ export async function GET(request: NextRequest) {
         }
       });
     });
-
-    // Count unique skills found
-    totalUniqueSkills = Object.keys(skillAggregation).length;
 
     // Calculate top skills
     const topSkills = Object.entries(skillAggregation)
@@ -182,9 +141,9 @@ export async function GET(request: NextRequest) {
         maxLevel: Math.max(...data.levels)
       }))
       .sort((a, b) => b.totalMembers - a.totalMembers)
-      .slice(0, 10); // Top 10 skills
+      .slice(0, 10);
 
-    // Calculate skill level distribution based on highest skill level per member
+    // Calculate skill level distribution - using pre-calculated highest_level
     const levelCounts = { '1-5': 0, '6-10': 0, '11-20': 0, '21+': 0 };
     members.forEach(member => {
       const highestLevel = member.highest_level || 0;
@@ -200,8 +159,8 @@ export async function GET(request: NextRequest) {
     }));
 
     const analytics: SkillsAnalytics = {
-      totalSkills: totalUniqueSkills,
-      averageLevel: Math.round(averageLevel * 10) / 10, // Round to 1 decimal
+      totalSkills: Object.keys(skillAggregation).length,
+      averageLevel: Math.round(averageLevel * 10) / 10,
       topProfession,
       totalSkillPoints,
       professionDistribution,
@@ -211,18 +170,10 @@ export async function GET(request: NextRequest) {
 
     console.log(`✅ Skills analytics calculated:`, {
       totalMembers,
-      totalSkills: totalUniqueSkills,
-      totalSkillsInDB: totalSkillsCount,
+      totalSkills: analytics.totalSkills,
       averageLevel: analytics.averageLevel,
       topProfession,
-      professionsFound: professionDistribution.length,
-      skillsFound: topSkills.length,
-      sampleMember: members[0] ? {
-        name: members[0].user_name,
-        skills: members[0].skills,
-        totalSkills: members[0].total_skills,
-        highestLevel: members[0].highest_level
-      } : null
+      dataSource: 'unified_settlement_members'
     });
 
     return NextResponse.json({
@@ -230,7 +181,7 @@ export async function GET(request: NextRequest) {
       data: analytics,
       meta: {
         totalMembers,
-        dataSource: 'settlement_citizens_table',
+        dataSource: 'unified_settlement_members',
         generatedAt: new Date().toISOString()
       }
     });

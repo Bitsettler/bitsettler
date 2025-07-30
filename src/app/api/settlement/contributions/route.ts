@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth-config';
+import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { addContribution, updateProjectItemQuantity, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function POST(request: NextRequest) {
   console.log('🔄 Settlement contribution API called');
   
   try {
-    // Validate NextAuth session
-    const session = await getServerSession(authOptions);
+    // Validate Supabase Auth session
+    const session = await getSupabaseSession(request);
     
     if (!session || !session.user) {
       console.log('❌ No valid session found');

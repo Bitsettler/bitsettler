@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { generateSettlementInviteCode } from '../lib/utils/invite-codes';
-import { useUserProfile } from './use-user-profile';
 
 export interface Settlement {
   id: string;
@@ -26,7 +25,6 @@ export function useSelectedSettlement() {
   const [selectedSettlement, setSelectedSettlement] = useState<Settlement | null>(null);
   const [inviteCode, setInviteCode] = useState<SettlementInviteCode | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { addActivity, updateProfile, profile } = useUserProfile();
 
   // Load settlement and invite code from localStorage on mount
   useEffect(() => {
@@ -91,32 +89,7 @@ export function useSelectedSettlement() {
     setInviteCode(newCode);
     localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
 
-    // Track user activity (only if profile exists)
-    if (profile) {
-      addActivity({
-        type: 'settlement_connected',
-        description: `Connected to ${settlement.name} (Tier ${settlement.tier})`,
-        metadata: {
-          settlementId: settlement.id,
-          settlementName: settlement.name,
-          tier: settlement.tier,
-          population: settlement.population
-        }
-      });
-    }
-
-    // Update settlement stats (preserve existing profile data)
-    if (profile) {
-      updateProfile({
-        stats: {
-          settlementsConnected: 1, // This will be computed properly in a real implementation
-          calculationsRun: 0,
-          totalAppTime: 0
-        }
-      });
-    } else {
-      console.warn('⚠️ Profile not found, skipping stats update for settlement selection.');
-    }
+    console.log(`🎯 Settlement selected: ${settlement.name}`);
 
     // Only trigger sync if not already done (prevents duplicate syncs during onboarding)
     if (!skipSync) {

@@ -2,7 +2,7 @@
 
 import { Container } from '@/components/container'
 import { GameDataProvider } from '@/contexts/game-data-context'
-import { useCalculatorSaves } from '@/hooks/use-calculator-saves'
+import { useDatabaseCalculatorSaves } from '@/hooks/use-database-calculator-saves'
 import { useItemSelection } from '@/hooks/use-item-selection'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import type {
@@ -26,7 +26,7 @@ function CalculatorLayoutClientContent({
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { loadCalculator } = useCalculatorSaves()
+  const { loadCalculator } = useDatabaseCalculatorSaves()
 
   // Get the current slug from the pathname
   const slug = pathname.split('/').pop()
