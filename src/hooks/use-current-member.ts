@@ -55,8 +55,6 @@ export function useCurrentMember() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log('useCurrentMember effect:', { status, session, userId: session?.user?.id });
-    
     if (status === 'loading') return;
     
     if (status === 'unauthenticated' || !session?.user?.id) {
@@ -66,7 +64,6 @@ export function useCurrentMember() {
       return;
     }
 
-    // Only fetch if we're definitely authenticated
     if (status === 'authenticated' && session?.user?.id) {
       fetchCurrentMember();
     }
