@@ -37,39 +37,36 @@ export function createServerClientWithAuth() {
 // Get session for API routes - replacement for getServerSession
 export async function getSupabaseSession(request?: NextRequest) {
   try {
-    let authHeader: string | null = null
-    
-    if (request) {
-      // Get from request headers
-      authHeader = request.headers.get('authorization')
-    } else {
-      // Try to get from cookies for server components
+    // First try to get from cookies (this works for browser requests to API routes)
+    try {
       const supabase = createServerClientWithAuth()
       const { data: { session }, error } = await supabase.auth.getSession()
-      if (error) {
-        console.error('Error getting session:', error)
-        return null
+      if (!error && session?.user) {
+        return session
       }
-      return session
+    } catch (cookieError) {
+      console.warn('Could not read session from cookies:', cookieError)
     }
 
-    if (!authHeader) {
-      return null
+    // Fallback to authorization header (for direct API calls with tokens)
+    if (request) {
+      const authHeader = request.headers.get('authorization')
+      if (authHeader) {
+        const token = authHeader.replace('Bearer ', '')
+        const supabase = createServerSupabaseClient()
+        
+        const { data: { user }, error } = await supabase.auth.getUser(token)
+        if (!error && user) {
+          return {
+            user,
+            access_token: token,
+            expires_at: user.email_confirmed_at ? undefined : Date.now() + 3600000
+          }
+        }
+      }
     }
 
-    const token = authHeader.replace('Bearer ', '')
-    const supabase = createServerSupabaseClient()
-    
-    const { data: { user }, error } = await supabase.auth.getUser(token)
-    if (error || !user) {
-      return null
-    }
-
-    return {
-      user,
-      access_token: token,
-      expires_at: user.email_confirmed_at ? undefined : Date.now() + 3600000 // 1 hour fallback
-    }
+    return null
   } catch (error) {
     console.error('Error getting session:', error)
     return null

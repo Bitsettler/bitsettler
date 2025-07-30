@@ -24,7 +24,7 @@ export async function GET(request: Request) {
     const { data: member, error } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('auth_user_id', session.user.id)
+      .eq('auth_user_id', session.user.id.toString())
       .maybeSingle();
 
     if (error) {
