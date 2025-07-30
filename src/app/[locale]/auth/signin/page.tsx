@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase-auth'
 import { useAuth } from '@/hooks/use-auth'
+import { Container } from '@/components/container'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Loader2, Mail, MessageCircle, Github, Shield, Zap, AlertCircle } from 'lucide-react'
+import { Loader2, Mail, MessageCircle, Github, LogIn, Zap, AlertCircle } from 'lucide-react'
 
 export default function SignInPage() {
   const [authView, setAuthView] = useState<'sign_in' | 'sign_up' | 'magic_link'>('sign_in')
@@ -122,14 +123,14 @@ export default function SignInPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-        <div className="w-full max-w-md space-y-4">
-          <div className="text-center">
-            <Loader2 className="h-8 w-8 mx-auto animate-spin text-primary mb-4" />
-            <div className="h-4 w-32 bg-muted rounded animate-pulse mx-auto" />
+      <Container>
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center space-y-4">
+            <Loader2 className="h-8 w-8 mx-auto animate-spin text-muted-foreground" />
+            <p className="text-muted-foreground">Loading...</p>
           </div>
         </div>
-      </div>
+      </Container>
     )
   }
 
@@ -138,32 +139,26 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-4">
-      <div className="w-full max-w-md space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6">
-            <Shield className="h-8 w-8 text-primary-foreground" />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
-              Welcome to BitCraft.guide
-            </h1>
-            <p className="text-lg text-muted-foreground mt-3">
+    <Container>
+      <div className="flex items-center justify-center py-12">
+        <div className="w-full max-w-md space-y-6">
+          {/* Header */}
+          <div className="text-center space-y-2">
+            <h1 className="text-2xl font-bold">Welcome to BitCraft.guide</h1>
+            <p className="text-muted-foreground">
               Sign in to access settlement management features
             </p>
           </div>
-        </div>
 
-        <Card className="shadow-2xl border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
-          <CardHeader className="space-y-2 pb-6">
-            <CardTitle className="text-2xl text-center font-semibold">
+          <Card>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-xl text-center">
               {authView === 'sign_in' && 'Sign In'}
               {authView === 'sign_up' && 'Create Account'} 
               {authView === 'magic_link' && 'Magic Link'}
             </CardTitle>
-            <CardDescription className="text-center text-base">
-              {authView === 'sign_in' && 'Welcome back! Choose your preferred sign-in method'}
+            <CardDescription className="text-center">
+              {authView === 'sign_in' && 'Choose your preferred sign-in method'}
               {authView === 'sign_up' && 'Create your account to start managing settlements'}
               {authView === 'magic_link' && 'Get a secure sign-in link sent to your email'}
             </CardDescription>
@@ -179,7 +174,7 @@ export default function SignInPage() {
             )}
             
             {success && (
-              <Alert className="border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-950 dark:text-green-200">
+              <Alert>
                 <Mail className="h-4 w-4" />
                 <AlertDescription>{success}</AlertDescription>
               </Alert>
@@ -192,12 +187,12 @@ export default function SignInPage() {
                 variant="outline"
                 onClick={() => handleOAuthSignIn('google')}
                 disabled={isLoading}
-                className="w-full h-12 text-base font-medium hover:bg-red-50 hover:border-red-200 dark:hover:bg-red-950 transition-colors"
+                className="w-full"
               >
                 {isLoading ? (
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <Mail className="mr-2 h-5 w-5 text-red-500" />
+                  <Mail className="mr-2 h-4 w-4" />
                 )}
                 Continue with Google
               </Button>
@@ -207,12 +202,12 @@ export default function SignInPage() {
                 variant="outline"
                 onClick={() => handleOAuthSignIn('discord')}
                 disabled={isLoading}
-                className="w-full h-12 text-base font-medium hover:bg-indigo-50 hover:border-indigo-200 dark:hover:bg-indigo-950 transition-colors"
+                className="w-full"
               >
                 {isLoading ? (
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <MessageCircle className="mr-2 h-5 w-5 text-indigo-500" />
+                  <MessageCircle className="mr-2 h-4 w-4" />
                 )}
                 Continue with Discord
               </Button>
@@ -222,12 +217,12 @@ export default function SignInPage() {
                 variant="outline"
                 onClick={() => handleOAuthSignIn('github')}
                 disabled={isLoading}
-                className="w-full h-12 text-base font-medium hover:bg-gray-50 hover:border-gray-200 dark:hover:bg-gray-950 transition-colors"
+                className="w-full"
               >
                 {isLoading ? (
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <Github className="mr-2 h-5 w-5 text-gray-700 dark:text-gray-300" />
+                  <Github className="mr-2 h-4 w-4" />
                 )}
                 Continue with GitHub
               </Button>
@@ -237,8 +232,8 @@ export default function SignInPage() {
               <div className="absolute inset-0 flex items-center">
                 <Separator className="w-full" />
               </div>
-              <div className="relative flex justify-center text-sm uppercase">
-                <span className="bg-background px-4 text-muted-foreground font-medium">
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
                   Or continue with email
                 </span>
               </div>
@@ -248,7 +243,7 @@ export default function SignInPage() {
             {authView === 'magic_link' ? (
               <form onSubmit={handleMagicLink} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-medium">Email address</Label>
+                  <Label htmlFor="email">Email address</Label>
                   <Input
                     id="email"
                     type="email"
@@ -256,11 +251,10 @@ export default function SignInPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="h-11"
                   />
                 </div>
                 
-                <Button type="submit" disabled={isLoading} className="w-full h-11 text-base font-medium">
+                <Button type="submit" disabled={isLoading} className="w-full">
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -277,7 +271,7 @@ export default function SignInPage() {
             ) : (
               <form onSubmit={handleEmailAuth} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-medium">Email address</Label>
+                  <Label htmlFor="email">Email address</Label>
                   <Input
                     id="email"
                     type="email"
@@ -285,12 +279,11 @@ export default function SignInPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="h-11"
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                  <Label htmlFor="password">Password</Label>
                   <Input
                     id="password"
                     type="password"
@@ -298,11 +291,10 @@ export default function SignInPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     required
-                    className="h-11"
                   />
                 </div>
                 
-                <Button type="submit" disabled={isLoading} className="w-full h-11 text-base font-medium">
+                <Button type="submit" disabled={isLoading} className="w-full">
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -310,7 +302,7 @@ export default function SignInPage() {
                     </>
                   ) : (
                     <>
-                      <Shield className="mr-2 h-4 w-4" />
+                      <LogIn className="mr-2 h-4 w-4" />
                       {authView === 'sign_in' ? 'Sign in' : 'Create account'}
                     </>
                   )}
@@ -326,18 +318,18 @@ export default function SignInPage() {
                     type="button"
                     variant="ghost"
                     onClick={() => setAuthView('sign_up')}
-                    className="text-sm font-medium"
+                    className="text-sm"
                   >
-                    Don't have an account? <span className="text-primary ml-1">Sign up</span>
+                    Don't have an account? Sign up
                   </Button>
                   <div>
                     <Button
                       type="button"
                       variant="ghost"
                       onClick={() => setAuthView('magic_link')}
-                      className="text-sm font-medium"
+                      className="text-sm"
                     >
-                      Prefer passwordless? <span className="text-primary ml-1">Use magic link</span>
+                      Prefer passwordless? Use magic link
                     </Button>
                   </div>
                 </>
@@ -347,18 +339,18 @@ export default function SignInPage() {
                     type="button"
                     variant="ghost"
                     onClick={() => setAuthView('sign_in')}
-                    className="text-sm font-medium"
+                    className="text-sm"
                   >
-                    Already have an account? <span className="text-primary ml-1">Sign in</span>
+                    Already have an account? Sign in
                   </Button>
                   <div>
                     <Button
                       type="button"
                       variant="ghost"
                       onClick={() => setAuthView('magic_link')}
-                      className="text-sm font-medium"
+                      className="text-sm"
                     >
-                      Prefer passwordless? <span className="text-primary ml-1">Use magic link</span>
+                      Prefer passwordless? Use magic link
                     </Button>
                   </div>
                 </>
@@ -367,9 +359,9 @@ export default function SignInPage() {
                   type="button"
                   variant="ghost"
                   onClick={() => setAuthView('sign_in')}
-                  className="text-sm font-medium"
+                  className="text-sm"
                 >
-                  Back to <span className="text-primary ml-1">traditional sign-in</span>
+                  Back to traditional sign-in
                 </Button>
               )}
             </div>
@@ -380,12 +372,12 @@ export default function SignInPage() {
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
             By signing in, you agree to our{' '}
-            <a href="#" className="text-primary hover:underline font-medium">terms of service</a>
+            <a href="#" className="hover:underline">terms of service</a>
             {' '}and{' '}
-            <a href="#" className="text-primary hover:underline font-medium">privacy policy</a>.
+            <a href="#" className="hover:underline">privacy policy</a>.
           </p>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }
