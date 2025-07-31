@@ -134,13 +134,13 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     setStep('verify');
 
     try {
-      // Fetch real character data from BitJita API via our endpoint
-      const result = await api.get(`/api/settlement/roster?settlementId=${settlement.id}`);
+      // Fetch character data from OUR database (not BitJita)
+      const result = await api.get(`/api/settlement/members?settlementId=${settlement.id}`);
 
       if (result.success && result.data.members && result.data.members.length > 0) {
-        console.log(`✅ Found ${result.data.members.length} members in settlement ${settlement.name}`);
+        console.log(`✅ Found ${result.data.members.length} members in database for settlement ${settlement.name}`);
         
-        // Transform roster data to character format
+        // Transform database data to character format
         const characters = result.data.members.map((member: any) => ({
           id: member.id || member.entity_id,
           name: member.name,
@@ -510,9 +510,14 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
             <div className="flex justify-center mb-4">
               <CheckCircle className="w-12 h-12 text-green-500" />
             </div>
-            <CardTitle>{establishData ? 'Character Claimed!' : 'Settlement Established!'}</CardTitle>
+            <CardTitle>
+              {establishData && establishData.availableCharacters.length > 0 
+                ? 'Character Claimed!' 
+                : 'Settlement Established!'
+              }
+            </CardTitle>
             <CardDescription>
-              {establishData 
+              {establishData && establishData.availableCharacters.length > 0
                 ? `Welcome to ${selectedSettlement?.name}! You can now access the settlement dashboard.`
                 : `${selectedSettlement?.name} is now ready for management`
               }

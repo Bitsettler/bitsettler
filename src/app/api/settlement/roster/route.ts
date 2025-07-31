@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
       player_entity_id: member.playerEntityId,
       claim_entity_id: member.claimEntityId,
       bitjita_user_id: member.playerEntityId, // Use playerEntityId as user identifier
-      name: member.playerName || 'Unknown Player',
+      name: member.userName || 'Unknown Player', // ✅ Fixed: use userName instead of playerName
       settlement_id: settlementId,
       
       // Default skill data (BitJita roster doesn't include skills)
@@ -52,15 +52,15 @@ export async function GET(request: NextRequest) {
       total_xp: 0,
       top_profession: 'Unknown',
       
-      // Permission data from BitJita
-      inventory_permission: member.canAccessInventory ? 1 : 0,
-      build_permission: member.canBuild ? 1 : 0,
-      officer_permission: member.isOfficer ? 1 : 0,
-      co_owner_permission: member.isCoOwner ? 1 : 0,
+      // Permission data from BitJita (fixed field names)
+      inventory_permission: member.inventoryPermission || 0,
+      build_permission: member.buildPermission || 0,
+      officer_permission: member.officerPermission || 0,
+      co_owner_permission: member.coOwnerPermission || 0,
       
-      // Timestamps
+      // Timestamps (fixed field names from BitJita API)
       last_login_timestamp: member.lastLoginTimestamp ? new Date(member.lastLoginTimestamp) : null,
-      joined_settlement_at: member.joinedAt ? new Date(member.joinedAt) : null,
+      joined_settlement_at: member.createdAt ? new Date(member.createdAt) : null,
       
       // Status
       is_active: true,

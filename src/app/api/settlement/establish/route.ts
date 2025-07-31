@@ -48,22 +48,30 @@ export async function POST(request: NextRequest) {
     if (existingSettlement) {
       console.log(`✅ Settlement already exists: ${existingSettlement.name}`);
       
-      // Settlement exists, so get the available characters and invite code
+      // Settlement exists, so get the available characters from our database
       try {
-        // Fetch real settlement data from BitJita API
-        const rosterResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/roster?settlementId=${settlementId}`);
-        const rosterResult = await rosterResponse.json();
+        // Fetch settlement member data from OUR database (not BitJita)
+        const membersResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/members?settlementId=${settlementId}`);
+        const membersResult = await membersResponse.json();
         
-        if (rosterResult.success && rosterResult.data.members) {
-          const availableCharacters = rosterResult.data.members
-            .filter((member: any) => !member.supabase_user_id) // Only unclaimed characters
+        if (membersResult.success && membersResult.data.members) {
+          const availableCharacters = membersResult.data.members
+            // All members from our database are already unclaimed (filtered in API)
             .map((member: any) => ({
-              id: member.id || member.entity_id,
-              name: member.name || member.display_name || 'Unknown Character',
-              level: member.level || 1,
-              skills: member.skills || [],
-              location: member.location || 'Unknown',
-              isOnline: member.is_online || false
+              id: member.entity_id,
+              name: member.name || 'Unknown Character',
+              settlement_id: member.settlement_id,
+              entity_id: member.entity_id,
+              bitjita_user_id: member.bitjita_user_id,
+              skills: member.skills || {},
+              top_profession: member.top_profession || 'Unknown',
+              total_level: member.total_level || 0,
+              permissions: {
+                inventory: Boolean(member.inventory_permission),
+                build: Boolean(member.build_permission),
+                officer: Boolean(member.officer_permission),
+                co_owner: Boolean(member.co_owner_permission)
+              }
             }));
 
           return NextResponse.json({
@@ -77,10 +85,10 @@ export async function POST(request: NextRequest) {
           });
         }
       } catch (fetchError) {
-        console.error('❌ Failed to fetch character data for existing settlement:', fetchError);
+        console.error('❌ Failed to fetch character data from database for existing settlement:', fetchError);
       }
       
-      // Fallback if roster fetch fails
+      // Fallback if database fetch fails
       return NextResponse.json({
         success: true,
         message: 'Settlement already established',
@@ -215,13 +223,31 @@ export async function POST(request: NextRequest) {
     console.log(`📋 Invite code: ${inviteCodeResult}`);
     console.log(`👥 Members imported: ${members?.length || 0}`);
 
+    // Transform member data to match frontend expectations
+    const transformedCharacters = (members || []).map((member: any) => ({
+      id: member.entity_id,
+      name: member.name,
+      settlement_id: member.settlement_id,
+      entity_id: member.entity_id,
+      bitjita_user_id: member.bitjita_user_id,
+      skills: member.skills || {},
+      top_profession: member.top_profession || 'Unknown',
+      total_level: member.total_level || 0,
+      permissions: {
+        inventory: Boolean(member.inventory_permission),
+        build: Boolean(member.build_permission),
+        officer: Boolean(member.officer_permission),
+        co_owner: Boolean(member.co_owner_permission)
+      }
+    }));
+
     return NextResponse.json({
       success: true,
       message: `Settlement ${settlementName} established successfully`,
       data: {
         settlement: finalSettlement,
         inviteCode: inviteCodeResult,
-        availableCharacters: members || [],
+        availableCharacters: transformedCharacters,
         membersImported: members?.length || 0
       }
     });
