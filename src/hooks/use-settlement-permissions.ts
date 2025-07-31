@@ -156,6 +156,6 @@ export function useSettlementPermissions() {
     permissions,
     userRole,
     loading,
-    refreshPermissions: fetchUserPermissions
+    refreshPermissions: calculatePermissions
   }
 }

@@ -1,4 +1,5 @@
 import { settlementConfig } from '../../../../config/settlement-config';
+import { transformBitJitaClaims, type RawBitJitaClaim, type BitJitaSettlementDetails } from './bitjita-api-mapping';
 
 // BitJita API interfaces
 export interface BitJitaMember {
@@ -25,30 +26,7 @@ export interface BitJitaCitizen {
   totalXP: number;
 }
 
-export interface BitJitaSettlementDetails {
-  id: string;
-  name: string;
-  tier: number;
-  treasury: number;
-  supplies: number;
-  tiles: number;
-  population?: number;
-  // Rich BitJita data
-  ownerPlayerEntityId?: string;
-  ownerBuildingEntityId?: string;
-  neutral?: boolean;
-  regionId?: number;
-  regionName?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  buildingMaintenance?: number;
-  locationX?: number;
-  locationZ?: number;
-  locationDimension?: number;
-  learned?: number[];
-  researching?: number;
-  startTimestamp?: string | null;
-}
+// BitJitaSettlementDetails interface moved to bitjita-api-mapping.ts
 
 export interface BitJitaAPIResponse<T = any> {
   success: boolean;
@@ -265,32 +243,9 @@ export class BitJitaAPI {
               console.log(`🎯 BitJita reports ${totalExpected} total settlements (or using known total: 2323)`);
             }
             
-            // Transform and add settlements with ALL rich data from BitJita
-            data.claims.forEach((claim: any) => {
-              const settlement: BitJitaSettlementDetails = {
-                id: claim.entityId,
-                name: claim.name,
-                tier: claim.tier || 0,
-                treasury: parseInt(claim.treasury) || 0,
-                supplies: claim.supplies || 0,
-                tiles: claim.numTiles || 0,
-                population: claim.numTiles || 0,
-                // Rich BitJita data
-                ownerPlayerEntityId: claim.ownerPlayerEntityId,
-                ownerBuildingEntityId: claim.ownerBuildingEntityId,
-                neutral: claim.neutral,
-                regionId: claim.regionId,
-                regionName: claim.regionName,
-                createdAt: claim.createdAt,
-                updatedAt: claim.updatedAt,
-                buildingMaintenance: claim.buildingMaintenance || 0,
-                locationX: claim.locationX,
-                locationZ: claim.locationZ,
-                locationDimension: claim.locationDimension,
-                learned: claim.learned,
-                researching: claim.researching,
-                startTimestamp: claim.startTimestamp
-              };
+            // Transform and add settlements using clean mapping function
+            const transformedSettlements = transformBitJitaClaims(data.claims);
+            transformedSettlements.forEach(settlement => {
               allSettlements.set(settlement.id, settlement);
             });
             

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,6 +23,11 @@ import {
 } from 'lucide-react';
 
 interface SettlementEstablishFlowProps {
+  establishData?: {
+    settlement: any;
+    inviteCode: string;
+    availableCharacters: CharacterOption[];
+  };
   onBack: () => void;
   onComplete: () => void;
 }
@@ -54,8 +60,10 @@ interface CharacterOption {
   };
 }
 
-export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstablishFlowProps) {
-  const [step, setStep] = useState<'search' | 'select' | 'verify' | 'establishing' | 'complete' | 'error'>('search');
+export function SettlementEstablishFlow({ establishData, onBack, onComplete }: SettlementEstablishFlowProps) {
+  const [step, setStep] = useState<'search' | 'select' | 'verify' | 'establishing' | 'complete' | 'error'>(
+    establishData ? 'establishing' : 'search'
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<GameSettlement[]>([]);
@@ -64,42 +72,57 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // Initialize data when establishData is provided
+  useEffect(() => {
+    if (establishData) {
+      setSelectedSettlement({
+        id: establishData.settlement.id,
+        name: establishData.settlement.name,
+        memberCount: establishData.availableCharacters.length,
+        location: 'Game Settlement',
+        description: `Established settlement with invite code: ${establishData.inviteCode}`,
+        isActive: true,
+        owner: 'Current User',
+        lastActive: new Date().toISOString()
+      });
+      setAvailableCharacters(establishData.availableCharacters);
+      
+      // Show establishing step for 2 seconds, then transition to character selection
+      const timer = setTimeout(() => {
+        if (establishData.availableCharacters.length > 0) {
+          setStep('verify'); // Go to character claiming if members were imported
+        } else {
+          setStep('complete'); // Go directly to success if no members
+          // Auto-redirect to dashboard after showing success for 3 seconds
+          setTimeout(() => {
+            onComplete();
+          }, 3000);
+        }
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [establishData, onComplete]);
+
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
 
     setIsSearching(true);
     try {
-      // TODO: Replace with actual BitJita API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Mock search results
-      const mockResults: GameSettlement[] = [
-        {
-          id: 'settlement_1',
-          name: 'Ironforge Trading Company',
-          memberCount: 23,
-          location: 'Northern Highlands',
-          description: 'A thriving trading settlement focused on mining and metallurgy',
-          isActive: true,
-          owner: 'GuildMaster_Thor',
-          lastActive: '2024-01-30T10:30:00Z'
-        },
-        {
-          id: 'settlement_2',
-          name: 'Meadowbrook Collective',
-          memberCount: 18,
-          location: 'Eastern Plains',
-          description: 'Agricultural settlement specializing in farming and crafting',
-          isActive: true,
-          owner: 'Farmer_Jane',
-          lastActive: '2024-01-29T15:45:00Z'
-        }
-      ].filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const result = await api.get(`/api/settlement/search?q=${encodeURIComponent(searchQuery.trim())}&page=1`);
 
-      setSearchResults(mockResults);
-      setStep('select');
+      if (result.success) {
+        console.log(`✅ Found ${result.data.settlements.length} settlements for "${searchQuery}"`);
+        setSearchResults(result.data.settlements);
+        setStep('select');
+      } else {
+        console.error('❌ Settlement search failed:', result.error);
+        setError(`Search failed: ${result.error}`);
+        setStep('error');
+      }
     } catch (err) {
-      setError('Failed to search settlements. Please try again.');
+      console.error('❌ Network error during settlement search:', err);
+      setError('Network error during search. Please try again.');
       setStep('error');
     } finally {
       setIsSearching(false);
@@ -111,29 +134,53 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
     setStep('verify');
 
     try {
-      // TODO: Replace with actual API call to get characters in this settlement
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Mock characters for verification
-      setAvailableCharacters([
-        {
-          id: 'char_1',
-          name: 'Thorek Ironbeard',
+      // Fetch real character data from BitJita API via our endpoint
+      const result = await api.get(`/api/settlement/roster?settlementId=${settlement.id}`);
+
+      if (result.success && result.data.members && result.data.members.length > 0) {
+        console.log(`✅ Found ${result.data.members.length} members in settlement ${settlement.name}`);
+        
+        // Transform roster data to character format
+        const characters = result.data.members.map((member: any) => ({
+          id: member.id || member.entity_id,
+          name: member.name,
           settlement_id: settlement.id,
-          entity_id: 'entity_123',
-          bitjita_user_id: '432345564239953880',
-          skills: { 'Mining': 45, 'Blacksmithing': 38, 'Trading': 22 },
-          top_profession: 'Mining',
-          total_level: 105,
+          entity_id: member.entity_id,
+          bitjita_user_id: member.bitjita_user_id,
+          skills: member.skills || {},
+          top_profession: member.top_profession || 'Unknown',
+          total_level: member.total_level || 0,
+          permissions: {
+            inventory: (member.inventory_permission || 0) > 0,
+            build: (member.build_permission || 0) > 0,
+            officer: (member.officer_permission || 0) > 0,
+            co_owner: (member.co_owner_permission || 0) > 0
+          }
+        }));
+
+        setAvailableCharacters(characters);
+      } else {
+        console.warn(`⚠️ No members found for settlement ${settlement.name}, using fallback character`);
+        // Create a fallback character for ownership verification
+        setAvailableCharacters([{
+          id: 'owner_placeholder',
+          name: 'Settlement Owner',
+          settlement_id: settlement.id,
+          entity_id: 'owner_entity',
+          bitjita_user_id: 'owner_user',
+          skills: {},
+          top_profession: 'Settlement Manager',
+          total_level: 1,
           permissions: {
             inventory: true,
             build: true,
             officer: true,
             co_owner: true
           }
-        }
-      ]);
+        }]);
+      }
     } catch (err) {
+      console.error('❌ Failed to load settlement character data:', err);
       setError('Failed to load settlement data. Please try again.');
       setStep('error');
     }
@@ -157,6 +204,32 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
       }, 2000);
     } catch (err) {
       setError('Failed to establish settlement. Please try again.');
+      setStep('error');
+    }
+  };
+
+  const handleClaimCharacter = async () => {
+    if (!selectedCharacter || !selectedSettlement) return;
+
+    setStep('establishing');
+    try {
+      const result = await api.post('/api/settlement/claim-character', {
+        characterId: selectedCharacter.id,
+        settlementId: selectedSettlement.id
+      });
+
+      if (result.success) {
+        setStep('complete');
+        setTimeout(() => {
+          onComplete();
+        }, 2000);
+      } else {
+        setError(result.error || 'Failed to claim character');
+        setStep('error');
+      }
+    } catch (err) {
+      console.error('❌ Failed to claim character:', err);
+      setError('Failed to claim character. Please try again.');
       setStep('error');
     }
   };
@@ -378,11 +451,11 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
                 Back
               </Button>
               <Button 
-                onClick={handleEstablishSettlement} 
+                onClick={establishData ? handleClaimCharacter : handleEstablishSettlement} 
                 disabled={!selectedCharacter}
                 className="flex-1"
               >
-                Establish Settlement Management
+                {establishData ? 'Claim Character' : 'Establish Settlement Management'}
               </Button>
             </div>
           </CardContent>
@@ -396,9 +469,12 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
       <div className="max-w-2xl mx-auto p-6">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle>Establishing Settlement</CardTitle>
+            <CardTitle>{establishData ? 'Claiming Character' : 'Establishing Settlement'}</CardTitle>
             <CardDescription>
-              Setting up management for {selectedSettlement?.name}
+              {establishData 
+                ? `Claiming your character in ${selectedSettlement?.name}`
+                : `Setting up management for ${selectedSettlement?.name}`
+              }
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -406,9 +482,19 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
             <div className="text-center text-sm text-muted-foreground space-y-1">
-              <p>Syncing settlement data from game...</p>
-              <p>Importing member information...</p>
-              <p>Setting up management permissions...</p>
+              {establishData ? (
+                <>
+                  <p>Verifying character ownership...</p>
+                  <p>Setting up your account...</p>
+                  <p>Activating settlement access...</p>
+                </>
+              ) : (
+                <>
+                  <p>Syncing settlement data from game...</p>
+                  <p>Importing member information...</p>
+                  <p>Setting up management permissions...</p>
+                </>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -424,15 +510,41 @@ export function SettlementEstablishFlow({ onBack, onComplete }: SettlementEstabl
             <div className="flex justify-center mb-4">
               <CheckCircle className="w-12 h-12 text-green-500" />
             </div>
-            <CardTitle>Settlement Established!</CardTitle>
+            <CardTitle>{establishData ? 'Character Claimed!' : 'Settlement Established!'}</CardTitle>
             <CardDescription>
-              You now manage {selectedSettlement?.name} as {selectedCharacter?.name}
+              {establishData 
+                ? `Welcome to ${selectedSettlement?.name}! You can now access the settlement dashboard.`
+                : `${selectedSettlement?.name} is now ready for management`
+              }
             </CardDescription>
           </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-sm text-muted-foreground">
-              Redirecting to your settlement dashboard...
-            </p>
+          <CardContent className="space-y-4">
+            {establishData && (
+              <div className="bg-muted/50 rounded-lg p-4">
+                <h3 className="font-semibold mb-2">Settlement Details</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Settlement:</span>
+                    <span className="font-medium">{establishData.settlement.name}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Invite Code:</span>
+                    <code className="font-mono bg-background px-2 py-1 rounded border">
+                      {establishData.inviteCode}
+                    </code>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Members:</span>
+                    <span>{establishData.availableCharacters.length}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">
+                Redirecting to your settlement dashboard...
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>

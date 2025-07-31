@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,17 +19,22 @@ import {
 } from 'lucide-react';
 
 interface SettlementJoinFlowProps {
-  inviteCode: string;
+  settlementData: {
+    settlement: {
+      id: string;
+      name: string;
+      tier: number;
+      population: number;
+      memberCount: number;
+    };
+    availableCharacters: CharacterOption[];
+    totalAvailable: number;
+  };
   onBack: () => void;
   onComplete: () => void;
 }
 
-interface SettlementInfo {
-  id: string;
-  name: string;
-  memberCount: number;
-  location?: string;
-}
+
 
 interface CharacterOption {
   id: string;
@@ -41,103 +47,40 @@ interface CharacterOption {
   total_level: number;
 }
 
-export function SettlementJoinFlow({ inviteCode, onBack, onComplete }: SettlementJoinFlowProps) {
-  const [step, setStep] = useState<'validating' | 'character-select' | 'claiming' | 'complete' | 'error'>('validating');
+export function SettlementJoinFlow({ settlementData, onBack, onComplete }: SettlementJoinFlowProps) {
+  const [step, setStep] = useState<'character-select' | 'claiming' | 'complete' | 'error'>('character-select');
   const [error, setError] = useState<string | null>(null);
-  const [settlementInfo, setSettlementInfo] = useState<SettlementInfo | null>(null);
-  const [availableCharacters, setAvailableCharacters] = useState<CharacterOption[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
 
-  // Simulate invite code validation
-  useState(() => {
-    const validateInviteCode = async () => {
-      try {
-        // TODO: Replace with actual API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Mock settlement info
-        setSettlementInfo({
-          id: 'settlement_123',
-          name: 'Ironforge Trading Company',
-          memberCount: 23,
-          location: 'Northern Highlands'
-        });
-
-        // Mock available characters for this settlement
-        setAvailableCharacters([
-          {
-            id: 'char_1',
-            name: 'Thorek Ironbeard',
-            settlement_id: 'settlement_123',
-            entity_id: 'entity_123',
-            bitjita_user_id: '432345564239953880',
-            skills: { 'Mining': 45, 'Blacksmithing': 38, 'Trading': 22 },
-            top_profession: 'Mining',
-            total_level: 105
-          },
-          {
-            id: 'char_2', 
-            name: 'Dain Stoneforge',
-            settlement_id: 'settlement_123',
-            entity_id: 'entity_456',
-            bitjita_user_id: '432345564239953881',
-            skills: { 'Blacksmithing': 52, 'Engineering': 31, 'Mining': 18 },
-            top_profession: 'Blacksmithing',
-            total_level: 101
-          }
-        ]);
-
-        setStep('character-select');
-      } catch (err) {
-        setError('Invalid invite code or settlement not found');
-        setStep('error');
-      }
-    };
-
-    validateInviteCode();
-  }, []);
+  // Data is already loaded from API call
 
   const handleClaimCharacter = async () => {
     if (!selectedCharacter) return;
 
     setStep('claiming');
     try {
-      // TODO: Replace with actual API call to claim character
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setStep('complete');
-      setTimeout(() => {
-        onComplete();
-      }, 2000);
+      const result = await api.post('/api/settlement/claim-character', {
+        characterId: selectedCharacter.id,
+        settlementId: settlementData.settlement.id
+      });
+
+      if (result.success) {
+        setStep('complete');
+        setTimeout(() => {
+          onComplete();
+        }, 2000);
+      } else {
+        setError(result.error || 'Failed to claim character');
+        setStep('error');
+      }
     } catch (err) {
+      console.error('Failed to claim character:', err);
       setError('Failed to claim character. Please try again.');
       setStep('error');
     }
   };
 
-  if (step === 'validating') {
-    return (
-      <div className="max-w-2xl mx-auto p-6">
-        <Card>
-          <CardHeader className="text-center">
-            <CardTitle>Validating Invite Code</CardTitle>
-            <CardDescription>
-              Checking invite code: <code className="font-mono bg-muted px-1 rounded">{inviteCode}</code>
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
-            </div>
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-3/4 mx-auto" />
-              <Skeleton className="h-4 w-1/2 mx-auto" />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
+
 
   if (step === 'error') {
     return (
@@ -183,18 +126,16 @@ export function SettlementJoinFlow({ inviteCode, onBack, onComplete }: Settlemen
           <CardContent className="space-y-6">
             {/* Settlement Info */}
             <div className="bg-muted/50 rounded-lg p-4">
-              <h3 className="font-semibold text-lg mb-2">{settlementInfo?.name}</h3>
+              <h3 className="font-semibold text-lg mb-2">{settlementData.settlement.name}</h3>
               <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                 <div className="flex items-center space-x-1">
                   <Users className="w-4 h-4" />
-                  <span>{settlementInfo?.memberCount} members</span>
+                  <span>{settlementData.settlement.memberCount} members</span>
                 </div>
-                {settlementInfo?.location && (
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{settlementInfo.location}</span>
-                  </div>
-                )}
+                <div className="flex items-center space-x-1">
+                  <MapPin className="w-4 h-4" />
+                  <span>Population: {settlementData.settlement.population}</span>
+                </div>
               </div>
             </div>
 
@@ -206,7 +147,7 @@ export function SettlementJoinFlow({ inviteCode, onBack, onComplete }: Settlemen
               </p>
               
               <div className="grid gap-3">
-                {availableCharacters.map((character) => (
+                {settlementData.availableCharacters.map((character) => (
                   <Card 
                     key={character.id}
                     className={`cursor-pointer transition-all border-2 ${
@@ -266,7 +207,7 @@ export function SettlementJoinFlow({ inviteCode, onBack, onComplete }: Settlemen
           <CardHeader className="text-center">
             <CardTitle>Claiming Character</CardTitle>
             <CardDescription>
-              Setting up your access to {settlementInfo?.name}
+              Setting up your access to {settlementData.settlement.name}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -291,7 +232,7 @@ export function SettlementJoinFlow({ inviteCode, onBack, onComplete }: Settlemen
             <div className="flex justify-center mb-4">
               <CheckCircle className="w-12 h-12 text-green-500" />
             </div>
-            <CardTitle>Welcome to {settlementInfo?.name}!</CardTitle>
+            <CardTitle>Welcome to {settlementData.settlement.name}!</CardTitle>
             <CardDescription>
               You've successfully joined the settlement as {selectedCharacter?.name}
             </CardDescription>

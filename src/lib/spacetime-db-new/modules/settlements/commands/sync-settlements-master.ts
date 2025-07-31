@@ -82,14 +82,33 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         const { error: upsertError } = await supabase
           .from('settlements_master')
           .upsert({
+            // Core settlement data
             id: settlement.id,
             name: settlement.name,
-            name_normalized: settlement.name.toLowerCase(), // Add the normalized field that search needs
+            name_normalized: settlement.name.toLowerCase(),
             tier: settlement.tier,
             treasury: settlement.treasury,
             supplies: settlement.supplies,
             tiles: settlement.tiles,
             population: settlement.population,
+            
+            // Rich BitJita data (now that we're storing everything)
+            building_maintenance: settlement.buildingMaintenance,
+            location_x: settlement.locationX,
+            location_z: settlement.locationZ,
+            location_dimension: settlement.locationDimension,
+            region_id: settlement.regionId,
+            region_name: settlement.regionName,
+            owner_player_entity_id: settlement.ownerPlayerEntityId,
+            owner_building_entity_id: settlement.ownerBuildingEntityId,
+            neutral: settlement.neutral,
+            learned_techs: settlement.learned,
+            researching: settlement.researching,
+            research_start_timestamp: settlement.startTimestamp,
+            bitjita_created_at: settlement.createdAt,
+            bitjita_updated_at: settlement.updatedAt,
+            
+            // Our metadata
             last_synced_at: new Date().toISOString(),
             is_active: true,
             sync_source: 'bitjita',

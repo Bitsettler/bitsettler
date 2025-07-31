@@ -9,21 +9,24 @@ import { SettlementEstablishFlow } from '@/components/settlement-establish-flow'
 
 export function SettlementOnboardingView() {
   const [currentFlow, setCurrentFlow] = useState<'choice' | 'join' | 'establish'>('choice');
-  const [inviteCode, setInviteCode] = useState<string>('');
+  const [joinData, setJoinData] = useState<any>(null);
+  const [establishData, setEstablishData] = useState<any>(null);
   const router = useRouter();
 
-  const handleJoinSettlement = (code: string) => {
-    setInviteCode(code);
+  const handleJoinSettlement = (data: any) => {
+    setJoinData(data);
     setCurrentFlow('join');
   };
 
-  const handleEstablishSettlement = () => {
+  const handleEstablishSettlement = (data: any) => {
+    setEstablishData(data);
     setCurrentFlow('establish');
   };
 
   const handleBack = () => {
     setCurrentFlow('choice');
-    setInviteCode('');
+    setJoinData(null);
+    setEstablishData(null);
   };
 
   const handleComplete = () => {
@@ -41,9 +44,9 @@ export function SettlementOnboardingView() {
         />
       )}
 
-      {currentFlow === 'join' && (
+      {currentFlow === 'join' && joinData && (
         <SettlementJoinFlow
-          inviteCode={inviteCode}
+          settlementData={joinData}
           onBack={handleBack}
           onComplete={handleComplete}
         />
@@ -51,6 +54,7 @@ export function SettlementOnboardingView() {
 
       {currentFlow === 'establish' && (
         <SettlementEstablishFlow
+          establishData={establishData}
           onBack={handleBack}
           onComplete={handleComplete}
         />
