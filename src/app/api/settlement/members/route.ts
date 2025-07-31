@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerSupabaseClient } from '@/lib/supabase-server-auth';
+import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 
 /**
  * Settlement Members API (Database Only)
@@ -19,11 +19,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    console.log(`👥 Fetching members from database for settlement: ${settlementId}`);
 
-    const supabase = await createServerSupabaseClient();
 
-    // Fetch members from our database where data was stored during establishment
+    const supabase = createServerClient();
+    
     const { data: members, error } = await supabase
       .from('settlement_members')
       .select(`
@@ -47,11 +46,10 @@ export async function GET(request: NextRequest) {
         joined_settlement_at,
         is_active,
         last_synced_at,
-        sync_source
+        sync_source,
+        supabase_user_id
       `)
-      .eq('settlement_id', settlementId)
-      .eq('is_active', true)
-      .is('supabase_user_id', null); // Only unclaimed characters
+      .eq('settlement_id', settlementId);
 
     if (error) {
       console.error('❌ Database query failed:', error);
@@ -61,7 +59,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    console.log(`✅ Found ${members?.length || 0} unclaimed members in database`);
+
 
     // Transform database data to frontend format
     const formattedMembers = (members || []).map((member) => ({
@@ -93,6 +91,7 @@ export async function GET(request: NextRequest) {
       
       // Status
       is_active: member.is_active,
+      is_claimed: !!member.supabase_user_id, // Boolean indicating if character is claimed
       last_synced_at: member.last_synced_at,
       sync_source: member.sync_source
     }));

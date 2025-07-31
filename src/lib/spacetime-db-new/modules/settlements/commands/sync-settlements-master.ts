@@ -1,5 +1,66 @@
-import { supabase } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 import { BitJitaAPI } from '../../integrations/bitjita-api';
+
+/**
+ * Convert BitJita timestamp to PostgreSQL-compatible ISO string
+ * BitJita sends timestamps in various formats: ISO strings, numbers (microseconds), etc.
+ */
+function convertTimestampToISO(timestamp: string | number | null): string | null {
+  if (!timestamp) return null;
+  
+  try {
+    // If it's already a string that looks like an ISO timestamp, validate and use it
+    if (typeof timestamp === 'string') {
+      // Check if it's already a valid ISO string
+      if (timestamp.includes('-') && (timestamp.includes('T') || timestamp.includes(' '))) {
+        // Try to parse it as an ISO string
+        const date = new Date(timestamp);
+        if (!isNaN(date.getTime()) && date.getFullYear() >= 1970 && date.getFullYear() <= 2100) {
+          return date.toISOString();
+        }
+      }
+      
+      // If it's a numeric string, convert to number and continue processing
+      const numTimestamp = parseInt(timestamp);
+      if (isNaN(numTimestamp) || numTimestamp <= 0) {
+        return null;
+      }
+      timestamp = numTimestamp;
+    }
+    
+    // Handle numeric timestamps (microseconds since epoch)
+    if (typeof timestamp === 'number') {
+      let milliseconds = timestamp;
+      
+      // If the number is too large, it's likely in microseconds
+      if (timestamp > 9999999999999) { // More than year 2286 in milliseconds
+        milliseconds = Math.floor(timestamp / 1000); // Convert from microseconds to milliseconds
+      }
+      
+      // Create date and return ISO string
+      const date = new Date(milliseconds);
+      
+      // Validate the date is reasonable (between 1970 and 2100)
+      if (date.getFullYear() < 1970 || date.getFullYear() > 2100) {
+        // Only log occasionally to avoid spam
+        if (Math.random() < 0.01) { // 1% chance to log
+          console.warn(`Invalid timestamp: ${timestamp} -> ${date.toISOString()}`);
+        }
+        return null;
+      }
+      
+      return date.toISOString();
+    }
+    
+    return null;
+  } catch (error) {
+    // Only log occasionally to avoid spam
+    if (Math.random() < 0.01) { // 1% chance to log
+      console.warn(`Failed to convert timestamp: ${timestamp}`, error);
+    }
+    return null;
+  }
+}
 
 export interface SettlementSyncResult {
   success: boolean;
@@ -25,8 +86,10 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
   let settlementsDeactivated = 0;
   
   try {
+    // Use service role client to bypass RLS for sync operations
+    const supabase = createServerClient();
     if (!supabase) {
-      console.warn('Supabase not available, skipping settlements master sync');
+      console.warn('Supabase service role client not available, skipping settlements master sync');
       return {
         success: false,
         settlementsFound: 0,
@@ -35,7 +98,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         settlementsDeactivated: 0,
         syncDurationMs: Date.now() - startTime,
         apiCallsMade: 0,
-        error: 'Supabase not available'
+        error: 'Supabase service role client not available'
       };
     }
 
@@ -74,6 +137,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
     
     for (let i = 0; i < settlements.length; i += BATCH_SIZE) {
       const batch = settlements.slice(i, i + BATCH_SIZE);
+      console.log(`🔄 Processing batch ${Math.floor(i/BATCH_SIZE) + 1}/${Math.ceil(settlements.length/BATCH_SIZE)} (settlements ${i + 1}-${Math.min(i + BATCH_SIZE, settlements.length)})`);
       
       for (const settlement of batch) {
         seenSettlementIds.add(settlement.id);
@@ -104,9 +168,9 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
             neutral: settlement.neutral,
             learned_techs: settlement.learned,
             researching: settlement.researching,
-            research_start_timestamp: settlement.startTimestamp,
-            bitjita_created_at: settlement.createdAt,
-            bitjita_updated_at: settlement.updatedAt,
+            research_start_timestamp: convertTimestampToISO(settlement.startTimestamp),
+            bitjita_created_at: convertTimestampToISO(settlement.createdAt),
+            bitjita_updated_at: convertTimestampToISO(settlement.updatedAt),
             
             // Our metadata
             last_synced_at: new Date().toISOString(),

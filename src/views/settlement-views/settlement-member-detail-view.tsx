@@ -7,8 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCurrentMember } from '../../hooks/use-current-member';
 import { 
   User, 
   Calendar, 
@@ -20,7 +22,13 @@ import {
   Target, 
   ChevronRight, 
   MapPin,
-  ArrowLeft
+  ArrowLeft,
+  UserCheck,
+  UserX,
+  Shield,
+  Package,
+  Hammer,
+  Crown
 } from 'lucide-react';
 
 interface MemberDetail {
@@ -65,14 +73,20 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   const [error, setError] = useState<string | null>(null);
   
   const { selectedSettlement } = useSelectedSettlement();
+  const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
+    // Wait for member data to load before making API calls
+    if (memberLoading) return;
     fetchMemberDetails();
-  }, [memberId, selectedSettlement]);
+  }, [memberId, selectedSettlement, currentMember, memberLoading]);
 
   const fetchMemberDetails = async () => {
-    if (!selectedSettlement) {
-      setError('No settlement selected');
+    // Use selectedSettlement or fallback to member's settlement
+    const settlementId = selectedSettlement?.id || currentMember?.settlement_id;
+    
+    if (!settlementId) {
+      setError('No settlement available - please select a settlement or claim a character');
       setLoading(false);
       return;
     }
@@ -82,7 +96,7 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
       setError(null);
 
       const response = await fetch(
-        `/api/settlement/members/${encodeURIComponent(memberId)}?settlementId=${encodeURIComponent(selectedSettlement.id)}`
+        `/api/settlement/members/${encodeURIComponent(memberId)}?settlementId=${encodeURIComponent(settlementId)}`
       );
       
       const result: MemberDetailResponse = await response.json();

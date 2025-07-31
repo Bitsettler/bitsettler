@@ -98,14 +98,17 @@ export function useSelectedSettlement() {
       console.log(`🎯 Settlement selected: ${settlement.name}. Triggering onboarding sync...`);
       
       try {
-        const response = await fetch('/api/settlement/sync/onboarding', {
+        const response = await fetch('/api/settlement/sync', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            operation: 'onboarding',
+            mode: 'full',
             settlementId: settlement.id,
-            settlementName: settlement.name
+            settlementName: settlement.name,
+            triggeredBy: 'user_selection'
           })
         });
 

@@ -10,6 +10,7 @@ import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCurrentMember } from '../../hooks/use-current-member';
 import { Search, Users, UserCheck, Clock } from 'lucide-react';
 
 interface SettlementMember {
@@ -43,10 +44,13 @@ export function SettlementMembersView() {
   const membersPerPage = 200; // Increased to show all members
 
   const { selectedSettlement } = useSelectedSettlement();
+  const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
+    // Wait for member data to load before making API calls
+    if (memberLoading) return;
     fetchMembers();
-  }, [professionFilter, statusFilter, currentPage, selectedSettlement]);
+  }, [professionFilter, statusFilter, currentPage, selectedSettlement, member, memberLoading]);
 
   const fetchMembers = async () => {
     try {
@@ -62,10 +66,21 @@ export function SettlementMembersView() {
         params.append('profession', professionFilter);
       }
 
-      // Add settlement ID if available
-      if (selectedSettlement) {
-        params.append('settlementId', selectedSettlement.id);
+      // Add settlement ID if available - use selectedSettlement or fallback to member's settlement
+      const settlementId = selectedSettlement?.id || member?.settlement_id;
+      
+      console.log('🔍 Settlement ID resolution:', {
+        selectedSettlement: selectedSettlement?.id,
+        memberSettlement: member?.settlement_id,
+        finalSettlementId: settlementId,
+        memberLoading
+      });
+      
+      if (!settlementId) {
+        throw new Error('No settlement available - please select a settlement or claim a character');
       }
+      
+      params.append('settlementId', settlementId);
 
       const response = await fetch(`/api/settlement/members?${params}`);
       const result: MembersResponse = await response.json();
@@ -287,7 +302,7 @@ export function SettlementMembersView() {
               const page = i + 1;
               return (
                 <Button
-                  key={page}
+                  key={`page-${page}`}
                   variant={currentPage === page ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => setCurrentPage(page)}
@@ -351,7 +366,7 @@ function MembersLoadingSkeleton() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
-          <Card key={i}>
+          <Card key={`skeleton-${i}`}>
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-3">
                 <Skeleton className="h-10 w-10 rounded-full" />

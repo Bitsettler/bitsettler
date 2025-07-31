@@ -1,29 +1,73 @@
 import { settlementConfig } from '../../../../config/settlement-config';
 import { transformBitJitaClaims, type RawBitJitaClaim, type BitJitaSettlementDetails } from './bitjita-api-mapping';
 
-// BitJita API interfaces
-export interface BitJitaMember {
-  entityId: string;
-  claimEntityId: string;
-  playerEntityId: string;
-  userName: string;
+// ============================================================================
+// CLEAN DATA MODEL - ONE USER ENTITY
+// ============================================================================
+
+/**
+ * Raw BitJita Member Data (from /claims/{id}/members)
+ * Contains permissions and basic settlement membership info
+ */
+export interface BitJitaRawMember {
+  entityId: string;           // User's unique ID
+  claimEntityId: string;      // Settlement claim ID  
+  playerEntityId: string;     // Alternative user ID
+  userName?: string;          // Username (may be undefined in API)
   inventoryPermission: number;
   buildPermission: number;
   officerPermission: number;
   coOwnerPermission: number;
   createdAt: string;
-  updatedAt: string;
+  updatedAt?: string;
   lastLoginTimestamp?: string;
 }
 
-export interface BitJitaCitizen {
-  entityId: string;
-  userName: string;
+/**
+ * Raw BitJita Citizen Data (from /claims/{id}/citizens)  
+ * Contains skills and progression data
+ */
+export interface BitJitaRawCitizen {
+  entityId: string;           // User's unique ID (same as member)
+  userName: string;           // Username (usually present here)
   skills: Record<string, number>;
   totalSkills: number;
   highestLevel: number;
   totalLevel: number;
   totalXP: number;
+}
+
+/**
+ * UNIFIED USER MODEL - This is what we actually care about
+ * Combines member permissions + citizen skills for the same user
+ */
+export interface SettlementUser {
+  // Core Identity  
+  entityId: string;           // PRIMARY KEY - User's unique BitJita ID
+  userName: string;           // Display name
+  
+  // Settlement Membership
+  settlementId: string;       // Which settlement they're in
+  claimEntityId: string;      // Settlement's claim ID
+  playerEntityId: string;     // Alternative user ID
+  
+  // Permissions in Settlement
+  inventoryPermission: number;
+  buildPermission: number;
+  officerPermission: number;
+  coOwnerPermission: number;
+  
+  // Skills & Progression
+  skills: Record<string, number>;
+  totalSkills: number;
+  highestLevel: number;
+  totalLevel: number;
+  totalXP: number;
+  
+  // Timestamps
+  joinedAt: string;
+  lastLoginTimestamp?: string;
+  lastSyncedAt: string;
 }
 
 // BitJitaSettlementDetails interface moved to bitjita-api-mapping.ts
@@ -44,12 +88,13 @@ export class BitJitaAPI {
     'Content-Type': 'application/json'
   };
 
-  /**
+    /**
    * Fetch settlement roster from BitJita API
+   * Returns raw member data with permissions but unreliable userNames
    */
-  static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResponse<{ members: BitJitaMember[] }>> {
+static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResponse<{ members: BitJitaRawMember[] }>> {
     try {
-      console.log(`🔍 Fetching settlement roster for ${settlementId}...`);
+  
       
       const response = await fetch(`${this.BASE_URL}/claims/${settlementId}/members`, {
         method: 'GET',
@@ -64,6 +109,13 @@ export class BitJitaAPI {
       const data = await response.json();
       
       console.log(`✅ Fetched ${data.members?.length || 0} members`);
+      
+      // DEBUG: Log the actual API response structure
+      if (data.members && data.members.length > 0) {
+        console.log(`🔍 BitJita /members API response structure:`);
+        console.log(`   First member keys:`, Object.keys(data.members[0]));
+        console.log(`   First member data:`, data.members[0]);
+      }
       
       return {
         success: true,
@@ -83,13 +135,16 @@ export class BitJitaAPI {
   }
 
   /**
-   * Fetch settlement citizens with skills from BitJita API
+   * Fetch settlement citizens with skills from BitJita API  
+   * Returns raw citizen data with skills and reliable userNames
    */
-  static async fetchSettlementCitizens(settlementId: string): Promise<BitJitaAPIResponse<{ citizens: BitJitaCitizen[]; skillNames: Record<string, string> }>> {
+  static async fetchSettlementCitizens(settlementId: string): Promise<BitJitaAPIResponse<{ citizens: BitJitaRawCitizen[]; skillNames: Record<string, string> }>> {
     try {
-      console.log(`🔍 Fetching settlement citizens for ${settlementId}...`);
+      const citizensUrl = `${this.BASE_URL}/claims/${settlementId}/citizens`;
+  
+      console.log(`   URL: ${citizensUrl}`);
       
-      const response = await fetch(`${this.BASE_URL}/claims/${settlementId}/citizens`, {
+      const response = await fetch(citizensUrl, {
         method: 'GET',
         headers: this.HEADERS,
         signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
@@ -103,6 +158,32 @@ export class BitJitaAPI {
       
       console.log(`✅ Fetched ${data.citizens?.length || 0} citizens with skills`);
       
+      // 🚨 DEBUG: Log the raw API response structure (not full data to avoid spam)
+      console.log(`🔍 RAW CITIZENS API RESPONSE STRUCTURE:`);
+      console.log(`   Keys: ${Object.keys(data)}`);
+      console.log(`   Citizens array exists: ${Array.isArray(data.citizens)}`);
+      console.log(`   Citizens count: ${data.citizens?.length || 0}`);
+      console.log(`   Skill names object: ${data.skillNames ? Object.keys(data.skillNames).length + ' skills' : 'none'}`);
+      if (data.citizens?.length === 0) {
+        console.log(`   🚨 EMPTY RESPONSE - Full data:`, data);
+      }
+      
+      // Debug first citizen's skills data to check API response integrity
+      if (data.citizens && data.citizens.length > 0) {
+        const firstCitizen = data.citizens[0];
+        console.log(`🔍 BitJita API skills response check:`);
+        console.log(`   Sample citizen: ${firstCitizen.userName}`);
+        console.log(`   Skills type: ${typeof firstCitizen.skills}`);
+        console.log(`   Skills count: ${firstCitizen.skills ? Object.keys(firstCitizen.skills).length : 'null/undefined'}`);
+        if (firstCitizen.skills && Object.keys(firstCitizen.skills).length > 0) {
+          const skillSample = Object.entries(firstCitizen.skills).slice(0, 3);
+          console.log(`   Skills sample: ${skillSample.map(([id, level]) => `${id}:${level}`).join(', ')}`);
+          console.log(`   Total levels: ${firstCitizen.totalLevel}, Highest: ${firstCitizen.highestLevel}`);
+        } else {
+          console.log(`   ⚠️ No skills in API response for ${firstCitizen.userName}`);
+        }
+      }
+      
       return {
         success: true,
         data: {
@@ -113,6 +194,96 @@ export class BitJitaAPI {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       console.error('Error fetching settlement citizens:', errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Clean implementation: Get members + citizens data and merge them
+   */
+  static async fetchSettlementUsers(settlementId: string): Promise<BitJitaAPIResponse<{ users: SettlementUser[], skillNames: Record<string, string> }>> {
+    try {
+      // Call both APIs in parallel
+      const [membersResponse, citizensResponse] = await Promise.all([
+        fetch(`${this.BASE_URL}/claims/${settlementId}/members`, {
+          method: 'GET',
+          headers: this.HEADERS,
+          signal: AbortSignal.timeout(30000)
+        }),
+        fetch(`${this.BASE_URL}/claims/${settlementId}/citizens`, {
+          method: 'GET', 
+          headers: this.HEADERS,
+          signal: AbortSignal.timeout(30000)
+        })
+      ]);
+
+      if (!membersResponse.ok) {
+        throw new Error(`Members API failed: ${membersResponse.status}`);
+      }
+
+      const membersData = await membersResponse.json();
+      const members = membersData.members || [];
+
+      let citizens = [];
+      let skillNames = {};
+      
+      if (citizensResponse.ok) {
+        const citizensData = await citizensResponse.json();
+        citizens = citizensData.citizens || [];
+        skillNames = citizensData.skillNames || {};
+        console.log(`✅ Citizens API: ${citizens.length} citizens, ${Object.keys(skillNames).length} skill names`);
+      } else {
+        console.log(`❌ Citizens API failed: ${citizensResponse.status}`);
+      }
+
+      // Create lookup maps for citizens - try multiple ID fields
+      const citizensByEntityId = new Map(citizens.map((c: any) => [c.entityId, c]));
+      const citizensByPlayerEntityId = new Map(citizens.map((c: any) => [c.playerEntityId, c]));
+      const citizensByUserName = new Map(citizens.map((c: any) => [c.userName, c]));
+
+      // Merge members + citizens data
+      const users: SettlementUser[] = members.map((member: any) => {
+        // Try multiple matching strategies
+        let citizen = citizensByEntityId.get(member.entityId) ||
+                     citizensByPlayerEntityId.get(member.playerEntityId) ||
+                     citizensByEntityId.get(member.playerEntityId) ||
+                     citizensByUserName.get(member.userName);
+        
+        return {
+          entityId: member.entityId,
+          userName: member.userName || citizen?.userName || `User_${member.entityId.slice(-8)}`,
+          settlementId,
+          claimEntityId: member.claimEntityId,
+          playerEntityId: member.playerEntityId,
+          inventoryPermission: member.inventoryPermission,
+          buildPermission: member.buildPermission,
+          officerPermission: member.officerPermission,
+          coOwnerPermission: member.coOwnerPermission,
+          skills: citizen?.skills || {},
+          totalSkills: citizen?.totalSkills || 0,
+          highestLevel: citizen?.highestLevel || 0,
+          totalLevel: citizen?.totalLevel || 0,
+          totalXP: citizen?.totalXP || 0,
+          joinedAt: member.createdAt,
+          lastLoginTimestamp: member.lastLoginTimestamp,
+          lastSyncedAt: new Date().toISOString()
+        };
+      });
+
+      const usersWithSkills = users.filter(u => u.totalSkills > 0).length;
+      console.log(`✅ Merged: ${users.length} users, ${usersWithSkills} with skills`);
+
+      return {
+        success: true,
+        data: { users, skillNames }
+      };
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error fetching unified settlement users:', errorMessage);
       
       return {
         success: false,

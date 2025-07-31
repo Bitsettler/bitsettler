@@ -120,14 +120,17 @@ export function SettlementConnectionProgress({
       // Stage 2: Syncing members
       setProgress(syncStages[1]);
       
-      const response = await fetch('/api/settlement/sync/onboarding', {
+      const response = await fetch('/api/settlement/sync', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          operation: 'onboarding',
+          mode: 'full',
           settlementId: settlement.id,
-          settlementName: settlement.name
+          settlementName: settlement.name,
+          triggeredBy: 'user_onboarding'
         })
       });
 

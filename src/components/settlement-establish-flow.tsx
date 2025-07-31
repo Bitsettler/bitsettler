@@ -242,14 +242,39 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
     setStep('establishing');
     try {
-      // Start progress simulation for settlement establishment
-      await simulateProgress(false);
-      
-      setStep('complete');
-      setTimeout(() => {
-        onComplete();
-      }, 2000);
+      // Run progress simulation and API call in parallel
+      const [_, result] = await Promise.all([
+        simulateProgress(false), // Settlement establishment progress
+        api.post('/api/settlement/establish', {
+          settlementId: selectedSettlement.id,
+          settlementName: selectedSettlement.name
+        })
+      ]);
+
+      if (result.success) {
+        console.log('✅ Settlement established successfully:', result.data);
+        
+        // Update available characters with real data from establishment
+        if (result.data.availableCharacters && result.data.availableCharacters.length > 0) {
+          console.log(`🎭 Updated with ${result.data.availableCharacters.length} real characters`);
+          setAvailableCharacters(result.data.availableCharacters);
+          // Reset character selection so user can choose from real characters
+          setSelectedCharacter(null);
+          // Go back to verification step to let user select their real character
+          setStep('verify');
+        } else {
+          // No characters to claim, go directly to completion
+          setStep('complete');
+          setTimeout(() => {
+            onComplete();
+          }, 2000);
+        }
+      } else {
+        setError(result.error || 'Failed to establish settlement');
+        setStep('error');
+      }
     } catch (err) {
+      console.error('❌ Failed to establish settlement:', err);
       setError('Failed to establish settlement. Please try again.');
       setStep('error');
     }

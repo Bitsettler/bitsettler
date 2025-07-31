@@ -495,7 +495,7 @@ export function SettlementTreasuryView() {
                     const balanceRange = balanceMax - balanceMin;
 
                     // Debug the data
-                    console.log('📊 Chart Data Debug:');
+                
                     console.log('   History Length:', history.length);
                     console.log('   Unique Dates:', uniqueDates);
                     console.log('   Balance Range:', { min: balanceMin, max: balanceMax, range: balanceRange });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-client';
+import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 
 interface SkillsAnalytics {
   totalSkills: number;
@@ -31,12 +31,7 @@ export async function GET(request: NextRequest) {
   try {
     console.log('🎓 Fetching settlement skills analytics from unified table...');
 
-    if (!supabase) {
-      return NextResponse.json({
-        success: false,
-        error: 'Database connection not available'
-      }, { status: 503 });
-    }
+    const supabase = createServerClient();
 
     // Query the unified settlement_members table - much simpler!
     let query = supabase

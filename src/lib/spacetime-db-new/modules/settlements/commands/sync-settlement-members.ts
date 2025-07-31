@@ -4,8 +4,8 @@
  * Reduces real-time API hits by serving from local database
  */
 
-import { supabase, isSupabaseAvailable } from '../../../shared/supabase-client';
-import { BitJitaAPI } from '../../integrations/bitjita-api';
+import { createServerClient } from '../../../shared/supabase-client';
+import { BitJitaAPI, type SettlementUser } from '../../integrations/bitjita-api';
 
 interface SyncSettlementMembersOptions {
   settlementId: string;
@@ -35,8 +35,10 @@ interface SyncResults {
 export async function syncSettlementMembers(options: SyncSettlementMembersOptions): Promise<SyncResults> {
   const startTime = Date.now();
 
-  if (!isSupabaseAvailable()) {
-    throw new Error('Supabase client not available for member sync');
+  // Use service role client to bypass RLS for sync operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for member sync');
   }
 
   console.log(`🔄 Starting member sync for settlement ${options.settlementId}...`);
@@ -56,32 +58,29 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
   };
 
   try {
-    // Fetch member roster and citizen data from BitJita API
-    const [rosterResult, citizensResult] = await Promise.all([
-      BitJitaAPI.fetchSettlementRoster(options.settlementId),
-      BitJitaAPI.fetchSettlementCitizens(options.settlementId)
-    ]);
+    // Fetch unified settlement users (combines roster + citizens data)
+    const usersResult = await BitJitaAPI.fetchSettlementUsers(options.settlementId);
 
-    results.apiCallsMade = 2;
+    results.apiCallsMade = 2; // fetchSettlementUsers now makes 2 API calls (members + citizens)
 
-    if (!rosterResult.success || !citizensResult.success) {
-      throw new Error(`API calls failed: Roster=${rosterResult.error}, Citizens=${citizensResult.error}`);
+    if (!usersResult.success || !usersResult.data) {
+      throw new Error(`Failed to fetch settlement users: ${usersResult.error}`);
     }
 
-    const members = rosterResult.data?.members || [];
-    const citizens = citizensResult.data?.citizens || [];
-    const skillNames = citizensResult.data?.skillNames || {};
+    const users = usersResult.data.users;
+    const skillNames = usersResult.data.skillNames || {};
 
-    results.membersFound = members.length;
-    results.citizensFound = citizens.length;
+    results.membersFound = users.length;
+    results.citizensFound = users.filter(u => u.totalSkills > 0).length;
 
-    console.log(`📥 Fetched ${members.length} members and ${citizens.length} citizens from BitJita`);
+    console.log(`📥 Fetched ${users.length} users from BitJita members API`);
+    console.log(`🎯 Users that should have skills: ${results.citizensFound}/${users.length}`);
 
     // Store/update skill names in database for caching
     if (Object.keys(skillNames).length > 0) {
       console.log(`💾 Caching ${Object.keys(skillNames).length} skill names...`);
       for (const [skillId, skillName] of Object.entries(skillNames)) {
-        await supabase!
+        await supabase
           .from('skill_names')
           .upsert({ 
             skill_id: skillId, 
@@ -95,102 +94,98 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       console.log(`✅ Cached skill names in database`);
     }
 
-    // Sync members with detailed error handling
-    let memberSuccessCount = 0;
-    let memberErrorCount = 0;
+    // CLEAN UNIFIED SYNC: One user entity with all data
+    let syncSuccessCount = 0;
+    let syncErrorCount = 0;
     
-    for (const member of members) {
-      console.log(`🔄 Syncing member: ${member.userName} (${member.entityId})`);
-      console.log(`   📊 Permissions: Inventory=${member.inventoryPermission}, Build=${member.buildPermission}, Officer=${member.officerPermission}, CoOwner=${member.coOwnerPermission}`);
+    console.log(`🔄 Syncing ${users.length} settlement users to database...`);
+    
+    for (const user of users) {
+      console.log(`🔄 Syncing user: ${user.userName} (${user.entityId})`);
+
       
-      const memberData = {
+      // Log skills info with ACTUAL data from BitJita
+      const actualSkills = Object.keys(user.skills).length;
+      const actualMaxLevel = user.highestLevel;
+      const actualTotalLevel = user.totalLevel;
+      
+      console.log(`   🎯 ACTUAL SKILLS: ${actualSkills} skills found`);
+
+      
+      if (actualSkills > 0) {
+        const skillEntries = Object.entries(user.skills).slice(0, 3);
+        console.log(`   🔥 Skills sample: ${skillEntries.map(([id, level]) => `${id}:${level}`).join(', ')}`);
+      } else {
+        console.log(`   ⚠️ BitJita member data has no skills fields`);
+  
+      }
+      
+      // Build clean database record
+      const memberRecord = {
         settlement_id: options.settlementId,
-        entity_id: member.entityId,
-        claim_entity_id: member.claimEntityId,
-        player_entity_id: member.playerEntityId,
-        user_name: member.userName,
-        inventory_permission: member.inventoryPermission,
-        build_permission: member.buildPermission,
-        officer_permission: member.officerPermission,
-        co_owner_permission: member.coOwnerPermission,
-        created_at: member.createdAt ? new Date(member.createdAt).toISOString() : null,
-        updated_at: member.updatedAt ? new Date(member.updatedAt).toISOString() : null,
-        last_login_timestamp: member.lastLoginTimestamp ? new Date(member.lastLoginTimestamp).toISOString() : null,
-        joined_settlement_at: member.createdAt ? new Date(member.createdAt).toISOString() : null,
+        entity_id: user.entityId,
+        claim_entity_id: user.claimEntityId,
+        player_entity_id: user.playerEntityId,
+        name: user.userName,
+        
+        // Skills & Progression
+        skills: user.skills,
+        total_skills: user.totalSkills,
+        highest_level: user.highestLevel,
+        total_level: user.totalLevel,
+        total_xp: user.totalXP,
+        // top_profession auto-calculated by database trigger
+        
+        // Settlement Permissions
+        inventory_permission: user.inventoryPermission,
+        build_permission: user.buildPermission,
+        officer_permission: user.officerPermission,
+        co_owner_permission: user.coOwnerPermission,
+        
+        // Timestamps
+        last_login_timestamp: user.lastLoginTimestamp ? new Date(user.lastLoginTimestamp).toISOString() : null,
+        joined_settlement_at: user.joinedAt ? new Date(user.joinedAt).toISOString() : null,
         is_active: true,
         last_synced_at: new Date().toISOString(),
         sync_source: 'bitjita'
       };
 
-      const { data, error } = await supabase!
+      const { data, error } = await supabase
         .from('settlement_members')
-        .upsert(memberData, {
+        .upsert(memberRecord, {
           onConflict: 'settlement_id,entity_id',
           ignoreDuplicates: false
         })
-        .select('id, user_name'); // Return the inserted/updated data
+        .select('id, name, total_skills, highest_level, top_profession');
 
       if (error) {
-        console.error(`❌ Failed to sync member ${member.userName}:`, error);
-        memberErrorCount++;
+        console.error(`❌ Failed to sync user ${user.userName}:`, {
+          error: error.message || error,
+          code: error.code,
+          details: error.details,
+          hint: error.hint
+        });
+        syncErrorCount++;
       } else if (data && data.length > 0) {
-        console.log(`✅ Successfully synced member ${data[0].user_name}`);
-        memberSuccessCount++;
+        const syncedUser = data[0];
+        const skillsDisplay = syncedUser.total_skills || 'Unknown';
+        const maxLevelDisplay = syncedUser.highest_level || 'Unknown';  
+        const topProfessionDisplay = syncedUser.top_profession || 'Unknown';
+        
+        console.log(`✅ SYNCED ${syncedUser.name}: Skills=${skillsDisplay}, Max Level=${maxLevelDisplay}, Top=${topProfessionDisplay}`);
+        syncSuccessCount++;
         results.membersUpdated++;
+        if ((syncedUser.total_skills || 0) > 0) results.citizensUpdated++;
       } else {
-        console.error(`⚠️ No data returned for member ${member.userName} - possible silent failure`);
-        memberErrorCount++;
+        console.error(`⚠️ No data returned for user ${user.userName} - possible silent failure`);
+        syncErrorCount++;
       }
     }
 
-    console.log(`📊 Member sync results: ${memberSuccessCount} success, ${memberErrorCount} errors`);
 
-    // Sync citizens with detailed error handling
-    let citizenSuccessCount = 0;
-    let citizenErrorCount = 0;
-    
-    for (const citizen of citizens) {
-      console.log(`🎓 Syncing citizen: ${citizen.userName} (${citizen.entityId})`);
-      console.log(`   🎯 Skills: ${JSON.stringify(citizen.skills)} (${Object.keys(citizen.skills || {}).length} skills)`);
-      console.log(`   📊 Levels: Total=${citizen.totalLevel}, Highest=${citizen.highestLevel}, XP=${citizen.totalXP}`);
-      
-      const citizenData = {
-        settlement_id: options.settlementId,
-        entity_id: citizen.entityId,
-        user_name: citizen.userName,
-        skills: citizen.skills || {},
-        total_skills: citizen.totalSkills || 0,
-        highest_level: citizen.highestLevel || 0,
-        total_level: citizen.totalLevel || 0,
-        total_xp: citizen.totalXP || 0,
-        last_synced_at: new Date().toISOString(),
-        sync_source: 'bitjita'
-      };
-
-      const { data, error } = await supabase!
-        .from('settlement_citizens')
-        .upsert(citizenData, {
-          onConflict: 'settlement_id,entity_id',
-          ignoreDuplicates: false
-        })
-        .select('id, user_name'); // Return the inserted/updated data
-
-      if (error) {
-        console.error(`❌ Failed to sync citizen ${citizen.userName}:`, error);
-        citizenErrorCount++;
-      } else if (data && data.length > 0) {
-        citizenSuccessCount++;
-        results.citizensUpdated++;
-      } else {
-        console.error(`⚠️ No data returned for citizen ${citizen.userName} - possible silent failure`);
-        citizenErrorCount++;
-      }
-    }
-
-    console.log(`📊 Citizen sync results: ${citizenSuccessCount} success, ${citizenErrorCount} errors`);
 
     // Verify data was actually saved
-    const { count: memberCount, error: verifyError } = await supabase!
+    const { count: memberCount, error: verifyError } = await supabase
       .from('settlement_members')
       .select('*', { count: 'exact', head: true })
       .eq('settlement_id', options.settlementId);
@@ -198,11 +193,11 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     if (verifyError) {
       console.error('❌ Error verifying member count:', verifyError);
     } else {
-      console.log(`🔍 Verification: ${memberCount || 0} members found in database for settlement ${options.settlementId}`);
+  
     }
 
     // Verify view works
-    const { count: viewCount, error: viewError } = await supabase!
+    const { count: viewCount, error: viewError } = await supabase
       .from('settlement_member_details')
       .select('*', { count: 'exact', head: true })
       .eq('settlement_id', options.settlementId);
@@ -210,14 +205,14 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     if (viewError) {
       console.error('❌ Error verifying view:', viewError);
     } else {
-      console.log(`🔍 View verification: ${viewCount || 0} members found in settlement_member_details view`);
+  
     }
 
     // Mark members as inactive if they're no longer in the roster
-    const currentMemberIds = members.map(m => m.entityId);
+    const currentMemberIds = users.map(u => u.entityId);
     
     if (currentMemberIds.length > 0) {
-      const { error: deactivateError } = await supabase!
+      const { error: deactivateError } = await supabase
         .from('settlement_members')
         .update({ 
           is_active: false, 
@@ -234,9 +229,9 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     results.success = true;
     results.syncDurationMs = Date.now() - startTime;
 
-    console.log(`✅ Member sync completed for ${options.settlementId}:`);
-    console.log(`   Members: ${results.membersUpdated} synced (${memberSuccessCount}/${members.length} successful)`);
-    console.log(`   Citizens: ${results.citizensUpdated} synced (${citizenSuccessCount}/${citizens.length} successful)`);
+    console.log(`✅ FIXED settlement sync completed for ${options.settlementId}:`);
+    console.log(`   Users: ${results.membersUpdated} synced (${syncSuccessCount}/${users.length} successful)`);
+    console.log(`   With Skills: ${results.citizensUpdated} users have actual skills data`);
     console.log(`   Duration: ${results.syncDurationMs}ms`);
 
   } catch (error) {
@@ -249,7 +244,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
 
   // Log sync attempt
   try {
-    await supabase!
+    await supabase
       .from('settlement_member_sync_log')
       .insert({
         settlement_id: options.settlementId,
@@ -287,14 +282,16 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
   totalCitizens: number;
   errors: string[];
 }> {
-  if (!isSupabaseAvailable()) {
-    throw new Error('Supabase client not available for bulk member sync');
+  // Use service role client to bypass RLS for sync operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for bulk member sync');
   }
 
   console.log('🔄 Starting bulk member sync for all settlements...');
 
   // Get all active settlements from our master list
-  const { data: settlements, error: fetchError } = await supabase!
+  const { data: settlements, error: fetchError } = await supabase
     .from('settlements_master')
     .select('id, name')
     .eq('is_active', true)

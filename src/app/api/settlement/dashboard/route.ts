@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     const { data: settlement, error: settlementError } = await supabase
       .from('settlements_master')
       .select('*')
-      .eq('settlement_id', settlementId)
+      .eq('id', settlementId)
       .single();
 
     if (settlementError) {
@@ -116,7 +116,7 @@ export async function GET(request: NextRequest) {
                 last_synced_at: new Date().toISOString(),
                 sync_source: 'realtime_fallback'
               })
-              .eq('settlement_id', settlementId);
+              .eq('id', settlementId);
               
             if (updateError) {
               console.warn('⚠️ Failed to update treasury in database:', updateError);

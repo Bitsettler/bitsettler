@@ -5,9 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Container } from '@/components/container';
 import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCurrentMember } from '../../hooks/use-current-member';
 
 interface CitizenSkills {
   name: string;
@@ -76,19 +78,31 @@ export function SettlementSkillsView() {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   const { selectedSettlement } = useSelectedSettlement();
+  const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
+    // Wait for member data to load before making API calls
+    if (memberLoading) return;
     fetchSkillsData();
-  }, [selectedSettlement]);
+  }, [selectedSettlement, member, memberLoading]);
 
   const fetchSkillsData = async () => {
-    // Don't fetch data if no settlement is selected
-    if (!selectedSettlement) {
-      console.log('🔍 No settlement selected, skipping data fetch');
+    // Use selectedSettlement or fallback to member's settlement
+    const settlementId = selectedSettlement?.id || member?.settlement_id;
+    const settlementName = selectedSettlement?.name || 'Current Settlement';
+    
+    // Don't fetch data if no settlement is available
+    if (!settlementId) {
+      console.log('🔍 No settlement available, skipping data fetch', {
+        selectedSettlement: selectedSettlement?.id,
+        memberSettlement: member?.settlement_id,
+        memberLoading
+      });
       setLoading(false);
       setCitizensData([]);
       setSkillsData(null);
       setMeta(null);
+      setError('No settlement available - please select a settlement or claim a character');
       return;
     }
 
@@ -97,15 +111,15 @@ export function SettlementSkillsView() {
       setError(null);
 
       const params = new URLSearchParams();
-      params.append('settlementId', selectedSettlement.id);
+      params.append('settlementId', settlementId);
 
       // Prepare members params with high limit to show all members
       const membersParams = new URLSearchParams();
-      membersParams.append('settlementId', selectedSettlement.id);
+      membersParams.append('settlementId', settlementId);
       membersParams.append('limit', '500'); // High limit to show all members
       membersParams.append('includeInactive', 'true'); // Include all members
 
-      console.log(`🔍 Fetching skills data for settlement: ${selectedSettlement.name} (${selectedSettlement.id})`);
+  
 
       // Fetch both analytics and detailed member data
       const [analyticsResponse, membersResponse] = await Promise.all([
@@ -125,7 +139,23 @@ export function SettlementSkillsView() {
       }
 
       setSkillsData(analyticsResult.data || null);
-      setCitizensData(membersResult.data || []);
+      const rawMembers = membersResult.data?.members || [];
+      
+      // Map API data to CitizenSkills interface
+      const memberData: CitizenSkills[] = rawMembers.map((member: any) => ({
+        name: member.name || 'Unknown Player',
+        entityId: member.entity_id || member.id,
+        profession: member.top_profession || 'Unknown',
+        totalSkillLevel: member.total_level || 0,
+        totalXP: member.total_xp || 0,
+        highestLevel: member.highest_level || 0,
+        skills: member.skills || {},
+        isActive: member.is_active || false
+      }));
+      
+      console.log(`🎓 Skills View - Mapped ${memberData.length} members`);
+      
+      setCitizensData(memberData);
       setMeta(analyticsResult.meta || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
@@ -142,9 +172,12 @@ export function SettlementSkillsView() {
   // Get all unique skills across all citizens
   const allSkills = Array.from(
     new Set(
-      citizensData.flatMap(citizen => Object.keys(citizen.skills))
+      (Array.isArray(citizensData) ? citizensData : []).flatMap(citizen => Object.keys(citizen.skills || {}))
     )
   ).sort();
+  
+  // Debug logging
+  console.log(`🎯 Skills Matrix - Found ${allSkills.length} unique skills for ${(Array.isArray(citizensData) ? citizensData : []).length} members`);
 
   // Sorting logic
   const handleSort = (field: string) => {
@@ -156,7 +189,7 @@ export function SettlementSkillsView() {
     }
   };
 
-  const sortedCitizens = [...citizensData].sort((a, b) => {
+  const sortedCitizens = [...(Array.isArray(citizensData) ? citizensData : [])].sort((a, b) => {
     if (!sortDirection) return 0;
 
     let aValue: any, bValue: any;
@@ -261,7 +294,7 @@ export function SettlementSkillsView() {
           {/* Loading Analytics Cards */}
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
-              <Card key={i}>
+              <Card key={`loading-card-${i}`}>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <div className="h-4 w-24 bg-muted rounded animate-pulse" />
                   <div className="h-4 w-4 bg-muted rounded animate-pulse" />
@@ -328,7 +361,7 @@ export function SettlementSkillsView() {
             <CardContent>
               <div className="text-2xl font-bold">{formatNumber(meta?.totalMembers || 0)}</div>
               <p className="text-xs text-muted-foreground">
-                {formatNumber(citizensData.filter(c => c.totalSkillLevel > 0).length)} with skills
+                {formatNumber((Array.isArray(citizensData) ? citizensData : []).filter(c => c.totalSkillLevel > 0).length)} with skills
               </p>
             </CardContent>
           </Card>
@@ -414,18 +447,20 @@ export function SettlementSkillsView() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {sortedCitizens.map((citizen) => (
-                  <TableRow key={citizen.entityId}>
-                    <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3">
-                      <div className="truncate">
-                        <div className="font-medium text-sm">{citizen.name}</div>
-                        <div className="text-xs text-muted-foreground truncate">{citizen.profession}</div>
-                      </div>
-                    </TableCell>
-                    {allSkills.map((skill) => {
-                      const level = citizen.skills[skill] || 0;
-                      return (
-                        <TableCell key={skill} className="text-center p-2">
+                {sortedCitizens.map((citizen, index) => {
+                  const citizenKey = citizen.entityId || `citizen-${index}`;
+                  return (
+                    <TableRow key={citizenKey}>
+                      <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3">
+                        <div className="truncate">
+                          <div className="font-medium text-sm">{citizen.name}</div>
+                          <div className="text-xs text-muted-foreground truncate">{citizen.profession}</div>
+                        </div>
+                      </TableCell>
+                      {allSkills.map((skill) => {
+                        const level = citizen.skills[skill] || 0;
+                        return (
+                          <TableCell key={`${citizenKey}-${skill}`} className="text-center p-2">
                           {level > 0 ? (
                             <span className="text-sm font-medium">
                               {level}
@@ -434,15 +469,16 @@ export function SettlementSkillsView() {
                             <span className="text-muted-foreground text-sm">-</span>
                           )}
                         </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                ))}
+                        );
+                      })}
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </div>
           
-          {citizensData.length === 0 && (
+          {(Array.isArray(citizensData) ? citizensData : []).length === 0 && (
             <div className="text-center py-8 text-muted-foreground">
               <Users className="h-8 w-8 mx-auto mb-2 opacity-50" />
               <p>No citizen skill data available</p>
