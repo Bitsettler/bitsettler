@@ -74,8 +74,8 @@ export function SettlementMembersView() {
         throw new Error(result.error || 'Failed to fetch members');
       }
 
-      setMembers(result.data);
-      setTotalMembers(result.count);
+      setMembers(result.data.members || []);
+      setTotalMembers(result.data.memberCount || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
       console.error('Members fetch error:', err);
