@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 import { SettlementProject, ProjectItem } from './get-all-projects';
 
 export interface CreateProjectRequest {
@@ -28,13 +28,15 @@ export interface CreateProjectResponse {
  * Create a new settlement project with optional items
  */
 export async function createProject(projectData: CreateProjectRequest): Promise<CreateProjectResponse> {
-  if (!isSupabaseAvailable()) {
-    throw new Error('Supabase not available');
+  // Use service role client to bypass RLS for project operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for project creation');
   }
 
   try {
     // Create the project
-    const { data: project, error: projectError } = await supabase!
+    const { data: project, error: projectError } = await supabase
       .from('settlement_projects')
       .insert({
         name: projectData.name,
@@ -47,7 +49,8 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
       .single();
 
     if (projectError) {
-      throw handleSupabaseError(projectError, 'creating project');
+      console.error('Failed to create project:', projectError);
+      throw new Error(`Database operation failed: creating project - ${projectError.message}`);
     }
 
     const createdProject: SettlementProject = {
@@ -98,7 +101,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         items: itemsToInsert
       });
 
-      const { data: items, error: itemsError } = await supabase!
+      const { data: items, error: itemsError } = await supabase
         .from('project_items')
         .insert(itemsToInsert)
         .select();

@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 import { MemberContribution } from './get-project-by-id';
 
 export interface AddContributionRequest {
@@ -28,8 +28,14 @@ async function ensureSettlementMember(authUser: {
   image?: string;
 }): Promise<string> {
   
+  // Use service role client to bypass RLS
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available');
+  }
+
   // First, check if this auth user already has a linked settlement member
-  const { data: existingMember } = await supabase!
+  const { data: existingMember } = await supabase
     .from('settlement_members')
     .select('id')
     .eq('auth_user_id', authUser.id)
@@ -41,7 +47,7 @@ async function ensureSettlementMember(authUser: {
   }
 
   // Look for existing member by name (for migration from localStorage users)
-  const { data: memberByName } = await supabase!
+  const { data: memberByName } = await supabase
     .from('settlement_members')
     .select('id, auth_user_id')
     .eq('name', authUser.name)
@@ -50,7 +56,7 @@ async function ensureSettlementMember(authUser: {
 
   if (memberByName) {
     // Link existing member to this auth user
-    const { error: linkError } = await supabase!
+    const { error: linkError } = await supabase
       .from('settlement_members')
       .update({ auth_user_id: authUser.id })
       .eq('id', memberByName.id);
@@ -65,7 +71,7 @@ async function ensureSettlementMember(authUser: {
 
   // Create new settlement member for this auth user
   console.log('🆕 Creating new settlement member for auth user:', authUser.name);
-  const { data: newMember, error: createError } = await supabase!
+  const { data: newMember, error: createError } = await supabase
     .from('settlement_members')
     .insert({
       auth_user_id: authUser.id,
@@ -88,8 +94,10 @@ async function ensureSettlementMember(authUser: {
  * Add a new member contribution to a project
  */
 export async function addContribution(contributionData: AddContributionRequest): Promise<MemberContribution> {
-  if (!isSupabaseAvailable()) {
-    throw new Error('Supabase not available');
+  // Use service role client to bypass RLS for contribution operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for contributions');
   }
 
   try {
@@ -120,7 +128,7 @@ export async function addContribution(contributionData: AddContributionRequest):
 
     console.log('🔍 Final insert data:', insertData);
 
-    const { data: contribution, error: contributionError } = await supabase!
+    const { data: contribution, error: contributionError } = await supabase
       .from('member_contributions')
       .insert(insertData)
       .select(`
@@ -174,13 +182,15 @@ export async function updateProjectItemQuantity(
   projectItemId: string, 
   quantityToAdd: number
 ): Promise<void> {
-  if (!isSupabaseAvailable()) {
-    throw new Error('Supabase not available');
+  // Use service role client to bypass RLS for quantity updates
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for quantity updates');
   }
 
   try {
     // Get current quantity
-    const { data: currentItem, error: fetchError } = await supabase!
+    const { data: currentItem, error: fetchError } = await supabase
       .from('project_items')
       .select('current_quantity, required_quantity')
       .eq('id', projectItemId)
@@ -194,7 +204,7 @@ export async function updateProjectItemQuantity(
     const newStatus = newQuantity >= currentItem.required_quantity ? 'Completed' : 'In Progress';
 
     // Update quantity and status
-    const { error: updateError } = await supabase!
+    const { error: updateError } = await supabase
       .from('project_items')
       .update({
         current_quantity: newQuantity,
