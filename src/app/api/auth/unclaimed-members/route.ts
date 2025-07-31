@@ -20,11 +20,12 @@ export async function GET(request: Request) {
       );
     }
 
-    // Get unclaimed settlement members (auth_user_id is NULL)
+    // Get unclaimed settlement members (supabase_user_id is NULL)
     const { data: members, error } = await supabase
       .from('settlement_members')
       .select(`
         id,
+        entity_id,
         name,
         top_profession,
         total_level,
@@ -32,7 +33,7 @@ export async function GET(request: Request) {
         settlement_id,
         is_active
       `)
-      .is('auth_user_id', null)
+      .is('supabase_user_id', null)
       .eq('is_active', true)
       .order('total_level', { ascending: false });
 

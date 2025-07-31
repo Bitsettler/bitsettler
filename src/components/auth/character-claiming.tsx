@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from '@/hooks/use-auth';
+import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -13,6 +14,7 @@ import { Loader2, User, CheckCircle } from 'lucide-react';
 
 interface SettlementMember {
   id: string;
+  entity_id: string;
   name: string;
   top_profession: string;
   total_level: number;
@@ -52,33 +54,27 @@ export function CharacterClaiming() {
     }
   };
 
-  const claimCharacter = async (memberId: string, displayName?: string) => {
+  const claimCharacter = async (member: SettlementMember, displayName?: string) => {
     if (!session?.user?.id) {
       setError('Must be signed in to claim a character');
       return;
     }
 
     try {
-      setClaiming(memberId);
+      setClaiming(member.id);
       setError(null);
 
-      const response = await fetch('/api/auth/claim-character', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          memberId, 
-          displayName: displayName || undefined 
-        })
+      const result = await api.post('/api/settlement/claim-character', {
+        characterId: member.entity_id,
+        settlementId: member.settlement_id
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
+      if (result.success) {
+        // Redirect to settlement dashboard
+        window.location.href = '/en/settlement';
+      } else {
         throw new Error(result.error || 'Failed to claim character');
       }
-
-      // Redirect to settlement dashboard
-      window.location.href = '/settlement';
     } catch (err) {
       console.error('Failed to claim character:', err);
       setError(err instanceof Error ? err.message : 'Failed to claim character');
@@ -190,7 +186,7 @@ export function CharacterClaiming() {
                 </div>
 
                 <Button 
-                  onClick={() => claimCharacter(member.id, customDisplayName.trim() || undefined)}
+                  onClick={() => claimCharacter(member, customDisplayName.trim() || undefined)}
                   disabled={claiming === member.id}
                   className="w-full"
                 >
