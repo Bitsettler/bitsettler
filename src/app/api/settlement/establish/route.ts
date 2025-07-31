@@ -115,8 +115,7 @@ export async function POST(request: NextRequest) {
         name_searchable: settlementName,
         is_active: true,
         sync_source: 'establishment',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
+        created_at: new Date().toISOString()
       })
       .select()
       .single();
@@ -146,42 +145,124 @@ export async function POST(request: NextRequest) {
 
     console.log(`✅ Generated invite code: ${inviteCodeResult}`);
 
-    // 4. Fetch real settlement data from BitJita API
-    console.log(`🔍 Fetching settlement members from BitJita for ${settlementId}...`);
+    // 4. Fetch real settlement data from BitJita API (treasury, roster, and citizens)
+    console.log(`🔍 Fetching settlement data from BitJita for ${settlementId}...`);
     
+    // 4a. First, fetch settlement details (treasury, tier, etc.)
+    let settlementDetails: any = null;
+    try {
+      const detailsResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/search?q=${encodeURIComponent(settlementName)}`);
+      const detailsResult = await detailsResponse.json();
+      
+      if (detailsResult.success && detailsResult.data?.settlements?.length > 0) {
+        // Find the exact settlement by ID
+        settlementDetails = detailsResult.data.settlements.find((s: any) => s.id === settlementId);
+        
+        if (settlementDetails) {
+          console.log(`💰 Found settlement details:`, {
+            name: settlementDetails.name,
+            treasury: settlementDetails.treasury,
+            tier: settlementDetails.tier,
+            tiles: settlementDetails.tiles
+          });
+          
+          // Update settlement with real data from BitJita
+          const { error: updateError } = await supabase
+            .from('settlements_master')
+            .update({
+              treasury: settlementDetails.treasury || 0,
+              tier: settlementDetails.tier || 0,
+              tiles: settlementDetails.tiles || 0,
+              supplies: settlementDetails.supplies || 0,
+              last_synced_at: new Date().toISOString(),
+              sync_source: 'bitjita_establishment'
+            })
+            .eq('id', settlementId);
+            
+          if (updateError) {
+            console.error('❌ Failed to update settlement with BitJita data:', updateError);
+          } else {
+            console.log(`✅ Updated settlement with BitJita data: Treasury ${settlementDetails.treasury}, Tier ${settlementDetails.tier}, Tiles ${settlementDetails.tiles}`);
+          }
+        } else {
+          console.warn(`⚠️ Settlement ${settlementName} not found in search results`);
+        }
+      } else {
+        console.warn(`⚠️ Failed to fetch settlement details from BitJita:`, detailsResult.error);
+      }
+    } catch (detailsError) {
+      console.error('❌ Failed to fetch settlement details:', detailsError);
+    }
+    
+    // 4b. Fetch member data
     let members: any[] = [];
     
     try {
-      // Use our internal roster API which calls BitJita
-      const rosterResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/roster?settlementId=${settlementId}`);
-      const rosterResult = await rosterResponse.json();
+      // Fetch both roster (for permissions) and citizens (for character stats) in parallel
+      const [rosterResponse, citizensResponse] = await Promise.all([
+        fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/roster?settlementId=${settlementId}`),
+        fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/citizens?settlementId=${settlementId}`)
+      ]);
+      
+      const [rosterResult, citizensResult] = await Promise.all([
+        rosterResponse.json(),
+        citizensResponse.json()
+      ]);
 
       if (rosterResult.success && rosterResult.data.members) {
-        const memberData = rosterResult.data.members.map((member: any) => ({
-          settlement_id: settlementId,
-          entity_id: member.entity_id,
-          claim_entity_id: member.claim_entity_id,
-          player_entity_id: member.player_entity_id,
-          bitjita_user_id: member.bitjita_user_id,
-          name: member.name,
-          skills: member.skills || {},
-          total_skills: member.total_skills || 0,
-          highest_level: member.highest_level || 0,
-          total_level: member.total_level || 0,
-          total_xp: member.total_xp || 0,
-          top_profession: member.top_profession || 'Unknown',
-          inventory_permission: member.inventory_permission || 0,
-          build_permission: member.build_permission || 0,
-          officer_permission: member.officer_permission || 0,
-          co_owner_permission: member.co_owner_permission || 0,
-          last_login_timestamp: member.last_login_timestamp,
-          joined_settlement_at: member.joined_settlement_at,
-          is_active: true,
-          last_synced_at: new Date(),
-          sync_source: 'establishment'
-        }));
+        // Create a map of citizens data by entity_id for quick lookup
+        const citizensMap = new Map();
+        if (citizensResult.success && citizensResult.data?.citizens) {
+          citizensResult.data.citizens.forEach((citizen: any) => {
+            citizensMap.set(citizen.entity_id, citizen);
+          });
+          console.log(`📊 Citizens data mapped: ${citizensMap.size} characters with stats`);
+        } else {
+          console.warn('⚠️ Citizens API failed or returned no data:', citizensResult.error);
+        }
+
+        const memberData = rosterResult.data.members.map((member: any) => {
+          // Get corresponding citizen data for character stats
+          const citizenData = citizensMap.get(member.entity_id) || {};
+          
+          // Debug logging for character data
+          if (Object.keys(citizenData).length > 0) {
+            console.log(`📊 Found citizen data for ${member.name}: Level ${citizenData.total_level}, Profession: ${citizenData.top_profession}`);
+          } else {
+            console.log(`⚠️ No citizen data found for ${member.name} (${member.entity_id})`);
+          }
+          
+          return {
+            settlement_id: settlementId,
+            entity_id: member.entity_id,
+            claim_entity_id: member.claim_entity_id,
+            player_entity_id: member.player_entity_id,
+            bitjita_user_id: member.bitjita_user_id,
+            name: member.name,
+            
+            // Real character stats from citizens API
+            skills: citizenData.skills || {},
+            total_skills: citizenData.total_skills || 0,
+            highest_level: citizenData.highest_level || 0,
+            total_level: citizenData.total_level || 0,
+            total_xp: citizenData.total_xp || 0,
+            top_profession: citizenData.top_profession || 'Settler',
+            
+            // Permission data from roster API
+            inventory_permission: member.inventory_permission || 0,
+            build_permission: member.build_permission || 0,
+            officer_permission: member.officer_permission || 0,
+            co_owner_permission: member.co_owner_permission || 0,
+            last_login_timestamp: member.last_login_timestamp,
+            joined_settlement_at: member.joined_settlement_at,
+            is_active: true,
+            last_synced_at: new Date(),
+            sync_source: 'establishment_with_stats'
+          };
+        });
 
         console.log(`👥 Importing ${memberData.length} members from BitJita...`);
+        console.log(`📊 Character stats loaded: ${citizensResult.success ? citizensResult.data?.citizens?.length || 0 : 0} citizens with real levels`);
 
         // 5. Insert member data
         const { data: insertedMembers, error: membersError } = await supabase
@@ -197,7 +278,10 @@ export async function POST(request: NextRequest) {
           console.log(`✅ Successfully imported ${members.length} members`);
         }
       } else {
-        console.warn('⚠️ No member data available from BitJita, settlement created without members');
+        console.warn('⚠️ No member data available from BitJita roster, settlement created without members');
+        if (!citizensResult.success) {
+          console.warn('⚠️ Citizens API also failed, character stats will be defaults');
+        }
       }
     } catch (memberError) {
       console.error('❌ Failed to fetch members from BitJita:', memberError);

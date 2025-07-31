@@ -1,430 +1,198 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getTreasurySummary, getTreasuryStats } from '../../../../lib/spacetime-db-new/modules';
-import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-client';
-import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { createServerSupabaseClient } from '../../../../lib/supabase-server-auth';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const settlementId = searchParams.get('settlementId');
 
-    // Check local database first if we have a settlement ID and Supabase
-    if (settlementId && supabase) {
-      console.log(`🔍 Fetching settlement dashboard data for ${settlementId} from local database`);
-      
-      try {
-        // Use direct Supabase queries instead of getAllMembers
-        const { data: allMembers } = await supabase
-          .from('settlement_members')
-          .select('*')
-          .eq('settlement_id', settlementId);
-        
-        const { data: allMembersIncludingInactive } = await supabase
-          .from('settlement_members')
-          .select('*')
-          .eq('settlement_id', settlementId);
+    console.log(`🔍 Dashboard API: Fetching data for settlement ${settlementId}`);
 
-        // Calculate stats from member data
-        const totalMembers = allMembersIncludingInactive?.length || 0;
-        const activeMembers = allMembers?.filter(m =>
-          m.lastOnline &&
-          (Date.now() - m.lastOnline.getTime()) < (7 * 24 * 60 * 60 * 1000)
-        ).length || 0;
-
-        // Calculate skills insights from settlement_citizens table
-        const skillsInsights = {
-          totalSkilledMembers: 0,
-          avgSkillLevel: 0,
-          topProfession: 'Unknown',
-          totalSkillPoints: 0,
-          topSkills: [] as Array<{name: string, members: number, avgLevel: number}>
-        };
-
-        if (allMembers && allMembers.length > 0) {
-          const skilledMembers = allMembers.filter(c => c.total_skills > 0);
-          skillsInsights.totalSkilledMembers = skilledMembers.length;
-          
-          if (skilledMembers.length > 0) {
-            skillsInsights.totalSkillPoints = skilledMembers.reduce((sum, m) => sum + (m.total_xp || 0), 0);
-            skillsInsights.avgSkillLevel = Math.round(
-              skilledMembers.reduce((sum, m) => sum + (m.highest_level || 0), 0) / skilledMembers.length
-            );
-
-            // Find top profession
-            const professionCounts: Record<string, number> = {};
-            skilledMembers.forEach(member => {
-              const profession = member.top_profession || 'Unknown';
-              professionCounts[profession] = (professionCounts[profession] || 0) + 1;
-            });
-            
-            skillsInsights.topProfession = Object.entries(professionCounts)
-              .sort(([,a], [,b]) => b - a)[0]?.[0] || 'Unknown';
-
-            // Calculate top skills
-            const skillStats: Record<string, {members: number, totalLevels: number}> = {};
-            skilledMembers.forEach(member => {
-              if (member.skills) {
-                Object.entries(member.skills).forEach(([skillId, level]) => {
-                  const skillName = skillId; // skillId is already the skill name in our unified schema
-                  if (!skillStats[skillName]) {
-                    skillStats[skillName] = {members: 0, totalLevels: 0};
-                  }
-                  skillStats[skillName].members += 1;
-                  skillStats[skillName].totalLevels += (level as number);
-                });
-              }
-            });
-
-            skillsInsights.topSkills = Object.entries(skillStats)
-              .map(([name, stats]) => ({
-                name,
-                members: stats.members,
-                avgLevel: Math.round(stats.totalLevels / stats.members)
-              }))
-              .sort((a, b) => b.members - a.members)
-              .slice(0, 5);
-          }
-        }
-
-        console.log(`✅ Found dashboard data: ${totalMembers} members, ${activeMembers} active, ${skillsInsights.totalSkilledMembers} skilled`);
-
-        // Get treasury data with BitJita integration
-        let treasuryResult = null;
-        try {
-          console.log('🏛️ Fetching treasury with BitJita integration for dashboard...');
-          
-          // Get local treasury data
-          const [localSummary, treasuryStats] = await Promise.all([
-            getTreasurySummary(),
-            getTreasuryStats(),
-          ]);
-
-          // Fetch real treasury balance from BitJita if we have settlement ID
-          let enhancedSummary = localSummary;
-          let dataSource = 'local_database';
-          
-          if (settlementId) {
-            const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
-            
-            if (bitjitaResult.success && bitjitaResult.data) {
-              console.log(`✅ Using BitJita treasury balance: ${bitjitaResult.data.treasury}`);
-              if (enhancedSummary) {
-                enhancedSummary.currentBalance = bitjitaResult.data.treasury;
-              } else {
-                enhancedSummary = {
-                  id: 'default',
-                  currentBalance: bitjitaResult.data.treasury,
-                  totalIncome: 0,
-                  totalExpenses: 0,
-                  lastTransactionDate: null,
-                  lastUpdated: new Date(),
-                  createdAt: new Date()
-                };
-              }
-              dataSource = 'bitjita_realtime';
-            } else {
-              console.warn(`⚠️ Failed to fetch BitJita balance: ${bitjitaResult.error}`);
-            }
-          }
-
-          treasuryResult = {
-            summary: enhancedSummary,
-            stats: treasuryStats,
-            meta: { dataSource, lastUpdated: new Date().toISOString() }
-          };
-          
-          console.log(`📊 Treasury: Current Balance: ${enhancedSummary?.currentBalance || 0}`);
-        } catch (error) {
-          console.warn('Treasury integration failed:', error instanceof Error ? error.message : error);
-          treasuryResult = {
-            summary: null,
-            stats: { monthlyIncome: 0, monthlyExpenses: 0, netChange: 0, transactionCount: 0, averageTransactionSize: 0 },
-            meta: { dataSource: 'error', message: 'Treasury unavailable' }
-          };
-        }
-
-        return NextResponse.json({
-          settlement: {
-            settlementInfo: { id: settlementId },
-            stats: {
-              totalMembers,
-              activeMembers,
-              totalProjects: 0, // Will be available when projects API is implemented
-              completedProjects: 0,
-            }
-          },
-          treasury: treasuryResult,
-          stats: {
-            totalMembers,
-            activeMembers,
-            totalProjects: 0,
-            completedProjects: 0,
-            currentBalance: treasuryResult?.summary?.currentBalance || 0,
-            monthlyIncome: treasuryResult?.stats?.monthlyIncome || 0
-          },
-          skills: skillsInsights,
-          meta: {
-            dataSource: 'local_database_with_treasury',
-            lastUpdated: new Date().toISOString(),
-            settlementId
-          }
-        });
-
-      } catch (dbError) {
-        console.error('Local database query failed:', dbError);
-        // Fall through to BitJita API fallback
-      }
+    if (!settlementId) {
+      return NextResponse.json(
+        { error: 'Settlement ID is required' },
+        { status: 400 }
+      );
     }
 
-    // Fallback to BitJita API if local database is unavailable or fails
-    if (!supabase || settlementId) {
-      console.log(`🌐 Falling back to BitJita API for settlement ${settlementId} dashboard data`);
-      
-      try {
-        if (!settlementId) {
-          throw new Error('Settlement ID is required for BitJita API fallback');
-        }
-        
-        const [rosterResult, citizensResult] = await Promise.all([
-          BitJitaAPI.fetchSettlementRoster(settlementId),
-          BitJitaAPI.fetchSettlementCitizens(settlementId)
-        ]);
+    // Get Supabase client
+    const supabase = await createServerSupabaseClient();
+    
+    // Fetch settlement data from our database
+    console.log(`📊 Querying settlement_members for settlement ${settlementId}...`);
+    const { data: members, error: membersError } = await supabase
+      .from('settlement_members')
+      .select('*')
+      .eq('settlement_id', settlementId);
 
-        const members = rosterResult.success ? rosterResult.data?.members || [] : [];
-        const citizens = citizensResult.success ? citizensResult.data?.citizens || [] : [];
-        
-        // Calculate stats from real data
-        const totalMembers = members.length;
-        const activeMembers = members.filter(m => 
-          m.lastLoginTimestamp && 
-          (Date.now() - new Date(m.lastLoginTimestamp).getTime()) < (7 * 24 * 60 * 60 * 1000) // Active in last 7 days
-        ).length;
-        
-        // Calculate skills insights from BitJita data
-        const skillsInsights = {
-          totalSkilledMembers: 0,
-          avgSkillLevel: 0,
-          topProfession: 'Unknown',
-          totalSkillPoints: 0,
-          topSkills: [] as Array<{name: string, members: number, avgLevel: number}>
-        };
-
-        if (citizens && citizens.length > 0) {
-          const skilledMembers = citizens.filter(c => c.totalLevel > 0);
-          skillsInsights.totalSkilledMembers = skilledMembers.length;
-          
-          if (skilledMembers.length > 0) {
-            skillsInsights.totalSkillPoints = skilledMembers.reduce((sum, m) => sum + (m.totalXP || 0), 0);
-            skillsInsights.avgSkillLevel = Math.round(
-              skilledMembers.reduce((sum, m) => sum + (m.highestLevel || 0), 0) / skilledMembers.length
-            );
-
-            // Find top profession by calculating the highest skill for each member
-            const professionCounts: Record<string, number> = {};
-            skilledMembers.forEach(member => {
-              let topSkillId = '';
-              let topSkillLevel = 0;
-              
-              // Find the skill with highest level for this member
-              Object.entries(member.skills || {}).forEach(([skillId, level]) => {
-                if (level > topSkillLevel) {
-                  topSkillLevel = level;
-                  topSkillId = skillId;
-                }
-              });
-              
-              const profession = topSkillId || 'Unknown';
-              professionCounts[profession] = (professionCounts[profession] || 0) + 1;
-            });
-            
-            skillsInsights.topProfession = Object.entries(professionCounts)
-              .sort(([,a], [,b]) => b - a)[0]?.[0] || 'Unknown';
-
-            // Calculate top skills
-            const skillStats: Record<string, {members: number, totalLevels: number}> = {};
-            skilledMembers.forEach(member => {
-              if (member.skills) {
-                Object.entries(member.skills).forEach(([skillId, level]) => {
-                  const skillName = skillId; // skillId is already the skill name in our unified schema
-                  if (!skillStats[skillName]) {
-                    skillStats[skillName] = {members: 0, totalLevels: 0};
-                  }
-                  skillStats[skillName].members += 1;
-                  skillStats[skillName].totalLevels += (level as number);
-                });
-              }
-            });
-
-            skillsInsights.topSkills = Object.entries(skillStats)
-              .map(([name, stats]) => ({
-                name,
-                members: stats.members,
-                avgLevel: Math.round(stats.totalLevels / stats.members)
-              }))
-              .sort((a, b) => b.members - a.members)
-              .slice(0, 5);
-          }
-        }
-
-        return NextResponse.json({
-          settlement: {
-            settlementInfo: { id: settlementId },
-            stats: {
-              totalMembers,
-              activeMembers,
-              totalProjects: 0, // Will be available when projects API is implemented
-              completedProjects: 0,
-            }
-          },
-          treasury: {
-            summary: null,
-            stats: {
-              currentBalance: 0, // Will be available with treasury integration
-              monthlyIncome: 0,
-              monthlyExpenses: 0,
-              netChange: 0
-            }
-          },
-          stats: {
-            totalMembers,
-            activeMembers,
-            totalProjects: 0,
-            completedProjects: 0,
-            currentBalance: 0,
-            monthlyIncome: 0
-          },
-          skills: skillsInsights,
-          meta: {
-            dataSource: 'bitjita_api_fallback',
-            lastUpdated: new Date().toISOString(),
-            settlementId,
-            fallbackReason: supabase ? 'local_database_error' : 'local_database_unavailable'
-          }
-        });
-
-      } catch (error) {
-        console.error('BitJita API error:', error);
-        // Fall back to demo data if BitJita fails
-      }
+    if (membersError) {
+      console.error(`❌ Failed to fetch members:`, membersError);
+      return NextResponse.json(
+        { error: 'Failed to fetch settlement members' },
+        { status: 500 }
+      );
     }
 
-    if (!supabase) {
-      // Return minimal data structure for demo mode
-      return NextResponse.json({
-        settlement: null,
-        treasury: null,
-        stats: {
-          totalMembers: 0,
-          activeMembers: 0,
-          totalProjects: 0,
-          completedProjects: 0,
-          currentBalance: 0,
-          monthlyIncome: 0
-        },
-        skills: {
-          totalSkilledMembers: 0,
-          avgSkillLevel: 0,
-          topProfession: 'Unknown',
-          totalSkillPoints: 0,
-          topSkills: []
-        },
-        meta: {
-          dataSource: 'demo_mode',
-          lastUpdated: new Date().toISOString()
-        }
+    console.log(`👥 Found ${members?.length || 0} members in database`);
+
+    // Fetch settlement master data
+    const { data: settlement, error: settlementError } = await supabase
+      .from('settlements_master')
+      .select('*')
+      .eq('settlement_id', settlementId)
+      .single();
+
+    if (settlementError) {
+      console.warn(`⚠️ No settlement master data found:`, settlementError);
+    } else {
+      console.log(`🏛️ Settlement master data:`, {
+        name: settlement?.name,
+        treasury: settlement?.treasury,
+        tier: settlement?.tier,
+        region: settlement?.region
       });
     }
 
-    // Fetch dashboard data with graceful fallbacks for missing tables
-    let settlementResult = null;
-    let treasuryResult = null;
+    // Calculate basic stats
+    const totalMembers = members?.length || 0;
+    const activeMembers = members?.filter(m => {
+      if (!m.last_login_timestamp) return false;
+      const lastLogin = new Date(m.last_login_timestamp);
+      const weekAgo = new Date(Date.now() - (7 * 24 * 60 * 60 * 1000));
+      return lastLogin > weekAgo;
+    }).length || 0;
 
-    try {
-      // This function is not defined in the provided imports, assuming it's a placeholder
-      // For now, we'll return a placeholder structure.
-      settlementResult = {
-        stats: { totalMembers: 0, activeMembers: 0, totalProjects: 0, completedProjects: 0 },
-        meta: { dataSource: 'incomplete_schema', message: 'Settlement management tables not yet created' }
-      };
-    } catch (error) {
-      console.warn('Settlement dashboard unavailable (missing tables):', error instanceof Error ? error.message : error);
-      settlementResult = {
-        stats: { totalMembers: 0, activeMembers: 0, totalProjects: 0, completedProjects: 0 },
-        meta: { dataSource: 'incomplete_schema', message: 'Settlement management tables not yet created' }
-      };
-    }
+    // Calculate skills insights
+    const skillsInsights = {
+      totalSkilledMembers: members?.filter(m => m.total_level && m.total_level > 0).length || 0,
+      avgSkillLevel: 0,
+      topProfession: 'Settler',
+      totalSkillPoints: 0,
+      topSkills: [] as Array<{name: string, members: number, avgLevel: number}>
+    };
 
-    try {
-      console.log('🏛️ Fetching treasury with BitJita integration for dashboard...');
+    if (members && members.length > 0) {
+      const skilledMembers = members.filter(m => m.total_level && m.total_level > 0);
       
-      // Get local treasury data
-      const [localSummary, stats] = await Promise.all([
-        getTreasurySummary(),
-        getTreasuryStats(),
-      ]);
-
-      // Fetch real treasury balance from BitJita if we have settlement ID
-      let enhancedSummary = localSummary;
-      let dataSource = 'local_database';
-      
-      if (settlementId) {
-        const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
+      if (skilledMembers.length > 0) {
+        skillsInsights.totalSkillPoints = skilledMembers.reduce((sum, m) => sum + (m.total_xp || 0), 0);
+        skillsInsights.avgSkillLevel = skilledMembers.reduce((sum, m) => sum + (m.total_level || 0), 0) / skilledMembers.length;
         
-                 if (bitjitaResult.success && bitjitaResult.data) {
-           console.log(`✅ Using BitJita treasury balance: ${bitjitaResult.data.treasury}`);
-           if (enhancedSummary) {
-             enhancedSummary.currentBalance = bitjitaResult.data.treasury;
-           }
-           dataSource = 'bitjita_realtime';
-         } else {
-           console.warn(`⚠️ Failed to fetch BitJita balance: ${bitjitaResult.error}`);
-         }
+        // Find most common profession
+        const professionCounts = skilledMembers.reduce((counts, m) => {
+          const prof = m.top_profession || 'Settler';
+          counts[prof] = (counts[prof] || 0) + 1;
+          return counts;
+        }, {} as Record<string, number>);
+        
+        skillsInsights.topProfession = Object.entries(professionCounts)
+          .sort(([,a], [,b]) => b - a)[0]?.[0] || 'Settler';
       }
-
-      treasuryResult = {
-        summary: enhancedSummary,
-        stats,
-        recentTransactions: [],
-        categories: [],
-        monthlyBreakdown: { income: [], expenses: [] },
-        meta: { dataSource, lastUpdated: new Date().toISOString() }
-      };
-      
-      console.log(`📊 Treasury: Current Balance: ${enhancedSummary?.currentBalance || 0}`);
-    } catch (error) {
-      console.warn('Treasury dashboard unavailable:', error instanceof Error ? error.message : error);
-      treasuryResult = {
-        summary: null,
-        stats: { monthlyIncome: 0, monthlyExpenses: 0, netChange: 0, transactionCount: 0, averageTransactionSize: 0 },
-        meta: { dataSource: 'incomplete_schema', message: 'Treasury unavailable' }
-      };
     }
 
-    return NextResponse.json({
-      settlement: settlementResult,
-      treasury: treasuryResult,
-      stats: {
-        totalMembers: settlementResult?.stats?.totalMembers || 0,
-        activeMembers: settlementResult?.stats?.activeMembers || 0,
-        totalProjects: settlementResult?.stats?.totalProjects || 0,
-        completedProjects: settlementResult?.stats?.completedProjects || 0,
-        currentBalance: treasuryResult?.summary?.currentBalance || 0,
-        monthlyIncome: treasuryResult?.stats?.monthlyIncome || 0,
-        monthlyExpenses: treasuryResult?.stats?.monthlyExpenses || 0,
-        netChange: treasuryResult?.stats?.netChange || 0
-      },
-      meta: {
-        dataSource: 'partial_data',
-        lastUpdated: new Date().toISOString(),
-        note: 'Some features unavailable - full database schema needed'
+    // Treasury data with real-time BitJita fallback
+    let currentBalance = settlement?.treasury || 0;
+    let treasuryDataSource = 'database';
+    
+    // If treasury is 0 in database, fetch real-time from BitJita as fallback
+    if (currentBalance === 0) {
+      console.log(`💰 Treasury is 0 in database, fetching real-time from BitJita...`);
+      try {
+        const searchResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/search?q=${encodeURIComponent(settlement?.name || 'unknown')}`);
+        const searchResult = await searchResponse.json();
+        
+        if (searchResult.success && searchResult.data?.settlements?.length > 0) {
+          const bitjitaSettlement = searchResult.data.settlements.find((s: any) => s.id === settlementId);
+          if (bitjitaSettlement && bitjitaSettlement.treasury > 0) {
+            currentBalance = bitjitaSettlement.treasury;
+            treasuryDataSource = 'bitjita_realtime';
+            console.log(`✅ Using real-time BitJita treasury: ${currentBalance}`);
+            
+            // Optional: Update database with real value for future
+            const { error: updateError } = await supabase
+              .from('settlements_master')
+              .update({ 
+                treasury: currentBalance,
+                last_synced_at: new Date().toISOString(),
+                sync_source: 'realtime_fallback'
+              })
+              .eq('settlement_id', settlementId);
+              
+            if (updateError) {
+              console.warn('⚠️ Failed to update treasury in database:', updateError);
+            } else {
+              console.log(`✅ Updated database treasury to ${currentBalance}`);
+            }
+          }
+        }
+      } catch (treasuryError) {
+        console.warn('⚠️ Failed to fetch real-time treasury:', treasuryError);
       }
+    }
+
+    const treasuryData = {
+      summary: {
+        currentBalance,
+        totalIncome: 0,
+        totalExpenses: 0
+      },
+      stats: {
+        monthlyIncome: 0,
+        monthlyExpenses: 0,
+        netChange: 0,
+        transactionCount: 0,
+        averageTransactionSize: 0
+      }
+    };
+
+    const responseData = {
+      settlement: {
+        settlementInfo: { 
+          id: settlementId,
+          name: settlement?.name || 'Unknown Settlement',
+          tier: settlement?.tier || 1,
+          region: settlement?.region || 'Unknown'
+        },
+        stats: {
+          totalMembers,
+          activeMembers,
+          totalProjects: 0, // TODO: Add when projects table is ready
+          completedProjects: 0
+        }
+      },
+      treasury: treasuryData,
+      stats: {
+        totalMembers,
+        activeMembers,
+        totalProjects: 0,
+        completedProjects: 0,
+        currentBalance: currentBalance,
+        monthlyIncome: 0
+      },
+      skills: skillsInsights,
+      meta: {
+        dataSource: 'supabase_database',
+        treasuryDataSource,
+        lastUpdated: new Date().toISOString(),
+        settlementId
+      }
+    };
+
+    console.log(`✅ Dashboard data compiled successfully:`, {
+      totalMembers,
+      activeMembers,
+      skilledMembers: skillsInsights.totalSkilledMembers,
+      treasury: currentBalance,
+      treasurySource: treasuryDataSource
     });
 
+    return NextResponse.json(responseData);
+
   } catch (error) {
-    console.error('Dashboard API error:', error);
+    console.error('❌ Dashboard API error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
-} 
+}

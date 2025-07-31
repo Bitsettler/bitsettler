@@ -19,7 +19,12 @@ import {
   Building2,
   Loader2,
   Crown,
-  Activity
+  Activity,
+  Database,
+  Shield,
+  UserCheck,
+  Download,
+  Clock
 } from 'lucide-react';
 
 interface SettlementEstablishFlowProps {
@@ -71,6 +76,21 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   const [availableCharacters, setAvailableCharacters] = useState<CharacterOption[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
   const [error, setError] = useState<string | null>(null);
+  
+  // Progress tracking for establishment
+  const [establishmentProgress, setEstablishmentProgress] = useState({
+    currentStep: 0,
+    steps: establishData ? [
+      { id: 'verify', label: 'Verifying Character', icon: UserCheck, status: 'pending' as const },
+      { id: 'setup', label: 'Setting Up Account', icon: Shield, status: 'pending' as const },
+      { id: 'activate', label: 'Activating Access', icon: CheckCircle, status: 'pending' as const }
+    ] : [
+      { id: 'sync', label: 'Syncing Settlement Data', icon: Download, status: 'pending' as const },
+      { id: 'import', label: 'Importing Members', icon: Database, status: 'pending' as const },
+      { id: 'permissions', label: 'Setting Permissions', icon: Shield, status: 'pending' as const },
+      { id: 'finalize', label: 'Finalizing Setup', icon: CheckCircle, status: 'pending' as const }
+    ]
+  });
 
   // Initialize data when establishData is provided
   useEffect(() => {
@@ -87,8 +107,8 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
       });
       setAvailableCharacters(establishData.availableCharacters);
       
-      // Show establishing step for 2 seconds, then transition to character selection
-      const timer = setTimeout(() => {
+      // Start progress simulation, then transition to character selection
+      simulateProgress(true).then(() => {
         if (establishData.availableCharacters.length > 0) {
           setStep('verify'); // Go to character claiming if members were imported
         } else {
@@ -98,11 +118,42 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
             onComplete();
           }, 3000);
         }
-      }, 2000);
-      
-      return () => clearTimeout(timer);
+      });
     }
   }, [establishData, onComplete]);
+
+  // Progress simulation for visual appeal
+  const simulateProgress = async (isCharacterClaim: boolean = false) => {
+    const steps = establishmentProgress.steps;
+    const stepDelay = isCharacterClaim ? 800 : 1200; // Faster for character claim
+    
+    for (let i = 0; i < steps.length; i++) {
+      // Mark current step as active
+      setEstablishmentProgress(prev => ({
+        ...prev,
+        currentStep: i,
+        steps: prev.steps.map((step, index) => ({
+          ...step,
+          status: index === i ? 'active' : index < i ? 'completed' : 'pending'
+        }))
+      }));
+      
+      // Wait for step to complete
+      await new Promise(resolve => setTimeout(resolve, stepDelay));
+      
+      // Mark step as completed
+      setEstablishmentProgress(prev => ({
+        ...prev,
+        steps: prev.steps.map((step, index) => ({
+          ...step,
+          status: index <= i ? 'completed' : 'pending'
+        }))
+      }));
+      
+      // Small delay between steps
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+  };
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
@@ -191,12 +242,8 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
     setStep('establishing');
     try {
-      // TODO: Replace with actual API calls
-      // 1. Call BitJita API to sync settlement data
-      // 2. Create settlement in our database
-      // 3. Import all members
-      // 4. Claim character for current user
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      // Start progress simulation for settlement establishment
+      await simulateProgress(false);
       
       setStep('complete');
       setTimeout(() => {
@@ -211,12 +258,23 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   const handleClaimCharacter = async () => {
     if (!selectedCharacter || !selectedSettlement) return;
 
+    console.log('🎯 Claiming character:', {
+      characterId: selectedCharacter.id,
+      characterEntityId: selectedCharacter.entity_id,
+      characterName: selectedCharacter.name,
+      settlementId: selectedSettlement.id
+    });
+
     setStep('establishing');
     try {
-      const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.id,
-        settlementId: selectedSettlement.id
-      });
+      // Run progress simulation and API call in parallel
+      const [_, result] = await Promise.all([
+        simulateProgress(true), // Character claim progress (faster)
+        api.post('/api/settlement/claim-character', {
+          characterId: selectedCharacter.entity_id, // Use entity_id instead of id
+          settlementId: selectedSettlement.id
+        })
+      ]);
 
       if (result.success) {
         setStep('complete');
@@ -466,35 +524,113 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
   if (step === 'establishing') {
     return (
-      <div className="max-w-2xl mx-auto p-6">
+      <div className="max-w-3xl mx-auto p-6">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle>{establishData ? 'Claiming Character' : 'Establishing Settlement'}</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl">
+              {establishData ? 'Claiming Character' : 'Establishing Settlement'}
+            </CardTitle>
+            <CardDescription className="text-lg">
               {establishData 
-                ? `Claiming your character in ${selectedSettlement?.name}`
+                ? `Setting up your character in ${selectedSettlement?.name}`
                 : `Setting up management for ${selectedSettlement?.name}`
               }
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <CardContent className="space-y-8">
+            {/* Progress Steps */}
+            <div className="space-y-6">
+              {establishmentProgress.steps.map((progressStep, index) => {
+                const IconComponent = progressStep.icon;
+                const isActive = progressStep.status === 'active';
+                const isCompleted = progressStep.status === 'completed';
+                const isPending = progressStep.status === 'pending';
+                
+                return (
+                  <div key={progressStep.id} className="flex items-center space-x-4">
+                    {/* Step Icon */}
+                    <div className={`
+                      flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-500
+                      ${isCompleted ? 'bg-green-500 border-green-500 text-white' : ''}
+                      ${isActive ? 'bg-blue-500 border-blue-500 text-white animate-pulse' : ''}
+                      ${isPending ? 'bg-gray-100 border-gray-300 text-gray-400' : ''}
+                    `}>
+                      {isCompleted ? (
+                        <CheckCircle className="w-6 h-6" />
+                      ) : isActive ? (
+                        <Loader2 className="w-6 h-6 animate-spin" />
+                      ) : (
+                        <IconComponent className="w-6 h-6" />
+                      )}
+                    </div>
+                    
+                    {/* Step Content */}
+                    <div className="flex-1">
+                      <div className={`
+                        font-medium transition-all duration-300
+                        ${isCompleted ? 'text-green-700' : ''}
+                        ${isActive ? 'text-blue-700' : ''}
+                        ${isPending ? 'text-gray-500' : ''}
+                      `}>
+                        {progressStep.label}
+                      </div>
+                      
+                      {/* Progress Bar for Active Step */}
+                      {isActive && (
+                        <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-blue-500 h-2 rounded-full animate-pulse w-full"></div>
+                        </div>
+                      )}
+                      
+                      {/* Completed Indicator */}
+                      {isCompleted && (
+                        <div className="mt-1 text-sm text-green-600 font-medium">
+                          ✓ Complete
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Step Number */}
+                    <div className={`
+                      text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300
+                      ${isCompleted ? 'bg-green-100 text-green-700' : ''}
+                      ${isActive ? 'bg-blue-100 text-blue-700' : ''}
+                      ${isPending ? 'bg-gray-100 text-gray-400' : ''}
+                    `}>
+                      {index + 1}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <div className="text-center text-sm text-muted-foreground space-y-1">
-              {establishData ? (
-                <>
-                  <p>Verifying character ownership...</p>
-                  <p>Setting up your account...</p>
-                  <p>Activating settlement access...</p>
-                </>
-              ) : (
-                <>
-                  <p>Syncing settlement data from game...</p>
-                  <p>Importing member information...</p>
-                  <p>Setting up management permissions...</p>
-                </>
-              )}
+            
+            {/* Overall Progress Bar */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm font-medium">
+                <span>Progress</span>
+                <span>{Math.round((establishmentProgress.currentStep + 1) / establishmentProgress.steps.length * 100)}%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-gradient-to-r from-blue-500 to-green-500 h-3 rounded-full transition-all duration-1000 ease-out"
+                  style={{ 
+                    width: `${(establishmentProgress.currentStep + 1) / establishmentProgress.steps.length * 100}%` 
+                  }}
+                ></div>
+              </div>
+            </div>
+            
+            {/* Status Message */}
+            <div className="text-center">
+              <p className="text-muted-foreground">
+                {establishData 
+                  ? "Please wait while we set up your character..."
+                  : "Please wait while we establish your settlement..."
+                }
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                This process usually takes a few moments
+              </p>
             </div>
           </CardContent>
         </Card>

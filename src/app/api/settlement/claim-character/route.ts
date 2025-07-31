@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const { data: character, error: characterError } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('id', characterId)
+      .eq('entity_id', characterId)
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Must be unclaimed
       .eq('is_active', true)
@@ -48,8 +48,19 @@ export async function POST(request: NextRequest) {
 
     if (characterError || !character) {
       console.log(`❌ Character not found or already claimed: ${characterId}`);
+      console.log(`❌ Character Error:`, characterError);
+      console.log(`❌ Settlement ID:`, settlementId);
       return NextResponse.json(
-        { success: false, error: 'Character not available or already claimed' },
+        { 
+          success: false, 
+          error: 'Character not available or already claimed',
+          debug: {
+            characterError: characterError?.message,
+            characterId,
+            settlementId,
+            characterFound: !!character
+          }
+        },
         { status: 404 }
       );
     }
@@ -57,7 +68,7 @@ export async function POST(request: NextRequest) {
     // 2. Check if user already has a character in this settlement
     const { data: existingClaim, error: existingError } = await supabase
       .from('settlement_members')
-      .select('id, name')
+      .select('entity_id, name')
       .eq('settlement_id', settlementId)
       .eq('supabase_user_id', user.id)
       .eq('is_active', true)
@@ -79,10 +90,9 @@ export async function POST(request: NextRequest) {
       .from('settlement_members')
       .update({
         supabase_user_id: user.id,
-        onboarding_completed_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
+        onboarding_completed_at: new Date().toISOString()
       })
-      .eq('id', characterId)
+      .eq('entity_id', characterId)
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()
@@ -90,8 +100,21 @@ export async function POST(request: NextRequest) {
 
     if (claimError) {
       console.error('❌ Failed to claim character:', claimError);
+      console.error('❌ Character ID:', characterId);
+      console.error('❌ Settlement ID:', settlementId);
+      console.error('❌ User ID:', user.id);
       return NextResponse.json(
-        { success: false, error: 'Failed to claim character. It may have been claimed by someone else.' },
+        { 
+          success: false, 
+          error: 'Failed to claim character. It may have been claimed by someone else.',
+          debug: {
+            error: claimError.message,
+            code: claimError.code,
+            characterId,
+            settlementId,
+            userId: user.id
+          }
+        },
         { status: 500 }
       );
     }

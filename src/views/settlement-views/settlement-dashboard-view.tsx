@@ -7,6 +7,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
+import { useSession } from '../../hooks/use-auth';
+import { SettlementOnboardingView } from './settlement-onboarding-view';
 import { useCallback } from 'react';
 import { 
   Users, 
@@ -49,12 +51,14 @@ interface DashboardData {
 }
 
 export function SettlementDashboardView() {
+  // ✅ ALL HOOKS MUST BE AT THE TOP - Rules of Hooks
+  const { data: session, status } = useSession();
+  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
-  const { member } = useCurrentMember();
 
   const fetchDashboardData = useCallback(async () => {
     try {
@@ -69,11 +73,10 @@ export function SettlementDashboardView() {
       }
       
       const url = `/api/settlement/dashboard?settlementId=${encodeURIComponent(settlementId)}`;
-        
       const response = await fetch(url);
       
       if (!response.ok) {
-        throw new Error('Failed to fetch dashboard data');
+        throw new Error(`Failed to fetch dashboard data: ${response.status}`);
       }
       
       const data = await response.json();
@@ -97,6 +100,7 @@ export function SettlementDashboardView() {
     }
   }, [fetchDashboardData, selectedSettlement, member]);
 
+  // ✅ UTILITY FUNCTIONS (non-hooks)
   const formatNumber = (num: number): string => {
     return new Intl.NumberFormat().format(num);
   };
@@ -109,7 +113,48 @@ export function SettlementDashboardView() {
     return `${formatCurrency(num)} 🪙`;
   };
 
-  if (isLoading) {
+  // ✅ CONDITIONAL RENDERING - After all hooks are called
+  // Auth Guard Logic - handle authentication and onboarding
+  if (status === 'loading' || (status === 'authenticated' && memberLoading)) {
+    return (
+      <Container>
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center space-y-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+            <p className="text-muted-foreground">
+              {status === 'loading' ? 'Loading...' : 'Checking settlement membership...'}
+            </p>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+
+  // Not authenticated - show login prompt
+  if (!session) {
+    return (
+      <Container>
+        <div className="text-center py-12">
+          <h1 className="text-2xl font-bold mb-4">Authentication Required</h1>
+          <p className="text-muted-foreground mb-6">You must be logged in to view this page.</p>
+          <a 
+            href="/en/auth/signin" 
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+          >
+            Sign In
+          </a>
+        </div>
+      </Container>
+    );
+  }
+
+  // Authenticated but no settlement character claimed - show onboarding
+  if (!isClaimed || !member) {
+    return <SettlementOnboardingView />;
+  }
+
+  // ⚠️ ONLY show loading if we don't have any data yet
+  if (isLoading && !dashboardData) {
     return (
       <Container>
         <div className="space-y-6 py-8">
@@ -148,9 +193,13 @@ export function SettlementDashboardView() {
     monthlyIncome: 0,
   };
 
+
+
   return (
     <Container>
       <div className="space-y-6 py-8">
+
+        
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
@@ -181,7 +230,7 @@ export function SettlementDashboardView() {
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span>Tier {selectedSettlement.tier}</span>
                     <span>•</span>
-                    <span>{formatNumber(selectedSettlement.population)} members</span>
+                    <span>{formatNumber(stats.totalMembers)} members</span>
                     <span>•</span>
                     <span>{formatNumber(selectedSettlement.tiles)} tiles</span>
                   </div>

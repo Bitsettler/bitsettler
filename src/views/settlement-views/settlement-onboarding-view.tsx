@@ -29,10 +29,12 @@ export function SettlementOnboardingView() {
     setEstablishData(null);
   };
 
-  const handleComplete = () => {
-    // Refresh the page to re-check authentication and member status
-    // This will cause the settlement page to reload and show the dashboard
-    router.refresh();
+  const handleComplete = async () => {
+    // Add a small delay to ensure database transaction is committed
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Force a hard refresh to clear any cached data
+    window.location.reload();
   };
 
   return (
