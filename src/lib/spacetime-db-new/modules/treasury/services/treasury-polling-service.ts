@@ -36,14 +36,11 @@ export class TreasuryPollingService {
   startPolling(settlementId: string = '504403158277057776'): void {
     // Check both instance and global flags to prevent multiple polling
     if (this.isPolling || TreasuryPollingService.globalPollingActive) {
-      logger.warn('Treasury polling already active - skipping duplicate start');
+      console.warn('Treasury polling already active - skipping duplicate start');
       return;
     }
 
-    logger.info('Starting treasury polling service', {
-      operation: 'START_TREASURY_POLLING',
-      intervalMs: POLLING_INTERVAL
-    });
+    console.log('Starting treasury polling service - interval:', POLLING_INTERVAL);
     this.isPolling = true;
     TreasuryPollingService.globalPollingActive = true;
 
@@ -66,9 +63,7 @@ export class TreasuryPollingService {
     }
     this.isPolling = false;
     TreasuryPollingService.globalPollingActive = false;
-    logger.info('Treasury polling service stopped', {
-    operation: 'STOP_TREASURY_POLLING'
-  });
+    console.log('Treasury polling service stopped');
   }
 
   /**
@@ -200,20 +195,11 @@ export class TreasuryPollingService {
         .order('recorded_at', { ascending: true });
 
           if (error) {
-      logger.error('Failed to fetch treasury history', error, {
-        operation: 'GET_TREASURY_HISTORY',
-        timeRange,
-        timeUnit
-      });
+      console.error('Failed to fetch treasury history:', error);
       return [];
     }
 
-    logger.debug(`Fetched treasury snapshots`, {
-      operation: 'GET_TREASURY_HISTORY',
-      count: data?.length || 0,
-      timeRange,
-      timeUnit
-    });
+    console.log(`Fetched ${data?.length || 0} treasury snapshots`);
 
       return (data || []).map((record: { settlement_id: string; current_balance: number; total_income: number; total_expenses: number; last_transaction_date?: string; transaction_count: number }) => ({
         settlementId: record.settlement_id,
@@ -228,11 +214,7 @@ export class TreasuryPollingService {
       }));
 
       } catch (error) {
-    logger.error('Error fetching treasury history', error instanceof Error ? error : new Error(String(error)), {
-      operation: 'GET_TREASURY_HISTORY',
-      timeRange,
-      timeUnit
-    });
+    console.error('Error fetching treasury history:', error);
     return [];
   }
   }
