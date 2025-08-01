@@ -158,7 +158,7 @@ export function EnhancedSignInPage() {
                 className="w-full opacity-60 cursor-not-allowed"
               >
                 <div className="w-4 h-4 mr-2 bg-current rounded-sm opacity-80" style={{
-                  maskImage: "url('/favicon.ico')",
+                  maskImage: "url('/bitcraft-favicon.ico')",
                   maskSize: "contain",
                   maskRepeat: "no-repeat",
                   maskPosition: "center"
