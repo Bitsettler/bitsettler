@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Badge } from '../../components/ui/badge';
 import { Input } from '../../components/ui/input';
@@ -8,19 +9,20 @@ import { Button } from '../../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
-import { Search, Users, UserCheck, Clock } from 'lucide-react';
+import { Search, Users, UserCheck } from 'lucide-react';
 
 interface SettlementMember {
   id: string;
   name: string;
-  profession: string;
-  professionLevel: number;
-  lastOnline: string | null;
-  isActive: boolean;
-  joinDate: string;
+  top_profession: string;
+  highest_level: number;
+  is_active: boolean;
+  entity_id: string;
+  // Note: Using actual API field names to match member data structure
 }
 
 interface MembersResponse {
@@ -31,12 +33,13 @@ interface MembersResponse {
 }
 
 export function SettlementMembersView() {
+  const router = useRouter();
   const [members, setMembers] = useState<SettlementMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [professionFilter, setProfessionFilter] = useState<string>('all');
-  const [statusFilter, setStatusFilter] = useState<string>('active');
+  const [statusFilter, setStatusFilter] = useState<string>('all');
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -99,28 +102,21 @@ export function SettlementMembersView() {
     }
   };
 
-  // Filter members by search term (client-side)
-  const filteredMembers = members.filter(member =>
-    member.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter and sort members by search term and status (client-side)
+  const filteredMembers = members.filter(member => {
+    const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // Handle different possible is_active data types (boolean, string, number)
+    const isActive = member.is_active === true || member.is_active === 1 || member.is_active === "true";
+    
+    const matchesStatus = statusFilter === 'all' || 
+      (statusFilter === 'active' && isActive) || 
+      (statusFilter === 'inactive' && !isActive);
+    return matchesSearch && matchesStatus;
+  }).sort((a, b) => a.name.localeCompare(b.name)); // Sort A-Z by default
 
   // Get unique professions for filter dropdown
-  const professions = Array.from(new Set(members.map(m => m.profession))).sort();
-
-  const formatLastOnline = (lastOnline: string | null) => {
-    if (!lastOnline) return 'Never';
-    
-    const date = new Date(lastOnline);
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    return `${Math.floor(diffDays / 30)} months ago`;
-  };
+  const professions = Array.from(new Set(members.map(m => m.top_profession))).sort();
 
   const getInitials = (name: string) => {
     return name
@@ -169,39 +165,47 @@ export function SettlementMembersView() {
       {/* Page Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold">Members Directory</h1>
+          <h1 className="text-3xl font-bold">Settlement Members</h1>
           <p className="text-muted-foreground text-sm">
-            Manage and view all settlement members ({totalMembers} total)
+            {totalMembers} total members
           </p>
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline" className="gap-1">
             <UserCheck className="h-3 w-3" />
-            {members.filter(m => m.isActive).length} Active
+            {members.filter(m => m.is_active === true || m.is_active === 1 || m.is_active === "true").length} Active
           </Badge>
+          <Badge variant="secondary" className="gap-1">
+            <Users className="h-3 w-3" />
+            {members.filter(m => !(m.is_active === true || m.is_active === 1 || m.is_active === "true")).length} Inactive
+          </Badge>
+
         </div>
       </div>
 
-      {/* Filters */}
+      {/* Members Table */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg flex items-center gap-2">
-            <Search className="h-4 w-4" />
-            Search & Filter
-          </CardTitle>
+          <CardTitle>Members Directory</CardTitle>
+          <CardDescription>
+            Manage and view all settlement members
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1">
+          {/* Filters */}
+          <div className="flex gap-4 mb-6 flex-col sm:flex-row">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
                 placeholder="Search members by name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full"
+                className="pl-10"
               />
             </div>
+            
             <Select value={professionFilter} onValueChange={setProfessionFilter}>
-              <SelectTrigger className="w-full sm:w-48">
+              <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="All Professions" />
               </SelectTrigger>
               <SelectContent>
@@ -213,78 +217,65 @@ export function SettlementMembersView() {
                 ))}
               </SelectContent>
             </Select>
+
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full sm:w-32">
+              <SelectTrigger className="w-[120px]">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="inactive">Inactive</SelectItem>
                 <SelectItem value="all">All</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </CardContent>
-      </Card>
-
-      {/* Members Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {filteredMembers.map((member) => (
-          <Card key={member.id} className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-3">
-              <div className="flex items-center space-x-3">
-                <Avatar>
-                  <AvatarFallback className="bg-primary/10 text-primary font-medium">
-                    {getInitials(member.name)}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold truncate">
-                    <a 
-                      href={`/en/settlement/members/${encodeURIComponent(member.id)}`}
-                      className="hover:text-primary hover:underline cursor-pointer"
-                    >
-                      {member.name}
-                    </a>
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {member.profession}
+        
+        <CardContent className="p-0">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-12"></TableHead>
+                <TableHead>Member</TableHead>
+                <TableHead className="text-center">Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {filteredMembers.map((member) => (
+                <TableRow 
+                  key={member.id} 
+                  className="hover:bg-muted/50 cursor-pointer transition-colors"
+                  onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
+                >
+                  <TableCell>
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback className="bg-primary/10 text-primary font-medium text-xs">
+                        {getInitials(member.name)}
+                      </AvatarFallback>
+                    </Avatar>
+                  </TableCell>
+                  <TableCell>
+                    <div className="font-medium">{member.name}</div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Badge variant={(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'default' : 'secondary'}>
+                      {(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'Active' : 'Inactive'}
                     </Badge>
-                    <span className="text-xs text-muted-foreground">
-                      Lvl {member.professionLevel}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Status</span>
-                  <Badge variant={member.isActive ? 'default' : 'secondary'}>
-                    {member.isActive ? 'Active' : 'Inactive'}
-                  </Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    Last Online
-                  </span>
-                  <span className="text-xs">
-                    {formatLastOnline(member.lastOnline)}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Joined</span>
-                  <span className="text-xs">
-                    {new Date(member.joinDate).toLocaleDateString()}
-                  </span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          
+          {filteredMembers.length === 0 && (
+            <div className="text-center py-8 text-muted-foreground">
+              <Users className="h-8 w-8 mx-auto mb-2 opacity-50" />
+              <p>No members found</p>
+              <p className="text-sm">Try adjusting your search or filter criteria</p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       {/* Pagination */}
       {totalPages > 1 && (
@@ -353,48 +344,46 @@ function MembersLoadingSkeleton() {
 
       <Card>
         <CardHeader>
-          <Skeleton className="h-6 w-32" />
+          <Skeleton className="h-6 w-32 mb-2" />
+          <Skeleton className="h-4 w-48" />
         </CardHeader>
         <CardContent>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mb-6">
             <Skeleton className="h-10 flex-1" />
             <Skeleton className="h-10 w-48" />
             <Skeleton className="h-10 w-32" />
           </div>
         </CardContent>
+        <CardContent className="p-0">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-12"></TableHead>
+                <TableHead>Member</TableHead>
+                <TableHead className="text-center">Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {Array.from({ length: 8 }).map((_, i) => (
+                <TableRow key={`skeleton-${i}`}>
+                  <TableCell>
+                    <Skeleton className="h-8 w-8 rounded-full" />
+                  </TableCell>
+                  <TableCell>
+                    <div className="space-y-1">
+                      <Skeleton className="h-4 w-32" />
+                      <Skeleton className="h-3 w-24" />
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Skeleton className="h-5 w-16 mx-auto" />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
       </Card>
-
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <Card key={`skeleton-${i}`}>
-            <CardHeader className="pb-3">
-              <div className="flex items-center space-x-3">
-                <Skeleton className="h-10 w-10 rounded-full" />
-                <div className="flex-1">
-                  <Skeleton className="h-4 w-24 mb-1" />
-                  <Skeleton className="h-3 w-16" />
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <Skeleton className="h-3 w-12" />
-                  <Skeleton className="h-5 w-16" />
-                </div>
-                <div className="flex justify-between">
-                  <Skeleton className="h-3 w-16" />
-                  <Skeleton className="h-3 w-20" />
-                </div>
-                <div className="flex justify-between">
-                  <Skeleton className="h-3 w-12" />
-                  <Skeleton className="h-3 w-16" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
       </div>
     </Container>
   );

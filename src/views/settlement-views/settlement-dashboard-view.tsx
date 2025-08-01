@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+
 import { Skeleton } from '@/components/ui/skeleton';
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
@@ -17,13 +18,11 @@ import {
   Calendar,
   Activity,
   Wallet,
-  TrendingUp,
-  Target,
-  Building,
-  Award,
-  Zap,
 } from 'lucide-react';
+import { formatDistanceToNow } from 'date-fns';
+import { SettlementTierIcon } from '@/components/ui/tier-icon';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
+
 
 interface DashboardStats {
   totalMembers: number;
@@ -32,6 +31,8 @@ interface DashboardStats {
   completedProjects: number;
   currentBalance: number;
   monthlyIncome: number;
+  tiles?: number;
+  supplies?: number;
 }
 
 interface SkillsInsights {
@@ -42,11 +43,36 @@ interface SkillsInsights {
   topSkills: Array<{name: string, members: number, avgLevel: number}>;
 }
 
+interface Settlement {
+  settlementInfo?: {
+    id: string;
+    name: string;
+    tier: number;
+    region?: string;
+    treasury?: number;
+    supplies?: number;
+    tiles?: number;
+    population?: number;
+  };
+  stats?: DashboardStats;
+}
+
+interface Treasury {
+  summary?: {
+    currentBalance: number;
+  };
+}
+
 interface DashboardData {
-  settlement: Settlement;
-  treasury: Treasury;
+  settlement?: Settlement;
+  treasury?: Treasury;
   stats: DashboardStats;
   skills?: SkillsInsights;
+  meta?: {
+    dataSource: string;
+    liveDataAvailable: boolean;
+    lastUpdated: string;
+  };
   lastUpdated: string;
 }
 
@@ -57,6 +83,8 @@ export function SettlementDashboardView() {
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
+  const [recentActivities, setRecentActivities] = useState<any[]>([]);
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
 
@@ -88,17 +116,63 @@ export function SettlementDashboardView() {
     }
   }, [selectedSettlement, member]);
 
+  const fetchRecentActivities = useCallback(async () => {
+    try {
+      const settlementId = selectedSettlement?.id || member?.settlement_id;
+      if (!settlementId) return;
+      
+      const response = await fetch(`/api/settlement/recent-activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
+      const data = await response.json();
+      
+      if (data.success) {
+        setRecentActivities(data.activities);
+      }
+    } catch (error) {
+      console.error('Failed to fetch recent activities:', error);
+    }
+  }, [selectedSettlement, member]);
+
   useEffect(() => {
     // Fetch data if we have a selected settlement or member with settlement
     const settlementId = selectedSettlement?.id || member?.settlement_id;
     if (settlementId) {
       fetchDashboardData();
+      fetchRecentActivities();
       
-      // Refresh data every 5 minutes (less aggressive to prevent blinking)
-      const interval = setInterval(fetchDashboardData, 300000);
+      // Refresh data every 5 minutes (300 seconds)
+      const interval = setInterval(() => {
+        fetchDashboardData();
+        fetchRecentActivities();
+      }, 300000);
       return () => clearInterval(interval);
     }
-  }, [fetchDashboardData, selectedSettlement, member]);
+  }, [fetchDashboardData, fetchRecentActivities, selectedSettlement, member]);
+
+  // Countdown timer for next update
+  useEffect(() => {
+    if (!dashboardData?.meta?.lastUpdated) return;
+
+    const updateCountdown = () => {
+      const lastUpdate = new Date(dashboardData.meta!.lastUpdated);
+      const nextUpdate = new Date(lastUpdate.getTime() + 5 * 60 * 1000); // 5 minutes later
+      const now = new Date();
+      const timeLeft = nextUpdate.getTime() - now.getTime();
+
+      if (timeLeft <= 0) {
+        setNextUpdateCountdown('Updating...');
+        return;
+      }
+
+      const minutes = Math.floor(timeLeft / 60000);
+      const seconds = Math.floor((timeLeft % 60000) / 1000);
+      setNextUpdateCountdown(`${minutes}m ${seconds}s`);
+    };
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    
+    return () => clearInterval(countdownInterval);
+  }, [dashboardData?.meta?.lastUpdated]);
 
   // ✅ UTILITY FUNCTIONS (non-hooks)
   const formatNumber = (num: number): string => {
@@ -155,7 +229,15 @@ export function SettlementDashboardView() {
     completedProjects: 0,
     currentBalance: 0,
     monthlyIncome: 0,
+    tiles: 0,
+    supplies: 0,
   };
+
+    // Get live settlement info if available  
+  const settlementInfo = dashboardData?.settlement?.settlementInfo;
+  const isLiveData = dashboardData?.meta?.liveDataAvailable || false;
+
+
 
 
 
@@ -167,40 +249,50 @@ export function SettlementDashboardView() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Settlement Dashboard</h1>
-            <p className="text-muted-foreground">Overview of your settlement</p>
+            <h1 className="text-3xl font-bold">Settlement Overview</h1>
+            <p className="text-muted-foreground">Dashboard and management tools</p>
           </div>
-        <div className="flex items-center gap-3">
-          {inviteCode && (
-            <CompactSettlementInviteCode 
-              inviteCode={inviteCode}
-              className="ml-auto"
-            />
-          )}
-        </div>
+          <div></div>
         </div>
 
-      {/* Settlement Info */}
-      {selectedSettlement && (
+      {/* Settlement Info - Enhanced with Live Data */}
+      {(selectedSettlement || settlementInfo) && (
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <Building className="h-6 w-6 text-primary" />
+          <CardContent className="pt-4 pb-4">
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl font-semibold">
+                    {settlementInfo?.name || selectedSettlement?.name}
+                  </h2>
+                  <SettlementTierIcon tier={settlementInfo?.tier || selectedSettlement?.tier || 1} />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold">{selectedSettlement.name}</h2>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span>Tier {selectedSettlement.tier}</span>
-                    <span>•</span>
-                    <span>{formatNumber(stats.totalMembers)} members</span>
-                    <span>•</span>
-                    <span>{formatNumber(selectedSettlement.tiles)} tiles</span>
-                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    Tier {settlementInfo?.tier || selectedSettlement?.tier || 1} Settlement
+                  </span>
                 </div>
               </div>
-              <Badge variant="secondary">Connected</Badge>
+              <div className="flex flex-col items-end gap-2">
+                {inviteCode && (
+                  <CompactSettlementInviteCode 
+                    inviteCode={inviteCode}
+                    onRegenerate={regenerateInviteCode}
+                  />
+                )}
+                {dashboardData?.meta?.lastUpdated && (
+                  <div className="text-right">
+                    <div className="text-sm font-medium">
+                      Updated {new Date(dashboardData.meta.lastUpdated).toLocaleTimeString()}
+                    </div>
+                    {nextUpdateCountdown && (
+                      <div className="text-xs text-muted-foreground">
+                        Next update in: {nextUpdateCountdown}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -208,8 +300,8 @@ export function SettlementDashboardView() {
 
 
 
-      {/* Stats Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {/* Enhanced Stats Grid */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Members</CardTitle>
@@ -218,14 +310,14 @@ export function SettlementDashboardView() {
           <CardContent>
             <div className="text-2xl font-bold">{formatNumber(stats.totalMembers)}</div>
             <p className="text-xs text-muted-foreground">
-              {formatNumber(stats.activeMembers)} active
+              {formatNumber(stats.activeMembers)} active in the last 7 days
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Projects</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Projects</CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -247,93 +339,38 @@ export function SettlementDashboardView() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Monthly Income</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{formatHexcoin(stats.monthlyIncome)}</div>
-            <p className="text-xs text-muted-foreground">This month</p>
-          </CardContent>
-        </Card>
+        {/* Live Data Cards */}
+        {(stats.tiles !== undefined && stats.tiles > 0) && (
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Size</CardTitle>
+              <Package className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{formatNumber(stats.tiles)}</div>
+              <p className="text-xs text-muted-foreground">Total tiles</p>
+            </CardContent>
+          </Card>
+        )}
+
+        {(stats.supplies !== undefined && stats.supplies > 0) && (
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Supplies</CardTitle>
+              <Coins className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{formatNumber(stats.supplies)}</div>
+              <p className="text-xs text-muted-foreground">Available supplies</p>
+            </CardContent>
+          </Card>
+        )}
       </div>
 
-      {/* Skills Insights */}
-      {dashboardData?.skills && (
-        <div className="grid gap-4 lg:grid-cols-3">
-          {/* Skills Summary */}
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Avg Skill Level</CardTitle>
-                <Target className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{dashboardData.skills?.avgSkillLevel || 0}</div>
-                <p className="text-xs text-muted-foreground">Settlement average</p>
-              </CardContent>
-            </Card>
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Top Profession</CardTitle>
-                <Award className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold truncate">{dashboardData.skills?.topProfession || 'Unknown'}</div>
-                <p className="text-xs text-muted-foreground">Most common</p>
-              </CardContent>
-            </Card>
-          </div>
 
-          {/* Top Skills Chart */}
-          <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base">
-                  <Zap className="h-4 w-4" />
-                  Top Skills by Participation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {dashboardData.skills?.topSkills?.slice(0, 5).map((skill, index) => {
-                    const maxMembers = dashboardData.skills?.topSkills?.[0]?.members || 1;
-                    const percentage = (skill.members / maxMembers) * 100;
-                    
-                    return (
-                      <div key={skill.name} className="space-y-1">
-                        <div className="flex items-center justify-between text-sm">
-                          <div className="flex items-center gap-2">
-                            <Badge variant="outline" className="w-5 h-5 p-0 flex items-center justify-center text-xs">
-                              {index + 1}
-                            </Badge>
-                            <span className="font-medium">{skill.name}</span>
-                          </div>
-                          <div className="flex items-center gap-3 text-muted-foreground">
-                            <span>{skill.members} members</span>
-                            <span className="font-medium">Lvl {skill.avgLevel}</span>
-                          </div>
-                        </div>
-                        <div className="w-full bg-secondary rounded-full h-2">
-                          <div 
-                            className="bg-primary h-2 rounded-full transition-all duration-300" 
-                            style={{ width: `${percentage}%` }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      )}
-
-      {/* Recent Activity & Live Feed */}
-      <div className="grid gap-4 lg:grid-cols-2">
+      {/* Recent Activity */}
+      <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -342,9 +379,52 @@ export function SettlementDashboardView() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground text-sm">
-              Recent activities will appear here when settlement data is connected.
-            </p>
+            <div className="text-center py-8">
+              <div className="text-lg font-medium text-muted-foreground mb-2">Coming Soon</div>
+              <p className="text-sm text-muted-foreground">
+                Settlement event logs and activity feed will be displayed here in a future update.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              Recent Member Activity
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {recentActivities.length > 0 ? (
+              <div className="space-y-3 max-h-80 overflow-y-auto">
+                {recentActivities.map((activity: any) => (
+                  <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
+                    <div className="text-lg" title={activity.activity_data.skillName}>
+                      {activity.activity_data.icon || '⬆️'}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium truncate">
+                        {activity.activity_data.memberName}
+                      </div>
+                      <div className="text-sm text-muted-foreground truncate">
+                        {activity.activity_data.skillName} Level {activity.activity_data.newLevel}
+                      </div>
+                    </div>
+                    <div className="text-xs text-muted-foreground flex-shrink-0">
+                      {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <div className="text-lg font-medium text-muted-foreground mb-2">No Recent Activity</div>
+                <p className="text-sm text-muted-foreground">
+                  Member skill level-ups will appear here once tracking begins.
+                </p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

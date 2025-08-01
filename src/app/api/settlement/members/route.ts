@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
-import { withErrorHandling, requireQueryParams, apiSuccess, apiError } from '@/lib/api-utils';
-import { Result, ErrorCodes } from '@/lib/result';
+import { requireQueryParams } from '@/lib/api-utils';
 import { logger } from '@/lib/logger';
 
 interface MemberData {
@@ -42,33 +41,36 @@ interface MemberData {
  * Fetches settlement member data from OUR database (not BitJita)
  * This should be used after settlement establishment when data is already stored
  */
-async function handleGetMembers(request: NextRequest): Promise<Result<MemberData>> {
-  const { searchParams } = new URL(request.url);
-  
-  // Validate required parameters
-  const paramsResult = requireQueryParams(searchParams, 'settlementId');
-  if (!paramsResult.success) {
-    return paramsResult;
-  }
-  
-  const { settlementId } = paramsResult.data;
+async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
+  try {
+    const { searchParams } = new URL(request.url);
+    
+    // Validate required parameters
+    const paramsResult = requireQueryParams(searchParams, 'settlementId');
+    if (!paramsResult.success) {
+      return NextResponse.json(paramsResult, { status: 400 });
+    }
+    
+    const { settlementId } = paramsResult.data;
 
-  logger.info('Fetching settlement members from database', {
-    settlementId,
-    operation: 'GET_SETTLEMENT_MEMBERS'
-  });
+    logger.info('Fetching settlement members from database', {
+      settlementId,
+      operation: 'GET_SETTLEMENT_MEMBERS'
+    });
 
-  // Get database client
-  const supabase = createServerClient();
-  if (!supabase) {
-    logger.error('Supabase service client not available');
-    return apiError(
-      'Database service unavailable',
-      ErrorCodes.CONFIGURATION_ERROR
-    );
-  }
+    // Get database client
+    const supabase = createServerClient();
+    if (!supabase) {
+      logger.error('Supabase service client not available');
+      return NextResponse.json({
+        success: false,
+        error: 'Database service unavailable'
+      }, { status: 500 });
+    }
 
-  const { data: members, error } = await supabase
+    console.log(`🔍 Members API: Querying settlement_members for settlement ${settlementId}`);
+    
+    const { data: members, error } = await supabase
     .from('settlement_members')
     .select(`
       entity_id,
@@ -94,26 +96,28 @@ async function handleGetMembers(request: NextRequest): Promise<Result<MemberData
       sync_source,
       supabase_user_id
     `)
-    .eq('settlement_id', settlementId);
+      .eq('settlement_id', settlementId);
 
-  if (error) {
-    logger.error('Database query failed for settlement members', error, {
+    console.log(`📊 Members API: Found ${members?.length || 0} members in database`);
+
+    if (error) {
+      logger.error('Database query failed for settlement members', error, {
+        settlementId,
+        operation: 'GET_SETTLEMENT_MEMBERS'
+      });
+      return NextResponse.json({
+        success: false,
+        error: 'Failed to fetch members from database'
+      }, { status: 500 });
+    }
+
+    logger.info(`Successfully fetched ${members?.length || 0} members`, {
       settlementId,
-      operation: 'GET_SETTLEMENT_MEMBERS'
+      memberCount: members?.length || 0
     });
-    return apiError(
-      'Failed to fetch members from database',
-      ErrorCodes.DATABASE_ERROR
-    );
-  }
 
-  logger.info(`Successfully fetched ${members?.length || 0} members`, {
-    settlementId,
-    memberCount: members?.length || 0
-  });
-
-  // Transform database data to frontend format
-  const formattedMembers = (members || []).map((member) => ({
+    // Transform database data to frontend format
+    const formattedMembers = (members || []).map((member) => ({
     id: member.entity_id,
     entity_id: member.entity_id,
     player_entity_id: member.player_entity_id,
@@ -145,15 +149,27 @@ async function handleGetMembers(request: NextRequest): Promise<Result<MemberData
     is_claimed: !!member.supabase_user_id, // Boolean indicating if character is claimed
     last_synced_at: member.last_synced_at,
     sync_source: member.sync_source
-  }));
+    }));
 
-  return apiSuccess({
-    settlementId,
-    members: formattedMembers,
-    memberCount: formattedMembers.length,
-    source: 'database',
-    lastUpdated: new Date().toISOString()
-  });
+    // Return data directly without double-wrapping to fix persistent members issue
+    return NextResponse.json({
+      success: true,
+      data: {
+        settlementId,
+        members: formattedMembers,
+        memberCount: formattedMembers.length,
+        source: 'database',
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('❌ Members API error:', error);
+    return NextResponse.json({
+      success: false,
+      error: 'Internal server error',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
 }
 
-export const GET = withErrorHandling(handleGetMembers);
+export const GET = handleGetMembers;

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AuthGuard } from '@/components/auth/auth-guard';
+import '@/styles/settlement-tiers.css';
 
 export const metadata: Metadata = {
   title: 'Settlement - BitCraft.Guide',

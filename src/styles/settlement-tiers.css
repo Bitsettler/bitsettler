@@ -1,0 +1,171 @@
+/**
+ * Settlement Tier Colors - EXACT Brico.app Colors!
+ * 
+ * CSS custom properties using the ACTUAL tier colors from brico.app
+ * These are the exact hex codes used on brico.app/#/database/items
+ * 
+ * Usage: bg-[var(--bc-tier-color-5)] or .bg-tier-bg5 { background-color: var(--bc-tier-color-5); }
+ */
+
+:root {
+  /* Tier 0 - Basic/Default */
+  --bc-tier-color-0: rgb(107, 114, 128);
+  --bc-tier-text-0: rgb(243, 244, 246);
+  --bc-tier-border-0: rgb(75, 85, 99);
+
+  /* Tier 1 - Common - EXACT brico.app color */
+  --bc-tier-color-1: #636a74;
+  --bc-tier-text-1: rgb(255, 255, 255);
+  --bc-tier-border-1: #636a74;
+
+  /* Tier 2 - Uncommon - EXACT brico.app color */
+  --bc-tier-color-2: #875f45;
+  --bc-tier-text-2: rgb(255, 255, 255);
+  --bc-tier-border-2: #875f45;
+
+  /* Tier 3 - Rare - EXACT brico.app color */
+  --bc-tier-color-3: #5c6f4d;
+  --bc-tier-text-3: rgb(255, 255, 255);
+  --bc-tier-border-3: #5c6f4d;
+
+  /* Tier 4 - Epic - EXACT brico.app color */
+  --bc-tier-color-4: #49619c;
+  --bc-tier-text-4: rgb(255, 255, 255);
+  --bc-tier-border-4: #49619c;
+
+  /* Tier 5 - Legendary - EXACT brico.app color */
+  --bc-tier-color-5: #814f87;
+  --bc-tier-text-5: rgb(255, 255, 255);
+  --bc-tier-border-5: #814f87;
+
+  /* Tier 6 - Mythic - EXACT brico.app color */
+  --bc-tier-color-6: #983a44;
+  --bc-tier-text-6: rgb(255, 255, 255);
+  --bc-tier-border-6: #983a44;
+
+  /* Tier 7 - Divine - EXACT brico.app color */
+  --bc-tier-color-7: #947014;
+  --bc-tier-text-7: rgb(255, 255, 255);
+  --bc-tier-border-7: #947014;
+
+  /* Tier 8 - Celestial - EXACT brico.app color */
+  --bc-tier-color-8: #538484;
+  --bc-tier-text-8: rgb(255, 255, 255);
+  --bc-tier-border-8: #538484;
+
+  /* Tier 9 - Transcendent - EXACT brico.app color */
+  --bc-tier-color-9: #464953;
+  --bc-tier-text-9: rgb(255, 255, 255);
+  --bc-tier-border-9: #464953;
+
+  /* Tier 10 - Ultimate - EXACT brico.app color */
+  --bc-tier-color-10: #97afbe;
+  --bc-tier-text-10: rgb(255, 255, 255);
+  --bc-tier-border-10: #97afbe;
+}
+
+/* Brico.app style utility classes */
+.bg-tier-bg0 { background-color: var(--bc-tier-color-0); }
+.bg-tier-bg1 { background-color: var(--bc-tier-color-1); }
+.bg-tier-bg2 { background-color: var(--bc-tier-color-2); }
+.bg-tier-bg3 { background-color: var(--bc-tier-color-3); }
+.bg-tier-bg4 { background-color: var(--bc-tier-color-4); }
+.bg-tier-bg5 { background-color: var(--bc-tier-color-5); }
+.bg-tier-bg6 { background-color: var(--bc-tier-color-6); }
+.bg-tier-bg7 { background-color: var(--bc-tier-color-7); }
+.bg-tier-bg8 { background-color: var(--bc-tier-color-8); }
+.bg-tier-bg9 { background-color: var(--bc-tier-color-9); }
+.bg-tier-bg10 { background: var(--bc-tier-color-10); }
+
+/* Text color utilities */
+.text-tier-0 { color: var(--bc-tier-text-0); }
+.text-tier-1 { color: var(--bc-tier-text-1); }
+.text-tier-2 { color: var(--bc-tier-text-2); }
+.text-tier-3 { color: var(--bc-tier-text-3); }
+.text-tier-4 { color: var(--bc-tier-text-4); }
+.text-tier-5 { color: var(--bc-tier-text-5); }
+.text-tier-6 { color: var(--bc-tier-text-6); }
+.text-tier-7 { color: var(--bc-tier-text-7); }
+.text-tier-8 { color: var(--bc-tier-text-8); }
+.text-tier-9 { color: var(--bc-tier-text-9); }
+.text-tier-10 { color: var(--bc-tier-text-10); }
+
+/* Border color utilities */
+.border-tier-0 { border-color: var(--bc-tier-border-0); }
+.border-tier-1 { border-color: var(--bc-tier-border-1); }
+.border-tier-2 { border-color: var(--bc-tier-border-2); }
+.border-tier-3 { border-color: var(--bc-tier-border-3); }
+.border-tier-4 { border-color: var(--bc-tier-border-4); }
+.border-tier-5 { border-color: var(--bc-tier-border-5); }
+.border-tier-6 { border-color: var(--bc-tier-border-6); }
+.border-tier-7 { border-color: var(--bc-tier-border-7); }
+.border-tier-8 { border-color: var(--bc-tier-border-8); }
+.border-tier-9 { border-color: var(--bc-tier-border-9); }
+.border-tier-10 { border-color: var(--bc-tier-border-10); }
+
+/* Complete tier badge utilities (like brico.app) */
+.tier-badge-0 {
+  background-color: var(--bc-tier-color-0);
+  color: var(--bc-tier-text-0);
+  border-color: var(--bc-tier-border-0);
+}
+
+.tier-badge-1 {
+  background-color: var(--bc-tier-color-1);
+  color: var(--bc-tier-text-1);
+  border-color: var(--bc-tier-border-1);
+}
+
+.tier-badge-2 {
+  background-color: var(--bc-tier-color-2);
+  color: var(--bc-tier-text-2);
+  border-color: var(--bc-tier-border-2);
+}
+
+.tier-badge-3 {
+  background-color: var(--bc-tier-color-3);
+  color: var(--bc-tier-text-3);
+  border-color: var(--bc-tier-border-3);
+}
+
+.tier-badge-4 {
+  background-color: var(--bc-tier-color-4);
+  color: var(--bc-tier-text-4);
+  border-color: var(--bc-tier-border-4);
+}
+
+.tier-badge-5 {
+  background-color: var(--bc-tier-color-5);
+  color: var(--bc-tier-text-5);
+  border-color: var(--bc-tier-border-5);
+}
+
+.tier-badge-6 {
+  background-color: var(--bc-tier-color-6);
+  color: var(--bc-tier-text-6);
+  border-color: var(--bc-tier-border-6);
+}
+
+.tier-badge-7 {
+  background-color: var(--bc-tier-color-7);
+  color: var(--bc-tier-text-7);
+  border-color: var(--bc-tier-border-7);
+}
+
+.tier-badge-8 {
+  background-color: var(--bc-tier-color-8);
+  color: var(--bc-tier-text-8);
+  border-color: var(--bc-tier-border-8);
+}
+
+.tier-badge-9 {
+  background-color: var(--bc-tier-color-9);
+  color: var(--bc-tier-text-9);
+  border-color: var(--bc-tier-border-9);
+}
+
+.tier-badge-10 {
+  background: var(--bc-tier-color-10);
+  color: var(--bc-tier-text-10);
+  border-color: var(--bc-tier-border-10);
+}

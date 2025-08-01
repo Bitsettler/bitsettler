@@ -1,18 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '../../../../lib/supabase-server-auth';
+import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { settlementConfig } from '../../../../config/settlement-config';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const settlementId = searchParams.get('settlementId');
+    const settlementId = searchParams.get('settlementId') || settlementConfig.defaultSettlement.id;
 
-    console.log(`🔍 Dashboard API: Fetching data for settlement ${settlementId}`);
+    console.log(`🔍 Dashboard API: Fetching live data for settlement ${settlementId}`);
 
     if (!settlementId) {
       return NextResponse.json(
         { error: 'Settlement ID is required' },
         { status: 400 }
       );
+    }
+
+    // Fetch live settlement claim data from BitJita API
+    console.log(`📡 Fetching live settlement claim data from BitJita...`);
+    const claimResponse = await BitJitaAPI.fetchSettlementDetails(settlementId);
+    
+    let liveSettlementData = null;
+    if (claimResponse.success) {
+      liveSettlementData = claimResponse.data!;
+      console.log(`✅ Live settlement data:`, liveSettlementData);
+    } else {
+      console.warn(`⚠️ Failed to fetch live settlement data, falling back to database:`, claimResponse.error);
     }
 
     // Get Supabase client
@@ -145,45 +159,63 @@ export async function GET(request: NextRequest) {
       }
     };
 
+    // Use live settlement data if available, otherwise fall back to database
+    const settlementInfo = liveSettlementData ? {
+      id: liveSettlementData.id,
+      name: liveSettlementData.name,
+      tier: liveSettlementData.tier,
+      treasury: liveSettlementData.treasury,
+      supplies: liveSettlementData.supplies,
+      tiles: liveSettlementData.tiles,
+      population: liveSettlementData.population
+    } : {
+      id: settlementId,
+      name: settlement?.name || 'Unknown Settlement',
+      tier: settlement?.tier || 1,
+      region: settlement?.region || 'Unknown'
+    };
+
     const responseData = {
       settlement: {
-        settlementInfo: { 
-          id: settlementId,
-          name: settlement?.name || 'Unknown Settlement',
-          tier: settlement?.tier || 1,
-          region: settlement?.region || 'Unknown'
-        },
+        settlementInfo,
         stats: {
-          totalMembers,
+          totalMembers, // Always use actual member count from database
           activeMembers,
           totalProjects: 0, // TODO: Add when projects table is ready
-          completedProjects: 0
+          completedProjects: 0,
+          tiles: liveSettlementData?.tiles || 0,
+          supplies: liveSettlementData?.supplies || 0
         }
       },
       treasury: treasuryData,
       stats: {
-        totalMembers,
+        totalMembers, // Always use actual member count from database
         activeMembers,
         totalProjects: 0,
         completedProjects: 0,
-        currentBalance: currentBalance,
-        monthlyIncome: 0
+        currentBalance: liveSettlementData?.treasury || currentBalance,
+        monthlyIncome: 0,
+        tiles: liveSettlementData?.tiles || 0,
+        supplies: liveSettlementData?.supplies || 0
       },
       skills: skillsInsights,
       meta: {
-        dataSource: 'supabase_database',
+        dataSource: liveSettlementData ? 'bitjita_api_live' : 'supabase_database',
         treasuryDataSource,
         lastUpdated: new Date().toISOString(),
-        settlementId
+        settlementId,
+        liveDataAvailable: !!liveSettlementData
       }
     };
 
     console.log(`✅ Dashboard data compiled successfully:`, {
-      totalMembers,
+      totalMembers: totalMembers, // Actual member count from database
       activeMembers,
       skilledMembers: skillsInsights.totalSkilledMembers,
-      treasury: currentBalance,
-      treasurySource: treasuryDataSource
+      treasury: liveSettlementData?.treasury || currentBalance,
+      treasurySource: treasuryDataSource,
+      tiles: liveSettlementData?.tiles || 0,
+      note: 'BitJita population field represents tile usage, not member count'
     });
 
     return NextResponse.json(responseData);

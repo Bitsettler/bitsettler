@@ -11,6 +11,10 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
+import { useSkillNames } from '../../hooks/use-skill-names';
+import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
+import { TierIcon } from '@/components/ui/tier-icon';
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { 
   User, 
   Calendar, 
@@ -30,6 +34,16 @@ import {
   Hammer,
   Crown
 } from 'lucide-react';
+
+/**
+ * Convert skill level to tier (0-10 based on Bitcraft progression)
+ * 0 = tier 0, 1-10 = tier 1, 11-20 = tier 2, 21-30 = tier 3, 31-40 = tier 4, etc.
+ */
+function getSkillTier(level: number): number {
+  if (level === 0) return 0;
+  if (level >= 100) return 10;
+  return Math.min(Math.floor(level / 10) + 1, 10);
+}
 
 interface MemberDetail {
   id: string;
@@ -74,6 +88,7 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   
   const { selectedSettlement } = useSelectedSettlement();
   const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
+  const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 
   useEffect(() => {
     // Wait for member data to load before making API calls
@@ -143,18 +158,42 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   };
 
   const getPermissionLevel = (permission: number): { label: string; color: string; icon: React.ComponentType<{ className?: string }> } => {
-    if (permission >= 1) return { label: 'Yes', color: 'text-green-600 bg-green-50 border-green-200', icon: UserCheck };
-    return { label: 'No', color: 'text-gray-600 bg-gray-50 border-gray-200', icon: UserX };
+    if (permission >= 1) return { label: 'Granted', color: 'text-foreground bg-accent/50', icon: UserCheck };
+    return { label: 'Denied', color: 'text-muted-foreground bg-muted/50', icon: UserX };
   };
 
-  const getTopSkills = (skills: Record<string, number>): Array<{ name: string; level: number }> => {
-    return Object.entries(skills)
-      .map(([name, level]) => ({ name, level }))
-      .sort((a, b) => b.level - a.level)
-      .slice(0, 8);
+  const getMemberRole = (permissions: any): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
+    if (permissions.coOwner >= 1) return { 
+      role: 'Co-Owner', 
+      description: 'Has full administrative access and can manage all settlement functions',
+      variant: 'destructive'
+    };
+    if (permissions.officer >= 1) return { 
+      role: 'Officer', 
+      description: 'Has administrative privileges and can manage members and permissions',
+      variant: 'default'
+    };
+    if (permissions.build >= 1) return { 
+      role: 'Builder', 
+      description: 'Can construct and modify buildings within the settlement',
+      variant: 'secondary'
+    };
+    if (permissions.inventory >= 1) return { 
+      role: 'Contributor', 
+      description: 'Can access and manage settlement inventory and resources',
+      variant: 'outline'
+    };
+    return { 
+      role: 'Member', 
+      description: 'Basic member with standard settlement access',
+      variant: 'outline'
+    };
   };
 
-  if (loading) {
+  // Use skill names hook to get properly named skills
+  const topSkills = member ? getTopSkillsWithNames(member.skills, 8) : [];
+
+  if (loading || skillNamesLoading) {
     return (
       <Container className="py-6">
         <div className="space-y-6">
@@ -203,11 +242,10 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   const buildPerm = getPermissionLevel(member.permissions.build);
   const officerPerm = getPermissionLevel(member.permissions.officer);
   const coOwnerPerm = getPermissionLevel(member.permissions.coOwner);
-  
-  const topSkills = getTopSkills(member.skills);
 
   return (
-    <Container className="py-6">
+    <TooltipProvider>
+      <Container className="py-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -217,8 +255,8 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
               Back to Members
             </Button>
             <div>
-              <h1 className="text-3xl font-bold">Member Details</h1>
-              <p className="text-muted-foreground">Detailed information about {member.name}</p>
+              <h1 className="text-3xl font-bold">{member.name}</h1>
+              <p className="text-muted-foreground">Member details and profile information</p>
             </div>
           </div>
           {member.isActive ? (
@@ -253,12 +291,23 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
             <div className="flex-1 space-y-3">
               <div>
                 <h2 className="text-2xl font-bold">{member.name}</h2>
-                <p className="text-lg text-muted-foreground">{member.profession}</p>
+                <div className="mt-2">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge variant={getMemberRole(member.permissions).variant} className="text-sm">
+                        {getMemberRole(member.permissions).role}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{getMemberRole(member.permissions).description}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
               </div>
               
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Entity ID</p>
+                  <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
                   <p className="font-mono text-sm">{member.entityId}</p>
                 </div>
                 <div className="space-y-1">
@@ -284,28 +333,61 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              Skill Statistics
+              <Award className="h-5 w-5" />
+              Top 5 Skills
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{member.totalSkillLevel}</div>
-                <div className="text-sm text-muted-foreground">Total Skill Level</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{member.highestLevel}</div>
-                <div className="text-sm text-muted-foreground">Highest Skill</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{member.totalXP.toLocaleString()}</div>
-                <div className="text-sm text-muted-foreground">Total XP</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{Object.keys(member.skills).length}</div>
-                <div className="text-sm text-muted-foreground">Skills Learned</div>
-              </div>
+          <CardContent>
+            <div className="space-y-4">
+              {topSkills.length > 0 ? (
+                topSkills.slice(0, 5).map((skill, index) => (
+                          <div key={skill.name} className="space-y-1">
+          <div className="flex items-center">
+            <span className="font-medium text-sm">{skill.name}</span>
+          </div>
+                    <div className="relative bg-muted rounded-full h-6">
+                      <div 
+                        className={`h-6 rounded-full transition-all ${getSettlementTierBadgeClasses(getSkillTier(skill.level)).split(' ')[0]}`}
+                        style={{ width: `${(() => {
+                          const tier = getSkillTier(skill.level);
+                          if (tier === 0) return 0;
+                          if (tier === 10) return 100; // Max tier is always full
+                          
+                          // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
+                          const tierStart = (tier - 1) * 10;
+                          const tierEnd = tier * 10 - 1;
+                          const progressInTier = ((skill.level - tierStart) / (tierEnd - tierStart)) * 100;
+                          return Math.min(Math.max(progressInTier, 0), 100);
+                        })()}%` }}
+                      />
+                      <div className="absolute left-2 top-1">
+                        <TierIcon tier={getSkillTier(skill.level)} size="sm" variant="game-asset" />
+                      </div>
+                      <div 
+                        className={`absolute top-0 -translate-y-1 inline-flex items-center justify-center w-10 h-8 rounded-lg text-sm font-bold shadow-lg border-2 border-background transition-all ${getSettlementTierBadgeClasses(getSkillTier(skill.level))}`}
+                        style={{ left: `${(() => {
+                          const tier = getSkillTier(skill.level);
+                          if (tier === 0) return 0;
+                          if (tier === 10) return 100; // Max tier is always full
+                          
+                          // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
+                          const tierStart = (tier - 1) * 10;
+                          const tierEnd = tier * 10 - 1;
+                          const progressInTier = ((skill.level - tierStart) / (tierEnd - tierStart)) * 100;
+                          const progress = Math.min(Math.max(progressInTier, 0), 100);
+                          
+                          // Position the badge at the end of the progress as an anchor
+                          return Math.max(progress - 5, 0); // Anchor at the tip
+                        })()}%` }}
+                      >
+                        {skill.level}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-muted-foreground text-sm">No skill data available</p>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -313,35 +395,14 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Award className="h-5 w-5" />
-              Top Skills
+              <TrendingUp className="h-5 w-5" />
+              Skill Statistics
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {topSkills.length > 0 ? (
-                topSkills.map((skill, index) => (
-                  <div key={skill.name} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">
-                        {index + 1}
-                      </Badge>
-                      <span className="font-medium">{skill.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="bg-muted rounded-full h-2 w-20">
-                        <div 
-                          className="bg-primary h-2 rounded-full"
-                          style={{ width: `${Math.min((skill.level / member.highestLevel) * 100, 100)}%` }}
-                        />
-                      </div>
-                      <span className="font-mono text-sm w-8 text-right">{skill.level}</span>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p className="text-muted-foreground text-sm">No skill data available</p>
-              )}
+          <CardContent className="flex items-center justify-center py-12 opacity-50">
+            <div className="text-center">
+              <div className="text-2xl font-medium text-muted-foreground mb-2">Coming Soon</div>
+              <p className="text-sm text-muted-foreground">Enhanced skill analytics</p>
             </div>
           </CardContent>
         </Card>
@@ -442,5 +503,6 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
       </Card>
       </div>
     </Container>
+    </TooltipProvider>
   );
 } 

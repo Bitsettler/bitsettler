@@ -4,7 +4,7 @@
 export const settlementConfig = {
   // Default settlement configuration
   defaultSettlement: {
-    id: '', // Will be set via server-side configuration
+    id: '504403158277057776', // Port Taverna claim ID
     name: 'Port Taverna',
   },
 
