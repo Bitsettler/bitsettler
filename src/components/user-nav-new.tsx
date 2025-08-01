@@ -2,6 +2,7 @@
 
 import { useAuth } from '@/hooks/use-auth'
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions'
+import { useCurrentMember } from '@/hooks/use-current-member'
 import { useRouter } from 'next/navigation'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -34,6 +35,7 @@ import {
 export function UserNavNew() {
   const { user, session, loading, signOut } = useAuth()
   const { userRole, permissions, loading: permissionsLoading } = useSettlementPermissions()
+  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember()
   const router = useRouter()
 
   const handleSignIn = () => {
@@ -46,7 +48,7 @@ export function UserNavNew() {
     router.refresh()
   }
 
-  if (loading) {
+  if (loading || memberLoading) {
     return (
       <div className="flex items-center space-x-3 p-2">
         <div className="h-8 w-8 rounded-full bg-muted animate-pulse" />
@@ -67,12 +69,16 @@ export function UserNavNew() {
     )
   }
 
-  const displayName = user.user_metadata?.name || user.user_metadata?.preferred_username || user.email?.split('@')[0] || 'User'
+  // Use character name if claimed, fallback to user metadata
+  const displayName = member?.name || member?.display_name || user.user_metadata?.name || user.user_metadata?.preferred_username || user.email?.split('@')[0] || 'User'
   const initials = displayName
     ?.split(' ')
     .map((n) => n[0])
     .join('')
     .toUpperCase() || 'U'
+  
+  // Show role instead of email for claimed characters
+  const secondaryText = isClaimed && userRole?.displayName ? userRole.displayName : user?.email
 
   const getRoleIcon = () => {
     if (!userRole) return <User className="h-3 w-3" />
@@ -119,7 +125,7 @@ export function UserNavNew() {
                 )}
               </div>
               <p className="text-xs text-muted-foreground truncate w-full">
-                {user?.email}
+                {secondaryText}
               </p>
             </div>
           </div>
@@ -140,7 +146,7 @@ export function UserNavNew() {
               )}
             </div>
             <p className="text-xs leading-none text-muted-foreground">
-              {user?.email}
+              {secondaryText}
             </p>
           </div>
         </DropdownMenuLabel>

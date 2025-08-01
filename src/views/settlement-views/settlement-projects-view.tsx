@@ -3,24 +3,52 @@
 import { useState, useEffect } from 'react';
 import { useSession } from '@/hooks/use-auth';
 import { useRouter } from 'next/navigation';
-import { Plus, Package, Filter, Users, Clock, CheckCircle2, XCircle, Gift, Search } from 'lucide-react';
+import { 
+  Plus, 
+  Package, 
+  Filter, 
+  Users, 
+  Clock, 
+  CheckCircle2, 
+  XCircle, 
+  Gift, 
+  Search,
+  ChevronDown,
+  ChevronUp,
+  Save,
+  X,
+  Trash2
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CreateProjectModal } from '@/components/projects/create-project-modal';
-import { ContributeModal } from '@/components/projects/contribute-modal';
 import { Container } from '@/components/container';
 import { type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 
 const statusIcons = {
   'Active': Clock,
   'Completed': CheckCircle2,
   'Cancelled': XCircle
 };
+
+interface QuickCreateProject {
+  name: string;
+  description: string;
+  priority: number;
+}
+
+interface QuickContribution {
+  projectId: string;
+  itemName: string;
+  quantity: number;
+  notes: string;
+}
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
@@ -30,10 +58,24 @@ export function SettlementProjectsView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Modals
-  const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [contributeModalOpen, setContributeModalOpen] = useState(false);
-  const [selectedProjectForContribution, setSelectedProjectForContribution] = useState<string | null>(null);
+  // Quick Create State
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [createData, setCreateData] = useState<QuickCreateProject>({
+    name: '',
+    description: '',
+    priority: 3
+  });
+  const [isCreating, setIsCreating] = useState(false);
+  
+  // Inline Contribution State
+  const [contributingTo, setContributingTo] = useState<string | null>(null);
+  const [contributionData, setContributionData] = useState<QuickContribution>({
+    projectId: '',
+    itemName: '',
+    quantity: 1,
+    notes: ''
+  });
+  const [isContributing, setIsContributing] = useState(false);
   
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,10 +100,11 @@ export function SettlementProjectsView() {
         throw new Error(result.error || 'Failed to fetch projects');
       }
 
-      setProjects(result.data);
+      setProjects(result.data || []);
     } catch (err) {
       console.error('Error fetching projects:', err);
       setError(err instanceof Error ? err.message : 'Failed to load projects');
+      setProjects([]); // Reset to empty array on error
     } finally {
       setLoading(false);
     }
@@ -74,6 +117,7 @@ export function SettlementProjectsView() {
 
   // Apply client-side filters
   useEffect(() => {
+    if (!Array.isArray(projects)) return;
     let filtered = [...projects];
 
     // Search filter
@@ -92,92 +136,122 @@ export function SettlementProjectsView() {
     setFilteredProjects(filtered);
   }, [projects, searchTerm, priorityFilter]);
 
-  // Create project handler
-  const handleCreateProject = () => {
-    if (!session?.user) {
-      // Redirect to sign in if not authenticated
-      router.push('/en/auth/signin');
-      return;
+  // Quick Create Project Handler
+  const handleQuickCreate = async () => {
+    if (!session?.user || !createData.name.trim()) return;
+    
+    try {
+      setIsCreating(true);
+      
+      const response = await fetch('/api/settlement/projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: createData.name.trim(),
+          description: createData.description.trim(),
+          priority: createData.priority,
+          items: [] // Start with empty items, user can add via inline forms
+        })
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to create project');
+      }
+
+      // Reset form and refresh projects
+      setCreateData({ name: '', description: '', priority: 3 });
+      setShowCreateForm(false);
+      await fetchProjects();
+      
+    } catch (err) {
+      console.error('Error creating project:', err);
+      setError(err instanceof Error ? err.message : 'Failed to create project');
+    } finally {
+      setIsCreating(false);
     }
-    setCreateModalOpen(true);
   };
 
-  const handleViewDetails = (projectId: string) => {
-    router.push(`/settlement/projects/${projectId}`);
+  // Quick Contribution Handler
+  const handleQuickContribute = async (projectId: string) => {
+    if (!session?.user || !contributionData.itemName.trim() || contributionData.quantity <= 0) return;
+    
+    try {
+      setIsContributing(true);
+      
+      const response = await fetch(`/api/settlement/projects/${projectId}/contributions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          itemName: contributionData.itemName.trim(),
+          quantity: contributionData.quantity,
+          notes: contributionData.notes.trim()
+        })
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to add contribution');
+      }
+
+      // Reset form and refresh projects
+      setContributionData({ projectId: '', itemName: '', quantity: 1, notes: '' });
+      setContributingTo(null);
+      await fetchProjects();
+      
+    } catch (err) {
+      console.error('Error adding contribution:', err);
+      setError(err instanceof Error ? err.message : 'Failed to add contribution');
+    } finally {
+      setIsContributing(false);
+    }
   };
 
-  const handleContribute = (projectId: string) => {
-    setSelectedProjectForContribution(projectId);
-    setContributeModalOpen(true);
-  };
-
-  const handleProjectCreated = () => {
-    setCreateModalOpen(false);
-    fetchProjects(); // Refresh the list
-  };
-
-  const handleContributionAdded = () => {
-    setContributeModalOpen(false);
-    setSelectedProjectForContribution(null);
-    fetchProjects(); // Refresh the list
-  };
-
+  // Helper functions
   const getStatusColor = (status: string) => {
-    const colors = {
-      'Active': 'bg-blue-100 text-blue-800',
-      'Completed': 'bg-green-100 text-green-800',
-      'Cancelled': 'bg-red-100 text-red-800'
-    };
-    return colors[status as keyof typeof colors] || colors['Active'];
+    switch (status) {
+      case 'Active': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'Completed': return 'bg-green-100 text-green-800 border-green-200';
+      case 'Cancelled': return 'bg-red-100 text-red-800 border-red-200';
+      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+    }
   };
 
   const getPriorityColor = (priority: number) => {
-    const colors = {
-      1: 'bg-green-100 text-green-800',
-      2: 'bg-yellow-100 text-yellow-800',
-      3: 'bg-red-100 text-red-800'
-    };
-    return colors[priority as keyof typeof colors] || colors[1];
+    if (priority >= 4) return 'border-red-300 text-red-700';
+    if (priority >= 3) return 'border-orange-300 text-orange-700';
+    return 'border-gray-300 text-gray-700';
   };
 
   const getPriorityLabel = (priority: number) => {
-    const labels = { 1: 'Low', 2: 'Medium', 3: 'High' };
-    return labels[priority as keyof typeof labels] || 'Low';
-  };
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString();
+    if (priority >= 4) return 'High';
+    if (priority >= 3) return 'Medium';
+    return 'Low';
   };
 
   if (loading) {
     return (
       <Container>
-        <div className="space-y-8 py-8">
-          <div className="flex justify-between items-start mb-6">
+        <div className="space-y-6 py-8">
+          <div className="flex items-center justify-between">
             <div>
-              <Skeleton className="h-8 w-32 mb-2" />
-              <Skeleton className="h-4 w-96" />
+              <h1 className="text-3xl font-bold">Projects</h1>
+              <p className="text-muted-foreground">Coordinate settlement projects and contributions.</p>
             </div>
             <Skeleton className="h-10 w-32" />
           </div>
           
-          <div className="flex gap-4 flex-col sm:flex-row">
-            <Skeleton className="h-10 flex-1" />
-            <Skeleton className="h-10 w-32" />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {[1, 2, 3, 4].map((i) => (
+              <Skeleton key={i} className="h-24" />
+            ))}
           </div>
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map(i => (
-              <Card key={i}>
-                <CardHeader>
-                  <Skeleton className="h-6 w-32" />
-                  <Skeleton className="h-4 w-24" />
-                </CardHeader>
-                <CardContent>
-                  <Skeleton className="h-4 w-full mb-2" />
-                  <Skeleton className="h-2 w-full" />
-                </CardContent>
-              </Card>
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <Skeleton key={i} className="h-64" />
             ))}
           </div>
         </div>
@@ -185,244 +259,252 @@ export function SettlementProjectsView() {
     );
   }
 
+  if (error) {
+    return (
+      <Container>
+        <div className="space-y-6 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold">Projects</h1>
+            <p className="text-muted-foreground">Coordinate settlement projects and contributions.</p>
+          </div>
+          <Card>
+            <CardContent className="flex items-center justify-center min-h-[400px]">
+              <div className="text-center">
+                <Package className="h-8 w-8 text-red-500 mx-auto mb-2" />
+                <p className="text-red-500 font-medium">Error loading projects</p>
+                <p className="text-muted-foreground text-sm mt-1">{error}</p>
+                <Button variant="outline" size="sm" onClick={fetchProjects} className="mt-4">
+                  Try Again
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </Container>
+    );
+  }
+
   return (
     <Container>
-      <div className="space-y-8 py-8">
-        {/* Page Header */}
-        <div className="flex justify-between items-start mb-6">
+      <div className="space-y-6 py-8">
+        {/* Header */}
+        <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Projects</h1>
-            <p className="text-muted-foreground text-sm">
-              Track and manage your settlement&apos;s {statusFilter} projects and their completion status.
-            </p>
+            <p className="text-muted-foreground">Coordinate settlement projects and contributions.</p>
           </div>
-          <div className="flex gap-2">
-            {/* View Mode Toggle */}
-            <div className="flex bg-muted rounded-lg p-1">
-              <Button
-                variant={statusFilter === 'Active' ? 'secondary' : 'ghost'}
-                size="sm"
-                onClick={() => setStatusFilter('Active')}
-                className="gap-2"
-              >
-                <Package className="h-4 w-4" />
-                Active
-              </Button>
-              <Button
-                variant={statusFilter === 'Completed' ? 'secondary' : 'ghost'}
-                size="sm"
-                onClick={() => setStatusFilter('Completed')}
-                className="gap-2"
-              >
-                <Package className="h-4 w-4" />
-                Completed
-              </Button>
-              <Button
-                variant={statusFilter === 'Cancelled' ? 'secondary' : 'ghost'}
-                size="sm"
-                onClick={() => setStatusFilter('Cancelled')}
-                className="gap-2"
-              >
-                <Package className="h-4 w-4" />
-                Cancelled
-              </Button>
-            </div>
-            {/* Only show create button for active projects */}
-            {(statusFilter === 'Active' || statusFilter === 'all') && (
-              <Button className="gap-2" onClick={handleCreateProject}>
-                <Plus className="h-4 w-4" />
-                New Project
-              </Button>
-            )}
-          </div>
-        </div>
-
-        {/* Search and Filters */}
-        <div className="flex gap-4 flex-col sm:flex-row">
-          <div className="relative flex-1">
-            <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-            <Input
-              placeholder={`Search ${statusFilter} projects...`}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-          <Select value={priorityFilter} onValueChange={setPriorityFilter}>
-            <SelectTrigger className="w-[180px]">
-              <Filter className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Filter by Priority" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Priorities</SelectItem>
-              <SelectItem value="1">Low Priority</SelectItem>
-              <SelectItem value="2">Medium Priority</SelectItem>
-              <SelectItem value="3">High Priority</SelectItem>
-              <SelectItem value="4">Very High Priority</SelectItem>
-              <SelectItem value="5">Critical Priority</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Summary Stats */}
-        {projects.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center">
-                  {statusFilter === 'Active' ? (
-                    <Package className="h-4 w-4 text-muted-foreground" />
-                  ) : (
-                    <Package className="h-4 w-4 text-muted-foreground" />
-                  )}
-                  <div className="ml-2">
-                    <p className="text-sm font-medium">Total {statusFilter}</p>
-                    <p className="text-2xl font-bold">{projects.length}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            {statusFilter === 'Active' ? (
+          
+          {/* Quick Create Toggle */}
+          <Button 
+            onClick={() => setShowCreateForm(!showCreateForm)}
+            variant={showCreateForm ? "secondary" : "default"}
+            className="transition-all"
+          >
+            {showCreateForm ? (
               <>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 text-blue-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Active</p>
-                        <p className="text-2xl font-bold">{projects.filter(p => p.status === 'Active').length}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Completed</p>
-                        <p className="text-2xl font-bold">{projects.filter(p => p.status === 'Completed').length}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <div className="h-4 w-4 rounded-full bg-gradient-to-r from-blue-500 to-green-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Avg Progress</p>
-                        <p className="text-2xl font-bold">
-                          {projects.length > 0 ? Math.round(projects.reduce((sum, p) => sum + p.completionPercentage, 0) / projects.length) : 0}%
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <X className="h-4 w-4 mr-2" />
+                Cancel
               </>
             ) : (
               <>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 text-blue-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Unique Contributors</p>
-                        <p className="text-2xl font-bold">
-                          {projects.reduce((contributors, project) => {
-                            // This part needs to be implemented in the API or handled by the backend
-                            // For now, we'll just show a placeholder or a placeholder for contributors
-                            return contributors;
-                          }, new Set()).size}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <Calendar className="h-4 w-4 text-green-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Completion Rate</p>
-                        <p className="text-2xl font-bold">
-                          {Math.round(
-                            projects.filter(p => p.status === 'Completed').length /
-                            projects.length * 100
-                          )}%
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center">
-                      <CheckCircle2 className="h-4 w-4 text-purple-500" />
-                      <div className="ml-2">
-                        <p className="text-sm font-medium">Total Items</p>
-                        <p className="text-2xl font-bold">
-                          {projects.reduce((sum, p) => sum + (p.items?.reduce((itemSum, item) => itemSum + item.requiredQuantity, 0) || 0), 0).toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Plus className="h-4 w-4 mr-2" />
+                New Project
               </>
             )}
-          </div>
+          </Button>
+        </div>
+
+        {/* Quick Create Form */}
+        {showCreateForm && (
+          <Card className="border-2 border-primary/20 bg-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Plus className="h-5 w-5" />
+                Quick Create Project
+              </CardTitle>
+              <CardDescription>
+                Create a new project quickly. You can add items and manage details after creation.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="project-name">Project Name *</Label>
+                  <Input
+                    id="project-name"
+                    placeholder="e.g., Town Center Expansion"
+                    value={createData.name}
+                    onChange={(e) => setCreateData(prev => ({ ...prev, name: e.target.value }))}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="project-priority">Priority</Label>
+                  <Select 
+                    value={createData.priority.toString()} 
+                    onValueChange={(value) => setCreateData(prev => ({ ...prev, priority: parseInt(value) }))}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Low</SelectItem>
+                      <SelectItem value="2">Low-Medium</SelectItem>
+                      <SelectItem value="3">Medium</SelectItem>
+                      <SelectItem value="4">High</SelectItem>
+                      <SelectItem value="5">Critical</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="project-description">Description (Optional)</Label>
+                <Textarea
+                  id="project-description"
+                  placeholder="Describe the project goals and requirements..."
+                  value={createData.description}
+                  onChange={(e) => setCreateData(prev => ({ ...prev, description: e.target.value }))}
+                  rows={3}
+                />
+              </div>
+              
+              <div className="flex gap-2 pt-2">
+                <Button 
+                  onClick={handleQuickCreate}
+                  disabled={!createData.name.trim() || isCreating}
+                  className="flex-1"
+                >
+                  <Save className="h-4 w-4 mr-2" />
+                  {isCreating ? 'Creating...' : 'Create Project'}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowCreateForm(false)}
+                  disabled={isCreating}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         )}
+
+        {/* Filters */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Project Overview</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex gap-4 mb-6 flex-col sm:flex-row">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  placeholder="Search projects..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              
+              <Select value={statusFilter} onValueChange={(value: any) => setStatusFilter(value)}>
+                <SelectTrigger className="w-[180px]">
+                  <Filter className="h-4 w-4 mr-2" />
+                  <SelectValue placeholder="Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="Active">Active</SelectItem>
+                  <SelectItem value="Completed">Completed</SelectItem>
+                  <SelectItem value="Cancelled">Cancelled</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Select value={priorityFilter} onValueChange={(value: any) => setPriorityFilter(value)}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Priority" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Priority</SelectItem>
+                  <SelectItem value="5">Critical</SelectItem>
+                  <SelectItem value="4">High</SelectItem>
+                  <SelectItem value="3">Medium</SelectItem>
+                  <SelectItem value="2">Low-Medium</SelectItem>
+                  <SelectItem value="1">Low</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid gap-4 md:grid-cols-4 mb-6">
+              <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="text-2xl font-bold text-blue-600">
+                  {Array.isArray(projects) ? projects.filter(p => p.status === 'Active').length : 0}
+                </div>
+                <div className="text-sm text-blue-600">Active</div>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
+                <div className="text-2xl font-bold text-green-600">
+                  {Array.isArray(projects) ? projects.filter(p => p.status === 'Completed').length : 0}
+                </div>
+                <div className="text-sm text-green-600">Completed</div>
+              </div>
+              <div className="text-center p-4 bg-orange-50 rounded-lg border border-orange-200">
+                <div className="text-2xl font-bold text-orange-600">
+                  {Array.isArray(projects) && projects.length > 0 ? Math.round(projects.reduce((sum, p) => sum + p.completionPercentage, 0) / projects.length) : 0}%
+                </div>
+                <div className="text-sm text-orange-600">Avg Progress</div>
+              </div>
+              <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <div className="text-2xl font-bold text-purple-600">
+                  {Array.isArray(projects) ? projects.reduce((sum, p) => sum + (p.items?.reduce((itemSum, item) => itemSum + item.requiredQuantity, 0) || 0), 0).toLocaleString() : '0'}
+                </div>
+                <div className="text-sm text-purple-600">Total Items</div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
           <Card>
-            <CardContent className="pt-12 pb-12 text-center">
-              <div className="text-muted-foreground">
-                {searchTerm || statusFilter !== 'all' ? (
-                  <>
-                    <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <p className="text-lg font-medium mb-2">No projects found</p>
-                    <p>Try adjusting your search terms or filters.</p>
-                  </>
-                ) : statusFilter === 'Active' ? (
-                  <>
-                    <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <p className="text-lg font-medium mb-2">No active projects yet</p>
-                    <p className="mb-4">Create your first settlement project to get started.</p>
-                    <div className="flex gap-2 justify-center">
-                      <Button onClick={handleCreateProject}>
-                        <Plus className="h-4 w-4 mr-2" />
-                        Create Project
-                      </Button>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <p className="text-lg font-medium mb-2">No {statusFilter.toLowerCase()} projects</p>
-                    <p>Projects with this status will appear here.</p>
-                  </>
-                )}
-              </div>
+            <CardContent className="flex flex-col items-center justify-center min-h-[300px] text-center">
+              <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
+              <p className="text-lg font-medium mb-2">
+                {projects.length === 0 ? 'No projects yet' : `No ${statusFilter.toLowerCase()} projects`}
+              </p>
+              <p className="text-muted-foreground mb-4">
+                {projects.length === 0 
+                  ? 'Create your first project to get started.'
+                  : `Projects with this status will appear here.`
+                }
+              </p>
+              {projects.length === 0 && (
+                <Button onClick={() => setShowCreateForm(true)}>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Create First Project
+                </Button>
+              )}
             </CardContent>
           </Card>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => {
               const StatusIcon = statusIcons[project.status as keyof typeof statusIcons] || Clock;
+              const isContributingToThis = contributingTo === project.id;
+              
               return (
-                <Card key={project.id} className="hover:shadow-lg transition-shadow">
+                <Card key={project.id} className="hover:shadow-lg transition-all duration-200">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <CardTitle className="text-lg line-clamp-1">{project.name}</CardTitle>
-                        <div className="flex items-center gap-2 mt-2">
+                        <CardTitle className="text-lg line-clamp-2 mb-2">{project.name}</CardTitle>
+                        <div className="flex items-center gap-2">
                           <Badge className={getStatusColor(project.status)}>
                             <StatusIcon className="h-3 w-3 mr-1" />
                             {project.status}
                           </Badge>
                           <Badge className={getPriorityColor(project.priority)} variant="outline">
-                            {getPriorityLabel(project.priority)} Priority
+                            {getPriorityLabel(project.priority)}
                           </Badge>
                         </div>
                       </div>
@@ -451,68 +533,111 @@ export function SettlementProjectsView() {
                             : "No items defined"
                           }
                         </span>
-                        <span>
-                          {project.totalItems > 0 
-                            ? `${project.completedItems} / ${project.totalItems} types`
-                            : "Add items to track progress"
-                          }
-                        </span>
                       </div>
                     </div>
 
+                    {/* Inline Contribution Form */}
+                    {isContributingToThis && project.status === 'Active' && (
+                      <div className="p-3 bg-green-50 border border-green-200 rounded-lg space-y-3">
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-medium text-green-800">Quick Contribute</h4>
+                          <Button 
+                            size="sm" 
+                            variant="ghost" 
+                            onClick={() => setContributingTo(null)}
+                            className="h-6 w-6 p-0 text-green-600"
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </div>
+                        
+                        <div className="grid gap-2">
+                          <Input
+                            placeholder="Item name (e.g., Iron Ore)"
+                            value={contributionData.itemName}
+                            onChange={(e) => setContributionData(prev => ({ 
+                              ...prev, 
+                              itemName: e.target.value,
+                              projectId: project.id 
+                            }))}
+                            className="text-sm"
+                          />
+                          <div className="flex gap-2">
+                            <Input
+                              type="number"
+                              placeholder="Qty"
+                              min="1"
+                              value={contributionData.quantity}
+                              onChange={(e) => setContributionData(prev => ({ 
+                                ...prev, 
+                                quantity: parseInt(e.target.value) || 1 
+                              }))}
+                              className="text-sm w-20"
+                            />
+                            <Input
+                              placeholder="Notes (optional)"
+                              value={contributionData.notes}
+                              onChange={(e) => setContributionData(prev => ({ 
+                                ...prev, 
+                                notes: e.target.value 
+                              }))}
+                              className="text-sm flex-1"
+                            />
+                          </div>
+                        </div>
+                        
+                        <Button 
+                          size="sm" 
+                          onClick={() => handleQuickContribute(project.id)}
+                          disabled={!contributionData.itemName.trim() || contributionData.quantity <= 0 || isContributing}
+                          className="w-full"
+                        >
+                          <Gift className="h-4 w-4 mr-2" />
+                          {isContributing ? 'Adding...' : 'Add Contribution'}
+                        </Button>
+                      </div>
+                    )}
+
                     {/* Meta Info */}
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t">
                       <div className="flex items-center gap-1">
                         <Users className="h-3 w-3" />
                         <span>{project.createdBy}</span>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Calendar className="h-3 w-3" />
-                        <span>
-                          Created {new Date(project.createdAt).toLocaleDateString()}
-                        </span>
-                      </div>
+                      <span>
+                        Created {new Date(project.createdAt).toLocaleDateString()}
+                      </span>
                     </div>
 
                     {/* Actions */}
-                    <div className="flex gap-2 pt-2">
-                      {statusFilter === 'Active' ? (
-                        <>
-                          <Button 
-                            size="sm" 
-                            variant="outline" 
-                            className="flex-1"
-                            onClick={() => handleContribute(project.id)}
-                            disabled={project.status !== 'Active'}
-                          >
-                            <Gift className="h-4 w-4 mr-1" />
-                            Contribute
-                          </Button>
-                          <Button 
-                            size="sm" 
-                            variant="ghost" 
-                            className="px-3"
-                            onClick={() => handleViewDetails(project.id)}
-                          >
-                            View Details
-                          </Button>
-                        </>
-                      ) : (
-                        <>
-                          <Button size="sm" variant="outline" className="flex-1" disabled>
-                            <Package className="h-4 w-4 mr-1" />
-                            Archived
-                          </Button>
-                          <Button 
-                            size="sm" 
-                            variant="ghost" 
-                            className="px-3"
-                            onClick={() => handleViewDetails(project.id)}
-                          >
-                            View History
-                          </Button>
-                        </>
+                    <div className="flex gap-2">
+                      {project.status === 'Active' && !isContributingToThis && (
+                        <Button 
+                          size="sm" 
+                          variant="default"
+                          className="flex-1"
+                          onClick={() => {
+                            setContributingTo(project.id);
+                            setContributionData({
+                              projectId: project.id,
+                              itemName: '',
+                              quantity: 1,
+                              notes: ''
+                            });
+                          }}
+                        >
+                          <Gift className="h-4 w-4 mr-1" />
+                          Contribute
+                        </Button>
                       )}
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        onClick={() => router.push(`/en/settlement/projects/${project.id}`)}
+                        className={project.status === 'Active' && !isContributingToThis ? "" : "flex-1"}
+                      >
+                        View Details
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -520,21 +645,7 @@ export function SettlementProjectsView() {
             })}
           </div>
         )}
-
-        {/* Modals */}
-        <CreateProjectModal
-          open={createModalOpen}
-          onOpenChange={setCreateModalOpen}
-          onProjectCreated={handleProjectCreated}
-        />
-
-        <ContributeModal
-          open={contributeModalOpen}
-          onOpenChange={setContributeModalOpen}
-          projectId={selectedProjectForContribution}
-          onContributionAdded={handleContributionAdded}
-        />
       </div>
     </Container>
   );
-} 
+}

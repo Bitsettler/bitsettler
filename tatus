@@ -1,0 +1,3 @@
+[33m64a1c61[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbitsettler.io-integrate[m[33m)[m Fix missing translation keys for settlement management
+[33mfb99521[m[33m ([m[1;31morigin/bitsettler.io-integrate[m[33m)[m Enhance settlement skills and member pages with tier colors and improved UX
+[33md8f83f5[m REMOVE: is_active filters causing member loading issues

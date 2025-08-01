@@ -5,8 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Container } from '../../components/container';
-import { AlertCircle, RefreshCw, Beaker, TrendingUp, Target, CheckCircle2, Clock } from 'lucide-react';
+import { AlertCircle, RefreshCw, Beaker, TrendingUp, Target, CheckCircle2, Clock, Lock, ArrowDown, ChevronDown } from 'lucide-react';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
+import { TierIcon } from '../../components/ui/tier-icon';
 
 interface ResearchItem {
   description: string;
@@ -89,7 +91,7 @@ export function SettlementResearchView() {
 
   const sortedTiers = Object.keys(researchByTier)
     .map(Number)
-    .sort((a, b) => b - a); // Highest tier first
+    .sort((a, b) => b - a); // Pyramid: Higher tiers at top
 
   if (loading) {
     return (
@@ -216,9 +218,20 @@ export function SettlementResearchView() {
                 <CardTitle className="text-sm font-medium">Highest Tier</CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">Tier {meta.highestTier}</div>
-                <p className="text-xs text-muted-foreground">Settlement tier achieved</p>
+              <CardContent className="space-y-3">
+                <div className="text-3xl font-bold">Tier {meta.highestTier}</div>
+                <div className="relative">
+                  <div className="w-full bg-muted rounded-full h-3">
+                    <div 
+                      className={`h-3 rounded-full transition-all ${getSettlementTierBadgeClasses(meta.highestTier).split(' ')[0]}`}
+                      style={{ width: `${(meta.highestTier / 10) * 100}%` }}
+                    />
+                  </div>
+                  <div className="absolute left-1 -top-0.5">
+                    <TierIcon tier={meta.highestTier} size="sm" variant="game-asset" />
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground">Settlement progression</p>
               </CardContent>
             </Card>
 
@@ -227,11 +240,19 @@ export function SettlementResearchView() {
                 <CardTitle className="text-sm font-medium">Progress</CardTitle>
                 <Target className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
+              <CardContent className="space-y-3">
+                <div className="text-3xl font-bold">
                   {meta.totalResearch > 0 ? Math.round((meta.completedResearch / meta.totalResearch) * 100) : 0}%
                 </div>
-                <p className="text-xs text-muted-foreground">Research completion</p>
+                <div className="w-full bg-muted rounded-full h-3">
+                  <div 
+                    className="h-3 rounded-full transition-all bg-gradient-to-r from-blue-500 to-purple-600"
+                    style={{ 
+                      width: `${meta.totalResearch > 0 ? Math.round((meta.completedResearch / meta.totalResearch) * 100) : 0}%` 
+                    }}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground">Overall completion</p>
               </CardContent>
             </Card>
 
@@ -248,21 +269,53 @@ export function SettlementResearchView() {
           </div>
         )}
 
-        {/* Research by Tier */}
-        <div className="space-y-6">
+        {/* Research Pyramid */}
+        <div className="space-y-4">
           {sortedTiers.length > 0 ? (
-            sortedTiers.map((tier) => (
-              <Card key={tier}>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Badge variant={tier >= 6 ? "default" : tier >= 3 ? "secondary" : "outline"}>
-                      Tier {tier}
-                    </Badge>
-                    <span className="text-lg">
-                      {tier === 6 ? "Master Tier" : tier >= 4 ? "Advanced" : tier >= 2 ? "Intermediate" : "Basic"}
+            sortedTiers.map((tier, index) => {
+              // Calculate pyramid styling - wider for higher tiers at top
+              const maxWidth = Math.min(100, 40 + (tier * 6)); // 40% to 100% width
+              const isLocked = index > 0 && !researchByTier[sortedTiers[index - 1]]?.every(item => item.isCompleted);
+              
+              return (
+                <div key={tier} className="relative">
+                  {/* Progression Arrow */}
+                  {index > 0 && (
+                    <div className="flex justify-center mb-3">
+                      <div className="flex flex-col items-center">
+                        <ChevronDown className="h-6 w-6 text-muted-foreground/60" />
+                        <div className="text-xs text-muted-foreground text-center">Requires previous tier completion</div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div 
+                    className="mx-auto transition-all duration-300"
+                    style={{ maxWidth: `${maxWidth}%` }}
+                  >
+                    <Card 
+                      key={tier}
+                      className={`transition-all duration-300 ${
+                        isLocked 
+                          ? 'opacity-60 border-dashed bg-muted/30' 
+                          : 'shadow-lg hover:shadow-xl'
+                      }`}
+                    >
+                <CardHeader className="text-center">
+                  <CardTitle className="flex flex-col items-center gap-3">
+                    <div className="flex items-center gap-2">
+                      {isLocked && <Lock className="h-4 w-4 text-muted-foreground" />}
+                      {tier > 0 && <TierIcon tier={tier} size="md" variant="game-asset" />}
+                      <Badge className={getSettlementTierBadgeClasses(tier)}>
+                        Tier {tier}
+                      </Badge>
+                      {isLocked && <span className="text-sm text-muted-foreground">🔒</span>}
+                    </div>
+                    <span className="text-lg font-semibold">
+                      {tier >= 9 ? "Legendary" : tier >= 7 ? "Master" : tier >= 5 ? "Expert" : tier >= 3 ? "Advanced" : "Foundation"}
                     </span>
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-center">
                     {researchByTier[tier].length} research item{researchByTier[tier].length !== 1 ? 's' : ''} in this tier
                   </CardDescription>
                 </CardHeader>
@@ -299,8 +352,11 @@ export function SettlementResearchView() {
                     ))}
                   </div>
                 </CardContent>
-              </Card>
-            ))
+                    </Card>
+                  </div>
+                </div>
+              );
+            })
           ) : (
             <Card>
               <CardContent className="text-center py-8">
