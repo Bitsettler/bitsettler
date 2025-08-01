@@ -17,7 +17,7 @@ export function EnhancedSignInPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true); // Default to Sign Up for new users
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -108,10 +108,7 @@ export function EnhancedSignInPage() {
               {isSignUp ? 'Create Account' : 'Sign In'}
             </CardTitle>
             <CardDescription>
-              {isSignUp 
-                ? 'Create your account to get started' 
-                : 'Access your settlement dashboard'
-              }
+              Because our system tracks progress and growth, we need you to have an account to track that. Please sign in, or sign up.
             </CardDescription>
           </CardHeader>
           
