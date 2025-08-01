@@ -186,12 +186,18 @@ export function EnhancedSignInPage() {
                 disabled
                 className="w-full opacity-60 cursor-not-allowed"
               >
-                <div className="w-4 h-4 mr-2 bg-current rounded-sm opacity-80" style={{
-                  maskImage: "url('/bitcraft-favicon.ico')",
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center"
-                }} />
+                <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                  {/* BitCraft crystal/gem logo - blue geometric design */}
+                  <polygon points="12,2 20,7 20,17 12,22 4,17 4,7" fill="#2563eb" stroke="#1e40af" strokeWidth="0.5"/>
+                  <polygon points="12,2 20,7 16,10 12,7" fill="#3b82f6"/>
+                  <polygon points="4,7 12,2 8,7 4,10" fill="#1e40af"/>
+                  <polygon points="12,7 16,10 20,17 12,12" fill="#60a5fa"/>
+                  <polygon points="4,10 8,7 12,12 4,17" fill="#1d4ed8"/>
+                  <polygon points="8,7 12,7 12,12 8,12" fill="#2563eb"/>
+                  <polygon points="12,12 16,10 16,17 12,17" fill="#3b82f6"/>
+                  <polygon points="8,12 12,12 12,22 4,17" fill="#1e40af"/>
+                  <polygon points="12,12 12,22 20,17 16,17" fill="#2563eb"/>
+                </svg>
                 <span className="mr-2">BitCraft</span>
                 <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
                   Coming Soon
