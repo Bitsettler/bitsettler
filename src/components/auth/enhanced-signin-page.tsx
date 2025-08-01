@@ -157,14 +157,12 @@ export function EnhancedSignInPage() {
                 disabled
                 className="w-full opacity-60 cursor-not-allowed"
               >
-                <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                  {/* BitCraft-style game icon - using a castle/settlement theme */}
-                  <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" fill="#8B5CF6"/>
-                  <path d="M12 4.5L4.5 8.25v8.25c0 4.25 2.95 7.5 7.5 8.75 4.55-1.25 7.5-4.5 7.5-8.75V8.25L12 4.5z" fill="#A855F7"/>
-                  <circle cx="8" cy="12" r="1" fill="#F3F4F6"/>
-                  <circle cx="16" cy="12" r="1" fill="#F3F4F6"/>
-                  <rect x="11" y="14" width="2" height="3" rx="0.5" fill="#F3F4F6"/>
-                </svg>
+                <div className="w-4 h-4 mr-2 bg-current rounded-sm opacity-80" style={{
+                  maskImage: "url('/favicon.ico')",
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center"
+                }} />
                 <span className="mr-2">BitCraft</span>
                 <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
                   Coming Soon
