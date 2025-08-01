@@ -1,6 +1,10 @@
 import { BitJitaAPI } from '../../integrations/bitjita-api';
 import { supabase } from '../../../shared/supabase-client';
 
+// Constants
+const POLLING_INTERVAL = 5 * 60 * 1000; // 5 minutes
+const RETENTION_DAYS = 180; // 6 months
+
 export interface TreasurySnapshot {
   settlementId: string;
   balance: number;

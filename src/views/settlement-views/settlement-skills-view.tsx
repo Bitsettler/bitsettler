@@ -177,11 +177,7 @@ export function SettlementSkillsView() {
       )
     ).sort();
     
-    clog.debug('Skills matrix calculated', {
-      uniqueSkills: skills.length,
-      memberCount: (Array.isArray(citizensData) ? citizensData : []).length,
-      operation: 'CALCULATE_SKILLS_MATRIX'
-    });
+    // Skills matrix calculated - removed logging to prevent static generation errors
     
     return skills;
   }, [citizensData]);
