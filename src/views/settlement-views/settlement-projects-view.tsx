@@ -143,9 +143,18 @@ export function SettlementProjectsView() {
     try {
       setIsCreating(true);
       
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json'
+      };
+      
+      // Add authorization header if we have an access token
+      if (session.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`;
+      }
+      
       const response = await fetch('/api/settlement/projects', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           name: createData.name.trim(),
           description: createData.description.trim(),
@@ -180,11 +189,21 @@ export function SettlementProjectsView() {
     try {
       setIsContributing(true);
       
-      const response = await fetch(`/api/settlement/projects/${projectId}/contributions`, {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json'
+      };
+      
+      // Add authorization header if we have an access token
+      if (session.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`;
+      }
+      
+      const response = await fetch('/api/settlement/contributions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
-          itemName: contributionData.itemName.trim(),
+          projectId: projectId,
+          contributionType: contributionData.itemName.trim(),
           quantity: contributionData.quantity,
           notes: contributionData.notes.trim()
         })
