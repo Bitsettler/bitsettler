@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { SettlementUser } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
 
 /**
  * Settlement Roster API
@@ -35,7 +36,7 @@ export async function GET(request: NextRequest) {
     console.log(`✅ Found ${members.length} members in settlement ${settlementId}`);
 
     // Transform BitJita member data to our format
-    const formattedMembers = members.map((member: any) => ({
+    const formattedMembers = members.map((member: SettlementUser) => ({
       id: member.entityId || member.playerEntityId,
       entity_id: member.entityId,
       player_entity_id: member.playerEntityId,

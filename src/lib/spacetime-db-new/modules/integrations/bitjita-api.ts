@@ -241,12 +241,12 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       // Create lookup maps for citizens - try multiple ID fields
-      const citizensByEntityId = new Map(citizens.map((c: any) => [c.entityId, c]));
-      const citizensByPlayerEntityId = new Map(citizens.map((c: any) => [c.playerEntityId, c]));
-      const citizensByUserName = new Map(citizens.map((c: any) => [c.userName, c]));
+      const citizensByEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c]));
+      const citizensByPlayerEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c])); // Citizens use entityId as their key
+      const citizensByUserName = new Map(citizens.map((c: BitJitaRawCitizen) => [c.userName, c]));
 
       // Merge members + citizens data
-      const users: SettlementUser[] = members.map((member: any) => {
+      const users: SettlementUser[] = members.map((member: BitJitaRawMember) => {
         // Try multiple matching strategies
         let citizen = citizensByEntityId.get(member.entityId) ||
                      citizensByPlayerEntityId.get(member.playerEntityId) ||
@@ -320,7 +320,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       console.log(`✅ Found ${data.claims?.length || 0} settlements`);
       
       // Transform the data to our format
-      const settlements: BitJitaSettlementDetails[] = (data.claims || []).map((claim: any) => ({
+      const settlements: BitJitaSettlementDetails[] = (data.claims || []).map((claim: RawBitJitaClaim) => ({
         id: claim.entityId,
         name: claim.name,
         tier: claim.tier || 0,
@@ -514,7 +514,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       console.log(`✅ Fetched settlement search results:`, data);
       
       // Find the settlement with matching ID
-      const settlement = data.claims?.find((claim: any) => claim.entityId === settlementId);
+      const settlement = data.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
       
       if (!settlement) {
         throw new Error(`Settlement with ID ${settlementId} not found in search results`);

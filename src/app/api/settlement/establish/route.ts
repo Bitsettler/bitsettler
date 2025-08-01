@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
+import { DatabaseSettlementMember, formatAsAvailableCharacter } from '@/lib/types/settlement-member';
 
 /**
  * Settlement Establishment API
@@ -57,22 +58,7 @@ export async function POST(request: NextRequest) {
         if (membersResult.success && membersResult.data.members) {
           const availableCharacters = membersResult.data.members
             // All members from our database are already unclaimed (filtered in API)
-            .map((member: any) => ({
-              id: member.entity_id,
-              name: member.name || 'Unknown Character',
-              settlement_id: member.settlement_id,
-              entity_id: member.entity_id,
-              bitjita_user_id: member.bitjita_user_id,
-              skills: member.skills || {},
-              top_profession: member.top_profession || 'Unknown',
-              total_level: member.total_level || 0,
-              permissions: {
-                inventory: Boolean(member.inventory_permission),
-                build: Boolean(member.build_permission),
-                officer: Boolean(member.officer_permission),
-                co_owner: Boolean(member.co_owner_permission)
-              }
-            }));
+            .map((member: DatabaseSettlementMember) => formatAsAvailableCharacter(member));
 
           return NextResponse.json({
             success: true,
@@ -221,7 +207,7 @@ export async function POST(request: NextRequest) {
           console.warn('⚠️ Citizens API failed or returned no data:', citizensResult.error);
         }
 
-        const memberData = rosterResult.data.members.map((member: any) => {
+        const memberData = rosterResult.data.members.map((member: DatabaseSettlementMember) => {
           // Get corresponding citizen data for character stats
           const citizenData = citizensMap.get(member.entity_id) || {};
           
@@ -308,7 +294,7 @@ export async function POST(request: NextRequest) {
     console.log(`👥 Members imported: ${members?.length || 0}`);
 
     // Transform member data to match frontend expectations
-    const transformedCharacters = (members || []).map((member: any) => ({
+          const transformedCharacters = (members || []).map((member: DatabaseSettlementMember) => ({
       id: member.entity_id,
       name: member.name,
       settlement_id: member.settlement_id,

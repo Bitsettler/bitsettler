@@ -1,0 +1,197 @@
+/**
+ * Database and API response interfaces for settlement members
+ * Replaces 'any' types with proper TypeScript interfaces
+ */
+
+/**
+ * Raw settlement member data from database queries
+ * Used in various API endpoints that fetch member data
+ */
+export interface DatabaseSettlementMember {
+  id: string;
+  entity_id: string;
+  settlement_id: string;
+  name: string;
+  bitjita_user_id?: string;
+  supabase_user_id?: string;
+  
+  // Skills and progression
+  skills?: Record<string, number>;
+  top_profession?: string;
+  total_level?: number;
+  
+  // Permissions
+  inventory_permission?: boolean | number;
+  build_permission?: boolean | number;
+  officer_permission?: boolean | number;
+  co_owner_permission?: boolean | number;
+  
+  // Activity tracking
+  last_active_at?: string;
+  app_joined_at?: string;
+  onboarding_completed_at?: string;
+  
+  // Profile data
+  display_name?: string;
+  discord_handle?: string;
+  bio?: string;
+  timezone?: string;
+  
+  // System fields
+  is_active?: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+/**
+ * Formatted member for API responses
+ * Standardized format used across different endpoints
+ */
+export interface ApiFormattedMember {
+  id: string;
+  entity_id: string;
+  name: string;
+  settlement_id: string;
+  bitjita_user_id?: string;
+  
+  skills: Record<string, number>;
+  top_profession: string;
+  total_level: number;
+  
+  permissions: {
+    inventory: boolean;
+    build: boolean;
+    officer: boolean;
+    coOwner: boolean;
+  };
+  
+  activity: {
+    lastActive?: Date;
+    joinedApp?: Date;
+    onboardingCompleted?: Date;
+  };
+  
+  profile?: {
+    displayName?: string;
+    discordHandle?: string;
+    bio?: string;
+    timezone?: string;
+  };
+  
+  isActive: boolean;
+}
+
+/**
+ * Available character for claiming (used in establishment flow)
+ */
+export interface AvailableCharacter {
+  id: string;
+  name: string;
+  settlement_id: string;
+  entity_id: string;
+  bitjita_user_id?: string;
+  
+  skills: Record<string, number>;
+  top_profession: string;
+  total_level: number;
+  
+  permissions: {
+    inventory: boolean;
+    build: boolean;
+    officer: boolean;
+    coOwner: boolean;
+  };
+}
+
+/**
+ * Settlement member for roster/dashboard views
+ */
+export interface RosterMember {
+  id: string;
+  entityId: string;
+  name: string;
+  profession: string;
+  level: number;
+  lastOnline?: Date;
+  permissions: {
+    inventory: boolean;
+    build: boolean;
+    officer: boolean;
+    coOwner: boolean;
+  };
+  isActive: boolean;
+}
+
+/**
+ * Member with skills data (detailed view)
+ */
+export interface MemberWithSkills extends ApiFormattedMember {
+  detailedSkills: Array<{
+    name: string;
+    level: number;
+    experience: number;
+  }>;
+}
+
+/**
+ * Transform database member to API format
+ */
+export function formatMemberForApi(dbMember: DatabaseSettlementMember): ApiFormattedMember {
+  return {
+    id: dbMember.id,
+    entity_id: dbMember.entity_id,
+    name: dbMember.name,
+    settlement_id: dbMember.settlement_id,
+    bitjita_user_id: dbMember.bitjita_user_id,
+    
+    skills: dbMember.skills || {},
+    top_profession: dbMember.top_profession || 'Unknown',
+    total_level: dbMember.total_level || 0,
+    
+    permissions: {
+      inventory: Boolean(dbMember.inventory_permission),
+      build: Boolean(dbMember.build_permission),
+      officer: Boolean(dbMember.officer_permission),
+      coOwner: Boolean(dbMember.co_owner_permission)
+    },
+    
+    activity: {
+      lastActive: dbMember.last_active_at ? new Date(dbMember.last_active_at) : undefined,
+      joinedApp: dbMember.app_joined_at ? new Date(dbMember.app_joined_at) : undefined,
+      onboardingCompleted: dbMember.onboarding_completed_at ? new Date(dbMember.onboarding_completed_at) : undefined
+    },
+    
+    profile: dbMember.display_name || dbMember.discord_handle || dbMember.bio || dbMember.timezone ? {
+      displayName: dbMember.display_name,
+      discordHandle: dbMember.discord_handle,
+      bio: dbMember.bio,
+      timezone: dbMember.timezone
+    } : undefined,
+    
+    isActive: dbMember.is_active !== false
+  };
+}
+
+/**
+ * Transform database member to available character format
+ */
+export function formatAsAvailableCharacter(dbMember: DatabaseSettlementMember): AvailableCharacter {
+  return {
+    id: dbMember.entity_id,
+    name: dbMember.name || 'Unknown Character',
+    settlement_id: dbMember.settlement_id,
+    entity_id: dbMember.entity_id,
+    bitjita_user_id: dbMember.bitjita_user_id,
+    
+    skills: dbMember.skills || {},
+    top_profession: dbMember.top_profession || 'Unknown',
+    total_level: dbMember.total_level || 0,
+    
+    permissions: {
+      inventory: Boolean(dbMember.inventory_permission),
+      build: Boolean(dbMember.build_permission),
+      officer: Boolean(dbMember.officer_permission),
+      coOwner: Boolean(dbMember.co_owner_permission)
+    }
+  };
+}
