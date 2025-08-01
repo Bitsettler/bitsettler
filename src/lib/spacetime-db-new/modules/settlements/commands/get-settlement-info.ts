@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 export interface SettlementInfo {
   id: string;
@@ -22,13 +22,15 @@ export interface SettlementStats {
  * Get settlement configuration information
  */
 export async function getSettlementInfo(settlementId?: string): Promise<SettlementInfo | null> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning null');
+  // Use service role client to bypass RLS for settlement operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning null');
     return null;
   }
 
   try {
-    let query = supabase!
+    let query = supabase
       .from('settlement_config')
       .select('*');
 
@@ -71,8 +73,10 @@ export async function getSettlementInfo(settlementId?: string): Promise<Settleme
  * Get settlement statistics
  */
 export async function getSettlementStats(): Promise<SettlementStats> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty stats');
+  // Use service role client to bypass RLS for settlement operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty stats');
     return {
       totalMembers: 0,
       activeMembers: 0,
@@ -84,26 +88,26 @@ export async function getSettlementStats(): Promise<SettlementStats> {
 
   try {
     // Get member counts
-    const { count: totalMembers } = await supabase!
+    const { count: totalMembers } = await supabase
       .from('settlement_members')
       .select('*', { count: 'exact', head: true });
 
-    const { count: activeMembers } = await supabase!
+    const { count: activeMembers } = await supabase
       .from('settlement_members')
       .select('*', { count: 'exact', head: true })
       .eq('is_active', true);
 
     // Get project counts
-    const { count: totalProjects } = await supabase!
+    const { count: totalProjects } = await supabase
       .from('settlement_projects')
       .select('*', { count: 'exact', head: true });
 
-    const { count: activeProjects } = await supabase!
+    const { count: activeProjects } = await supabase
       .from('settlement_projects')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'Active');
 
-    const { count: completedProjects } = await supabase!
+    const { count: completedProjects } = await supabase
       .from('settlement_projects')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'Completed');
