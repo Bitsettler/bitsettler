@@ -168,9 +168,7 @@ export function EnhancedSignInPage() {
                   Coming Soon
                 </span>
               </Button>
-              </div>
               
-              {/* Coming Soon Provider */}
               <Button
                 variant="outline"
                 disabled
@@ -193,6 +191,7 @@ export function EnhancedSignInPage() {
                   Coming Soon
                 </span>
               </Button>
+              </div>
             </div>
 
             <div className="relative">

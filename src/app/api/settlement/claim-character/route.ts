@@ -43,7 +43,6 @@ export async function POST(request: NextRequest) {
       .eq('entity_id', characterId)
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Must be unclaimed
-      .eq('is_active', true)
       .single();
 
     if (characterError || !character) {
@@ -71,7 +70,6 @@ export async function POST(request: NextRequest) {
       .select('entity_id, name')
       .eq('settlement_id', settlementId)
       .eq('supabase_user_id', user.id)
-      .eq('is_active', true)
       .single();
 
     if (existingClaim) {

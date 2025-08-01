@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     let query = supabase
       .from('settlement_members')
       .select('*')
-      .eq('is_active', true);
+      // Removed is_active filter;
 
     if (settlementId) {
       query = query.eq('settlement_id', settlementId);

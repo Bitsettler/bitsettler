@@ -67,9 +67,7 @@ export async function getAllMembers(options: GetAllMembersOptions = {}): Promise
     }
 
     // Apply other filters
-    if (!options.includeInactive) {
-      query = query.eq('is_recently_active', true);
-    }
+    // Note: Removed is_active filtering for now - can add back later for UI purposes only
 
     if (options.profession && options.profession !== 'all') {
       query = query.ilike('top_profession', `%${options.profession}%`);

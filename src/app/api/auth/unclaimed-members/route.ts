@@ -34,7 +34,6 @@ export async function GET(request: Request) {
         is_active
       `)
       .is('supabase_user_id', null)
-      .eq('is_active', true)
       .order('total_level', { ascending: false });
 
     if (error) {
