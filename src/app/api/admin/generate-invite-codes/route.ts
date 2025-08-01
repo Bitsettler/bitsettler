@@ -1,33 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/supabase-server-auth';
+import { requireAdminAuth, logAdminAction } from '@/lib/admin-auth';
 
 /**
  * Bulk Invite Code Generation API
  * 
- * Used for:
+ * ADMIN ONLY: Used for:
  * - Initial bulk import of settlements from BitJita
  * - Fixing settlements that don't have invite codes
  * - Ensuring all active settlements have unique codes
  */
 export async function POST(request: NextRequest) {
   try {
+    // 🔐 REQUIRE ADMIN AUTHENTICATION
+    const admin = await requireAdminAuth(request);
+    
     const supabase = createServerSupabaseClient();
-    const { data: { session } } = await supabase.auth.getSession();
-
-    if (!session?.user?.id) {
-      return NextResponse.json(
-        { success: false, error: 'Authentication required' },
-        { status: 401 }
-      );
-    }
-
-    // TODO: Add admin permission check here
-    // For now, any authenticated user can trigger bulk generation
 
     const body = await request.json();
     const { batchSize = 100 } = body;
+    
+    logAdminAction(admin, 'GENERATE_INVITE_CODES_BULK', { batchSize });
 
-    console.log('🔄 Starting bulk invite code generation...');
+    console.log(`🔄 Admin ${admin.email} starting bulk invite code generation...`);
 
     // Use the database function to generate codes for all settlements missing them
     const { data: result, error } = await supabase

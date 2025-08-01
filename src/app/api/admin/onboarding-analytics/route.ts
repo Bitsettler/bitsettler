@@ -1,26 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/supabase-server-auth';
+import { requireAdminAuth, logAdminAction } from '@/lib/admin-auth';
 
 /**
  * Onboarding Analytics API
  * 
- * Simple analytics to understand user onboarding completion rates
+ * ADMIN ONLY: Simple analytics to understand user onboarding completion rates
  * Uses the minimal tracking approach (Option A)
  */
 export async function GET(request: NextRequest) {
   try {
+    // 🔐 REQUIRE ADMIN AUTHENTICATION
+    const admin = await requireAdminAuth(request);
+    
+    logAdminAction(admin, 'VIEW_ONBOARDING_ANALYTICS');
+    
     const supabase = createServerSupabaseClient();
-    const { data: { session } } = await supabase.auth.getSession();
-
-    if (!session?.user?.id) {
-      return NextResponse.json(
-        { success: false, error: 'Authentication required' },
-        { status: 401 }
-      );
-    }
-
-    // TODO: Add admin permission check here if needed
-    // For now, any authenticated user can view analytics
 
     // Get analytics from the view we created
     const { data: analytics, error: analyticsError } = await supabase

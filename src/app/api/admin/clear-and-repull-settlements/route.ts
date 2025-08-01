@@ -1,17 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/supabase-server-auth';
+import { requireAdminAuth, logAdminAction } from '@/lib/admin-auth';
 
 /**
  * Clear and Repull Settlements API
  * 
- * Completely clears all settlement data from the database and re-imports
- * everything fresh from BitJita API
+ * DANGER: Completely clears all settlement data from the database and re-imports
+ * everything fresh from BitJita API. Requires admin authentication.
  */
 export async function POST(request: NextRequest) {
   try {
-    console.log('🗑️ Admin clearing and repulling settlements...');
+    // 🔐 REQUIRE ADMIN AUTHENTICATION
+    const admin = await requireAdminAuth(request);
+    
+    logAdminAction(admin, 'CLEAR_AND_REPULL_SETTLEMENTS', {
+      warning: 'This action will completely wipe all settlement data'
+    });
 
-    // TODO: Add proper admin authentication before production use
+    console.log(`🗑️ Admin ${admin.email} clearing and repulling settlements...`);
 
     const supabase = await createServerSupabaseClient();
 

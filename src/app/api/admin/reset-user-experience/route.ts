@@ -1,17 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/supabase-server-auth';
+import { requireAdminAuth, logAdminAction } from '@/lib/admin-auth';
 
 /**
  * Reset User Experience API
  * 
- * Clears all user-specific data to reset the experience while keeping
- * BitJita settlement data intact for re-claiming
+ * DANGER: Clears all user-specific data to reset the experience while keeping
+ * BitJita settlement data intact for re-claiming. Requires admin authentication.
  */
 export async function POST(request: NextRequest) {
   try {
-    console.log('🔄 Admin resetting user experience...');
+    // 🔐 REQUIRE ADMIN AUTHENTICATION
+    const admin = await requireAdminAuth(request);
+    
+    logAdminAction(admin, 'RESET_USER_EXPERIENCE', {
+      warning: 'This action will reset all user claims and data'
+    });
 
-    // TODO: Add proper admin authentication before production use
+    console.log(`🔄 Admin ${admin.email} resetting user experience...`);
 
     const supabase = await createServerSupabaseClient();
 
