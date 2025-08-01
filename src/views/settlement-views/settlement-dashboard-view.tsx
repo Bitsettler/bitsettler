@@ -114,44 +114,8 @@ export function SettlementDashboardView() {
   };
 
   // ✅ CONDITIONAL RENDERING - After all hooks are called
-  // Auth Guard Logic - handle authentication and onboarding
-  if (status === 'loading' || (status === 'authenticated' && memberLoading)) {
-    return (
-      <Container>
-        <div className="flex items-center justify-center py-12">
-          <div className="text-center space-y-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-            <p className="text-muted-foreground">
-              {status === 'loading' ? 'Loading...' : 'Checking settlement membership...'}
-            </p>
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
-  // Not authenticated - show login prompt
-  if (!session) {
-    return (
-      <Container>
-        <div className="text-center py-12">
-          <h1 className="text-2xl font-bold mb-4">Authentication Required</h1>
-          <p className="text-muted-foreground mb-6">You must be logged in to view this page.</p>
-          <a 
-            href="/en/auth/signin" 
-            className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-          >
-            Sign In
-          </a>
-        </div>
-      </Container>
-    );
-  }
-
-  // Authenticated but no settlement character claimed - show onboarding
-  if (!isClaimed || !member) {
-    return <SettlementOnboardingView />;
-  }
+  // Note: Auth protection is now handled by AuthGuard in layout
+  // This component only handles data loading states
 
   // ⚠️ ONLY show loading if we don't have any data yet
   if (isLoading && !dashboardData) {

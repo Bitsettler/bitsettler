@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 export const metadata: Metadata = {
   title: 'Settlement - BitCraft.Guide',
@@ -12,7 +13,9 @@ export default function SettlementLayout({
 }) {
   return (
     <div className="min-h-screen bg-background">
-      {children}
+      <AuthGuard>
+        {children}
+      </AuthGuard>
     </div>
   );
 } 
