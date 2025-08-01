@@ -43,8 +43,8 @@ interface SkillsInsights {
 }
 
 interface DashboardData {
-  settlement: any;
-  treasury: any;
+  settlement: Settlement;
+  treasury: Treasury;
   stats: DashboardStats;
   skills?: SkillsInsights;
   lastUpdated: string;

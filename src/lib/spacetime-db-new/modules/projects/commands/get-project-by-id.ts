@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 import { ProjectWithItems, ProjectItem } from './get-all-projects';
 
 export interface MemberContribution {
@@ -28,14 +28,16 @@ export interface ProjectDetails extends ProjectWithItems {
  * Get project by ID with full details including contributions and assignments
  */
 export async function getProjectById(projectId: string): Promise<ProjectDetails | null> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning null');
+  // Use service role client to bypass RLS for project queries
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning null');
     return null;
   }
 
   try {
     // Get project details
-    const { data: projectData, error: projectError } = await supabase!
+    const { data: projectData, error: projectError } = await supabase
       .from('settlement_projects')
       .select('*')
       .eq('id', projectId)
@@ -53,7 +55,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     }
 
     // Get project items
-    const { data: itemsData, error: itemsError } = await supabase!
+    const { data: itemsData, error: itemsError } = await supabase
       .from('project_items')
       .select('*')
       .eq('project_id', projectId)
@@ -65,7 +67,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     }
 
     // Get project contributions with member names (allow empty results)
-    const { data: contributionsData, error: contributionsError } = await supabase!
+    const { data: contributionsData, error: contributionsError } = await supabase
       .from('member_contributions')
       .select(`
         id,
@@ -86,7 +88,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     }
 
     // Get assigned members (allow empty results)
-    const { data: assignedData, error: assignedError } = await supabase!
+    const { data: assignedData, error: assignedError } = await supabase
       .from('project_members')
       .select(`
         id,

@@ -142,7 +142,7 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
     return `${Math.floor(diffDays / 30)} months ago`;
   };
 
-  const getPermissionLevel = (permission: number): { label: string; color: string; icon: any } => {
+  const getPermissionLevel = (permission: number): { label: string; color: string; icon: React.ComponentType<{ className?: string }> } => {
     if (permission >= 1) return { label: 'Yes', color: 'text-green-600 bg-green-50 border-green-200', icon: UserCheck };
     return { label: 'No', color: 'text-gray-600 bg-gray-50 border-gray-200', icon: UserX };
   };

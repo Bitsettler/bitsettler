@@ -9,16 +9,16 @@ import { SettlementEstablishFlow } from '@/components/settlement-establish-flow'
 
 export function SettlementOnboardingView() {
   const [currentFlow, setCurrentFlow] = useState<'choice' | 'join' | 'establish'>('choice');
-  const [joinData, setJoinData] = useState<any>(null);
-  const [establishData, setEstablishData] = useState<any>(null);
+  const [joinData, setJoinData] = useState<SettlementJoinData | null>(null);
+  const [establishData, setEstablishData] = useState<SettlementEstablishData | null>(null);
   const router = useRouter();
 
-  const handleJoinSettlement = (data: any) => {
+  const handleJoinSettlement = (data: SettlementJoinData) => {
     setJoinData(data);
     setCurrentFlow('join');
   };
 
-  const handleEstablishSettlement = (data: any) => {
+  const handleEstablishSettlement = (data: SettlementEstablishData) => {
     setEstablishData(data);
     setCurrentFlow('establish');
   };

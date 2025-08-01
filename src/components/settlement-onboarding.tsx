@@ -76,7 +76,7 @@ export function SettlementOnboarding({ onSettlementSelected }: SettlementOnboard
     }
   };
 
-  const handleConnectionComplete = (settlement: Settlement, _syncResult: any) => {
+  const handleConnectionComplete = (settlement: Settlement, _syncResult: SyncResult) => {
     onSettlementSelected(settlement);
     setShowConnectionProgress(false);
     setShowInviteCode(true);

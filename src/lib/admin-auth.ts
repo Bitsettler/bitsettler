@@ -90,7 +90,7 @@ export async function requireAdminAuth(request: NextRequest): Promise<AdminUser>
 /**
  * Log admin actions for security auditing
  */
-export function logAdminAction(admin: AdminUser, action: string, details?: any) {
+export function logAdminAction(admin: AdminUser, action: string, details?: Record<string, unknown>) {
   console.log(`🔐 ADMIN ACTION: ${admin.email} performed "${action}"`, {
     adminId: admin.id,
     adminEmail: admin.email,

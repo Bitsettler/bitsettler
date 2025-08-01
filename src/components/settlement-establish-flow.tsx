@@ -29,7 +29,7 @@ import {
 
 interface SettlementEstablishFlowProps {
   establishData?: {
-    settlement: any;
+    settlement: Settlement;
     inviteCode: string;
     availableCharacters: CharacterOption[];
   };
@@ -192,7 +192,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
         console.log(`✅ Found ${result.data.members.length} members in database for settlement ${settlement.name}`);
         
         // Transform database data to character format
-        const characters = result.data.members.map((member: any) => ({
+        const characters = result.data.members.map((member: { entity_id: string; name: string; settlement_id: string; skills?: Record<string, number>; permissions?: any }) => ({
           id: member.id || member.entity_id,
           name: member.name,
           settlement_id: settlement.id,

@@ -258,7 +258,7 @@ export function isSupabaseAvailable(): boolean {
 }
 
 // Error handling helper
-export function handleSupabaseError(error: any, operation: string): Error {
+export function handleSupabaseError(error: { message?: string; code?: string; details?: string; hint?: string }, operation: string): Error {
   console.error(`Supabase error during ${operation}:`, error);
   return new Error(`Database operation failed: ${operation}`);
 } 

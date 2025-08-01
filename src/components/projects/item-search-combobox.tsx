@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 interface ItemSearchComboboxProps {
   value?: string;
   onValueChange: (value: string) => void;
-  onItemSelect?: (item: any) => void;
+  onItemSelect?: (item: GameItem) => void;
   placeholder?: string;
   className?: string;
 }

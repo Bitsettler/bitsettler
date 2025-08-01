@@ -66,13 +66,13 @@ export const api = {
   get: <T>(endpoint: string) => 
     apiCall<T>(endpoint, { method: 'GET' }),
 
-  post: <T>(endpoint: string, data?: any) =>
+  post: <T>(endpoint: string, data?: Record<string, unknown>) =>
     apiCall<T>(endpoint, {
       method: 'POST',
       body: data ? JSON.stringify(data) : undefined,
     }),
 
-  put: <T>(endpoint: string, data?: any) =>
+  put: <T>(endpoint: string, data?: Record<string, unknown>) =>
     apiCall<T>(endpoint, {
       method: 'PUT',
       body: data ? JSON.stringify(data) : undefined,

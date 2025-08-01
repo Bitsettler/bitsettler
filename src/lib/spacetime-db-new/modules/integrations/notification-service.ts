@@ -326,7 +326,7 @@ export class SettlementNotificationService {
   /**
    * Handle notification action clicks
    */
-  private handleNotificationAction(action: string, data: any): void {
+  private handleNotificationAction(action: string, data: Record<string, unknown>): void {
     switch (action) {
       case 'view':
         if (data.url) {

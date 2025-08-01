@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 export interface SettlementProject {
   id: string;
@@ -45,13 +45,15 @@ export interface GetAllProjectsOptions {
  * Get all settlement projects
  */
 export async function getAllProjects(options: GetAllProjectsOptions = {}): Promise<SettlementProject[]> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty projects list');
+  // Use service role client to bypass RLS for project queries
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty projects list');
     return [];
   }
 
   try {
-    let query = supabase!
+    let query = supabase
       .from('settlement_projects')
       .select('*');
 
@@ -100,8 +102,10 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
  * Get all projects with their items and completion statistics
  */
 export async function getAllProjectsWithItems(options: GetAllProjectsOptions = {}): Promise<ProjectWithItems[]> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty projects list');
+  // Use service role client to bypass RLS for project queries
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty projects list');
     return [];
   }
 
@@ -116,7 +120,7 @@ export async function getAllProjectsWithItems(options: GetAllProjectsOptions = {
     // Get project items for all projects
     const projectIds = projects.map(p => p.id);
     
-    const { data: itemsData, error: itemsError } = await supabase!
+    const { data: itemsData, error: itemsError } = await supabase
       .from('project_items')
       .select('*')
       .in('project_id', projectIds)

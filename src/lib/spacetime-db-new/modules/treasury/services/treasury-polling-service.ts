@@ -201,7 +201,7 @@ export class TreasuryPollingService {
 
       console.log(`📊 Fetched ${data?.length || 0} treasury snapshots for ${timeRange} ${timeUnit}`);
 
-      return (data || []).map((record: any) => ({
+      return (data || []).map((record: { settlement_id: string; current_balance: number; total_income: number; total_expenses: number; last_transaction_date?: string; transaction_count: number }) => ({
         settlementId: record.settlement_id,
         balance: record.balance,
         previousBalance: record.previous_balance,
@@ -265,7 +265,7 @@ export class TreasuryPollingService {
 
       // Keep snapshots that meet our criteria
       const keepSnapshots: number[] = [];
-      let lastKeptSnapshot: any = null;
+      let lastKeptSnapshot: { timestamp: number; data: unknown } | null = null;
 
       for (const snapshot of allSnapshots) {
         const shouldKeep = !lastKeptSnapshot || // Keep first snapshot

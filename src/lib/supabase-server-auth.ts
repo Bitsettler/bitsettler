@@ -15,10 +15,10 @@ export async function createServerSupabaseClient() {
         get(name: string) {
           return cookieStore.get(name)?.value
         },
-        set(name: string, value: string, options: any) {
+        set(name: string, value: string, options: { httpOnly?: boolean; secure?: boolean; sameSite?: string; maxAge?: number; path?: string }) {
           cookieStore.set({ name, value, ...options })
         },
-        remove(name: string, options: any) {
+        remove(name: string, options: { path?: string; domain?: string }) {
           cookieStore.set({ name, value: '', ...options })
         },
       },

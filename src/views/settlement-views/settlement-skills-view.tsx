@@ -142,7 +142,7 @@ export function SettlementSkillsView() {
       const rawMembers = membersResult.data?.members || [];
       
       // Map API data to CitizenSkills interface
-      const memberData: CitizenSkills[] = rawMembers.map((member: any) => ({
+      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; entity_id?: string; id?: string; top_profession?: string; total_level?: number; total_xp?: number; skills?: Record<string, number> }) => ({
         name: member.name || 'Unknown Player',
         entityId: member.entity_id || member.id,
         profession: member.top_profession || 'Unknown',
@@ -192,7 +192,7 @@ export function SettlementSkillsView() {
   const sortedCitizens = [...(Array.isArray(citizensData) ? citizensData : [])].sort((a, b) => {
     if (!sortDirection) return 0;
 
-    let aValue: any, bValue: any;
+          let aValue: string | number, bValue: string | number;
 
     if (sortField === 'name') {
       aValue = a.name.toLowerCase();
