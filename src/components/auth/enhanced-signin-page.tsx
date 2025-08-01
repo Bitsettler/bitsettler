@@ -75,7 +75,7 @@ export function EnhancedSignInPage() {
 
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center space-y-4">
           <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary" />
           <p className="text-muted-foreground">Loading...</p>
@@ -89,20 +89,20 @@ export function EnhancedSignInPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-slate-900">
+          <h1 className="text-3xl font-bold text-foreground">
             Welcome to BitCraft.guide
           </h1>
-          <p className="text-slate-600">
+          <p className="text-muted-foreground">
             Sign in to manage your settlement
           </p>
         </div>
 
         {/* Main Card */}
-        <Card className="border-0 shadow-xl">
+        <Card className="shadow-lg">
           <CardHeader className="text-center pb-4">
             <CardTitle className="text-xl">
               {isSignUp ? 'Create Account' : 'Sign In'}
@@ -221,7 +221,7 @@ export function EnhancedSignInPage() {
             </div>
 
             {/* Footer */}
-            <div className="text-center text-xs text-muted-foreground pt-4 border-t">
+            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border">
               By signing in, you agree to our{' '}
               <a href="#" className="underline hover:text-primary">
                 terms of service
