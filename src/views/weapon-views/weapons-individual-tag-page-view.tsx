@@ -1,5 +1,4 @@
 import type { WeaponWithStats } from '@/lib/spacetime-db-new/modules/weapons/flows'
-import { getLowestRarity } from '@/lib/spacetime-db-new/shared/utils/rarity'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface WeaponsIndividualTagPageViewProps {
