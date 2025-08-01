@@ -57,7 +57,9 @@ export async function getSupabaseSession(request?: NextRequest) {
     
     return session
   } catch (error) {
-    console.error('Error getting session:', error)
+    logger.error('Error getting session', error instanceof Error ? error : new Error(String(error)), {
+      operation: 'GET_SUPABASE_SESSION'
+    });
     return null
   }
 }
