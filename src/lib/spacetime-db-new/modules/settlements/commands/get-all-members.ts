@@ -1,10 +1,5 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 
-// Custom error handler for this module
-function handleSupabaseError(error: { message?: string; code?: string; details?: string }, context: string): Error {
-  console.error(`Supabase error in ${context}:`, error);
-  return new Error(`Database error: ${error.message || 'Unknown error'}`);
-}
 
 export interface SettlementMember {
   id: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -170,14 +170,22 @@ export function SettlementSkillsView() {
   };
 
   // Get all unique skills across all citizens
-  const allSkills = Array.from(
-    new Set(
-      (Array.isArray(citizensData) ? citizensData : []).flatMap(citizen => Object.keys(citizen.skills || {}))
-    )
-  ).sort();
-  
-  // Debug logging
-  console.log(`🎯 Skills Matrix - Found ${allSkills.length} unique skills for ${(Array.isArray(citizensData) ? citizensData : []).length} members`);
+  const allSkills = useMemo(() => {
+    const skills = Array.from(
+      new Set(
+        (Array.isArray(citizensData) ? citizensData : []).flatMap(citizen => Object.keys(citizen.skills || {}))
+      )
+    ).sort();
+    
+    logger.debug('Skills matrix calculated', {
+      uniqueSkills: skills.length,
+      memberCount: (Array.isArray(citizensData) ? citizensData : []).length,
+      operation: 'CALCULATE_SKILLS_MATRIX'
+    });
+    
+    return skills;
+  }, [citizensData]);
+
 
   // Sorting logic
   const handleSort = (field: string) => {

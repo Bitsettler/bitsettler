@@ -36,11 +36,14 @@ export class TreasuryPollingService {
   startPolling(settlementId: string = '504403158277057776'): void {
     // Check both instance and global flags to prevent multiple polling
     if (this.isPolling || TreasuryPollingService.globalPollingActive) {
-      console.log('🏛️ Treasury polling already active (skipping duplicate start)');
+      logger.warn('Treasury polling already active - skipping duplicate start');
       return;
     }
 
-    console.log('🏛️ Starting treasury polling service (5-minute intervals)');
+    logger.info('Starting treasury polling service', {
+      operation: 'START_TREASURY_POLLING',
+      intervalMs: POLLING_INTERVAL
+    });
     this.isPolling = true;
     TreasuryPollingService.globalPollingActive = true;
 
@@ -63,7 +66,9 @@ export class TreasuryPollingService {
     }
     this.isPolling = false;
     TreasuryPollingService.globalPollingActive = false;
-    console.log('🏛️ Treasury polling service stopped');
+    logger.info('Treasury polling service stopped', {
+    operation: 'STOP_TREASURY_POLLING'
+  });
   }
 
   /**
@@ -194,12 +199,21 @@ export class TreasuryPollingService {
         .gte('recorded_at', startDate.toISOString())
         .order('recorded_at', { ascending: true });
 
-      if (error) {
-        console.error('❌ Failed to fetch treasury history:', error);
-        return [];
-      }
+          if (error) {
+      logger.error('Failed to fetch treasury history', error, {
+        operation: 'GET_TREASURY_HISTORY',
+        timeRange,
+        timeUnit
+      });
+      return [];
+    }
 
-      console.log(`📊 Fetched ${data?.length || 0} treasury snapshots for ${timeRange} ${timeUnit}`);
+    logger.debug(`Fetched treasury snapshots`, {
+      operation: 'GET_TREASURY_HISTORY',
+      count: data?.length || 0,
+      timeRange,
+      timeUnit
+    });
 
       return (data || []).map((record: { settlement_id: string; current_balance: number; total_income: number; total_expenses: number; last_transaction_date?: string; transaction_count: number }) => ({
         settlementId: record.settlement_id,
@@ -213,10 +227,14 @@ export class TreasuryPollingService {
         dataSource: record.data_source
       }));
 
-    } catch (error) {
-      console.error('❌ Error fetching treasury history:', error);
-      return [];
-    }
+      } catch (error) {
+    logger.error('Error fetching treasury history', error instanceof Error ? error : new Error(String(error)), {
+      operation: 'GET_TREASURY_HISTORY',
+      timeRange,
+      timeUnit
+    });
+    return [];
+  }
   }
 
   /**
