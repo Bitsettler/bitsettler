@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 export interface TreasuryTransaction {
   id: string;
@@ -38,13 +38,15 @@ export interface GetTransactionsOptions {
  * Get treasury transactions with filtering and pagination
  */
 export async function getTreasuryTransactions(options: GetTransactionsOptions = {}): Promise<TreasuryTransaction[]> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty transactions list');
+  // Use service role client to bypass RLS for treasury operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty transactions list');
     return [];
   }
 
   try {
-    let query = supabase!
+    let query = supabase
       .from('treasury_transactions')
       .select('*');
 
@@ -119,13 +121,15 @@ export async function getTreasuryTransactions(options: GetTransactionsOptions = 
  * Get treasury transactions with related project and member details
  */
 export async function getTreasuryTransactionsWithDetails(options: GetTransactionsOptions = {}): Promise<TreasuryTransactionWithDetails[]> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty transactions list');
+  // Use service role client to bypass RLS for treasury operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty transactions list');
     return [];
   }
 
   try {
-    let query = supabase!
+    let query = supabase
       .from('treasury_transactions')
       .select(`
         *,
@@ -206,13 +210,15 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
  * Get treasury categories for filtering
  */
 export async function getTreasuryCategories(): Promise<Array<{ id: string; name: string; type: string; color: string | null }>> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty categories list');
+  // Use service role client to bypass RLS for treasury operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty categories list');
     return [];
   }
 
   try {
-    const { data, error } = await supabase!
+    const { data, error } = await supabase
       .from('treasury_categories')
       .select('id, name, type, color')
       .eq('is_active', true)

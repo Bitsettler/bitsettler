@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 import { SettlementMember } from './get-all-members';
 
 export interface MemberProfession {
@@ -17,14 +17,16 @@ export interface MemberWithSkills extends SettlementMember {
  * Get a settlement member by ID with their professions/skills
  */
 export async function getMemberById(memberId: string): Promise<MemberWithSkills | null> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning null');
+  // Use service role client to bypass RLS for member operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning null');
     return null;
   }
 
   try {
     // Get member details
-    const { data: memberData, error: memberError } = await supabase!
+    const { data: memberData, error: memberError } = await supabase
       .from('settlement_members')
       .select('*')
       .eq('id', memberId)
@@ -42,7 +44,7 @@ export async function getMemberById(memberId: string): Promise<MemberWithSkills 
     }
 
     // Get member professions
-    const { data: professionsData, error: professionsError } = await supabase!
+    const { data: professionsData, error: professionsError } = await supabase
       .from('member_professions')
       .select('*')
       .eq('member_id', memberId)

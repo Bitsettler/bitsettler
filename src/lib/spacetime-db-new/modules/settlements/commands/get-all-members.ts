@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 // Custom error handler for this module
 function handleSupabaseError(error: any, context: string): Error {
@@ -53,14 +53,16 @@ interface SettlementMemberDetailsRow {
  * Get all settlement members using the optimized settlement_member_details view
  */
 export async function getAllMembers(options: GetAllMembersOptions = {}): Promise<SettlementMember[]> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty members list');
+  // Use service role client to bypass RLS for member operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty members list');
     return [];
   }
 
   try {
     // Use the settlement_member_details view for combined member + citizen data
-    let query = supabase!
+    let query = supabase
       .from('settlement_member_details')
       .select('*');
 

@@ -1,4 +1,4 @@
-import { supabase, isSupabaseAvailable, handleSupabaseError } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 export interface TreasurySummary {
   id: string;
@@ -22,13 +22,15 @@ export interface TreasuryStats {
  * Get current treasury summary
  */
 export async function getTreasurySummary(): Promise<TreasurySummary | null> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning null');
+  // Use service role client to bypass RLS for treasury operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning null');
     return null;
   }
 
   try {
-    const { data, error } = await supabase!
+    const { data, error } = await supabase
       .from('treasury_summary')
       .select('*')
       .single();
@@ -64,8 +66,10 @@ export async function getTreasurySummary(): Promise<TreasurySummary | null> {
  * Get treasury statistics for current month
  */
 export async function getTreasuryStats(): Promise<TreasuryStats> {
-  if (!isSupabaseAvailable()) {
-    console.warn('Supabase not available, returning empty stats');
+  // Use service role client to bypass RLS for treasury operations
+  const supabase = createServerClient();
+  if (!supabase) {
+    console.warn('Supabase service role client not available, returning empty stats');
     return {
       monthlyIncome: 0,
       monthlyExpenses: 0,
@@ -81,7 +85,7 @@ export async function getTreasuryStats(): Promise<TreasuryStats> {
     const currentMonth = currentDate.getMonth() + 1;
 
     // Get current month's data (for potential future use)
-    const { error: monthlyError } = await supabase!
+    const { error: monthlyError } = await supabase
       .from('treasury_monthly_summary')
       .select('*')
       .eq('year', currentYear)
@@ -93,7 +97,7 @@ export async function getTreasuryStats(): Promise<TreasuryStats> {
     }
 
     // Get recent transactions for additional stats
-    const { data: recentTransactions, error: transactionsError } = await supabase!
+    const { data: recentTransactions, error: transactionsError } = await supabase
       .from('treasury_transactions')
       .select('amount, transaction_type')
       .gte('transaction_date', `${currentYear}-${currentMonth.toString().padStart(2, '0')}-01`);
