@@ -189,7 +189,13 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
       const result = await api.get(`/api/settlement/members?settlementId=${settlement.id}`);
 
       if (result.success && result.data.members && result.data.members.length > 0) {
-        console.log(`✅ Found ${result.data.members.length} members in database for settlement ${settlement.name}`);
+        clog.info('Found settlement members in database', {
+          memberCount: result.data.members.length,
+          settlementName: settlement.name,
+          settlementId: settlement.id,
+          component: 'SettlementEstablishFlow',
+          operation: 'LOAD_SETTLEMENT_CHARACTERS'
+        });
         
         // Transform database data to character format
         const characters = result.data.members.map((member: { entity_id: string; name: string; settlement_id: string; skills?: Record<string, number>; permissions?: any }) => ({
