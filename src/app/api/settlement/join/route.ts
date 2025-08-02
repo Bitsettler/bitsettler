@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
+import { createRequestLogger } from '@/lib/logger';
 
 /**
  * Settlement Join API
@@ -12,10 +13,16 @@ import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
  * 4. User picks which character they are
  */
 export async function POST(request: NextRequest) {
+  const logger = createRequestLogger(request, '/api/settlement/join');
+  const timer = logger.time('settlement_join_request');
+  
   try {
+    logger.info('Settlement join request started');
+    
     // Verify authentication using proper header handling
     const authResult = await requireAuth(request);
     if (authResult.error) {
+      logger.warn('Authentication failed', { error: authResult.error });
       return NextResponse.json(
         { success: false, error: authResult.error },
         { status: authResult.status }
@@ -23,12 +30,16 @@ export async function POST(request: NextRequest) {
     }
 
     const { session, user } = authResult;
+    const userLogger = logger.child({ userId: user.id });
 
     const supabase = await createServerSupabaseClient();
 
     // Validate and sanitize request body
     const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.join);
     if (!validationResult.success) {
+      userLogger.warn('Request validation failed', { 
+        errors: validationResult.errors 
+      });
       return NextResponse.json(
         { 
           success: false, 
@@ -40,8 +51,9 @@ export async function POST(request: NextRequest) {
     }
 
     const { inviteCode } = validationResult.data!;
-
-    console.log(`🔍 Looking up settlement with invite code: ${inviteCode}`);
+    const settlementLogger = userLogger.child({ inviteCode });
+    
+    settlementLogger.info('Looking up settlement by invite code');
 
     // 1. Find settlement by invite code
     const { data: settlement, error: settlementError } = await supabase
@@ -51,14 +63,20 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (settlementError || !settlement) {
-      console.log(`❌ Settlement not found for invite code: ${inviteCode}`);
+      settlementLogger.warn('Settlement not found for invite code', { 
+        error: settlementError?.message 
+      });
       return NextResponse.json(
         { success: false, error: 'Invalid invite code' },
         { status: 404 }
       );
     }
 
-    console.log(`✅ Found settlement: ${settlement.name} (${settlement.id})`);
+    const foundLogger = settlementLogger.child({ 
+      settlementId: settlement.id,
+      settlementName: settlement.name 
+    });
+    foundLogger.info('Settlement found successfully');
 
     // 2. Get available characters (unclaimed members) in this settlement
     const { data: availableCharacters, error: charactersError } = await supabase
@@ -69,16 +87,19 @@ export async function POST(request: NextRequest) {
       .order('name');
 
     if (charactersError) {
-      console.error('❌ Failed to fetch available characters:', charactersError);
+      foundLogger.error('Failed to fetch available characters', {}, charactersError);
       return NextResponse.json(
         { success: false, error: 'Failed to retrieve settlement members' },
         { status: 500 }
       );
     }
 
-    console.log(`👥 Found ${availableCharacters?.length || 0} available characters`);
+    foundLogger.info('Available characters fetched', { 
+      characterCount: availableCharacters?.length || 0 
+    });
 
     if (!availableCharacters || availableCharacters.length === 0) {
+      foundLogger.warn('No available characters in settlement');
       return NextResponse.json(
         { 
           success: false, 
@@ -110,6 +131,11 @@ export async function POST(request: NextRequest) {
       }
     }));
 
+    foundLogger.info('Settlement join successful', {
+      characterCount: formattedCharacters.length
+    });
+    timer();
+
     return NextResponse.json({
       success: true,
       message: `Found settlement: ${settlement.name}`,
@@ -127,7 +153,8 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('❌ Settlement join error:', error);
+    logger.error('Settlement join API error', {}, error);
+    timer();
     
     return NextResponse.json({
       success: false,

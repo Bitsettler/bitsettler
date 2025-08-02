@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
+import { createRequestLogger } from '@/lib/logger';
 
 /**
  * Character Claim API
@@ -19,10 +20,16 @@ import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
  * - Prevents privilege escalation while ensuring functionality
  */
 export async function POST(request: NextRequest) {
+  const logger = createRequestLogger(request, '/api/settlement/claim-character');
+  const timer = logger.time('character_claim_request');
+  
   try {
+    logger.info('Character claim request started');
+    
     // Verify authentication using proper header handling
     const authResult = await requireAuth(request);
     if (authResult.error) {
+      logger.warn('Authentication failed', { error: authResult.error });
       return NextResponse.json(
         { success: false, error: authResult.error },
         { status: authResult.status }
@@ -30,6 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { session, user } = authResult;
+    const userLogger = logger.child({ userId: user.id });
     
     // Use authenticated client for reads/verification (respects RLS)
     const authenticatedClient = await createServerSupabaseClient();
@@ -58,8 +66,13 @@ export async function POST(request: NextRequest) {
     }
 
     const { characterId, settlementId } = validationResult.data!;
+    const claimLogger = userLogger.child({ 
+      characterId, 
+      settlementId,
+      operation: 'character_claim'
+    });
 
-    console.log(`👤 Claiming character: ${characterId} for user: ${user.id}`);
+    claimLogger.info('Starting character claim process');
 
     // 1. Verify character exists and is unclaimed using service client
     // (RLS policies may block seeing unclaimed characters)
@@ -72,9 +85,10 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (characterError || !character) {
-      console.log(`❌ Character not found or already claimed: ${characterId}`);
-      console.log(`❌ Character Error:`, characterError);
-      console.log(`❌ Settlement ID:`, settlementId);
+      claimLogger.warn('Character not found or already claimed', {
+        error: characterError?.message,
+        characterFound: !!character
+      });
       return NextResponse.json(
         { 
           success: false, 
@@ -112,7 +126,11 @@ export async function POST(request: NextRequest) {
 
     // 3. Claim the character using service client (atomic operation)
     // Add security logging for audit trail
-    console.log(`🔐 Security: User ${user.email} (${user.id}) claiming character ${character.name} (${characterId}) in settlement ${settlementId}`);
+    claimLogger.info('Security: Initiating character claim', {
+      userEmail: user.email,
+      characterName: character.name,
+      securityEvent: 'character_claim_initiation'
+    });
     
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
@@ -161,9 +179,13 @@ export async function POST(request: NextRequest) {
       .eq('id', settlementId)
       .single();
 
-    console.log(`✅ Character claimed successfully: ${claimedCharacter.name} by user ${user.id}`);
-    console.log(`🏛️ Settlement: ${settlement?.name || settlementId}`);
-    console.log(`🔐 Security: Character claim completed successfully - audit trail preserved`);
+    claimLogger.info('Character claim successful', {
+      characterName: claimedCharacter.name,
+      settlementName: settlement?.name,
+      securityEvent: 'character_claim_success',
+      auditTrail: 'preserved'
+    });
+    timer();
 
     return NextResponse.json({
       success: true,
@@ -196,7 +218,10 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('❌ Character claim error:', error);
+    logger.error('Character claim API error', {
+      securityEvent: 'character_claim_exception'
+    }, error);
+    timer();
     
     return NextResponse.json({
       success: false,
