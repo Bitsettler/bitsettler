@@ -12,7 +12,7 @@ export interface AddContributionRequest {
   };
   projectId: string;
   projectItemId?: string;
-  contributionType: 'Item' | 'Crafting' | 'Gathering' | 'Other';
+  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   itemName?: string;
   quantity: number;
   description?: string;
@@ -39,7 +39,7 @@ async function ensureSettlementMember(authUser: {
   const { data: existingMember } = await supabase
     .from('settlement_members')
     .select('id')
-    .eq('auth_user_id', authUser.id)
+    .eq('supabase_user_id', authUser.id)
     .single();
 
   if (existingMember) {
@@ -50,16 +50,16 @@ async function ensureSettlementMember(authUser: {
   // Look for existing member by name (for migration from localStorage users)
   const { data: memberByName } = await supabase
     .from('settlement_members')
-    .select('id, auth_user_id')
+    .select('id, supabase_user_id')
     .eq('name', authUser.name)
-    .is('auth_user_id', null) // Only unlinked members
+    .is('supabase_user_id', null) // Only unlinked members
     .single();
 
   if (memberByName) {
     // Link existing member to this auth user
     const { error: linkError } = await supabase
       .from('settlement_members')
-      .update({ auth_user_id: authUser.id })
+      .update({ supabase_user_id: authUser.id })
       .eq('id', memberByName.id);
 
     if (linkError) {
@@ -75,9 +75,9 @@ async function ensureSettlementMember(authUser: {
   const { data: newMember, error: createError } = await supabase
     .from('settlement_members')
     .insert({
-      auth_user_id: authUser.id,
+      supabase_user_id: authUser.id,
       name: authUser.name,
-      profession: 'Contributor', // Default profession
+      top_profession: 'Contributor', // Default profession
     })
     .select('id')
     .single();
@@ -120,11 +120,11 @@ export async function addContribution(contributionData: AddContributionRequest):
     const insertData = {
       member_id: memberId,
       project_id: contributionData.projectId,
-      project_item_id: contributionData.projectItemId,
+      // No project_item_id column - contributions link via project_id + item_name
       contribution_type: contributionData.contributionType,
       item_name: contributionData.itemName || null,
       quantity: contributionData.quantity,
-      description: contributionData.description || null,
+      notes: contributionData.description || null, // Map description to notes column
     };
 
     console.log('🔍 Final insert data:', insertData);
@@ -138,7 +138,7 @@ export async function addContribution(contributionData: AddContributionRequest):
         contribution_type,
         item_name,
         quantity,
-        description,
+        notes,
         contributed_at
       `)
       .single();
@@ -176,7 +176,7 @@ export async function addContribution(contributionData: AddContributionRequest):
           contributionData.authUser.name,
           contribution.item_name || 'Unknown Item',
           contribution.quantity,
-          contribution.description || undefined
+          contribution.notes || undefined
         );
       }
     } catch (activityError) {
@@ -191,7 +191,7 @@ export async function addContribution(contributionData: AddContributionRequest):
       contributionType: contribution.contribution_type,
       itemName: contribution.item_name,
       quantity: contribution.quantity,
-      description: contribution.description,
+      description: contribution.notes, // Map notes back to description for interface consistency
       contributedAt: new Date(contribution.contributed_at),
     };
 
@@ -203,6 +203,65 @@ export async function addContribution(contributionData: AddContributionRequest):
 
 /**
  * Update project item quantity when a contribution is made
+ * Finds project item by project_id + item_name since contributions don't store project_item_id
+ */
+export async function updateProjectItemQuantityByName(
+  projectId: string,
+  itemName: string, 
+  quantityToAdd: number
+): Promise<void> {
+  // Use service role client to bypass RLS for quantity updates
+  const supabase = createServerClient();
+  if (!supabase) {
+    throw new Error('Supabase service role client not available for quantity updates');
+  }
+
+  try {
+    // Find project item by project_id + item_name
+    const { data: currentItem, error: fetchError } = await supabase
+      .from('project_items')
+      .select('id, current_quantity, required_quantity')
+      .eq('project_id', projectId)
+      .eq('item_name', itemName)
+      .single();
+
+    if (fetchError) {
+      // If no matching project item found, this might be a freeform contribution
+      if (fetchError.code === 'PGRST116') {
+        console.log(`No project item found for ${itemName} in project ${projectId} - treating as freeform contribution`);
+        return;
+      }
+      throw handleSupabaseError(fetchError, 'fetching current item quantity');
+    }
+
+    const newQuantity = (currentItem.current_quantity || 0) + quantityToAdd;
+    const newStatus = newQuantity >= currentItem.required_quantity ? 'Completed' : 'In Progress';
+
+    // Update quantity and status
+    const { error: updateError } = await supabase
+      .from('project_items')
+      .update({
+        current_quantity: newQuantity,
+        status: newStatus,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', currentItem.id);
+
+    if (updateError) {
+      throw handleSupabaseError(updateError, 'updating project item quantity');
+    }
+
+    console.log(`✅ Updated ${itemName} quantity: ${currentItem.current_quantity} + ${quantityToAdd} = ${newQuantity}`);
+
+  } catch (error) {
+    console.error('Error updating project item quantity:', error);
+    throw error;
+  }
+}
+
+/**
+ * Legacy function - kept for backwards compatibility
+ * @deprecated Use updateProjectItemQuantityByName instead
  */
 export async function updateProjectItemQuantity(
   projectItemId: string, 

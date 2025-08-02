@@ -91,27 +91,25 @@ export async function POST(request: NextRequest) {
       console.warn('User activity table may not exist:', err);
     }
 
-    // Clear member contributions (keep the data but remove user links)
+    // Clear member contributions (delete all contributions for reset)
     try {
-      const { data: resetContributions, error: contributionsError } = await supabase
+      const { data: deletedContributions, error: contributionsError } = await supabase
         .from('member_contributions')
-        .update({ contributor_user_id: null })
-        .not('contributor_user_id', 'is', null)
+        .delete()
         .select('id');
 
       if (!contributionsError) {
-        cleanupResults.member_contributions = resetContributions?.length || 0;
+        cleanupResults.member_contributions = deletedContributions?.length || 0;
       }
     } catch (err) {
       console.warn('Member contributions table may not exist:', err);
     }
 
-    // Clear user-created treasury transactions (keep system ones)
+    // Clear all treasury transactions for reset (created_by_user_id column doesn't exist)
     try {
       const { data: deletedTransactions, error: transactionsError } = await supabase
         .from('treasury_transactions')
         .delete()
-        .not('created_by_user_id', 'is', null)
         .select('id');
 
       if (!transactionsError) {

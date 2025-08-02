@@ -57,7 +57,7 @@ export async function PUT(request: NextRequest) {
     const { data: member, error } = await supabase
       .from('settlement_members')
       .update(filteredUpdates)
-      .eq('auth_user_id', session.user.id)
+      .eq('supabase_user_id', session.user.id)
       .select()
       .single();
 

@@ -78,7 +78,7 @@ export async function GET(
       discordHandle: member.discord_handle,
       bio: member.bio,
       timezone: member.timezone,
-      isClaimed: !!member.auth_user_id,
+      isClaimed: !!member.supabase_user_id,
       appJoinedAt: member.app_joined_at,
       appLastActiveAt: member.app_last_active_at
     };
@@ -90,7 +90,7 @@ export async function GET(
         dataSource: 'unified_settlement_members',
         lastUpdated: new Date().toISOString(),
         skillsCount: Object.keys(member.skills || {}).length,
-        isClaimed: !!member.auth_user_id
+        isClaimed: !!member.supabase_user_id
       }
     });
 

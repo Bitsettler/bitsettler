@@ -116,7 +116,7 @@ export function useCurrentMember() {
       const { data: updatedMember, error } = await supabase
         .from('settlement_members')
         .update(updates)
-        .eq('auth_user_id', session.user.id)
+        .eq('supabase_user_id', session.user.id)
         .select()
         .single();
 

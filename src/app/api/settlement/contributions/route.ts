@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
-import { addContribution, updateProjectItemQuantity, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
+import { addContribution, updateProjectItemQuantityByName, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
 
 export async function POST(request: NextRequest) {
   console.log('🔄 Settlement contribution API called');
@@ -59,10 +59,10 @@ export async function POST(request: NextRequest) {
     const contribution = await addContribution(contributionData);
     console.log('✅ Contribution added:', contribution.id);
 
-    // Update project item quantity if this is an item contribution
-    if (body.projectItemId && body.contributionType === 'Item') {
-      console.log('🔄 Updating project item quantity');
-      await updateProjectItemQuantity(body.projectItemId, body.quantity);
+    // Update project item quantity if this is a direct item contribution
+    if (body.itemName && body.contributionType === 'Direct') {
+      console.log('🔄 Updating project item quantity for:', body.itemName);
+      await updateProjectItemQuantityByName(body.projectId, body.itemName, body.quantity);
       console.log('✅ Project item quantity updated');
     }
 

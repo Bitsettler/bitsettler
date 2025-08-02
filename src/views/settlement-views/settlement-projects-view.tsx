@@ -260,9 +260,10 @@ export function SettlementProjectsView() {
         headers,
         body: JSON.stringify({
           projectId: projectId,
-          contributionType: contributionData.itemName.trim(),
+          contributionType: 'Direct', // Direct contribution of an item
+          itemName: contributionData.itemName.trim(),
           quantity: contributionData.quantity,
-          notes: contributionData.notes.trim()
+          description: contributionData.notes.trim()
         })
       });
 

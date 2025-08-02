@@ -24,5 +24,6 @@ export {
 export {
   addContribution,
   updateProjectItemQuantity,
+  updateProjectItemQuantityByName,
   type AddContributionRequest
 } from './add-contribution'; 

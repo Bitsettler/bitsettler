@@ -8,10 +8,14 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Separator } from '@/components/ui/separator';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Container } from '@/components/container';
-import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift, AlertCircle, RefreshCw, TrendingUp, User } from 'lucide-react';
+import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift, AlertCircle, RefreshCw, TrendingUp, User, Plus } from 'lucide-react';
 import Link from 'next/link';
-import { type ProjectDetails } from '@/lib/spacetime-db-new/modules';
+import { type ProjectDetails as ProjectDetailsType } from '@/lib/spacetime-db-new/modules';
+import { transformProjectData } from '@/lib/utils/project-data-transform';
+import { useSession } from '@/hooks/use-auth';
 
 interface ProjectItem {
   id: string;
@@ -33,7 +37,7 @@ interface MemberContribution {
   id: string;
   memberId: string;
   memberName: string;
-  contributionType: 'Item' | 'Crafting' | 'Gathering' | 'Other';
+  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   itemName: string | null;
   quantity: number;
   description: string | null;
@@ -91,10 +95,14 @@ const itemStatusColors = {
 export function SettlementProjectDetailView() {
   const params = useParams();
   const router = useRouter();
+  const { data: session } = useSession();
   const projectId = params.id as string;
-  const [project, setProject] = useState<ProjectDetails | null>(null);
+  const [project, setProject] = useState<ProjectDetailsType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [expandedItemId, setExpandedItemId] = useState<string | null>(null);
+  const [contributionData, setContributionData] = useState({ quantity: 1, notes: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fetchProjectDetails = useCallback(async () => {
     if (!projectId) {
@@ -118,7 +126,9 @@ export function SettlementProjectDetailView() {
         throw new Error('Project not found');
       }
 
-      setProject(result.data);
+      // Transform the API response to match frontend expectations
+      const transformedProject = transformProjectData(result.data);
+      setProject(transformedProject);
     } catch (err) {
       console.error('Error fetching project details:', err);
       setError(err instanceof Error ? err.message : 'Failed to load project details');
@@ -142,6 +152,51 @@ export function SettlementProjectDetailView() {
     window.addEventListener('focus', handleFocus);
     return () => window.removeEventListener('focus', handleFocus);
   }, [project, fetchProjectDetails]);
+
+  const handleContributionAdded = () => {
+    // Refresh project data after contribution
+    fetchProjectDetails();
+  };
+
+  const handleContributeSubmit = async (itemId: string, itemName: string) => {
+    if (!session?.user || contributionData.quantity <= 0) return;
+    
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/settlement/contributions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` }),
+        },
+        body: JSON.stringify({
+          projectId: project?.id,
+          contributionType: 'Direct',
+          itemName: itemName,
+          quantity: contributionData.quantity,
+          description: contributionData.notes.trim() || undefined,
+        }),
+      });
+
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to add contribution');
+      }
+
+      // Reset form and collapse
+      setContributionData({ quantity: 1, notes: '' });
+      setExpandedItemId(null);
+      
+      // Refresh project data
+      fetchProjectDetails();
+      
+    } catch (err) {
+      console.error('Error adding contribution:', err);
+      alert(err instanceof Error ? err.message : 'Failed to add contribution');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -325,15 +380,26 @@ export function SettlementProjectDetailView() {
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
-                              {/* Cross-reference link to compendium */}
-                              <Link 
-                                href={`/compendium?search=${encodeURIComponent(item.itemName)}`}
-                                className="text-xs text-primary hover:underline"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                View in Compendium →
-                              </Link>
+                              {/* Contribute Button */}
+                              {item.status !== 'Completed' && (
+                                <Button
+                                  size="sm"
+                                  onClick={() => {
+                                    if (expandedItemId === item.id) {
+                                      setExpandedItemId(null);
+                                      setContributionData({ quantity: 1, notes: '' });
+                                    } else {
+                                      setExpandedItemId(item.id);
+                                    }
+                                  }}
+                                  className="text-xs"
+                                  variant={expandedItemId === item.id ? "secondary" : "default"}
+                                >
+                                  <Plus className={`h-3 w-3 mr-1 transition-transform ${expandedItemId === item.id ? 'rotate-45' : ''}`} />
+                                  {expandedItemId === item.id ? 'Cancel' : 'Contribute'}
+                                </Button>
+                              )}
+
                             </div>
                           </div>
 
@@ -349,6 +415,71 @@ export function SettlementProjectDetailView() {
                               className="h-2" 
                             />
                           </div>
+
+                          {/* Inline Contribution Form */}
+                          {expandedItemId === item.id && (
+                            <div className="border-t pt-4 space-y-3 bg-muted/30 -mx-4 px-4 pb-4 rounded-b-lg">
+                              <div className="text-sm font-medium text-foreground">
+                                Contribute {item.itemName}
+                              </div>
+                              
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                  <label className="text-xs text-muted-foreground block mb-1">
+                                    Quantity
+                                  </label>
+                                  <Input
+                                    type="number"
+                                    min="1"
+                                    value={contributionData.quantity}
+                                    onChange={(e) => setContributionData(prev => ({ 
+                                      ...prev, 
+                                      quantity: parseInt(e.target.value) || 1 
+                                    }))}
+                                    className="h-8"
+                                    placeholder="How many?"
+                                  />
+                                </div>
+                                
+                                <div>
+                                  <label className="text-xs text-muted-foreground block mb-1">
+                                    Notes (optional)
+                                  </label>
+                                  <Input
+                                    value={contributionData.notes}
+                                    onChange={(e) => setContributionData(prev => ({ 
+                                      ...prev, 
+                                      notes: e.target.value 
+                                    }))}
+                                    className="h-8"
+                                    placeholder="Any details..."
+                                  />
+                                </div>
+                              </div>
+                              
+                              <div className="flex justify-end gap-2">
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => {
+                                    setExpandedItemId(null);
+                                    setContributionData({ quantity: 1, notes: '' });
+                                  }}
+                                  className="text-xs"
+                                >
+                                  Cancel
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  onClick={() => handleContributeSubmit(item.id, item.itemName)}
+                                  disabled={isSubmitting || contributionData.quantity <= 0 || !session?.user}
+                                  className="text-xs"
+                                >
+                                  {isSubmitting ? 'Adding...' : `Add ${contributionData.quantity}x`}
+                                </Button>
+                              </div>
+                            </div>
+                          )}
 
                           {item.assignedMemberId && (
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -518,6 +649,8 @@ export function SettlementProjectDetailView() {
           </div>
         </div>
       </div>
+
+
     </Container>
   );
 } 

@@ -24,7 +24,7 @@ export async function GET(request: Request) {
     const { data: member } = await supabase
       .from('settlement_members')
       .select('id')
-      .eq('auth_user_id', session.user.id)
+      .eq('supabase_user_id', session.user.id)
       .single();
 
     if (!member) {
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
     const { data: member } = await supabase
       .from('settlement_members')
       .select('id')
-      .eq('auth_user_id', session.user.id)
+      .eq('supabase_user_id', session.user.id)
       .single();
 
     if (!member) {

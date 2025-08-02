@@ -150,14 +150,23 @@ async function logActivitiesToDatabase(activities: ActivityLogEntry[]): Promise<
 }
 
 /**
- * Get recent member activities for display
+ * Get recent settlement activities (collective actions affecting the settlement)
  */
-export async function getRecentMemberActivities(
+export async function getRecentSettlementActivities(
   settlementId: string, 
   limit: number = 20
 ): Promise<any[]> {
   const supabase = createServerClient();
   if (!supabase) return [];
+  
+  // Settlement activity types (collective actions)
+  const settlementActivityTypes = [
+    'project_contribution',
+    'project_created', 
+    'project_completed',
+    'treasury_transaction',
+    'settlement_upgrade'
+  ];
   
   try {
     const { data, error } = await supabase
@@ -174,11 +183,63 @@ export async function getRecentMemberActivities(
         )
       `)
       .eq('settlement_members.settlement_id', settlementId)
+      .in('activity_type', settlementActivityTypes)
       .order('created_at', { ascending: false })
       .limit(limit);
     
     if (error) {
-      console.error('Error fetching recent activities:', error);
+      console.error('Error fetching recent settlement activities:', error);
+      return [];
+    }
+    
+    return data || [];
+    
+  } catch (error) {
+    console.error('Error getting recent settlement activities:', error);
+    return [];
+  }
+}
+
+/**
+ * Get recent member activities (individual member actions)
+ */
+export async function getRecentMemberActivities(
+  settlementId: string, 
+  limit: number = 20
+): Promise<any[]> {
+  const supabase = createServerClient();
+  if (!supabase) return [];
+  
+  // Member activity types (individual actions)
+  const memberActivityTypes = [
+    'profession_level_up',
+    'achievement_unlocked',
+    'member_joined',
+    'member_promoted',
+    'skill_milestone'
+  ];
+  
+  try {
+    const { data, error } = await supabase
+      .from('user_activity')
+      .select(`
+        id,
+        activity_type,
+        activity_data,
+        created_at,
+        settlement_members!inner (
+          id,
+          name,
+          settlement_id
+        )
+      `)
+      .eq('settlement_members.settlement_id', settlementId)
+      .in('activity_type', memberActivityTypes)
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    
+    if (error) {
+      console.error('Error fetching recent member activities:', error);
       return [];
     }
     

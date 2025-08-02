@@ -6,6 +6,7 @@ import { logProjectCompleted } from '../../../../../lib/settlement/project-activ
 import { withErrorHandlingParams, parseRequestBody, apiSuccess, apiError } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
 import { logger } from '@/lib/logger';
+import { getProjectById } from '../../../../../lib/spacetime-db-new/modules/projects/commands/get-project-by-id';
 
 interface UpdateProjectData {
   name?: string;
@@ -20,53 +21,43 @@ async function handleGetProject(
 ): Promise<Result<unknown>> {
   const projectId = params.id;
   
-  const supabase = createServerClient();
-  if (!supabase) {
-    return apiError('Database not available', ErrorCodes.OPERATION_FAILED);
-  }
-
   try {
-    // Determine if the ID is a UUID or a short_id
+    // Handle both UUID and short_id formats
     const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);
     const isShortId = /^proj_[a-z0-9]{6}$/i.test(projectId);
     
-    let query = supabase
-      .from('settlement_projects')
-      .select(`
-        *,
-        project_items (
-          id,
-          item_name,
-          required_quantity,
-          current_quantity,
-          tier,
-          priority,
-          notes,
-          created_at,
-          updated_at
-        )
-      `);
-
-    // Use appropriate field for lookup
-    if (isUUID) {
-      query = query.eq('id', projectId);
-    } else if (isShortId) {
-      query = query.eq('short_id', projectId);
-    } else {
+    let actualProjectId = projectId;
+    
+    // If short_id, convert to UUID
+    if (isShortId) {
+      const supabase = createServerClient();
+      if (!supabase) {
+        return apiError('Database not available', ErrorCodes.OPERATION_FAILED);
+      }
+      
+      const { data: project, error } = await supabase
+        .from('settlement_projects')
+        .select('id')
+        .eq('short_id', projectId)
+        .single();
+        
+      if (error || !project) {
+        return apiError('Project not found', ErrorCodes.NOT_FOUND);
+      }
+      
+      actualProjectId = project.id;
+    } else if (!isUUID) {
       return apiError('Invalid project ID format', ErrorCodes.INVALID_PARAMETER);
     }
 
-    const { data: project, error } = await query.single();
+    // Use the proper function that includes contributions
+    const projectDetails = await getProjectById(actualProjectId);
 
-    if (error) {
-      throw error;
-    }
-
-    if (!project) {
+    if (!projectDetails) {
       return apiError('Project not found', ErrorCodes.NOT_FOUND);
     }
 
-    return apiSuccess(project);
+    return apiSuccess(projectDetails);
 
   } catch (error) {
     logger.error('Failed to fetch project', error instanceof Error ? error : new Error(String(error)), {

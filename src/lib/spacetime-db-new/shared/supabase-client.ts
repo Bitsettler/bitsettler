@@ -162,7 +162,7 @@ export interface Database {
           priority: number;
           rank_order: number;
           status: 'Needed' | 'In Progress' | 'Completed';
-          assigned_member_id: string | null;
+          // assigned_member_id column doesn't exist in database
           notes: string | null;
           created_at: string;
           updated_at: string;
@@ -177,7 +177,7 @@ export interface Database {
           priority?: number;
           rank_order?: number;
           status?: 'Needed' | 'In Progress' | 'Completed';
-          assigned_member_id?: string | null;
+          // assigned_member_id column doesn't exist in database
           notes?: string | null;
           created_at?: string;
           updated_at?: string;
@@ -192,7 +192,7 @@ export interface Database {
           priority?: number;
           rank_order?: number;
           status?: 'Needed' | 'In Progress' | 'Completed';
-          assigned_member_id?: string | null;
+          // assigned_member_id column doesn't exist in database
           notes?: string | null;
           created_at?: string;
           updated_at?: string;

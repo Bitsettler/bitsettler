@@ -19,14 +19,15 @@ export async function GET(request: NextRequest) {
     return Response.json({ 
       success: true, 
       activities,
-      count: activities.length 
+      count: activities.length,
+      type: 'member' 
     });
     
   } catch (error) {
-    console.error('Error fetching recent activities:', error);
+    console.error('Error fetching member activities:', error);
     return Response.json({ 
       success: false, 
-      error: 'Failed to fetch recent activities' 
+      error: 'Failed to fetch member activities' 
     }, { status: 500 });
   }
 }

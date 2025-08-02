@@ -107,11 +107,7 @@ export async function copyInviteCodeToClipboard(code: string): Promise<boolean> 
       document.body.removeChild(textArea);
       return true;
     } catch (fallbackError) {
-      logger.error('Failed to copy invite code using fallback method', fallbackError instanceof Error ? fallbackError : new Error(String(fallbackError)), {
-        operation: 'COPY_INVITE_CODE',
-        inviteCode,
-        method: 'fallback'
-      });
+      console.error('Failed to copy invite code using fallback method:', fallbackError);
       return false;
     }
   }

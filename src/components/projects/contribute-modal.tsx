@@ -15,19 +15,21 @@ import { type ProjectDetails, type AddContributionRequest } from '@/lib/spacetim
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import { transformProjectData } from '@/lib/utils/project-data-transform';
 
 interface ContributeModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   projectId: string | null;
+  selectedItemName?: string | null;
   onContributionAdded: () => void;
 }
 
-export function ContributeModal({ open, onOpenChange, projectId, onContributionAdded }: ContributeModalProps) {
+export function ContributeModal({ open, onOpenChange, projectId, selectedItemName, onContributionAdded }: ContributeModalProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [project, setProject] = useState<ProjectDetails | null>(null);
-  const [selectedItemName, setSelectedItemName] = useState<string>('');
+  const [currentSelectedItem, setCurrentSelectedItem] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(1);
   const [notes, setNotes] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,6 +44,19 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
     return value.toLocaleString();
   };
 
+  // Pre-select item when modal opens with a specific item
+  useEffect(() => {
+    if (open && selectedItemName) {
+      setCurrentSelectedItem(selectedItemName);
+    } else if (!open) {
+      // Clear when modal closes
+      setCurrentSelectedItem('');
+      setQuantity(1);
+      setNotes('');
+      setErrors({});
+    }
+  }, [open, selectedItemName]);
+
   const fetchProjectData = useCallback(async () => {
     if (!projectId) return;
     
@@ -54,7 +69,9 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
         throw new Error(result.error || 'Failed to fetch project');
       }
 
-      setProject(result.data);
+      // Transform the API response to match frontend expectations
+      const transformedProject = transformProjectData(result.data);
+      setProject(transformedProject);
     } catch (error) {
       console.error('Error fetching project:', error);
       setErrors({ general: 'Failed to load project data' });
@@ -69,20 +86,20 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
       fetchProjectData();
       
       // Reset form
-      setSelectedItemName('');
+      setCurrentSelectedItem('');
       setQuantity(1);
       setNotes('');
       setErrors({});
     }
   }, [open, projectId, fetchProjectData]);
 
-  const selectedItem = project?.items.find(item => item.itemName === selectedItemName);
+  const selectedItem = project?.items.find(item => item.itemName === currentSelectedItem);
   const remainingNeeded = selectedItem ? Math.max(0, selectedItem.requiredQuantity - selectedItem.currentQuantity) : 0;
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
     
-    if (!selectedItemName) {
+    if (!currentSelectedItem) {
       newErrors.item = 'Please select an item to contribute';
     }
     
@@ -112,8 +129,8 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
         },
         projectId: projectId,
         projectItemId: selectedItem?.id,
-        contributionType: 'Item',
-        itemName: selectedItemName,
+        contributionType: 'Direct', // Direct contribution of an item
+        itemName: currentSelectedItem,
         quantity: quantity,
         description: notes.trim() || undefined,
       };
@@ -154,7 +171,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
   };
 
   const resetForm = () => {
-    setSelectedItemName('');
+    setCurrentSelectedItem('');
     setQuantity(1);
     setNotes('');
     setErrors({});
@@ -320,7 +337,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
                 <span className="text-green-800">All items for this project have been completed!</span>
               </div>
             ) : (
-              <Select value={selectedItemName} onValueChange={setSelectedItemName}>
+              <Select value={currentSelectedItem} onValueChange={setCurrentSelectedItem}>
                 <SelectTrigger className={errors.item ? 'border-red-500' : ''}>
                   <SelectValue placeholder="Choose an item..." />
                 </SelectTrigger>
@@ -488,7 +505,7 @@ export function ContributeModal({ open, onOpenChange, projectId, onContributionA
             </Button>
             <Button 
               type="submit" 
-              disabled={isSubmitting || !selectedItemName || quantity <= 0}
+              disabled={isSubmitting || !currentSelectedItem || quantity <= 0}
               className="min-w-24"
             >
               {isSubmitting ? 'Adding...' : 'Add Contribution'}

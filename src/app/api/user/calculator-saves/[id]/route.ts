@@ -28,7 +28,7 @@ export async function DELETE(
     const { data: member } = await supabase
       .from('settlement_members')
       .select('id')
-      .eq('auth_user_id', session.user.id)
+      .eq('supabase_user_id', session.user.id)
       .single();
 
     if (!member) {

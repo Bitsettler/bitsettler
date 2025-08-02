@@ -5,7 +5,7 @@ export interface MemberContribution {
   id: string;
   memberId: string;
   memberName: string;
-  contributionType: 'Item' | 'Crafting' | 'Gathering' | 'Other';
+  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   itemName: string | null;
   quantity: number;
   description: string | null;
@@ -66,25 +66,28 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       throw handleSupabaseError(itemsError, 'getting project items');
     }
 
-    // Get project contributions with member names (allow empty results)
+    // Get project contributions (simplified query without join)
     const { data: contributionsData, error: contributionsError } = await supabase
       .from('member_contributions')
-      .select(`
-        id,
-        member_id,
-        contribution_type,
-        item_name,
-        quantity,
-        description,
-        contributed_at,
-        settlement_members(name)
-      `)
+      .select('*')
       .eq('project_id', projectId)
       .order('contributed_at', { ascending: false });
 
     // Don't throw error if no contributions found, just log and continue
     if (contributionsError && contributionsError.code !== 'PGRST116') {
       console.warn('Error fetching contributions:', contributionsError);
+    }
+
+    // Get member names separately
+    const memberIds = contributionsData?.map(c => c.member_id) || [];
+    let membersData: any[] = [];
+    
+    if (memberIds.length > 0) {
+      const { data: members } = await supabase
+        .from('settlement_members')
+        .select('id, name')
+        .in('id', memberIds);
+      membersData = members || [];
     }
 
     // Get assigned members (allow empty results)
@@ -115,22 +118,25 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       priority: item.priority,
       rankOrder: item.rank_order,
       status: item.status,
-      assignedMemberId: item.assigned_member_id,
+      assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
       notes: null, // TEMPORARILY SET TO NULL since column doesn't exist  
       createdAt: new Date(item.created_at),
       updatedAt: new Date(item.updated_at),
     }));
 
-    const contributions: MemberContribution[] = (contributionsData || []).map(contrib => ({
-      id: contrib.id,
-      memberId: contrib.member_id,
-      memberName: contrib.settlement_members?.name || 'Unknown Member',
-      contributionType: contrib.contribution_type,
-      itemName: contrib.item_name,
-      quantity: contrib.quantity,
-      description: contrib.description,
-      contributedAt: new Date(contrib.contributed_at),
-    }));
+    const contributions: MemberContribution[] = (contributionsData || []).map(contrib => {
+      const member = membersData.find(m => m.id === contrib.member_id);
+      return {
+        id: contrib.id,
+        memberId: contrib.member_id,
+        memberName: member?.name || 'Unknown Member',
+        contributionType: contrib.contribution_type,
+        itemName: contrib.item_name,
+        quantity: contrib.quantity,
+        description: contrib.notes, // Map notes column to description interface field
+        contributedAt: new Date(contrib.contributed_at),
+      };
+    });
 
     const assignedMembers = (assignedData || []).map(assigned => ({
       id: assigned.settlement_members?.id || assigned.id,

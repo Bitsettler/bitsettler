@@ -57,6 +57,6 @@ export function useMemberProfile() {
     isSetup: !!(member?.display_name || member?.discord_handle),
     theme: member?.theme || 'system',
     profileColor: member?.profile_color || '#3b82f6',
-    isClaimed: !!member?.auth_user_id
+    isClaimed: !!member?.supabase_user_id
   };
 } 

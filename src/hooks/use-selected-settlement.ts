@@ -28,6 +28,12 @@ export function useSelectedSettlement() {
 
   // Load settlement and invite code from localStorage on mount
   useEffect(() => {
+    // Ensure we're in a browser environment
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
+    }
+
     const storedSettlement = localStorage.getItem('selectedSettlement');
     const storedInviteCode = localStorage.getItem('settlementInviteCode');
     
@@ -49,7 +55,7 @@ export function useSelectedSettlement() {
               setInviteCode(newCode);
               localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
             }
-          } catch {
+          } catch (error) {
             // Generate new code if stored code is invalid
             const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
             setInviteCode(newCode);
@@ -68,6 +74,7 @@ export function useSelectedSettlement() {
         localStorage.removeItem('settlementInviteCode');
       }
     }
+    
     setIsLoading(false);
   }, []);
 
@@ -157,6 +164,14 @@ export function useSelectedSettlement() {
     return selectedSettlement?.id || null;
   };
 
+  // Function to generate invite code for any settlement ID (without full selection)
+  const generateInviteCodeForSettlement = (settlementId: string, settlementName: string = 'Settlement'): SettlementInviteCode => {
+    const newCode = generateSettlementInviteCode(settlementId, settlementName);
+    setInviteCode(newCode);
+    localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
+    return newCode;
+  };
+
   return {
     selectedSettlement,
     inviteCode,
@@ -165,6 +180,7 @@ export function useSelectedSettlement() {
     regenerateInviteCode,
     clearSettlement,
     getSettlementId,
+    generateInviteCodeForSettlement,
     hasSettlement: !!selectedSettlement
   };
 } 

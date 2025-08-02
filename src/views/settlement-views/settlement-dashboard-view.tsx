@@ -84,9 +84,18 @@ export function SettlementDashboardView() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
-  const [recentActivities, setRecentActivities] = useState<any[]>([]);
+  const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
+  const [memberActivities, setMemberActivities] = useState<any[]>([]);
   
-  const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
+  const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
+  
+  // Generate invite code for member's settlement if none exists (run once)
+  useEffect(() => {
+    if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
+      const settlementInfo = dashboardData.settlement.settlementInfo;
+      generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name);
+    }
+  }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
 
   const fetchDashboardData = useCallback(async () => {
     try {
@@ -121,11 +130,20 @@ export function SettlementDashboardView() {
       const settlementId = selectedSettlement?.id || member?.settlement_id;
       if (!settlementId) return;
       
-      const response = await fetch(`/api/settlement/recent-activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
-      const data = await response.json();
+      // Fetch settlement activities (contributions, projects, etc.)
+      const settlementResponse = await fetch(`/api/settlement/activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
+      const settlementData = await settlementResponse.json();
       
-      if (data.success) {
-        setRecentActivities(data.activities);
+      // Fetch member activities (skill level-ups, achievements, etc.)
+      const memberResponse = await fetch(`/api/settlement/member-activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
+      const memberData = await memberResponse.json();
+      
+      if (settlementData.success) {
+        setSettlementActivities(settlementData.activities);
+      }
+      
+      if (memberData.success) {
+        setMemberActivities(memberData.activities);
       }
     } catch (error) {
       console.error('Failed to fetch recent activities:', error);
@@ -256,47 +274,53 @@ export function SettlementDashboardView() {
         </div>
 
       {/* Settlement Info - Enhanced with Live Data */}
-      {(selectedSettlement || settlementInfo) && (
-        <Card>
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-start justify-between">
-              <div>
-                <div className="flex items-center gap-3">
-                  <h2 className="text-xl font-semibold">
-                    {settlementInfo?.name || selectedSettlement?.name}
-                  </h2>
-                  <SettlementTierIcon tier={settlementInfo?.tier || selectedSettlement?.tier || 1} />
-                </div>
-                <div>
-                  <span className="text-sm text-muted-foreground">
-                    Tier {settlementInfo?.tier || selectedSettlement?.tier || 1} Settlement
-                  </span>
-                </div>
+      <Card>
+        <CardContent className="pt-4 pb-4">
+          <div className="flex items-start justify-between">
+            <div>
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-semibold">
+                  {settlementInfo?.name || selectedSettlement?.name || 'Settlement Dashboard'}
+                </h2>
+                <SettlementTierIcon tier={settlementInfo?.tier || selectedSettlement?.tier || 1} />
               </div>
-              <div className="flex flex-col items-end gap-2">
-                {inviteCode && (
-                  <CompactSettlementInviteCode 
-                    inviteCode={inviteCode}
-                    onRegenerate={regenerateInviteCode}
-                  />
-                )}
-                {dashboardData?.meta?.lastUpdated && (
-                  <div className="text-right">
-                    <div className="text-sm font-medium">
-                      Updated {new Date(dashboardData.meta.lastUpdated).toLocaleTimeString()}
-                    </div>
-                    {nextUpdateCountdown && (
-                      <div className="text-xs text-muted-foreground">
-                        Next update in: {nextUpdateCountdown}
-                      </div>
-                    )}
-                  </div>
-                )}
+              <div>
+                <span className="text-sm text-muted-foreground">
+                  Tier {settlementInfo?.tier || selectedSettlement?.tier || 1} Settlement
+                </span>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      )}
+            <div className="flex flex-col items-end gap-2">
+              {!settlementLoading && inviteCode ? (
+                <CompactSettlementInviteCode 
+                  inviteCode={inviteCode}
+                  onRegenerate={regenerateInviteCode}
+                />
+              ) : !settlementLoading ? (
+                <div className="text-xs text-muted-foreground">
+                  No invite code available
+                </div>
+              ) : (
+                <div className="text-xs text-muted-foreground">
+                  Loading invite code...
+                </div>
+              )}
+              {dashboardData?.meta?.lastUpdated && (
+                <div className="text-right">
+                  <div className="text-sm font-medium">
+                    Updated {new Date(dashboardData.meta.lastUpdated).toLocaleTimeString()}
+                  </div>
+                  {nextUpdateCountdown && (
+                    <div className="text-xs text-muted-foreground">
+                      Next update in: {nextUpdateCountdown}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
 
 
@@ -379,12 +403,35 @@ export function SettlementDashboardView() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-center py-8">
-              <div className="text-lg font-medium text-muted-foreground mb-2">Coming Soon</div>
-              <p className="text-sm text-muted-foreground">
-                Settlement event logs and activity feed will be displayed here in a future update.
-              </p>
-            </div>
+            {settlementActivities.length > 0 ? (
+              <div className="space-y-3 max-h-80 overflow-y-auto">
+                {settlementActivities.map((activity: any) => (
+                    <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
+                      <div className="text-lg" title="Project Contribution">
+                        {activity.activity_data.icon || '🤝'}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium truncate">
+                          {activity.activity_data.memberName}
+                        </div>
+                        <div className="text-sm text-muted-foreground truncate">
+                          {activity.activity_data.description}
+                        </div>
+                      </div>
+                      <div className="text-xs text-muted-foreground flex-shrink-0">
+                        {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <div className="text-lg font-medium text-muted-foreground mb-2">No Recent Activity</div>
+                <p className="text-sm text-muted-foreground">
+                  Project contributions will appear here as members contribute to settlement projects.
+                </p>
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -396,26 +443,26 @@ export function SettlementDashboardView() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {recentActivities.length > 0 ? (
+            {memberActivities.length > 0 ? (
               <div className="space-y-3 max-h-80 overflow-y-auto">
-                {recentActivities.map((activity: any) => (
-                  <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
-                    <div className="text-lg" title={activity.activity_data.skillName}>
-                      {activity.activity_data.icon || '⬆️'}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-medium truncate">
-                        {activity.activity_data.memberName}
+                {memberActivities.map((activity: any) => (
+                    <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
+                      <div className="text-lg" title={activity.activity_data.skillName}>
+                        {activity.activity_data.icon || '⬆️'}
                       </div>
-                      <div className="text-sm text-muted-foreground truncate">
-                        {activity.activity_data.skillName} Level {activity.activity_data.newLevel}
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium truncate">
+                          {activity.activity_data.memberName}
+                        </div>
+                        <div className="text-sm text-muted-foreground truncate">
+                          {activity.activity_data.skillName} Level {activity.activity_data.newLevel}
+                        </div>
+                      </div>
+                      <div className="text-xs text-muted-foreground flex-shrink-0">
+                        {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
                       </div>
                     </div>
-                    <div className="text-xs text-muted-foreground flex-shrink-0">
-                      {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             ) : (
               <div className="text-center py-8">
