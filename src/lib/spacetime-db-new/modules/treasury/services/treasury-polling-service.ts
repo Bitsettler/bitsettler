@@ -1,5 +1,5 @@
 import { BitJitaAPI } from '../../integrations/bitjita-api';
-import { supabase } from '../../../shared/supabase-client';
+import { createServerClient } from '../../../shared/supabase-client';
 
 // Constants
 const POLLING_INTERVAL = 5 * 60 * 1000; // 5 minutes
@@ -21,11 +21,17 @@ export class TreasuryPollingService {
   private static instance: TreasuryPollingService;
   private isPolling: boolean = false;
   private intervalId: NodeJS.Timeout | null = null;
+  private supabase: any;
   
   // Global flag to prevent multiple services across hot reloads
   private static globalPollingActive = false;
 
-  private constructor() {}
+  private constructor() {
+    this.supabase = createServerClient();
+    if (!this.supabase) {
+      console.error('❌ Treasury service requires service role client');
+    }
+  }
 
   static getInstance(): TreasuryPollingService {
     if (!TreasuryPollingService.instance) {
@@ -78,7 +84,7 @@ export class TreasuryPollingService {
    * Manually trigger a treasury data poll
    */
   async pollTreasuryData(settlementId: string): Promise<TreasurySnapshot | null> {
-    if (!supabase) {
+    if (!this.supabase) {
       console.warn('⚠️ Supabase not available for treasury polling');
       return null;
     }
@@ -97,7 +103,7 @@ export class TreasuryPollingService {
       const currentBalance = bitjitaResult.data.treasury;
       
       // Get the last recorded balance to calculate change
-      const { data: lastRecord } = await supabase
+      const { data: lastRecord } = await this.supabase
         .from('treasury_history')
         .select('balance, recorded_at')
         .eq('settlement_id', settlementId)
@@ -134,7 +140,7 @@ export class TreasuryPollingService {
         };
 
         // Insert the new record
-        const { error } = await supabase
+        const { error } = await this.supabase
           .from('treasury_history')
           .insert({
             settlement_id: settlementId,
@@ -183,7 +189,7 @@ export class TreasuryPollingService {
     timeRange: number = 30, // Changed from 7 to 30 days
     timeUnit: 'days' | 'months' = 'days'
   ): Promise<TreasurySnapshot[]> {
-    if (!supabase) return [];
+    if (!this.supabase) return [];
 
     try {
       const startDate = new Date();
@@ -195,7 +201,7 @@ export class TreasuryPollingService {
         startDate.setMonth(startDate.getMonth() - timeRange);
       }
 
-      const { data, error } = await supabase
+      const { data, error } = await this.supabase
         .from('treasury_history')
         .select('*')
         .eq('settlement_id', settlementId)
@@ -231,10 +237,10 @@ export class TreasuryPollingService {
    * Clean up old treasury history (older than 6 months)
    */
     async cleanupOldHistory(): Promise<void> {
-    if (!supabase) return;
+    if (!this.supabase) return;
     
     try {
-      const { error } = await supabase.rpc('cleanup_old_treasury_history');
+      const { error } = await this.supabase.rpc('cleanup_old_treasury_history');
       if (error) {
         console.error('❌ Failed to cleanup old treasury history:', error);
       } else {
@@ -249,13 +255,13 @@ export class TreasuryPollingService {
    * Remove excessive snapshots - keep only significant changes and daily snapshots
    */
   async cleanupExcessiveSnapshots(settlementId: string): Promise<void> {
-    if (!supabase) return;
+    if (!this.supabase) return;
 
     try {
       console.log('🧹 Cleaning up excessive treasury snapshots...');
       
       // Get all snapshots ordered by time
-      const { data: allSnapshots, error: fetchError } = await supabase
+      const { data: allSnapshots, error: fetchError } = await this.supabase
         .from('treasury_history')
         .select('*')
         .eq('settlement_id', settlementId)
@@ -292,7 +298,7 @@ export class TreasuryPollingService {
         .map(s => s.id);
 
       if (idsToDelete.length > 0) {
-        const { error: deleteError } = await supabase
+        const { error: deleteError } = await this.supabase
           .from('treasury_history')
           .delete()
           .in('id', idsToDelete);
