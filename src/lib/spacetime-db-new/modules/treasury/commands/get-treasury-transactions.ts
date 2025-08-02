@@ -221,7 +221,6 @@ export async function getTreasuryCategories(): Promise<Array<{ id: string; name:
     const { data, error } = await supabase
       .from('treasury_categories')
       .select('id, name, type, color')
-      .eq('is_active', true)
       .order('name');
 
     if (error) {

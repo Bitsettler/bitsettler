@@ -41,7 +41,6 @@ export async function POST(request: NextRequest) {
       .from('settlements_master')
       .select('*')
       .eq('invite_code', inviteCode.toUpperCase())
-      .eq('is_active', true)
       .single();
 
     if (settlementError || !settlement) {
@@ -60,7 +59,6 @@ export async function POST(request: NextRequest) {
       .select('*')
       .eq('settlement_id', settlement.id)
       .is('supabase_user_id', null) // Only unclaimed characters
-      .eq('is_active', true)
       .order('name');
 
     if (charactersError) {

@@ -36,9 +36,8 @@ export async function getSettlementInfo(settlementId?: string): Promise<Settleme
 
     if (settlementId) {
       query = query.eq('settlement_id', settlementId);
-    } else {
-      query = query.eq('is_active', true);
     }
+    // Note: No longer filtering by is_active to allow access to all settlements
 
     const { data, error } = await query.single();
 
@@ -94,8 +93,7 @@ export async function getSettlementStats(): Promise<SettlementStats> {
 
     const { count: activeMembers } = await supabase
       .from('settlement_members')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_active', true);
+      .select('*', { count: 'exact', head: true });
 
     // Get project counts
     const { count: totalProjects } = await supabase

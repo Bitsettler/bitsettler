@@ -46,8 +46,7 @@ export async function GET(request: NextRequest) {
           const { data: members, error } = await supabase
             .from('settlement_members')
             .select('entity_id', { count: 'exact' })
-            .eq('settlement_id', settlement.id)
-            .eq('is_active', true);
+            .eq('settlement_id', settlement.id);
           
           if (!error && members) {
             memberCount = members.length;
