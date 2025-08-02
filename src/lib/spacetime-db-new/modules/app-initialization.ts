@@ -7,9 +7,8 @@ export function initializeApp(): void {
   console.log('🚀 Initializing BitCraft Guide application services...');
   
   try {
-    // Start treasury polling service (every 5 minutes)
-    treasuryPollingService.startPolling('504403158277057776');
-    
+    // Treasury polling is now started per-settlement by user interaction
+    // No global settlement polling in production
     console.log('✅ Application services initialized successfully');
   } catch (error) {
     console.error('❌ Failed to initialize application services:', error);

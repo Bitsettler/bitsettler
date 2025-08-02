@@ -308,7 +308,7 @@ export function TierIconExamples() {
               <div className="flex items-center gap-3">
                 <SettlementTierIcon tier={6} />
                 <div>
-                  <h3 className="font-semibold">Port Taverna</h3>
+                  <h3 className="font-semibold">Example Settlement</h3>
                   <p className="text-sm text-muted-foreground">Tier VI Settlement</p>
                 </div>
               </div>

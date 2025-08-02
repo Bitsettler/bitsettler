@@ -19,8 +19,15 @@ export async function GET(request: NextRequest) {
       case 'summary': {
         console.log('🏛️ Fetching treasury summary with BitJita integration...');
         
-        // Get settlement ID from query params or use default
-        const settlementId = searchParams.get('settlementId') || '504403158277057776'; // Port Taverna
+        // Get settlement ID from query params (required)
+        const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
         
         // Fetch real-time treasury balance from BitJita
         const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
@@ -146,7 +153,14 @@ export async function GET(request: NextRequest) {
 
       case 'history': {
         try {
-          const settlementId = searchParams.get('settlementId') || '504403158277057776';
+          const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
           const timeRange = parseInt(searchParams.get('timeRange') || '30'); // Changed from 7 to 30 days
           const timeUnit = (searchParams.get('timeUnit') || 'days') as 'days' | 'months';
           
@@ -180,7 +194,14 @@ export async function GET(request: NextRequest) {
       }
 
       case 'start_polling': {
-        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
         
         // First create an initial snapshot if needed
         console.log('🏛️ Creating initial treasury snapshot before starting polling...');
@@ -215,7 +236,14 @@ export async function GET(request: NextRequest) {
       }
 
       case 'poll_now': {
-        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
         const snapshot = await treasuryPollingService.pollTreasuryData(settlementId);
         
         return NextResponse.json({
@@ -226,7 +254,14 @@ export async function GET(request: NextRequest) {
       }
 
       case 'cleanup_snapshots': {
-        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
         await treasuryPollingService.cleanupExcessiveSnapshots(settlementId);
         
         return NextResponse.json({
@@ -236,7 +271,14 @@ export async function GET(request: NextRequest) {
       }
 
       case 'create_sample_history': {
-        const settlementId = searchParams.get('settlementId') || '504403158277057776';
+        const settlementId = searchParams.get('settlementId');
+        
+        if (!settlementId) {
+          return NextResponse.json(
+            { error: 'Settlement ID is required' },
+            { status: 400 }
+          );
+        }
         
         try {
           // Create sample data points over the last 7 days

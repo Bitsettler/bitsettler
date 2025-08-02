@@ -257,17 +257,20 @@ export class SettlementSyncService {
   /**
    * Sync settlement statistics from BitJita API
    */
-  private async syncSettlementStats(): Promise<void> {
+  private async syncSettlementStats(settlementId?: string): Promise<void> {
     const syncKey = 'settlementStats';
     
     try {
       console.log('Syncing settlement statistics...');
       
-      // Get current settlement ID
-      const defaultSettlementId = '504403158277057776'; // Port Taverna for now
+      // Settlement ID is now required - no default fallback
+      if (!settlementId) {
+        console.warn('⚠️ Settlement ID required for stats sync - skipping');
+        return;
+      }
       
       // Fetch settlement details for stats
-      const details = await BitJitaAPI.fetchSettlementDetails(defaultSettlementId);
+      const details = await BitJitaAPI.fetchSettlementDetails(settlementId);
       
       if (details.success && details.data) {
         // Placeholder for future settlement stats sync

@@ -6,7 +6,7 @@ import { settlementConfig } from '../../../../config/settlement-config';
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const settlementId = searchParams.get('settlementId') || settlementConfig.defaultSettlement.id;
+    const settlementId = searchParams.get('settlementId');
 
     console.log(`🔍 Dashboard API: Fetching live data for settlement ${settlementId}`);
 

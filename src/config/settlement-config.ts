@@ -2,16 +2,10 @@
 // Centralized configuration for settlement management features
 
 export const settlementConfig = {
-  // Default settlement configuration
-  defaultSettlement: {
-    id: '504403158277057776', // Port Taverna claim ID
-    name: 'Port Taverna',
-  },
-
   // BitJita API configuration
   bitjita: {
     baseUrl: 'https://bitjita.com/api',
-    appIdentifier: 'PR3SIDENT/Bitcraft.guide',
+    appIdentifier: process.env.BITJITA_APP_IDENTIFIER || 'BitcraftGuide/settlements',
     timeout: 30000, // 30 seconds
   },
 

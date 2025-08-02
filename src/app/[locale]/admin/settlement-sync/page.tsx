@@ -494,25 +494,7 @@ export default function SettlementSyncPage() {
                 Check Status
               </Button>
 
-              <Button 
-                onClick={async () => {
-                  try {
-                    const response = await fetch('/api/settlement/treasury?action=create_sample_history&settlementId=504403158277057776');
-                    const result = await response.json();
-                    if (result.success) {
-                      alert(`✅ Created ${result.data?.length || 7} sample treasury history records! Go check the treasury page now.`);
-                    } else {
-                      alert(`❌ Error: ${result.error}`);
-                    }
-                  } catch (err) {
-                    alert(`❌ Network error: ${err instanceof Error ? err.message : 'Unknown error'}`);
-                  }
-                }}
-                variant="secondary"
-                size="sm"
-              >
-                Create Sample Data
-              </Button>
+              {/* Sample data creation removed for production readiness */}
             </div>
 
             {treasuryStatus === 'active' && (

@@ -3,7 +3,14 @@ import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-clien
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const settlementId = searchParams.get('settlementId') || '504403158277057776';
+  const settlementId = searchParams.get('settlementId');
+  
+  if (!settlementId) {
+    return NextResponse.json(
+      { error: 'Settlement ID is required' },
+      { status: 400 }
+    );
+  }
 
   try {
     console.log('🔍 Debug: Checking database tables...');

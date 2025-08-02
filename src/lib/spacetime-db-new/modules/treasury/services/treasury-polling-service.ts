@@ -37,7 +37,11 @@ export class TreasuryPollingService {
   /**
    * Start polling treasury data every 5 minutes
    */
-  startPolling(settlementId: string = '504403158277057776'): void {
+  startPolling(settlementId: string): void {
+    if (!settlementId) {
+      console.error('❌ Settlement ID is required to start treasury polling');
+      return;
+    }
     // Check both instance and global flags to prevent multiple polling
     if (this.isPolling || TreasuryPollingService.globalPollingActive) {
       console.warn('Treasury polling already active - skipping duplicate start');

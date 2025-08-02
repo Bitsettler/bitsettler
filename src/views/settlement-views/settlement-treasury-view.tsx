@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useCurrentMember } from '@/hooks/use-current-member';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -128,6 +129,7 @@ const formatHexcoin = (amount: number): string => {
 };
 
 export function SettlementTreasuryView() {
+  const { member, isLoading: memberLoading } = useCurrentMember();
   const [summary, setSummary] = useState<TreasurySummary | null>(null);
   const [stats, setStats] = useState<TreasuryStats | null>(null);
   const [transactions, setTransactions] = useState<TreasuryTransaction[]>([]);
@@ -153,20 +155,22 @@ export function SettlementTreasuryView() {
   const itemsPerPage = 20;
 
   useEffect(() => {
-    fetchSummaryData();
-    fetchCategories();
-    fetchTransactions();
-    fetchTreasuryHistory();
-
-    
-    // Set up periodic refresh every 5 minutes for live treasury data
-    const interval = setInterval(() => {
+    if (!memberLoading && member?.settlement_id) {
       fetchSummaryData();
-      setLastUpdate(new Date());
-    }, 5 * 60 * 1000);
-    
-    return () => clearInterval(interval);
-  }, []);
+      fetchCategories();
+      fetchTransactions();
+      fetchTreasuryHistory();
+
+      
+      // Set up periodic refresh every 5 minutes for live treasury data
+      const interval = setInterval(() => {
+        fetchSummaryData();
+        setLastUpdate(new Date());
+      }, 5 * 60 * 1000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [memberLoading, member?.settlement_id]);
 
   useEffect(() => {
     fetchTransactions();
@@ -177,9 +181,11 @@ export function SettlementTreasuryView() {
   }, [timeRange, timeUnit]); // Add timeUnit to dependencies
 
   async function fetchSummaryData() {
+    if (!member?.settlement_id) return;
+    
     try {
       setError(null);
-      const response = await fetch('/api/settlement/treasury?action=summary');
+      const response = await fetch(`/api/settlement/treasury?action=summary&settlementId=${member.settlement_id}`);
       const data: TreasurySummaryResponse = await response.json();
 
       if (!data.success) {
@@ -195,8 +201,10 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchCategories() {
+    if (!member?.settlement_id) return;
+    
     try {
-      const response = await fetch('/api/settlement/treasury?action=categories');
+      const response = await fetch(`/api/settlement/treasury?action=categories&settlementId=${member.settlement_id}`);
       const data: CategoriesResponse = await response.json();
 
       if (data.success) {
@@ -208,11 +216,14 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchTransactions() {
+    if (!member?.settlement_id) return;
+    
     try {
       setTransactionsLoading(true);
       
       const params = new URLSearchParams({
         action: 'transactions',
+        settlementId: member.settlement_id,
         limit: itemsPerPage.toString(),
         offset: ((currentPage - 1) * itemsPerPage).toString(),
       });
@@ -242,12 +253,13 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchTreasuryHistory() {
+    if (!member?.settlement_id) return;
+    
     try {
       setHistoryLoading(true);
-      const settlementId = '504403158277057776'; // Port Taverna
       
       const response = await fetch(
-        `/api/settlement/treasury?action=history&settlementId=${settlementId}&timeRange=${timeRange}&timeUnit=${timeUnit}`
+        `/api/settlement/treasury?action=history&settlementId=${member.settlement_id}&timeRange=${timeRange}&timeUnit=${timeUnit}`
       );
       const data: TreasuryHistoryResponse = await response.json();
 
@@ -277,7 +289,7 @@ export function SettlementTreasuryView() {
     (transaction.category && transaction.category.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  if (loading) {
+  if (memberLoading || loading || !member?.settlement_id) {
     return (
       <Container>
         <div className="space-y-8 py-8">
