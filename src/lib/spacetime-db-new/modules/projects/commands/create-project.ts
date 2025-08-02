@@ -1,5 +1,6 @@
 import { createServerClient } from '../../../shared/supabase-client';
 import { SettlementProject, ProjectItem } from './get-all-projects';
+import { logProjectCreated } from '../../../../settlement/project-activity-tracker';
 
 export interface CreateProjectRequest {
   name: string;
@@ -137,6 +138,20 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),
       }));
+    }
+
+    // Log project creation activity
+    try {
+      await logProjectCreated(
+        createdProject.id,
+        createdProject.name,
+        createdProject.priority,
+        projectData.createdBy,
+        projectData.createdBy // Using createdBy as both userId and userName for now
+      );
+    } catch (activityError) {
+      console.warn('Failed to log project creation activity:', activityError);
+      // Don't fail the project creation if activity logging fails
     }
 
     return {

@@ -1,4 +1,4 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 
 export interface TreasurySummary {
   id: string;

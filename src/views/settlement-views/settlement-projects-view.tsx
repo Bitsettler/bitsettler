@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
 import { useRouter } from 'next/navigation';
 import { 
@@ -17,14 +17,19 @@ import {
   ChevronUp,
   Save,
   X,
-  Trash2
+  Trash2,
+  Edit,
+  MoreHorizontal
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Container } from '@/components/container';
+import { CreateProjectModal } from '@/components/projects/create-project-modal';
+import { EditProjectModal } from '@/components/projects/edit-project-modal';
 import { type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -79,41 +84,93 @@ export function SettlementProjectsView() {
   
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled'>('Active');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled'>('all');
   const [priorityFilter, setPriorityFilter] = useState<'all' | '1' | '2' | '3' | '4' | '5'>('all');
+  
+  // Refresh trigger
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+  
+  // Project Creation Modal
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  
+  // Project Edit Modal
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editingProject, setEditingProject] = useState<ProjectWithItems | null>(null);
+  const [userPermissions, setUserPermissions] = useState<Record<string, {
+    canEdit: boolean;
+    canArchive: boolean;
+    canDelete: boolean;
+    isOwner: boolean;
+    isCoOwner: boolean;
+  }>>({});
 
-  // Fetch projects from API
-  const fetchProjects = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      
-      const params = new URLSearchParams({
-        includeItems: 'true',
-        ...(statusFilter !== 'all' && { status: statusFilter }),
-      });
 
-      const response = await fetch(`/api/settlement/projects?${params}`);
-      const result = await response.json();
 
-      if (!result.success) {
-        throw new Error(result.error || 'Failed to fetch projects');
-      }
+  const handleSearchTermChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  }, []);
 
-      setProjects(result.data || []);
-    } catch (err) {
-      console.error('Error fetching projects:', err);
-      setError(err instanceof Error ? err.message : 'Failed to load projects');
-      setProjects([]); // Reset to empty array on error
-    } finally {
-      setLoading(false);
-    }
-  };
+  const handleCreateNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setCreateData(prev => ({ ...prev, name: e.target.value }));
+  }, []);
+
+  const handleCreateDescriptionChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCreateData(prev => ({ ...prev, description: e.target.value }));
+  }, []);
 
   // Load projects on mount and when status filter changes
   useEffect(() => {
+    if (!session?.user) {
+      setError('Authentication required');
+      setLoading(false);
+      return;
+    }
+
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const params = new URLSearchParams({
+          includeItems: 'true',
+          ...(statusFilter !== 'all' && { status: statusFilter }),
+        });
+
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json'
+        };
+        
+        // Add authorization header if we have an access token
+        if (session.access_token) {
+          headers['Authorization'] = `Bearer ${session.access_token}`;
+        }
+
+        const response = await fetch(`/api/settlement/projects?${params}`, {
+          headers
+        });
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.error || 'Failed to fetch projects');
+        }
+
+        setProjects(result.data.data?.projects || []);
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load projects');
+        setProjects([]); // Reset to empty array on error
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchProjects();
-  }, [statusFilter]);
+  }, [statusFilter, session?.user?.id, refreshTrigger]);
+
+  // Helper function to trigger refresh
+  const refreshProjects = () => {
+    setRefreshTrigger(prev => prev + 1);
+  };
 
   // Apply client-side filters
   useEffect(() => {
@@ -172,7 +229,7 @@ export function SettlementProjectsView() {
       // Reset form and refresh projects
       setCreateData({ name: '', description: '', priority: 3 });
       setShowCreateForm(false);
-      await fetchProjects();
+      refreshProjects();
       
     } catch (err) {
       console.error('Error creating project:', err);
@@ -218,7 +275,7 @@ export function SettlementProjectsView() {
       // Reset form and refresh projects
       setContributionData({ projectId: '', itemName: '', quantity: 1, notes: '' });
       setContributingTo(null);
-      await fetchProjects();
+      refreshProjects();
       
     } catch (err) {
       console.error('Error adding contribution:', err);
@@ -228,20 +285,139 @@ export function SettlementProjectsView() {
     }
   };
 
+  // Load permissions for all projects
+  useEffect(() => {
+    if (!session?.user || !Array.isArray(projects) || projects.length === 0) return;
+
+    const checkPermissions = async () => {
+      for (const project of projects) {
+        try {
+          const headers: Record<string, string> = {
+            'Content-Type': 'application/json'
+          };
+          
+          // Add authorization header if we have an access token
+          if (session.access_token) {
+            headers['Authorization'] = `Bearer ${session.access_token}`;
+          }
+
+          // Call the backend API to get accurate permissions including co-owner status
+          const response = await fetch(`/api/settlement/projects/${project.short_id || project.id}/permissions`, {
+            headers
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            
+            if (result.success) {
+              setUserPermissions(prev => ({
+                ...prev,
+                [project.id]: result.data
+              }));
+              continue;
+            }
+          }
+          
+          // Fallback to client-side checking if API fails
+          const isOwner = project.createdBy === session.user?.email || project.createdBy === session.user?.name;
+          
+          const permissions = {
+            canEdit: isOwner,
+            canArchive: isOwner,
+            canDelete: isOwner,
+            isOwner,
+            isCoOwner: false
+          };
+          
+          setUserPermissions(prev => ({
+            ...prev,
+            [project.id]: permissions
+          }));
+          
+        } catch (error) {
+          console.error('Error checking permissions:', error);
+          // Set safe fallback permissions on error
+          setUserPermissions(prev => ({
+            ...prev,
+            [project.id]: {
+              canEdit: false,
+              canArchive: false,
+              canDelete: false,
+              isOwner: false,
+              isCoOwner: false
+            }
+          }));
+        }
+      }
+    };
+
+    checkPermissions();
+  }, [projects, session?.user?.id]);
+
+  // Edit project handlers
+  const handleEditProject = (project: ProjectWithItems) => {
+    setEditingProject(project);
+    setShowEditModal(true);
+  };
+
+  const handleProjectUpdated = () => {
+    refreshProjects();
+  };
+
+  const handleProjectDeleted = () => {
+    refreshProjects();
+  };
+
+  const handleDeleteProject = async (project: ProjectWithItems) => {
+    if (!confirm(`Are you sure you want to delete "${project.name}"? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json'
+      };
+      
+      // Add authorization header if we have an access token
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`;
+      }
+
+      const response = await fetch(`/api/settlement/projects/${project.short_id || project.id}`, {
+        method: 'DELETE',
+        headers,
+        credentials: 'include'
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to delete project');
+      }
+
+      // Remove the deleted project from local state
+      setProjects(prev => prev.filter(p => p.id !== project.id));
+      
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      setError(err instanceof Error ? err.message : 'Failed to delete project');
+    }
+  };
+
   // Helper functions
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'Completed': return 'bg-green-100 text-green-800 border-green-200';
-      case 'Cancelled': return 'bg-red-100 text-red-800 border-red-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'Active': return 'bg-muted text-foreground border-border';
+      case 'Completed': return 'bg-green-50 text-green-700 border-green-200 dark:bg-green-950/50 dark:text-green-400 dark:border-green-800';
+      case 'Cancelled': return 'bg-muted/60 text-muted-foreground border-border';
+      default: return 'bg-muted text-muted-foreground border-border';
     }
   };
 
   const getPriorityColor = (priority: number) => {
-    if (priority >= 4) return 'border-red-300 text-red-700';
-    if (priority >= 3) return 'border-orange-300 text-orange-700';
-    return 'border-gray-300 text-gray-700';
+    if (priority >= 4) return 'border-muted-foreground/30 text-muted-foreground';
+    if (priority >= 3) return 'border-muted-foreground/20 text-muted-foreground';
+    return 'border-muted-foreground/10 text-muted-foreground/70';
   };
 
   const getPriorityLabel = (priority: number) => {
@@ -292,7 +468,7 @@ export function SettlementProjectsView() {
                 <Package className="h-8 w-8 text-red-500 mx-auto mb-2" />
                 <p className="text-red-500 font-medium">Error loading projects</p>
                 <p className="text-muted-foreground text-sm mt-1">{error}</p>
-                <Button variant="outline" size="sm" onClick={fetchProjects} className="mt-4">
+                <Button variant="outline" size="sm" onClick={refreshProjects} className="mt-4">
                   Try Again
                 </Button>
               </div>
@@ -313,28 +489,19 @@ export function SettlementProjectsView() {
             <p className="text-muted-foreground">Coordinate settlement projects and contributions.</p>
           </div>
           
-          {/* Quick Create Toggle */}
+          {/* Create Project Button */}
           <Button 
-            onClick={() => setShowCreateForm(!showCreateForm)}
-            variant={showCreateForm ? "secondary" : "default"}
+            onClick={() => setShowCreateModal(true)}
+            variant="default"
             className="transition-all"
           >
-            {showCreateForm ? (
-              <>
-                <X className="h-4 w-4 mr-2" />
-                Cancel
-              </>
-            ) : (
-              <>
-                <Plus className="h-4 w-4 mr-2" />
-                New Project
-              </>
-            )}
+            <Plus className="h-4 w-4 mr-2" />
+            New Project
           </Button>
         </div>
 
-        {/* Quick Create Form */}
-        {showCreateForm && (
+        {/* Quick Create Form - Disabled in favor of modal */}
+        {false && showCreateForm && (
           <Card className="border-2 border-primary/20 bg-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -353,26 +520,22 @@ export function SettlementProjectsView() {
                     id="project-name"
                     placeholder="e.g., Town Center Expansion"
                     value={createData.name}
-                    onChange={(e) => setCreateData(prev => ({ ...prev, name: e.target.value }))}
+                    onChange={handleCreateNameChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="project-priority">Priority</Label>
-                  <Select 
+                  <select 
                     value={createData.priority.toString()} 
-                    onValueChange={(value) => setCreateData(prev => ({ ...prev, priority: parseInt(value) }))}
+                    onChange={(e) => setCreateData(prev => ({ ...prev, priority: parseInt(e.target.value) }))}
+                    className="w-full h-10 px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">Low</SelectItem>
-                      <SelectItem value="2">Low-Medium</SelectItem>
-                      <SelectItem value="3">Medium</SelectItem>
-                      <SelectItem value="4">High</SelectItem>
-                      <SelectItem value="5">Critical</SelectItem>
-                    </SelectContent>
-                  </Select>
+                    <option value="1">Low</option>
+                    <option value="2">Low-Medium</option>
+                    <option value="3">Medium</option>
+                    <option value="4">High</option>
+                    <option value="5">Critical</option>
+                  </select>
                 </div>
               </div>
               
@@ -382,7 +545,7 @@ export function SettlementProjectsView() {
                   id="project-description"
                   placeholder="Describe the project goals and requirements..."
                   value={createData.description}
-                  onChange={(e) => setCreateData(prev => ({ ...prev, description: e.target.value }))}
+                  onChange={handleCreateDescriptionChange}
                   rows={3}
                 />
               </div>
@@ -420,64 +583,64 @@ export function SettlementProjectsView() {
                 <Input
                   placeholder="Search projects..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={handleSearchTermChange}
                   className="pl-10"
                 />
               </div>
               
-              <Select value={statusFilter} onValueChange={(value: any) => setStatusFilter(value)}>
-                <SelectTrigger className="w-[180px]">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="Status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="Active">Active</SelectItem>
-                  <SelectItem value="Completed">Completed</SelectItem>
-                  <SelectItem value="Cancelled">Cancelled</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex items-center gap-2">
+                <Filter className="h-4 w-4 text-muted-foreground" />
+                <select 
+                  value={statusFilter} 
+                  onChange={(e) => setStatusFilter(e.target.value as any)}
+                  className="w-[160px] h-10 px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                >
+                  <option value="all">All Status</option>
+                  <option value="Active">Active</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
 
-              <Select value={priorityFilter} onValueChange={(value: any) => setPriorityFilter(value)}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Priority" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Priority</SelectItem>
-                  <SelectItem value="5">Critical</SelectItem>
-                  <SelectItem value="4">High</SelectItem>
-                  <SelectItem value="3">Medium</SelectItem>
-                  <SelectItem value="2">Low-Medium</SelectItem>
-                  <SelectItem value="1">Low</SelectItem>
-                </SelectContent>
-              </Select>
+              <select 
+                value={priorityFilter} 
+                onChange={(e) => setPriorityFilter(e.target.value as any)}
+                className="w-[180px] h-10 px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              >
+                <option value="all">All Priority</option>
+                <option value="5">Critical</option>
+                <option value="4">High</option>
+                <option value="3">Medium</option>
+                <option value="2">Low-Medium</option>
+                <option value="1">Low</option>
+              </select>
             </div>
 
             {/* Quick Stats */}
             <div className="grid gap-4 md:grid-cols-4 mb-6">
-              <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <div className="text-2xl font-bold text-blue-600">
+              <div className="text-center p-4 bg-muted/30 rounded-lg border">
+                <div className="text-2xl font-bold text-foreground">
                   {Array.isArray(projects) ? projects.filter(p => p.status === 'Active').length : 0}
                 </div>
-                <div className="text-sm text-blue-600">Active</div>
+                <div className="text-sm text-muted-foreground">Active</div>
               </div>
-              <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                <div className="text-2xl font-bold text-green-600">
+              <div className="text-center p-4 bg-muted/30 rounded-lg border">
+                <div className="text-2xl font-bold text-foreground">
                   {Array.isArray(projects) ? projects.filter(p => p.status === 'Completed').length : 0}
                 </div>
-                <div className="text-sm text-green-600">Completed</div>
+                <div className="text-sm text-muted-foreground">Completed</div>
               </div>
-              <div className="text-center p-4 bg-orange-50 rounded-lg border border-orange-200">
-                <div className="text-2xl font-bold text-orange-600">
+              <div className="text-center p-4 bg-muted/30 rounded-lg border">
+                <div className="text-2xl font-bold text-foreground">
                   {Array.isArray(projects) && projects.length > 0 ? Math.round(projects.reduce((sum, p) => sum + p.completionPercentage, 0) / projects.length) : 0}%
                 </div>
-                <div className="text-sm text-orange-600">Avg Progress</div>
+                <div className="text-sm text-muted-foreground">Avg Progress</div>
               </div>
-              <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
-                <div className="text-2xl font-bold text-purple-600">
+              <div className="text-center p-4 bg-muted/30 rounded-lg border">
+                <div className="text-2xl font-bold text-foreground">
                   {Array.isArray(projects) ? projects.reduce((sum, p) => sum + (p.items?.reduce((itemSum, item) => itemSum + item.requiredQuantity, 0) || 0), 0).toLocaleString() : '0'}
                 </div>
-                <div className="text-sm text-purple-600">Total Items</div>
+                <div className="text-sm text-muted-foreground">Total Items</div>
               </div>
             </div>
           </CardContent>
@@ -527,6 +690,34 @@ export function SettlementProjectsView() {
                           </Badge>
                         </div>
                       </div>
+                      
+                      {/* Project Actions Dropdown */}
+                      {userPermissions[project.id] && (userPermissions[project.id].canEdit || userPermissions[project.id].canDelete) && (
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            {userPermissions[project.id].canEdit && (
+                              <DropdownMenuItem onClick={() => handleEditProject(project)}>
+                                <Edit className="h-4 w-4 mr-2" />
+                                Edit Project
+                              </DropdownMenuItem>
+                            )}
+                            {userPermissions[project.id].canDelete && (
+                              <DropdownMenuItem 
+                                onClick={() => handleDeleteProject(project)}
+                                className="text-destructive focus:text-destructive"
+                              >
+                                <Trash2 className="h-4 w-4 mr-2" />
+                                Delete Project
+                              </DropdownMenuItem>
+                            )}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      )}
                     </div>
                   </CardHeader>
                   
@@ -557,14 +748,14 @@ export function SettlementProjectsView() {
 
                     {/* Inline Contribution Form */}
                     {isContributingToThis && project.status === 'Active' && (
-                      <div className="p-3 bg-green-50 border border-green-200 rounded-lg space-y-3">
+                      <div className="p-3 bg-muted/50 border rounded-lg space-y-3">
                         <div className="flex items-center justify-between">
-                          <h4 className="font-medium text-green-800">Quick Contribute</h4>
+                          <h4 className="font-medium text-foreground">Quick Contribute</h4>
                           <Button 
                             size="sm" 
                             variant="ghost" 
                             onClick={() => setContributingTo(null)}
-                            className="h-6 w-6 p-0 text-green-600"
+                            className="h-6 w-6 p-0 text-muted-foreground hover:text-foreground"
                           >
                             <X className="h-4 w-4" />
                           </Button>
@@ -652,7 +843,7 @@ export function SettlementProjectsView() {
                       <Button 
                         size="sm" 
                         variant="outline" 
-                        onClick={() => router.push(`/en/settlement/projects/${project.id}`)}
+                        onClick={() => router.push(`/en/settlement/projects/${project.short_id || project.id}`)}
                         className={project.status === 'Active' && !isContributingToThis ? "" : "flex-1"}
                       >
                         View Details
@@ -665,6 +856,35 @@ export function SettlementProjectsView() {
           </div>
         )}
       </div>
+      
+      {/* Create Project Modal */}
+      <CreateProjectModal
+        open={showCreateModal}
+        onOpenChange={setShowCreateModal}
+        onProjectCreated={refreshProjects}
+      />
+      
+      {/* Edit Project Modal */}
+      <EditProjectModal
+        open={showEditModal}
+        onOpenChange={setShowEditModal}
+        project={editingProject}
+        onProjectUpdated={handleProjectUpdated}
+        onProjectDeleted={handleProjectDeleted}
+        userPermissions={editingProject ? (userPermissions[editingProject.id] || {
+          canEdit: false,
+          canArchive: false,
+          canDelete: false,
+          isOwner: false,
+          isCoOwner: false
+        }) : {
+          canEdit: false,
+          canArchive: false,
+          canDelete: false,
+          isOwner: false,
+          isCoOwner: false
+        }}
+      />
     </Container>
   );
 }

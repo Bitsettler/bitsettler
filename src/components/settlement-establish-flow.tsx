@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import '@/styles/settlement-tiers.css';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
+import { SettlementTierIcon } from '@/components/ui/tier-icon';
 import { 
   ArrowLeft, 
   Search, 
@@ -46,6 +48,11 @@ interface GameSettlement {
   isActive: boolean;
   owner?: string;
   lastActive: string;
+  tier: number;
+  tiles: number;
+  treasury: number;
+  regionName?: string;
+  regionId?: number;
 }
 
 interface CharacterOption {
@@ -76,6 +83,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   const [availableCharacters, setAvailableCharacters] = useState<CharacterOption[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
   
   // Progress tracking for establishment
   const [establishmentProgress, setEstablishmentProgress] = useState({
@@ -109,15 +117,9 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
       
       // Start progress simulation, then transition to character selection
       simulateProgress(true).then(() => {
-        if (establishData.availableCharacters.length > 0) {
-          setStep('verify'); // Go to character claiming if members were imported
-        } else {
-          setStep('complete'); // Go directly to success if no members
-          // Auto-redirect to dashboard after showing success for 3 seconds
-          setTimeout(() => {
-            onComplete();
-          }, 3000);
-        }
+        // ALWAYS go to character claiming step after successful establishment
+        // Users should be able to claim their character regardless of BitJita member data
+        setStep('verify');
       });
     }
   }, [establishData, onComplete]);
@@ -155,30 +157,49 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     }
   };
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
+  // Debounced search function for live search
+  const searchSettlements = useCallback(async (query: string) => {
+    if (query.length < 2) {
+      setSearchResults([]);
+      setHasSearched(false);
+      return;
+    }
 
     setIsSearching(true);
     try {
-      const result = await api.get(`/api/settlement/search?q=${encodeURIComponent(searchQuery.trim())}&page=1`);
+      const result = await api.get(`/api/settlement/search?q=${encodeURIComponent(query.trim())}&page=1`);
 
       if (result.success) {
-        console.log(`✅ Found ${result.data.settlements.length} settlements for "${searchQuery}"`);
+        console.log(`✅ Found ${result.data.settlements.length} settlements for "${query}"`);
         setSearchResults(result.data.settlements);
-        setStep('select');
+        setHasSearched(true);
+        
+        // Auto-advance to select step if we have results
+        if (result.data.settlements.length > 0) {
+          setStep('select');
+        }
       } else {
         console.error('❌ Settlement search failed:', result.error);
-        setError(`Search failed: ${result.error}`);
-        setStep('error');
+        setSearchResults([]);
+        setHasSearched(true);
       }
     } catch (err) {
       console.error('❌ Network error during settlement search:', err);
-      setError('Network error during search. Please try again.');
-      setStep('error');
+      setSearchResults([]);
+      setHasSearched(true);
     } finally {
       setIsSearching(false);
     }
-  };
+  }, []);
+
+  // Debounce search input for live search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchSettlements(searchQuery);
+    }, 500); // 500ms delay for better UX
+
+    return () => clearTimeout(timer);
+  }, [searchQuery, searchSettlements]);
 
   const handleSelectSettlement = async (settlement: GameSettlement) => {
     setSelectedSettlement(settlement);
@@ -217,24 +238,46 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
         setAvailableCharacters(characters);
       } else {
-        console.warn(`⚠️ No members found for settlement ${settlement.name}, using fallback character`);
-        // Create a fallback character for ownership verification
-        setAvailableCharacters([{
-          id: 'owner_placeholder',
-          name: 'Settlement Owner',
-          settlement_id: settlement.id,
-          entity_id: 'owner_entity',
-          bitjita_user_id: 'owner_user',
-          skills: {},
-          top_profession: 'Settlement Manager',
-          total_level: 1,
-          permissions: {
-            inventory: true,
-            build: true,
-            officer: true,
-            co_owner: true
+        console.log(`🔍 No members in database for ${settlement.name}, fetching from BitJita...`);
+        
+        // Fetch characters directly from BitJita API since our database is empty
+        try {
+          const rosterResult = await api.get(`/api/settlement/roster?settlementId=${settlement.id}`);
+          
+          if (rosterResult.success && rosterResult.data.members && rosterResult.data.members.length > 0) {
+            console.log(`✅ Found ${rosterResult.data.members.length} characters from BitJita for ${settlement.name}`);
+            console.log('🔍 First member raw data:', rosterResult.data.members[0]);
+            
+            // Transform BitJita roster data to character format
+            const bitjitaCharacters = rosterResult.data.members.map((member: any) => ({
+              id: member.entityId,
+              name: member.userName,
+              settlement_id: settlement.id,
+              entity_id: member.entityId,
+              bitjita_user_id: member.playerEntityId,
+              skills: {},
+              top_profession: 'Settler',
+              total_level: 1,
+              permissions: {
+                inventory: Boolean(member.inventoryPermission),
+                build: Boolean(member.buildPermission),
+                officer: Boolean(member.officerPermission),
+                co_owner: Boolean(member.coOwnerPermission)
+              }
+            }));
+            
+            console.log('🎭 Transformed characters:', bitjitaCharacters.slice(0, 3));
+            console.log(`📋 Setting ${bitjitaCharacters.length} available characters`);
+            setAvailableCharacters(bitjitaCharacters);
+          } else {
+            console.warn(`⚠️ No members found in BitJita either for ${settlement.name}`);
+            // Only show founder mode if truly no members exist anywhere
+            setAvailableCharacters([]);
           }
-        }]);
+        } catch (fetchError) {
+          console.error(`❌ Failed to fetch from BitJita for ${settlement.name}:`, fetchError);
+          setAvailableCharacters([]);
+        }
       }
     } catch (err) {
       console.error('❌ Failed to load settlement character data:', err);
@@ -269,11 +312,29 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
           // Go back to verification step to let user select their real character
           setStep('verify');
         } else {
-          // No characters to claim, go directly to completion
-          setStep('complete');
-          setTimeout(() => {
-            onComplete();
-          }, 2000);
+          // No characters from establishment API, but user should still be able to claim
+          console.log('⚠️ No characters returned from establishment API, but proceeding to character claiming');
+          // Keep any fallback characters that might exist, or create a basic one
+          if (availableCharacters.length === 0) {
+            setAvailableCharacters([{
+              id: 'new_member',
+              name: 'Your Character',
+              settlement_id: selectedSettlement.id,
+              entity_id: 'new_entity',
+              bitjita_user_id: 'new_user',
+              skills: {},
+              top_profession: 'New Resident',
+              total_level: 0,
+              permissions: {
+                inventory: true,
+                build: true,
+                officer: true,
+                co_owner: true
+              }
+            }]);
+          }
+          // Stay on verify step to allow character claiming
+          setStep('verify');
         }
       } else {
         setError(result.error || 'Failed to establish settlement');
@@ -287,12 +348,15 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   };
 
   const handleClaimCharacter = async () => {
-    if (!selectedCharacter || !selectedSettlement) return;
+    // Auto-select the character if there's only one available (e.g., auto-created character)
+    const characterToUse = selectedCharacter || (availableCharacters.length === 1 ? availableCharacters[0] : null);
+    
+    if (!characterToUse || !selectedSettlement) return;
 
     console.log('🎯 Claiming character:', {
-      characterId: selectedCharacter.id,
-      characterEntityId: selectedCharacter.entity_id,
-      characterName: selectedCharacter.name,
+      characterId: characterToUse.id,
+      characterEntityId: characterToUse.entity_id,
+      characterName: characterToUse.name,
       settlementId: selectedSettlement.id
     });
 
@@ -302,7 +366,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
       const [_, result] = await Promise.all([
         simulateProgress(true), // Character claim progress (faster)
         api.post('/api/settlement/claim-character', {
-          characterId: selectedCharacter.entity_id, // Use entity_id instead of id
+          characterId: characterToUse.entity_id, // Use entity_id instead of id
           settlementId: selectedSettlement.id
         })
       ]);
@@ -339,22 +403,39 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="settlement-search">Settlement Name</Label>
-              <div className="flex space-x-2">
+              <div className="relative">
                 <Input
                   id="settlement-search"
-                  placeholder="Enter settlement name..."
+                  placeholder="Type to search settlements..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                  className="pr-10"
                 />
-                <Button onClick={handleSearch} disabled={!searchQuery.trim() || isSearching}>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   {isSearching ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
                   ) : (
-                    <Search className="w-4 h-4" />
+                    <Search className="w-4 h-4 text-muted-foreground" />
                   )}
-                </Button>
+                </div>
               </div>
+
+              {/* Show helpful text when typing */}
+              {searchQuery.length > 0 && searchQuery.length < 2 && (
+                <div className="text-center py-4 text-muted-foreground">
+                  <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                  <p className="text-sm">Type at least 2 characters to search...</p>
+                </div>
+              )}
+
+              {/* Show no results only after we've actually searched */}
+              {searchQuery.length >= 2 && searchResults.length === 0 && !isSearching && hasSearched && (
+                <div className="text-center py-4 text-muted-foreground">
+                  <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                  <p className="text-sm">No settlements found matching "{searchQuery}"</p>
+                  <p className="text-xs mt-1">Try a different search term or check spelling</p>
+                </div>
+              )}
             </div>
 
             <Alert>
@@ -405,6 +486,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                       <div className="flex items-center justify-between">
                         <div className="space-y-2">
                           <div className="flex items-center space-x-2">
+                            <SettlementTierIcon tier={settlement.tier} />
                             <h3 className="font-semibold text-lg">{settlement.name}</h3>
                             {settlement.isActive && (
                               <Badge variant="secondary" className="text-xs">
@@ -418,19 +500,17 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                           )}
                           <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                             <div className="flex items-center space-x-1">
-                              <Users className="w-4 h-4" />
-                              <span>{settlement.memberCount} members</span>
+                              <Building2 className="w-4 h-4" />
+                              <span>Tier {settlement.tier}</span>
                             </div>
                             <div className="flex items-center space-x-1">
                               <MapPin className="w-4 h-4" />
-                              <span>{settlement.location}</span>
+                              <span>{settlement.regionName || settlement.location}</span>
                             </div>
-                            {settlement.owner && (
-                              <div className="flex items-center space-x-1">
-                                <Crown className="w-4 h-4" />
-                                <span>{settlement.owner}</span>
-                              </div>
-                            )}
+                            <div className="flex items-center space-x-1">
+                              <Users className="w-4 h-4" />
+                              <span>{settlement.memberCount} members</span>
+                            </div>
                           </div>
                         </div>
                         <Button variant="outline" size="sm">
@@ -460,9 +540,9 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
       <div className="max-w-4xl mx-auto p-6 space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>Verify Ownership</CardTitle>
+            <CardTitle>Claim Your Character</CardTitle>
             <CardDescription>
-              Claim your character to establish management for {selectedSettlement?.name}
+              Select your character from {selectedSettlement?.name} to continue
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -483,14 +563,18 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
             {/* Character Selection */}
             <div>
-              <Label className="text-base font-semibold">Your Characters in this Settlement</Label>
+              <Label className="text-base font-semibold">Available Characters</Label>
               <p className="text-sm text-muted-foreground mb-4">
-                Select a character with management permissions to verify ownership
+                Choose your character from this settlement to claim and continue
               </p>
               
               {availableCharacters.length === 0 ? (
-                <div className="flex items-center justify-center py-8">
-                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                <div className="text-center py-8">
+                  <Crown className="w-12 h-12 mx-auto text-primary mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">Welcome, Settlement Founder!</h3>
+                  <p className="text-muted-foreground">
+                    You'll be the first member of this settlement. We'll set up your character automatically.
+                  </p>
                 </div>
               ) : (
                 <div className="grid gap-3">
@@ -541,10 +625,13 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
               </Button>
               <Button 
                 onClick={establishData ? handleClaimCharacter : handleEstablishSettlement} 
-                disabled={!selectedCharacter}
+                disabled={availableCharacters.length > 0 && !selectedCharacter}
                 className="flex-1"
               >
-                {establishData ? 'Claim Character' : 'Establish Settlement Management'}
+                {availableCharacters.length === 0 
+                  ? 'Create Settlement (No Members Found)' 
+                  : 'Claim Character'
+                }
               </Button>
             </div>
           </CardContent>

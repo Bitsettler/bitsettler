@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 
 /**
  * Settlement Search API
@@ -32,21 +33,54 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Transform BitJita data to our frontend format
-    const settlements = result.data?.settlements.map(settlement => ({
-      id: settlement.id,
-      name: settlement.name,
-      memberCount: settlement.population, // Use population as proxy for member count
-      location: settlement.regionName || 'Unknown Region',
-      description: `Tier ${settlement.tier} settlement with ${settlement.tiles} tiles`,
-      isActive: true, // Assume all BitJita settlements are active
-      owner: 'Game Settlement',
-      lastActive: new Date().toISOString(),
-      tier: settlement.tier,
-      treasury: settlement.treasury,
-      tiles: settlement.tiles,
-      population: settlement.population
-    })) || [];
+    // Get database client to check for real member counts
+    const supabase = createServerClient();
+    
+    // Transform BitJita data and get real member counts from our database
+    const settlements = await Promise.all((result.data?.settlements || []).map(async (settlement) => {
+      let memberCount = 0;
+      
+      if (supabase) {
+        try {
+          // Check if this settlement exists in our database and get real member count
+          const { data: members, error } = await supabase
+            .from('settlement_members')
+            .select('entity_id', { count: 'exact' })
+            .eq('settlement_id', settlement.id)
+            .eq('is_active', true);
+          
+          if (!error && members) {
+            memberCount = members.length;
+          }
+        } catch (err) {
+          console.warn(`⚠️ Could not fetch member count for settlement ${settlement.id}:`, err);
+        }
+      }
+      
+      console.log(`🔍 Settlement ${settlement.name}: BitJita data:`, {
+        id: settlement.id,
+        tiles: settlement.tiles,
+        population: settlement.population,
+        dbMemberCount: memberCount
+      });
+
+      return {
+        id: settlement.id,
+        name: settlement.name,
+        memberCount, // Real member count from our database
+        location: settlement.regionName || 'Unknown Region',
+        description: memberCount > 0 ? `${memberCount} members` : `Tier ${settlement.tier} settlement`,
+        isActive: true, // Assume all BitJita settlements are active
+        owner: 'Game Settlement',
+        lastActive: new Date().toISOString(),
+        tier: settlement.tier,
+        treasury: settlement.treasury,
+        tiles: settlement.tiles,
+        population: settlement.population,
+        regionName: settlement.regionName,
+        regionId: settlement.regionId
+      };
+    }));
 
     console.log(`✅ Found ${settlements.length} settlements for "${query}"`);
 

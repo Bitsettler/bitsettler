@@ -60,6 +60,59 @@ export function withErrorHandling<T>(
 }
 
 /**
+ * Wrapper for API route handlers with params that use Result<T> pattern
+ * Automatically converts Result<T> to NextResponse with proper logging
+ */
+export function withErrorHandlingParams<T>(
+  handler: (request: NextRequest, context: { params: Record<string, string> }) => Promise<Result<T>>
+) {
+  return async (request: NextRequest, context: { params: Record<string, string> }): Promise<NextResponse> => {
+    const startTime = Date.now();
+    const method = request.method;
+    const url = new URL(request.url);
+    const endpoint = url.pathname;
+
+    try {
+      logger.info(`API ${method} ${endpoint} - Starting`, {
+        method,
+        endpoint,
+        query: Object.fromEntries(url.searchParams),
+        params: context.params
+      });
+
+      const result = await handler(request, context);
+      const duration = Date.now() - startTime;
+      
+      // Log the result
+      if (result.success) {
+        logger.apiCall(method, endpoint, 200, duration);
+      } else {
+        logger.apiCall(method, endpoint, 400, duration, {
+          error: result.error,
+          code: result.code
+        });
+      }
+
+      return resultToResponse(result);
+    } catch (err) {
+      const duration = Date.now() - startTime;
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      
+      logger.apiCall(method, endpoint, 500, duration, {
+        error: errorMessage,
+        stack: err instanceof Error ? err.stack : undefined
+      });
+
+      return resultToResponse(
+        error<T>(errorMessage, ErrorCodes.INTERNAL_ERROR),
+        200,
+        500
+      );
+    }
+  };
+}
+
+/**
  * Validate required query parameters
  */
 export function requireQueryParams(

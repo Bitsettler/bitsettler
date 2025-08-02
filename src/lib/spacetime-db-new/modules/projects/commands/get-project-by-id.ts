@@ -1,4 +1,4 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 import { ProjectWithItems, ProjectItem } from './get-all-projects';
 
 export interface MemberContribution {
@@ -150,6 +150,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
 
     return {
       id: projectData.id,
+      short_id: projectData.short_id,
       name: projectData.name,
       description: projectData.description,
       status: projectData.status,

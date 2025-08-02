@@ -404,14 +404,14 @@ export function SettlementTreasuryView() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="1-days">1 Day</SelectItem>
-                    <SelectItem value="3-days">3 Days</SelectItem>
-                    <SelectItem value="7-days">7 Days</SelectItem>
-                    <SelectItem value="14-days">2 Weeks</SelectItem>
-                    <SelectItem value="30-days">30 Days</SelectItem>
-                    <SelectItem value="1-months">1 Month</SelectItem>
-                    <SelectItem value="3-months">3 Months</SelectItem>
-                    <SelectItem value="6-months">6 Months</SelectItem>
+                                    <SelectItem key="1-days" value="1-days">1 Day</SelectItem>
+                <SelectItem key="3-days" value="3-days">3 Days</SelectItem>
+                <SelectItem key="7-days" value="7-days">7 Days</SelectItem>
+                <SelectItem key="14-days" value="14-days">2 Weeks</SelectItem>
+                <SelectItem key="30-days" value="30-days">30 Days</SelectItem>
+                <SelectItem key="1-months" value="1-months">1 Month</SelectItem>
+                <SelectItem key="3-months" value="3-months">3 Months</SelectItem>
+                <SelectItem key="6-months" value="6-months">6 Months</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -639,11 +639,11 @@ export function SettlementTreasuryView() {
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                <SelectItem value="Income">Income</SelectItem>
-                <SelectItem value="Expense">Expense</SelectItem>
-                <SelectItem value="Transfer">Transfer</SelectItem>
-                <SelectItem value="Adjustment">Adjustment</SelectItem>
+                <SelectItem key="all-types" value="all">All Types</SelectItem>
+                <SelectItem key="Income" value="Income">Income</SelectItem>
+                <SelectItem key="Expense" value="Expense">Expense</SelectItem>
+                <SelectItem key="Transfer" value="Transfer">Transfer</SelectItem>
+                <SelectItem key="Adjustment" value="Adjustment">Adjustment</SelectItem>
               </SelectContent>
             </Select>
 
@@ -652,7 +652,7 @@ export function SettlementTreasuryView() {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
+                <SelectItem key="all-categories" value="all">All Categories</SelectItem>
                 {categories.map((cat) => (
                   <SelectItem key={cat.category} value={cat.category}>
                     {cat.category} ({cat.count})

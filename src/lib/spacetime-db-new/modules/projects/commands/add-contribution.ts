@@ -1,5 +1,6 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 import { MemberContribution } from './get-project-by-id';
+import { logProjectContribution } from '../../../../settlement/project-activity-tracker';
 
 export interface AddContributionRequest {
   // Authenticated user data
@@ -157,6 +158,31 @@ export async function addContribution(contributionData: AddContributionRequest):
     }
 
     console.log('✅ Contribution inserted successfully:', contribution.id);
+
+    // Get project details for activity logging
+    try {
+      const { data: project, error: projectError } = await supabase
+        .from('settlement_projects')
+        .select('name, priority')
+        .eq('id', contributionData.projectId)
+        .single();
+
+      if (!projectError && project) {
+        await logProjectContribution(
+          contributionData.projectId,
+          project.name,
+          project.priority,
+          contributionData.authUser.id,
+          contributionData.authUser.name,
+          contribution.item_name || 'Unknown Item',
+          contribution.quantity,
+          contribution.description || undefined
+        );
+      }
+    } catch (activityError) {
+      console.warn('Failed to log project contribution activity:', activityError);
+      // Don't fail the contribution if activity logging fails
+    }
 
     return {
       id: contribution.id,

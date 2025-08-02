@@ -7,8 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Separator } from '@/components/ui/separator';
 import { Container } from '@/components/container';
-import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift, AlertCircle, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Package, Users, Clock, CheckCircle2, XCircle, Gift, AlertCircle, RefreshCw, TrendingUp, User } from 'lucide-react';
 import Link from 'next/link';
 import { type ProjectDetails } from '@/lib/spacetime-db-new/modules';
 
@@ -88,13 +89,20 @@ const itemStatusColors = {
 };
 
 export function SettlementProjectDetailView() {
-  const { projectId } = useParams<{ projectId: string }>();
+  const params = useParams();
   const router = useRouter();
+  const projectId = params.id as string;
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchProjectDetails = useCallback(async () => {
+    if (!projectId) {
+      setError('Project ID not found in URL');
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
@@ -236,7 +244,9 @@ export function SettlementProjectDetailView() {
               <h1 className="text-3xl font-bold tracking-tight">{project.name}</h1>
               <div className="flex items-center gap-3 mt-2">
                 <Badge className={statusColors[project.status]} variant="outline">
-                  <StatusIcon className="h-3 w-3 mr-1" />
+                  {project.status === 'Active' && <Clock className="h-3 w-3 mr-1" />}
+                  {project.status === 'Completed' && <CheckCircle2 className="h-3 w-3 mr-1" />}
+                  {project.status === 'Cancelled' && <XCircle className="h-3 w-3 mr-1" />}
                   {project.status}
                 </Badge>
                 <span className="text-sm text-muted-foreground">
@@ -281,14 +291,14 @@ export function SettlementProjectDetailView() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Package className="h-5 w-5" />
-                  Required Items ({project.totalItems})
+                  Required Items ({project.totalItems || 0})
                 </CardTitle>
                 <CardDescription>
                   Materials and items needed to complete this project
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {project.items.length === 0 ? (
+                {!project.items || project.items.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">
                     <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <p>No items defined for this project yet.</p>
@@ -371,7 +381,7 @@ export function SettlementProjectDetailView() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {project.contributions.length === 0 ? (
+                {!project.contributions || project.contributions.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">
                     <TrendingUp className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <p>No contributions recorded yet.</p>
@@ -421,21 +431,21 @@ export function SettlementProjectDetailView() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span>Completion</span>
-                    <span className="font-medium">{project.completionPercentage}%</span>
+                    <span className="font-medium">{project.completionPercentage || 0}%</span>
                   </div>
-                  <Progress value={project.completionPercentage} className="h-3" />
+                  <Progress value={project.completionPercentage || 0} className="h-3" />
                 </div>
 
                 <Separator />
 
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-green-600">{project.completedItems}</div>
+                    <div className="text-2xl font-bold text-green-600">{project.completedItems || 0}</div>
                     <div className="text-xs text-muted-foreground">Completed</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-orange-600">
-                      {project.totalItems - project.completedItems}
+                      {(project.totalItems || 0) - (project.completedItems || 0)}
                     </div>
                     <div className="text-xs text-muted-foreground">Remaining</div>
                   </div>
@@ -451,15 +461,15 @@ export function SettlementProjectDetailView() {
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Total Contributions</span>
-                  <span className="font-medium">{project.totalContributions}</span>
+                  <span className="font-medium">{project.totalContributions || 0}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Contributing Members</span>
-                  <span className="font-medium">{project.contributingMembers}</span>
+                  <span className="font-medium">{project.contributingMembers || 0}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Assigned Members</span>
-                  <span className="font-medium">{project.assignedMembers.length}</span>
+                  <span className="font-medium">{project.assignedMembers?.length || 0}</span>
                 </div>
 
                 <Separator />
@@ -480,7 +490,7 @@ export function SettlementProjectDetailView() {
             </Card>
 
             {/* Assigned Members */}
-            {project.assignedMembers.length > 0 && (
+            {project.assignedMembers && project.assignedMembers.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">

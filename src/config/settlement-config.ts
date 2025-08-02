@@ -132,6 +132,7 @@ export interface SettlementMember {
 
 export interface SettlementProject {
   id: string;
+  short_id: string;
   name: string;
   description?: string;
   status: 'Active' | 'Completed' | 'Cancelled';

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
+import { TierIcon } from '@/components/ui/tier-icon';
 import { 
   Users, 
   Building2, 
@@ -31,6 +32,11 @@ interface GameSettlement {
   isActive: boolean;
   owner?: string;
   lastActive: string;
+  tier: number;
+  tiles: number;
+  treasury: number;
+  regionName?: string;
+  regionId?: number;
 }
 
 interface SettlementOnboardingChoiceProps {
@@ -49,6 +55,7 @@ export function SettlementOnboardingChoice({
   const [searchResults, setSearchResults] = useState<GameSettlement[]>([]);
   const [selectedSettlement, setSelectedSettlement] = useState<GameSettlement | null>(null);
   const [isEstablishing, setIsEstablishing] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleJoinSubmit = async () => {
     if (!inviteCode.trim()) return;
@@ -75,32 +82,47 @@ export function SettlementOnboardingChoice({
     }
   };
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
+  // Debounced search function for live search
+  const searchSettlements = useCallback(async (query: string) => {
+    if (query.length < 2) {
+      setSearchResults([]);
+      setHasSearched(false);
+      setSelectedSettlement(null);
+      return;
+    }
 
     setIsSearching(true);
     setSelectedSettlement(null); // Clear previous selection
     try {
-      const response = await fetch(`/api/settlement/search?q=${encodeURIComponent(searchQuery.trim())}&page=1`);
+      const response = await fetch(`/api/settlement/search?q=${encodeURIComponent(query.trim())}&page=1`);
       const result = await response.json();
 
       if (result.success) {
-        console.log(`✅ Found ${result.data.settlements.length} settlements for "${searchQuery}"`);
+        console.log(`✅ Found ${result.data.settlements.length} settlements for "${query}"`);
         setSearchResults(result.data.settlements);
+        setHasSearched(true);
       } else {
         console.error('❌ Settlement search failed:', result.error);
         setSearchResults([]);
-        // TODO: Show proper error message to user
-        alert(`Search failed: ${result.error}`);
+        setHasSearched(true);
       }
     } catch (err) {
       console.error('❌ Network error during settlement search:', err);
       setSearchResults([]);
-      alert('Network error during search. Please try again.');
+      setHasSearched(true);
     } finally {
       setIsSearching(false);
     }
-  };
+  }, []);
+
+  // Debounce search input for live search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchSettlements(searchQuery);
+    }, 500); // 500ms delay for better UX
+
+    return () => clearTimeout(timer);
+  }, [searchQuery, searchSettlements]);
 
   const handleSelectSettlement = (settlement: GameSettlement) => {
     setSelectedSettlement(settlement);
@@ -227,29 +249,24 @@ export function SettlementOnboardingChoice({
                 <Search className="w-4 h-4" />
                 <span>Settlement Name</span>
               </Label>
-              <div className="flex space-x-2">
+              <div className="relative">
                 <Input
                   id="settlement-search"
-                  placeholder="Search settlements..."
+                  placeholder="Type to search settlements..."
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
                     setSelectedSettlement(null); // Clear selection when typing
                   }}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                  className="pr-10"
                 />
-                <Button 
-                  onClick={handleSearch} 
-                  disabled={!searchQuery.trim() || isSearching}
-                  size="sm"
-                  variant="outline"
-                >
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   {isSearching ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
                   ) : (
-                    <Search className="w-4 h-4" />
+                    <Search className="w-4 h-4 text-muted-foreground" />
                   )}
-                </Button>
+                </div>
               </div>
             </div>
 
@@ -269,7 +286,10 @@ export function SettlementOnboardingChoice({
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <h4 className="font-medium text-sm">{settlement.name}</h4>
+                        <div className="flex items-center space-x-2">
+                          <TierIcon tier={settlement.tier} size="sm" variant="game-asset" />
+                          <h4 className="font-medium text-sm">{settlement.name}</h4>
+                        </div>
                         {settlement.isActive && (
                           <Badge variant="secondary" className="text-xs">
                             <Activity className="w-3 h-3 mr-1" />
@@ -279,19 +299,17 @@ export function SettlementOnboardingChoice({
                       </div>
                       <div className="flex items-center space-x-3 text-xs text-muted-foreground">
                         <div className="flex items-center space-x-1">
-                          <Users className="w-3 h-3" />
-                          <span>{settlement.memberCount}</span>
+                          <Building2 className="w-3 h-3" />
+                          <span>Tier {settlement.tier}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <MapPin className="w-3 h-3" />
-                          <span>{settlement.location}</span>
+                          <span>{settlement.regionName || settlement.location}</span>
                         </div>
-                        {settlement.owner && (
-                          <div className="flex items-center space-x-1">
-                            <Crown className="w-3 h-3" />
-                            <span>{settlement.owner}</span>
-                          </div>
-                        )}
+                        <div className="flex items-center space-x-1">
+                          <Users className="w-3 h-3" />
+                          <span>{settlement.tiles} tiles</span>
+                        </div>
                       </div>
                       {settlement.description && (
                         <p className="text-xs text-muted-foreground line-clamp-2">{settlement.description}</p>
@@ -302,10 +320,20 @@ export function SettlementOnboardingChoice({
               </div>
             )}
 
-            {searchQuery && searchResults.length === 0 && !isSearching && (
+            {/* Show helpful text when typing */}
+            {searchQuery.length > 0 && searchQuery.length < 2 && !isSearching && (
+              <div className="text-center py-4 text-muted-foreground">
+                <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                <p className="text-sm">Type at least 2 characters to search...</p>
+              </div>
+            )}
+
+            {/* Show no results only after we've actually searched */}
+            {searchQuery.length >= 2 && searchResults.length === 0 && !isSearching && hasSearched && (
               <div className="text-center py-4 text-muted-foreground">
                 <Building2 className="w-8 h-8 mx-auto mb-2 opacity-50" />
                 <p className="text-sm">No settlements found matching "{searchQuery}"</p>
+                <p className="text-xs mt-1">Try a different search term or check spelling</p>
               </div>
             )}
 

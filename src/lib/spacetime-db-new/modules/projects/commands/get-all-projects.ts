@@ -1,7 +1,8 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 
 export interface SettlementProject {
   id: string;
+  short_id: string;
   name: string;
   description: string | null;
   status: 'Active' | 'Completed' | 'Cancelled';
@@ -83,6 +84,7 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
 
     return (data || []).map(project => ({
       id: project.id,
+      short_id: project.short_id,
       name: project.name,
       description: project.description,
       status: project.status,

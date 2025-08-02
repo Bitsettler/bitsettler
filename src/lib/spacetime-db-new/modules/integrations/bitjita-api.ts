@@ -327,7 +327,9 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         treasury: parseInt(claim.treasury) || 0,
         supplies: claim.supplies || 0,
         tiles: claim.numTiles || 0,
-        population: claim.numTiles || 0 // Use tiles as population proxy
+        population: claim.numTiles || 0, // BitJita doesn't provide actual member count
+        regionName: claim.regionName || 'Unknown Region',
+        regionId: claim.regionId
       }));
       
       return {

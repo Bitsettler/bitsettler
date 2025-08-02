@@ -24,11 +24,12 @@ export type ActivityEventType =
   | 'member_join'             // Member activity
   | 'member_achievement'      // Personal achievements
   | 'settlement_milestone'    // Settlement-wide achievements
+  | 'project_activity'        // Project-related activities
   | 'custom';                 // Custom events
 
 export interface EventCondition {
-  trigger: 'skill_change' | 'member_join' | 'custom_check';
-  criteria: SkillCriteria | MemberCriteria | CustomCriteria;
+  trigger: 'skill_change' | 'member_join' | 'project_activity' | 'custom_check';
+  criteria: SkillCriteria | MemberCriteria | ProjectCriteria | CustomCriteria;
 }
 
 export interface SkillCriteria {
@@ -45,10 +46,30 @@ export interface MemberCriteria {
   daysActive?: number;
 }
 
+export interface ProjectCriteria {
+  projectAction: 'created' | 'completed' | 'contribution_added' | 'status_changed';
+  projectPriority?: number[];     // Only for specific priority projects
+  minContributionValue?: number;  // For contribution events
+}
+
 export interface CustomCriteria {
   checkFunction: string;      // Name of custom check function
   parameters?: any;
 }
+
+/**
+ * SKILL GROUPS FOR PROFESSION-SPECIFIC EVENTS
+ */
+export const SKILL_GROUPS = {
+  PROFESSION_SKILLS: [
+    'Forestry', 'Carpentry', 'Masonry', 'Mining', 'Smithing', 
+    'Scholar', 'Leatherworking', 'Hunting', 'Tailoring', 
+    'Farming', 'Fishing', 'Foraging'
+  ],
+  ADVENTURE_SKILLS: [
+    'Cooking', 'Construction', 'Taming', 'Slayer', 'Merchanting', 'Sailing'
+  ]
+};
 
 /**
  * ACTIVITY EVENTS CONFIGURATION - Simple Profession Level-Ups
@@ -71,22 +92,74 @@ export const ACTIVITY_EVENTS: ActivityEventConfig[] = [
     },
     priority: 'medium',
     icon: '⬆️'
+  },
+
+  // === PROJECT ACTIVITIES ===
+  {
+    id: 'project_created',
+    type: 'project_activity',
+    name: 'Project Created',
+    description: 'Started a new settlement project',
+    condition: {
+      trigger: 'project_activity',
+      criteria: {
+        projectAction: 'created'
+      }
+    },
+    priority: 'medium',
+    icon: '🏗️',
+    color: '#3B82F6'
+  },
+
+  {
+    id: 'project_completed',
+    type: 'project_activity',
+    name: 'Project Completed',
+    description: 'Successfully completed a settlement project',
+    condition: {
+      trigger: 'project_activity',
+      criteria: {
+        projectAction: 'completed'
+      }
+    },
+    priority: 'high',
+    icon: '✅',
+    color: '#10B981'
+  },
+
+  {
+    id: 'project_contribution',
+    type: 'project_activity',
+    name: 'Project Contribution',
+    description: 'Contributed to a settlement project',
+    condition: {
+      trigger: 'project_activity',
+      criteria: {
+        projectAction: 'contribution_added'
+      }
+    },
+    priority: 'medium',
+    icon: '🤝',
+    color: '#8B5CF6'
+  },
+
+  {
+    id: 'high_priority_project_created',
+    type: 'project_activity',
+    name: 'Critical Project Started',
+    description: 'Started a high-priority settlement project',
+    condition: {
+      trigger: 'project_activity',
+      criteria: {
+        projectAction: 'created',
+        projectPriority: [4, 5]
+      }
+    },
+    priority: 'high',
+    icon: '🚨',
+    color: '#EF4444'
   }
 ];
-
-/**
- * SKILL GROUPS FOR PROFESSION-SPECIFIC EVENTS
- */
-export const SKILL_GROUPS = {
-  PROFESSION_SKILLS: [
-    'Forestry', 'Carpentry', 'Masonry', 'Mining', 'Smithing', 
-    'Scholar', 'Leatherworking', 'Hunting', 'Tailoring', 
-    'Farming', 'Fishing', 'Foraging'
-  ],
-  ADVENTURE_SKILLS: [
-    'Cooking', 'Construction', 'Taming', 'Slayer', 'Merchanting', 'Sailing'
-  ]
-};
 
 /**
  * Helper function to get events by type

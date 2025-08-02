@@ -1,4 +1,4 @@
-import { createServerClient } from '../../../shared/supabase-client';
+import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
 import { SettlementMember } from './get-all-members';
 
 export interface MemberProfession {
