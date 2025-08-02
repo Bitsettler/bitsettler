@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
+import { validateQueryParams, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 
 /**
  * Settlement Search API
@@ -10,20 +11,51 @@ import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-clien
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get('q');
-    const page = parseInt(searchParams.get('page') || '1');
-
-    if (!query || query.trim().length < 2) {
+    
+    // Add query to searchParams for validation
+    const paramsToValidate = new URLSearchParams(searchParams);
+    if (!paramsToValidate.has('q')) {
       return NextResponse.json(
-        { success: false, error: 'Search query must be at least 2 characters' },
+        { success: false, error: 'Search query (q) is required' },
         { status: 400 }
       );
     }
 
-    console.log(`🔍 Searching settlements for: "${query}" (page ${page})`);
+    // Validate query parameters  
+    const validationResult = validateQueryParams(paramsToValidate, {
+      q: {
+        required: true,
+        type: 'string',
+        minLength: 2,
+        maxLength: 100,
+        sanitize: true
+      },
+      page: {
+        required: false,
+        type: 'number',
+        min: 1,
+        max: 100
+      }
+    });
 
-    // Call BitJita API to search settlements
-    const result = await BitJitaAPI.searchSettlements(query.trim(), page);
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: 'Invalid query parameters',
+          details: validationResult.errors 
+        },
+        { status: 400 }
+      );
+    }
+
+    const { q: query, page = '1' } = validationResult.data!;
+    const pageNum = parseInt(page.toString());
+
+    console.log(`🔍 Searching settlements for: "${query}" (page ${pageNum})`);
+
+    // Call BitJita API to search settlements (query is already sanitized)
+    const result = await BitJitaAPI.searchSettlements(query, pageNum);
 
     if (!result.success) {
       console.error('❌ BitJita settlement search failed:', result.error);

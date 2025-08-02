@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
+import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 
 /**
  * Character Claim API
@@ -43,15 +44,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body = await request.json();
-    const { characterId, settlementId } = body;
-
-    if (!characterId || !settlementId) {
+    // Validate and sanitize request body
+    const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.claimCharacter);
+    if (!validationResult.success) {
       return NextResponse.json(
-        { success: false, error: 'characterId and settlementId are required' },
+        { 
+          success: false, 
+          error: 'Invalid request data',
+          details: validationResult.errors 
+        },
         { status: 400 }
       );
     }
+
+    const { characterId, settlementId } = validationResult.data!;
 
     console.log(`👤 Claiming character: ${characterId} for user: ${user.id}`);
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
+import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 
 /**
  * Settlement Join API
@@ -24,15 +25,21 @@ export async function POST(request: NextRequest) {
     const { session, user } = authResult;
 
     const supabase = await createServerSupabaseClient();
-    const body = await request.json();
-    const { inviteCode } = body;
 
-    if (!inviteCode) {
+    // Validate and sanitize request body
+    const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.join);
+    if (!validationResult.success) {
       return NextResponse.json(
-        { success: false, error: 'Invite code is required' },
+        { 
+          success: false, 
+          error: 'Invalid request data',
+          details: validationResult.errors 
+        },
         { status: 400 }
       );
     }
+
+    const { inviteCode } = validationResult.data!;
 
     console.log(`🔍 Looking up settlement with invite code: ${inviteCode}`);
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { addContribution, updateProjectItemQuantityByName, type AddContributionRequest } from '../../../../lib/spacetime-db-new/modules';
+import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 
 export async function POST(request: NextRequest) {
   console.log('🔄 Settlement contribution API called');
@@ -22,20 +23,22 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Valid session found for user:', session.user.name);
 
-    const body = await request.json();
-    console.log('📋 Request body:', body);
-
-    // Validate required fields
-    if (!body.projectId || !body.contributionType || !body.quantity) {
-      console.log('❌ Missing required fields');
+    // Validate and sanitize request body
+    const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.contribution);
+    if (!validationResult.success) {
+      console.log('❌ Validation failed:', validationResult.errors);
       return NextResponse.json(
-        {
-          success: false,
-          error: 'projectId, contributionType, and quantity are required',
+        { 
+          success: false, 
+          error: 'Invalid request data',
+          details: validationResult.errors 
         },
         { status: 400 }
       );
     }
+
+    const body = validationResult.data!;
+    console.log('📋 Validated request body:', body);
 
     // Create contribution data using session user info
     const contributionData: AddContributionRequest = {
