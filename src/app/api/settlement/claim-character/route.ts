@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     const { data: character, error: characterError } = await serviceClient
       .from('settlement_members')
       .select('*')
-      .eq('entity_id', characterId)
+      .eq('id', characterId) // Use UUID id field, not entity_id
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
         supabase_user_id: user.id,
         onboarding_completed_at: new Date().toISOString()
       })
-      .eq('entity_id', characterId)
+      .eq('id', characterId) // Use UUID id field, not entity_id
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()
