@@ -3,6 +3,7 @@ import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-a
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 import { createRequestLogger } from '@/lib/logger';
+import { shouldRateLimit, characterClaimRateLimit } from '@/lib/rate-limiting';
 
 /**
  * Character Claim API
@@ -38,6 +39,15 @@ export async function POST(request: NextRequest) {
 
     const { session, user } = authResult;
     const userLogger = logger.child({ userId: user.id });
+    
+    // Apply strict rate limiting for character claiming (3 attempts per hour)
+    if (shouldRateLimit(request)) {
+      const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
+      if (!rateLimitCheck.allowed && rateLimitCheck.response) {
+        userLogger.warn('Rate limit exceeded for character claiming');
+        return rateLimitCheck.response;
+      }
+    }
     
     // Use authenticated client for reads/verification (respects RLS)
     const authenticatedClient = await createServerSupabaseClient();

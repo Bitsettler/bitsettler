@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 import { createRequestLogger } from '@/lib/logger';
+import { shouldRateLimit, settlementRateLimit, addRateLimitHeaders } from '@/lib/rate-limiting';
 
 /**
  * Settlement Join API
@@ -31,6 +32,15 @@ export async function POST(request: NextRequest) {
 
     const { session, user } = authResult;
     const userLogger = logger.child({ userId: user.id });
+    
+    // Apply rate limiting for settlement operations
+    if (shouldRateLimit(request)) {
+      const rateLimitCheck = await settlementRateLimit(user.id)(request);
+      if (!rateLimitCheck.allowed && rateLimitCheck.response) {
+        userLogger.warn('Rate limit exceeded for settlement join');
+        return rateLimitCheck.response;
+      }
+    }
 
     const supabase = await createServerSupabaseClient();
 

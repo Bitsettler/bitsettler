@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { validateQueryParams, SETTLEMENT_SCHEMAS } from '@/lib/validation';
+import { shouldRateLimit, searchRateLimit } from '@/lib/rate-limiting';
 
 /**
  * Settlement Search API
@@ -10,6 +11,14 @@ import { validateQueryParams, SETTLEMENT_SCHEMAS } from '@/lib/validation';
  */
 export async function GET(request: NextRequest) {
   try {
+    // Apply rate limiting for search operations (20 requests per minute by IP)
+    if (shouldRateLimit(request)) {
+      const rateLimitCheck = await searchRateLimit(request);
+      if (!rateLimitCheck.allowed && rateLimitCheck.response) {
+        return rateLimitCheck.response;
+      }
+    }
+    
     const { searchParams } = new URL(request.url);
     
     // Add query to searchParams for validation
