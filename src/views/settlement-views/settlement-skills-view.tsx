@@ -456,11 +456,57 @@ export function SettlementSkillsView() {
           ? allSkillLevels.reduce((sum, level) => sum + level, 0) / allSkillLevels.length 
           : 0;
 
-        // Calculate settlement mastery (% of profession skills at 50+)
-        const masterySkills = allSkillLevels.filter(level => level >= 50);
-        const masteryPercentage = allSkillLevels.length > 0 
-          ? (masterySkills.length / allSkillLevels.length) * 100 
-          : 0;
+        // Find people close to tiering up (within 2 levels of next tier milestone)
+        const closeToTieringUp = useMemo(() => {
+          const candidates: Array<{
+            name: string;
+            skillName: string;
+            currentLevel: number;
+            nextTier: number;
+            levelsToGo: number;
+            profession: string;
+          }> = [];
+
+          membersWithSkills.forEach(member => {
+            Object.entries(member.skills || {}).forEach(([skillId, level]) => {
+              const skillDisplayName = getSkillName(skillId);
+              
+              // Skip adventure skills if they're hidden
+              const adventureSkills = ['cooking', 'construction', 'taming', 'slayer', 'merchanting', 'sailing'];
+              if (!showAdventureSkills && adventureSkills.some(adventure => 
+                skillDisplayName.toLowerCase().includes(adventure)
+              )) {
+                return;
+              }
+
+              // Calculate next tier milestone (10, 20, 30, 40, 50, 60, etc.)
+              const currentTier = getSkillTier(level);
+              const nextTierLevel = currentTier * 10; // Next milestone level
+              
+              // Only consider if they're close (within 2 levels) and not at max tier
+              if (level > 0 && level < 100 && nextTierLevel - level <= 2 && nextTierLevel - level > 0) {
+                candidates.push({
+                  name: member.name,
+                  skillName: skillDisplayName,
+                  currentLevel: level,
+                  nextTier: currentTier + 1,
+                  levelsToGo: nextTierLevel - level,
+                  profession: member.profession
+                });
+              }
+            });
+          });
+
+          // Sort by levels to go (closest first), then by next tier level (higher tiers first)
+          return candidates
+            .sort((a, b) => {
+              if (a.levelsToGo !== b.levelsToGo) {
+                return a.levelsToGo - b.levelsToGo; // Closest first
+              }
+              return b.nextTier - a.nextTier; // Higher tiers first if same distance
+            })
+            .slice(0, 10); // Top 10
+        }, [membersWithSkills, getSkillName, showAdventureSkills]);
 
         // Find highest individual profession skill
         const highestSkill = Math.max(...allSkillLevels, 0);
@@ -566,21 +612,42 @@ export function SettlementSkillsView() {
 
             <Card className="h-full flex flex-col">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Mastery Rate</CardTitle>
-                <Award className="h-4 w-4 text-muted-foreground" />
+                <CardTitle className="text-sm font-medium">Close to Tiering Up</CardTitle>
+                <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent className="flex-1">
-                <div className="text-4xl font-bold mb-1">{masteryPercentage.toFixed(1)}%</div>
-                <div className="space-y-1">
-                  <p className="text-xs text-muted-foreground">{masterySkills.length} of {allSkillLevels.length} skills</p>
-                  <div className="w-full bg-muted rounded-full h-1.5">
-                    <div 
-                      className={`h-1.5 rounded-full transition-all ${getSettlementTierBadgeClasses(6).split(' ')[0]}`}
-                      style={{ width: `${masteryPercentage}%` }}
-                    />
+                {closeToTieringUp.length > 0 ? (
+                  <div className="space-y-2">
+                    <div className="text-lg font-bold mb-2">{closeToTieringUp.length} members</div>
+                    <div className="space-y-1.5 max-h-32 overflow-y-auto">
+                      {closeToTieringUp.slice(0, 6).map((candidate, index) => (
+                        <div key={`${candidate.name}-${candidate.skillName}`} className="flex justify-between items-center text-xs">
+                          <div className="flex flex-col min-w-0 flex-1 mr-2">
+                            <span className="font-medium truncate">{candidate.name}</span>
+                            <span className="text-muted-foreground truncate">{candidate.skillName}</span>
+                          </div>
+                          <div className="flex items-center space-x-1 flex-shrink-0">
+                            <span className="text-muted-foreground">{candidate.currentLevel}</span>
+                            <ArrowUp className="h-3 w-3 text-green-500" />
+                            <span className="font-medium text-green-600">{candidate.currentLevel + candidate.levelsToGo}</span>
+                          </div>
+                        </div>
+                      ))}
+                      {closeToTieringUp.length > 6 && (
+                        <div className="text-xs text-muted-foreground text-center pt-1">
+                          +{closeToTieringUp.length - 6} more
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground">Ready for next tier</p>
                   </div>
-                  <p className="text-xs text-muted-foreground">Advanced expertise</p>
-                </div>
+                ) : (
+                  <div className="text-center py-4">
+                    <Target className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                    <div className="text-sm text-muted-foreground">No members close to tiering up</div>
+                    <div className="text-xs text-muted-foreground">Level up to see opportunities</div>
+                  </div>
+                )}
               </CardContent>
             </Card>
 
