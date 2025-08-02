@@ -143,6 +143,9 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         seenSettlementIds.add(settlement.id);
         
         // Use UPSERT with ON CONFLICT DO UPDATE to handle both insert and update efficiently
+        // First, check if settlement already exists
+        const existing = existingSettlementsMap.get(settlement.id);
+        
         const { error: upsertError } = await supabase
           .from('settlements_master')
           .upsert({
@@ -180,6 +183,25 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
           }, { 
             onConflict: 'id' 
           });
+
+        // Generate invite code for new settlements
+        if (!existing && !upsertError) {
+          try {
+            const { data: inviteCode, error: codeError } = await supabase
+              .rpc('create_settlement_invite_code', {
+                p_settlement_id: settlement.id,
+                p_generated_by: 'sync_process'
+              });
+            
+            if (codeError) {
+              console.error(`❌ Failed to generate invite code for ${settlement.name}:`, codeError);
+            } else {
+              console.log(`✅ Generated invite code ${inviteCode} for new settlement: ${settlement.name}`);
+            }
+          } catch (error) {
+            console.error(`❌ Error generating invite code for ${settlement.name}:`, error);
+          }
+        }
 
         if (upsertError) {
           console.error(`Error upserting settlement ${settlement.name}:`, upsertError);
