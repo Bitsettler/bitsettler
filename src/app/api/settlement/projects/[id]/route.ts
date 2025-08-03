@@ -267,6 +267,82 @@ async function handleDeleteProject(
   }
 }
 
-export const GET = withErrorHandlingParams(handleGetProject);
-export const PUT = withErrorHandlingParams(handleUpdateProject);
-export const DELETE = withErrorHandlingParams(handleDeleteProject);
+// export const GET = withErrorHandlingParams(handleGetProject);
+// export const PUT = withErrorHandlingParams(handleUpdateProject);
+// export const DELETE = withErrorHandlingParams(handleDeleteProject);
+
+// Temporary direct handlers to bypass withErrorHandlingParams wrapper for debugging
+export async function GET(request: NextRequest, context: { params: { id: string } }) {
+  try {
+    console.log('Direct Project Detail API: Starting GET...');
+    const result = await handleGetProject(request, context);
+    console.log('Direct Project Detail API: Handler result:', result.success, typeof result);
+    
+    if (result.success) {
+      return NextResponse.json({
+        success: true,
+        data: result.data
+      }, { status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: result.error,
+        code: result.code
+      }, { status: 500 });
+    }
+  } catch (error) {
+    console.log('Direct Project Detail API: Caught error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
+  }
+}
+
+export async function PUT(request: NextRequest, context: { params: { id: string } }) {
+  try {
+    const result = await handleUpdateProject(request, context);
+    
+    if (result.success) {
+      return NextResponse.json({
+        success: true,
+        data: result.data
+      }, { status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: result.error,
+        code: result.code
+      }, { status: 500 });
+    }
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest, context: { params: { id: string } }) {
+  try {
+    const result = await handleDeleteProject(request, context);
+    
+    if (result.success) {
+      return NextResponse.json({
+        success: true,
+        data: result.data
+      }, { status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: result.error,
+        code: result.code
+      }, { status: 500 });
+    }
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
+  }
+}

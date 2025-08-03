@@ -30,6 +30,7 @@ const pathTranslations: Record<string, string> = {
   tools: 'sidebar.tools',
   // Settlement pages
   dashboard: 'sidebar.settlementDashboard',
+  'my-character': 'sidebar.myCharacter',
   members: 'sidebar.settlementMembers',
   projects: 'sidebar.settlementProjects',
   treasury: 'sidebar.settlementTreasury',

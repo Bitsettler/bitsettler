@@ -30,6 +30,7 @@ import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import { KofiWidget } from './kofi-widget'
 import { Logo } from './logo'
+import { useCurrentMember } from '../hooks/use-current-member'
 
 // Type definitions for navigation items
 type NavigationItem = {
@@ -44,12 +45,19 @@ type NavigationItem = {
 import {
   BookOpenIcon,
   CalculatorIcon,
+  ChartBarIcon,
+  CoinsIcon,
   DiscordLogoIcon,
+  FlaskIcon,
+  FolderIcon,
   GithubLogoIcon,
+  GraduationCapIcon,
   HammerIcon,
   HouseIcon,
   InfoIcon,
-  TwitterLogoIcon
+  TwitterLogoIcon,
+  UserIcon,
+  UsersIcon
 } from '@phosphor-icons/react'
 
 // Navigation data with icons and descriptions
@@ -70,23 +78,6 @@ const data = {
     //   description: 'sidebar.guidesComingSoon'
     // },
     {
-      translationLabel: 'sidebar.compendium',
-      children: [
-        { translationKey: 'sidebar.codex', href: '/compendium/codex' },
-        {
-          translationKey: 'sidebar.compendiumTools',
-          href: '/compendium/tools'
-        },
-        { translationKey: 'sidebar.resources', href: '/compendium/resources' },
-        { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
-        {
-          translationKey: 'sidebar.deployables',
-          href: '/compendium/collectibles/deployable'
-        },
-        { translationKey: 'sidebar.seeAll', href: '/compendium' }
-      ]
-    },
-    {
       translationLabel: 'sidebar.tools',
       children: [
         {
@@ -105,12 +96,30 @@ const data = {
     {
       translationLabel: 'sidebar.settlement',
       children: [
-        { translationKey: 'sidebar.settlementDashboard', href: '/settlement' },
-        { translationKey: 'sidebar.settlementMembers', href: '/settlement/members' },
-        { translationKey: 'sidebar.skills', href: '/settlement/skills' },
-        { translationKey: 'sidebar.research', href: '/settlement/research' },
-        { translationKey: 'sidebar.projects', href: '/settlement/projects' },
-        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury' }
+        { translationKey: 'sidebar.settlementDashboard', href: '/settlement', icon: ChartBarIcon },
+        { translationKey: 'sidebar.myCharacter', href: '/settlement/my-character', icon: UserIcon },
+        { translationKey: 'sidebar.settlementMembers', href: '/settlement/members', icon: UsersIcon },
+        { translationKey: 'sidebar.skills', href: '/settlement/skills', icon: GraduationCapIcon },
+        { translationKey: 'sidebar.research', href: '/settlement/research', icon: FlaskIcon },
+        { translationKey: 'sidebar.projects', href: '/settlement/projects', icon: FolderIcon },
+        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury', icon: CoinsIcon }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.compendium',
+      children: [
+        { translationKey: 'sidebar.codex', href: '/compendium/codex' },
+        {
+          translationKey: 'sidebar.compendiumTools',
+          href: '/compendium/tools'
+        },
+        { translationKey: 'sidebar.resources', href: '/compendium/resources' },
+        { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
+        {
+          translationKey: 'sidebar.deployables',
+          href: '/compendium/collectibles/deployable'
+        },
+        { translationKey: 'sidebar.seeAll', href: '/compendium' }
       ]
     },
     {
@@ -157,6 +166,7 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
   const pathname = usePathname()
   const t = useTranslations()
+  const { member, isClaimed } = useCurrentMember()
 
   const isActive = (href: string) => {
     // Exact match for home page
@@ -201,7 +211,10 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
           {item.comingSoon ? (
             <div className="flex w-full items-center">
               {Icon && <Icon className="mr-2 h-4 w-4" />}
-              {t(item.translationKey)}
+              {item.translationKey === 'sidebar.myCharacter' && isClaimed && member
+                ? member.name
+                : t(item.translationKey)
+              }
               <Badge variant="secondary" className="ml-auto text-xs">
                 {t('sidebar.comingSoon')}
               </Badge>
@@ -214,12 +227,18 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
               className="flex items-center"
             >
               {Icon && <Icon className="mr-2 h-4 w-4" />}
-              {t(item.translationKey)}
+              {item.translationKey === 'sidebar.myCharacter' && isClaimed && member
+                ? member.name
+                : t(item.translationKey)
+              }
             </a>
           ) : (
             <Link href={item.href} className="flex items-center">
               {Icon && <Icon className="mr-2 h-4 w-4" />}
-              {t(item.translationKey)}
+              {item.translationKey === 'sidebar.myCharacter' && isClaimed && member
+                ? member.name
+                : t(item.translationKey)
+              }
             </Link>
           )}
         </Button>

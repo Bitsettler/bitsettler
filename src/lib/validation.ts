@@ -324,6 +324,27 @@ export const SETTLEMENT_SCHEMAS = {
       minLength: 1,
       maxLength: 50,
       sanitize: true
+    },
+    displayName: {
+      required: false,
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      sanitize: true
+    },
+    primaryProfession: {
+      required: false,
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      sanitize: true
+    },
+    secondaryProfession: {
+      required: false,
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      sanitize: true
     }
   },
   

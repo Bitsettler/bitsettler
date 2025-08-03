@@ -15,6 +15,7 @@ import { useSkillNames } from '../../hooks/use-skill-names';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { TierIcon } from '@/components/ui/tier-icon';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
+import { getDisplayProfession, getSecondaryProfession, getProfessionSource } from '@/lib/utils/profession-utils';
 import { 
   User, 
   Calendar, 
@@ -50,6 +51,9 @@ interface MemberDetail {
   name: string;
   entityId: string;
   profession: string;
+  primary_profession?: string | null;
+  secondary_profession?: string | null;
+  top_profession?: string | null;
   totalSkillLevel: number;
   totalXP: number;
   highestLevel: number;
@@ -79,9 +83,13 @@ interface MemberDetailResponse {
 
 interface SettlementMemberDetailProps {
   memberId: string;
+  hideBackButton?: boolean;
+  hideHeader?: boolean;
+  hideProfileName?: boolean;
+  hideContainer?: boolean;
 }
 
-export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailProps) {
+export function SettlementMemberDetailView({ memberId, hideBackButton = false, hideHeader = false, hideProfileName = false, hideContainer = false }: SettlementMemberDetailProps) {
   const [member, setMember] = useState<MemberDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -243,34 +251,36 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
   const officerPerm = getPermissionLevel(member.permissions.officer);
   const coOwnerPerm = getPermissionLevel(member.permissions.coOwner);
 
-  return (
-    <TooltipProvider>
-      <Container className="py-6">
-      <div className="space-y-6">
+  const content = (
+    <div className="space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Members
-            </Button>
-            <div>
-              <h1 className="text-3xl font-bold">{member.name}</h1>
-              <p className="text-muted-foreground">Member details and profile information</p>
+        {!hideHeader && (
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              {!hideBackButton && (
+                <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to Members
+                </Button>
+              )}
+              <div>
+                <h1 className="text-3xl font-bold">{member.name}</h1>
+                <p className="text-muted-foreground">Member details and profile information</p>
+              </div>
             </div>
+            {member.isActive ? (
+              <Badge className="bg-green-500">
+                <UserCheck className="h-3 w-3 mr-1" />
+                Active
+              </Badge>
+            ) : (
+              <Badge variant="secondary">
+                <UserX className="h-3 w-3 mr-1" />
+                Inactive
+              </Badge>
+            )}
           </div>
-          {member.isActive ? (
-            <Badge className="bg-green-500">
-              <UserCheck className="h-3 w-3 mr-1" />
-              Active
-            </Badge>
-          ) : (
-            <Badge variant="secondary">
-              <UserX className="h-3 w-3 mr-1" />
-              Inactive
-            </Badge>
-          )}
-        </div>
+        )}
 
       {/* Member Profile */}
       <Card>
@@ -290,8 +300,10 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
             
             <div className="flex-1 space-y-3">
               <div>
-                <h2 className="text-2xl font-bold">{member.name}</h2>
-                <div className="mt-2">
+                {!hideProfileName && (
+                  <h2 className="text-2xl font-bold">{member.name}</h2>
+                )}
+                <div className={hideProfileName ? "mt-0" : "mt-2"}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Badge variant={getMemberRole(member.permissions).variant} className="text-sm">
@@ -501,8 +513,18 @@ export function SettlementMemberDetailView({ memberId }: SettlementMemberDetailP
           </div>
         </CardContent>
       </Card>
-      </div>
-    </Container>
+    </div>
+  );
+
+  return (
+    <TooltipProvider>
+      {hideContainer ? (
+        content
+      ) : (
+        <Container className="py-6">
+          {content}
+        </Container>
+      )}
     </TooltipProvider>
   );
 } 

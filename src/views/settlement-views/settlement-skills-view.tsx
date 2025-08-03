@@ -109,6 +109,109 @@ export function SettlementSkillsView() {
   const { member, isLoading: memberLoading } = useCurrentMember();
   const { getSkillName, loading: skillNamesLoading } = useSkillNames();
 
+  // Memoize all computed values OUTSIDE of conditional renders
+  const membersWithSkills = useMemo(() => 
+    Array.isArray(citizensData) ? citizensData.filter(m => m.totalSkillLevel > 0) : [],
+    [citizensData]
+  );
+
+  const allSkillLevels = useMemo(() => {
+    if (!Array.isArray(citizensData) || citizensData.length === 0) return [];
+    
+    const adventureSkills = ['Cooking', 'Construction', 'Taming', 'Slayer', 'Merchanting', 'Sailing'];
+    return membersWithSkills.flatMap(member =>
+      Object.entries(member.skills || {})
+        .filter(([skillName, level]) => {
+          const displayName = getSkillName(skillName);
+          return level > 0 && !adventureSkills.includes(displayName);
+        })
+        .map(([, level]) => level)
+    );
+  }, [membersWithSkills, getSkillName]);
+
+  const closeToTieringUp = useMemo(() => {
+    if (!Array.isArray(citizensData) || citizensData.length === 0) return [];
+    
+    const candidates: Array<{
+      name: string;
+      skillName: string;
+      currentLevel: number;
+      nextTier: number;
+      levelsToGo: number;
+      profession: string;
+    }> = [];
+
+    membersWithSkills.forEach(member => {
+      Object.entries(member.skills || {}).forEach(([skillId, level]) => {
+        const skillDisplayName = getSkillName(skillId);
+        
+        // Skip adventure skills if they're hidden
+        const adventureSkills = ['cooking', 'construction', 'taming', 'slayer', 'merchanting', 'sailing'];
+        if (!showAdventureSkills && adventureSkills.some(adventure => 
+          skillDisplayName.toLowerCase().includes(adventure)
+        )) {
+          return;
+        }
+
+        // Calculate next tier milestone (10, 20, 30, 40, 50, 60, etc.)
+        const currentTier = getSkillTier(level);
+        const nextTierLevel = currentTier * 10; // Next milestone level
+        
+        // Only consider if they're close (within 2 levels) and not at max tier
+        if (level > 0 && level < 100 && nextTierLevel - level <= 2 && nextTierLevel - level > 0) {
+          candidates.push({
+            name: member.name,
+            skillName: skillDisplayName,
+            currentLevel: level,
+            nextTier: currentTier + 1,
+            levelsToGo: nextTierLevel - level,
+            profession: member.profession
+          });
+        }
+      });
+    });
+
+    // Sort by levels to go (closest first), then by next tier level (higher tiers first)
+    return candidates
+      .sort((a, b) => {
+        if (a.levelsToGo !== b.levelsToGo) {
+          return a.levelsToGo - b.levelsToGo; // Closest first
+        }
+        return b.nextTier - a.nextTier; // Higher tiers first if same distance
+      })
+      .slice(0, 10); // Top 10
+  }, [membersWithSkills, getSkillName, showAdventureSkills]);
+
+  const professionPeaks = useMemo(() => {
+    if (!Array.isArray(citizensData) || citizensData.length === 0) return [];
+    
+    const professionSkills = [
+      'forestry', 'carpentry', 'masonry', 'mining', 'smithing', 'scholar',
+      'leatherworking', 'hunting', 'tailoring', 'farming', 'fishing', 'foraging'
+    ];
+    
+    return professionSkills.map(professionKey => {
+      let maxLevel = 0;
+      let topMember = '';
+      
+      membersWithSkills.forEach(member => {
+        Object.entries(member.skills || {}).forEach(([skillName, level]) => {
+          const displayName = getSkillName(skillName).toLowerCase();
+          if (displayName.includes(professionKey) && level > maxLevel) {
+            maxLevel = level;
+            topMember = member.name;
+          }
+        });
+      });
+      
+      return {
+        profession: professionKey.charAt(0).toUpperCase() + professionKey.slice(1),
+        maxLevel,
+        topMember
+      };
+    }).filter(p => p.maxLevel > 0).sort((a, b) => b.maxLevel - a.maxLevel);
+  }, [membersWithSkills, getSkillName]);
+
   useEffect(() => {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
@@ -440,73 +543,10 @@ export function SettlementSkillsView() {
 
       {/* High-level Analytics */}
       {(Array.isArray(citizensData) && citizensData.length > 0) && (() => {
-        const membersWithSkills = citizensData.filter(m => m.totalSkillLevel > 0);
-        
         // Calculate average skill level (profession skills only)
-        const adventureSkills = ['Cooking', 'Construction', 'Taming', 'Slayer', 'Merchanting', 'Sailing'];
-        const allSkillLevels = membersWithSkills.flatMap(member => 
-          Object.entries(member.skills || {})
-            .filter(([skillName, level]) => {
-              const displayName = getSkillName(skillName);
-              return level > 0 && !adventureSkills.includes(displayName);
-            })
-            .map(([, level]) => level)
-        );
         const avgSkillLevel = allSkillLevels.length > 0 
           ? allSkillLevels.reduce((sum, level) => sum + level, 0) / allSkillLevels.length 
           : 0;
-
-        // Find people close to tiering up (within 2 levels of next tier milestone)
-        const closeToTieringUp = useMemo(() => {
-          const candidates: Array<{
-            name: string;
-            skillName: string;
-            currentLevel: number;
-            nextTier: number;
-            levelsToGo: number;
-            profession: string;
-          }> = [];
-
-          membersWithSkills.forEach(member => {
-            Object.entries(member.skills || {}).forEach(([skillId, level]) => {
-              const skillDisplayName = getSkillName(skillId);
-              
-              // Skip adventure skills if they're hidden
-              const adventureSkills = ['cooking', 'construction', 'taming', 'slayer', 'merchanting', 'sailing'];
-              if (!showAdventureSkills && adventureSkills.some(adventure => 
-                skillDisplayName.toLowerCase().includes(adventure)
-              )) {
-                return;
-              }
-
-              // Calculate next tier milestone (10, 20, 30, 40, 50, 60, etc.)
-              const currentTier = getSkillTier(level);
-              const nextTierLevel = currentTier * 10; // Next milestone level
-              
-              // Only consider if they're close (within 2 levels) and not at max tier
-              if (level > 0 && level < 100 && nextTierLevel - level <= 2 && nextTierLevel - level > 0) {
-                candidates.push({
-                  name: member.name,
-                  skillName: skillDisplayName,
-                  currentLevel: level,
-                  nextTier: currentTier + 1,
-                  levelsToGo: nextTierLevel - level,
-                  profession: member.profession
-                });
-              }
-            });
-          });
-
-          // Sort by levels to go (closest first), then by next tier level (higher tiers first)
-          return candidates
-            .sort((a, b) => {
-              if (a.levelsToGo !== b.levelsToGo) {
-                return a.levelsToGo - b.levelsToGo; // Closest first
-              }
-              return b.nextTier - a.nextTier; // Higher tiers first if same distance
-            })
-            .slice(0, 10); // Top 10
-        }, [membersWithSkills, getSkillName, showAdventureSkills]);
 
         // Find highest individual profession skill
         const highestSkill = Math.max(...allSkillLevels, 0);
@@ -516,27 +556,6 @@ export function SettlementSkillsView() {
           'forestry', 'carpentry', 'masonry', 'mining', 'smithing', 'scholar',
           'leatherworking', 'hunting', 'tailoring', 'farming', 'fishing', 'foraging'
         ];
-        
-        const professionPeaks = professionSkills.map(professionKey => {
-          let maxLevel = 0;
-          let topMember = '';
-          
-          membersWithSkills.forEach(member => {
-            Object.entries(member.skills || {}).forEach(([skillName, level]) => {
-              const displayName = getSkillName(skillName).toLowerCase();
-              if (displayName.includes(professionKey) && level > maxLevel) {
-                maxLevel = level;
-                topMember = member.name;
-              }
-            });
-          });
-          
-          return {
-            profession: professionKey.charAt(0).toUpperCase() + professionKey.slice(1),
-            maxLevel,
-            topMember
-          };
-        }).filter(p => p.maxLevel > 0).sort((a, b) => b.maxLevel - a.maxLevel);
 
         return (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr">

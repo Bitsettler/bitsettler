@@ -10,14 +10,15 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Mail, Lock, AlertCircle } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Loader2, Mail, Lock, AlertCircle, UserPlus, LogIn } from 'lucide-react';
 
 export function EnhancedSignInPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isSignUp, setIsSignUp] = useState(true); // Default to Sign Up for new users
+  const [activeTab, setActiveTab] = useState('signin'); // Default to Sign In for returning users
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,13 +44,13 @@ export function EnhancedSignInPage() {
     }
   };
 
-  const handleEmailAuth = async (e: React.FormEvent) => {
+  const handleEmailAuth = async (e: React.FormEvent, mode: 'signin' | 'signup') => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
     try {
-      if (isSignUp) {
+      if (mode === 'signup') {
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -97,34 +98,56 @@ export function EnhancedSignInPage() {
             Welcome to BitCraft.guide
           </h1>
           <p className="text-muted-foreground">
-            Sign in to manage your settlement
+            Connect your account to manage your settlement
           </p>
         </div>
 
-        {/* Main Card */}
+        {/* Main Card with Tabs */}
         <Card className="shadow-lg">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-xl">
-              {isSignUp ? 'Create Account' : 'Sign In'}
-            </CardTitle>
-            <CardDescription>
-              Because our system tracks progress and growth, we need you to have an account to track that. Please sign in, or sign up.
-            </CardDescription>
-          </CardHeader>
-          
-          <CardContent className="space-y-4">
-            {/* Error Alert */}
-            {error && (
-              <Alert variant={error.includes('Check your email') ? 'default' : 'destructive'}>
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            )}
+          <Tabs 
+            value={activeTab} 
+            onValueChange={(value) => {
+              setActiveTab(value);
+              setError(''); // Clear errors when switching tabs
+              setEmail(''); // Clear form when switching
+              setPassword('');
+            }} 
+            className="w-full"
+          >
+            {/* Tab Headers */}
+            <CardHeader className="pb-0">
+              <TabsList className="grid w-full grid-cols-2 mb-4">
+                <TabsTrigger value="signin" className="flex items-center gap-2">
+                  <LogIn className="h-4 w-4" />
+                  Sign In
+                </TabsTrigger>
+                <TabsTrigger value="signup" className="flex items-center gap-2">
+                  <UserPlus className="h-4 w-4" />
+                  Sign Up
+                </TabsTrigger>
+              </TabsList>
+              
+              <CardDescription className="text-center">
+                {activeTab === 'signin' 
+                  ? 'Welcome back! Sign in to access your settlement dashboard and data.'
+                  : 'New to BitCraft.guide? Create an account to start managing your settlement.'
+                }
+              </CardDescription>
+            </CardHeader>
+            
+            <CardContent className="space-y-4">
+              {/* Error Alert */}
+              {error && (
+                <Alert variant={error.includes('Check your email') ? 'default' : 'destructive'}>
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
 
-            {/* OAuth Buttons */}
-            <div className="space-y-4">
-              {/* Current OAuth Providers */}
-              <div className="grid grid-cols-2 gap-3">
+              {/* OAuth Buttons - Same for both tabs */}
+              <div className="space-y-4">
+                {/* Current OAuth Providers */}
+                <div className="grid grid-cols-2 gap-3">
               <Button
                 variant="outline"
                 onClick={() => handleOAuthSignIn('google')}
@@ -194,87 +217,124 @@ export function EnhancedSignInPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <Separator className="w-full" />
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <Separator className="w-full" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Or continue with email
+                  </span>
+                </div>
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
 
-            {/* Email Form */}
-            <form onSubmit={handleEmailAuth} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="flex items-center gap-2">
-                  <Mail className="h-4 w-4" />
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="password" className="flex items-center gap-2">
-                  <Lock className="h-4 w-4" />
-                  Password
-                </Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={isLoading}
-              >
-                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isSignUp ? 'Create Account' : 'Sign In'}
-              </Button>
-            </form>
+              {/* Tab-specific Email Forms */}
+              <TabsContent value="signin" className="space-y-0 mt-0">
+                <form onSubmit={(e) => handleEmailAuth(e, 'signin')} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="signin-email" className="flex items-center gap-2">
+                      <Mail className="h-4 w-4" />
+                      Email
+                    </Label>
+                    <Input
+                      id="signin-email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="signin-password" className="flex items-center gap-2">
+                      <Lock className="h-4 w-4" />
+                      Password
+                    </Label>
+                    <Input
+                      id="signin-password"
+                      type="password"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    <LogIn className="mr-2 h-4 w-4" />
+                    Sign In to Your Account
+                  </Button>
+                </form>
+              </TabsContent>
 
-            {/* Toggle Sign Up / Sign In */}
-            <div className="text-center">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="text-sm"
-              >
-                {isSignUp 
-                  ? 'Already have an account? Sign In' 
-                  : "Don't have an account? Sign Up"
-                }
-              </Button>
-            </div>
+              <TabsContent value="signup" className="space-y-0 mt-0">
+                <form onSubmit={(e) => handleEmailAuth(e, 'signup')} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-email" className="flex items-center gap-2">
+                      <Mail className="h-4 w-4" />
+                      Email
+                    </Label>
+                    <Input
+                      id="signup-email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-password" className="flex items-center gap-2">
+                      <Lock className="h-4 w-4" />
+                      Password
+                    </Label>
+                    <Input
+                      id="signup-password"
+                      type="password"
+                      placeholder="Create a secure password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength={6}
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Password must be at least 6 characters long
+                    </p>
+                  </div>
+                  
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    <UserPlus className="mr-2 h-4 w-4" />
+                    Create New Account
+                  </Button>
+                </form>
+              </TabsContent>
 
-            {/* Footer */}
-            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border">
-              By signing in, you agree to our{' '}
-              <a href="#" className="underline hover:text-primary">
-                terms of service
-              </a>
-              {' '}and{' '}
-              <a href="#" className="underline hover:text-primary">
-                privacy policy
-              </a>
-              .
-            </div>
-          </CardContent>
+              {/* Footer */}
+              <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border">
+                By {activeTab === 'signin' ? 'signing in' : 'creating an account'}, you agree to our{' '}
+                <a href="#" className="underline hover:text-primary">
+                  terms of service
+                </a>
+                {' '}and{' '}
+                <a href="#" className="underline hover:text-primary">
+                  privacy policy
+                </a>
+                .
+              </div>
+            </CardContent>
+          </Tabs>
         </Card>
       </div>
     </div>

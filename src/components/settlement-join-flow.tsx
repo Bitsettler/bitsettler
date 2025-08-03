@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,9 @@ import {
   Users, 
   User,
   MapPin,
-  Loader2
+  Loader2,
+  Search,
+  X
 } from 'lucide-react';
 
 interface SettlementJoinFlowProps {
@@ -51,6 +53,21 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
   const [step, setStep] = useState<'character-select' | 'claiming' | 'complete' | 'error'>('character-select');
   const [error, setError] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Filter characters based on search term
+  const filteredCharacters = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return settlementData.availableCharacters;
+    }
+    
+    const searchLower = searchTerm.toLowerCase();
+    return settlementData.availableCharacters.filter(character => 
+      character.name.toLowerCase().includes(searchLower) ||
+      character.top_profession.toLowerCase().includes(searchLower) ||
+      character.total_level.toString().includes(searchLower)
+    );
+  }, [settlementData.availableCharacters, searchTerm]);
 
   // Data is already loaded from API call
 
@@ -146,8 +163,38 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
                 Select the character you want to link to your account
               </p>
               
-              <div className="grid gap-3">
-                {settlementData.availableCharacters.map((character) => (
+              {/* Search Field */}
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  placeholder="Search by character name, profession, or level..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 pr-10"
+                />
+                {searchTerm && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                )}
+              </div>
+              
+              {/* Results Count */}
+              {searchTerm && (
+                <p className="text-sm text-muted-foreground mb-3">
+                  Showing {filteredCharacters.length} of {settlementData.availableCharacters.length} characters
+                </p>
+              )}
+              
+              {/* Character Grid */}
+              <div className="grid gap-3 max-h-96 overflow-y-auto">
+                {filteredCharacters.length > 0 ? (
+                  filteredCharacters.map((character) => (
                   <Card 
                     key={character.id}
                     className={`cursor-pointer transition-all border-2 ${
@@ -174,9 +221,30 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
                           <div>{Object.keys(character.skills).length} skills</div>
                         </div>
                       </div>
+                      
+                      {/* Action Button - appears when this character is selected */}
+                      {selectedCharacter?.id === character.id && (
+                        <div className="mt-4 pt-4 border-t border-border">
+                          <Button 
+                            onClick={handleClaimCharacter} 
+                            className="w-full"
+                            size="sm"
+                          >
+                            <CheckCircle className="w-4 h-4 mr-2" />
+                            Claim {character.name} & Join Settlement
+                          </Button>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
-                ))}
+                  ))
+                ) : (
+                  <div className="text-center py-8 text-muted-foreground">
+                    <User className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                    <p className="font-medium">No characters found</p>
+                    <p className="text-sm">Try adjusting your search terms</p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -186,13 +254,11 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back
               </Button>
-              <Button 
-                onClick={handleClaimCharacter} 
-                disabled={!selectedCharacter}
-                className="flex-1"
-              >
-                Claim Character & Join Settlement
-              </Button>
+              {!selectedCharacter && (
+                <Button disabled className="flex-1">
+                  Select a Character to Continue
+                </Button>
+              )}
             </div>
           </CardContent>
         </Card>

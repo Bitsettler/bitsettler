@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { characterId, settlementId } = validationResult.data!;
+    const { characterId, settlementId, displayName, primaryProfession, secondaryProfession } = validationResult.data!;
     const claimLogger = userLogger.child({ 
       characterId, 
       settlementId,
@@ -142,12 +142,27 @@ export async function POST(request: NextRequest) {
       securityEvent: 'character_claim_initiation'
     });
     
+    const updateData: any = {
+      supabase_user_id: user.id,
+      onboarding_completed_at: new Date().toISOString()
+    };
+
+    // Add display name if provided
+    if (displayName) {
+      updateData.display_name = displayName;
+    }
+
+    // Add profession choices if provided
+    if (primaryProfession) {
+      updateData.primary_profession = primaryProfession;
+    }
+    if (secondaryProfession) {
+      updateData.secondary_profession = secondaryProfession;
+    }
+
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
-      .update({
-        supabase_user_id: user.id,
-        onboarding_completed_at: new Date().toISOString()
-      })
+      .update(updateData)
       .eq('id', characterId) // Use UUID id field, not entity_id
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
@@ -209,6 +224,9 @@ export async function POST(request: NextRequest) {
           bitjita_user_id: claimedCharacter.bitjita_user_id,
           skills: claimedCharacter.skills || {},
           top_profession: claimedCharacter.top_profession || 'Unknown',
+          primary_profession: claimedCharacter.primary_profession,
+          secondary_profession: claimedCharacter.secondary_profession,
+          display_name: claimedCharacter.display_name,
           total_level: claimedCharacter.total_level || 0,
           permissions: {
             inventory: claimedCharacter.inventory_permission > 0,

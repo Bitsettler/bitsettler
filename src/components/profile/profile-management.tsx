@@ -14,6 +14,7 @@ import { Container } from '../container';
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Badge } from '../ui/badge';
 import { Loader2, Save, User, Settings, Palette, Bell } from 'lucide-react';
+import { getDisplayProfession } from '@/lib/utils/profession-utils';
 
 const DEFAULT_COLORS = [
   '#3B82F6', '#EF4444', '#10B981', '#F59E0B', 
@@ -150,7 +151,7 @@ export function ProfileManagement() {
               </Avatar>
               <div className="space-y-1">
                 <h3 className="font-semibold">{member.name}</h3>
-                <p className="text-sm text-muted-foreground">{member.top_profession}</p>
+                <p className="text-sm text-muted-foreground">{getDisplayProfession(member)}</p>
                 <div className="flex gap-2">
                   <Badge variant="secondary">Level {member.highest_level}</Badge>
                   <Badge variant="outline">Total: {member.total_level}</Badge>

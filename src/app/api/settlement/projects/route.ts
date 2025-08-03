@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
-import { supabase } from '../../../../lib/spacetime-db-new/shared/supabase-client';
+import { supabase, createServerClient } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest } from '../../../../lib/spacetime-db-new/modules';
 import { withErrorHandling, parseRequestBody, requireBodyFields, apiSuccess, apiError } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
@@ -17,28 +17,45 @@ interface ProjectsData {
 }
 
 async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsData>> {
-  const searchParams = request.nextUrl.searchParams;
-  
-  // Parse query parameters
-  const options: GetAllProjectsOptions = {
-    status: searchParams.get('status') as 'Active' | 'Completed' | 'Cancelled' || undefined,
-    includeItems: searchParams.get('includeItems') === 'true',
-    limit: searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined,
-    offset: searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : undefined,
-  };
-
-  logger.info('Fetching settlement projects', {
-    operation: 'GET_SETTLEMENT_PROJECTS',
-    options
-  });
-
   try {
+    const searchParams = request.nextUrl.searchParams;
+    
+    // Parse query parameters first
+    const options: GetAllProjectsOptions = {
+      status: searchParams.get('status') as 'Active' | 'Completed' | 'Cancelled' || undefined,
+      includeItems: searchParams.get('includeItems') === 'true',
+      limit: searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined,
+      offset: searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : undefined,
+    };
+
+    logger.info('Projects API: Starting request', {
+      operation: 'GET_SETTLEMENT_PROJECTS',
+      options,
+      hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY
+    });
+    
+    // Check if service client is available
+    const serverClient = createServerClient();
+    if (!serverClient) {
+      logger.error('Projects API: No service client available', {
+        hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+        hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY
+      });
+      
+      return apiError(
+        'Database service unavailable. Please ensure SUPABASE_SERVICE_ROLE_KEY environment variable is configured.',
+        ErrorCodes.CONFIGURATION_ERROR
+      );
+    }
+    
+    logger.info('Projects API: Service client available, fetching data');
+
     // Use appropriate function based on whether items are requested
     const projects = options.includeItems 
       ? await getAllProjectsWithItems(options)
       : await getAllProjects(options);
 
-    logger.info(`Successfully fetched ${projects.length} projects`, {
+    logger.info(`Projects API: Successfully fetched ${projects.length} projects`, {
       count: projects.length,
       includesItems: options.includeItems || false
     });
@@ -54,19 +71,48 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsD
     });
 
   } catch (error) {
-    logger.error('Failed to fetch settlement projects', error instanceof Error ? error : new Error(String(error)), {
+    logger.error('Projects API: Failed to fetch settlement projects', error instanceof Error ? error : new Error(String(error)), {
       operation: 'GET_SETTLEMENT_PROJECTS',
-      options
+      options,
+      errorMessage: error instanceof Error ? error.message : String(error)
     });
     
     return apiError(
-      'Failed to fetch projects',
+      `Failed to fetch projects: ${error instanceof Error ? error.message : String(error)}`,
       ErrorCodes.DATABASE_ERROR
     );
   }
 }
 
-export const GET = withErrorHandling(handleGetProjects);
+// export const GET = withErrorHandling(handleGetProjects);
+
+// Temporary direct handler to bypass withErrorHandling wrapper for debugging
+export async function GET(request: NextRequest) {
+  try {
+    console.log('Direct Projects API: Starting...');
+    const result = await handleGetProjects(request);
+    console.log('Direct Projects API: Handler result:', result.success, typeof result);
+    
+    if (result.success) {
+      return NextResponse.json({
+        success: true,
+        data: result.data
+      }, { status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: result.error,
+        code: result.code
+      }, { status: 500 });
+    }
+  } catch (error) {
+    console.log('Direct Projects API: Caught error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
+  }
+}
 
 async function handleCreateProject(request: NextRequest): Promise<Result<unknown>> {
   // Check authentication
