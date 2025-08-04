@@ -12,8 +12,10 @@ export async function GET(request: NextRequest) {
     }
 
     const supabase = await createServerSupabaseClient();
+    console.log('Supabase client created successfully');
 
     // Get unclaimed settlement members (auth_user_id is NULL)
+    console.log('Querying settlement_members for unclaimed characters...');
     const { data: members, error } = await supabase
       .from('settlement_members')
       .select(`
@@ -37,6 +39,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    console.log(`Successfully found ${members?.length || 0} unclaimed members`);
     return NextResponse.json({
       success: true,
       data: members || []
@@ -44,6 +47,8 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Unclaimed members API error:', error);
+    console.error('Error details:', error instanceof Error ? error.message : String(error));
+    console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack trace');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
