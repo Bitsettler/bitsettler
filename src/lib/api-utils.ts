@@ -63,21 +63,24 @@ export function withErrorHandling<T>(
  * Wrapper for API route handlers with params that use Result<T> pattern
  * Automatically converts Result<T> to NextResponse with proper logging
  */
-export function withErrorHandlingParams<T>(
-  handler: (request: NextRequest, context: { params: Record<string, string> }) => Promise<Result<T>>
+export function withErrorHandlingParams<T, P extends Record<string, string> = Record<string, string>>(
+  handler: (request: NextRequest, context: { params: Promise<P> }) => Promise<Result<T>>
 ) {
-  return async (request: NextRequest, context: { params: Record<string, string> }): Promise<NextResponse> => {
+  return async (request: NextRequest, context: { params: Promise<P> }): Promise<NextResponse> => {
     const startTime = Date.now();
     const method = request.method;
     const url = new URL(request.url);
     const endpoint = url.pathname;
 
     try {
+      // Await params for logging
+      const params = await context.params;
+      
       logger.info(`API ${method} ${endpoint} - Starting`, {
         method,
         endpoint,
         query: Object.fromEntries(url.searchParams),
-        params: context.params
+        params: params
       });
 
       const result = await handler(request, context);

@@ -24,6 +24,12 @@ async function handleJoinProject(
     }
 
     const { user } = authResult;
+    if (!user) {
+      return apiError(
+        'User not found in session',
+        ErrorCodes.UNAUTHORIZED
+      );
+    }
     const { id: projectId } = await context.params;
 
     logger.info('User joining project', {
@@ -91,7 +97,7 @@ async function handleJoinProject(
     if (existing && !existingError) {
       return apiError(
         `You are already a ${existing.role.toLowerCase()} on this project`,
-        ErrorCodes.ALREADY_EXISTS
+        ErrorCodes.DUPLICATE_ENTRY
       );
     }
 
@@ -128,16 +134,19 @@ async function handleJoinProject(
       projectName: project.name
     });
 
-    return apiSuccess({
-      message: `Successfully joined "${project.name}" as ${role}`,
-      member: {
-        id: projectMember.id,
-        memberId: member.id,
-        memberName: member.name,
-        role: projectMember.role,
-        assignedAt: new Date(projectMember.assigned_at)
+    return {
+      success: true,
+      data: {
+        message: `Successfully joined "${project.name}" as ${role}`,
+        member: {
+          id: projectMember.id,
+          memberId: member.id,
+          memberName: member.name,
+          role: projectMember.role,
+          assignedAt: new Date(projectMember.assigned_at)
+        }
       }
-    });
+    };
 
   } catch (error) {
     logger.error('Error in join project handler', error instanceof Error ? error : new Error(String(error)));

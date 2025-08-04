@@ -258,7 +258,25 @@ export function SettlementProjectsView() {
         body: JSON.stringify({ role: 'Contributor' })
       });
 
-      const result = await response.json();
+      console.log('🔍 Join project response status:', response.status);
+      console.log('🔍 Join project response headers:', Object.fromEntries(response.headers.entries()));
+      
+      // Check if response is empty
+      const responseText = await response.text();
+      console.log('🔍 Join project raw response:', responseText);
+      
+      if (!responseText) {
+        throw new Error('Empty response from server');
+      }
+      
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('🔍 JSON parse error:', parseError);
+        console.error('🔍 Response text that failed to parse:', responseText);
+        throw new Error(`Invalid JSON response: ${responseText}`);
+      }
       
       if (!result.success) {
         throw new Error(result.error || 'Failed to join project');
