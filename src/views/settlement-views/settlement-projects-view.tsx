@@ -249,11 +249,6 @@ export function SettlementProjectsView() {
     
     setJoiningProject(projectId);
     try {
-      console.log('🟡 FRONTEND: Starting join project request');
-      console.log('🟡 FRONTEND: Project ID:', projectId);
-      console.log('🟡 FRONTEND: Session user:', session?.user?.id);
-      console.log('🟡 FRONTEND: Access token present:', !!session?.access_token);
-      
       const response = await fetch(`/api/settlement/projects/${projectId}/join`, {
         method: 'POST',
         headers: {
@@ -263,37 +258,10 @@ export function SettlementProjectsView() {
         body: JSON.stringify({ role: 'Contributor' })
       });
 
-      console.log('🟡 FRONTEND: Response received');
-      console.log('🟡 FRONTEND: Status:', response.status);
-      console.log('🟡 FRONTEND: Status text:', response.statusText);
-      console.log('🟡 FRONTEND: Headers:', Object.fromEntries(response.headers.entries()));
+      console.log('🟡 Join project response:', response.status, response.statusText);
       
-      // Check if response is ok
-      if (!response.ok) {
-        console.error('🟡 FRONTEND: Response not ok');
-        const errorText = await response.text();
-        console.error('🟡 FRONTEND: Error response body:', errorText);
-        throw new Error(`HTTP ${response.status}: ${errorText}`);
-      }
-      
-      // Get response text first to debug
-      const responseText = await response.text();
-      console.log('🟡 FRONTEND: Raw response text:', responseText);
-      console.log('🟡 FRONTEND: Response text length:', responseText.length);
-      
-      if (!responseText || responseText.trim() === '') {
-        throw new Error('Empty response from server');
-      }
-      
-      let result;
-      try {
-        result = JSON.parse(responseText);
-        console.log('🟡 FRONTEND: Parsed result:', result);
-      } catch (parseError) {
-        console.error('🟡 FRONTEND: JSON parse failed:', parseError);
-        console.error('🟡 FRONTEND: Failed to parse:', responseText);
-        throw new Error(`Failed to parse JSON: ${responseText}`);
-      }
+      const result = await response.json();
+      console.log('🟡 Join project result:', result);
       
       if (!result.success) {
         throw new Error(result.error || 'Failed to join project');
