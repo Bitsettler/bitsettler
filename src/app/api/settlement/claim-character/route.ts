@@ -95,7 +95,6 @@ export async function POST(request: NextRequest) {
       .from('settlement_members')
       .select('*')
       .eq('id', characterId) // Use database UUID field
-      .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
 
@@ -124,7 +123,6 @@ export async function POST(request: NextRequest) {
     const { data: existingClaim, error: existingError } = await authenticatedClient
       .from('settlement_members')
       .select('entity_id, name')
-      .eq('settlement_id', settlementId)
       .eq('supabase_user_id', user.id)
       .single();
 
@@ -169,7 +167,6 @@ export async function POST(request: NextRequest) {
       .from('settlement_members')
       .update(updateData)
       .eq('id', characterId) // Use database UUID field
-      .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()
       .single();
