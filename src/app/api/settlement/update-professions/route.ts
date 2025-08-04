@@ -113,8 +113,7 @@ export async function PUT(request: NextRequest) {
       .from('settlement_members')
       .update({
         primary_profession: primaryProfession,
-        secondary_profession: secondaryProfession,
-        updated_at: new Date().toISOString()
+        secondary_profession: secondaryProfession
       })
       .eq('supabase_user_id', user.id)
       .select('id, name, primary_profession, secondary_profession, top_profession')
