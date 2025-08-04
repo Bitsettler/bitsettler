@@ -169,15 +169,15 @@ export function ProfessionSelector({
               let statusText = "";
 
               if (isPrimary) {
-                buttonVariant = "default";
+                buttonVariant = "outline";
                 ringClass = "ring-2 ring-yellow-500";
-                bgClass = "bg-yellow-50 dark:bg-yellow-950/30";
+                bgClass = "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200";
                 statusIcon = <Star className="h-4 w-4 text-yellow-600" />;
                 statusText = "Primary";
               } else if (isSecondary) {
-                buttonVariant = "secondary";
+                buttonVariant = "outline";
                 ringClass = "ring-2 ring-blue-500";
-                bgClass = "bg-blue-50 dark:bg-blue-950/30";
+                bgClass = "bg-blue-50 dark:bg-blue-950/30 border-blue-200";
                 statusIcon = <User className="h-4 w-4 text-blue-600" />;
                 statusText = "Secondary";
               }
@@ -193,7 +193,7 @@ export function ProfessionSelector({
                   )}
                   onClick={() => handleSkillClick(skill.name)}
                 >
-                  <div className="font-medium text-center">{skill.name}</div>
+                  <div className="font-medium text-center text-foreground">{skill.name}</div>
                   <div className="text-xs text-muted-foreground flex items-center gap-1">
                     <TrendingUp className="h-3 w-3" />
                     Level {skill.level}
