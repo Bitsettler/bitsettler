@@ -184,6 +184,65 @@ export function SettlementProjectsView() {
     setItems(items.filter((_, i) => i !== index));
   };
 
+  // Fetch project memberships - define first since other functions depend on it
+  const fetchProjectMemberships = useCallback(async () => {
+    if (!session?.user || projects.length === 0) return;
+
+    try {
+      // Fetch membership data for each project
+      const membershipPromises = projects.map(async (project) => {
+        try {
+          const response = await fetch(`/api/settlement/projects/${project.id}`, {
+            headers: {
+              ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` })
+            }
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            if (result.success && result.data.assignedMembers) {
+              const userMember = result.data.assignedMembers.find(
+                (member: any) => member.name === session.user?.name // Simple name-based matching for now
+              );
+              
+              return {
+                projectId: project.id,
+                isMember: !!userMember,
+                role: userMember?.role || '',
+                members: result.data.assignedMembers
+              };
+            }
+          }
+        } catch (error) {
+          console.warn(`Failed to fetch memberships for project ${project.id}:`, error);
+        }
+        
+        return {
+          projectId: project.id,
+          isMember: false,
+          role: '',
+          members: []
+        };
+      });
+
+      const memberships = await Promise.all(membershipPromises);
+      
+      const membershipMap = memberships.reduce((acc, membership) => {
+        acc[membership.projectId] = {
+          isMember: membership.isMember,
+          role: membership.role,
+          members: membership.members
+        };
+        return acc;
+      }, {} as typeof projectMemberships);
+
+      setProjectMemberships(membershipMap);
+      
+    } catch (error) {
+      console.error('Error fetching project memberships:', error);
+    }
+  }, [session?.user, session?.access_token, projects]);
+
   // Project membership functions
   const handleJoinProject = useCallback(async (projectId: string) => {
     if (!session?.user) return;
@@ -265,64 +324,6 @@ export function SettlementProjectsView() {
       setLeavingProject(null);
     }
   }, [session?.user, session?.access_token, fetchProjectMemberships]);
-
-  const fetchProjectMemberships = useCallback(async () => {
-    if (!session?.user || projects.length === 0) return;
-
-    try {
-      // Fetch membership data for each project
-      const membershipPromises = projects.map(async (project) => {
-        try {
-          const response = await fetch(`/api/settlement/projects/${project.id}`, {
-            headers: {
-              ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` })
-            }
-          });
-          
-          if (response.ok) {
-            const result = await response.json();
-            if (result.success && result.data.assignedMembers) {
-              const userMember = result.data.assignedMembers.find(
-                (member: any) => member.name === session.user?.name // Simple name-based matching for now
-              );
-              
-              return {
-                projectId: project.id,
-                isMember: !!userMember,
-                role: userMember?.role || '',
-                members: result.data.assignedMembers
-              };
-            }
-          }
-        } catch (error) {
-          console.warn(`Failed to fetch memberships for project ${project.id}:`, error);
-        }
-        
-        return {
-          projectId: project.id,
-          isMember: false,
-          role: '',
-          members: []
-        };
-      });
-
-      const memberships = await Promise.all(membershipPromises);
-      
-      const membershipMap = memberships.reduce((acc, membership) => {
-        acc[membership.projectId] = {
-          isMember: membership.isMember,
-          role: membership.role,
-          members: membership.members
-        };
-        return acc;
-      }, {} as typeof projectMemberships);
-
-      setProjectMemberships(membershipMap);
-      
-    } catch (error) {
-      console.error('Error fetching project memberships:', error);
-    }
-  }, [session?.user, session?.access_token, projects]);
 
   // Load projects on mount and when status filter changes
   useEffect(() => {
