@@ -7,12 +7,12 @@ import { logger } from '@/lib/logger';
 
 async function handleLeaveProject(
   request: NextRequest, 
-  context: { params: { projectId: string } }
+  context: { params: { id: string } }
 ): Promise<Result<{ message: string }>> {
   try {
     // Authenticate user
     const user = await requireAuth(request);
-    const { projectId } = context.params;
+    const { id: projectId } = context.params;
 
     logger.info('User leaving project', {
       operation: 'LEAVE_PROJECT',
