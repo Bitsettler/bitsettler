@@ -36,6 +36,7 @@ export function CharacterClaiming() {
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCharacter, setSelectedCharacter] = useState<SettlementMember | null>(null);
+  const [hasAttemptedFetch, setHasAttemptedFetch] = useState(false);
   
   // Profession selection step
   const [step, setStep] = useState<'character' | 'professions'>('character');
@@ -63,11 +64,14 @@ export function CharacterClaiming() {
   }, [members, searchTerm]);
 
   useEffect(() => {
-    // Only fetch when authentication is complete and user is available
-    if (!authLoading && isAuthenticated && user) {
+    // Only fetch once when authentication is complete and user is available
+    if (!authLoading && isAuthenticated && user && !hasAttemptedFetch) {
+      setHasAttemptedFetch(true);
+      
       const fetchUnclaimedMembers = async () => {
         try {
           setLoading(true);
+          setError(null);
           const response = await fetch('/api/auth/unclaimed-members');
           const result = await response.json();
 
@@ -85,8 +89,11 @@ export function CharacterClaiming() {
       };
       
       fetchUnclaimedMembers();
+    } else if (!authLoading && !isAuthenticated) {
+      // Handle unauthenticated state
+      setLoading(false);
     }
-  }, [authLoading, isAuthenticated, user]);
+  }, [authLoading, isAuthenticated, user, hasAttemptedFetch]);
 
 
 
@@ -114,7 +121,7 @@ export function CharacterClaiming() {
       setError(null);
 
       const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.entity_id,
+        characterId: selectedCharacter.id,
         settlementId: selectedCharacter.settlement_id,
         displayName: customDisplayName.trim() || undefined,
         primaryProfession,
