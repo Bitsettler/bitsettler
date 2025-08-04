@@ -11,12 +11,10 @@ import {
   Clock, 
   CheckCircle2, 
   XCircle, 
-  Gift, 
   Search,
   ChevronDown,
   ChevronUp,
   Save,
-  X,
   Trash2,
   Edit,
   MoreHorizontal
@@ -28,13 +26,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Container } from '@/components/container';
-import { CreateProjectModal } from '@/components/projects/create-project-modal';
+
 import { EditProjectModal } from '@/components/projects/edit-project-modal';
 import { type ProjectWithItems } from '@/lib/spacetime-db-new/modules';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
 
 const statusIcons = {
   'Active': Clock,
@@ -48,12 +48,17 @@ interface QuickCreateProject {
   priority: number;
 }
 
-interface QuickContribution {
-  projectId: string;
+interface ProjectItem {
   itemName: string;
-  quantity: number;
-  notes: string;
+  itemSlug?: string;
+  itemCategory?: string;
+  requiredQuantity: number;
+  tier: number;
+  priority: number;
+  notes?: string;
 }
+
+
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
@@ -72,15 +77,19 @@ export function SettlementProjectsView() {
   });
   const [isCreating, setIsCreating] = useState(false);
   
-  // Inline Contribution State
-  const [contributingTo, setContributingTo] = useState<string | null>(null);
-  const [contributionData, setContributionData] = useState<QuickContribution>({
-    projectId: '',
+  // Item management for quick create
+  const [items, setItems] = useState<ProjectItem[]>([]);
+  const [currentItem, setCurrentItem] = useState<ProjectItem>({
     itemName: '',
-    quantity: 1,
+    itemSlug: '',
+    itemCategory: '',
+    requiredQuantity: 1,
+    tier: 1,
+    priority: 1,
     notes: ''
   });
-  const [isContributing, setIsContributing] = useState(false);
+  
+
   
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
@@ -90,8 +99,7 @@ export function SettlementProjectsView() {
   // Refresh trigger
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   
-  // Project Creation Modal
-  const [showCreateModal, setShowCreateModal] = useState(false);
+
   
   // Project Edit Modal
   const [showEditModal, setShowEditModal] = useState(false);
@@ -117,6 +125,46 @@ export function SettlementProjectsView() {
   const handleCreateDescriptionChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCreateData(prev => ({ ...prev, description: e.target.value }));
   }, []);
+
+  // Item management functions
+  const handleItemSelect = (selectedItem: { name: string; slug: string; category: string; tier?: number } | null) => {
+    if (selectedItem) {
+      setCurrentItem({
+        ...currentItem,
+        itemName: selectedItem.name,
+        itemSlug: selectedItem.slug,
+        itemCategory: selectedItem.category,
+        tier: selectedItem.tier || 1
+      });
+    }
+  };
+
+  const validateCurrentItem = (): boolean => {
+    return (
+      currentItem.itemName.trim().length > 0 &&
+      currentItem.requiredQuantity > 0 &&
+      !items.some(item => item.itemName.toLowerCase() === currentItem.itemName.toLowerCase())
+    );
+  };
+
+  const addItem = () => {
+    if (validateCurrentItem()) {
+      setItems([...items, { ...currentItem }]);
+      setCurrentItem({
+        itemName: '',
+        itemSlug: '',
+        itemCategory: '',
+        requiredQuantity: 1,
+        tier: 1,
+        priority: 1,
+        notes: ''
+      });
+    }
+  };
+
+  const removeItem = (index: number) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
 
   // Load projects on mount and when status filter changes
   useEffect(() => {
@@ -216,7 +264,13 @@ export function SettlementProjectsView() {
           name: createData.name.trim(),
           description: createData.description.trim(),
           priority: createData.priority,
-          items: [] // Start with empty items, user can add via inline forms
+          items: items.map(item => ({
+            itemName: item.itemName,
+            requiredQuantity: item.requiredQuantity,
+            tier: item.tier,
+            priority: item.priority,
+            notes: item.notes || undefined
+          }))
         })
       });
 
@@ -228,6 +282,16 @@ export function SettlementProjectsView() {
 
       // Reset form and refresh projects
       setCreateData({ name: '', description: '', priority: 3 });
+      setItems([]);
+      setCurrentItem({
+        itemName: '',
+        itemSlug: '',
+        itemCategory: '',
+        requiredQuantity: 1,
+        tier: 1,
+        priority: 1,
+        notes: ''
+      });
       setShowCreateForm(false);
       refreshProjects();
       
@@ -239,52 +303,7 @@ export function SettlementProjectsView() {
     }
   };
 
-  // Quick Contribution Handler
-  const handleQuickContribute = async (projectId: string) => {
-    if (!session?.user || !contributionData.itemName.trim() || contributionData.quantity <= 0) return;
-    
-    try {
-      setIsContributing(true);
-      
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json'
-      };
-      
-      // Add authorization header if we have an access token
-      if (session.access_token) {
-        headers['Authorization'] = `Bearer ${session.access_token}`;
-      }
-      
-      const response = await fetch('/api/settlement/contributions', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          projectId: projectId,
-          contributionType: 'Direct', // Direct contribution of an item
-          itemName: contributionData.itemName.trim(),
-          quantity: contributionData.quantity,
-          description: contributionData.notes.trim()
-        })
-      });
 
-      const result = await response.json();
-      
-      if (!result.success) {
-        throw new Error(result.error || 'Failed to add contribution');
-      }
-
-      // Reset form and refresh projects
-      setContributionData({ projectId: '', itemName: '', quantity: 1, notes: '' });
-      setContributingTo(null);
-      refreshProjects();
-      
-    } catch (err) {
-      console.error('Error adding contribution:', err);
-      setError(err instanceof Error ? err.message : 'Failed to add contribution');
-    } finally {
-      setIsContributing(false);
-    }
-  };
 
   // Load permissions for all projects
   useEffect(() => {
@@ -492,7 +511,7 @@ export function SettlementProjectsView() {
           
           {/* Create Project Button */}
           <Button 
-            onClick={() => setShowCreateModal(true)}
+            onClick={() => setShowCreateForm(true)}
             variant="default"
             className="transition-all"
           >
@@ -501,16 +520,16 @@ export function SettlementProjectsView() {
           </Button>
         </div>
 
-        {/* Quick Create Form - Disabled in favor of modal */}
-        {false && showCreateForm && (
+        {/* Inline Create Form */}
+        {showCreateForm && (
           <Card className="border-2 border-primary/20 bg-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Plus className="h-5 w-5" />
-                Quick Create Project
+                Create New Project
               </CardTitle>
               <CardDescription>
-                Create a new project quickly. You can add items and manage details after creation.
+                Create a new project for your settlement. You can add items and manage details after creation.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -551,6 +570,138 @@ export function SettlementProjectsView() {
                 />
               </div>
               
+              {/* Required Items Section */}
+              <div className="space-y-4 mt-6">
+                <div className="border-t pt-4">
+                  <h4 className="font-medium mb-4">Required Items</h4>
+                  
+                  {/* Add Item Form */}
+                  <div className="space-y-4 p-4 border rounded-lg bg-muted/30">
+                    <div className="space-y-2">
+                      <Label htmlFor="itemName">Item Name</Label>
+                      <ItemSearchCombobox
+                        value={currentItem.itemSlug || ''}
+                        onValueChange={(value) => {
+                          if (!value) {
+                            setCurrentItem({
+                              ...currentItem,
+                              itemName: '',
+                              itemSlug: '',
+                              itemCategory: '',
+                              tier: 1
+                            });
+                            return;
+                          }
+                        }}
+                        onItemSelect={handleItemSelect}
+                        placeholder="Search for an item..."
+                      />
+                      {currentItem.itemName && (
+                        <p className="text-sm text-green-600">Selected: {currentItem.itemName}</p>
+                      )}
+                    </div>
+                    
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="requiredQuantity">Quantity</Label>
+                        <Input
+                          id="requiredQuantity"
+                          type="number"
+                          min="1"
+                          value={currentItem.requiredQuantity}
+                          onChange={(e) => setCurrentItem({
+                            ...currentItem,
+                            requiredQuantity: parseInt(e.target.value) || 1
+                          })}
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="item-priority">Priority</Label>
+                        <Select 
+                          value={currentItem.priority.toString()} 
+                          onValueChange={(value) => setCurrentItem({
+                            ...currentItem,
+                            priority: parseInt(value)
+                          })}
+                        >
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1">Low</SelectItem>
+                            <SelectItem value="2">Medium</SelectItem>
+                            <SelectItem value="3">High</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="itemNotes">Notes (Optional)</Label>
+                      <Textarea
+                        id="itemNotes"
+                        value={currentItem.notes}
+                        onChange={(e) => setCurrentItem({
+                          ...currentItem,
+                          notes: e.target.value
+                        })}
+                        placeholder="Any special requirements..."
+                        rows={2}
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="button"
+                      onClick={addItem}
+                      disabled={!validateCurrentItem()}
+                      variant="outline"
+                      className="w-full"
+                    >
+                      <Plus className="h-4 w-4 mr-2" />
+                      Add Item
+                    </Button>
+                  </div>
+
+                  {/* Current Items List */}
+                  {items.length > 0 && (
+                    <div className="mt-4 space-y-3">
+                      <h5 className="font-medium text-sm">Project Items ({items.length})</h5>
+                      <div className="space-y-2">
+                        {items.map((item, index) => (
+                          <div key={index} className="flex items-center justify-between p-3 border rounded-lg bg-background">
+                            <div className="flex-1 space-y-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium text-sm">{item.itemName}</span>
+                                <Badge variant="secondary" className="text-xs">
+                                  Tier {item.tier}
+                                </Badge>
+                                <Badge variant="outline" className="text-xs">
+                                  {['Low', 'Medium', 'High'][item.priority - 1]}
+                                </Badge>
+                              </div>
+                              <div className="text-xs text-muted-foreground">
+                                Quantity: {item.requiredQuantity.toLocaleString()}
+                                {item.notes && ` • ${item.notes}`}
+                              </div>
+                            </div>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              onClick={() => removeItem(index)}
+                              className="text-red-600 hover:text-red-700 h-8 w-8 p-0"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <div className="flex gap-2 pt-2">
                 <Button 
                   onClick={handleQuickCreate}
@@ -661,19 +812,13 @@ export function SettlementProjectsView() {
                   : `Projects with this status will appear here.`
                 }
               </p>
-              {projects.length === 0 && (
-                <Button onClick={() => setShowCreateForm(true)}>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Create First Project
-                </Button>
-              )}
+
             </CardContent>
           </Card>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => {
               const StatusIcon = statusIcons[project.status as keyof typeof statusIcons] || Clock;
-              const isContributingToThis = contributingTo === project.id;
               
               return (
                 <Card key={project.id} className="hover:shadow-lg transition-all duration-200">
@@ -747,67 +892,7 @@ export function SettlementProjectsView() {
                       </div>
                     </div>
 
-                    {/* Inline Contribution Form */}
-                    {isContributingToThis && project.status === 'Active' && (
-                      <div className="p-3 bg-muted/50 border rounded-lg space-y-3">
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-medium text-foreground">Quick Contribute</h4>
-                          <Button 
-                            size="sm" 
-                            variant="ghost" 
-                            onClick={() => setContributingTo(null)}
-                            className="h-6 w-6 p-0 text-muted-foreground hover:text-foreground"
-                          >
-                            <X className="h-4 w-4" />
-                          </Button>
-                        </div>
-                        
-                        <div className="grid gap-2">
-                          <Input
-                            placeholder="Item name (e.g., Iron Ore)"
-                            value={contributionData.itemName}
-                            onChange={(e) => setContributionData(prev => ({ 
-                              ...prev, 
-                              itemName: e.target.value,
-                              projectId: project.id 
-                            }))}
-                            className="text-sm"
-                          />
-                          <div className="flex gap-2">
-                            <Input
-                              type="number"
-                              placeholder="Qty"
-                              min="1"
-                              value={contributionData.quantity}
-                              onChange={(e) => setContributionData(prev => ({ 
-                                ...prev, 
-                                quantity: parseInt(e.target.value) || 1 
-                              }))}
-                              className="text-sm w-20"
-                            />
-                            <Input
-                              placeholder="Notes (optional)"
-                              value={contributionData.notes}
-                              onChange={(e) => setContributionData(prev => ({ 
-                                ...prev, 
-                                notes: e.target.value 
-                              }))}
-                              className="text-sm flex-1"
-                            />
-                          </div>
-                        </div>
-                        
-                        <Button 
-                          size="sm" 
-                          onClick={() => handleQuickContribute(project.id)}
-                          disabled={!contributionData.itemName.trim() || contributionData.quantity <= 0 || isContributing}
-                          className="w-full"
-                        >
-                          <Gift className="h-4 w-4 mr-2" />
-                          {isContributing ? 'Adding...' : 'Add Contribution'}
-                        </Button>
-                      </div>
-                    )}
+
 
                     {/* Meta Info */}
                     <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t">
@@ -822,30 +907,11 @@ export function SettlementProjectsView() {
 
                     {/* Actions */}
                     <div className="flex gap-2">
-                      {project.status === 'Active' && !isContributingToThis && (
-                        <Button 
-                          size="sm" 
-                          variant="default"
-                          className="flex-1"
-                          onClick={() => {
-                            setContributingTo(project.id);
-                            setContributionData({
-                              projectId: project.id,
-                              itemName: '',
-                              quantity: 1,
-                              notes: ''
-                            });
-                          }}
-                        >
-                          <Gift className="h-4 w-4 mr-1" />
-                          Contribute
-                        </Button>
-                      )}
                       <Button 
                         size="sm" 
                         variant="outline" 
                         onClick={() => router.push(`/en/settlement/projects/${project.short_id || project.id}`)}
-                        className={project.status === 'Active' && !isContributingToThis ? "" : "flex-1"}
+                        className="flex-1"
                       >
                         View Details
                       </Button>
@@ -858,12 +924,6 @@ export function SettlementProjectsView() {
         )}
       </div>
       
-      {/* Create Project Modal */}
-      <CreateProjectModal
-        open={showCreateModal}
-        onOpenChange={setShowCreateModal}
-        onProjectCreated={refreshProjects}
-      />
       
       {/* Edit Project Modal */}
       <EditProjectModal

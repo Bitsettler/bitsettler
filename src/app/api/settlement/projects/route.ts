@@ -147,12 +147,27 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
   }
 
   // Create project data using authenticated user
+  const userName = session.user.name || session.user.email || session.user.id || 'Unknown User';
+  
   const projectData: CreateProjectRequest = {
     name: body.name,
     description: body.description,
-    createdBy: session.user.name!,
+    createdBy: userName,
     items: body.items || []
   };
+
+  logger.info('Project creation request details', {
+    userName,
+    userInfo: {
+      id: session.user.id,
+      name: session.user.name,
+      email: session.user.email
+    },
+    projectData: {
+      name: body.name,
+      itemCount: body.items?.length || 0
+    }
+  });
 
   logger.info('Creating new settlement project', {
     operation: 'CREATE_PROJECT',

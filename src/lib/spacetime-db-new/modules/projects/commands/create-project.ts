@@ -90,10 +90,10 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         project_id: project.id,
         item_name: item.itemName.trim(),
         required_quantity: Math.max(1, item.requiredQuantity || 1), // Ensure quantity > 0
-        tier: Math.max(1, Math.min(4, item.tier || 1)), // Ensure tier is 1-4
+        tier: Math.max(1, Math.min(6, item.tier || 1)), // Ensure tier is 1-6
         priority: Math.max(1, Math.min(5, item.priority || 3)), // Ensure priority is 1-5
         rank_order: item.rankOrder !== undefined ? item.rankOrder : index,
-        // notes: item.notes && item.notes.trim() ? item.notes.trim() : null, // TEMPORARILY REMOVED
+        notes: item.notes && item.notes.trim() ? item.notes.trim() : null,
       }));
 
       console.log('Attempting to insert project items:', {
@@ -134,7 +134,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         rankOrder: item.rank_order,
         status: item.status,
         assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
-        notes: null, // TEMPORARILY SET TO NULL since column doesn't exist
+        notes: item.notes,
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),
       }));
