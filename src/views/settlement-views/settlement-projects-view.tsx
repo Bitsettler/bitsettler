@@ -185,7 +185,7 @@ export function SettlementProjectsView() {
   };
 
   // Project membership functions
-  const handleJoinProject = async (projectId: string) => {
+  const handleJoinProject = useCallback(async (projectId: string) => {
     if (!session?.user) return;
     
     setJoiningProject(projectId);
@@ -224,9 +224,9 @@ export function SettlementProjectsView() {
     } finally {
       setJoiningProject(null);
     }
-  };
+  }, [session?.user, session?.access_token, fetchProjectMemberships]);
 
-  const handleLeaveProject = async (projectId: string) => {
+  const handleLeaveProject = useCallback(async (projectId: string) => {
     if (!session?.user) return;
     
     setLeavingProject(projectId);
@@ -264,9 +264,9 @@ export function SettlementProjectsView() {
     } finally {
       setLeavingProject(null);
     }
-  };
+  }, [session?.user, session?.access_token, fetchProjectMemberships]);
 
-  const fetchProjectMemberships = async () => {
+  const fetchProjectMemberships = useCallback(async () => {
     if (!session?.user || projects.length === 0) return;
 
     try {
@@ -322,7 +322,7 @@ export function SettlementProjectsView() {
     } catch (error) {
       console.error('Error fetching project memberships:', error);
     }
-  };
+  }, [session?.user, session?.access_token, projects]);
 
   // Load projects on mount and when status filter changes
   useEffect(() => {
@@ -381,7 +381,7 @@ export function SettlementProjectsView() {
   // Fetch project memberships when projects change
   useEffect(() => {
     fetchProjectMemberships();
-  }, [projects, session]);
+  }, [fetchProjectMemberships]);
 
   // Apply client-side filters
   useEffect(() => {
