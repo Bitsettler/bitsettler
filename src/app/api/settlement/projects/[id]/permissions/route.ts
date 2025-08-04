@@ -5,10 +5,11 @@ import { createServerClient } from '../../../../../../lib/spacetime-db-new/share
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    console.log('🔍 Permissions API called for project:', params.id);
+    const { id: projectId } = await params;
+    console.log('🔍 Permissions API called for project:', projectId);
     
     // Check authentication
     const session = await getSupabaseSession(request);

@@ -17,9 +17,9 @@ interface UpdateProjectData {
 
 async function handleGetProject(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<Result<unknown>> {
-  const projectId = params.id;
+  const { id: projectId } = await params;
   
   try {
     // Handle both UUID and short_id formats
@@ -71,9 +71,9 @@ async function handleGetProject(
 
 async function handleUpdateProject(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<Result<unknown>> {
-  const projectId = params.id;
+  const { id: projectId } = await params;
   
   // Check authentication
   const session = await getSupabaseSession(request);
@@ -192,9 +192,9 @@ async function handleUpdateProject(
 
 async function handleDeleteProject(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<Result<unknown>> {
-  const projectId = params.id;
+  const { id: projectId } = await params;
   
   // Check authentication
   const session = await getSupabaseSession(request);
@@ -272,7 +272,7 @@ async function handleDeleteProject(
 // export const DELETE = withErrorHandlingParams(handleDeleteProject);
 
 // Temporary direct handlers to bypass withErrorHandlingParams wrapper for debugging
-export async function GET(request: NextRequest, context: { params: { id: string } }) {
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     console.log('Direct Project Detail API: Starting GET...');
     const result = await handleGetProject(request, context);
@@ -299,7 +299,7 @@ export async function GET(request: NextRequest, context: { params: { id: string 
   }
 }
 
-export async function PUT(request: NextRequest, context: { params: { id: string } }) {
+export async function PUT(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     const result = await handleUpdateProject(request, context);
     
@@ -323,7 +323,7 @@ export async function PUT(request: NextRequest, context: { params: { id: string 
   }
 }
 
-export async function DELETE(request: NextRequest, context: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     const result = await handleDeleteProject(request, context);
     

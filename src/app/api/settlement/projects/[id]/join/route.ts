@@ -11,12 +11,12 @@ interface JoinProjectRequest {
 
 async function handleJoinProject(
   request: NextRequest, 
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ): Promise<Result<{ message: string; member: any }>> {
   try {
     // Authenticate user
     const user = await requireAuth(request);
-    const { id: projectId } = context.params;
+    const { id: projectId } = await context.params;
 
     logger.info('User joining project', {
       operation: 'JOIN_PROJECT',

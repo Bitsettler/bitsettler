@@ -241,7 +241,7 @@ export function SettlementProjectsView() {
     } catch (error) {
       console.error('Error fetching project memberships:', error);
     }
-  }, [session?.user, session?.access_token, projects]);
+  }, [session?.user, session?.access_token]);
 
   // Project membership functions
   const handleJoinProject = useCallback(async (projectId: string) => {
@@ -379,10 +379,12 @@ export function SettlementProjectsView() {
     setRefreshTrigger(prev => prev + 1);
   };
 
-  // Fetch project memberships when projects change
+  // Fetch memberships once when projects are initially loaded
   useEffect(() => {
-    fetchProjectMemberships();
-  }, [fetchProjectMemberships]);
+    if (projects.length > 0 && session?.user && !loading) {
+      fetchProjectMemberships();
+    }
+  }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
 
   // Apply client-side filters
   useEffect(() => {
