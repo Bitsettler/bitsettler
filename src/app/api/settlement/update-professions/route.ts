@@ -116,7 +116,7 @@ export async function PUT(request: NextRequest) {
         secondary_profession: secondaryProfession,
         updated_at: new Date().toISOString()
       })
-      .eq('auth_user_id', user.id)
+      .eq('supabase_user_id', user.id)
       .select('id, name, primary_profession, secondary_profession, top_profession')
       .single();
 
