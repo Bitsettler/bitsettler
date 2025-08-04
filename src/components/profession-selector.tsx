@@ -107,55 +107,10 @@ export function ProfessionSelector({
             Your Professions
           </CardTitle>
           <CardDescription>
-            Choose your primary and secondary professions. Click any skill to select it - first click sets Primary, second click (on a different skill) sets Secondary. Your highest skills are shown first.
+            Click any skill to select it. Your first selection becomes Primary (⭐), your second becomes Secondary (👤). Your highest skills are shown first.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Current Selections */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-muted/30 rounded-lg">
-            <div className="text-center">
-              <div className="text-sm font-medium text-muted-foreground mb-2 flex items-center justify-center gap-1">
-                <Star className="h-4 w-4 text-yellow-500" />
-                Primary
-              </div>
-              {selectedPrimary ? (
-                <div className="flex items-center gap-2 justify-center">
-                  <Badge variant="default" className="text-sm">
-                    {selectedPrimary.name} (Level {selectedPrimary.level})
-                  </Badge>
-                  {allowNone && (
-                    <Button size="sm" variant="ghost" onClick={() => onPrimaryChange(undefined)}>
-                      <X className="h-3 w-3" />
-                    </Button>
-                  )}
-                </div>
-              ) : (
-                <div className="text-sm text-muted-foreground">Not selected</div>
-              )}
-            </div>
-            
-            <div className="text-center">
-              <div className="text-sm font-medium text-muted-foreground mb-2 flex items-center justify-center gap-1">
-                <User className="h-4 w-4 text-blue-500" />
-                Secondary
-              </div>
-              {selectedSecondary ? (
-                <div className="flex items-center gap-2 justify-center">
-                  <Badge variant="secondary" className="text-sm">
-                    {selectedSecondary.name} (Level {selectedSecondary.level})
-                  </Badge>
-                  {allowNone && (
-                    <Button size="sm" variant="ghost" onClick={() => onSecondaryChange(undefined)}>
-                      <X className="h-3 w-3" />
-                    </Button>
-                  )}
-                </div>
-              ) : (
-                <div className="text-sm text-muted-foreground">Not selected</div>
-              )}
-            </div>
-          </div>
-
           {/* Skill Selection Grid */}
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {availableSkills.map((skill) => {
@@ -171,13 +126,13 @@ export function ProfessionSelector({
               if (isPrimary) {
                 buttonVariant = "outline";
                 ringClass = "ring-2 ring-yellow-500";
-                bgClass = "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200";
+                bgClass = "bg-yellow-500/10 border-yellow-300";
                 statusIcon = <Star className="h-4 w-4 text-yellow-600" />;
                 statusText = "Primary";
               } else if (isSecondary) {
                 buttonVariant = "outline";
                 ringClass = "ring-2 ring-blue-500";
-                bgClass = "bg-blue-50 dark:bg-blue-950/30 border-blue-200";
+                bgClass = "bg-blue-500/10 border-blue-300";
                 statusIcon = <User className="h-4 w-4 text-blue-600" />;
                 statusText = "Secondary";
               }
