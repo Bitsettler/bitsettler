@@ -1,5 +1,6 @@
 import type { ToolWithStats } from '@/lib/spacetime-db-new/modules/tools/flows'
 import { getLowestRarity } from '@/lib/spacetime-db-new/shared/utils/rarity'
+import { createSlug } from '@/lib/spacetime-db-new/shared/utils/entities'
 import { TagPageView } from '@/views/tag-views/tag-page-view'
 
 interface ToolsIndividualTagPageViewProps {

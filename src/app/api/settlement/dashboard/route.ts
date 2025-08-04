@@ -76,6 +76,25 @@ export async function GET(request: NextRequest) {
       return lastLogin > weekAgo;
     }).length || 0;
 
+    // Fetch project statistics
+    console.log(`📊 Querying settlement_projects for settlement ${settlementId}...`);
+    const { data: projects, error: projectsError } = await supabase
+      .from('settlement_projects')
+      .select(`
+        *,
+        created_by_member:settlement_members!created_by_member_id(settlement_id)
+      `)
+      .eq('created_by_member.settlement_id', settlementId);
+
+    if (projectsError) {
+      console.error(`❌ Failed to fetch projects:`, projectsError);
+      // Don't fail the entire request, just log the error and use 0 for project stats
+    }
+
+    const totalProjects = projects?.length || 0;
+    const completedProjects = projects?.filter(p => p.status === 'Completed').length || 0;
+    console.log(`📈 Project stats: ${totalProjects} total, ${completedProjects} completed`);
+
     // Calculate skills insights
     const skillsInsights = {
       totalSkilledMembers: members?.filter(m => m.total_level && m.total_level > 0).length || 0,
@@ -181,8 +200,8 @@ export async function GET(request: NextRequest) {
         stats: {
           totalMembers, // Always use actual member count from database
           activeMembers,
-          totalProjects: 0, // TODO: Add when projects table is ready
-          completedProjects: 0,
+          totalProjects,
+          completedProjects,
           tiles: liveSettlementData?.tiles || 0,
           supplies: liveSettlementData?.supplies || 0
         }
@@ -191,8 +210,8 @@ export async function GET(request: NextRequest) {
       stats: {
         totalMembers, // Always use actual member count from database
         activeMembers,
-        totalProjects: 0,
-        completedProjects: 0,
+        totalProjects,
+        completedProjects,
         currentBalance: liveSettlementData?.treasury || currentBalance,
         monthlyIncome: 0,
         tiles: liveSettlementData?.tiles || 0,

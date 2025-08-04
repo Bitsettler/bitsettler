@@ -782,68 +782,78 @@ export function SettlementSkillsView() {
           )}
         </CardHeader>
         <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <Table className="table-fixed">
-              <TableHeader>
-                {/* Group Header Row */}
-                <TableRow>
-                  <TableHead className="sticky left-0 bg-background z-10 border-r w-48"></TableHead>
-                  {groupedSkills.map(([groupName, skills]) => (
-                    <TableHead 
-                      key={groupName} 
-                      colSpan={skills.length}
-                      className="text-center p-2 bg-muted/30 border-x border-muted font-semibold text-sm"
-                    >
-                      {groupName}
-                    </TableHead>
-                  ))}
-                </TableRow>
-                
-                {/* Individual Skill Header Row */}
-                <TableRow>
-                  <TableHead className="sticky left-0 bg-background z-10 border-r w-48">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleSort('name')}
-                      className="h-auto p-2 font-medium hover:bg-muted"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span>Member</span>
-                        {renderSortIcon('name')}
-                      </div>
-                    </Button>
-                  </TableHead>
-                  {groupedSkills.map(([groupName, skills], groupIndex) => 
-                    skills.map((skill, skillIndex) => (
+          {/* Floating Sticky Headers */}
+          <div className="sticky top-0 z-40 bg-background border-b shadow-sm">
+            <div className="overflow-x-auto">
+              <Table className="table-fixed">
+                <TableHeader>
+                  {/* Group Header Row */}
+                  <TableRow>
+                    <TableHead className="border-r w-48 bg-background"></TableHead>
+                    {groupedSkills.map(([groupName, skills]) => (
                       <TableHead 
-                        key={skill.id} 
-                        className={`text-center min-w-[100px] p-2 ${
-                          skillIndex === 0 ? 'border-l-2 border-muted' : ''
-                        } ${skillIndex === skills.length - 1 ? 'border-r-2 border-muted' : ''}`}
+                        key={groupName} 
+                        colSpan={skills.length}
+                        className="bg-muted/30 border-x border-muted font-semibold text-sm text-center p-2"
                       >
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleSort(skill.id)}
-                          className="h-auto p-2 font-medium text-xs hover:bg-muted"
-                        >
-                          <div className="flex flex-col items-center gap-1">
-                            <span className="font-medium">{skill.name}</span>
-                            {renderSortIcon(skill.id)}
-                          </div>
-                        </Button>
+                        {groupName}
                       </TableHead>
-                    ))
-                  )}
-                </TableRow>
-              </TableHeader>
+                    ))}
+                  </TableRow>
+                  
+                  {/* Individual Skill Header Row */}
+                  <TableRow>
+                    <TableHead className="border-r w-48 bg-background">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleSort('name')}
+                        className="h-auto p-2 font-medium hover:bg-muted"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span>Member</span>
+                          {renderSortIcon('name')}
+                        </div>
+                      </Button>
+                    </TableHead>
+                    {groupedSkills.map(([groupName, skills], groupIndex) => 
+                      skills.map((skill, skillIndex) => (
+                        <TableHead 
+                          key={skill.id} 
+                          className={`bg-background text-center min-w-[100px] p-2 ${
+                            skillIndex === 0 ? 'border-l-2 border-muted' : ''
+                          } ${skillIndex === skills.length - 1 ? 'border-r-2 border-muted' : ''}`}
+                        >
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleSort(skill.id)}
+                            className="h-auto p-2 font-medium text-xs hover:bg-muted"
+                          >
+                            <div className="flex flex-col items-center gap-1">
+                              <span className="font-medium">{skill.name}</span>
+                              {renderSortIcon(skill.id)}
+                            </div>
+                          </Button>
+                        </TableHead>
+                      ))
+                    )}
+                  </TableRow>
+                </TableHeader>
+              </Table>
+            </div>
+          </div>
+
+          {/* Scrollable Table Content */}
+          <div className="overflow-x-auto max-h-[75vh] overflow-y-auto">
+            <Table className="table-fixed">
+              {/* No headers in scrollable table - they're now floating above */}
               <TableBody>
                 {sortedCitizens.map((citizen, index) => {
                   const citizenKey = citizen.entityId || `citizen-${index}`;
                   return (
                     <TableRow key={citizenKey} className="hover:bg-muted/30">
-                      <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3">
+                      <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3 w-48">
                         <div className="truncate">
                           <button
                             onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(citizen.entityId)}`)}

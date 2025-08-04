@@ -56,19 +56,16 @@ export function ProfessionSelector({
     const isSecondary = secondaryProfession === skillName;
 
     if (!isPrimary && !isSecondary) {
-      // Not selected → Set as Primary
+      // Click 1: Not selected → Set as Primary
       onPrimaryChange(skillName);
     } else if (isPrimary && !isSecondary) {
-      // Is Primary → Set as Secondary (clear primary first)
+      // Click 2: Is Primary → Set as Secondary (clear primary first)
       onPrimaryChange(undefined);
       onSecondaryChange(skillName);
     } else if (!isPrimary && isSecondary) {
-      // Is Secondary → Clear it
+      // Click 3: Is Secondary → Set as Primary (clear secondary first)
       onSecondaryChange(undefined);
-    } else {
-      // Shouldn't happen, but just in case - clear both
-      onPrimaryChange(undefined);
-      onSecondaryChange(undefined);
+      onPrimaryChange(skillName);
     }
   };
 
@@ -89,7 +86,7 @@ export function ProfessionSelector({
             Your Professions
           </CardTitle>
           <CardDescription>
-            Choose your primary and secondary professions. Click once for Primary, twice for Secondary, thrice to clear. Your highest skills are shown first.
+            Choose your primary and secondary professions. Click once for Primary, twice for Secondary. Your highest skills are shown first.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -188,7 +185,7 @@ export function ProfessionSelector({
                   )}
                   {!isPrimary && !isSecondary && (
                     <div className="text-xs text-muted-foreground opacity-60">
-                      Click to set
+                      Click: Primary
                     </div>
                   )}
                 </Button>

@@ -3,8 +3,8 @@ import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-a
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { validateRequestBody } from '@/lib/validation';
 import { createRequestLogger } from '@/lib/logger';
-import { shouldRateLimit, standardRateLimit } from '@/lib/rate-limiting';
-import { PROFESSIONS } from '@/constants/professions';
+import { shouldRateLimit, apiRateLimit } from '@/lib/rate-limiting';
+// Note: Now using actual skills instead of hardcoded professions
 
 /**
  * Update User Professions API
@@ -23,7 +23,8 @@ const UPDATE_PROFESSIONS_SCHEMA = {
     sanitize: true,
     custom: (value: string) => {
       if (!value) return true; // Allow null/empty
-      return PROFESSIONS.some(p => p.id === value) || 'Invalid profession ID';
+      // Now accepts any skill name since we're using actual game skills
+      return value.length > 0 || 'Invalid profession name';
     }
   },
   secondaryProfession: {
@@ -34,7 +35,8 @@ const UPDATE_PROFESSIONS_SCHEMA = {
     sanitize: true,
     custom: (value: string) => {
       if (!value) return true; // Allow null/empty
-      return PROFESSIONS.some(p => p.id === value) || 'Invalid profession ID';
+      // Now accepts any skill name since we're using actual game skills
+      return value.length > 0 || 'Invalid profession name';
     }
   }
 };
@@ -61,7 +63,7 @@ export async function PUT(request: NextRequest) {
     
     // Apply rate limiting (10 updates per hour)
     if (shouldRateLimit(request)) {
-      const rateLimitCheck = await standardRateLimit(user.id)(request);
+      const rateLimitCheck = await apiRateLimit(request);
       if (!rateLimitCheck.allowed && rateLimitCheck.response) {
         userLogger.warn('Rate limit exceeded for profession updates');
         return rateLimitCheck.response;
