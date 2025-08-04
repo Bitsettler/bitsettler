@@ -17,7 +17,11 @@ import {
   Save,
   Trash2,
   Edit,
-  MoreHorizontal
+  MoreHorizontal,
+  UserPlus,
+  UserMinus,
+  Crown,
+  Shield
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -93,11 +97,25 @@ export function SettlementProjectsView() {
   
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled'>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled' | 'myProjects'>('all');
   const [priorityFilter, setPriorityFilter] = useState<'all' | '1' | '2' | '3' | '4' | '5'>('all');
   
   // Refresh trigger
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  
+  // Project memberships
+  const [projectMemberships, setProjectMemberships] = useState<Record<string, {
+    isMember: boolean;
+    role: string;
+    members: Array<{
+      id: string;
+      name: string;
+      role: string;
+      assignedAt: Date;
+    }>;
+  }>>({});
+  const [joiningProject, setJoiningProject] = useState<string | null>(null);
+  const [leavingProject, setLeavingProject] = useState<string | null>(null);
   
 
   
@@ -166,6 +184,146 @@ export function SettlementProjectsView() {
     setItems(items.filter((_, i) => i !== index));
   };
 
+  // Project membership functions
+  const handleJoinProject = async (projectId: string) => {
+    if (!session?.user) return;
+    
+    setJoiningProject(projectId);
+    try {
+      const response = await fetch(`/api/settlement/projects/${projectId}/join`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` })
+        },
+        body: JSON.stringify({ role: 'Contributor' })
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to join project');
+      }
+
+      // Update local state
+      setProjectMemberships(prev => ({
+        ...prev,
+        [projectId]: {
+          ...prev[projectId],
+          isMember: true,
+          role: 'Contributor'
+        }
+      }));
+
+      // Refresh project memberships
+      await fetchProjectMemberships();
+      
+    } catch (err) {
+      console.error('Error joining project:', err);
+      setError(err instanceof Error ? err.message : 'Failed to join project');
+    } finally {
+      setJoiningProject(null);
+    }
+  };
+
+  const handleLeaveProject = async (projectId: string) => {
+    if (!session?.user) return;
+    
+    setLeavingProject(projectId);
+    try {
+      const response = await fetch(`/api/settlement/projects/${projectId}/leave`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` })
+        }
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to leave project');
+      }
+
+      // Update local state
+      setProjectMemberships(prev => ({
+        ...prev,
+        [projectId]: {
+          ...prev[projectId],
+          isMember: false,
+          role: ''
+        }
+      }));
+
+      // Refresh project memberships
+      await fetchProjectMemberships();
+      
+    } catch (err) {
+      console.error('Error leaving project:', err);
+      setError(err instanceof Error ? err.message : 'Failed to leave project');
+    } finally {
+      setLeavingProject(null);
+    }
+  };
+
+  const fetchProjectMemberships = async () => {
+    if (!session?.user || projects.length === 0) return;
+
+    try {
+      // Fetch membership data for each project
+      const membershipPromises = projects.map(async (project) => {
+        try {
+          const response = await fetch(`/api/settlement/projects/${project.id}`, {
+            headers: {
+              ...(session.access_token && { 'Authorization': `Bearer ${session.access_token}` })
+            }
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            if (result.success && result.data.assignedMembers) {
+              const userMember = result.data.assignedMembers.find(
+                (member: any) => member.name === session.user?.name // Simple name-based matching for now
+              );
+              
+              return {
+                projectId: project.id,
+                isMember: !!userMember,
+                role: userMember?.role || '',
+                members: result.data.assignedMembers
+              };
+            }
+          }
+        } catch (error) {
+          console.warn(`Failed to fetch memberships for project ${project.id}:`, error);
+        }
+        
+        return {
+          projectId: project.id,
+          isMember: false,
+          role: '',
+          members: []
+        };
+      });
+
+      const memberships = await Promise.all(membershipPromises);
+      
+      const membershipMap = memberships.reduce((acc, membership) => {
+        acc[membership.projectId] = {
+          isMember: membership.isMember,
+          role: membership.role,
+          members: membership.members
+        };
+        return acc;
+      }, {} as typeof projectMemberships);
+
+      setProjectMemberships(membershipMap);
+      
+    } catch (error) {
+      console.error('Error fetching project memberships:', error);
+    }
+  };
+
   // Load projects on mount and when status filter changes
   useEffect(() => {
     if (!session?.user) {
@@ -220,10 +378,24 @@ export function SettlementProjectsView() {
     setRefreshTrigger(prev => prev + 1);
   };
 
+  // Fetch project memberships when projects change
+  useEffect(() => {
+    fetchProjectMemberships();
+  }, [projects, session]);
+
   // Apply client-side filters
   useEffect(() => {
     if (!Array.isArray(projects)) return;
     let filtered = [...projects];
+
+    // Status filter (including myProjects)
+    if (statusFilter === 'myProjects') {
+      filtered = filtered.filter(project => 
+        projectMemberships[project.id]?.isMember === true
+      );
+    } else if (statusFilter !== 'all') {
+      filtered = filtered.filter(project => project.status === statusFilter);
+    }
 
     // Search filter
     if (searchTerm) {
@@ -239,7 +411,7 @@ export function SettlementProjectsView() {
     }
 
     setFilteredProjects(filtered);
-  }, [projects, searchTerm, priorityFilter]);
+  }, [projects, searchTerm, priorityFilter, statusFilter, projectMemberships]);
 
   // Quick Create Project Handler
   const handleQuickCreate = async () => {
@@ -747,7 +919,8 @@ export function SettlementProjectsView() {
                   onChange={(e) => setStatusFilter(e.target.value as any)}
                   className="w-[160px] h-10 px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                 >
-                  <option value="all">All Status</option>
+                  <option value="all">All Projects</option>
+                  <option value="myProjects">My Projects</option>
                   <option value="Active">Active</option>
                   <option value="Completed">Completed</option>
                   <option value="Cancelled">Cancelled</option>
@@ -892,7 +1065,31 @@ export function SettlementProjectsView() {
                       </div>
                     </div>
 
-
+                    {/* Project Members */}
+                    {projectMemberships[project.id]?.members?.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="font-medium">Team Members</span>
+                          <span className="text-muted-foreground">
+                            {projectMemberships[project.id].members.length} member{projectMemberships[project.id].members.length !== 1 ? 's' : ''}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-1">
+                          {projectMemberships[project.id].members.slice(0, 3).map((member) => (
+                            <Badge key={member.id} variant="secondary" className="text-xs">
+                              {member.role === 'Leader' && <Crown className="h-3 w-3 mr-1" />}
+                              {member.role === 'Observer' && <Shield className="h-3 w-3 mr-1" />}
+                              {member.name}
+                            </Badge>
+                          ))}
+                          {projectMemberships[project.id].members.length > 3 && (
+                            <Badge variant="outline" className="text-xs">
+                              +{projectMemberships[project.id].members.length - 3} more
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Meta Info */}
                     <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t">
@@ -915,6 +1112,41 @@ export function SettlementProjectsView() {
                       >
                         View Details
                       </Button>
+                      
+                      {/* Join/Leave Button */}
+                      {session?.user && (
+                        <div className="flex gap-1">
+                          {projectMemberships[project.id]?.isMember ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => handleLeaveProject(project.id)}
+                              disabled={leavingProject === project.id}
+                              className="text-red-600 hover:text-red-700 border-red-200 hover:border-red-300"
+                            >
+                              {leavingProject === project.id ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                              ) : (
+                                <UserMinus className="h-4 w-4" />
+                              )}
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => handleJoinProject(project.id)}
+                              disabled={joiningProject === project.id}
+                              className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
+                            >
+                              {joiningProject === project.id ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                              ) : (
+                                <UserPlus className="h-4 w-4" />
+                              )}
+                            </Button>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
