@@ -1,26 +1,19 @@
-import { NextResponse } from 'next/server';
-import { getSupabaseSession } from '@/lib/supabase-server-auth';
-import { supabase } from '@/lib/spacetime-db-new/shared/supabase-client';
+import { NextRequest, NextResponse } from 'next/server';
+import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-auth';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
-    const session = await getSupabaseSession(request);
-    
-    if (!session?.user?.id) {
+    const authResult = await requireAuth(request);
+    if (authResult.error) {
       return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
+        { error: authResult.error },
+        { status: authResult.status }
       );
     }
 
-    if (!supabase) {
-      return NextResponse.json(
-        { error: 'Database not available' },
-        { status: 503 }
-      );
-    }
+    const supabase = await createServerSupabaseClient();
 
-    // Get unclaimed settlement members (supabase_user_id is NULL)
+    // Get unclaimed settlement members (auth_user_id is NULL)
     const { data: members, error } = await supabase
       .from('settlement_members')
       .select(`
@@ -33,7 +26,7 @@ export async function GET(request: Request) {
         settlement_id,
         is_active
       `)
-      .is('supabase_user_id', null)
+      .is('auth_user_id', null)
       .order('total_level', { ascending: false });
 
     if (error) {
