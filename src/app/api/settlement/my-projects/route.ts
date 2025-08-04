@@ -25,7 +25,15 @@ interface MyProject {
 async function handleGetMyProjects(request: NextRequest): Promise<Result<{ projects: MyProject[] }>> {
   try {
     // Authenticate user
-    const user = await requireAuth(request);
+    const authResult = await requireAuth(request);
+    if (authResult.error) {
+      return apiError(
+        authResult.error,
+        ErrorCodes.UNAUTHORIZED
+      );
+    }
+
+    const { user } = authResult;
 
     logger.info('Fetching user projects', {
       operation: 'GET_MY_PROJECTS',

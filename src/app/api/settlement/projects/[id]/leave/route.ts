@@ -11,7 +11,15 @@ async function handleLeaveProject(
 ): Promise<Result<{ message: string }>> {
   try {
     // Authenticate user
-    const user = await requireAuth(request);
+    const authResult = await requireAuth(request);
+    if (authResult.error) {
+      return apiError(
+        authResult.error,
+        ErrorCodes.UNAUTHORIZED
+      );
+    }
+
+    const { user } = authResult;
     const { id: projectId } = await context.params;
 
     logger.info('User leaving project', {
