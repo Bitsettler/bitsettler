@@ -1,13 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { PROFESSIONS, Profession } from '@/constants/professions';
-import { Check, X, Star, User } from 'lucide-react';
+import { Check, X, Star, User, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useSkillNames } from '../hooks/use-skill-names';
 
 interface ProfessionSelectorProps {
   primaryProfession?: string;
@@ -16,6 +15,13 @@ interface ProfessionSelectorProps {
   onSecondaryChange: (profession: string | undefined) => void;
   allowNone?: boolean;
   className?: string;
+  memberSkills?: Record<string, number>;
+}
+
+interface Skill {
+  id: string;
+  name: string;
+  level: number;
 }
 
 export function ProfessionSelector({
@@ -24,56 +30,61 @@ export function ProfessionSelector({
   onPrimaryChange,
   onSecondaryChange,
   allowNone = true,
-  className
+  className,
+  memberSkills = {}
 }: ProfessionSelectorProps) {
-  const [selectionMode, setSelectionMode] = useState<'primary' | 'secondary' | null>(null);
+  const { skillNames, transformSkillsToNames } = useSkillNames();
 
-  const handleProfessionClick = (profession: Profession) => {
-    if (selectionMode === 'primary') {
-      if (primaryProfession === profession.id) {
-        // Clicking the same profession deselects it
-        onPrimaryChange(undefined);
-      } else {
-        onPrimaryChange(profession.id);
-        // If we're setting the same as secondary, clear secondary
-        if (secondaryProfession === profession.id) {
-          onSecondaryChange(undefined);
-        }
-      }
-      setSelectionMode(null);
-    } else if (selectionMode === 'secondary') {
-      if (secondaryProfession === profession.id) {
-        // Clicking the same profession deselects it
+  // Convert member skills to a sorted list with skill names
+  const availableSkills = useMemo(() => {
+    if (!skillNames || Object.keys(skillNames).length === 0) return [];
+    
+    const skillsWithNames = transformSkillsToNames(memberSkills);
+    
+    // Create skill objects from available skill names
+    return Object.entries(skillNames)
+      .map(([skillId, skillName]) => ({
+        id: skillName,
+        name: skillName,
+        level: skillsWithNames[skillName] || 0
+      }))
+      .sort((a, b) => b.level - a.level); // Sort by skill level descending
+  }, [skillNames, memberSkills, transformSkillsToNames]);
+
+  const handleSkillClick = (skillName: string, isSecondary: boolean = false) => {
+    if (isSecondary) {
+      if (secondaryProfession === skillName) {
         onSecondaryChange(undefined);
       } else {
-        onSecondaryChange(profession.id);
-        // If we're setting the same as primary, clear primary
-        if (primaryProfession === profession.id) {
+        onSecondaryChange(skillName);
+        // If same as primary, clear primary
+        if (primaryProfession === skillName) {
           onPrimaryChange(undefined);
         }
       }
-      setSelectionMode(null);
+    } else {
+      if (primaryProfession === skillName) {
+        onPrimaryChange(undefined);
+      } else {
+        onPrimaryChange(skillName);
+        // If same as secondary, clear secondary
+        if (secondaryProfession === skillName) {
+          onSecondaryChange(undefined);
+        }
+      }
     }
   };
 
-  const handleClearPrimary = () => {
-    onPrimaryChange(undefined);
+  const getSkillByName = (name: string | undefined): Skill | undefined => {
+    return name ? availableSkills.find(s => s.name === name) : undefined;
   };
 
-  const handleClearSecondary = () => {
-    onSecondaryChange(undefined);
-  };
-
-  const getProfessionById = (id: string | undefined): Profession | undefined => {
-    return id ? PROFESSIONS.find(p => p.id === id) : undefined;
-  };
-
-  const selectedPrimary = getProfessionById(primaryProfession);
-  const selectedSecondary = getProfessionById(secondaryProfession);
+  const selectedPrimary = getSkillByName(primaryProfession);
+  const selectedSecondary = getSkillByName(secondaryProfession);
 
   return (
-    <div className={cn("space-y-6", className)}>
-      {/* Selection Status and Controls */}
+    <div className={cn("space-y-4", className)}>
+      {/* Profession Selection - Single Compact Interface */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -81,181 +92,113 @@ export function ProfessionSelector({
             Your Professions
           </CardTitle>
           <CardDescription>
-            Choose your primary and secondary professions to represent your playstyle and specializations.
+            Choose your primary and secondary professions based on your skill levels. Your highest skills are shown first.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Primary Profession */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <h4 className="font-medium flex items-center gap-2">
+          {/* Current Selections */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-muted/30 rounded-lg">
+            <div className="text-center">
+              <div className="text-sm font-medium text-muted-foreground mb-2 flex items-center justify-center gap-1">
                 <Star className="h-4 w-4 text-yellow-500" />
-                Primary Profession
-              </h4>
-              <div className="flex gap-2">
-                <Button
-                  size="sm"
-                  variant={selectionMode === 'primary' ? 'default' : 'outline'}
-                  onClick={() => setSelectionMode(selectionMode === 'primary' ? null : 'primary')}
-                >
-                  {selectionMode === 'primary' ? 'Cancel' : selectedPrimary ? 'Change' : 'Select'}
-                </Button>
-                {selectedPrimary && allowNone && (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={handleClearPrimary}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                )}
+                Primary
               </div>
+              {selectedPrimary ? (
+                <div className="flex items-center gap-2 justify-center">
+                  <Badge variant="default" className="text-sm">
+                    {selectedPrimary.name} (Level {selectedPrimary.level})
+                  </Badge>
+                  {allowNone && (
+                    <Button size="sm" variant="ghost" onClick={() => onPrimaryChange(undefined)}>
+                      <X className="h-3 w-3" />
+                    </Button>
+                  )}
+                </div>
+              ) : (
+                <div className="text-sm text-muted-foreground">Not selected</div>
+              )}
             </div>
             
-            {selectedPrimary ? (
-              <Card className="bg-muted/50">
-                <CardContent className="p-3">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="relative w-12 h-12 rounded-md overflow-hidden flex items-center justify-center text-white font-semibold text-lg"
-                      style={{ backgroundColor: selectedPrimary.fallbackColor }}
-                    >
-                      {selectedPrimary.name.charAt(0)}
-                    </div>
-                    <div className="flex-1">
-                      <h5 className="font-medium">{selectedPrimary.name}</h5>
-                      <p className="text-sm text-muted-foreground">{selectedPrimary.description}</p>
-                    </div>
-                    <Badge variant="default">Primary</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ) : (
-              <div className="text-sm text-muted-foreground p-3 border-2 border-dashed rounded-md text-center">
-                No primary profession selected
-              </div>
-            )}
-          </div>
-
-          <Separator />
-
-          {/* Secondary Profession */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <h4 className="font-medium flex items-center gap-2">
+            <div className="text-center">
+              <div className="text-sm font-medium text-muted-foreground mb-2 flex items-center justify-center gap-1">
                 <User className="h-4 w-4 text-blue-500" />
-                Secondary Profession
-              </h4>
-              <div className="flex gap-2">
-                <Button
-                  size="sm"
-                  variant={selectionMode === 'secondary' ? 'default' : 'outline'}
-                  onClick={() => setSelectionMode(selectionMode === 'secondary' ? null : 'secondary')}
-                >
-                  {selectionMode === 'secondary' ? 'Cancel' : selectedSecondary ? 'Change' : 'Select'}
-                </Button>
-                {selectedSecondary && allowNone && (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={handleClearSecondary}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                )}
+                Secondary
               </div>
+              {selectedSecondary ? (
+                <div className="flex items-center gap-2 justify-center">
+                  <Badge variant="secondary" className="text-sm">
+                    {selectedSecondary.name} (Level {selectedSecondary.level})
+                  </Badge>
+                  {allowNone && (
+                    <Button size="sm" variant="ghost" onClick={() => onSecondaryChange(undefined)}>
+                      <X className="h-3 w-3" />
+                    </Button>
+                  )}
+                </div>
+              ) : (
+                <div className="text-sm text-muted-foreground">Not selected</div>
+              )}
             </div>
-            
-            {selectedSecondary ? (
-              <Card className="bg-muted/50">
-                <CardContent className="p-3">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="relative w-12 h-12 rounded-md overflow-hidden flex items-center justify-center text-white font-semibold text-lg"
-                      style={{ backgroundColor: selectedSecondary.fallbackColor }}
-                    >
-                      {selectedSecondary.name.charAt(0)}
-                    </div>
-                    <div className="flex-1">
-                      <h5 className="font-medium">{selectedSecondary.name}</h5>
-                      <p className="text-sm text-muted-foreground">{selectedSecondary.description}</p>
-                    </div>
-                    <Badge variant="secondary">Secondary</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ) : (
-              <div className="text-sm text-muted-foreground p-3 border-2 border-dashed rounded-md text-center">
-                No secondary profession selected
-              </div>
-            )}
           </div>
+
+          {/* Skill Selection Grid */}
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            {availableSkills.map((skill) => {
+              const isPrimary = primaryProfession === skill.name;
+              const isSecondary = secondaryProfession === skill.name;
+
+              return (
+                <div key={skill.name} className="flex flex-col gap-1">
+                  {/* Primary Selection Button */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className={cn(
+                      "h-auto p-2 flex flex-col items-center gap-1 transition-all text-xs",
+                      isPrimary && "ring-2 ring-yellow-500 bg-yellow-50 dark:bg-yellow-950/30",
+                      isSecondary && "opacity-50"
+                    )}
+                    onClick={() => !isSecondary && handleSkillClick(skill.name, false)}
+                    disabled={isSecondary}
+                  >
+                    <div className="font-medium">{skill.name}</div>
+                    <div className="text-xs text-muted-foreground flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      {skill.level}
+                    </div>
+                    {isPrimary && <Star className="h-3 w-3 text-yellow-500" />}
+                  </Button>
+                  
+                  {/* Secondary Selection Button */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className={cn(
+                      "h-auto p-1 flex flex-col items-center transition-all text-xs",
+                      isSecondary && "ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-950/30",
+                      isPrimary && "opacity-50"
+                    )}
+                    onClick={() => !isPrimary && handleSkillClick(skill.name, true)}
+                    disabled={isPrimary}
+                  >
+                    {isSecondary ? (
+                      <User className="h-3 w-3 text-blue-500" />
+                    ) : (
+                      <div className="text-xs text-muted-foreground">2nd</div>
+                    )}
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
+          
+          {availableSkills.length === 0 && (
+            <div className="text-center text-muted-foreground py-8">
+              <div className="text-sm">Loading your skills...</div>
+            </div>
+          )}
         </CardContent>
       </Card>
-
-      {/* Profession Selection Grid */}
-      {selectionMode && (
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              Choose {selectionMode === 'primary' ? 'Primary' : 'Secondary'} Profession
-            </CardTitle>
-            <CardDescription>
-              {selectionMode === 'primary' 
-                ? 'Select your main profession that best represents your playstyle.'
-                : 'Select a secondary profession to show your additional specialization.'
-              }
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {PROFESSIONS.map((profession) => {
-                const isAlreadySelected = 
-                  (selectionMode === 'primary' && secondaryProfession === profession.id) ||
-                  (selectionMode === 'secondary' && primaryProfession === profession.id);
-                
-                const isCurrentlySelected = 
-                  (selectionMode === 'primary' && primaryProfession === profession.id) ||
-                  (selectionMode === 'secondary' && secondaryProfession === profession.id);
-
-                return (
-                  <Button
-                    key={profession.id}
-                    variant="outline"
-                    className={cn(
-                      "h-auto p-3 flex flex-col items-center space-y-2 transition-all",
-                      isCurrentlySelected && "ring-2 ring-primary bg-primary/10",
-                      isAlreadySelected && "opacity-50 cursor-not-allowed"
-                    )}
-                    onClick={() => !isAlreadySelected && handleProfessionClick(profession)}
-                    disabled={isAlreadySelected}
-                  >
-                    <div 
-                      className="relative w-12 h-12 rounded-md overflow-hidden flex items-center justify-center text-white font-semibold text-lg"
-                      style={{ backgroundColor: profession.fallbackColor }}
-                    >
-                      {profession.name.charAt(0)}
-                      {isCurrentlySelected && (
-                        <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                          <Check className="h-5 w-5 text-primary" />
-                        </div>
-                      )}
-                    </div>
-                    <div className="text-center">
-                      <div className="font-medium text-sm">{profession.name}</div>
-                      {isAlreadySelected && (
-                        <div className="text-xs text-muted-foreground">
-                          Already {selectionMode === 'primary' ? 'secondary' : 'primary'}
-                        </div>
-                      )}
-                    </div>
-                  </Button>
-                );
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

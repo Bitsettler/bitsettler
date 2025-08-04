@@ -208,6 +208,7 @@ export function MyCharacterView() {
                   onPrimaryChange={setPrimaryProfession}
                   onSecondaryChange={setSecondaryProfession}
                   allowNone={true}
+                  memberSkills={member?.skills}
                 />
                 
                 <div className="flex items-center justify-end gap-3">
