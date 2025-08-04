@@ -28,7 +28,7 @@ interface SettlementMember {
 }
 
 export function CharacterClaiming() {
-  const { user, session, loading: authLoading } = useSession();
+  const { data: session, status } = useSession();
   const [members, setMembers] = useState<SettlementMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [claiming, setClaiming] = useState<string | null>(null);
@@ -41,6 +41,11 @@ export function CharacterClaiming() {
   const [step, setStep] = useState<'character' | 'professions'>('character');
   const [primaryProfession, setPrimaryProfession] = useState<string | undefined>();
   const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>();
+
+  // Extract auth state
+  const authLoading = status === 'loading';
+  const isAuthenticated = status === 'authenticated';
+  const user = session?.user;
 
   // Filter members based on search term
   const filteredMembers = useMemo(() => {
@@ -59,29 +64,31 @@ export function CharacterClaiming() {
 
   useEffect(() => {
     // Only fetch when authentication is complete and user is available
-    if (!authLoading && user) {
+    if (!authLoading && isAuthenticated && user) {
+      const fetchUnclaimedMembers = async () => {
+        try {
+          setLoading(true);
+          const response = await fetch('/api/auth/unclaimed-members');
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || 'Failed to fetch members');
+          }
+
+          setMembers(result.data || []);
+        } catch (err) {
+          console.error('Failed to fetch unclaimed members:', err);
+          setError(err instanceof Error ? err.message : 'Failed to load characters');
+        } finally {
+          setLoading(false);
+        }
+      };
+      
       fetchUnclaimedMembers();
     }
-  }, [authLoading, user]);
+  }, [authLoading, isAuthenticated, user]);
 
-  const fetchUnclaimedMembers = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch('/api/auth/unclaimed-members');
-      const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to fetch members');
-      }
-
-      setMembers(result.data || []);
-    } catch (err) {
-      console.error('Failed to fetch unclaimed members:', err);
-      setError(err instanceof Error ? err.message : 'Failed to load characters');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Navigate to profession selection step
   const proceedToProfessions = () => {
@@ -145,7 +152,7 @@ export function CharacterClaiming() {
   }
 
   // Show error if user is not authenticated
-  if (!authLoading && !user) {
+  if (!authLoading && !isAuthenticated) {
     return (
       <Container>
         <Card className="max-w-2xl mx-auto">
