@@ -157,4 +157,30 @@ async function handleJoinProject(
   }
 }
 
-export const POST = withErrorHandlingParams(handleJoinProject);
+// Temporary direct export to bypass wrapper and debug
+export async function POST(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+  console.log('🔴 JOIN PROJECT API HIT - Direct export');
+  console.log('🔴 Method:', request.method);
+  console.log('🔴 URL:', request.url);
+  
+  try {
+    const params = await context.params;
+    console.log('🔴 Params:', params);
+    
+    // Simple test response
+    return Response.json({
+      success: true,
+      debug: 'Direct response from API',
+      projectId: params.id,
+      timestamp: new Date().toISOString()
+    });
+    
+  } catch (error) {
+    console.error('🔴 Error in direct POST:', error);
+    return Response.json({
+      success: false,
+      error: 'Debug error',
+      details: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
+  }
+}
