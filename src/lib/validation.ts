@@ -316,7 +316,10 @@ export const SETTLEMENT_SCHEMAS = {
   claimCharacter: {
     characterId: {
       required: true,
-      type: 'uuid' as const
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      sanitize: true
     },
     settlementId: {
       required: true,

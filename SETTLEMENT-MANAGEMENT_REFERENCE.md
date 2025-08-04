@@ -24,7 +24,7 @@ This document outlines the integration with BitJita.com API for settlement data 
 - [Authentication System](./docs/AUTHENTICATION.md) - Supabase Auth architecture
 - [Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md) - Auth implementation patterns
 - [Complete Documentation Index](./docs/README.md) - All project documentation
-- [Current Status](./CURRENT_STATUS.md) - Production readiness overview
+- [Project Status](./TODO.md) - Current development priorities and completed features
 
 ---
 
@@ -94,7 +94,7 @@ if (!session?.user) {
 const { data: member } = await supabase
   .from('settlement_members')
   .select('*')
-  .eq('auth_user_id', session.user.id)
+  .eq('supabase_user_id', session.user.id)
   .single();
 
 if (!member) {
@@ -123,7 +123,7 @@ CREATE POLICY "Users can view settlement data" ON settlement_projects
   FOR SELECT USING (
     EXISTS (
       SELECT 1 FROM settlement_members 
-      WHERE auth_user_id = auth.uid()::text 
+      WHERE supabase_user_id = auth.uid()::text 
       AND settlement_id = settlement_projects.settlement_id
     )
   );

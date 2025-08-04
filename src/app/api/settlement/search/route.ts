@@ -41,9 +41,12 @@ export async function GET(request: NextRequest) {
       },
       page: {
         required: false,
-        type: 'number',
-        min: 1,
-        max: 100
+        type: 'string', // URL params are always strings
+        pattern: /^\d+$/, // Must be numeric string
+        custom: (value: string) => {
+          const num = parseInt(value);
+          return (num >= 1 && num <= 100) || 'Page must be between 1 and 100';
+        }
       }
     });
 

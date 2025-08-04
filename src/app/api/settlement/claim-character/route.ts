@@ -65,15 +65,20 @@ export async function POST(request: NextRequest) {
     // Validate and sanitize request body
     const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.claimCharacter);
     if (!validationResult.success) {
+      console.error('❌ Validation failed:', {
+        errors: validationResult.errors
+      });
       return NextResponse.json(
         { 
           success: false, 
           error: 'Invalid request data',
-          details: validationResult.errors 
+          details: validationResult.errors
         },
         { status: 400 }
       );
     }
+    
+    console.log('🔍 Claim character validated data:', validationResult.data);
 
     const { characterId, settlementId, displayName, primaryProfession, secondaryProfession } = validationResult.data!;
     const claimLogger = userLogger.child({ 
@@ -89,7 +94,7 @@ export async function POST(request: NextRequest) {
     const { data: character, error: characterError } = await serviceClient
       .from('settlement_members')
       .select('*')
-      .eq('id', characterId) // Use UUID id field, not entity_id
+      .eq('entity_id', characterId) // Use game entity_id field
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
@@ -163,7 +168,7 @@ export async function POST(request: NextRequest) {
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
       .update(updateData)
-      .eq('id', characterId) // Use UUID id field, not entity_id
+      .eq('entity_id', characterId) // Use game entity_id field
       .eq('settlement_id', settlementId)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()

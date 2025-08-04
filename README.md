@@ -1,294 +1,251 @@
-# Bitcraft.Guide
+# 🎮 BitCraft.Guide
+**Comprehensive crafting guide and settlement management system for BitCraft**
 
-A comprehensive crafting guide and **settlement management system** for BitCraft, built with Next.js, Supabase, and TypeScript.
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-Database-green?logo=supabase)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://vercel.com/)
 
-Got questions or feedback? Come say hi!
-[Discord](https://discord.gg/DYzfsbVyNw)
+> **🚀 Live at:** [bitcraft.guide](https://bitcraft.guide)  
+> **💬 Community:** [Discord](https://discord.gg/DYzfsbVyNw)
 
-## Features
+---
+
+## ✨ **What is BitCraft.Guide?**
 
 ### 🔍 **Crafting & Recipe System**
-- **Item Search**: Search through all items, cargo, and resources in the game
-- **Recipe Visualization**: Interactive flow diagrams showing crafting dependencies
-- **Quantity Calculator**: Calculate required materials for any desired output quantity
+- **Interactive Recipe Visualization**: Flow diagrams showing crafting dependencies
+- **Smart Calculator**: Calculate required materials for any output quantity
+- **Comprehensive Item Database**: Search all items, cargo, and resources
 
-### 🏛️ **Settlement Management** ⭐ *New!*
-- **Settlement Dashboard**: Real-time overview of settlement stats, projects, and treasury
+### 🏛️ **Settlement Management**
+- **Real-time Dashboard**: Settlement stats, projects, and treasury tracking
 - **Character Claiming**: Link your account to in-game settlement characters
-- **Project Management**: Track settlement projects and contributions
-- **Member Management**: View settlement roster with skills and permissions
-- **Treasury Tracking**: Monitor settlement finances with BitJita API integration
-- **Role-Based Access**: Mirror exact in-game settlement hierarchy (Member, Storage, Builder, Officer, Co-Owner)
+- **Member Management**: Skills tracking with live BitJita.com integration
+- **Project & Treasury Tracking**: Collaborative settlement management
 
-### 🔐 **Authentication & Security**
-- **Supabase Authentication**: Secure OAuth (Google, Discord, GitHub) + Email/Password
-- **Row-Level Security (RLS)**: Database-level protection for all user data
-- **Session Management**: Automatic JWT token refresh and validation
+### 🔐 **Secure & Modern**
+- **Supabase Authentication**: OAuth (Google, Discord, GitHub) + email/password
+- **Role-Based Permissions**: Mirror exact in-game settlement hierarchy
+- **Real-time Data**: Synced with BitJita API every 5-30 minutes
+- **Multi-language Support**: Built-in internationalization
 
-### 🌐 **Core Features**
-- **Internationalization**: Multi-language support with next-intl
-- **Modern UI**: Built with shadcn/ui components and Tailwind CSS
-- **Responsive Design**: Works perfectly on desktop and mobile devices
-- **Real-time Data**: Synced with BitJita.com API every 5-30 minutes
+---
 
-## Tech Stack
+## 🚀 **Quick Start**
 
-### **Frontend & Backend**
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **UI Components**: shadcn/ui + Radix UI
-- **Styling**: Tailwind CSS
-- **Flow Diagrams**: React Flow (@xyflow/react)
-- **Layout Engine**: Dagre.js
+### **For Users**
+1. **Visit**: [bitcraft.guide](https://bitcraft.guide)
+2. **Sign Up**: Create account with OAuth or email
+3. **Claim Character**: Link to your in-game settlement character
+4. **Explore**: Use crafting calculator and settlement management features
 
-### **Database & Authentication** 
-- **Database**: PostgreSQL (Supabase managed)
-- **Authentication**: Supabase Auth with OAuth providers
-- **Security**: Row Level Security (RLS) policies
-- **External APIs**: BitJita.com for settlement data
-
-### **Development Tools**
-- **Internationalization**: next-intl
-- **Code Quality**: ESLint, Prettier with organize-imports plugin
-- **Database Management**: Supabase CLI for migrations
-
-## Getting Started
-
-### Prerequisites
-
-- **Node.js 18+** and npm
-- **Supabase account** for database and authentication
-- **Git** for version control
-
-### Installation
-
-1. **Clone the repository:**
-
+### **For Developers**
 ```bash
+# 1. Clone and install
 git clone <repository-url>
-cd bitcraft.guide-web-next
-```
-
-2. **Install dependencies:**
-
-```bash
+cd bitcraft.guide-settlements
 npm install
-```
 
-3. **Environment Configuration:**
-
-Create `.env.local` file in the project root:
-
-```env
-# Supabase Configuration
+# 2. Configure environment (.env.local)
 NEXT_PUBLIC_SUPABASE_URL=https://hnoiuyjdlecajbsjslwh.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-# Next.js Configuration
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_nextauth_secret
-```
-
-4. **Database Setup (Supabase CLI):**
-
-Apply database migrations using Supabase CLI:
-
-```bash
-# Install Supabase CLI (if not already installed)
-npm install -g supabase
-
-# Apply all migrations to your database
+# 3. Setup database
 npx supabase db push --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres" --yes
-```
 
-5. **Start the development server:**
-
-```bash
+# 4. Start development
 npm run dev
+# Open http://localhost:3000
 ```
 
-6. **Test the application:**
+**📚 New Developer?** → **[Read the Complete Onboarding Guide](./DEVELOPER_ONBOARDING.md)**
 
-- Open [http://localhost:3000](http://localhost:3000) in your browser
-- Visit [http://localhost:3000/en/auth/signin](http://localhost:3000/en/auth/signin) to test authentication
-- Complete the settlement onboarding to test full functionality
+---
 
-## Available Scripts
+## 🏗️ **Tech Stack**
 
-### **Development**
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting without changes
+### **Core Technologies**
+- **Framework**: Next.js 15 (App Router) + TypeScript
+- **Database**: Supabase (PostgreSQL) with Row Level Security
+- **UI**: shadcn/ui + Radix UI + Tailwind CSS
+- **Visualization**: React Flow + Dagre.js for recipe diagrams
+- **External APIs**: BitJita.com for live settlement data
+
+### **Architecture**: Data → Page → View
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   DATA LAYER    │    │   PAGE LAYER    │    │   VIEW LAYER    │
+│ Business Logic  │ ←→ │ Next.js Routes  │ ←→ │ React Components│
+│ Database/APIs   │    │ API Endpoints   │    │ User Interface  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+---
+
+## 📊 **Features Overview**
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **🔍 Item Search** | ✅ Live | Search all BitCraft items, cargo, resources |
+| **📊 Recipe Calculator** | ✅ Live | Interactive material requirement calculator |
+| **🎨 Recipe Visualization** | ✅ Live | Flow diagrams for crafting dependencies |
+| **🏛️ Settlement Dashboard** | ✅ Live | Real-time settlement statistics |
+| **👥 Member Management** | ✅ Live | Skills tracking and profession preferences |
+| **📋 Project Tracking** | ✅ Live | Settlement project management |
+| **💰 Treasury Monitoring** | ✅ Live | Balance and transaction tracking |
+| **🔐 Character Claiming** | ✅ Live | Link accounts to in-game characters |
+| **🌐 Internationalization** | ✅ Live | Multi-language support |
+| **📱 Responsive Design** | ✅ Live | Mobile-optimized interface |
+
+---
+
+## 🛠️ **Development**
+
+### **Key Commands**
+```bash
+npm run dev          # Start development server (with Turbopack)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run format       # Format with Prettier
+```
 
 ### **Database Management**
-- `npx supabase migration new <name>` - Create new database migration
-- `npx supabase db push --db-url "<database-url>" --yes` - Apply migrations to database
-- `npx supabase db reset` - Reset local database (development only)
-
-### **Data Processing**
-- `npm run generate-samples` - Generate sample data
-- `npm run map-items` - Map game items from server data
-- `npm run map-items:sample` - Map items with sample data
-
-## Project Structure
-
-```
-bitcraft.guide-web-next/
-├── docs/                          # 📚 Complete documentation suite
-│   ├── AUTHENTICATION.md          # Auth system architecture
-│   ├── AUTH_DEVELOPER_GUIDE.md    # Auth implementation guide
-│   └── README.md                  # Comprehensive project docs
-├── src/
-│   ├── app/                       # Next.js App Router
-│   │   ├── [locale]/             # Internationalized routes
-│   │   │   ├── auth/             # 🔐 Authentication pages
-│   │   │   ├── settlement/       # 🏛️ Settlement management
-│   │   │   ├── profile/          # 👤 User profile management
-│   │   │   └── settings/         # ⚙️ App preferences
-│   │   └── api/                  # API routes
-│   │       ├── auth/             # Auth endpoints
-│   │       ├── user/             # User-specific data
-│   │       └── settlement/       # Settlement operations
-│   ├── components/               # React components
-│   │   ├── ui/                   # shadcn/ui base components
-│   │   └── settlement/           # Settlement-specific components
-│   ├── hooks/                    # Custom React hooks
-│   │   ├── use-auth.tsx          # 🔐 Main authentication hook
-│   │   ├── use-current-member.ts # Current user's settlement data
-│   │   └── use-settlement-permissions.ts # Role-based permissions
-│   ├── lib/                      # Utility libraries
-│   │   ├── supabase-auth.ts      # Client-side Supabase
-│   │   ├── supabase-server-auth.ts # Server-side Supabase
-│   │   ├── api-client.ts         # Authenticated API client
-│   │   └── spacetime-db-new/     # Database utilities & BitJita integration
-│   ├── views/                    # Page view components
-│   │   └── settlement-views/     # Settlement management views
-│   ├── data/                     # Game data (items, recipes, etc.)
-│   ├── scripts/                  # Data processing scripts
-│   └── styles/                   # Global styles
-├── supabase/
-│   ├── migrations/               # 🗄️ Database migrations
-│   └── config.toml              # Supabase CLI configuration
-└── database/                    # Legacy migration files (deprecated)
-```
-
-## Data Sources
-
-### **Static Game Data**
-The project uses game data from BitCraft's server files, including:
-- Items, cargo, and resources
-- Crafting recipes and requirements  
-- Building and tool information
-
-### **Live Settlement Data** 🆕
-Settlement management features use real-time data from:
-- **[BitJita.com API](https://bitjita.com)**: Settlement roster, permissions, treasury data
-- **Supabase Database**: Cached settlement data, user preferences, project tracking
-- **Authentication**: Supabase Auth for secure user sessions
-
-### **Data Flow**
-1. **Initial Setup**: BitJita API data is fetched and stored locally during settlement establishment
-2. **Real-time Sync**: Background polling keeps settlement data fresh (5-30 min intervals)
-3. **User Actions**: Project contributions, preference changes stored in Supabase
-4. **Security**: Row Level Security (RLS) ensures users only access their settlement data
-
-## Acknowledgments
-
-Special thanks to [@wizjany](https://github.com/wizjany) and the [BitCraft ToolBox](https://github.com/BitCraftToolBox) organization for providing access to the in-game database repositories that make this project possible.
-
-## Development
-
-### **Code Style & Standards**
-
-- **Prettier**: Code formatting with organize-imports plugin
-- **ESLint**: Code linting (fix errors, don't disable rules)
-- **TypeScript**: Strict mode enabled with proper type definitions
-
-### **Database Development Workflow** ⚠️ **Important**
-
-**Always use Supabase CLI for schema changes** [[memory:4758277]]:
-
 ```bash
-# 1. Create new migration
-npx supabase migration new your_migration_name
+# Create new migration
+npx supabase migration new migration_name
 
-# 2. Apply migrations (use actual database URL)
-npx supabase db push --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres" --yes
+# Apply migrations  
+npx supabase db push --db-url "DATABASE_URL" --yes
 
-# 3. Commit migration files
-git add supabase/migrations/
-git commit -m "Add: your migration description"
+# Reset development database
+npx supabase db reset
 ```
 
-### **Authentication Development**
+### **Code Quality**
+- **TypeScript**: Strict mode enabled
+- **ESLint**: Next.js rules + custom configuration
+- **Prettier**: Automatic formatting with import organization
+- **Supabase CLI**: Required for all database changes
 
-- **Never bypass auth checks**: All settlement features require authentication
-- **Use existing hooks**: `useAuth()`, `useCurrentMember()`, `useSession()`
-- **Server-side validation**: Always validate sessions on API routes using `requireAuth()`
-- **RLS policies**: Ensure Row Level Security protects data appropriately
+---
 
-### **Adding New Settlement Features**
+## 📁 **Project Structure**
 
-1. **Authentication Required**: All features must check user authentication
-2. **Permission Checks**: Use `useSettlementPermissions()` for role-based access
-3. **Data Flow**: BitJita API → Database Storage → UI Display
-4. **Testing**: Test with different user roles and permission levels
-5. **Component Patterns**: Follow existing settlement component structure
+```
+bitcraft.guide-settlements/
+├── src/
+│   ├── app/[locale]/              # Next.js App Router (Page Layer)
+│   ├── views/                     # React components (View Layer)  
+│   ├── lib/spacetime-db-new/      # Business logic (Data Layer)
+│   ├── components/                # Reusable UI components
+│   ├── hooks/                     # Custom React hooks
+│   └── styles/                    # Global styles
+├── supabase/migrations/           # Database migrations
+├── docs/                          # Technical documentation
+├── scripts/                       # Development utilities
+└── DEVELOPER_ONBOARDING.md        # Complete developer guide
+```
 
-### **API Development**
+---
 
-- **Authentication**: Use `requireAuth(request)` in all API routes
-- **Error Handling**: Provide clear error messages without leaking sensitive data
-- **Data Validation**: Validate all inputs and sanitize outputs
-- **Response Format**: Use consistent API response structure
+## 🎯 **Settlement Management Workflow**
 
-## **Settlement Onboarding Flow** 🏛️
+### **User Onboarding**
+1. **Authentication**: Sign in with OAuth or email/password
+2. **Settlement Search**: Find and join existing settlement via BitJita API
+3. **Character Claiming**: Link account to in-game settlement character  
+4. **Dashboard Access**: View settlement stats, members, projects, treasury
 
-New users go through a complete onboarding process:
-
-1. **Authentication**: Sign in with OAuth (Google, Discord, GitHub) or email/password
-2. **Settlement Choice**: Join existing settlement (invite code) or establish new one
-3. **Settlement Search**: Search BitJita API for available settlements
-4. **Data Import**: Fetch and store settlement members, permissions, and stats
-5. **Character Claiming**: Link account to in-game settlement character
-6. **Dashboard Access**: Full settlement management features unlocked
-
-### **Role-Based Permissions**
-
-| **Role** | **Dashboard** | **Projects** | **Treasury** | **Members** | **Admin** |
-|----------|---------------|--------------|-------------- |-------------|-----------|
+### **Permission System**
+| Role | Dashboard | Projects | Treasury | Members | Admin |
+|------|-----------|----------|----------|---------|-------|
 | **Member** | ✅ View | ✅ View | ✅ View | ✅ View | ❌ |
 | **Storage** | ✅ View | ✅ Manage | ✅ View | ✅ View | ❌ |
 | **Builder** | ✅ View | ✅ Manage | ✅ View | ✅ View | ❌ |
 | **Officer** | ✅ View | ✅ Manage | ✅ Manage | ✅ Manage | ✅ Manage |
 | **Co-Owner** | ✅ View | ✅ Manage | ✅ Manage | ✅ Manage | ✅ Manage |
 
-## Contributing
+---
 
-### **Before Contributing**
-1. Read the [comprehensive documentation](./docs/README.md)
-2. Understand the authentication and settlement system
-3. Test with different user roles and permission levels
+## 🤝 **Contributing**
 
-### **Development Workflow**
-1. Fork the repository
-2. Create a feature branch
-3. Follow authentication and database development guidelines
-4. Make your changes with proper error handling and loading states
-5. Run `npm run format` and `npm run lint`
-6. Test authentication flows and role-based permissions
-7. Submit a pull request with clear description
+### **For New Developers**
+1. **Read**: [Developer Onboarding Guide](./DEVELOPER_ONBOARDING.md)
+2. **Setup**: Follow quick start instructions above
+3. **Understand**: Data → Page → View architecture pattern
+4. **Test**: Authentication flows and settlement features
 
-### **Testing Guidelines**
-- **Authentication**: Test login/logout with different OAuth providers
-- **Settlement Features**: Test with different in-game roles (Member, Officer, Co-Owner)
-- **Database Changes**: Always test migrations on development database first
-- **API Endpoints**: Test with proper authentication headers and error cases
+### **Development Guidelines**
+- **Authentication Required**: All settlement features require user authentication
+- **Permission Checks**: Use role-based access control for feature access
+- **Database Changes**: Always use Supabase CLI migrations
+- **Code Quality**: Follow TypeScript strict mode and ESLint rules
 
-## License
+### **Pull Request Process**
+1. Fork repository and create feature branch
+2. Follow architectural patterns and naming conventions
+3. Test authentication flows and different permission levels
+4. Run `npm run format` and `npm run lint`
+5. Submit PR with clear description and testing notes
 
-This project is licensed under the MIT License.
+---
+
+## 📚 **Documentation**
+
+| Document | Purpose | Audience |
+|----------|---------|----------|
+| **[DEVELOPER_ONBOARDING.md](./DEVELOPER_ONBOARDING.md)** | Complete developer setup and architecture guide | New developers |
+| **[docs/AUTHENTICATION.md](./docs/AUTHENTICATION.md)** | Authentication system architecture | All developers |
+| **[docs/AUTH_DEVELOPER_GUIDE.md](./docs/AUTH_DEVELOPER_GUIDE.md)** | Authentication implementation examples | Frontend/Backend |
+| **[SETTLEMENT-MANAGEMENT_REFERENCE.md](./SETTLEMENT-MANAGEMENT_REFERENCE.md)** | BitJita API integration details | Backend developers |
+
+---
+
+## 🐛 **Testing & Debugging**
+
+### **Test Data Management**
+```bash
+# Clear all user data for testing (preserves BitJita game data)
+curl -X POST http://localhost:3000/api/testing/clear-user-data
+
+# Or use shell script
+./scripts/clear-user-data.sh
+```
+
+### **Common Issues**
+- **Auth Problems**: Check `.env.local` Supabase keys
+- **Database Issues**: Verify migrations applied with `npx supabase db push`
+- **Settlement Data**: Check BitJita API rate limits and sync status
+- **Build Errors**: Clear `.next` cache and reinstall dependencies
+
+---
+
+## 🔗 **Links & Resources**
+
+- **🌐 Live Site**: [bitcraft.guide](https://bitcraft.guide)
+- **💬 Discord**: [Community Chat](https://discord.gg/DYzfsbVyNw)
+- **🗄️ Database**: [Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)
+- **🚀 Deployment**: [Vercel Dashboard](https://vercel.com)
+- **📊 Settlement Data**: [BitJita.com](https://bitjita.com)
+
+---
+
+## 🙏 **Acknowledgments**
+
+Special thanks to:
+- **[@wizjany](https://github.com/wizjany)** and **[BitCraft ToolBox](https://github.com/BitCraftToolBox)** for game database access
+- **BitJita.com** for providing live settlement data API
+- **BitCraft Community** for feedback and feature requests
+
+---
+
+## 📄 **License**
+
+This project is licensed under the MIT License - see [LICENSE](./LICENSE) file for details.
+
+---
+
+**Ready to contribute? Start with the [Developer Onboarding Guide](./DEVELOPER_ONBOARDING.md)! 🚀**

@@ -73,6 +73,7 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
     const { data: members, error } = await supabase
     .from('settlement_members')
     .select(`
+      id,
       entity_id,
       player_entity_id,
       claim_entity_id,

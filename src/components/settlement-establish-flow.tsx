@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import '@/styles/settlement-tiers.css';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,8 +26,10 @@ import {
   Shield,
   UserCheck,
   Download,
-  Clock
+  Clock,
+  X
 } from 'lucide-react';
+import { getDisplayProfession } from '@/lib/utils/profession-utils';
 
 interface SettlementEstablishFlowProps {
   establishData?: {
@@ -84,6 +86,22 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
+  const [characterSearchTerm, setCharacterSearchTerm] = useState('');
+  
+  // Filter characters based on search term
+  const filteredCharacters = useMemo(() => {
+    if (!characterSearchTerm.trim()) {
+      return availableCharacters;
+    }
+    
+    const searchLower = characterSearchTerm.toLowerCase();
+    return availableCharacters.filter(character => 
+      character.name?.toLowerCase().includes(searchLower) ||
+      getDisplayProfession(character)?.toLowerCase().includes(searchLower) ||
+      (character.total_level?.toString() || '').includes(searchLower) ||
+      (character.highest_level?.toString() || '').includes(searchLower)
+    );
+  }, [availableCharacters, characterSearchTerm]);
   
   // Progress tracking for establishment
   const [establishmentProgress, setEstablishmentProgress] = useState({
@@ -219,22 +237,41 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
         });
         
         // Transform database data to character format
-        const characters = result.data.members.map((member: { entity_id: string; name: string; settlement_id: string; skills?: Record<string, number>; permissions?: any }) => ({
-          id: member.id || member.entity_id,
-          name: member.name,
-          settlement_id: settlement.id,
-          entity_id: member.entity_id,
-          bitjita_user_id: member.bitjita_user_id,
-          skills: member.skills || {},
-          top_profession: member.top_profession || 'Unknown',
-          total_level: member.total_level || 0,
-          permissions: {
-            inventory: (member.inventory_permission || 0) > 0,
-            build: (member.build_permission || 0) > 0,
-            officer: (member.officer_permission || 0) > 0,
-            co_owner: (member.co_owner_permission || 0) > 0
-          }
-        }));
+        const characters = result.data.members.map((member: { 
+          id: string;
+          entity_id: string; 
+          name: string; 
+          settlement_id: string; 
+          skills?: Record<string, number>; 
+          permissions?: any;
+          top_profession?: string;
+          total_level?: number;
+          highest_level?: number;
+          bitjita_user_id?: string;
+          inventory_permission?: number;
+          build_permission?: number;
+          officer_permission?: number;
+          co_owner_permission?: number;
+        }) => {
+          console.log('🔍 Mapping member:', { id: member.id, entity_id: member.entity_id, name: member.name });
+          return {
+            id: member.id,
+            name: member.name,
+            settlement_id: settlement.id,
+            entity_id: member.entity_id,
+            bitjita_user_id: member.bitjita_user_id,
+            skills: member.skills || {},
+            top_profession: member.top_profession || 'Unknown',
+            total_level: member.total_level || 0,
+            highest_level: member.highest_level || 0,
+            permissions: {
+              inventory: (member.inventory_permission || 0) > 0,
+              build: (member.build_permission || 0) > 0,
+              officer: (member.officer_permission || 0) > 0,
+              co_owner: (member.co_owner_permission || 0) > 0
+            }
+          };
+        });
 
         setAvailableCharacters(characters);
       } else {
@@ -361,14 +398,25 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     });
 
     setStep('establishing');
+    
+    // Debug the exact data being sent
+    const requestData = {
+      characterId: characterToUse.id,
+      settlementId: selectedSettlement.id,
+      displayName: null,
+      primaryProfession: null,
+      secondaryProfession: null
+    };
+    
+    console.log('🔍 Character claim request data:', requestData);
+    console.log('🔍 Character object:', characterToUse);
+    console.log('🔍 Settlement object:', selectedSettlement);
+    
     try {
       // Run progress simulation and API call in parallel
       const [_, result] = await Promise.all([
         simulateProgress(true), // Character claim progress (faster)
-        api.post('/api/settlement/claim-character', {
-          characterId: characterToUse.entity_id, // Use entity_id instead of id
-          settlementId: selectedSettlement.id
-        })
+        api.post('/api/settlement/claim-character', requestData)
       ]);
 
       if (result.success) {
@@ -568,6 +616,36 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                 Choose your character from this settlement to claim and continue
               </p>
               
+              {/* Character Search */}
+              {availableCharacters.length > 0 && (
+                <div className="mb-4">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    <Input
+                      placeholder="Search by character name, profession, or level..."
+                      value={characterSearchTerm}
+                      onChange={(e) => setCharacterSearchTerm(e.target.value)}
+                      className="pl-10 pr-10"
+                    />
+                    {characterSearchTerm && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setCharacterSearchTerm('')}
+                        className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
+                  {characterSearchTerm && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Showing {filteredCharacters.length} of {availableCharacters.length} characters
+                    </p>
+                  )}
+                </div>
+              )}
+              
               {availableCharacters.length === 0 ? (
                 <div className="text-center py-8">
                   <Crown className="w-12 h-12 mx-auto text-primary mb-4" />
@@ -576,9 +654,17 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                     You'll be the first member of this settlement. We'll set up your character automatically.
                   </p>
                 </div>
+              ) : filteredCharacters.length === 0 ? (
+                <div className="text-center py-8">
+                  <Crown className="w-12 h-12 mx-auto text-muted-foreground mb-4 opacity-50" />
+                  <h3 className="font-semibold text-lg mb-2">No characters found</h3>
+                  <p className="text-muted-foreground">
+                    Try adjusting your search terms to find your character.
+                  </p>
+                </div>
               ) : (
                 <div className="grid gap-3">
-                  {availableCharacters.map((character) => (
+                  {filteredCharacters.map((character) => (
                     <Card 
                       key={character.id}
                       className={`cursor-pointer transition-all border-2 ${
@@ -625,7 +711,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
               </Button>
               <Button 
                 onClick={establishData ? handleClaimCharacter : handleEstablishSettlement} 
-                disabled={availableCharacters.length > 0 && !selectedCharacter}
+                disabled={filteredCharacters.length > 0 && !selectedCharacter}
                 className="flex-1"
               >
                 {availableCharacters.length === 0 
