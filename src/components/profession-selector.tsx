@@ -101,16 +101,10 @@ export function ProfessionSelector({
     <div className={cn("space-y-4", className)}>
       {/* Profession Selection - Single Compact Interface */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <User className="h-5 w-5" />
-            Your Professions
-          </CardTitle>
-          <CardDescription>
+        <CardContent className="space-y-4 pt-6">
+          <CardDescription className="text-center">
             Click any skill to select it. Your first selection becomes Primary (⭐), your second becomes Secondary (👤). Your highest skills are shown first.
           </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
           {/* Skill Selection Grid */}
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {availableSkills.map((skill) => {
