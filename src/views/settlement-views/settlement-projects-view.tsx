@@ -400,12 +400,15 @@ export function SettlementProjectsView() {
     setRefreshTrigger(prev => prev + 1);
   };
 
-  // Fetch project memberships when projects are loaded
-  useEffect(() => {
-    if (projects.length > 0 && session?.user && !loading) {
-      fetchProjectMemberships();
-    }
-  }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
+  // DISABLED: Automatic membership fetching causes performance issues
+  // Instead, we'll rely on local state updates from join/leave actions
+  // and only show membership status after user interactions
+  // 
+  // useEffect(() => {
+  //   if (projects.length > 0 && session?.user && !loading) {
+  //     fetchProjectMemberships();
+  //   }
+  // }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
 
   // Apply client-side filters
   useEffect(() => {
@@ -1123,6 +1126,7 @@ export function SettlementProjectsView() {
                         const isJoining = joiningProject === project.id;
                         const isLeaving = leavingProject === project.id;
 
+                        // Show Leave button only if we're certain user is a member
                         if (isMember) {
                           return (
                             <Button
@@ -1131,6 +1135,7 @@ export function SettlementProjectsView() {
                               onClick={() => handleLeaveProject(project.id)}
                               disabled={isLeaving}
                               className="text-red-600 hover:text-red-700 border-red-200 hover:border-red-300"
+                              title="Leave this project"
                             >
                               {isLeaving ? (
                                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -1140,6 +1145,7 @@ export function SettlementProjectsView() {
                             </Button>
                           );
                         } else {
+                          // Default to Join button (handles both unknown state and definitely not a member)
                           return (
                             <Button
                               size="sm"
@@ -1147,6 +1153,7 @@ export function SettlementProjectsView() {
                               onClick={() => handleJoinProject(project.id)}
                               disabled={isJoining}
                               className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
+                              title="Join this project"
                             >
                               {isJoining ? (
                                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
