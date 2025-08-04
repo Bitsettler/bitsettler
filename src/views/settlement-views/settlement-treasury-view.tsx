@@ -295,7 +295,7 @@ export function SettlementTreasuryView() {
         <div className="space-y-8 py-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
-              <Card key={i}>
+              <Card key={`summary-skeleton-${i}`}>
                 <CardHeader>
                   <Skeleton className="h-4 w-24" />
                   <Skeleton className="h-8 w-32" />
@@ -312,7 +312,7 @@ export function SettlementTreasuryView() {
             <CardContent>
               <div className="space-y-4">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} className="flex items-center justify-between py-2">
+                  <div key={`transaction-skeleton-${i}`} className="flex items-center justify-between py-2">
                     <Skeleton className="h-4 w-48" />
                     <Skeleton className="h-4 w-24" />
                   </div>
@@ -416,14 +416,14 @@ export function SettlementTreasuryView() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                                    <SelectItem key="1-days" value="1-days">1 Day</SelectItem>
-                <SelectItem key="3-days" value="3-days">3 Days</SelectItem>
-                <SelectItem key="7-days" value="7-days">7 Days</SelectItem>
-                <SelectItem key="14-days" value="14-days">2 Weeks</SelectItem>
-                <SelectItem key="30-days" value="30-days">30 Days</SelectItem>
-                <SelectItem key="1-months" value="1-months">1 Month</SelectItem>
-                <SelectItem key="3-months" value="3-months">3 Months</SelectItem>
-                <SelectItem key="6-months" value="6-months">6 Months</SelectItem>
+                    <SelectItem key="1-days" value="1-days">1 Day</SelectItem>
+                    <SelectItem key="3-days" value="3-days">3 Days</SelectItem>
+                    <SelectItem key="7-days" value="7-days">7 Days</SelectItem>
+                    <SelectItem key="14-days" value="14-days">2 Weeks</SelectItem>
+                    <SelectItem key="30-days" value="30-days">30 Days</SelectItem>
+                    <SelectItem key="1-months" value="1-months">1 Month</SelectItem>
+                    <SelectItem key="3-months" value="3-months">3 Months</SelectItem>
+                    <SelectItem key="6-months" value="6-months">6 Months</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -652,10 +652,10 @@ export function SettlementTreasuryView() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem key="all-types" value="all">All Types</SelectItem>
-                <SelectItem key="Income" value="Income">Income</SelectItem>
-                <SelectItem key="Expense" value="Expense">Expense</SelectItem>
-                <SelectItem key="Transfer" value="Transfer">Transfer</SelectItem>
-                <SelectItem key="Adjustment" value="Adjustment">Adjustment</SelectItem>
+                <SelectItem key="type-income" value="Income">Income</SelectItem>
+                <SelectItem key="type-expense" value="Expense">Expense</SelectItem>
+                <SelectItem key="type-transfer" value="Transfer">Transfer</SelectItem>
+                <SelectItem key="type-adjustment" value="Adjustment">Adjustment</SelectItem>
               </SelectContent>
             </Select>
 
@@ -665,9 +665,9 @@ export function SettlementTreasuryView() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem key="all-categories" value="all">All Categories</SelectItem>
-                {categories.map((cat) => (
-                  <SelectItem key={cat.category} value={cat.category}>
-                    {cat.category} ({cat.count})
+                {categories.map((cat, index) => (
+                  <SelectItem key={`category-${cat.category || `undefined-${index}`}`} value={cat.category || 'undefined'}>
+                    {cat.category || 'Uncategorized'} ({cat.count})
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -678,7 +678,7 @@ export function SettlementTreasuryView() {
           {transactionsLoading ? (
             <div className="space-y-4">
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="flex items-center justify-between py-3 border-b">
+                <div key={`loading-transaction-${i}`} className="flex items-center justify-between py-3 border-b">
                   <div className="flex items-center gap-3">
                     <Skeleton className="h-8 w-8 rounded" />
                     <div>
