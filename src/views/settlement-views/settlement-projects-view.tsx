@@ -274,8 +274,8 @@ export function SettlementProjectsView() {
         }
       }));
 
-      // Refresh project memberships
-      await fetchProjectMemberships();
+      // TEMPORARILY DISABLED: membership refresh to avoid loops
+      // await fetchProjectMemberships();
       
     } catch (err) {
       console.error('Error joining project:', err);
@@ -314,8 +314,8 @@ export function SettlementProjectsView() {
         }
       }));
 
-      // Refresh project memberships
-      await fetchProjectMemberships();
+      // TEMPORARILY DISABLED: membership refresh to avoid loops
+      // await fetchProjectMemberships();
       
     } catch (err) {
       console.error('Error leaving project:', err);
@@ -379,26 +379,29 @@ export function SettlementProjectsView() {
     setRefreshTrigger(prev => prev + 1);
   };
 
-  // Fetch memberships once when projects are initially loaded
-  useEffect(() => {
-    if (projects.length > 0 && session?.user && !loading) {
-      fetchProjectMemberships();
-    }
-  }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
+  // TEMPORARILY DISABLED: Membership fetching to stop infinite loops
+  // Will re-enable with a more efficient approach later
+  // useEffect(() => {
+  //   if (projects.length > 0 && session?.user && !loading) {
+  //     fetchProjectMemberships();
+  //   }
+  // }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
 
   // Apply client-side filters
   useEffect(() => {
     if (!Array.isArray(projects)) return;
     let filtered = [...projects];
 
-    // Status filter (including myProjects)
-    if (statusFilter === 'myProjects') {
-      filtered = filtered.filter(project => 
-        projectMemberships[project.id]?.isMember === true
-      );
-    } else if (statusFilter !== 'all') {
+    // Status filter 
+    if (statusFilter !== 'all' && statusFilter !== 'myProjects') {
       filtered = filtered.filter(project => project.status === statusFilter);
     }
+    // TEMPORARILY DISABLED: myProjects filter (requires membership data)
+    // else if (statusFilter === 'myProjects') {
+    //   filtered = filtered.filter(project => 
+    //     projectMemberships[project.id]?.isMember === true
+    //   );
+    // }
 
     // Search filter
     if (searchTerm) {
@@ -1068,31 +1071,8 @@ export function SettlementProjectsView() {
                       </div>
                     </div>
 
-                    {/* Project Members */}
-                    {projectMemberships[project.id]?.members?.length > 0 && (
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="font-medium">Team Members</span>
-                          <span className="text-muted-foreground">
-                            {projectMemberships[project.id].members.length} member{projectMemberships[project.id].members.length !== 1 ? 's' : ''}
-                          </span>
-                        </div>
-                        <div className="flex flex-wrap gap-1">
-                          {projectMemberships[project.id].members.slice(0, 3).map((member) => (
-                            <Badge key={member.id} variant="secondary" className="text-xs">
-                              {member.role === 'Leader' && <Crown className="h-3 w-3 mr-1" />}
-                              {member.role === 'Observer' && <Shield className="h-3 w-3 mr-1" />}
-                              {member.name}
-                            </Badge>
-                          ))}
-                          {projectMemberships[project.id].members.length > 3 && (
-                            <Badge variant="outline" className="text-xs">
-                              +{projectMemberships[project.id].members.length - 3} more
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    )}
+                    {/* Project Members - TEMPORARILY DISABLED */}
+                    {/* Will re-enable with more efficient membership loading */}
 
                     {/* Meta Info */}
                     <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t">
@@ -1116,39 +1096,21 @@ export function SettlementProjectsView() {
                         View Details
                       </Button>
                       
-                      {/* Join/Leave Button */}
+                      {/* Join Button - SIMPLIFIED */}
                       {session?.user && (
-                        <div className="flex gap-1">
-                          {projectMemberships[project.id]?.isMember ? (
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => handleLeaveProject(project.id)}
-                              disabled={leavingProject === project.id}
-                              className="text-red-600 hover:text-red-700 border-red-200 hover:border-red-300"
-                            >
-                              {leavingProject === project.id ? (
-                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                              ) : (
-                                <UserMinus className="h-4 w-4" />
-                              )}
-                            </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => handleJoinProject(project.id)}
+                          disabled={joiningProject === project.id}
+                          className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
+                        >
+                          {joiningProject === project.id ? (
+                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                           ) : (
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => handleJoinProject(project.id)}
-                              disabled={joiningProject === project.id}
-                              className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
-                            >
-                              {joiningProject === project.id ? (
-                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                              ) : (
-                                <UserPlus className="h-4 w-4" />
-                              )}
-                            </Button>
+                            <UserPlus className="h-4 w-4" />
                           )}
-                        </div>
+                        </Button>
                       )}
                     </div>
                   </CardContent>
