@@ -3,8 +3,15 @@ import { createServerSupabaseClient, requireAuth } from '@/lib/supabase-server-a
 
 export async function GET(request: NextRequest) {
   try {
+    console.log('=== Unclaimed Members API Debug ===');
+    console.log('Request URL:', request.url);
+    console.log('Request cookies:', request.headers.get('cookie'));
+    
     const authResult = await requireAuth(request);
+    console.log('Auth result:', authResult);
+    
     if (authResult.error) {
+      console.log('Authentication failed:', authResult.error);
       return NextResponse.json(
         { error: authResult.error },
         { status: authResult.status }

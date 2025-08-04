@@ -29,29 +29,44 @@ export async function createServerSupabaseClient() {
 // Get session for API routes - replacement for getServerSession
 export async function getSupabaseSession(request?: NextRequest) {
   try {
+    console.log('getSupabaseSession called');
+    
     // First try Authorization header (client-provided token)
     if (request) {
       const authHeader = request.headers.get('authorization')
+      console.log('Authorization header:', authHeader ? 'present' : 'missing');
+      
       if (authHeader && authHeader.startsWith('Bearer ')) {
         const token = authHeader.replace('Bearer ', '')
         const supabase = await createServerSupabaseClient()
         
         const { data: { user }, error } = await supabase.auth.getUser(token)
         if (!error && user) {
+          console.log('Got user from Bearer token:', user.email);
           return {
             user,
             access_token: token,
             expires_at: undefined // We don't have this from the token
           }
         }
+        console.log('Bearer token failed:', error);
       }
     }
 
     // Fallback to cookies
+    console.log('Trying cookie-based session...');
     const supabase = await createServerSupabaseClient()
     const { data: { session }, error } = await supabase.auth.getSession()
     
+    console.log('Cookie session result:', { 
+      hasSession: !!session, 
+      hasUser: !!session?.user, 
+      userEmail: session?.user?.email,
+      error: error?.message 
+    });
+    
     if (error) {
+      console.log('Session error:', error);
       return null
     }
     
