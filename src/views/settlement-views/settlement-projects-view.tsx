@@ -39,6 +39,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
+import { toast } from 'sonner';
 
 const statusIcons = {
   'Active': Clock,
@@ -241,7 +242,7 @@ export function SettlementProjectsView() {
     } catch (error) {
       console.error('Error fetching project memberships:', error);
     }
-  }, [session?.user, session?.access_token]);
+  }, [session?.user, session?.access_token, projects]);
 
   // Project membership functions
   const handleJoinProject = useCallback(async (projectId: string) => {
@@ -263,8 +264,8 @@ export function SettlementProjectsView() {
       if (!result.success) {
         // Handle specific error cases with better UX
         if (result.code === 'DUPLICATE_ENTRY') {
-          // User is already a member - this is not really an error, just update the UI
-          console.log('User is already a project member, updating UI state');
+          // User is already a member - show friendly message and update UI
+          toast.info('You are already a member of this project!');
           setProjectMemberships(prev => ({
             ...prev,
             [projectId]: {
@@ -273,7 +274,7 @@ export function SettlementProjectsView() {
               role: 'Contributor' // Default role, could be extracted from error message
             }
           }));
-          return; // Don't throw error, just update state silently
+          return; // Don't throw error, just update state and show feedback
         }
         throw new Error(result.error || 'Failed to join project');
       }
@@ -287,6 +288,9 @@ export function SettlementProjectsView() {
           role: 'Contributor'
         }
       }));
+
+      // Show success message
+      toast.success('Successfully joined the project!');
 
       // TEMPORARILY DISABLED: membership refresh to avoid loops
       // await fetchProjectMemberships();
@@ -327,6 +331,9 @@ export function SettlementProjectsView() {
           role: ''
         }
       }));
+
+      // Show success message
+      toast.success('Successfully left the project!');
 
       // TEMPORARILY DISABLED: membership refresh to avoid loops
       // await fetchProjectMemberships();
@@ -393,13 +400,12 @@ export function SettlementProjectsView() {
     setRefreshTrigger(prev => prev + 1);
   };
 
-  // TEMPORARILY DISABLED: Membership fetching to stop infinite loops
-  // Will re-enable with a more efficient approach later
-  // useEffect(() => {
-  //   if (projects.length > 0 && session?.user && !loading) {
-  //     fetchProjectMemberships();
-  //   }
-  // }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
+  // Fetch project memberships when projects are loaded
+  useEffect(() => {
+    if (projects.length > 0 && session?.user && !loading) {
+      fetchProjectMemberships();
+    }
+  }, [projects.length, session?.user?.id, loading, fetchProjectMemberships]);
 
   // Apply client-side filters
   useEffect(() => {
@@ -1110,22 +1116,47 @@ export function SettlementProjectsView() {
                         View Details
                       </Button>
                       
-                      {/* Join Button - SIMPLIFIED */}
-                      {session?.user && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleJoinProject(project.id)}
-                          disabled={joiningProject === project.id}
-                          className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
-                        >
-                          {joiningProject === project.id ? (
-                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                          ) : (
-                            <UserPlus className="h-4 w-4" />
-                          )}
-                        </Button>
-                      )}
+                      {/* Smart Join/Leave Button */}
+                      {session?.user && (() => {
+                        const membership = projectMemberships[project.id];
+                        const isMember = membership?.isMember === true;
+                        const isJoining = joiningProject === project.id;
+                        const isLeaving = leavingProject === project.id;
+
+                        if (isMember) {
+                          return (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => handleLeaveProject(project.id)}
+                              disabled={isLeaving}
+                              className="text-red-600 hover:text-red-700 border-red-200 hover:border-red-300"
+                            >
+                              {isLeaving ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                              ) : (
+                                <UserMinus className="h-4 w-4" />
+                              )}
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => handleJoinProject(project.id)}
+                              disabled={isJoining}
+                              className="text-green-600 hover:text-green-700 border-green-200 hover:border-green-300"
+                            >
+                              {isJoining ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                              ) : (
+                                <UserPlus className="h-4 w-4" />
+                              )}
+                            </Button>
+                          );
+                        }
+                      })()}
                     </div>
                   </CardContent>
                 </Card>
