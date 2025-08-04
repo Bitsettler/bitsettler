@@ -158,11 +158,8 @@ async function handleJoinProject(
 }
 
 export async function POST(request: NextRequest, context: { params: Promise<{ id: string }> }) {
-  console.log('🔴 JOIN PROJECT API - Starting real logic');
-  
   try {
     const result = await handleJoinProject(request, context);
-    console.log('🔴 JOIN PROJECT API - Result:', result.success ? 'SUCCESS' : 'FAILED');
     
     if (result.success) {
       return Response.json({
@@ -178,7 +175,7 @@ export async function POST(request: NextRequest, context: { params: Promise<{ id
     }
     
   } catch (error) {
-    console.error('🔴 JOIN PROJECT API - Exception:', error);
+    console.error('Join project API error:', error);
     return Response.json({
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error'

@@ -258,12 +258,23 @@ export function SettlementProjectsView() {
         body: JSON.stringify({ role: 'Contributor' })
       });
 
-      console.log('🟡 Join project response:', response.status, response.statusText);
-      
       const result = await response.json();
-      console.log('🟡 Join project result:', result);
       
       if (!result.success) {
+        // Handle specific error cases with better UX
+        if (result.code === 'DUPLICATE_ENTRY') {
+          // User is already a member - this is not really an error, just update the UI
+          console.log('User is already a project member, updating UI state');
+          setProjectMemberships(prev => ({
+            ...prev,
+            [projectId]: {
+              ...prev[projectId],
+              isMember: true,
+              role: 'Contributor' // Default role, could be extracted from error message
+            }
+          }));
+          return; // Don't throw error, just update state silently
+        }
         throw new Error(result.error || 'Failed to join project');
       }
 
