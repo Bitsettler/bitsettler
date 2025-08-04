@@ -28,7 +28,7 @@ interface SettlementMember {
 }
 
 export function CharacterClaiming() {
-  const { data: session } = useSession();
+  const { user, session, loading: authLoading } = useSession();
   const [members, setMembers] = useState<SettlementMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [claiming, setClaiming] = useState<string | null>(null);
@@ -58,8 +58,11 @@ export function CharacterClaiming() {
   }, [members, searchTerm]);
 
   useEffect(() => {
-    fetchUnclaimedMembers();
-  }, []);
+    // Only fetch when authentication is complete and user is available
+    if (!authLoading && user) {
+      fetchUnclaimedMembers();
+    }
+  }, [authLoading, user]);
 
   const fetchUnclaimedMembers = async () => {
     try {
@@ -125,15 +128,34 @@ export function CharacterClaiming() {
     }
   };
 
-  if (loading) {
+  // Show loading while auth is loading or while fetching characters
+  if (authLoading || loading) {
     return (
       <Container>
         <div className="flex items-center justify-center py-12">
           <div className="text-center space-y-4">
             <Loader2 className="h-8 w-8 animate-spin mx-auto" />
-            <p className="text-muted-foreground">Loading available characters...</p>
+            <p className="text-muted-foreground">
+              {authLoading ? 'Checking authentication...' : 'Loading available characters...'}
+            </p>
           </div>
         </div>
+      </Container>
+    );
+  }
+
+  // Show error if user is not authenticated
+  if (!authLoading && !user) {
+    return (
+      <Container>
+        <Card className="max-w-2xl mx-auto">
+          <CardHeader>
+            <CardTitle>Authentication Required</CardTitle>
+            <CardDescription>
+              You must be signed in to claim a character. Please sign in and try again.
+            </CardDescription>
+          </CardHeader>
+        </Card>
       </Container>
     );
   }
