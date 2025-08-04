@@ -57,24 +57,31 @@ export async function getSupabaseSession(request?: NextRequest) {
     
     return session
   } catch (error) {
-    logger.error('Error getting session', error instanceof Error ? error : new Error(String(error)), {
-      operation: 'GET_SUPABASE_SESSION'
-    });
+    console.error('Error getting session:', error);
     return null
   }
 }
 
 // Helper to require authentication in API routes
 export async function requireAuth(request: NextRequest) {
+  console.log('requireAuth called for:', request.url);
   const session = await getSupabaseSession(request)
+  console.log('Session result:', { 
+    hasSession: !!session, 
+    hasUser: !!session?.user, 
+    userId: session?.user?.id,
+    userEmail: session?.user?.email 
+  });
   
   if (!session?.user) {
+    console.log('Authentication failed - no session or user');
     return {
       error: 'Unauthorized',
       status: 401
     }
   }
   
+  console.log('Authentication successful for user:', session.user.email);
   return {
     session,
     user: session.user
