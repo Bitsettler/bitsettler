@@ -51,27 +51,24 @@ export function ProfessionSelector({
       .sort((a, b) => b.level - a.level); // Sort by skill level descending
   }, [skillNames, memberSkills, transformSkillsToNames]);
 
-  const handleSkillClick = (skillName: string, isSecondary: boolean = false) => {
-    if (isSecondary) {
-      if (secondaryProfession === skillName) {
-        onSecondaryChange(undefined);
-      } else {
-        onSecondaryChange(skillName);
-        // If same as primary, clear primary
-        if (primaryProfession === skillName) {
-          onPrimaryChange(undefined);
-        }
-      }
+  const handleSkillClick = (skillName: string) => {
+    const isPrimary = primaryProfession === skillName;
+    const isSecondary = secondaryProfession === skillName;
+
+    if (!isPrimary && !isSecondary) {
+      // Not selected → Set as Primary
+      onPrimaryChange(skillName);
+    } else if (isPrimary && !isSecondary) {
+      // Is Primary → Set as Secondary (clear primary first)
+      onPrimaryChange(undefined);
+      onSecondaryChange(skillName);
+    } else if (!isPrimary && isSecondary) {
+      // Is Secondary → Clear it
+      onSecondaryChange(undefined);
     } else {
-      if (primaryProfession === skillName) {
-        onPrimaryChange(undefined);
-      } else {
-        onPrimaryChange(skillName);
-        // If same as secondary, clear secondary
-        if (secondaryProfession === skillName) {
-          onSecondaryChange(undefined);
-        }
-      }
+      // Shouldn't happen, but just in case - clear both
+      onPrimaryChange(undefined);
+      onSecondaryChange(undefined);
     }
   };
 
@@ -92,7 +89,7 @@ export function ProfessionSelector({
             Your Professions
           </CardTitle>
           <CardDescription>
-            Choose your primary and secondary professions based on your skill levels. Your highest skills are shown first.
+            Choose your primary and secondary professions. Click once for Primary, twice for Secondary, thrice to clear. Your highest skills are shown first.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -142,52 +139,59 @@ export function ProfessionSelector({
           </div>
 
           {/* Skill Selection Grid */}
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {availableSkills.map((skill) => {
               const isPrimary = primaryProfession === skill.name;
               const isSecondary = secondaryProfession === skill.name;
+              
+              let buttonVariant: "outline" | "default" | "secondary" = "outline";
+              let ringClass = "";
+              let bgClass = "";
+              let statusIcon = null;
+              let statusText = "";
+
+              if (isPrimary) {
+                buttonVariant = "default";
+                ringClass = "ring-2 ring-yellow-500";
+                bgClass = "bg-yellow-50 dark:bg-yellow-950/30";
+                statusIcon = <Star className="h-4 w-4 text-yellow-600" />;
+                statusText = "Primary";
+              } else if (isSecondary) {
+                buttonVariant = "secondary";
+                ringClass = "ring-2 ring-blue-500";
+                bgClass = "bg-blue-50 dark:bg-blue-950/30";
+                statusIcon = <User className="h-4 w-4 text-blue-600" />;
+                statusText = "Secondary";
+              }
 
               return (
-                <div key={skill.name} className="flex flex-col gap-1">
-                  {/* Primary Selection Button */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className={cn(
-                      "h-auto p-2 flex flex-col items-center gap-1 transition-all text-xs",
-                      isPrimary && "ring-2 ring-yellow-500 bg-yellow-50 dark:bg-yellow-950/30",
-                      isSecondary && "opacity-50"
-                    )}
-                    onClick={() => !isSecondary && handleSkillClick(skill.name, false)}
-                    disabled={isSecondary}
-                  >
-                    <div className="font-medium">{skill.name}</div>
-                    <div className="text-xs text-muted-foreground flex items-center gap-1">
-                      <TrendingUp className="h-3 w-3" />
-                      {skill.level}
+                <Button
+                  key={skill.name}
+                  variant={buttonVariant}
+                  className={cn(
+                    "h-auto p-3 flex flex-col items-center gap-2 transition-all text-sm hover:scale-105",
+                    ringClass,
+                    bgClass
+                  )}
+                  onClick={() => handleSkillClick(skill.name)}
+                >
+                  <div className="font-medium text-center">{skill.name}</div>
+                  <div className="text-xs text-muted-foreground flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    Level {skill.level}
+                  </div>
+                  {statusIcon && (
+                    <div className="flex items-center gap-1 text-xs">
+                      {statusIcon}
+                      <span className="font-medium">{statusText}</span>
                     </div>
-                    {isPrimary && <Star className="h-3 w-3 text-yellow-500" />}
-                  </Button>
-                  
-                  {/* Secondary Selection Button */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className={cn(
-                      "h-auto p-1 flex flex-col items-center transition-all text-xs",
-                      isSecondary && "ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-950/30",
-                      isPrimary && "opacity-50"
-                    )}
-                    onClick={() => !isPrimary && handleSkillClick(skill.name, true)}
-                    disabled={isPrimary}
-                  >
-                    {isSecondary ? (
-                      <User className="h-3 w-3 text-blue-500" />
-                    ) : (
-                      <div className="text-xs text-muted-foreground">2nd</div>
-                    )}
-                  </Button>
-                </div>
+                  )}
+                  {!isPrimary && !isSecondary && (
+                    <div className="text-xs text-muted-foreground opacity-60">
+                      Click to set
+                    </div>
+                  )}
+                </Button>
               );
             })}
           </div>
