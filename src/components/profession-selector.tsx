@@ -55,17 +55,38 @@ export function ProfessionSelector({
     const isPrimary = primaryProfession === skillName;
     const isSecondary = secondaryProfession === skillName;
 
-    if (!isPrimary && !isSecondary) {
-      // Click 1: Not selected → Set as Primary
-      onPrimaryChange(skillName);
-    } else if (isPrimary && !isSecondary) {
-      // Click 2: Is Primary → Set as Secondary (clear primary first)
+    // If already selected, clear it
+    if (isPrimary) {
       onPrimaryChange(undefined);
-      onSecondaryChange(skillName);
-    } else if (!isPrimary && isSecondary) {
-      // Click 3: Is Secondary → Set as Primary (clear secondary first)
+      return;
+    }
+    if (isSecondary) {
       onSecondaryChange(undefined);
+      return;
+    }
+
+    // If nothing selected, set as Primary
+    if (!primaryProfession && !secondaryProfession) {
       onPrimaryChange(skillName);
+      return;
+    }
+
+    // If Primary is set but not Secondary, set as Secondary
+    if (primaryProfession && !secondaryProfession) {
+      onSecondaryChange(skillName);
+      return;
+    }
+
+    // If Secondary is set but not Primary, set as Primary
+    if (!primaryProfession && secondaryProfession) {
+      onPrimaryChange(skillName);
+      return;
+    }
+
+    // If both are set, replace Primary
+    if (primaryProfession && secondaryProfession) {
+      onPrimaryChange(skillName);
+      return;
     }
   };
 
@@ -86,7 +107,7 @@ export function ProfessionSelector({
             Your Professions
           </CardTitle>
           <CardDescription>
-            Choose your primary and secondary professions. Click once for Primary, twice for Secondary. Your highest skills are shown first.
+            Choose your primary and secondary professions. Click any skill to select it - first click sets Primary, second click (on a different skill) sets Secondary. Your highest skills are shown first.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -185,7 +206,10 @@ export function ProfessionSelector({
                   )}
                   {!isPrimary && !isSecondary && (
                     <div className="text-xs text-muted-foreground opacity-60">
-                      Click: Primary
+                      {!primaryProfession && !secondaryProfession ? "Click: Primary" : 
+                       primaryProfession && !secondaryProfession ? "Click: Secondary" :
+                       !primaryProfession && secondaryProfession ? "Click: Primary" :
+                       "Click: Replace Primary"}
                     </div>
                   )}
                 </Button>
