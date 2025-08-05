@@ -181,17 +181,17 @@ async function logProjectActivitiesToDatabase(activities: ProjectActivityLogEntr
  * Helper function to get settlement member ID from Supabase user
  */
 export async function getSettlementMemberFromUser(
-  settlementMemberId: string, 
+  settlementMemberId: string, // BitJita entity_id
 ): Promise<{ memberId: string; memberName: string } | null> {
   const supabase = createServerClient();
   if (!supabase) return null;
   
   try {
-    // Try to find existing settlement member
+    // Try to find existing settlement member using entity_id
     const { data: member, error } = await supabase
       .from('settlement_members')
-      .select('id, name')
-      .eq('id', settlementMemberId)
+      .select('id, name, entity_id')
+      .eq('entity_id', settlementMemberId)
       .single()
     
     if (error || !member) {

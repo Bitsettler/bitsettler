@@ -14,7 +14,8 @@ export interface MemberWithSkills extends SettlementMember {
 }
 
 /**
- * Get a settlement member by ID with their professions/skills
+ * Get a settlement member by entity ID (BitJita character ID) with their professions/skills
+ * @param memberId - BitJita entity_id (numeric string like "504403158277830330")
  */
 export async function getMemberById(memberId: string): Promise<MemberWithSkills | null> {
   // Use service role client to bypass RLS for member operations
@@ -25,11 +26,11 @@ export async function getMemberById(memberId: string): Promise<MemberWithSkills 
   }
 
   try {
-    // Get member details
+    // Get member details using entity_id (BitJita character ID)
     const { data: memberData, error: memberError } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('id', memberId)
+      .eq('entity_id', memberId)
       .single();
 
     if (memberError) {

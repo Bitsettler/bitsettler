@@ -148,7 +148,7 @@ export function useCurrentMember() {
           app_joined_at: new Date().toISOString(),
           app_last_active_at: new Date().toISOString()
         })
-        .eq('id', memberId)
+        .eq('entity_id', memberId) // Fix: Use entity_id for character identification
         .eq('supabase_user_id', null) // Only unclaimed characters
         .select()
         .single();
