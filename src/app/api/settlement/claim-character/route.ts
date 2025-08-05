@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
     const { data: character, error: characterError } = await serviceClient
       .from('settlement_members')
       .select('*')
-      .eq('id', characterId) // Use database UUID field
+      .eq('entity_id', characterId) // Use BitJita entity ID (not database UUID)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
 
@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
       .update(updateData)
-      .eq('id', characterId) // Use database UUID field
+      .eq('entity_id', characterId) // Use BitJita entity ID (not database UUID)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()
       .single();
