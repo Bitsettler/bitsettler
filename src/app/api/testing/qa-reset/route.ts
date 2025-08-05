@@ -182,6 +182,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Step 2b: Clear ANY remaining onboarding state (even without user assignments)
+    console.log('2️⃣b Clearing any orphaned onboarding state...');
+    
+    const { error: onboardingClearError } = await supabase
+      .from('settlement_members')
+      .update({ onboarding_completed_at: null })
+      .not('onboarding_completed_at', 'is', null); // Clear any remaining onboarding timestamps
+    
+    if (onboardingClearError) {
+      console.warn('Warning: Failed to clear orphaned onboarding state:', onboardingClearError.message);
+    } else {
+      console.log('✅ Cleared any orphaned onboarding state');
+    }
+
     // Step 3: Clear Supabase auth users
     console.log('3️⃣ Clearing Supabase auth users...');
     let deletedCount = 0;
@@ -308,9 +322,9 @@ export async function POST(request: NextRequest) {
           auth_users_remaining: authUserCount
         },
         verification: {
-          is_clean: (claimedCount === 0 && professionCount === 0 && onboardingCount === 0 && 
-                     profileCount === 0 && projectCount === 0 && treasuryCount === 0 && 
-                     treasuryHistoryCount === 0 && discordLinksCount === 0 && authUserCount === 0),
+          is_clean: ((claimedCount || 0) === 0 && (professionCount || 0) === 0 && (onboardingCount || 0) === 0 && 
+                     (profileCount || 0) === 0 && (projectCount || 0) === 0 && (treasuryCount || 0) === 0 && 
+                     (treasuryHistoryCount || 0) === 0 && (discordLinksCount || 0) === 0 && (authUserCount || 0) === 0),
           issues: [
             ...(claimedCount > 0 ? [`${claimedCount} characters still claimed`] : []),
             ...(professionCount > 0 ? [`${professionCount} members have profession choices`] : []),
