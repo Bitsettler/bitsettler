@@ -316,7 +316,11 @@ export const SETTLEMENT_SCHEMAS = {
   claimCharacter: {
     characterId: {
       required: true,
-      type: 'uuid' as const
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      pattern: /^[0-9]+$/,  // BitJita entity IDs are numeric strings
+      sanitize: true
     },
     settlementId: {
       required: true,
