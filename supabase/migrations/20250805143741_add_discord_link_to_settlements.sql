@@ -10,8 +10,7 @@ ALTER TABLE settlements_master
 ADD CONSTRAINT check_discord_link_format 
 CHECK (
   discord_link IS NULL OR 
-  discord_link ~ '^https?://discord\.(gg|com)/.+$' OR
-  discord_link ~ '^https://discord\.gg/[A-Za-z0-9]+$'
+  discord_link ~ '^https?://(discord\.(gg|com)/|discordapp\.com/invite/).+$'
 );
 
 -- Add comment for documentation
