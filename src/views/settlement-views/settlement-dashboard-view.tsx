@@ -90,11 +90,13 @@ export function SettlementDashboardView() {
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
   
-  // Generate invite code for member's settlement if none exists (run once)
+  // Fetch invite code for member's settlement if none exists (run once)
   useEffect(() => {
     if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
       const settlementInfo = dashboardData.settlement.settlementInfo;
-      generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name);
+      generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name).catch(error => {
+        console.error('Failed to fetch invite code for settlement:', error);
+      });
     }
   }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { generateSettlementInviteCode } from '../lib/utils/invite-codes';
 
 export interface Settlement {
   id: string;
@@ -42,31 +41,10 @@ export function useSelectedSettlement() {
         const settlement = JSON.parse(storedSettlement);
         setSelectedSettlement(settlement);
         
-        // Load existing invite code or generate new one
-        if (storedInviteCode) {
-          try {
-            const existingCode = JSON.parse(storedInviteCode);
-            // Verify the invite code matches the current settlement
-            if (existingCode.settlementId === settlement.id) {
-              setInviteCode(existingCode);
-            } else {
-              // Generate new code for different settlement
-              const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
-              setInviteCode(newCode);
-              localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
-            }
-          } catch (error) {
-            // Generate new code if stored code is invalid
-            const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
-            setInviteCode(newCode);
-            localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
-          }
-        } else {
-          // Generate new invite code for first time
-          const newCode = generateSettlementInviteCode(settlement.id, settlement.name);
-          setInviteCode(newCode);
-          localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
-        }
+        // Fetch invite code from database (authoritative source)
+        fetchInviteCodeFromDatabase().catch(error => {
+          console.error('Failed to fetch invite code on settlement load:', error);
+        });
       } catch (error) {
         console.error('Error parsing stored settlement:', error);
         // Clear invalid data
@@ -140,15 +118,43 @@ export function useSelectedSettlement() {
     }
   };
 
-  // Function to regenerate invite code
-  const regenerateInviteCode = () => {
+  // Function to regenerate invite code via API
+  const regenerateInviteCode = async () => {
     if (!selectedSettlement) return null;
     
-    const newCode = generateSettlementInviteCode(selectedSettlement.id, selectedSettlement.name);
-    setInviteCode(newCode);
-    localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
-    
-    return newCode;
+    try {
+      // Call the API to regenerate invite code in database
+      const response = await fetch('/api/settlement/invite-code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      const result = await response.json();
+      
+      if (result.success && result.data.inviteCode) {
+        // Update state with database-generated code
+        const newCode = {
+          code: result.data.inviteCode,
+          formattedCode: result.data.inviteCode,
+          createdAt: result.data.regeneratedAt || new Date().toISOString(),
+          settlementId: selectedSettlement.id,
+          settlementName: selectedSettlement.name
+        };
+        
+        setInviteCode(newCode);
+        // Remove localStorage - database is source of truth
+        localStorage.removeItem('settlementInviteCode');
+        
+        return newCode;
+      } else {
+        throw new Error(result.error || 'Failed to regenerate invite code');
+      }
+    } catch (error) {
+      console.error('Failed to regenerate invite code:', error);
+      return null;
+    }
   };
 
   // Function to clear the selected settlement
@@ -164,12 +170,52 @@ export function useSelectedSettlement() {
     return selectedSettlement?.id || null;
   };
 
+  // Function to fetch invite code from database
+  const fetchInviteCodeFromDatabase = async (): Promise<SettlementInviteCode | null> => {
+    try {
+      const response = await fetch('/api/settlement/invite-code', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      const result = await response.json();
+      
+      if (result.success && result.data.inviteCode) {
+        const inviteCodeData = {
+          code: result.data.inviteCode,
+          formattedCode: result.data.inviteCode,
+          createdAt: result.data.generatedAt || new Date().toISOString(),
+          settlementId: result.data.settlement.id,
+          settlementName: result.data.settlement.name
+        };
+        
+        setInviteCode(inviteCodeData);
+        // Remove localStorage - database is source of truth
+        localStorage.removeItem('settlementInviteCode');
+        
+        return inviteCodeData;
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('Failed to fetch invite code from database:', error);
+      return null;
+    }
+  };
+
   // Function to generate invite code for any settlement ID (without full selection)
-  const generateInviteCodeForSettlement = (settlementId: string, settlementName: string = 'Settlement'): SettlementInviteCode => {
-    const newCode = generateSettlementInviteCode(settlementId, settlementName);
-    setInviteCode(newCode);
-    localStorage.setItem('settlementInviteCode', JSON.stringify(newCode));
-    return newCode;
+  const generateInviteCodeForSettlement = async (settlementId: string, settlementName: string = 'Settlement'): Promise<SettlementInviteCode | null> => {
+    // Try to fetch from database first
+    const existingCode = await fetchInviteCodeFromDatabase();
+    if (existingCode) {
+      return existingCode;
+    }
+    
+    // If no code exists, this should trigger settlement establishment flow
+    console.warn('No invite code found in database for settlement:', settlementId);
+    return null;
   };
 
   return {
@@ -181,6 +227,7 @@ export function useSelectedSettlement() {
     clearSettlement,
     getSettlementId,
     generateInviteCodeForSettlement,
+    fetchInviteCodeFromDatabase,
     hasSettlement: !!selectedSettlement
   };
 } 
