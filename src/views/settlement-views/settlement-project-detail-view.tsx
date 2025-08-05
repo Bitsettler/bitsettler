@@ -130,7 +130,6 @@ export function SettlementProjectDetailView() {
       const transformedProject = transformProjectData(result.data);
       setProject(transformedProject);
     } catch (err) {
-      console.error('Error fetching project details:', err);
       setError(err instanceof Error ? err.message : 'Failed to load project details');
     } finally {
       setLoading(false);
@@ -191,7 +190,6 @@ export function SettlementProjectDetailView() {
       fetchProjectDetails();
       
     } catch (err) {
-      console.error('Error adding contribution:', err);
       alert(err instanceof Error ? err.message : 'Failed to add contribution');
     } finally {
       setIsSubmitting(false);

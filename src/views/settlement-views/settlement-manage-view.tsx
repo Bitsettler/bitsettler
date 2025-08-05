@@ -37,7 +37,7 @@ export function SettlementManageView() {
 
   const handleRefreshData = () => {
     // Future: Trigger data refresh
-    console.log('Refreshing settlement data...');
+    // Refreshing settlement data
   };
 
   const formatNumber = (num: number): string => {

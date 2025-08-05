@@ -72,12 +72,7 @@ export function SettlementMembersView() {
       // Add settlement ID if available - use selectedSettlement or fallback to member's settlement
       const settlementId = selectedSettlement?.id || member?.settlement_id;
       
-      console.log('🔍 Settlement ID resolution:', {
-        selectedSettlement: selectedSettlement?.id,
-        memberSettlement: member?.settlement_id,
-        finalSettlementId: settlementId,
-        memberLoading
-      });
+      // Settlement ID resolution complete
       
       if (!settlementId) {
         throw new Error('No settlement available - please select a settlement or claim a character');
@@ -96,7 +91,6 @@ export function SettlementMembersView() {
       setTotalMembers(result.data.memberCount || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Members fetch error:', err);
     } finally {
       setLoading(false);
     }

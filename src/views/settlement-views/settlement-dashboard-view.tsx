@@ -95,7 +95,7 @@ export function SettlementDashboardView() {
     if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
       const settlementInfo = dashboardData.settlement.settlementInfo;
       generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name).catch(error => {
-        console.error('Failed to fetch invite code for settlement:', error);
+        // Failed to fetch invite code
       });
     }
   }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
@@ -149,7 +149,7 @@ export function SettlementDashboardView() {
         setMemberActivities(memberData.activities);
       }
     } catch (error) {
-      console.error('Failed to fetch recent activities:', error);
+      // Failed to fetch recent activities
     }
   }, [selectedSettlement, member]);
 

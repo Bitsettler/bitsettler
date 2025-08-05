@@ -60,7 +60,7 @@ export function SettlementProjectsView() {
 
       setProjects(result.data || []);
     } catch (err) {
-      console.error('Error fetching projects:', err);
+      // Error fetching projects
       setError(err instanceof Error ? err.message : 'Failed to load projects');
       setProjects([]); // Reset to empty array on error
     } finally {

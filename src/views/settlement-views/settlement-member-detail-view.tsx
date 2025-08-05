@@ -131,7 +131,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
       setMember(result.data || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Member detail fetch error:', err);
+      // Member detail fetch failed
     } finally {
       setLoading(false);
     }

@@ -102,7 +102,6 @@ export function SettlementAnalyticsView() {
         setError(result.error || 'Failed to load analytics data');
       }
     } catch (err) {
-      console.error('Analytics fetch error:', err);
       setError('Failed to load analytics data');
       // Mock data for development
       setData(getMockAnalyticsData());
@@ -130,7 +129,7 @@ export function SettlementAnalyticsView() {
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Export failed:', error);
+      // Export failed silently
     }
   };
 

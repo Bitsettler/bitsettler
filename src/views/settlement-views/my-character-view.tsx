@@ -63,7 +63,7 @@ export function MyCharacterView() {
         throw new Error(result.error || 'Failed to update professions');
       }
     } catch (err) {
-      console.error('Failed to update professions:', err);
+      // Failed to update professions
       setSaveError(err instanceof Error ? err.message : 'Failed to update professions');
     } finally {
       setSaving(false);
