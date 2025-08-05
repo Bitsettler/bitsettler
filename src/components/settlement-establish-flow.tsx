@@ -401,7 +401,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     
     // Debug the exact data being sent
     const requestData = {
-      characterId: characterToUse.id,
+      characterId: characterToUse.entity_id, // Explicitly use entity_id for clarity
       settlementId: selectedSettlement.id,
       displayName: null,
       primaryProfession: null,

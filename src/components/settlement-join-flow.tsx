@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ProfessionSelector } from '@/components/profession-selector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,7 +13,7 @@ import {
   ArrowLeft, 
   CheckCircle, 
   AlertCircle, 
-  Users, 
+  Users,
   User,
   MapPin,
   Loader2,
@@ -50,10 +51,14 @@ interface CharacterOption {
 }
 
 export function SettlementJoinFlow({ settlementData, onBack, onComplete }: SettlementJoinFlowProps) {
-  const [step, setStep] = useState<'character-select' | 'claiming' | 'complete' | 'error'>('character-select');
+  const [step, setStep] = useState<'character-select' | 'profession-select' | 'claiming' | 'complete' | 'error'>('character-select');
   const [error, setError] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Profession selection state
+  const [primaryProfession, setPrimaryProfession] = useState<string | undefined>();
+  const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>();
 
   // Filter characters based on search term
   const filteredCharacters = useMemo(() => {
@@ -71,14 +76,27 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
 
   // Data is already loaded from API call
 
+  const handleSelectCharacter = () => {
+    if (!selectedCharacter) return;
+    setStep('profession-select');
+    setError(null);
+  };
+
+  const handleBackToCharacterSelect = () => {
+    setStep('character-select');
+    setError(null);
+  };
+
   const handleClaimCharacter = async () => {
     if (!selectedCharacter) return;
 
     setStep('claiming');
     try {
       const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.id,
-        settlementId: settlementData.settlement.id
+        characterId: selectedCharacter.entity_id, // Explicitly use entity_id for clarity
+        settlementId: settlementData.settlement.id,
+        primaryProfession,
+        secondaryProfession
       });
 
       if (result.success) {
@@ -226,12 +244,12 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
                       {selectedCharacter?.id === character.id && (
                         <div className="mt-4 pt-4 border-t border-border">
                           <Button 
-                            onClick={handleClaimCharacter} 
+                            onClick={handleSelectCharacter} 
                             className="w-full"
                             size="sm"
                           >
                             <CheckCircle className="w-4 h-4 mr-2" />
-                            Claim {character.name} & Join Settlement
+                            Choose {character.name}
                           </Button>
                         </div>
                       )}
@@ -259,6 +277,63 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
                   Select a Character to Continue
                 </Button>
               )}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (step === 'profession-select') {
+    return (
+      <div className="max-w-2xl mx-auto p-6">
+        <Card>
+          <CardHeader className="text-center">
+            <CardTitle>Choose Your Professions</CardTitle>
+            <CardDescription>
+              Define your primary and secondary professions to represent your playstyle
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Selected Character Summary */}
+            {selectedCharacter && (
+              <Card className="bg-primary/5">
+                <CardContent className="pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
+                      <User className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{selectedCharacter.name}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Level {selectedCharacter.total_level} • {selectedCharacter.top_profession}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Profession Selector */}
+            <ProfessionSelector
+              primaryProfession={primaryProfession}
+              secondaryProfession={secondaryProfession}
+              onPrimaryChange={setPrimaryProfession}
+              onSecondaryChange={setSecondaryProfession}
+              allowNone={true}
+            />
+
+            {/* Action Buttons */}
+            <div className="flex items-center justify-between">
+              <Button variant="outline" onClick={handleBackToCharacterSelect}>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Character Selection
+              </Button>
+              
+              <Button onClick={handleClaimCharacter} className="min-w-[200px]">
+                <CheckCircle className="h-4 w-4 mr-2" />
+                Claim {selectedCharacter?.name}
+              </Button>
             </div>
           </CardContent>
         </Card>

@@ -117,11 +117,11 @@ export function CharacterClaiming() {
     }
 
     try {
-      setClaiming(selectedCharacter.id);
+      setClaiming(selectedCharacter.entity_id); // Fix: Use entity_id for consistency
       setError(null);
 
       const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.id,
+        characterId: selectedCharacter.entity_id, // Fix: Use entity_id for character identification
         settlementId: selectedCharacter.settlement_id,
         displayName: customDisplayName.trim() || undefined,
         primaryProfession,
@@ -278,7 +278,7 @@ export function CharacterClaiming() {
             <Card 
               key={member.id} 
               className={`cursor-pointer transition-all border-2 ${
-                selectedCharacter?.id === member.id 
+                selectedCharacter?.entity_id === member.entity_id 
                   ? 'border-primary bg-primary/5 shadow-md' 
                   : 'border-border hover:border-primary/50 hover:shadow-md'
               }`}
@@ -316,7 +316,7 @@ export function CharacterClaiming() {
 
               <CardContent className="space-y-3">
                 {/* Action Button - appears when this character is selected */}
-                {selectedCharacter?.id === member.id && (
+                {selectedCharacter?.entity_id === member.entity_id && (
                   <div className="pt-3 border-t border-border space-y-3">
                     <div className="space-y-2">
                       <Label htmlFor={`display-name-${member.id}`} className="text-xs">
@@ -429,10 +429,10 @@ export function CharacterClaiming() {
               
               <Button 
                 onClick={claimCharacter}
-                disabled={claiming === selectedCharacter.id}
+                disabled={claiming === selectedCharacter.entity_id}
                 className="min-w-[200px]"
               >
-                {claiming === selectedCharacter.id ? (
+                {claiming === selectedCharacter.entity_id ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                     Claiming Character...
