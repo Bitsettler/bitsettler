@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
+import { useCurrentMember } from '@/hooks/use-current-member';
 import { useRouter } from 'next/navigation';
 import { 
   Plus, 
@@ -67,6 +68,7 @@ interface ProjectItem {
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
+  const { member, isLoading: memberLoading } = useCurrentMember();
   const router = useRouter();
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectWithItems[]>([]);
@@ -444,11 +446,11 @@ export function SettlementProjectsView() {
 
   // Quick Create Project Handler
   const handleQuickCreate = async () => {
-    if (!session?.user || !createData.name.trim()) return;
+    if (!session?.user || !createData.name.trim() || !member) return;
     
     try {
       setIsCreating(true);
-      
+
       const headers: Record<string, string> = {
         'Content-Type': 'application/json'
       };
@@ -471,7 +473,8 @@ export function SettlementProjectsView() {
             tier: item.tier,
             priority: item.priority,
             notes: item.notes || undefined
-          }))
+          })),
+          createdByMemberId: member.id
         })
       });
 

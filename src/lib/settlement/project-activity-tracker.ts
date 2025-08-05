@@ -181,8 +181,7 @@ async function logProjectActivitiesToDatabase(activities: ProjectActivityLogEntr
  * Helper function to get settlement member ID from Supabase user
  */
 export async function getSettlementMemberFromUser(
-  supabaseUserId: string, 
-  userName: string
+  settlementMemberId: string, 
 ): Promise<{ memberId: string; memberName: string } | null> {
   const supabase = createServerClient();
   if (!supabase) return null;
@@ -192,11 +191,11 @@ export async function getSettlementMemberFromUser(
     const { data: member, error } = await supabase
       .from('settlement_members')
       .select('id, name')
-      .eq('supabase_user_id', supabaseUserId)
-      .single();
+      .eq('id', settlementMemberId)
+      .single()
     
     if (error || !member) {
-      console.warn(`No settlement member found for user ${userName} (${supabaseUserId})`);
+      console.warn(`No settlement member found for user ${settlementMemberId}`);
       return null;
     }
     
@@ -218,10 +217,9 @@ export async function logProjectCreated(
   projectId: string,
   projectName: string,
   projectPriority: number,
-  creatorUserId: string,
-  creatorUserName: string
+  creatorMemberId: string,
 ): Promise<void> {
-  const memberInfo = await getSettlementMemberFromUser(creatorUserId, creatorUserName);
+  const memberInfo = await getSettlementMemberFromUser(creatorMemberId);
   if (!memberInfo) return;
   
   await trackProjectActivity({

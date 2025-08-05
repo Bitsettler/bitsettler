@@ -7,7 +7,7 @@ export interface SettlementProject {
   description: string | null;
   status: 'Active' | 'Completed' | 'Cancelled';
   priority: number;
-  createdBy: string;
+  createdByMemberId: string;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -32,9 +32,9 @@ export function withErrorHandling<T>(
       
       // Log the result
       if (result.success) {
-        logger.apiCall(method, endpoint, 200, duration);
+        logger.logResponse(method, endpoint, 200, duration);
       } else {
-        logger.apiCall(method, endpoint, 400, duration, {
+        logger.logResponse(method, endpoint, 400, duration, {
           error: result.error,
           code: result.code
         });
@@ -45,7 +45,7 @@ export function withErrorHandling<T>(
       const duration = Date.now() - startTime;
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       
-      logger.apiCall(method, endpoint, 500, duration, {
+      logger.logResponse(method, endpoint, 500, duration, {
         error: errorMessage,
         stack: err instanceof Error ? err.stack : undefined
       });
@@ -88,9 +88,9 @@ export function withErrorHandlingParams<T, P extends Record<string, string> = Re
       
       // Log the result
       if (result.success) {
-        logger.apiCall(method, endpoint, 200, duration);
+        logger.logResponse(method, endpoint, 200, duration);
       } else {
-        logger.apiCall(method, endpoint, 400, duration, {
+        logger.logResponse(method, endpoint, 400, duration, {
           error: result.error,
           code: result.code
         });
@@ -101,7 +101,7 @@ export function withErrorHandlingParams<T, P extends Record<string, string> = Re
       const duration = Date.now() - startTime;
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       
-      logger.apiCall(method, endpoint, 500, duration, {
+      logger.logResponse(method, endpoint, 500, duration, {
         error: errorMessage,
         stack: err instanceof Error ? err.stack : undefined
       });

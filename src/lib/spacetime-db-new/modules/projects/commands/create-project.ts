@@ -3,12 +3,12 @@ import { SettlementProject, ProjectItem } from './get-all-projects';
 import { logProjectCreated } from '../../../../settlement/project-activity-tracker';
 
 export interface CreateProjectRequest {
-  name: string;
-  description?: string;
-  status?: 'Active' | 'Completed' | 'Cancelled';
-  priority?: number;
-  createdBy: string;
-  items?: CreateProjectItemRequest[];
+  name: string
+  description?: string
+  status?: 'Active' | 'Completed' | 'Cancelled'
+  priority?: number
+  createdByMemberId: string
+  items?: CreateProjectItemRequest[]
 }
 
 export interface CreateProjectItemRequest {
@@ -44,7 +44,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         description: projectData.description || null,
         status: projectData.status || 'Active',
         priority: projectData.priority || 3,
-        created_by: projectData.createdBy,
+        created_by_member_id: projectData.createdByMemberId,
       })
       .select()
       .single();
@@ -56,11 +56,12 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
 
     const createdProject: SettlementProject = {
       id: project.id,
+      short_id: project.short_id,
       name: project.name,
       description: project.description,
       status: project.status,
       priority: project.priority,
-      createdBy: project.created_by,
+      createdByMemberId: project.created_by_member_id,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
     };
@@ -146,8 +147,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         createdProject.id,
         createdProject.name,
         createdProject.priority,
-        projectData.createdBy,
-        projectData.createdBy // Using createdBy as both userId and userName for now
+        projectData.createdByMemberId,
       );
     } catch (activityError) {
       console.warn('Failed to log project creation activity:', activityError);

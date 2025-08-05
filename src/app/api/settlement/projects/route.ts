@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { supabase, createServerClient } from '../../../../lib/spacetime-db-new/shared/supabase-client';
-import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest } from '../../../../lib/spacetime-db-new/modules';
+import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest, CreateProjectItemRequest } from '../../../../lib/spacetime-db-new/modules';
 import { withErrorHandling, parseRequestBody, requireBodyFields, apiSuccess, apiError } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
 import { logger } from '@/lib/logger';
@@ -73,7 +73,6 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsD
   } catch (error) {
     logger.error('Projects API: Failed to fetch settlement projects', error instanceof Error ? error : new Error(String(error)), {
       operation: 'GET_SETTLEMENT_PROJECTS',
-      options,
       errorMessage: error instanceof Error ? error.message : String(error)
     });
     
@@ -128,10 +127,11 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
 
   // Parse and validate request body
   const bodyResult = await parseRequestBody<{
-    name: string;
-    description?: string;
-    items?: Array<unknown>;
-  }>(request);
+    name: string
+    description?: string
+    items?: Array<CreateProjectItemRequest>
+    createdByMemberId?: string
+  }>(request)
   if (!bodyResult.success) {
     return bodyResult;
   }
@@ -139,20 +139,20 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
   const body = bodyResult.data;
 
   // Validate required fields
-  if (!body.name) {
+  if (!body.name || !body.createdByMemberId) {
     return apiError(
-      'Project name is required',
+      'Project name and createdByMemberId are required',
       ErrorCodes.MISSING_PARAMETER
     );
   }
 
   // Create project data using authenticated user
-  const userName = session.user.name || session.user.email || session.user.id || 'Unknown User';
+  const userName = session.user.email || session.user.id || 'Unknown User';
   
   const projectData: CreateProjectRequest = {
     name: body.name,
     description: body.description,
-    createdBy: userName,
+    createdByMemberId: body.createdByMemberId,
     items: body.items || []
   };
 
@@ -160,7 +160,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
     userName,
     userInfo: {
       id: session.user.id,
-      name: session.user.name,
+      name: userName,
       email: session.user.email
     },
     projectData: {
@@ -179,8 +179,8 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
     const result = await createProject(projectData);
 
     logger.info('Project created successfully', {
-      projectId: result.id,
-      projectName: result.name,
+      projectId: result.project.id,
+      projectName: result.project.name,
       userId: session.user.id
     });
 
