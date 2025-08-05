@@ -15,18 +15,7 @@ import { DatabaseSettlementMember, formatAsAvailableCharacter } from '@/lib/type
  */
 export async function POST(request: NextRequest) {
   try {
-    // Verify authentication using proper header handling
-    const authResult = await requireAuth(request);
-    if (authResult.error) {
-      return NextResponse.json(
-        { success: false, error: authResult.error },
-        { status: authResult.status }
-      );
-    }
-
-    const { session, user } = authResult;
     const supabase = await createServerSupabaseClient();
-
     const body = await request.json();
     const { settlementId, settlementName } = body;
 
@@ -49,44 +38,103 @@ export async function POST(request: NextRequest) {
     if (existingSettlement) {
       console.log(`✅ Settlement already exists: ${existingSettlement.name}`);
       
-      // Settlement exists, so get the available characters from our database
-      try {
-        // Fetch settlement member data from OUR database (not BitJita)
-        const membersResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/members?settlementId=${settlementId}`);
-        const membersResult = await membersResponse.json();
-        
-        if (membersResult.success && membersResult.data.members) {
-          const availableCharacters = membersResult.data.members
-            // All members from our database are already unclaimed (filtered in API)
-            .map((member: DatabaseSettlementMember) => formatAsAvailableCharacter(member));
-
-          return NextResponse.json({
-            success: true,
-            message: 'Settlement already established - proceed to claim character',
-            data: {
-              settlement: existingSettlement,
-              inviteCode: existingSettlement.invite_code,
-              availableCharacters
-            }
-          });
-        }
-      } catch (fetchError) {
-        console.error('❌ Failed to fetch character data from database for existing settlement:', fetchError);
-      }
+      // Settlement exists, so get the available characters from our database using direct query
+      console.log(`🔍 Establish API: Fetching members directly from database for settlement ${settlementId}`);
       
-      // Fallback if database fetch fails
+      const { data: members, error: membersError } = await supabase
+        .from('settlement_members')
+        .select(`
+          id,
+          entity_id,
+          player_entity_id,
+          claim_entity_id,
+          name,
+          settlement_id,
+          skills,
+          total_skills,
+          highest_level,
+          total_level,
+          total_xp,
+          top_profession,
+          inventory_permission,
+          build_permission,
+          officer_permission,
+          co_owner_permission,
+          last_login_timestamp,
+          joined_settlement_at,
+          is_active,
+          last_synced_at,
+          sync_source,
+          supabase_user_id
+        `)
+        .eq('settlement_id', settlementId);
+
+      if (membersError) {
+        console.error('❌ Failed to fetch members from database:', membersError);
+        return NextResponse.json({
+          success: false,
+          error: 'Failed to fetch settlement members from database'
+        }, { status: 500 });
+      }
+
+      console.log(`👥 Establish API: Found ${members?.length || 0} members in database`);
+
+      // Transform database data to available characters format (only unclaimed characters)
+      const availableCharacters = (members || [])
+        .filter(member => !member.supabase_user_id) // Only unclaimed characters
+        .map((member) => formatAsAvailableCharacter({
+          id: member.entity_id,
+          entity_id: member.entity_id,
+          player_entity_id: member.player_entity_id,
+          claim_entity_id: member.claim_entity_id,
+          name: member.name || 'Unknown Player',
+          settlement_id: member.settlement_id,
+          skills: member.skills || {},
+          total_skills: member.total_skills || 0,
+          highest_level: member.highest_level || 0,
+          total_level: member.total_level || 0,
+          total_xp: member.total_xp || 0,
+          top_profession: member.top_profession || 'Unknown',
+          inventory_permission: member.inventory_permission || 0,
+          build_permission: member.build_permission || 0,
+          officer_permission: member.officer_permission || 0,
+          co_owner_permission: member.co_owner_permission || 0,
+          last_login_timestamp: member.last_login_timestamp,
+          joined_settlement_at: member.joined_settlement_at,
+          is_active: member.is_active,
+          is_claimed: !!member.supabase_user_id,
+          last_synced_at: member.last_synced_at,
+          sync_source: member.sync_source
+        }));
+
+      console.log(`🎭 Establish API: Found ${availableCharacters.length} unclaimed characters available for claiming`);
+
       return NextResponse.json({
         success: true,
-        message: 'Settlement already established',
+        message: 'Settlement already established - proceed to claim character',
         data: {
           settlement: existingSettlement,
           inviteCode: existingSettlement.invite_code,
-          availableCharacters: []
+          availableCharacters
         }
       });
     }
 
-    // 2. Create settlement in settlements_master table
+    // 2. Create settlement in settlements_master table (requires authentication)
+    console.log('🔐 Settlement creation requires authentication...');
+    
+    // Verify authentication for settlement creation
+    const authResult = await requireAuth(request);
+    if (authResult.error) {
+      return NextResponse.json(
+        { success: false, error: `Authentication required for settlement creation: ${authResult.error}` },
+        { status: authResult.status }
+      );
+    }
+
+    const { session, user } = authResult;
+    console.log(`✅ Authenticated user ${user.email} creating settlement`);
+
     const { data: settlement, error: settlementError } = await supabase
       .from('settlements_master')
       .insert({
