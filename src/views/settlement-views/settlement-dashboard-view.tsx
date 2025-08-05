@@ -22,6 +22,7 @@ import {
 import { formatDistanceToNow } from 'date-fns';
 import { SettlementTierIcon } from '@/components/ui/tier-icon';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
+import { SettlementDiscordLink } from '../../components/settlement-discord-link';
 
 
 interface DashboardStats {
@@ -289,6 +290,13 @@ export function SettlementDashboardView() {
                   Tier {settlementInfo?.tier || selectedSettlement?.tier || 1} Settlement
                 </span>
               </div>
+              {/* Discord Community Link - Inline */}
+              {selectedSettlement?.id && (
+                <SettlementDiscordLink 
+                  settlementId={selectedSettlement.id}
+                  initialDiscordLink={dashboardData?.settlement?.masterData?.discord_link}
+                />
+              )}
             </div>
             <div className="flex flex-col items-end gap-2">
               {!settlementLoading && inviteCode ? (

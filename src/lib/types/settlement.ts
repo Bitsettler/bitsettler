@@ -19,6 +19,7 @@ export interface Settlement {
   description?: string;
   established_date?: string;
   invite_code?: string;
+  discord_link?: string;
   
   // Activity stats
   active_members?: number;

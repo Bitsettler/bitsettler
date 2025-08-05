@@ -197,6 +197,8 @@ export async function GET(request: NextRequest) {
     const responseData = {
       settlement: {
         settlementInfo,
+        // Settlement master data from our database (includes discord_link)
+        masterData: settlement,
         stats: {
           totalMembers, // Always use actual member count from database
           activeMembers,
