@@ -19,8 +19,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    console.log(`🔬 Fetching research data for settlement ${settlementId}...`);
-
     // Fetch settlement details from BitJita which includes research data
     const result = await BitJitaAPI.fetchSettlementDetails(settlementId);
 
@@ -100,8 +98,6 @@ export async function GET(request: NextRequest) {
     const completedResearch = researchItems.filter(item => item.isCompleted).length;
     const highestTier = Math.max(...researchItems.map(item => item.tier));
 
-    console.log(`✅ Research data parsed: ${completedResearch}/${totalResearch} items completed, highest tier: ${highestTier}`);
-
     return NextResponse.json({
       success: true,
       data: researchItems,
@@ -117,7 +113,6 @@ export async function GET(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Settlement research API error:', error);
     return NextResponse.json(
       {
         success: false,

@@ -46,7 +46,6 @@ export function SettlementResearchView() {
   const fetchResearchData = async () => {
     // Don't fetch data if no settlement is selected
     if (!selectedSettlement) {
-      console.log('🔍 No settlement selected, skipping research fetch');
       setLoading(false);
       setResearchData([]);
       setMeta(null);
@@ -56,8 +55,6 @@ export function SettlementResearchView() {
     try {
       setLoading(true);
       setError(null);
-
-      console.log(`🔬 Fetching research data for settlement: ${selectedSettlement.name} (${selectedSettlement.id})`);
 
       const response = await fetch(`/api/settlement/research?settlementId=${selectedSettlement.id}`);
       const result: ResearchResponse = await response.json();
@@ -70,7 +67,6 @@ export function SettlementResearchView() {
       setMeta(result.meta || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Research fetch error:', err);
     } finally {
       setLoading(false);
     }
