@@ -64,13 +64,13 @@ export async function GET(request: NextRequest) {
     const { q: query, page = '1' } = validationResult.data!;
     const pageNum = parseInt(page.toString());
 
-    console.log(`🔍 Searching settlements for: "${query}" (page ${pageNum})`);
+    // Searching settlements
 
     // Call BitJita API to search settlements (query is already sanitized)
     const result = await BitJitaAPI.searchSettlements(query, pageNum);
 
     if (!result.success) {
-      console.error('❌ BitJita settlement search failed:', result.error);
+      // BitJita settlement search failed
       return NextResponse.json(
         { success: false, error: result.error || 'Failed to search settlements' },
         { status: 500 }
@@ -96,16 +96,11 @@ export async function GET(request: NextRequest) {
             memberCount = members.length;
           }
         } catch (err) {
-          console.warn(`⚠️ Could not fetch member count for settlement ${settlement.id}:`, err);
+          // Could not fetch member count
         }
       }
       
-      console.log(`🔍 Settlement ${settlement.name}: BitJita data:`, {
-        id: settlement.id,
-        tiles: settlement.tiles,
-        population: settlement.population,
-        dbMemberCount: memberCount
-      });
+      // Settlement data retrieved
 
       return {
         id: settlement.id,
@@ -125,7 +120,7 @@ export async function GET(request: NextRequest) {
       };
     }));
 
-    console.log(`✅ Found ${settlements.length} settlements for "${query}"`);
+    // Settlement search completed
 
     return NextResponse.json({
       success: true,
@@ -141,7 +136,7 @@ export async function GET(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('❌ Settlement search error:', error);
+    // Settlement search error
     
     return NextResponse.json({
       success: false,

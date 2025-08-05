@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 
     switch (action) {
       case 'summary': {
-        console.log('🏛️ Fetching treasury summary with BitJita integration...');
+        // Fetching treasury summary with BitJita integration
         
         // Get settlement ID from query params (required)
         const settlementId = searchParams.get('settlementId');
