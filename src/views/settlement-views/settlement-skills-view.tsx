@@ -225,11 +225,6 @@ export function SettlementSkillsView() {
     
     // Don't fetch data if no settlement is available
     if (!settlementId) {
-      console.log('🔍 No settlement available, skipping data fetch', {
-        selectedSettlement: selectedSettlement?.id,
-        memberSettlement: member?.settlement_id,
-        memberLoading
-      });
       setLoading(false);
       setCitizensData([]);
       setSkillsData(null);
@@ -285,13 +280,10 @@ export function SettlementSkillsView() {
         isActive: member.is_active || false
       }));
       
-      console.log(`🎓 Skills View - Mapped ${memberData.length} members`);
-      
       setCitizensData(memberData);
       setMeta(analyticsResult.meta || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Skills fetch error:', err);
     } finally {
       setLoading(false);
     }

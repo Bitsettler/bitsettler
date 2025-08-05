@@ -195,7 +195,6 @@ export function SettlementTreasuryView() {
       setSummary(data.data.summary);
       setStats(data.data.stats);
     } catch (err) {
-      console.error('Error fetching treasury summary:', err);
       setError(err instanceof Error ? err.message : 'Failed to load treasury data');
     }
   }
@@ -211,7 +210,7 @@ export function SettlementTreasuryView() {
         setCategories(data.data || []);
       }
     } catch (err) {
-      console.error('Error fetching categories:', err);
+      // Category fetch failed
     }
   }
 
@@ -245,7 +244,7 @@ export function SettlementTreasuryView() {
 
       setTransactions(data.data || []);
     } catch (err) {
-      console.error('Error fetching transactions:', err);
+      // Transaction fetch failed
     } finally {
       setTransactionsLoading(false);
       setLoading(false);
@@ -275,7 +274,7 @@ export function SettlementTreasuryView() {
 
       setHistory(historyWithDates);
     } catch (err) {
-      console.error('Error fetching treasury history:', err);
+      // Treasury history fetch failed
     } finally {
       setHistoryLoading(false);
     }
@@ -506,13 +505,7 @@ export function SettlementTreasuryView() {
                     const balanceMax = Math.max(...chartData.map(d => d.balance));
                     const balanceRange = balanceMax - balanceMin;
 
-                    // Debug the data
-                
-                    console.log('   History Length:', history.length);
-                    console.log('   Unique Dates:', uniqueDates);
-                    console.log('   Balance Range:', { min: balanceMin, max: balanceMax, range: balanceRange });
-                    console.log('   All Same Date:', allSameDate);
-                    console.log('   Sample Data:', chartData.slice(0, 3));
+                    // Chart data prepared
 
                     // Chart configuration for ShadCN theming
                     const chartConfig: ChartConfig = {

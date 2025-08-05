@@ -217,7 +217,7 @@ export function SettlementProjectsView() {
             }
           }
         } catch (error) {
-          console.warn(`Failed to fetch memberships for project ${project.id}:`, error);
+          // Failed to fetch memberships
         }
         
         return {
@@ -242,7 +242,7 @@ export function SettlementProjectsView() {
       setProjectMemberships(membershipMap);
       
     } catch (error) {
-      console.error('Error fetching project memberships:', error);
+      // Error fetching project memberships
     }
   }, [session?.user, session?.access_token, projects]);
 
@@ -298,7 +298,6 @@ export function SettlementProjectsView() {
       // await fetchProjectMemberships();
       
     } catch (err) {
-      console.error('Error joining project:', err);
       setError(err instanceof Error ? err.message : 'Failed to join project');
     } finally {
       setJoiningProject(null);
@@ -341,7 +340,6 @@ export function SettlementProjectsView() {
       // await fetchProjectMemberships();
       
     } catch (err) {
-      console.error('Error leaving project:', err);
       setError(err instanceof Error ? err.message : 'Failed to leave project');
     } finally {
       setLeavingProject(null);
@@ -386,7 +384,6 @@ export function SettlementProjectsView() {
 
         setProjects(result.data.data?.projects || []);
       } catch (err) {
-        console.error('Error fetching projects:', err);
         setError(err instanceof Error ? err.message : 'Failed to load projects');
         setProjects([]); // Reset to empty array on error
       } finally {
@@ -500,7 +497,6 @@ export function SettlementProjectsView() {
       refreshProjects();
       
     } catch (err) {
-      console.error('Error creating project:', err);
       setError(err instanceof Error ? err.message : 'Failed to create project');
     } finally {
       setIsCreating(false);
@@ -559,7 +555,6 @@ export function SettlementProjectsView() {
           }));
           
         } catch (error) {
-          console.error('Error checking permissions:', error);
           // Set safe fallback permissions on error
           setUserPermissions(prev => ({
             ...prev,
@@ -623,7 +618,6 @@ export function SettlementProjectsView() {
       setProjects(prev => prev.filter(p => p.id !== project.id));
       
     } catch (err) {
-      console.error('Error deleting project:', err);
       setError(err instanceof Error ? err.message : 'Failed to delete project');
     }
   };
