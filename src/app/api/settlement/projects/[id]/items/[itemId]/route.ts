@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { createServerClient } from '../../../../../../../lib/spacetime-db-new/shared/supabase-client';
-import { checkProjectPermissions } from '../../../../../../../lib/spacetime-db-new/modules/projects/permissions';
+// import { checkProjectPermissions } from '../../../../../../../lib/spacetime-db-new/modules/projects/permissions'; // DISABLED
 import { withErrorHandlingParams, apiSuccess, apiError, parseRequestBody } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
 import { logger } from '@/lib/logger';
@@ -61,11 +61,7 @@ async function handleUpdateProjectItem(
     actualProjectId = project.id;
   }
 
-  // Check permissions using the actual UUID
-  const permissions = await checkProjectPermissions(actualProjectId, session.user.id, session.user.email);
-  if (!permissions.canEdit) {
-    return apiError('You do not have permission to edit items in this project', ErrorCodes.FORBIDDEN);
-  }
+  // PERMISSION CHECK DISABLED - Everyone can edit project items
 
   // Validate item ID format (should be UUID)
   if (!isValidUUID(itemId)) {
@@ -163,11 +159,7 @@ async function handleDeleteProjectItem(
     actualProjectId = project.id;
   }
 
-  // Check permissions using the actual UUID
-  const permissions = await checkProjectPermissions(actualProjectId, session.user.id, session.user.email);
-  if (!permissions.canEdit) {
-    return apiError('You do not have permission to delete items from this project', ErrorCodes.FORBIDDEN);
-  }
+  // PERMISSION CHECK DISABLED - Everyone can delete project items
 
   // Validate item ID format (should be UUID)
   if (!isValidUUID(itemId)) {

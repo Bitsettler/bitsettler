@@ -122,16 +122,16 @@ export function SettlementProjectDetailView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Permission state
-  const [permissions, setPermissions] = useState<ProjectPermissions>({
-    canEdit: false,
-    canArchive: false,
-    canDelete: false,
-    canContribute: false,
-    isOwner: false,
-    isCoOwner: false
+  // Permission state - DISABLED: Everyone can do everything
+  const [permissions] = useState<ProjectPermissions>({
+    canEdit: true,
+    canArchive: true,
+    canDelete: true,
+    canContribute: true,
+    isOwner: true,
+    isCoOwner: true
   });
-  const [permissionsLoading, setPermissionsLoading] = useState(true);
+  const [permissionsLoading] = useState(false);
   
   // Editing state
   const [isEditing, setIsEditing] = useState(false);
@@ -163,44 +163,11 @@ export function SettlementProjectDetailView() {
   // Game data for item icons and links
   const gameData = useMemo(() => getCalculatorGameData(), []);
   
-  // Fetch project permissions
-  const fetchProjectPermissions = useCallback(async () => {
-    if (!projectId || !session?.user?.id) {
-      setPermissionsLoading(false);
-      return;
-    }
-    
-    try {
-      setPermissionsLoading(true);
-      const result = await api.get(`/api/settlement/projects/${projectId}/permissions`);
-      
-      if (result.success && result.data) {
-        setPermissions(result.data);
-      } else {
-        // Default to no permissions on error
-        setPermissions({
-          canEdit: false,
-          canArchive: false,
-          canDelete: false,
-          canContribute: false,
-          isOwner: false,
-          isCoOwner: false
-        });
-      }
-    } catch (error) {
-      console.error('Error fetching permissions:', error);
-      setPermissions({
-        canEdit: false,
-        canArchive: false,
-        canDelete: false,
-        canContribute: false,
-        isOwner: false,
-        isCoOwner: false
-      });
-    } finally {
-      setPermissionsLoading(false);
-    }
-  }, [projectId, session?.user?.id]);
+  // Fetch project permissions - DISABLED: Everyone has full permissions
+  const fetchProjectPermissions = useCallback(() => {
+    // No-op: permissions are hardcoded to true for everyone
+    return Promise.resolve();
+  }, []);
   
   // Function to get item icon by name
   const getItemIcon = useCallback((itemName: string): string => {
@@ -257,9 +224,9 @@ export function SettlementProjectDetailView() {
   useEffect(() => {
     if (projectId) {
       fetchProjectDetails();
-      fetchProjectPermissions();
+      // Skip permission fetching - everyone has full access
     }
-  }, [projectId, fetchProjectDetails, fetchProjectPermissions]);
+  }, [projectId, fetchProjectDetails]);
 
   // Handle item selection from search
   const handleItemSelect = (item: any) => {
@@ -383,13 +350,7 @@ export function SettlementProjectDetailView() {
       return;
     }
 
-    // Check permissions before making API call
-    if (!permissions.canEdit) {
-      toast.error('You do not have permission to add items to this project', {
-        description: permissions.isOwner ? 'Contact the settlement co-owner for access' : 'Only project owners and settlement co-owners can edit projects'
-      });
-      return;
-    }
+    // PERMISSION CHECK DISABLED - Everyone can add items
 
     setIsAddingItem(true);
     try {
@@ -801,21 +762,7 @@ export function SettlementProjectDetailView() {
             
             <Progress value={overallProgress} className="mt-4" />
             
-            {/* Permission Warning */}
-            {!permissionsLoading && !permissions.canEdit && (
-              <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-                <div className="flex items-center gap-2 text-amber-800">
-                  <AlertCircle className="h-4 w-4" />
-                  <p className="text-sm font-medium">View-only access</p>
-                </div>
-                <p className="text-sm text-amber-700 mt-1">
-                  {permissions.isOwner 
-                    ? 'Contact the settlement co-owner to gain editing access to this project.' 
-                    : 'Only project owners and settlement co-owners can edit this project.'
-                  }
-                </p>
-              </div>
-            )}
+            {/* Permission Warning - DISABLED */}
           </CardHeader>
         </Card>
 
@@ -877,9 +824,9 @@ export function SettlementProjectDetailView() {
                         placeholder="Qty"
                       />
                       
-                      {permissions.canEdit ? (
+                      {true ? ( // PERMISSION CHECK DISABLED
                         <Button
-                          disabled={isAddingItem || !newItem.itemName.trim() || permissionsLoading}
+                          disabled={isAddingItem || !newItem.itemName.trim()}
                           onClick={handleAddItem}
                           size="lg"
                         >
@@ -1095,7 +1042,7 @@ export function SettlementProjectDetailView() {
                 })}
                 
                   {/* Add Another Item Row - Only shown when items exist and user has permissions */}
-                  {permissions.canEdit && (
+                  {true && ( // PERMISSION CHECK DISABLED
                   <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
                     <TableCell colSpan={5} className="p-4">
                       <div className="space-y-3">
@@ -1136,7 +1083,7 @@ export function SettlementProjectDetailView() {
                           />
                           
                           <Button
-                            disabled={isAddingItem || !newItem.itemName.trim() || permissionsLoading}
+                            disabled={isAddingItem || !newItem.itemName.trim()}
                             onClick={handleAddItem}
                           >
                             {isAddingItem ? (

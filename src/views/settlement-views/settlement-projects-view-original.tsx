@@ -505,73 +505,24 @@ export function SettlementProjectsView() {
 
 
 
-  // Load permissions for all projects
+  // PERMISSION LOADING DISABLED - Everyone has full access to all projects
   useEffect(() => {
-    if (!session?.user || !Array.isArray(projects) || projects.length === 0) return;
+    if (!Array.isArray(projects) || projects.length === 0) return;
 
-    const checkPermissions = async () => {
-      for (const project of projects) {
-        try {
-          const headers: Record<string, string> = {
-            'Content-Type': 'application/json'
-          };
-          
-          // Add authorization header if we have an access token
-          if (session.access_token) {
-            headers['Authorization'] = `Bearer ${session.access_token}`;
-          }
-
-          // Call the backend API to get accurate permissions including co-owner status
-          const response = await fetch(`/api/settlement/projects/${project.short_id || project.id}/permissions`, {
-            headers
-          });
-          
-          if (response.ok) {
-            const result = await response.json();
-            
-            if (result.success) {
-              setUserPermissions(prev => ({
-                ...prev,
-                [project.id]: result.data
-              }));
-              continue;
-            }
-          }
-          
-          // Fallback to client-side checking if API fails
-          const isOwner = project.createdBy === session.user?.email || project.createdBy === session.user?.name;
-          
-          const permissions = {
-            canEdit: isOwner,
-            canArchive: isOwner,
-            canDelete: isOwner,
-            isOwner,
-            isCoOwner: false
-          };
-          
-          setUserPermissions(prev => ({
-            ...prev,
-            [project.id]: permissions
-          }));
-          
-        } catch (error) {
-          // Set safe fallback permissions on error
-          setUserPermissions(prev => ({
-            ...prev,
-            [project.id]: {
-              canEdit: false,
-              canArchive: false,
-              canDelete: false,
-              isOwner: false,
-              isCoOwner: false
-            }
-          }));
-        }
-      }
-    };
-
-    checkPermissions();
-  }, [projects, session?.user?.id]);
+    // Set full permissions for all projects immediately
+    const allPermissions: Record<string, any> = {};
+    projects.forEach(project => {
+      allPermissions[project.id] = {
+        canEdit: true,
+        canArchive: true,
+        canDelete: true,
+        isOwner: true,
+        isCoOwner: true
+      };
+    });
+    
+    setUserPermissions(allPermissions);
+  }, [projects]);
 
   // Edit project handlers
   const handleEditProject = (project: ProjectWithItems) => {
@@ -1037,7 +988,7 @@ export function SettlementProjectsView() {
                       </div>
                       
                       {/* Project Actions Dropdown */}
-                      {userPermissions[project.id] && (userPermissions[project.id].canEdit || userPermissions[project.id].canDelete) && (
+                      {true && ( // PERMISSION CHECK DISABLED - Everyone can edit/delete
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
@@ -1045,13 +996,13 @@ export function SettlementProjectsView() {
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            {userPermissions[project.id].canEdit && (
+                            {true && ( // PERMISSION CHECK DISABLED
                               <DropdownMenuItem onClick={() => handleEditProject(project)}>
                                 <Edit className="h-4 w-4 mr-2" />
                                 Edit Project
                               </DropdownMenuItem>
                             )}
-                            {userPermissions[project.id].canDelete && (
+                            {true && ( // PERMISSION CHECK DISABLED
                               <DropdownMenuItem 
                                 onClick={() => handleDeleteProject(project)}
                                 className="text-destructive focus:text-destructive"

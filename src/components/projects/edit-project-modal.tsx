@@ -201,7 +201,7 @@ export function EditProjectModal({
               )}
             </DialogTitle>
             <DialogDescription>
-              Make changes to your project. {!userPermissions.canEdit && "You can only view this project."}
+              Make changes to your project.
             </DialogDescription>
           </DialogHeader>
 
@@ -213,7 +213,7 @@ export function EditProjectModal({
                 id="edit-name"
                 value={formData.name}
                 onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                disabled={!userPermissions.canEdit || isSubmitting}
+                disabled={isSubmitting}
                 placeholder="e.g., Town Center Expansion"
               />
               {errors.name && (
@@ -228,7 +228,7 @@ export function EditProjectModal({
                 id="edit-description"
                 value={formData.description}
                 onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                disabled={!userPermissions.canEdit || isSubmitting}
+                disabled={isSubmitting}
                 placeholder="Describe the project goals and requirements..."
                 rows={3}
               />
@@ -241,7 +241,7 @@ export function EditProjectModal({
                 <Select 
                   value={formData.status} 
                   onValueChange={(value: any) => setFormData(prev => ({ ...prev, status: value }))}
-                  disabled={!userPermissions.canEdit || isSubmitting}
+                  disabled={isSubmitting}
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -259,7 +259,7 @@ export function EditProjectModal({
                 <Select 
                   value={formData.priority.toString()} 
                   onValueChange={(value) => setFormData(prev => ({ ...prev, priority: parseInt(value) }))}
-                  disabled={!userPermissions.canEdit || isSubmitting}
+                  disabled={isSubmitting}
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -291,7 +291,7 @@ export function EditProjectModal({
 
           <DialogFooter className="flex justify-between">
             <div className="flex gap-2">
-              {userPermissions.canArchive && project.status === 'Active' && (
+              {true && project.status === 'Active' && ( // PERMISSION CHECK DISABLED
                 <Button
                   type="button"
                   variant="outline"
@@ -304,7 +304,7 @@ export function EditProjectModal({
                 </Button>
               )}
 
-              {userPermissions.canDelete && (
+              {true && ( // PERMISSION CHECK DISABLED
                 <Button
                   type="button"
                   variant="outline"
@@ -328,7 +328,7 @@ export function EditProjectModal({
                 Cancel
               </Button>
               
-              {userPermissions.canEdit && (
+                              {true && ( // PERMISSION CHECK DISABLED
                 <Button
                   type="submit"
                   onClick={handleSubmit}

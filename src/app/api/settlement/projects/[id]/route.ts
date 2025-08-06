@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { createServerClient } from '../../../../../lib/spacetime-db-new/shared/supabase-client';
-import { checkProjectPermissions } from '../../../../../lib/spacetime-db-new/modules/projects/permissions';
+// import { checkProjectPermissions } from '../../../../../lib/spacetime-db-new/modules/projects/permissions'; // DISABLED
 import { logProjectCompleted } from '../../../../../lib/settlement/project-activity-tracker';
 import { withErrorHandlingParams, parseRequestBody, apiSuccess, apiError } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
@@ -120,11 +120,7 @@ async function handleUpdateProject(
     actualProjectId = project.id;
   }
 
-  // Check permissions using the actual UUID
-  const permissions = await checkProjectPermissions(actualProjectId, session.user.id, session.user.email);
-  if (!permissions.canEdit) {
-    return apiError('You do not have permission to edit this project', ErrorCodes.FORBIDDEN);
-  }
+  // PERMISSION CHECK DISABLED - Everyone can edit projects
 
   // Parse request body
   const bodyResult = await parseRequestBody<UpdateProjectData>(request);
@@ -262,11 +258,7 @@ async function handleDeleteProject(
     actualProjectId = project.id;
   }
 
-  // Check permissions using the actual UUID
-  const permissions = await checkProjectPermissions(actualProjectId, session.user.id, session.user.email);
-  if (!permissions.canDelete) {
-    return apiError('You do not have permission to delete this project', ErrorCodes.FORBIDDEN);
-  }
+  // PERMISSION CHECK DISABLED - Everyone can delete projects
 
   try {
     // Delete project (cascade will handle related data like project_items and contributions)

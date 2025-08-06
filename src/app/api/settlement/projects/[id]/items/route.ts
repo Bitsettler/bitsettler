@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { createServerClient } from '../../../../../../lib/spacetime-db-new/shared/supabase-client';
-import { checkProjectPermissions } from '../../../../../../lib/spacetime-db-new/modules/projects/permissions';
+// import { checkProjectPermissions } from '../../../../../../lib/spacetime-db-new/modules/projects/permissions'; // DISABLED
 import { withErrorHandlingParams, parseRequestBody, apiSuccess, apiError } from '@/lib/api-utils';
 import { Result, ErrorCodes } from '@/lib/result';
 import { logger } from '@/lib/logger';
@@ -53,11 +53,7 @@ async function handleAddProjectItem(
     actualProjectId = project.id;
   }
 
-  // Check permissions using the actual UUID
-  const permissions = await checkProjectPermissions(actualProjectId, session.user.id, session.user.email);
-  if (!permissions.canEdit) {
-    return apiError('You do not have permission to add items to this project', ErrorCodes.FORBIDDEN);
-  }
+  // PERMISSION CHECK DISABLED - Everyone can add items to projects
 
   // Parse request body
   const bodyResult = await parseRequestBody<AddProjectItemData>(request);
