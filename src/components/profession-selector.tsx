@@ -106,7 +106,7 @@ export function ProfessionSelector({
             Click any skill to select it. Your first selection becomes Primary (⭐), your second becomes Secondary (👤). Your highest skills are shown first.
           </CardDescription>
           {/* Skill Selection Grid */}
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
             {availableSkills.map((skill) => {
               const isPrimary = primaryProfession === skill.name;
               const isSecondary = secondaryProfession === skill.name;
@@ -136,7 +136,7 @@ export function ProfessionSelector({
                   key={skill.name}
                   variant={buttonVariant}
                   className={cn(
-                    "h-auto p-3 flex flex-col items-center gap-2 transition-all text-sm hover:scale-105",
+                    "h-auto p-2 sm:p-3 flex flex-col items-center gap-1 sm:gap-2 transition-all text-xs sm:text-sm hover:scale-105 min-h-[80px] sm:min-h-[100px]",
                     ringClass,
                     bgClass
                   )}

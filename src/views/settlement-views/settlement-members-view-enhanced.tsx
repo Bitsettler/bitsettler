@@ -16,7 +16,6 @@ import { useCurrentMember } from '../../hooks/use-current-member';
 import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
 import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
 
-
 interface SettlementMember {
   id: string;
   name: string;
@@ -312,13 +311,12 @@ export function SettlementMembersView() {
                     </TableCell>
                     <TableCell>
                       <div className="text-sm">
-                        <div className="font-medium">
-                          {/* Debug: Let's see what we're actually getting */}
-                          {member.primary_profession || member.top_profession || 'No primary profession'}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {member.secondary_profession || 'No secondary profession'}
-                        </div>
+                        <div className="font-medium">{getDisplayProfession(member)}</div>
+                        {getSecondaryProfession(member) && (
+                          <div className="text-xs text-muted-foreground">
+                            Secondary: {getSecondaryProfession(member)}
+                          </div>
+                        )}
                       </div>
                     </TableCell>
                     <TableCell className="text-center">

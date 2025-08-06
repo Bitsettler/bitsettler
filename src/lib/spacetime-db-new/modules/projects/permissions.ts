@@ -52,7 +52,7 @@ export async function checkProjectPermissions(
     const { data: userMember, error: memberError } = await supabase
       .from('settlement_members')
       .select('id')
-      .eq('auth_user_id', userId)
+      .eq('supabase_user_id', userId)
       .single();
 
     // Check if user is the project owner (by member ID)

@@ -61,7 +61,9 @@ interface CharacterOption {
   id: string;
   name: string;
   settlement_id: string;
-  entity_id: string;
+  player_entity_id: string; // PRIMARY: Stable BitJita player character ID
+  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
+  claim_entity_id?: string; // Settlement claim ID
   bitjita_user_id: string;
   skills: Record<string, number>;
   top_profession: string;
@@ -287,10 +289,12 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
             
             // Transform BitJita roster data to character format
             const bitjitaCharacters = rosterResult.data.members.map((member: any) => ({
-              id: member.entityId,
+              id: member.playerEntityId, // Use player_entity_id as primary ID
               name: member.userName,
               settlement_id: settlement.id,
-              entity_id: member.entityId,
+              player_entity_id: member.playerEntityId, // PRIMARY: Stable player character ID
+              entity_id: member.entityId,              // SECONDARY: Generic entity ID
+              claim_entity_id: member.claimEntityId,   // Settlement claim ID
               bitjita_user_id: member.playerEntityId,
               skills: {},
               top_profession: 'Settler',
@@ -357,7 +361,9 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
               id: 'new_member',
               name: 'Your Character',
               settlement_id: selectedSettlement.id,
+              player_entity_id: 'new_member', // Use consistent ID
               entity_id: 'new_entity',
+              claim_entity_id: 'new_claim',
               bitjita_user_id: 'new_user',
               skills: {},
               top_profession: 'New Resident',
@@ -401,7 +407,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     
     // Debug the exact data being sent
     const requestData = {
-      characterId: characterToUse.player_entity_id, // Use player_entity_id for stability
+      playerEntityId: characterToUse.player_entity_id, // Use player_entity_id for stability
       settlementId: selectedSettlement.id,
       displayName: null,
       primaryProfession: null,
@@ -585,7 +591,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
   if (step === 'verify') {
     return (
-      <div className="max-w-4xl mx-auto p-6 space-y-6">
+      <div className="max-w-6xl mx-auto p-6 space-y-6">
         <Card>
           <CardHeader>
             <CardTitle>Claim Your Character</CardTitle>
@@ -663,7 +669,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-3">
+                <div className="grid gap-3 max-h-[500px] overflow-y-auto">
                   {filteredCharacters.map((character) => (
                     <Card 
                       key={character.id}

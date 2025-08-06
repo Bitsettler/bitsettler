@@ -80,11 +80,12 @@ export async function POST(request: NextRequest) {
     
     console.log('🔍 Claim character validated data:', validationResult.data);
 
-    const { playerEntityId, settlementId, displayName, primaryProfession, secondaryProfession } = validationResult.data!;
+    const { playerEntityId, settlementId, displayName, primaryProfession, secondaryProfession, replaceExisting } = validationResult.data!;
     const claimLogger = userLogger.child({ 
       playerEntityId, 
       settlementId,
-      operation: 'character_claim'
+      replaceExisting: !!replaceExisting,
+      operation: replaceExisting ? 'character_switch' : 'character_claim'
     });
 
     claimLogger.info('Starting character claim process');
@@ -122,11 +123,15 @@ export async function POST(request: NextRequest) {
     // (This respects RLS - users can only see their own claimed characters)
     const { data: existingClaim, error: existingError } = await authenticatedClient
       .from('settlement_members')
-      .select('entity_id, name')
+      .select('id, player_entity_id, entity_id, name, settlement_id')
       .eq('supabase_user_id', user.id)
       .single();
 
-    if (existingClaim) {
+    if (existingClaim && !replaceExisting) {
+      // Normal flow: prevent claiming if user already has a character
+      claimLogger.warn('User already has character, replacement not requested', {
+        existingCharacter: existingClaim.name
+      });
       return NextResponse.json(
         { 
           success: false, 
@@ -137,14 +142,91 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 3. Claim the character using service client (atomic operation)
-    // Add security logging for audit trail
+    if (replaceExisting && !existingClaim) {
+      // Switch flow: user requested replacement but has no existing character
+      claimLogger.warn('Character replacement requested but user has no existing character');
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: 'Cannot replace character: you do not have an existing character to replace',
+          code: 'NO_EXISTING_CHARACTER'
+        },
+        { status: 400 }
+      );
+    }
+
+    if (replaceExisting && existingClaim) {
+      // Switch flow: verify user is replacing within the same settlement
+      if (existingClaim.settlement_id !== settlementId) {
+        claimLogger.warn('Attempt to replace character in different settlement', {
+          existingSettlement: existingClaim.settlement_id,
+          targetSettlement: settlementId
+        });
+        return NextResponse.json(
+          { 
+            success: false, 
+            error: 'Cannot replace character: new character must be in the same settlement',
+            code: 'SETTLEMENT_MISMATCH'
+          },
+          { status: 400 }
+        );
+      }
+      
+      claimLogger.info('Character replacement validated', {
+        existingCharacter: existingClaim.name,
+        newCharacter: playerEntityId
+      });
+    }
+
+    // 3. Handle character claiming (with optional replacement)
     claimLogger.info('Security: Initiating character claim', {
       userEmail: user.email,
       characterName: character.name,
-      securityEvent: 'character_claim_initiation'
+      isReplacement: !!replaceExisting,
+      securityEvent: replaceExisting ? 'character_replacement_initiation' : 'character_claim_initiation'
     });
     
+    // 3a. If replacing, release the existing character first
+    if (replaceExisting && existingClaim) {
+      claimLogger.info('Releasing existing character for replacement', {
+        existingCharacterId: existingClaim.player_entity_id,
+        existingCharacterName: existingClaim.name
+      });
+      
+      const { error: releaseError } = await serviceClient
+        .from('settlement_members')
+        .update({
+          supabase_user_id: null,
+          bitjita_user_id: null,
+          display_name: null,
+          primary_profession: null,
+          secondary_profession: null,
+          app_joined_at: null,
+          app_last_active_at: null,
+          onboarding_completed_at: null
+        })
+        .eq('id', existingClaim.id)
+        .eq('supabase_user_id', user.id); // Safety: only release if still owned by user
+
+      if (releaseError) {
+        claimLogger.error('Failed to release existing character', {
+          error: releaseError.message,
+          existingCharacterId: existingClaim.id
+        });
+        return NextResponse.json(
+          { 
+            success: false, 
+            error: 'Failed to release existing character for replacement',
+            debug: { releaseError: releaseError.message }
+          },
+          { status: 500 }
+        );
+      }
+      
+      claimLogger.info('Successfully released existing character');
+    }
+    
+    // 3b. Claim the new character
     const updateData: any = {
       supabase_user_id: user.id,
       onboarding_completed_at: new Date().toISOString()

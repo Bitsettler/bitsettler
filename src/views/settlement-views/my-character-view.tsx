@@ -121,9 +121,9 @@ export function MyCharacterView() {
                   <User className="h-4 w-4 mr-2" />
                   Go to Dashboard
                 </Button>
-                <Button onClick={() => router.push('/auth/claim-character')}>
+                <Button onClick={() => router.push('/en/settlement')}>
                   <UserPlus className="h-4 w-4 mr-2" />
-                  Claim Character
+                  Join Settlement
                 </Button>
               </div>
             </CardContent>

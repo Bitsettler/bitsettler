@@ -180,7 +180,7 @@ export function UserNavNew() {
             Character
           </DropdownMenuLabel>
           <DropdownMenuItem asChild>
-            <a href="/en/auth/claim-character">
+            <a href="/en/auth/switch-character">
               <RefreshCw className="mr-2 h-4 w-4" />
               <span>Switch Character</span>
             </a>

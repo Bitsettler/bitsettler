@@ -26,8 +26,8 @@ interface SettlementJoinFlowProps {
     settlement: {
       id: string;
       name: string;
-      tier: number;
-      population: number;
+      tier?: number;
+      population?: number;
       memberCount: number;
     };
     availableCharacters: CharacterOption[];
@@ -35,6 +35,7 @@ interface SettlementJoinFlowProps {
   };
   onBack: () => void;
   onComplete: () => void;
+  isCharacterSwitch?: boolean; // Flag for character switching flow
 }
 
 
@@ -50,7 +51,7 @@ interface CharacterOption {
   total_level: number;
 }
 
-export function SettlementJoinFlow({ settlementData, onBack, onComplete }: SettlementJoinFlowProps) {
+export function SettlementJoinFlow({ settlementData, onBack, onComplete, isCharacterSwitch = false }: SettlementJoinFlowProps) {
   const [step, setStep] = useState<'character-select' | 'profession-select' | 'claiming' | 'complete' | 'error'>('character-select');
   const [error, setError] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
@@ -96,7 +97,8 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
         playerEntityId: selectedCharacter.player_entity_id, // Explicitly use player_entity_id for clarity
         settlementId: settlementData.settlement.id,
         primaryProfession,
-        secondaryProfession
+        secondaryProfession,
+        replaceExisting: isCharacterSwitch // Pass replacement flag for switch operations
       });
 
       if (result.success) {
@@ -147,7 +149,7 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
 
   if (step === 'character-select') {
     return (
-      <div className="max-w-4xl mx-auto p-6 space-y-6">
+      <div className="max-w-6xl mx-auto p-6 space-y-6">
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-2">
@@ -210,7 +212,7 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
               )}
               
               {/* Character Grid */}
-              <div className="grid gap-3 max-h-96 overflow-y-auto">
+              <div className="grid gap-3 max-h-[500px] overflow-y-auto">
                 {filteredCharacters.length > 0 ? (
                   filteredCharacters.map((character) => (
                   <Card 
@@ -286,7 +288,7 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
 
   if (step === 'profession-select') {
     return (
-      <div className="max-w-2xl mx-auto p-6">
+      <div className="max-w-4xl mx-auto p-6">
         <Card>
           <CardHeader className="text-center">
             <CardTitle>Choose Your Professions</CardTitle>

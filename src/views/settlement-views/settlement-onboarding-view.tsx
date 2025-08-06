@@ -6,6 +6,7 @@ import { Container } from '@/components/container';
 import { SettlementOnboardingChoice } from '@/components/settlement-onboarding-choice';
 import { SettlementJoinFlow } from '@/components/settlement-join-flow';
 import { SettlementEstablishFlow } from '@/components/settlement-establish-flow';
+import type { SettlementJoinData, SettlementEstablishData } from '@/lib/types/component-props';
 
 export function SettlementOnboardingView() {
   const [currentFlow, setCurrentFlow] = useState<'choice' | 'join' | 'establish'>('choice');

@@ -349,6 +349,11 @@ export const SETTLEMENT_SCHEMAS = {
       minLength: 1,
       maxLength: 50,
       sanitize: true
+    },
+    replaceExisting: {
+      required: false,
+      type: 'boolean' as const,
+      default: false
     }
   },
   
