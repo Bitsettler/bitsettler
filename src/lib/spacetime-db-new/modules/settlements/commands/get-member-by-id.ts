@@ -44,11 +44,11 @@ export async function getMemberById(memberId: string): Promise<MemberWithSkills 
       return null;
     }
 
-    // Get member professions
+    // Get member professions using the UUID member.id (not the BitJita player_entity_id)
     const { data: professionsData, error: professionsError } = await supabase
       .from('member_professions')
       .select('*')
-      .eq('member_id', memberId)
+      .eq('member_id', memberData.id)  // Use UUID id, not BitJita player_entity_id
       .order('level', { ascending: false });
 
     if (professionsError) {
