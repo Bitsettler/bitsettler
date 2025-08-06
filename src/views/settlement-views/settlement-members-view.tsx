@@ -13,16 +13,28 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
-import { Search, Users, UserCheck } from 'lucide-react';
+import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
+import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
 
 interface SettlementMember {
   id: string;
   name: string;
   top_profession: string;
+  primary_profession?: string;
+  secondary_profession?: string;
   highest_level: number;
+  total_skills: number;
+  total_level: number;
+  total_xp: number;
   is_active: boolean;
+  last_login_timestamp: string | null;
+  joined_settlement_at: string | null;
   entity_id: string;
-  // Note: Using actual API field names to match member data structure
+  // Permissions
+  inventory_permission: number;
+  build_permission: number;
+  officer_permission: number;
+  co_owner_permission: number;
 }
 
 interface MembersResponse {
@@ -72,8 +84,6 @@ export function SettlementMembersView() {
       // Add settlement ID if available - use selectedSettlement or fallback to member's settlement
       const settlementId = selectedSettlement?.id || member?.settlement_id;
       
-      // Settlement ID resolution complete
-      
       if (!settlementId) {
         throw new Error('No settlement available - please select a settlement or claim a character');
       }
@@ -119,6 +129,44 @@ export function SettlementMembersView() {
       .join('')
       .toUpperCase()
       .slice(0, 2);
+  };
+
+  const getMemberRole = (member: SettlementMember) => {
+    if (member.co_owner_permission >= 1) {
+      return { label: 'Co-Owner', icon: Crown, variant: 'default' as const };
+    }
+    if (member.officer_permission >= 1) {
+      return { label: 'Officer', icon: Shield, variant: 'secondary' as const };
+    }
+    if (member.build_permission >= 1) {
+      return { label: 'Builder', icon: Hammer, variant: 'outline' as const };
+    }
+    if (member.inventory_permission >= 1) {
+      return { label: 'Inventory', icon: Package, variant: 'outline' as const };
+    }
+    return { label: 'Member', icon: Users, variant: 'outline' as const };
+  };
+
+  const formatTimeAgo = (timestamp: string | null) => {
+    if (!timestamp) return 'Never';
+    
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffInMs = now.getTime() - date.getTime();
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    
+    if (diffInDays === 0) return 'Today';
+    if (diffInDays === 1) return 'Yesterday';
+    if (diffInDays < 7) return `${diffInDays} days ago`;
+    if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} weeks ago`;
+    if (diffInDays < 365) return `${Math.floor(diffInDays / 30)} months ago`;
+    return `${Math.floor(diffInDays / 365)} years ago`;
+  };
+
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
+    return num.toString();
   };
 
   if (loading) {
@@ -173,7 +221,6 @@ export function SettlementMembersView() {
             <Users className="h-3 w-3" />
             {members.filter(m => !(m.is_active === true || m.is_active === 1 || m.is_active === "true")).length} Inactive
           </Badge>
-
         </div>
       </div>
 
@@ -182,7 +229,7 @@ export function SettlementMembersView() {
         <CardHeader>
           <CardTitle>Members Directory</CardTitle>
           <CardDescription>
-            Manage and view all settlement members
+            Manage and view all settlement members with their professions, roles, and activity
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -231,33 +278,83 @@ export function SettlementMembersView() {
               <TableRow>
                 <TableHead className="w-12"></TableHead>
                 <TableHead>Member</TableHead>
+                <TableHead>Professions</TableHead>
+                <TableHead className="text-center">Role</TableHead>
+                <TableHead className="text-center">Level</TableHead>
+                <TableHead className="text-center">Last Active</TableHead>
                 <TableHead className="text-center">Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredMembers.map((member) => (
-                <TableRow 
-                  key={member.id} 
-                  className="hover:bg-muted/50 cursor-pointer transition-colors"
-                  onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
-                >
-                  <TableCell>
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-primary/10 text-primary font-medium text-xs">
-                        {getInitials(member.name)}
-                      </AvatarFallback>
-                    </Avatar>
-                  </TableCell>
-                  <TableCell>
-                    <div className="font-medium">{member.name}</div>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Badge variant={(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'default' : 'secondary'}>
-                      {(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'Active' : 'Inactive'}
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {filteredMembers.map((member) => {
+                const memberRole = getMemberRole(member);
+                const RoleIcon = memberRole.icon;
+                return (
+                  <TableRow 
+                    key={member.id} 
+                    className="hover:bg-muted/50 cursor-pointer transition-colors"
+                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
+                  >
+                    <TableCell>
+                      <Avatar className="h-10 w-10">
+                        <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
+                          {getInitials(member.name)}
+                        </AvatarFallback>
+                      </Avatar>
+                    </TableCell>
+                    <TableCell>
+                      <div className="font-medium">{member.name}</div>
+                      <div className="text-xs text-muted-foreground flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        Joined {formatTimeAgo(member.joined_settlement_at)}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="text-sm">
+                        <div className="font-medium">{getDisplayProfession(member)}</div>
+                        {getSecondaryProfession(member) && (
+                          <div className="text-xs text-muted-foreground">
+                            Secondary: {getSecondaryProfession(member)}
+                          </div>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <Badge variant={memberRole.variant} className="gap-1">
+                        <RoleIcon className="h-3 w-3" />
+                        {memberRole.label}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <div className="text-sm">
+                        <div className="font-medium flex items-center justify-center gap-1">
+                          <TrendingUp className="h-3 w-3" />
+                          Level {member.highest_level || 1}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {formatNumber(member.total_xp || 0)} XP
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <div className="text-sm">
+                        <div className="font-medium">{formatTimeAgo(member.last_login_timestamp)}</div>
+                        {member.last_login_timestamp && (
+                          <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            {new Date(member.last_login_timestamp).toLocaleDateString()}
+                          </div>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <Badge variant={(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'default' : 'secondary'}>
+                        {(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'Active' : 'Inactive'}
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
           
@@ -354,6 +451,10 @@ function MembersLoadingSkeleton() {
               <TableRow>
                 <TableHead className="w-12"></TableHead>
                 <TableHead>Member</TableHead>
+                <TableHead>Professions</TableHead>
+                <TableHead className="text-center">Role</TableHead>
+                <TableHead className="text-center">Level</TableHead>
+                <TableHead className="text-center">Last Active</TableHead>
                 <TableHead className="text-center">Status</TableHead>
               </TableRow>
             </TableHeader>
@@ -361,12 +462,33 @@ function MembersLoadingSkeleton() {
               {Array.from({ length: 8 }).map((_, i) => (
                 <TableRow key={`skeleton-${i}`}>
                   <TableCell>
-                    <Skeleton className="h-8 w-8 rounded-full" />
+                    <Skeleton className="h-10 w-10 rounded-full" />
                   </TableCell>
                   <TableCell>
                     <div className="space-y-1">
                       <Skeleton className="h-4 w-32" />
                       <Skeleton className="h-3 w-24" />
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="space-y-1">
+                      <Skeleton className="h-4 w-20" />
+                      <Skeleton className="h-3 w-16" />
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Skeleton className="h-6 w-20 mx-auto" />
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <div className="space-y-1">
+                      <Skeleton className="h-4 w-16 mx-auto" />
+                      <Skeleton className="h-3 w-12 mx-auto" />
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <div className="space-y-1">
+                      <Skeleton className="h-4 w-16 mx-auto" />
+                      <Skeleton className="h-3 w-20 mx-auto" />
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
@@ -381,4 +503,4 @@ function MembersLoadingSkeleton() {
       </div>
     </Container>
   );
-} 
+}
