@@ -24,9 +24,9 @@ export async function GET(
     console.log('✅ Session found for user:', session.user.email);
 
     // Handle both UUID and short_id formats like the main project route
-    let actualProjectId = params.id;
-    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(params.id);
-    const isShortId = /^proj_[a-z0-9]{6}$/i.test(params.id);
+    let actualProjectId = projectId;
+    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);
+    const isShortId = /^proj_[a-z0-9]{6}$/i.test(projectId);
     
     if (!isUUID && !isShortId) {
       return NextResponse.json(
@@ -41,7 +41,7 @@ export async function GET(
         const { data: project } = await supabase
           .from('settlement_projects')
           .select('id')
-          .eq('short_id', params.id)
+          .eq('short_id', projectId)
           .single();
         
         if (!project) {

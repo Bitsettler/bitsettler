@@ -84,7 +84,7 @@ export async function checkProjectPermissions(
       canArchive,
       canDelete,
       canContribute,
-      isOwner,
+      isOwner: Boolean(isOwner),
       isCoOwner
     };
 
