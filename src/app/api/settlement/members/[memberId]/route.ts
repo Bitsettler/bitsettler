@@ -31,7 +31,7 @@ export async function GET(
       .from('settlement_members')
       .select('*')
       .eq('settlement_id', settlementId)
-      .eq('entity_id', memberId)
+      .eq('player_entity_id', memberId)
       .maybeSingle();
 
     if (error) {

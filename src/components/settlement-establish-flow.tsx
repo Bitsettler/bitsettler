@@ -392,7 +392,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
 
     console.log('🎯 Claiming character:', {
       characterId: characterToUse.id,
-      characterEntityId: characterToUse.entity_id,
+      characterPlayerEntityId: characterToUse.player_entity_id,
       characterName: characterToUse.name,
       settlementId: selectedSettlement.id
     });
@@ -401,7 +401,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
     
     // Debug the exact data being sent
     const requestData = {
-      characterId: characterToUse.entity_id, // Explicitly use entity_id for clarity
+      characterId: characterToUse.player_entity_id, // Use player_entity_id for stability
       settlementId: selectedSettlement.id,
       displayName: null,
       primaryProfession: null,

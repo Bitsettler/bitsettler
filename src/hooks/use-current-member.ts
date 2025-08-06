@@ -6,7 +6,9 @@ import { useSession } from '@/hooks/use-auth';
 export interface SettlementMember {
   id: string;
   settlement_id: string;
-  entity_id: string;
+  player_entity_id: string; // PRIMARY: Stable BitJita player character ID
+  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
+  claim_entity_id?: string; // Settlement claim ID
   name: string;
   
   // Skills data (pre-calculated)
@@ -148,7 +150,7 @@ export function useCurrentMember() {
           app_joined_at: new Date().toISOString(),
           app_last_active_at: new Date().toISOString()
         })
-        .eq('entity_id', memberId) // Fix: Use entity_id for character identification
+        .eq('player_entity_id', memberId) // Use player_entity_id for stable character identification
         .eq('supabase_user_id', null) // Only unclaimed characters
         .select()
         .single();

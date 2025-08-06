@@ -9,7 +9,9 @@
  */
 export interface DatabaseSettlementMember {
   id: string;
-  entity_id: string;
+  player_entity_id: string; // PRIMARY: Stable BitJita player character ID
+  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
+  claim_entity_id?: string; // Settlement claim ID
   settlement_id: string;
   name: string;
   bitjita_user_id?: string;
@@ -49,7 +51,9 @@ export interface DatabaseSettlementMember {
  */
 export interface ApiFormattedMember {
   id: string;
-  entity_id: string;
+  player_entity_id: string; // PRIMARY: Stable BitJita player character ID  
+  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
+  claim_entity_id?: string; // Settlement claim ID
   name: string;
   settlement_id: string;
   bitjita_user_id?: string;
@@ -88,7 +92,9 @@ export interface AvailableCharacter {
   id: string;
   name: string;
   settlement_id: string;
-  entity_id: string;
+  player_entity_id: string; // PRIMARY: Stable BitJita player character ID
+  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
+  claim_entity_id?: string; // Settlement claim ID
   bitjita_user_id?: string;
   
   skills: Record<string, number>;
@@ -108,7 +114,9 @@ export interface AvailableCharacter {
  */
 export interface RosterMember {
   id: string;
-  entityId: string;
+  playerEntityId: string; // PRIMARY: Stable BitJita player character ID
+  entityId?: string;      // SECONDARY: Generic BitJita entity ID
+  claimEntityId?: string; // Settlement claim ID
   name: string;
   profession: string;
   level: number;
@@ -139,7 +147,9 @@ export interface MemberWithSkills extends ApiFormattedMember {
 export function formatMemberForApi(dbMember: DatabaseSettlementMember): ApiFormattedMember {
   return {
     id: dbMember.id,
+    player_entity_id: dbMember.player_entity_id,
     entity_id: dbMember.entity_id,
+    claim_entity_id: dbMember.claim_entity_id,
     name: dbMember.name,
     settlement_id: dbMember.settlement_id,
     bitjita_user_id: dbMember.bitjita_user_id,
@@ -177,10 +187,12 @@ export function formatMemberForApi(dbMember: DatabaseSettlementMember): ApiForma
  */
 export function formatAsAvailableCharacter(dbMember: DatabaseSettlementMember): AvailableCharacter {
   return {
-    id: dbMember.entity_id,
+    id: dbMember.player_entity_id,
     name: dbMember.name || 'Unknown Character',
     settlement_id: dbMember.settlement_id,
+    player_entity_id: dbMember.player_entity_id,
     entity_id: dbMember.entity_id,
+    claim_entity_id: dbMember.claim_entity_id,
     bitjita_user_id: dbMember.bitjita_user_id,
     
     skills: dbMember.skills || {},

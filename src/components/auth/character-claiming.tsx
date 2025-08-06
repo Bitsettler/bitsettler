@@ -117,11 +117,11 @@ export function CharacterClaiming() {
     }
 
     try {
-      setClaiming(selectedCharacter.entity_id); // Fix: Use entity_id for consistency
+      setClaiming(selectedCharacter.player_entity_id); // Use player_entity_id for stability
       setError(null);
 
       const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.entity_id, // Fix: Use entity_id for character identification
+        characterId: selectedCharacter.player_entity_id, // Use player_entity_id for stable identification
         settlementId: selectedCharacter.settlement_id,
         displayName: customDisplayName.trim() || undefined,
         primaryProfession,

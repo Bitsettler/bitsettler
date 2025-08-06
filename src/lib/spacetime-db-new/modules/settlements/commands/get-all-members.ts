@@ -100,7 +100,7 @@ export async function getAllMembers(options: GetAllMembersOptions = {}): Promise
 
     // Map the view data to our SettlementMember interface
     return (data as SettlementMemberDetailsRow[]).map(member => ({
-      id: member.entity_id, // Use entity_id as the primary identifier
+      id: member.player_entity_id, // Use player_entity_id as the primary identifier
       bitjitaId: member.entity_id, // entity_id is the BitJita ID
       name: member.user_name, // View uses user_name column
       profession: member.top_profession || 'Unknown', // From citizens data

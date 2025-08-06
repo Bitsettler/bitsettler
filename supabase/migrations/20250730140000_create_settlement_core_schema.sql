@@ -7,9 +7,9 @@ CREATE TABLE settlement_members (
   
   -- Game data (from BitJita API)
   settlement_id TEXT NOT NULL, -- Settlement identifier
-  entity_id TEXT NOT NULL, -- Game entity ID (BitJita)
-  claim_entity_id TEXT,
-  player_entity_id TEXT,
+  player_entity_id TEXT NOT NULL, -- PRIMARY: BitJita player character ID (stable, never changes)
+  entity_id TEXT, -- SECONDARY: Generic BitJita entity ID (can be reused for different objects)
+  claim_entity_id TEXT, -- Settlement/territory claim ID
   name TEXT NOT NULL, -- In-game character name (user_name from API)
   
   -- Skills data (from BitJita API)
@@ -52,7 +52,7 @@ CREATE TABLE settlement_members (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   
   -- Constraints
-  UNIQUE(settlement_id, entity_id)
+  UNIQUE(settlement_id, player_entity_id) -- PRIMARY: One player per settlement
 );
 
 -- Skill names reference table (for mapping skill IDs to readable names)
@@ -244,6 +244,9 @@ $$ language 'plpgsql';
 
 -- Comments
 COMMENT ON TABLE settlement_members IS 'Unified settlement members - game data, skills, and app users all in one table';
+COMMENT ON COLUMN settlement_members.player_entity_id IS 'PRIMARY: BitJita player character ID - stable, recommended by devs, never changes';
+COMMENT ON COLUMN settlement_members.entity_id IS 'SECONDARY: Generic BitJita entity ID - can be reused for different game objects';
+COMMENT ON COLUMN settlement_members.claim_entity_id IS 'BitJita settlement/territory claim ID';
 COMMENT ON COLUMN settlement_members.auth_user_id IS 'Supabase Auth user ID - NULL means character not claimed by app user yet';
 COMMENT ON COLUMN settlement_members.skills IS 'Skills data as JSONB {skillName: level} format from BitJita API';
 COMMENT ON COLUMN settlement_members.total_skills IS 'Auto-calculated count of skills with level > 0';

@@ -102,8 +102,9 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     
     console.log(`🔄 Syncing ${users.length} settlement users to database...`);
     
-    for (const user of users) {
-      console.log(`🔄 Syncing user: ${user.userName} (${user.entityId})`);
+    for (let i = 0; i < users.length; i++) {
+      const user = users[i];
+      console.log(`🔄 [${i+1}/${users.length}] Syncing user: ${user.userName} (${user.entityId})`);
 
       
       // Log skills info with ACTUAL data from BitJita
@@ -122,22 +123,22 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
   
       }
       
-      // Get existing member data for activity tracking
-      const { data: existingMemberData } = await supabase
-        .from('settlement_members')
-        .select('id, skills')
-        .eq('settlement_id', options.settlementId)
-        .eq('entity_id', user.entityId)
-        .single();
+          // Get existing member data for activity tracking
+    const { data: existingMemberData } = await supabase
+      .from('settlement_members')
+      .select('id, skills')
+      .eq('settlement_id', options.settlementId)
+      .eq('player_entity_id', user.playerEntityId)
+      .single();
 
       const oldSkills = existingMemberData?.skills as Record<string, number> || {};
 
       // Build clean database record
       const memberRecord = {
         settlement_id: options.settlementId,
-        entity_id: user.entityId,
-        claim_entity_id: user.claimEntityId,
-        player_entity_id: user.playerEntityId,
+        player_entity_id: user.playerEntityId, // PRIMARY: Stable player character ID  
+        entity_id: user.entityId,               // SECONDARY: Generic entity reference
+        claim_entity_id: user.claimEntityId,    // Settlement claim reference
         name: user.userName,
         
         // Skills & Progression
@@ -200,13 +201,13 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       const { data, error } = await supabase
         .from('settlement_members')
         .upsert(memberRecord, {
-          onConflict: 'settlement_id,entity_id',
+          onConflict: 'settlement_id,player_entity_id',
           ignoreDuplicates: false
         })
         .select('id, name, total_skills, highest_level, top_profession');
 
       if (error) {
-        console.error(`❌ Failed to sync user ${user.userName}:`, {
+        console.error(`❌ [${i+1}/${users.length}] FAILED to sync user ${user.userName} (${user.entityId}):`, {
           error: error.message || error,
           code: error.code,
           details: error.details,
@@ -276,7 +277,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     }
 
     // Mark members as inactive if they're no longer in the roster
-    const currentMemberIds = users.map(u => u.entityId);
+    const currentMemberIds = users.map(u => u.playerEntityId);
     
     if (currentMemberIds.length > 0) {
       const { error: deactivateError } = await supabase
@@ -286,7 +287,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
           last_synced_at: new Date().toISOString() 
         })
         .eq('settlement_id', options.settlementId)
-        .not('entity_id', 'in', `(${currentMemberIds.map(id => `'${id}'`).join(',')})`);
+        .not('player_entity_id', 'in', `(${currentMemberIds.map(id => `'${id}'`).join(',')})`);
 
       if (deactivateError) {
         console.error('Failed to deactivate missing members:', deactivateError);
@@ -306,7 +307,8 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     const inactiveMemberCount = memberCounts?.filter(m => !m.is_active).length || 0;
 
     console.log(`✅ Settlement sync completed for ${options.settlementId}:`);
-    console.log(`   Users: ${results.membersUpdated} synced (${syncSuccessCount}/${users.length} successful)`);
+    console.log(`   🎯 ACTUAL RESULTS: ${syncSuccessCount}/${users.length} users successfully synced`);
+    console.log(`   ❌ FAILED: ${syncErrorCount} users failed to sync`);
     console.log(`   Active: ${activeMemberCount} (logged in last 7 days)`);
     console.log(`   Inactive: ${inactiveMemberCount} (no login or >7 days ago)`);
     console.log(`   With Skills: ${results.citizensUpdated} users have actual skills data`);
@@ -368,15 +370,44 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
 
   console.log('🔄 Starting bulk member sync for all settlements...');
 
-  // Get only established/claimed settlements (settlements that have members in our database)
-  // This follows the user's requirement: only sync settlements that users have claimed/established
+  // Get settlements that have claimed users (users who have linked their accounts)
+  // This follows the user's requirement: only sync settlements where users have actually claimed characters
+  
+  // First, get settlement IDs with claimed users
+  const { data: claimedSettlements, error: claimedError } = await supabase
+    .from('settlement_members')
+    .select('settlement_id')
+    .not('supabase_user_id', 'is', null); // Has claimed users
+  
+  if (claimedError) {
+    throw new Error(`Failed to fetch claimed settlements: ${claimedError.message}`);
+  }
+
+  const claimedSettlementIds = [...new Set(claimedSettlements?.map(s => s.settlement_id) || [])];
+  
+  if (claimedSettlementIds.length === 0) {
+    console.log('📭 No settlements with claimed users found');
+    return {
+      success: true,
+      settlementsProcessed: 0,
+      totalMembers: 0,
+      totalCitizens: 0,
+      errors: []
+    };
+  }
+
+  console.log(`🎯 Found ${claimedSettlementIds.length} settlements with claimed users`);
+  console.log(`🔍 Claimed settlement IDs:`, claimedSettlementIds);
+
+  // Now get the settlement details for these claimed settlements
   const { data: settlements, error: fetchError } = await supabase
     .from('settlements_master')
-    .select('id, name')
-    .eq('is_active', true)
-    .in('sync_source', ['establishment', 'establishment_with_stats']) // Only settlements created through our establishment flow
+    .select('id, name, is_active')
+    .in('id', claimedSettlementIds)
     .order('population', { ascending: false }) // Sync largest settlements first
     .limit(50); // Limit to avoid API rate limits
+
+  console.log(`🏘️ Found ${settlements?.length || 0} settlements to sync:`, settlements?.map(s => `${s.name} (active: ${s.is_active})`));
 
   if (fetchError) {
     throw new Error(`Failed to fetch settlements: ${fetchError.message}`);
@@ -389,6 +420,8 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
     totalCitizens: 0,
     errors: [] as string[]
   };
+
+  console.log(`🔥 Syncing ${settlements?.length || 0} settlements with claimed users`);
 
   for (const settlement of settlements || []) {
     try {
