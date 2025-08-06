@@ -166,13 +166,22 @@ async function handleUpdateProject(
     // Log project completion activity if status changed to 'Completed'
     if (updateData.status === 'Completed' && originalProject.status !== 'Completed') {
       try {
-        await logProjectCompleted(
-          actualProjectId,
-          originalProject.name,
-          originalProject.priority,
-          session.user.id,
-          session.user.name || session.user.email || 'Unknown User'
-        );
+        // Get current user's settlement member
+        const { data: currentMember } = await supabase
+          .from('settlement_members')
+          .select('id, name')
+          .eq('supabase_user_id', session.user.id)
+          .single();
+        
+        if (currentMember) {
+          await logProjectCompleted(
+            actualProjectId,
+            originalProject.name,
+            originalProject.priority,
+            currentMember.id,
+            currentMember.name
+          );
+        }
       } catch (activityError) {
         console.warn('Failed to log project completion activity:', activityError);
         // Don't fail the update if activity logging fails

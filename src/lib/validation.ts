@@ -375,6 +375,11 @@ export const SETTLEMENT_SCHEMAS = {
       type: 'string' as const,
       allowedValues: ['Direct', 'Crafted', 'Purchased']
     },
+    deliveryMethod: {
+      required: true,
+      type: 'string' as const,
+      allowedValues: ['Dropbox', 'Officer Handoff', 'Added to Building', 'Other']
+    },
     notes: {
       required: false,
       type: 'string' as const,

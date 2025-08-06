@@ -85,7 +85,7 @@ async function handleAddProjectItem(
         item_name: itemData.itemName.trim(),
         required_quantity: itemData.requiredQuantity,
         current_quantity: 0,
-        tier: Math.max(1, Math.min(4, itemData.tier || 1)), // Schema shows tier 1-4, not 1-6
+        tier: Math.max(1, Math.min(10, itemData.tier || 1)), // Support tiers 1-10 to match brico's system
         priority: Math.max(1, Math.min(5, itemData.priority || 3)),
         rank_order: 0,
         status: 'Needed',

@@ -9,6 +9,7 @@ export interface SettlementProject {
   status: 'Active' | 'Completed' | 'Cancelled';
   priority: number;
   createdByMemberId: string;
+  ownerName?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -57,7 +58,13 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
   try {
     let query = supabase
       .from('settlement_projects')
-      .select('*');
+      .select(`
+        *,
+        owner:settlement_members!created_by_member_id(
+          id,
+          name
+        )
+      `);
 
     // Apply filters
     if (options.status) {
@@ -92,6 +99,7 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
       status: project.status,
       priority: project.priority,
       createdByMemberId: project.created_by_member_id,
+      ownerName: project.owner?.name || null,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
     }));

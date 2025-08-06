@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
+import { useCurrentMember } from '@/hooks/use-current-member';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -32,10 +34,13 @@ interface CreateProjectModalProps {
 
 export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: CreateProjectModalProps) {
   const { data: session } = useSession();
+  const { member } = useCurrentMember();
+  const router = useRouter();
   
   const [formData, setFormData] = useState({
     name: '',
-    description: ''
+    description: '',
+    priority: 3
   });
   
   const [items, setItems] = useState<ProjectItem[]>([]);
@@ -55,7 +60,8 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
   const resetForm = () => {
     setFormData({
       name: '',
-      description: ''
+      description: '',
+      priority: 3
     });
     setItems([]);
     setCurrentItem({
@@ -79,6 +85,10 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
     
     if (!session?.user) {
       newErrors.auth = 'You must be signed in to create projects';
+    }
+    
+    if (!member?.id) {
+      newErrors.member = 'Member information not available. Please try again.';
     }
     
     if (items.length === 0) {
@@ -132,7 +142,7 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
     e.preventDefault();
     
     if (!validateForm()) return;
-    if (!session?.user) return;
+    if (!session?.user || !member?.id) return;
     
     setIsSubmitting(true);
     
@@ -141,7 +151,8 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
       const projectData: CreateProjectRequest = {
         name: formData.name.trim(),
         description: formData.description.trim() || undefined,
-        createdBy: session.user.name!,
+        priority: formData.priority,
+        createdByMemberId: member.id,
         items: items.map(item => ({
           itemName: item.itemName,
           requiredQuantity: item.requiredQuantity,
@@ -168,7 +179,15 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
       
       resetForm();
       onOpenChange(false);
-      onProjectCreated();
+      
+      // Navigate to the created project instead of just refreshing
+      const projectNumber = result.data?.project?.project_number;
+      if (projectNumber) {
+        router.push(`/en/settlement/projects/${projectNumber}`);
+      } else {
+        // Fallback to refreshing the projects list
+        onProjectCreated();
+      }
     } catch (error) {
       console.error('Error creating project:', error);
       setErrors({ submit: error instanceof Error ? error.message : 'Failed to create project. Please try again.' });
@@ -267,6 +286,25 @@ export function CreateProjectModal({ open, onOpenChange, onProjectCreated }: Cre
                 placeholder="Describe the project goals and requirements..."
                 rows={4}
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="project-priority">Project Priority</Label>
+              <Select
+                value={formData.priority.toString()}
+                onValueChange={(value) => setFormData({ ...formData, priority: parseInt(value) })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select priority" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">Low</SelectItem>
+                  <SelectItem value="2">Low-Medium</SelectItem>
+                  <SelectItem value="3">Medium</SelectItem>
+                  <SelectItem value="4">High</SelectItem>
+                  <SelectItem value="5">Critical</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 

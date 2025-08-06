@@ -218,13 +218,11 @@ export async function logProjectCreated(
   projectName: string,
   projectPriority: number,
   creatorMemberId: string,
+  creatorMemberName: string
 ): Promise<void> {
-  const memberInfo = await getSettlementMemberFromUser(creatorMemberId);
-  if (!memberInfo) return;
-  
   await trackProjectActivity({
-    memberId: memberInfo.memberId,
-    memberName: memberInfo.memberName,
+    memberId: creatorMemberId,
+    memberName: creatorMemberName,
     projectId,
     projectName,
     projectPriority,
@@ -236,15 +234,12 @@ export async function logProjectCompleted(
   projectId: string,
   projectName: string,
   projectPriority: number,
-  completedByUserId: string,
-  completedByUserName: string
+  completedByMemberId: string,
+  completedByMemberName: string
 ): Promise<void> {
-  const memberInfo = await getSettlementMemberFromUser(completedByUserId, completedByUserName);
-  if (!memberInfo) return;
-  
   await trackProjectActivity({
-    memberId: memberInfo.memberId,
-    memberName: memberInfo.memberName,
+    memberId: completedByMemberId,
+    memberName: completedByMemberName,
     projectId,
     projectName,
     projectPriority,
@@ -256,18 +251,15 @@ export async function logProjectContribution(
   projectId: string,
   projectName: string,
   projectPriority: number,
-  contributorUserId: string,
-  contributorUserName: string,
+  contributorMemberId: string,
+  contributorMemberName: string,
   itemName: string,
   quantity: number,
   notes?: string
 ): Promise<void> {
-  const memberInfo = await getSettlementMemberFromUser(contributorUserId, contributorUserName);
-  if (!memberInfo) return;
-  
   await trackProjectActivity({
-    memberId: memberInfo.memberId,
-    memberName: memberInfo.memberName,
+    memberId: contributorMemberId,
+    memberName: contributorMemberName,
     projectId,
     projectName,
     projectPriority,

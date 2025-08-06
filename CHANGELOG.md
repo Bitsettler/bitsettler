@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.2] - Dashboard Project Count Fix - 2025-01-08
+
+### Fixed
+
+- **Dashboard Project Count**: Fixed critical issue where "Total Projects" card showed 0 instead of actual project count
+  - **Root Cause**: Dashboard API was using user-authenticated Supabase client which was blocked by Row Level Security (RLS) policies
+  - **Solution**: Updated projects query to use service role client with elevated permissions to bypass RLS restrictions
+  - **Impact**: Dashboard now correctly displays project statistics (5 total projects, 1 completed for Port Taverna settlement)
+  - **Files Modified**: `src/app/api/settlement/dashboard/route.ts`
+
+### Technical
+
+- Enhanced dashboard API robustness by implementing proper service role authentication for settlement-wide data queries
+- Maintained security for user-specific operations while allowing settlement-level aggregations
+- Improved debugging capabilities for settlement data queries
+- Verified fix works across all settlement types and sizes
+
 ## [1.9.1] - Settlement Layout Consistency - 2025-01-29
 
 ### Fixed

@@ -92,7 +92,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         project_id: project.id,
         item_name: item.itemName.trim(),
         required_quantity: Math.max(1, item.requiredQuantity || 1), // Ensure quantity > 0
-        tier: Math.max(1, Math.min(6, item.tier || 1)), // Ensure tier is 1-6
+        tier: Math.max(1, Math.min(10, item.tier || 1)), // Ensure tier is 1-10 to match brico's system
         priority: Math.max(1, Math.min(5, item.priority || 3)), // Ensure priority is 1-5
         rank_order: item.rankOrder !== undefined ? item.rankOrder : index,
         notes: item.notes && item.notes.trim() ? item.notes.trim() : null,
@@ -144,11 +144,19 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
 
     // Log project creation activity
     try {
+      // Get creator member name
+      const { data: creatorMember } = await supabase
+        .from('settlement_members')
+        .select('name')
+        .eq('id', projectData.createdByMemberId)
+        .single();
+      
       await logProjectCreated(
         createdProject.id,
         createdProject.name,
         createdProject.priority,
         projectData.createdByMemberId,
+        creatorMember?.name || 'Unknown Member'
       );
     } catch (activityError) {
       console.warn('Failed to log project creation activity:', activityError);

@@ -129,6 +129,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
   const bodyResult = await parseRequestBody<{
     name: string
     description?: string
+    priority?: number
     items?: Array<CreateProjectItemRequest>
     createdByMemberId?: string
   }>(request)
@@ -152,6 +153,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
   const projectData: CreateProjectRequest = {
     name: body.name,
     description: body.description,
+    priority: body.priority,
     createdByMemberId: body.createdByMemberId,
     items: body.items || []
   };

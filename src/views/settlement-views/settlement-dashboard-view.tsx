@@ -11,6 +11,7 @@ import { useCurrentMember } from '../../hooks/use-current-member';
 import { useSession } from '../../hooks/use-auth';
 import { SettlementOnboardingView } from './settlement-onboarding-view';
 import { useCallback } from 'react';
+import { Button } from '@/components/ui/button';
 import { 
   Users, 
   Package, 
@@ -18,6 +19,7 @@ import {
   Calendar,
   Activity,
   Wallet,
+  RefreshCw,
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { SettlementTierIcon } from '@/components/ui/tier-icon';
@@ -87,6 +89,7 @@ export function SettlementDashboardView() {
   const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   
   const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
   
@@ -153,6 +156,19 @@ export function SettlementDashboardView() {
     }
   }, [selectedSettlement, member]);
 
+  // Manual refresh function
+  const handleManualRefresh = useCallback(async () => {
+    setIsRefreshing(true);
+    try {
+      await Promise.all([
+        fetchDashboardData(),
+        fetchRecentActivities()
+      ]);
+    } finally {
+      setIsRefreshing(false);
+    }
+  }, [fetchDashboardData, fetchRecentActivities]);
+
   useEffect(() => {
     // Fetch data if we have a selected settlement or member with settlement
     const settlementId = selectedSettlement?.id || member?.settlement_id;
@@ -160,13 +176,27 @@ export function SettlementDashboardView() {
       fetchDashboardData();
       fetchRecentActivities();
       
-      // Refresh data every 5 minutes (300 seconds)
+      // Refresh data every 30 seconds (all internal database calls now)
       const interval = setInterval(() => {
         fetchDashboardData();
         fetchRecentActivities();
-      }, 300000);
+      }, 30000);
+      
       return () => clearInterval(interval);
     }
+  }, [fetchDashboardData, fetchRecentActivities, selectedSettlement, member]);
+
+  // Refresh when page becomes visible (user returns from another tab/page)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!document.hidden && (selectedSettlement?.id || member?.settlement_id)) {
+        fetchDashboardData();
+        fetchRecentActivities();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, [fetchDashboardData, fetchRecentActivities, selectedSettlement, member]);
 
   // Countdown timer for next update
@@ -273,7 +303,17 @@ export function SettlementDashboardView() {
             <h1 className="text-3xl font-bold">Settlement Overview</h1>
             <p className="text-muted-foreground">Dashboard and management tools</p>
           </div>
-          <div></div>
+          <div className="flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={handleManualRefresh}
+              disabled={isRefreshing}
+            >
+              <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
+              Refresh
+            </Button>
+          </div>
         </div>
 
       {/* Settlement Info - Enhanced with Live Data */}
@@ -415,9 +455,13 @@ export function SettlementDashboardView() {
           <CardContent>
             {settlementActivities.length > 0 ? (
               <div className="space-y-3 max-h-80 overflow-y-auto">
-                {settlementActivities.map((activity: any) => (
-                    <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
-                      <div className="text-lg" title="Project Contribution">
+                {settlementActivities.map((activity: any) => {
+                  const isProjectActivity = ['project_contribution', 'project_created', 'project_completed'].includes(activity.activity_type);
+                  const projectId = activity.activity_data?.projectId;
+                  
+                  const ActivityContent = (
+                    <div className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
+                      <div className="text-lg" title="Project Activity">
                         {activity.activity_data.icon || '🤝'}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -432,7 +476,26 @@ export function SettlementDashboardView() {
                         {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
                       </div>
                     </div>
-                  ))}
+                  );
+
+                  if (isProjectActivity && projectId) {
+                    return (
+                      <a 
+                        key={activity.id}
+                        href={`/en/settlement/projects/${projectId}`}
+                        className="block hover:bg-muted/30 rounded-lg transition-colors"
+                      >
+                        {ActivityContent}
+                      </a>
+                    );
+                  } else {
+                    return (
+                      <div key={activity.id}>
+                        {ActivityContent}
+                      </div>
+                    );
+                  }
+                })}
               </div>
             ) : (
               <div className="text-center py-8">

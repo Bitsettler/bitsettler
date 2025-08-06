@@ -3,93 +3,18 @@ import { MemberContribution } from './get-project-by-id';
 import { logProjectContribution } from '../../../../settlement/project-activity-tracker';
 
 export interface AddContributionRequest {
-  // Authenticated user data
-  authUser: {
-    id: string;           // Supabase user.id
-    name: string;         // User display name  
-    email?: string;       // User email
-    image?: string;       // User avatar
-  };
+  memberId: string; // Settlement member ID (not auth user ID)
+  memberName: string; // Settlement member name (like "PR3SIDENT")
   projectId: string;
   projectItemId?: string;
   contributionType: 'Direct' | 'Crafted' | 'Purchased';
+  deliveryMethod: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
   itemName?: string;
   quantity: number;
   description?: string;
 }
 
-/**
- * Find or create settlement member for authenticated user
- * This links authenticated users to settlement member records
- */
-async function ensureSettlementMember(authUser: {
-  id: string;
-  name: string;
-  email?: string;
-  image?: string;
-}): Promise<string> {
-  
-  // Use service role client to bypass RLS
-  const supabase = createServerClient();
-  if (!supabase) {
-    throw new Error('Supabase service role client not available');
-  }
-
-  // First, check if this auth user already has a linked settlement member
-  const { data: existingMember } = await supabase
-    .from('settlement_members')
-    .select('id')
-    .eq('supabase_user_id', authUser.id)
-    .single();
-
-  if (existingMember) {
-    console.log('✅ Found existing settlement member for auth user:', existingMember.id);
-    return existingMember.id;
-  }
-
-  // Look for existing member by name (for migration from localStorage users)
-  const { data: memberByName } = await supabase
-    .from('settlement_members')
-    .select('id, supabase_user_id')
-    .eq('name', authUser.name)
-    .is('supabase_user_id', null) // Only unlinked members
-    .single();
-
-  if (memberByName) {
-    // Link existing member to this auth user
-    const { error: linkError } = await supabase
-      .from('settlement_members')
-      .update({ supabase_user_id: authUser.id })
-      .eq('id', memberByName.id);
-
-    if (linkError) {
-      console.error('🔴 Failed to link existing member:', linkError);
-    } else {
-      console.log('🔗 Linked existing member to auth user:', memberByName.id);
-      return memberByName.id;
-    }
-  }
-
-  // Create new settlement member for this auth user
-  console.log('🆕 Creating new settlement member for auth user:', authUser.name);
-  const { data: newMember, error: createError } = await supabase
-    .from('settlement_members')
-    .insert({
-      supabase_user_id: authUser.id,
-      name: authUser.name,
-      top_profession: 'Contributor', // Default profession
-    })
-    .select('id')
-    .single();
-
-  if (createError) {
-    console.error('🔴 MEMBER CREATION FAILED:', createError);
-    throw new Error(`Failed to create settlement member: ${createError.message}`);
-  }
-
-  console.log('✅ Created settlement member:', newMember.id);
-  return newMember.id;
-}
+// Settlement member ID is now passed directly from the API - no complex linking needed
 
 /**
  * Add a new member contribution to a project
@@ -102,9 +27,9 @@ export async function addContribution(contributionData: AddContributionRequest):
   }
 
   try {
-    // Ensure settlement member exists for this auth user
-    const memberId = await ensureSettlementMember(contributionData.authUser);
-    console.log('🔗 Using settlement member:', memberId, 'for auth user:', contributionData.authUser.name);
+    // Use the member ID directly (no complex linking needed)
+    const memberId = contributionData.memberId;
+    console.log('🔗 Using settlement member:', memberId, 'for character:', contributionData.memberName);
 
     // Insert the contribution
     console.log('🔄 Attempting to insert contribution:', {
@@ -122,6 +47,7 @@ export async function addContribution(contributionData: AddContributionRequest):
       project_id: contributionData.projectId,
       // No project_item_id column - contributions link via project_id + item_name
       contribution_type: contributionData.contributionType,
+      delivery_method: contributionData.deliveryMethod,
       item_name: contributionData.itemName || null,
       quantity: contributionData.quantity,
       notes: contributionData.description || null, // Map description to notes column
@@ -136,6 +62,7 @@ export async function addContribution(contributionData: AddContributionRequest):
         id,
         member_id,
         contribution_type,
+        delivery_method,
         item_name,
         quantity,
         notes,
@@ -172,8 +99,8 @@ export async function addContribution(contributionData: AddContributionRequest):
           contributionData.projectId,
           project.name,
           project.priority,
-          contributionData.authUser.id,
-          contributionData.authUser.name,
+          contributionData.memberId,
+          contributionData.memberName,
           contribution.item_name || 'Unknown Item',
           contribution.quantity,
           contribution.notes || undefined
@@ -187,8 +114,9 @@ export async function addContribution(contributionData: AddContributionRequest):
     return {
       id: contribution.id,
       memberId: contribution.member_id,
-      memberName: contributionData.authUser.name, // Use the auth user's name
+      memberName: contributionData.memberName, // Use the settlement character's name (like "PR3SIDENT")
       contributionType: contribution.contribution_type,
+      deliveryMethod: contribution.delivery_method,
       itemName: contribution.item_name,
       quantity: contribution.quantity,
       description: contribution.notes, // Map notes back to description for interface consistency

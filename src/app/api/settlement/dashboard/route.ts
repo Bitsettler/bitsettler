@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '../../../../lib/supabase-server-auth';
-import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
-import { settlementConfig } from '../../../../config/settlement-config';
+import { createClient } from '@supabase/supabase-js';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const settlementId = searchParams.get('settlementId');
-
-    console.log(`🔍 Dashboard API: Fetching live data for settlement ${settlementId}`);
 
     if (!settlementId) {
       return NextResponse.json(
@@ -17,23 +14,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Fetch live settlement claim data from BitJita API
-    console.log(`📡 Fetching live settlement claim data from BitJita...`);
-    const claimResponse = await BitJitaAPI.fetchSettlementDetails(settlementId);
-    
-    let liveSettlementData = null;
-    if (claimResponse.success) {
-      liveSettlementData = claimResponse.data!;
-      console.log(`✅ Live settlement data:`, liveSettlementData);
-    } else {
-      console.warn(`⚠️ Failed to fetch live settlement data, falling back to database:`, claimResponse.error);
-    }
-
     // Get Supabase client
     const supabase = await createServerSupabaseClient();
     
     // Fetch settlement data from our database
-    console.log(`📊 Querying settlement_members for settlement ${settlementId}...`);
     const { data: members, error: membersError } = await supabase
       .from('settlement_members')
       .select('*')
@@ -47,8 +31,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    console.log(`👥 Found ${members?.length || 0} members in database`);
-
     // Fetch settlement master data
     const { data: settlement, error: settlementError } = await supabase
       .from('settlements_master')
@@ -58,13 +40,6 @@ export async function GET(request: NextRequest) {
 
     if (settlementError) {
       console.warn(`⚠️ No settlement master data found:`, settlementError);
-    } else {
-      console.log(`🏛️ Settlement master data:`, {
-        name: settlement?.name,
-        treasury: settlement?.treasury,
-        tier: settlement?.tier,
-        region: settlement?.region
-      });
     }
 
     // Calculate basic stats
@@ -76,15 +51,27 @@ export async function GET(request: NextRequest) {
       return lastLogin > weekAgo;
     }).length || 0;
 
-    // Fetch project statistics
-    console.log(`📊 Querying settlement_projects for settlement ${settlementId}...`);
-    const { data: projects, error: projectsError } = await supabase
-      .from('settlement_projects')
-      .select(`
-        *,
-        created_by_member:settlement_members!created_by_member_id(settlement_id)
-      `)
-      .eq('created_by_member.settlement_id', settlementId);
+    // Get all member IDs for this settlement for project fetching
+    const memberIds = members?.map(m => m.id) || [];
+    
+    let projects: any[] = [];
+    let projectsError = null;
+    
+    if (memberIds.length > 0) {
+      // Use service role client for projects query to bypass RLS
+      const serviceSupabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!
+      );
+      
+      const { data: projectsData, error: projectsErr } = await serviceSupabase
+        .from('settlement_projects')
+        .select('*')
+        .in('created_by_member_id', memberIds);
+      
+      projects = projectsData || [];
+      projectsError = projectsErr;
+    }
 
     if (projectsError) {
       console.error(`❌ Failed to fetch projects:`, projectsError);
@@ -93,7 +80,6 @@ export async function GET(request: NextRequest) {
 
     const totalProjects = projects?.length || 0;
     const completedProjects = projects?.filter(p => p.status === 'Completed').length || 0;
-    console.log(`📈 Project stats: ${totalProjects} total, ${completedProjects} completed`);
 
     // Calculate skills insights
     const skillsInsights = {
@@ -123,45 +109,9 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Treasury data with real-time BitJita fallback
-    let currentBalance = settlement?.treasury || 0;
-    let treasuryDataSource = 'database';
-    
-    // If treasury is 0 in database, fetch real-time from BitJita as fallback
-    if (currentBalance === 0) {
-      console.log(`💰 Treasury is 0 in database, fetching real-time from BitJita...`);
-      try {
-        const searchResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/search?q=${encodeURIComponent(settlement?.name || 'unknown')}`);
-        const searchResult = await searchResponse.json();
-        
-        if (searchResult.success && searchResult.data?.settlements?.length > 0) {
-          const bitjitaSettlement = searchResult.data.settlements.find((s: any) => s.id === settlementId);
-          if (bitjitaSettlement && bitjitaSettlement.treasury > 0) {
-            currentBalance = bitjitaSettlement.treasury;
-            treasuryDataSource = 'bitjita_realtime';
-            console.log(`✅ Using real-time BitJita treasury: ${currentBalance}`);
-            
-            // Optional: Update database with real value for future
-            const { error: updateError } = await supabase
-              .from('settlements_master')
-              .update({ 
-                treasury: currentBalance,
-                last_synced_at: new Date().toISOString(),
-                sync_source: 'realtime_fallback'
-              })
-              .eq('id', settlementId);
-              
-            if (updateError) {
-              console.warn('⚠️ Failed to update treasury in database:', updateError);
-            } else {
-              console.log(`✅ Updated database treasury to ${currentBalance}`);
-            }
-          }
-        }
-      } catch (treasuryError) {
-        console.warn('⚠️ Failed to fetch real-time treasury:', treasuryError);
-      }
-    }
+    // Treasury data from database only
+    const currentBalance = settlement?.treasury || 0;
+    const treasuryDataSource = 'database';
 
     const treasuryData = {
       summary: {
@@ -178,19 +128,12 @@ export async function GET(request: NextRequest) {
       }
     };
 
-    // Use live settlement data if available, otherwise fall back to database
-    const settlementInfo = liveSettlementData ? {
-      id: liveSettlementData.id,
-      name: liveSettlementData.name,
-      tier: liveSettlementData.tier,
-      treasury: liveSettlementData.treasury,
-      supplies: liveSettlementData.supplies,
-      tiles: liveSettlementData.tiles,
-      population: liveSettlementData.population
-    } : {
+    // Settlement info from database only
+    const settlementInfo = {
       id: settlementId,
       name: settlement?.name || 'Unknown Settlement',
       tier: settlement?.tier || 1,
+      treasury: currentBalance,
       region: settlement?.region || 'Unknown'
     };
 
@@ -200,44 +143,36 @@ export async function GET(request: NextRequest) {
         // Settlement master data from our database (includes discord_link)
         masterData: settlement,
         stats: {
-          totalMembers, // Always use actual member count from database
+          totalMembers,
           activeMembers,
           totalProjects,
           completedProjects,
-          tiles: liveSettlementData?.tiles || 0,
-          supplies: liveSettlementData?.supplies || 0
+          tiles: settlement?.tiles || 0,
+          supplies: settlement?.supplies || 0
         }
       },
       treasury: treasuryData,
       stats: {
-        totalMembers, // Always use actual member count from database
+        totalMembers,
         activeMembers,
         totalProjects,
         completedProjects,
-        currentBalance: liveSettlementData?.treasury || currentBalance,
+        currentBalance,
         monthlyIncome: 0,
-        tiles: liveSettlementData?.tiles || 0,
-        supplies: liveSettlementData?.supplies || 0
+        tiles: settlement?.tiles || 0,
+        supplies: settlement?.supplies || 0
       },
       skills: skillsInsights,
       meta: {
-        dataSource: liveSettlementData ? 'bitjita_api_live' : 'supabase_database',
+        dataSource: 'supabase_database',
         treasuryDataSource,
         lastUpdated: new Date().toISOString(),
         settlementId,
-        liveDataAvailable: !!liveSettlementData
+        liveDataAvailable: false
       }
     };
 
-    console.log(`✅ Dashboard data compiled successfully:`, {
-      totalMembers: totalMembers, // Actual member count from database
-      activeMembers,
-      skilledMembers: skillsInsights.totalSkilledMembers,
-      treasury: liveSettlementData?.treasury || currentBalance,
-      treasurySource: treasuryDataSource,
-      tiles: liveSettlementData?.tiles || 0,
-      note: 'BitJita population field represents tile usage, not member count'
-    });
+
 
     return NextResponse.json(responseData);
 

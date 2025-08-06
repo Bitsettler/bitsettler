@@ -31,6 +31,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
+import { getSettlementTierBadgeClasses } from '@/lib/settlement/tier-colors';
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
 
 interface ProjectWithItems {
   id: string;
@@ -38,19 +40,22 @@ interface ProjectWithItems {
   name: string;
   description?: string;
   priority: number;
-  status: 'Active' | 'Completed' | 'Cancelled';
+  status: 'Active' | 'Completed';
   completionPercentage: number;
   totalItems: number;
   completedItems: number;
   items: Array<{
     id: string;
-    item_name: string;
-    required_quantity: number;
-    contributed_quantity: number;
+    itemName: string;
+    requiredQuantity: number;
+    currentQuantity: number;
+    tier: number;
     status: string;
   }>;
   created_by: string;
   created_at: string;
+  project_number: number;
+  ownerName?: string;
 }
 
 interface QuickCreateData {
@@ -65,6 +70,8 @@ const priorityLabels = {
   4: { label: 'Urgent', color: 'bg-red-100 text-red-800' },
   5: { label: 'Critical', color: 'bg-purple-100 text-purple-800' }
 };
+
+
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
@@ -84,14 +91,14 @@ export function SettlementProjectsView() {
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
   const [priorityFilter, setPriorityFilter] = useState<'all' | '1' | '2' | '3' | '4' | '5'>('all');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed' | 'Cancelled'>('Active');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed'>('Active');
   
-  // Contributing state (optimistic updates)
-  const [contributing, setContributing] = useState<Set<string>>(new Set());
+
   
   // Project management state
   const [deletingProject, setDeletingProject] = useState<string | null>(null);
   const [archivingProject, setArchivingProject] = useState<string | null>(null);
+  const [completingProject, setCompletingProject] = useState<string | null>(null);
   
   // Create inline form state
   const [showCreateForm, setShowCreateForm] = useState(false);
@@ -187,72 +194,7 @@ export function SettlementProjectsView() {
     }
   };
 
-  // Quick contribute to item
-  const handleQuickContribute = async (
-    projectId: string, 
-    itemId: string, 
-    amount: number,
-    currentContributed: number,
-    requiredQuantity: number
-  ) => {
-    // Optimistic update
-    const contributionKey = `${projectId}-${itemId}`;
-    setContributing(prev => new Set(prev).add(contributionKey));
-    
-    // Calculate actual contribution (don't exceed required)
-    const actualAmount = Math.min(amount, requiredQuantity - currentContributed);
-    
-    // Update UI immediately
-    setProjects(prev => prev.map(project => 
-      project.id === projectId 
-        ? {
-            ...project,
-            items: project.items.map(item => 
-              item.id === itemId 
-                ? { ...item, contributed_quantity: currentContributed + actualAmount }
-                : item
-            )
-          }
-        : project
-    ));
 
-    try {
-      const result = await api.post('/api/settlement/contributions', {
-        projectId,
-        itemId,
-        quantity: actualAmount,
-        notes: ''
-      });
-
-      if (!result.success) {
-        // Revert optimistic update on failure
-        setProjects(prev => prev.map(project => 
-          project.id === projectId 
-            ? {
-                ...project,
-                items: project.items.map(item => 
-                  item.id === itemId 
-                    ? { ...item, contributed_quantity: currentContributed }
-                    : item
-                )
-              }
-            : project
-        ));
-        throw new Error(result.error || 'Failed to contribute');
-      }
-
-      toast.success(`Contributed ${actualAmount} items!`);
-    } catch (error) {
-      console.error('Error contributing:', error);
-      toast.error('Failed to contribute. Please try again.');
-    } finally {
-      setContributing(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(contributionKey);
-        return newSet;
-      });
-    }
-  };
 
   // Delete project from main view
   const handleDeleteProject = async (projectId: string, projectName: string) => {
@@ -280,14 +222,14 @@ export function SettlementProjectsView() {
     setArchivingProject(projectId);
     try {
       const result = await api.put(`/api/settlement/projects/${projectId}`, {
-        status: 'Cancelled'
+        status: 'Completed'
       });
 
       if (result.success) {
         // Update local state immediately
         setProjects(prev => prev.map(p => 
           p.short_id === projectId 
-            ? { ...p, status: 'Cancelled' as const }
+            ? { ...p, status: 'Completed' as const }
             : p
         ));
         toast.success('Project archived successfully!');
@@ -299,6 +241,33 @@ export function SettlementProjectsView() {
       toast.error('Failed to archive project. Please try again.');
     } finally {
       setArchivingProject(null);
+    }
+  };
+
+  // Complete project from main view
+  const handleCompleteProject = async (projectId: string) => {
+    setCompletingProject(projectId);
+    try {
+      const result = await api.put(`/api/settlement/projects/${projectId}`, {
+        status: 'Completed'
+      });
+
+      if (result.success) {
+        // Update local state immediately
+        setProjects(prev => prev.map(p => 
+          p.short_id === projectId 
+            ? { ...p, status: 'Completed' as const }
+            : p
+        ));
+        toast.success('Project marked as completed!');
+      } else {
+        throw new Error(result.error || 'Failed to complete project');
+      }
+    } catch (error) {
+      console.error('Error completing project:', error);
+      toast.error('Failed to complete project. Please try again.');
+    } finally {
+      setCompletingProject(null);
     }
   };
 
@@ -447,7 +416,7 @@ export function SettlementProjectsView() {
           {/* Status Filter Chips */}
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">Status:</span>
-            {(['all', 'Active', 'Completed', 'Cancelled'] as const).map((status) => (
+            {(['all', 'Active', 'Completed'] as const).map((status) => (
               <Button
                 key={status}
                 variant={statusFilter === status ? 'default' : 'outline'}
@@ -576,18 +545,32 @@ export function SettlementProjectsView() {
           </Card>
 
           {filteredProjects.map((project) => (
-            <Card key={project.id} className="hover:shadow-md transition-shadow">
+            <Card 
+              key={project.id} 
+              className="hover:shadow-md transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => router.push(`/en/settlement/projects/${project.project_number}`)}
+            >
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <CardTitle className="text-lg font-semibold line-clamp-2">
-                      #{project.project_number} {project.name}
+                      {project.name}
                     </CardTitle>
                     {project.description && (
                       <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
                         {project.description}
                       </p>
                     )}
+                    <div className="flex items-center gap-3 mt-2">
+                      <Badge variant="outline" className="text-xs font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
+                        #{project.project_number}
+                      </Badge>
+                      {project.ownerName && (
+                        <Badge variant="outline" className="text-xs font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
+                          {project.ownerName}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge className={priorityLabels[project.priority as keyof typeof priorityLabels]?.color || 'bg-gray-100 text-gray-800'}>
@@ -597,22 +580,39 @@ export function SettlementProjectsView() {
                     {/* Project Actions Dropdown */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         {project.status === 'Active' && (
-                          <DropdownMenuItem 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleArchiveProject(project.id);
-                            }}
-                            disabled={archivingProject === project.id}
-                          >
-                            <Archive className="h-4 w-4 mr-2" />
-                            {archivingProject === project.id ? 'Archiving...' : 'Archive'}
-                          </DropdownMenuItem>
+                          <>
+                            <DropdownMenuItem 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleCompleteProject(project.id);
+                              }}
+                              disabled={completingProject === project.id}
+                            >
+                              <CheckCircle2 className="h-4 w-4 mr-2" />
+                              {completingProject === project.id ? 'Completing...' : 'Mark Completed'}
+                            </DropdownMenuItem>
+                            <DropdownMenuItem 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleArchiveProject(project.id);
+                              }}
+                              disabled={archivingProject === project.id}
+                            >
+                              <Archive className="h-4 w-4 mr-2" />
+                              {archivingProject === project.id ? 'Archiving...' : 'Archive'}
+                            </DropdownMenuItem>
+                          </>
                         )}
                         
                         <AlertDialog>
@@ -647,14 +647,9 @@ export function SettlementProjectsView() {
                 </div>
                 
                 <div className="flex items-center justify-between mt-3">
-                  <div className="flex items-center gap-2">
-                    <Badge variant={project.status === 'Active' ? 'default' : 'secondary'}>
-                      {project.status}
-                    </Badge>
-                    <span className="text-sm text-muted-foreground">
-                      {project.completedItems}/{project.totalItems} items
-                    </span>
-                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    {project.completedItems}/{project.totalItems} items
+                  </span>
                   <span className="text-sm font-medium">{project.completionPercentage}%</span>
                 </div>
                 
@@ -662,70 +657,101 @@ export function SettlementProjectsView() {
               </CardHeader>
 
               <CardContent className="pt-0">
-                {/* Top 3 items that need contributions */}
-                {project.items
-                  .filter(item => item.contributed_quantity < item.required_quantity)
-                  .slice(0, 3)
-                  .map((item) => {
-                    const remaining = item.required_quantity - item.contributed_quantity;
-                    const contributionKey = `${project.id}-${item.id}`;
-                    const isContributing = contributing.has(contributionKey);
+                {/* Project Requirements - Show up to 5 items with detailed information */}
+                {project.items && project.items.length > 0 ? (
+                  (() => {
+                    const incompleteItems = project.items.filter(item => item.currentQuantity < item.requiredQuantity);
                     
                     return (
-                      <div key={item.id} className="flex items-center justify-between py-2 border-b border-border/50 last:border-0">
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium truncate">{item.item_name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {item.contributed_quantity}/{item.required_quantity} ({remaining} needed)
-                          </p>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Target className="h-4 w-4 text-muted-foreground" />
+                          <span className="text-sm font-medium text-muted-foreground">
+                            Item Progress
+                          </span>
                         </div>
                         
-                        <div className="flex items-center gap-1 ml-2">
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(project.id, item.id, 1, item.contributed_quantity, item.required_quantity)}
-                            className="h-7 w-7 p-0"
-                          >
-                            +1
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(project.id, item.id, 5, item.contributed_quantity, item.required_quantity)}
-                            className="h-7 w-9 p-0 text-xs"
-                          >
-                            +5
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(project.id, item.id, remaining, item.contributed_quantity, item.required_quantity)}
-                            className="h-7 w-12 p-0 text-xs"
-                          >
-                            Max
-                          </Button>
-                        </div>
+                        {/* Show only incomplete items */}
+                        {incompleteItems
+                          .slice(0, 5)
+                          .map((item) => {
+                        const remaining = item.requiredQuantity - item.currentQuantity;
+                        const isCompleted = item.currentQuantity >= item.requiredQuantity;
+                        const progressPercentage = Math.min(100, Math.round((item.currentQuantity / item.requiredQuantity) * 100));
+                        
+                        return (
+                          <div key={item.id} className="bg-muted/50 rounded-lg p-3 space-y-2">
+                            {/* Item header with name, tier, and status */}
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <h4 className="text-sm font-medium truncate">{item.itemName}</h4>
+                                <BricoTierBadge tier={item.tier} size="sm" />
+                                {isCompleted && (
+                                  <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                                )}
+                              </div>
+                              <div className="text-xs font-medium text-muted-foreground">
+                                {progressPercentage}%
+                              </div>
+                            </div>
+                            
+                            {/* Progress bar */}
+                            <div className="w-full bg-background rounded-full h-2">
+                              <div 
+                                className={`h-2 rounded-full transition-all ${
+                                  isCompleted ? 'bg-green-600' : 'bg-blue-600'
+                                }`}
+                                style={{ width: `${progressPercentage}%` }}
+                              />
+                            </div>
+                            
+                            {/* Quantity details */}
+                            <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                              <span className="font-medium">
+                                {item.currentQuantity.toLocaleString()} / {item.requiredQuantity.toLocaleString()}
+                              </span>
+                              {isCompleted && (
+                                <span className="text-green-600 font-medium">Complete</span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    
+                        {/* Show additional incomplete items indicator if there are more than 5 */}
+                        {incompleteItems.length > 5 && (
+                          <div className="text-center py-2">
+                            <p className="text-xs text-muted-foreground">
+                              +{incompleteItems.length - 5} more incomplete item{incompleteItems.length - 5 === 1 ? '' : 's'}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              Click to view all requirements
+                            </p>
+                          </div>
+                        )}
+                        
+                        {/* Show completion message when all items are complete */}
+                        {incompleteItems.length === 0 && (
+                          <div className="text-center py-6">
+                            <CheckCircle2 className="h-8 w-8 mx-auto text-green-600 mb-2" />
+                            <p className="text-sm font-medium text-green-600">All items completed!</p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              This project is ready for completion
+                            </p>
+                          </div>
+                        )}
                       </div>
                     );
-                  })}
-                
-                {project.items.filter(item => item.contributed_quantity < item.required_quantity).length === 0 && (
-                  <p className="text-sm text-muted-foreground py-2">All items completed! 🎉</p>
+                  })()
+                ) : (
+                  <div className="text-center py-6">
+                    <Package className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
+                    <p className="text-sm text-muted-foreground">No items added yet</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Click to add project requirements
+                    </p>
+                  </div>
                 )}
-                
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => router.push(`/en/settlement/projects/${project.project_number}`)}
-                  className="w-full mt-3 justify-between"
-                >
-                  View Details
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
               </CardContent>
             </Card>
           ))}

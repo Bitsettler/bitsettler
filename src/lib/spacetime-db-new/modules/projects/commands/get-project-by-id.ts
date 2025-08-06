@@ -6,6 +6,7 @@ export interface MemberContribution {
   memberId: string;
   memberName: string;
   contributionType: 'Direct' | 'Crafted' | 'Purchased';
+  deliveryMethod: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
   itemName: string | null;
   quantity: number;
   description: string | null;
@@ -39,7 +40,13 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     // Get project details
     const { data: projectData, error: projectError } = await supabase
       .from('settlement_projects')
-      .select('*')
+      .select(`
+        *,
+        owner:settlement_members!created_by_member_id(
+          id,
+          name
+        )
+      `)
       .eq('id', projectId)
       .single();
 
@@ -130,6 +137,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
         memberId: contrib.member_id,
         memberName: member?.name || 'Unknown Member',
         contributionType: contrib.contribution_type,
+        deliveryMethod: contrib.delivery_method,
         itemName: contrib.item_name,
         quantity: contrib.quantity,
         description: contrib.notes, // Map notes column to description interface field
@@ -162,6 +170,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       status: projectData.status,
       priority: projectData.priority,
       createdBy: projectData.created_by,
+      ownerName: projectData.owner?.name || null,
       createdAt: new Date(projectData.created_at),
       updatedAt: new Date(projectData.updated_at),
       items,

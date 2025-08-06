@@ -13,6 +13,7 @@ import {
   Edit,
   Save,
   X,
+  Check,
   Search,
   Target,
   Users,
@@ -31,6 +32,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
 import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
@@ -38,6 +40,7 @@ import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator
 import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/shared/assets';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
 
 interface ProjectItem {
   id: string;
@@ -52,6 +55,17 @@ interface ProjectItem {
   status: string;
 }
 
+interface MemberContribution {
+  id: string;
+  memberId: string;
+  memberName: string;
+  contributionType: 'Direct' | 'Crafted' | 'Purchased';
+  itemName: string | null;
+  quantity: number;
+  description: string | null;
+  contributedAt: Date;
+}
+
 interface ProjectDetails {
   id: string;
   project_number: number;
@@ -59,11 +73,13 @@ interface ProjectDetails {
   name: string;
   description?: string;
   priority: number;
-  status: 'Active' | 'Completed' | 'Cancelled';
+  status: 'Active' | 'Completed';
   completionPercentage: number;
   created_by: string;
   created_at: string;
+  ownerName?: string;
   items: ProjectItem[];
+  contributions: MemberContribution[];
 }
 
 interface NewItem {
@@ -80,6 +96,8 @@ const priorityLabels = {
   4: { label: 'Urgent', color: 'bg-red-100 text-red-800' },
   5: { label: 'Critical', color: 'bg-purple-100 text-purple-800' }
 };
+
+
 
 export function SettlementProjectDetailView() {
   const params = useParams();
@@ -105,13 +123,19 @@ export function SettlementProjectDetailView() {
   });
   const [isAddingItem, setIsAddingItem] = useState(false);
   
-  // Contributing state
-  const [contributing, setContributing] = useState<Set<string>>(new Set());
-  const [customContributions, setCustomContributions] = useState<Record<string, string>>({});
+  // Item editing state
+  const [editingItems, setEditingItems] = useState<Record<string, string>>({});
+  
+  // Contribution state
+  const [contributingItem, setContributingItem] = useState<string | null>(null);
+  const [contributionAmount, setContributionAmount] = useState('');
+  const [contributionNote, setContributionNote] = useState('');
+  const [deliveryMethod, setDeliveryMethod] = useState('Dropbox');
   
   // Project management state
   const [isDeleting, setIsDeleting] = useState(false);
   const [isArchiving, setIsArchiving] = useState(false);
+  const [isCompleting, setIsCompleting] = useState(false);
   
   // Game data for item icons and links
   const gameData = useMemo(() => getCalculatorGameData(), []);
@@ -144,7 +168,11 @@ export function SettlementProjectDetailView() {
       setLoading(true);
       setError(null);
       
-      const result = await api.get(`/api/settlement/projects/${projectId}`);
+      // Add minimum loading time to prevent flash
+      const [result] = await Promise.all([
+        api.get(`/api/settlement/projects/${projectId}`),
+        new Promise(resolve => setTimeout(resolve, 300)) // Minimum 300ms loading
+      ]);
       
       if (result.success && result.data) {
         // The actual project data is nested under result.data.data
@@ -181,71 +209,108 @@ export function SettlementProjectDetailView() {
     }
   };
 
-  // Quick contribute
-  const handleQuickContribute = async (itemId: string, amount: number) => {
+  // Edit item quantity
+  const handleEditQuantity = (itemId: string, quantity: number) => {
+    setEditingItems(prev => ({ ...prev, [itemId]: quantity.toString() }));
+  };
+
+  const handleSaveQuantity = async (itemId: string) => {
     if (!project) return;
     
-    const item = (project.items || []).find(i => i.id === itemId);
-    if (!item) return;
-    
-    const remaining = item.required_quantity - item.contributed_quantity;
-    const actualAmount = Math.min(amount, remaining);
-    
-    if (actualAmount <= 0) return;
-    
-    // Optimistic update
-    setContributing(prev => new Set(prev).add(itemId));
-    setProject(prev => prev ? {
-      ...prev,
-      items: (prev.items || []).map(i => 
-        i.id === itemId 
-          ? { ...i, contributed_quantity: i.contributed_quantity + actualAmount }
-          : i
-      )
-    } : null);
+    const newQuantity = parseInt(editingItems[itemId]);
+    if (isNaN(newQuantity) || newQuantity < 0) {
+      toast.error('Please enter a valid quantity');
+      return;
+    }
 
     try {
-      const result = await api.post('/api/settlement/contributions', {
-        projectId: project.id, // Use the UUID, not the project number
-        itemName: item.item_name, // Use itemName instead of itemId
-        quantity: actualAmount,
-        contributionType: 'Direct', // Required field
-        notes: ''
+      const result = await api.put(`/api/settlement/projects/${projectId}/items/${itemId}`, {
+        required_quantity: newQuantity
       });
 
-      if (!result.success) {
-        // Revert optimistic update
-        setProject(prev => prev ? {
-          ...prev,
-          items: (prev.items || []).map(i => 
-            i.id === itemId 
-              ? { ...i, contributed_quantity: i.contributed_quantity - actualAmount }
-              : i
-          )
-        } : null);
-        throw new Error(result.error || 'Failed to contribute');
+      if (result.success) {
+        toast.success('Quantity updated successfully!');
+        // Clear editing state
+        setEditingItems(prev => {
+          const newState = { ...prev };
+          delete newState[itemId];
+          return newState;
+        });
+        // Refresh project data
+        await fetchProjectDetails();
+      } else {
+        throw new Error(result.error || 'Failed to update quantity');
       }
-
-      toast.success(`Contributed ${actualAmount} items!`);
     } catch (error) {
-      console.error('Error contributing:', error);
-      toast.error('Failed to contribute. Please try again.');
-    } finally {
-      setContributing(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemId);
-        return newSet;
-      });
+      console.error('Error updating quantity:', error);
+      toast.error('Failed to update quantity. Please try again.');
     }
   };
 
-  // Custom contribution
-  const handleCustomContribute = async (itemId: string) => {
-    const amount = parseInt(customContributions[itemId] || '0');
-    if (amount > 0) {
-      await handleQuickContribute(itemId, amount);
-      setCustomContributions(prev => ({ ...prev, [itemId]: '' }));
+  const handleCancelEdit = (itemId: string) => {
+    setEditingItems(prev => {
+      const newState = { ...prev };
+      delete newState[itemId];
+      return newState;
+    });
+  };
+
+  // Simple contribution system
+  const handleContribute = async () => {
+    if (!project || !contributingItem) return;
+    
+    const amount = parseInt(contributionAmount);
+    if (isNaN(amount) || amount <= 0) {
+      toast.error('Please enter a valid amount');
+      return;
     }
+
+    const item = (project.items || []).find(i => i.id === contributingItem);
+    if (!item) return;
+
+    // Allow over-contribution - no need to check against remaining items
+
+    try {
+      const result = await api.post('/api/settlement/contributions', {
+        projectId: project.id,
+        itemName: item.item_name,
+        quantity: amount,
+        contributionType: 'Direct',
+        deliveryMethod: deliveryMethod,
+        notes: contributionNote.trim() || ''
+      });
+
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to contribute');
+      }
+
+      toast.success(`Contributed ${amount} ${item.item_name}!`);
+      
+      // Close dialog and reset
+      setContributingItem(null);
+      setContributionAmount('');
+      setContributionNote('');
+      setDeliveryMethod('Dropbox');
+      
+      // Refresh project data
+      await fetchProjectDetails();
+    } catch (error) {
+      console.error('Error contributing:', error);
+      toast.error('Failed to contribute. Please try again.');
+    }
+  };
+
+  const handleOpenContribution = (itemId: string) => {
+    setContributingItem(itemId);
+    setContributionAmount('');
+    setContributionNote('');
+  };
+
+  const handleCloseContribution = () => {
+    setContributingItem(null);
+    setContributionAmount('');
+    setContributionNote('');
+    setDeliveryMethod('Dropbox');
   };
 
   // Add new item
@@ -360,20 +425,20 @@ export function SettlementProjectDetailView() {
     }
   };
 
-  // Archive project (set status to Cancelled)
+  // Archive project (set status to Completed)
   const handleArchiveProject = async () => {
     if (!project) return;
 
     setIsArchiving(true);
     try {
       const result = await api.put(`/api/settlement/projects/${projectId}`, {
-        status: 'Cancelled'
+        status: 'Completed'
       });
 
       if (result.success) {
         setProject(prev => prev ? {
           ...prev,
-          status: 'Cancelled'
+          status: 'Completed'
         } : null);
         toast.success('Project archived successfully!');
       } else {
@@ -391,6 +456,7 @@ export function SettlementProjectDetailView() {
   const handleCompleteProject = async () => {
     if (!project) return;
 
+    setIsCompleting(true);
     try {
       const result = await api.put(`/api/settlement/projects/${projectId}`, {
         status: 'Completed'
@@ -401,24 +467,79 @@ export function SettlementProjectDetailView() {
           ...prev,
           status: 'Completed'
         } : null);
-        toast.success('Project marked as complete! 🎉');
+        toast.success('Project marked as completed! 🎉');
       } else {
         throw new Error(result.error || 'Failed to complete project');
       }
     } catch (error) {
       console.error('Error completing project:', error);
       toast.error('Failed to complete project. Please try again.');
+    } finally {
+      setIsCompleting(false);
     }
   };
 
   if (loading) {
     return (
       <Container>
-        <div className="py-8">
-          <div className="animate-pulse space-y-6">
-            <div className="h-8 bg-gray-200 rounded w-64"></div>
-            <div className="h-32 bg-gray-200 rounded"></div>
-            <div className="h-96 bg-gray-200 rounded"></div>
+        <div className="space-y-6 py-8">
+          {/* Header Skeleton */}
+          <div className="flex items-center gap-4">
+            <div className="animate-pulse bg-muted rounded h-8 w-8"></div>
+            <div className="flex-1">
+              <div className="animate-pulse bg-muted rounded h-8 w-48 mb-2"></div>
+              <div className="animate-pulse bg-muted rounded h-4 w-24"></div>
+            </div>
+            <div className="animate-pulse bg-muted rounded h-10 w-24"></div>
+          </div>
+
+          {/* Progress Skeleton */}
+          <div className="border rounded-lg p-6 space-y-4">
+            <div className="animate-pulse bg-muted rounded h-6 w-32"></div>
+            <div className="animate-pulse bg-muted rounded h-3 w-full"></div>
+            <div className="flex justify-between">
+              <div className="animate-pulse bg-muted rounded h-4 w-20"></div>
+              <div className="animate-pulse bg-muted rounded h-4 w-16"></div>
+            </div>
+          </div>
+
+          {/* Content Skeleton */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Project Info */}
+              <div className="border rounded-lg p-6 space-y-4">
+                <div className="animate-pulse bg-muted rounded h-6 w-40"></div>
+                <div className="animate-pulse bg-muted rounded h-4 w-full"></div>
+                <div className="animate-pulse bg-muted rounded h-4 w-3/4"></div>
+              </div>
+
+              {/* Items List */}
+              <div className="border rounded-lg p-6 space-y-4">
+                <div className="animate-pulse bg-muted rounded h-6 w-32"></div>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-muted/50 rounded-lg p-4 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="animate-pulse bg-muted rounded h-12 w-12"></div>
+                      <div className="flex-1">
+                        <div className="animate-pulse bg-muted rounded h-5 w-32 mb-2"></div>
+                        <div className="animate-pulse bg-muted rounded h-3 w-full mb-1"></div>
+                        <div className="animate-pulse bg-muted rounded h-4 w-20"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              <div className="border rounded-lg p-4 space-y-4">
+                <div className="animate-pulse bg-muted rounded h-6 w-24"></div>
+                <div className="animate-pulse bg-muted rounded h-10 w-full"></div>
+                <div className="animate-pulse bg-muted rounded h-8 w-20"></div>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
@@ -442,7 +563,7 @@ export function SettlementProjectDetailView() {
 
   return (
     <Container>
-      <div className="space-y-6 py-8">
+      <div className="space-y-6 py-8 animate-in fade-in duration-300">
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="sm" onClick={() => router.back()}>
@@ -484,7 +605,7 @@ export function SettlementProjectDetailView() {
                 ) : (
                   <div>
                     <div className="flex items-center gap-3">
-                      <CardTitle className="text-2xl">#{project.project_number} {project.name}</CardTitle>
+                      <CardTitle className="text-2xl">{project.name}</CardTitle>
                       <Button size="sm" variant="ghost" onClick={() => setIsEditing(true)}>
                         <Edit className="h-4 w-4" />
                       </Button>
@@ -492,6 +613,16 @@ export function SettlementProjectDetailView() {
                     {project.description && (
                       <p className="text-muted-foreground mt-2">{project.description}</p>
                     )}
+                    <div className="flex items-center gap-3 mt-3">
+                      <Badge variant="outline" className="text-sm font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
+                        #{project.project_number}
+                      </Badge>
+                      {project.ownerName && (
+                        <Badge variant="outline" className="text-sm font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
+                          {project.ownerName}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -499,9 +630,6 @@ export function SettlementProjectDetailView() {
               <div className="flex items-center gap-2">
                 <Badge className={priorityLabels[project.priority as keyof typeof priorityLabels]?.color || 'bg-gray-100 text-gray-800'}>
                   {priorityLabels[project.priority as keyof typeof priorityLabels]?.label || 'Unknown'}
-                </Badge>
-                <Badge variant={project.status === 'Active' ? 'default' : 'secondary'}>
-                  {project.status}
                 </Badge>
                 
                 {/* Project Actions Dropdown */}
@@ -512,18 +640,17 @@ export function SettlementProjectDetailView() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    {project.status === 'Active' && overallProgress === 100 && (
-                      <DropdownMenuItem onClick={handleCompleteProject}>
-                        <CheckCircle2 className="h-4 w-4 mr-2" />
-                        Mark Complete
-                      </DropdownMenuItem>
-                    )}
-                    
                     {project.status === 'Active' && (
-                      <DropdownMenuItem onClick={handleArchiveProject} disabled={isArchiving}>
-                        <Archive className="h-4 w-4 mr-2" />
-                        {isArchiving ? 'Archiving...' : 'Archive Project'}
-                      </DropdownMenuItem>
+                      <>
+                        <DropdownMenuItem onClick={handleCompleteProject} disabled={isCompleting}>
+                          <CheckCircle2 className="h-4 w-4 mr-2" />
+                          {isCompleting ? 'Completing...' : 'Mark Completed'}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleArchiveProject} disabled={isArchiving}>
+                          <Archive className="h-4 w-4 mr-2" />
+                          {isArchiving ? 'Archiving...' : 'Archive'}
+                        </DropdownMenuItem>
+                      </>
                     )}
                     
                     <AlertDialog>
@@ -597,22 +724,102 @@ export function SettlementProjectDetailView() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Item</TableHead>
-                  <TableHead className="text-center">Progress</TableHead>
-                  <TableHead className="text-center">Contribute</TableHead>
-                  <TableHead className="text-center">Quick Actions</TableHead>
-                  <TableHead className="text-center">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {(project.items || []).map((item) => {
+            {(project.items || []).length === 0 ? (
+              /* Empty State - Clean, prominent add first item experience */
+              <div className="text-center py-12">
+                <div className="mx-auto w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                  <Package className="h-12 w-12 text-primary/60" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">No items defined yet</h3>
+                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                  Start building your project by adding the items and resources needed to complete it.
+                </p>
+                
+                {/* Add First Item Form */}
+                <div className="max-w-2xl mx-auto space-y-4 p-6 border-2 border-dashed border-primary/20 rounded-lg bg-primary/5">
+                  <h4 className="font-medium text-left">Add Your First Item</h4>
+                  
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <div className="md:col-span-2">
+                      <ItemSearchCombobox
+                        value={newItem.itemName}
+                        onValueChange={(value) => {
+                          if (!value) {
+                            setNewItem(prev => ({
+                              ...prev,
+                              itemName: '',
+                              tier: 1
+                            }));
+                          }
+                        }}
+                        onItemSelect={handleItemSelect}
+                        placeholder="Search for an item..."
+                      />
+                      {newItem.itemName && (
+                        <p className="text-sm text-green-600 mt-2 text-left">Selected: {newItem.itemName}</p>
+                      )}
+                    </div>
+                    
+                    <div className="flex items-start gap-2">
+                      <Input
+                        type="number"
+                        min="1"
+                        value={newItem.requiredQuantity}
+                        onChange={(e) => setNewItem(prev => ({ 
+                          ...prev, 
+                          requiredQuantity: parseInt(e.target.value) || 1 
+                        }))}
+                        className="w-24 text-center"
+                        placeholder="Qty"
+                      />
+                      
+                      <Button
+                        disabled={isAddingItem || !newItem.itemName.trim()}
+                        onClick={handleAddItem}
+                        size="lg"
+                      >
+                        {isAddingItem ? (
+                          'Adding...'
+                        ) : (
+                          <>
+                            <Plus className="h-4 w-4 mr-2" />
+                            Add Item
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {newItem.itemName && (
+                    <div className="text-left">
+                      <Input
+                        placeholder="Notes (optional)"
+                        value={newItem.notes}
+                        onChange={(e) => setNewItem(prev => ({ ...prev, notes: e.target.value }))}
+                        className="max-w-md"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              /* Items Table - When items exist */
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Item</TableHead>
+                    <TableHead className="text-center">Required Quantity</TableHead>
+                    <TableHead className="text-center">Progress</TableHead>
+                    <TableHead className="text-center">Contribute</TableHead>
+                    <TableHead className="text-center">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {(project.items || []).map((item) => {
                   const remaining = item.required_quantity - item.contributed_quantity;
                   const progress = Math.round((item.contributed_quantity / item.required_quantity) * 100);
                   const isComplete = item.contributed_quantity >= item.required_quantity;
-                  const isContributing = contributing.has(item.id);
+                  const isEditing = editingItems[item.id] !== undefined;
                   
                   return (
                     <TableRow key={item.id}>
@@ -650,21 +857,69 @@ export function SettlementProjectDetailView() {
                             </div>
                           )}
                           <div className="flex-1 min-w-0">
-                            {getItemLink(item.item_name) ? (
-                              <Link 
-                                href={getItemLink(item.item_name)!} 
-                                className="font-medium text-primary hover:underline"
-                                title="View in Calculator"
-                              >
-                                {item.item_name}
-                              </Link>
-                            ) : (
-                              <div className="font-medium">{item.item_name}</div>
-                            )}
+                            <div className="flex items-center gap-2">
+                              {getItemLink(item.item_name) ? (
+                                <Link 
+                                  href={getItemLink(item.item_name)!} 
+                                  className="font-medium text-primary hover:underline"
+                                  title="View in Calculator"
+                                >
+                                  {item.item_name}
+                                </Link>
+                              ) : (
+                                <div className="font-medium">{item.item_name}</div>
+                              )}
+                              <BricoTierBadge tier={item.tier} size="sm" />
+                            </div>
                             {item.notes && (
                               <div className="text-sm text-muted-foreground">{item.notes}</div>
                             )}
                           </div>
+                        </div>
+                      </TableCell>
+                      
+                      <TableCell className="text-center">
+                        <div className="flex items-center gap-2 justify-center">
+                          {isEditing ? (
+                            <>
+                              <Input
+                                type="number"
+                                min="1"
+                                value={editingItems[item.id]}
+                                onChange={(e) => setEditingItems(prev => ({ ...prev, [item.id]: e.target.value }))}
+                                className="w-20 text-center"
+                                autoFocus
+                              />
+                              <Button
+                                size="sm"
+                                onClick={() => handleSaveQuantity(item.id)}
+                                className="h-8 w-8 p-0"
+                              >
+                                <Check className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleCancelEdit(item.id)}
+                                className="h-8 w-8 p-0"
+                              >
+                                <X className="h-4 w-4" />
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-lg font-mono">{item.required_quantity}</span>
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => handleEditQuantity(item.id, item.required_quantity)}
+                                className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
+                                title="Edit required quantity"
+                              >
+                                <Edit className="h-4 w-4" />
+                              </Button>
+                            </>
+                          )}
                         </div>
                       </TableCell>
                       
@@ -678,71 +933,20 @@ export function SettlementProjectDetailView() {
                           </div>
                           <Progress value={progress} className="h-2" />
                           <div className="text-xs text-muted-foreground">
-                            {remaining > 0 ? `${remaining} needed` : 'Complete! ✅'}
+                            {remaining === 0 && 'Complete! ✅'}
                           </div>
                         </div>
                       </TableCell>
                       
                       <TableCell className="text-center">
-                        <div className="flex items-center gap-2 justify-center">
-                          <Input
-                            type="number"
-                            min="1"
-                            max={remaining}
-                            value={customContributions[item.id] || ''}
-                            onChange={(e) => setCustomContributions(prev => ({ 
-                              ...prev, 
-                              [item.id]: e.target.value 
-                            }))}
-                            placeholder="Amount"
-                            className="w-20 text-center"
-                            disabled={isContributing || remaining <= 0}
-                          />
-                          <Button
-                            size="sm"
-                            disabled={
-                              isContributing || 
-                              remaining <= 0 || 
-                              !customContributions[item.id] || 
-                              parseInt(customContributions[item.id]) <= 0
-                            }
-                            onClick={() => handleCustomContribute(item.id)}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      </TableCell>
-                      
-                      <TableCell className="text-center">
-                        <div className="flex items-center gap-1 justify-center">
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(item.id, 1)}
-                            className="h-8 w-8 p-0"
-                          >
-                            +1
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(item.id, 5)}
-                            className="h-8 w-10 p-0 text-xs"
-                          >
-                            +5
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled={isContributing || remaining <= 0}
-                            onClick={() => handleQuickContribute(item.id, remaining)}
-                            className="h-8 w-12 p-0 text-xs"
-                          >
-                            Max
-                          </Button>
-                        </div>
+                        <Button
+                          size="sm"
+                          onClick={() => handleOpenContribution(item.id)}
+                          disabled={isComplete}
+                          className="min-w-[80px]"
+                        >
+                          {isComplete ? 'Complete' : 'Contribute'}
+                        </Button>
                       </TableCell>
                       
                       <TableCell className="text-center">
@@ -760,11 +964,11 @@ export function SettlementProjectDetailView() {
                   );
                 })}
                 
-                {/* Add Item Row */}
-                <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
-                  <TableCell colSpan={5} className="p-4">
-                    <div className="space-y-3">
-                      <h4 className="font-medium text-sm">Add New Item</h4>
+                  {/* Add Another Item Row - Only shown when items exist */}
+                  <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
+                    <TableCell colSpan={5} className="p-4">
+                      <div className="space-y-3">
+                        <h4 className="font-medium text-sm">Add Another Item</h4>
                       
                       <div className="grid gap-3 md:grid-cols-3">
                         <div className="md:col-span-2">
@@ -827,18 +1031,201 @@ export function SettlementProjectDetailView() {
                     </div>
                   </TableCell>
                 </TableRow>
-              </TableBody>
-            </Table>
-            
-            {(project.items || []).length === 0 && (
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Contribution History */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              Contribution History
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {project.contributions && project.contributions.length > 0 ? (
+              <div className="space-y-4">
+                {project.contributions
+                  .sort((a, b) => new Date(b.contributedAt).getTime() - new Date(a.contributedAt).getTime())
+                  .slice(0, 20) // Show last 20 contributions
+                  .map((contribution) => (
+                    <div key={contribution.id} className="flex items-center justify-between py-3 border-b last:border-b-0">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium">{contribution.memberName}</span>
+                          <Badge variant="secondary" className="text-xs">
+                            {contribution.contributionType}
+                          </Badge>
+                          <Badge variant="outline" className="text-xs">
+                            {contribution.deliveryMethod}
+                          </Badge>
+                        </div>
+                        <div className="text-sm text-muted-foreground mt-1">
+                          {contribution.itemName && (
+                            <div className="flex items-center gap-2">
+                              {(() => {
+                                // Find the matching project item to get tier info
+                                const projectItem = project?.items?.find(item => 
+                                  item.item_name.toLowerCase() === contribution.itemName?.toLowerCase()
+                                );
+                                const iconPath = getItemIcon(contribution.itemName);
+                                
+                                return (
+                                  <>
+                                    <div className="relative">
+                                      <Image
+                                        src={iconPath}
+                                        alt={contribution.itemName}
+                                        width={20}
+                                        height={20}
+                                        className="rounded border"
+                                      />
+                                      {projectItem && (
+                                        <div className="absolute -top-1 -right-1">
+                                          <BricoTierBadge tier={projectItem.tier} size="sm" />
+                                        </div>
+                                      )}
+                                    </div>
+                                    <span className="font-medium">
+                                      {contribution.quantity}x {contribution.itemName}
+                                    </span>
+                                  </>
+                                );
+                              })()}
+                              {contribution.description && (
+                                <span className="ml-1">- {contribution.description}</span>
+                              )}
+                            </div>
+                          )}
+                          {!contribution.itemName && (
+                            <span>{contribution.quantity} items</span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {new Date(contribution.contributedAt).toLocaleDateString('en-US', {
+                          month: 'short',
+                          day: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            ) : (
               <div className="text-center py-8 text-muted-foreground">
-                <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No items added yet. Add your first item above to get started!</p>
+                <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                <p>No contributions yet. Be the first to contribute!</p>
               </div>
             )}
           </CardContent>
         </Card>
       </div>
+
+      {/* Contribution Dialog */}
+      <Dialog open={!!contributingItem} onOpenChange={handleCloseContribution}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Contribute Items</DialogTitle>
+            <DialogDescription>
+              Add items to help complete this project
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            {contributingItem && (
+              <>
+                {(() => {
+                  const item = (project?.items || []).find(i => i.id === contributingItem);
+                  if (!item) return null;
+                  const remaining = item.required_quantity - item.contributed_quantity;
+                  const iconPath = getItemIcon(item.item_name);
+                  
+                  return (
+                    <>
+                      {/* Item Display with Icon and Tier */}
+                      <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg border">
+                        <div className="relative">
+                          <Image
+                            src={iconPath}
+                            alt={item.item_name}
+                            width={48}
+                            height={48}
+                            className="rounded-md border"
+                          />
+                          <div className="absolute -top-1 -right-1">
+                            <BricoTierBadge tier={item.tier} size="sm" />
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-medium">{item.item_name}</div>
+                          <div className="text-sm text-muted-foreground">
+                            {remaining} of {item.required_quantity} still needed
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Field Order: Delivery Method → Amount → Note */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Delivery Method</label>
+                        <Select value={deliveryMethod} onValueChange={setDeliveryMethod}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select delivery method" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Dropbox">Dropbox</SelectItem>
+                            <SelectItem value="Officer Handoff">Officer Handoff</SelectItem>
+                            <SelectItem value="Added to Building">Added to Building</SelectItem>
+                            <SelectItem value="Other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Amount to contribute</label>
+                        <Input
+                          type="number"
+                          min="1"
+                          value={contributionAmount}
+                          onChange={(e) => setContributionAmount(e.target.value)}
+                          placeholder="Enter amount"
+                          className="text-center"
+                        />
+
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Note (optional)</label>
+                        <Textarea
+                          value={contributionNote}
+                          onChange={(e) => setContributionNote(e.target.value)}
+                          placeholder="Add a note about your contribution..."
+                          className="resize-none"
+                          rows={2}
+                        />
+                      </div>
+                    </>
+                  );
+                })()}
+              </>
+            )}
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={handleCloseContribution}>
+              Cancel
+            </Button>
+            <Button 
+              onClick={handleContribute}
+              disabled={!contributionAmount || parseInt(contributionAmount) <= 0}
+            >
+              Contribute
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Delete Item Dialog */}
       <AlertDialog open={!!itemToDelete} onOpenChange={() => setItemToDelete(null)}>
