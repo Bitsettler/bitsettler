@@ -499,17 +499,6 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
               </div>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </div>
-            
-            <div className="flex items-center gap-3 pb-3">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <div className="flex-1">
-                <p className="font-medium">Joined Settlement</p>
-                <p className="text-sm text-muted-foreground">
-                  {formatDate(member.joinedAt)}
-                </p>
-              </div>
-              <Calendar className="h-4 w-4 text-muted-foreground" />
-            </div>
           </div>
         </CardContent>
       </Card>
