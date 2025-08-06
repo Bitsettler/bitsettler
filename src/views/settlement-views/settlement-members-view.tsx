@@ -11,7 +11,6 @@ import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
 import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
@@ -19,6 +18,7 @@ import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/pr
 
 interface SettlementMember {
   id: string;
+  player_entity_id: string;
   name: string;
   top_profession: string;
   primary_profession?: string;
@@ -40,9 +40,11 @@ interface SettlementMember {
 
 interface MembersResponse {
   success: boolean;
-  data: SettlementMember[];
-  count: number;
   error?: string;
+  data: {
+    members: SettlementMember[];
+    memberCount: number;
+  };
 }
 
 export function SettlementMembersView() {
@@ -59,14 +61,13 @@ export function SettlementMembersView() {
   const [totalMembers, setTotalMembers] = useState(0);
   const membersPerPage = 200; // Increased to show all members
 
-  const { selectedSettlement } = useSelectedSettlement();
   const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMembers();
-  }, [professionFilter, statusFilter, currentPage, selectedSettlement, member, memberLoading]);
+  }, [professionFilter, statusFilter, currentPage, member, memberLoading]);
 
   const fetchMembers = async () => {
     try {
@@ -82,9 +83,8 @@ export function SettlementMembersView() {
         params.append('profession', professionFilter);
       }
 
-      // Add settlement ID if available - use selectedSettlement or fallback to member's settlement
-      const settlementId = selectedSettlement?.id || member?.settlement_id;
-      
+      const settlementId = member?.settlement_id;
+            
       if (!settlementId) {
         throw new Error('No settlement available - please select a settlement or claim a character');
       }
@@ -110,9 +110,7 @@ export function SettlementMembersView() {
   // Filter and sort members by search term and status (client-side)
   const filteredMembers = members.filter(member => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    // Handle different possible is_active data types (boolean, string, number)
-    const isActive = member.is_active === true || member.is_active === 1 || member.is_active === "true";
+    const isActive = member.is_active === true;
     
     const matchesStatus = statusFilter === 'all' || 
       (statusFilter === 'active' && isActive) || 
@@ -216,11 +214,11 @@ export function SettlementMembersView() {
         <div className="flex items-center gap-2">
           <Badge variant="outline" className="gap-1">
             <UserCheck className="h-3 w-3" />
-            {members.filter(m => m.is_active === true || m.is_active === 1 || m.is_active === "true").length} Active
+            {members.filter(m => m.is_active === true).length} Active
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Users className="h-3 w-3" />
-            {members.filter(m => !(m.is_active === true || m.is_active === 1 || m.is_active === "true")).length} Inactive
+            {members.filter(m => !(m.is_active === true)).length} Inactive
           </Badge>
         </div>
       </div>
@@ -294,7 +292,7 @@ export function SettlementMembersView() {
                   <TableRow 
                     key={member.id} 
                     className="hover:bg-muted/50 cursor-pointer transition-colors"
-                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
+                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
                   >
                     <TableCell>
                       <Avatar className="h-10 w-10">
@@ -350,8 +348,8 @@ export function SettlementMembersView() {
                       </div>
                     </TableCell>
                     <TableCell className="text-center">
-                      <Badge variant={(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'default' : 'secondary'}>
-                        {(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'Active' : 'Inactive'}
+                      <Badge variant={member.is_active === true ? 'default' : 'secondary'}>
+                        {member.is_active === true ? 'Active' : 'Inactive'}
                       </Badge>
                     </TableCell>
                   </TableRow>

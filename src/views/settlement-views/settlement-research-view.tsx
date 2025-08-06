@@ -6,7 +6,7 @@ import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Container } from '../../components/container';
 import { AlertCircle, RefreshCw, Beaker, TrendingUp, Target, CheckCircle2, Clock, Lock, ArrowDown, ChevronDown } from 'lucide-react';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
+import { useCurrentMember } from '../../hooks/use-current-member';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { TierIcon } from '../../components/ui/tier-icon';
 
@@ -37,15 +37,16 @@ export function SettlementResearchView() {
   const [error, setError] = useState<string | null>(null);
   const [meta, setMeta] = useState<ResearchResponse['meta'] | null>(null);
 
-  const { selectedSettlement } = useSelectedSettlement();
+  const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
+    if (memberLoading) return;
     fetchResearchData();
-  }, [selectedSettlement?.id]);
+  }, [member, memberLoading]);
 
   const fetchResearchData = async () => {
     // Don't fetch data if no settlement is selected
-    if (!selectedSettlement) {
+    if (!member?.settlement_id) {
       setLoading(false);
       setResearchData([]);
       setMeta(null);
@@ -56,7 +57,7 @@ export function SettlementResearchView() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/settlement/research?settlementId=${selectedSettlement.id}`);
+      const response = await fetch(`/api/settlement/research?settlementId=${member.settlement_id}`);
       const result: ResearchResponse = await response.json();
 
       if (!result.success) {

@@ -18,7 +18,7 @@ import { toast } from 'sonner';
 
 interface CompactInviteCodeProps {
   inviteCode: SettlementInviteCode;
-  onRegenerate: () => SettlementInviteCode | null;
+  onRegenerate: () => Promise<SettlementInviteCode | null>;
 }
 
 export function CompactSettlementInviteCode({ 
@@ -39,9 +39,9 @@ export function CompactSettlementInviteCode({
     }
   };
 
-  const handleRegenerate = () => {
+  const handleRegenerate = async () => {
     setIsRegenerating(true);
-    const newCode = onRegenerate();
+    const newCode = await onRegenerate();
     if (newCode) {
       toast.success('New invite code generated!');
     } else {

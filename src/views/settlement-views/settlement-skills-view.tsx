@@ -6,12 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Progress } from '@/components/ui/progress';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Container } from '@/components/container';
 import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { useSkillNames } from '../../hooks/use-skill-names';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
@@ -104,8 +101,7 @@ export function SettlementSkillsView() {
   // View options state
   const [showAdventureSkills, setShowAdventureSkills] = useState(true);
   const [showTierColors, setShowTierColors] = useState(true);
-
-  const { selectedSettlement } = useSelectedSettlement();
+  
   const { member, isLoading: memberLoading } = useCurrentMember();
   const { getSkillName, loading: skillNamesLoading } = useSkillNames();
 
@@ -216,13 +212,12 @@ export function SettlementSkillsView() {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchSkillsData();
-  }, [selectedSettlement, member, memberLoading]);
+  }, [member, memberLoading]);
 
   const fetchSkillsData = async () => {
-    // Use selectedSettlement or fallback to member's settlement
-    const settlementId = selectedSettlement?.id || member?.settlement_id;
-    const settlementName = selectedSettlement?.name || 'Current Settlement';
-    
+
+    const settlementId = member?.settlement_id;
+   
     // Don't fetch data if no settlement is available
     if (!settlementId) {
       setLoading(false);

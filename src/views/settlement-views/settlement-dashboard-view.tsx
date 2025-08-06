@@ -1,22 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-import { Skeleton } from '@/components/ui/skeleton';
+
 import { Container } from '@/components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
-import { useSession } from '../../hooks/use-auth';
-import { SettlementOnboardingView } from './settlement-onboarding-view';
 import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
   Users, 
   Package, 
   Coins, 
-  Calendar,
   Activity,
   Wallet,
   RefreshCw,
@@ -80,9 +76,7 @@ interface DashboardData {
 }
 
 export function SettlementDashboardView() {
-  // ✅ ALL HOOKS MUST BE AT THE TOP - Rules of Hooks
-  const { data: session, status } = useSession();
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember();
+  const { member } = useCurrentMember();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,14 +85,13 @@ export function SettlementDashboardView() {
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   
-  const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
+  const { inviteCode, regenerateInviteCode, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
   
-  // Fetch invite code for member's settlement if none exists (run once)
+
   useEffect(() => {
     if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
       const settlementInfo = dashboardData.settlement.settlementInfo;
       generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name).catch(error => {
-        // Failed to fetch invite code
       });
     }
   }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
@@ -106,9 +99,8 @@ export function SettlementDashboardView() {
   const fetchDashboardData = useCallback(async () => {
     try {
       setIsLoading(true);
-      
-      // Use selectedSettlement or fall back to member's settlement
-      const settlementId = selectedSettlement?.id || member?.settlement_id;
+
+      const settlementId = member?.settlement_id;
       
       if (!settlementId) {
         setError('No settlement available');
@@ -129,18 +121,16 @@ export function SettlementDashboardView() {
     } finally {
       setIsLoading(false);
     }
-  }, [selectedSettlement, member]);
+  }, [member]);
 
   const fetchRecentActivities = useCallback(async () => {
     try {
-      const settlementId = selectedSettlement?.id || member?.settlement_id;
+      const settlementId = member?.settlement_id;
       if (!settlementId) return;
       
-      // Fetch settlement activities (contributions, projects, etc.)
       const settlementResponse = await fetch(`/api/settlement/activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
       const settlementData = await settlementResponse.json();
       
-      // Fetch member activities (skill level-ups, achievements, etc.)
       const memberResponse = await fetch(`/api/settlement/member-activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
       const memberData = await memberResponse.json();
       
@@ -152,11 +142,9 @@ export function SettlementDashboardView() {
         setMemberActivities(memberData.activities);
       }
     } catch (error) {
-      // Failed to fetch recent activities
     }
-  }, [selectedSettlement, member]);
+  }, [member]);
 
-  // Manual refresh function
   const handleManualRefresh = useCallback(async () => {
     setIsRefreshing(true);
     try {
@@ -170,13 +158,11 @@ export function SettlementDashboardView() {
   }, [fetchDashboardData, fetchRecentActivities]);
 
   useEffect(() => {
-    // Fetch data if we have a selected settlement or member with settlement
-    const settlementId = selectedSettlement?.id || member?.settlement_id;
+    const settlementId = member?.settlement_id;
     if (settlementId) {
       fetchDashboardData();
       fetchRecentActivities();
-      
-      // Refresh data every 30 seconds (all internal database calls now)
+
       const interval = setInterval(() => {
         fetchDashboardData();
         fetchRecentActivities();
@@ -184,12 +170,11 @@ export function SettlementDashboardView() {
       
       return () => clearInterval(interval);
     }
-  }, [fetchDashboardData, fetchRecentActivities, selectedSettlement, member]);
+  }, [fetchDashboardData, fetchRecentActivities, member]);
 
-  // Refresh when page becomes visible (user returns from another tab/page)
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (!document.hidden && (selectedSettlement?.id || member?.settlement_id)) {
+      if (!document.hidden && member?.settlement_id) {
         fetchDashboardData();
         fetchRecentActivities();
       }
@@ -197,9 +182,8 @@ export function SettlementDashboardView() {
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, [fetchDashboardData, fetchRecentActivities, selectedSettlement, member]);
+  }, [fetchDashboardData, fetchRecentActivities, member]);
 
-  // Countdown timer for next update
   useEffect(() => {
     if (!dashboardData?.meta?.lastUpdated) return;
 
@@ -225,7 +209,6 @@ export function SettlementDashboardView() {
     return () => clearInterval(countdownInterval);
   }, [dashboardData?.meta?.lastUpdated]);
 
-  // ✅ UTILITY FUNCTIONS (non-hooks)
   const formatNumber = (num: number): string => {
     return new Intl.NumberFormat().format(num);
   };
@@ -238,11 +221,6 @@ export function SettlementDashboardView() {
     return `${formatCurrency(num)} 🪙`;
   };
 
-  // ✅ CONDITIONAL RENDERING - After all hooks are called
-  // Note: Auth protection is now handled by AuthGuard in layout
-  // This component only handles data loading states
-
-  // ⚠️ ONLY show loading if we don't have any data yet
   if (isLoading && !dashboardData) {
     return (
       <Container>
@@ -284,13 +262,8 @@ export function SettlementDashboardView() {
     supplies: 0,
   };
 
-    // Get live settlement info if available  
+
   const settlementInfo = dashboardData?.settlement?.settlementInfo;
-  const isLiveData = dashboardData?.meta?.liveDataAvailable || false;
-
-
-
-
 
   return (
     <Container>
@@ -323,20 +296,19 @@ export function SettlementDashboardView() {
             <div>
               <div className="flex items-center gap-3">
                 <h2 className="text-xl font-semibold">
-                  {settlementInfo?.name || selectedSettlement?.name || 'Settlement Dashboard'}
+                  {settlementInfo?.name || 'Settlement Dashboard'}
                 </h2>
-                <SettlementTierIcon tier={settlementInfo?.tier || selectedSettlement?.tier || 1} />
+                <SettlementTierIcon tier={settlementInfo?.tier || 1} />
               </div>
               <div>
                 <span className="text-sm text-muted-foreground">
-                  Tier {settlementInfo?.tier || selectedSettlement?.tier || 1} Settlement
+                  Tier {settlementInfo?.tier || 1} Settlement
                 </span>
               </div>
               {/* Discord Community Link - Inline */}
-              {selectedSettlement?.id && (
+              {settlementInfo?.id && (
                 <SettlementDiscordLink 
-                  settlementId={selectedSettlement.id}
-                  initialDiscordLink={dashboardData?.settlement?.masterData?.discord_link}
+                  settlementId={settlementInfo.id}
                 />
               )}
             </div>

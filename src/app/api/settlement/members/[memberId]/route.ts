@@ -24,47 +24,15 @@ export async function GET(
       );
     }
 
-    console.log(`🔍 Fetching member ${memberId} from unified settlement_members table`);
-    
-    // Try multiple ID matching strategies based on BitJita ID types
-    // 1. First try player_entity_id (recommended primary key)
-    let { data: member, error } = await supabase
+    let { data: member, error: memberError } = await supabase
       .from('settlement_members')
       .select('*')
       .eq('settlement_id', settlementId)
       .eq('player_entity_id', memberId)
       .maybeSingle();
 
-    // 2. If not found, try entity_id (generic identifier)
-    if (!member && !error) {
-      console.log(`🔍 Member not found by player_entity_id, trying entity_id...`);
-      const result = await supabase
-        .from('settlement_members')
-        .select('*')
-        .eq('settlement_id', settlementId)
-        .eq('entity_id', memberId)
-        .maybeSingle();
-      
-      member = result.data;
-      error = result.error;
-    }
-
-    // 3. If still not found, try the database id field
-    if (!member && !error) {
-      console.log(`🔍 Member not found by entity_id, trying database id...`);
-      const result = await supabase
-        .from('settlement_members')
-        .select('*')
-        .eq('settlement_id', settlementId)
-        .eq('id', memberId)
-        .maybeSingle();
-      
-      member = result.data;
-      error = result.error;
-    }
-
-    if (error) {
-      console.error('Member lookup error:', error);
+    if (memberError) {
+      console.error('Member lookup error:', memberError);
       return NextResponse.json(
         { error: 'Database query failed' },
         { status: 500 }
@@ -81,10 +49,33 @@ export async function GET(
 
     console.log(`✅ Found member ${member.name} in unified table`);
 
+    let { data: settlement, error: settlementError } = await supabase
+      .from('settlements_master')
+      .select('*')
+      .eq('id', settlementId)
+      .maybeSingle();
+
+      if (settlementError) {
+        console.error('Settlement lookup error:', settlementError);
+        return NextResponse.json(
+          { error: 'Database query failed' },
+          { status: 500 }
+        );
+      }
+  
+      if (!settlement) {
+        console.log(`❌ Member ${settlementId} not found in settlements_master table`);
+        return NextResponse.json(
+          { error: 'Member not found' },
+          { status: 404 }
+        );
+      }
+
     // Transform to API format - all data already available!
     const formattedMember = {
       id: member.entity_id,
       name: member.name,
+      settlement_name: settlement.name,
       entityId: member.entity_id,
       profession: member.top_profession || 'Unknown',
       primary_profession: member.primary_profession,

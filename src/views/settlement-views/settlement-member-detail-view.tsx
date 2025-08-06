@@ -9,7 +9,6 @@ import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { useSkillNames } from '../../hooks/use-skill-names';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
@@ -50,6 +49,7 @@ interface MemberDetail {
   id: string;
   name: string;
   entityId: string;
+  settlement_name: string;
   profession: string;
   primary_profession?: string | null;
   secondary_profession?: string | null;
@@ -94,7 +94,6 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  const { selectedSettlement } = useSelectedSettlement();
   const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 
@@ -102,11 +101,11 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMemberDetails();
-  }, [memberId, selectedSettlement, currentMember, memberLoading]);
+  }, [memberId, currentMember, memberLoading]);
 
   const fetchMemberDetails = async () => {
     // Use selectedSettlement or fallback to member's settlement
-    const settlementId = selectedSettlement?.id || currentMember?.settlement_id;
+    const settlementId = currentMember?.settlement_id;
     
     if (!settlementId) {
       setError('No settlement available - please select a settlement or claim a character');
@@ -324,7 +323,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-muted-foreground">Settlement</p>
-                  <p className="text-sm">{selectedSettlement?.name}</p>
+                  <p className="text-sm">{member.settlement_name}</p>
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-muted-foreground">Joined</p>

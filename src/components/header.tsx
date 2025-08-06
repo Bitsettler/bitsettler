@@ -13,8 +13,6 @@ import {
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { LanguageSwitcher } from './language-switcher'
 import { ThemeSwitcher } from './theme-switcher'
-import { useSelectedSettlement } from '../hooks/use-selected-settlement'
-import { ModeToggle } from './mode-toggle'
 import { cn } from '@/lib/utils'
 
 // Mapping of path segments to translation keys
@@ -46,8 +44,6 @@ interface HeaderProps {
 export function Header({ className }: HeaderProps) {
   const pathname = usePathname()
   const t = useTranslations()
-  const { clearSettlement } = useSelectedSettlement()
-
   // Generate breadcrumb items from current pathname
   const generateBreadcrumbs = (path: string) => {
     const segments = path.split('/').filter(Boolean).slice(1) // Remove locale

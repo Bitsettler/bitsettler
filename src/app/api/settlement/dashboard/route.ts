@@ -14,14 +14,12 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get Supabase client
     const supabase = await createServerSupabaseClient();
     
-    // Fetch settlement data from our database
     const { data: members, error: membersError } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('settlement_id', settlementId);
+      .eq('settlement_id', settlementId as any);
 
     if (membersError) {
       console.error(`❌ Failed to fetch members:`, membersError);
@@ -31,20 +29,23 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Fetch settlement master data
     const { data: settlement, error: settlementError } = await supabase
       .from('settlements_master')
       .select('*')
-      .eq('id', settlementId)
+      .eq('id', settlementId as any)
       .single();
+
 
     if (settlementError) {
       console.warn(`⚠️ No settlement master data found:`, settlementError);
     }
 
+    const typedMembers = members as any[] || [];
+    const typedSettlement = settlement as any || {};
+
     // Calculate basic stats
-    const totalMembers = members?.length || 0;
-    const activeMembers = members?.filter(m => {
+    const totalMembers = typedMembers.length || 0;
+    const activeMembers = typedMembers.filter(m => {
       if (!m.last_login_timestamp) return false;
       const lastLogin = new Date(m.last_login_timestamp);
       const weekAgo = new Date(Date.now() - (7 * 24 * 60 * 60 * 1000));
@@ -52,7 +53,7 @@ export async function GET(request: NextRequest) {
     }).length || 0;
 
     // Get all member IDs for this settlement for project fetching
-    const memberIds = members?.map(m => m.id) || [];
+    const memberIds = typedMembers.map(m => m.id) || [];
     
     let projects: any[] = [];
     let projectsError = null;
@@ -83,15 +84,15 @@ export async function GET(request: NextRequest) {
 
     // Calculate skills insights
     const skillsInsights = {
-      totalSkilledMembers: members?.filter(m => m.total_level && m.total_level > 0).length || 0,
+      totalSkilledMembers: typedMembers.filter(m => m.total_level && m.total_level > 0).length || 0,
       avgSkillLevel: 0,
       topProfession: 'Settler',
       totalSkillPoints: 0,
       topSkills: [] as Array<{name: string, members: number, avgLevel: number}>
     };
 
-    if (members && members.length > 0) {
-      const skilledMembers = members.filter(m => m.total_level && m.total_level > 0);
+    if (typedMembers.length > 0) {
+      const skilledMembers = typedMembers.filter(m => m.total_level && m.total_level > 0);
       
       if (skilledMembers.length > 0) {
         skillsInsights.totalSkillPoints = skilledMembers.reduce((sum, m) => sum + (m.total_xp || 0), 0);
@@ -105,12 +106,12 @@ export async function GET(request: NextRequest) {
         }, {} as Record<string, number>);
         
         skillsInsights.topProfession = Object.entries(professionCounts)
-          .sort(([,a], [,b]) => b - a)[0]?.[0] || 'Settler';
+          .sort(([,a], [,b]) => (b as number) - (a as number))[0]?.[0] || 'Settler';
       }
     }
 
     // Treasury data from database only
-    const currentBalance = settlement?.treasury || 0;
+    const currentBalance = typedSettlement?.treasury || 0;
     const treasuryDataSource = 'database';
 
     const treasuryData = {
@@ -131,10 +132,10 @@ export async function GET(request: NextRequest) {
     // Settlement info from database only
     const settlementInfo = {
       id: settlementId,
-      name: settlement?.name || 'Unknown Settlement',
-      tier: settlement?.tier || 1,
+      name: typedSettlement?.name || 'Unknown Settlement',
+      tier: typedSettlement?.tier || 1,
       treasury: currentBalance,
-      region: settlement?.region || 'Unknown'
+      region: typedSettlement?.region || 'Unknown'
     };
 
     const responseData = {
@@ -147,8 +148,8 @@ export async function GET(request: NextRequest) {
           activeMembers,
           totalProjects,
           completedProjects,
-          tiles: settlement?.tiles || 0,
-          supplies: settlement?.supplies || 0
+          tiles: typedSettlement?.tiles || 0,
+          supplies: typedSettlement?.supplies || 0
         }
       },
       treasury: treasuryData,
@@ -159,8 +160,8 @@ export async function GET(request: NextRequest) {
         completedProjects,
         currentBalance,
         monthlyIncome: 0,
-        tiles: settlement?.tiles || 0,
-        supplies: settlement?.supplies || 0
+        tiles: typedSettlement?.tiles || 0,
+        supplies: typedSettlement?.supplies || 0
       },
       skills: skillsInsights,
       meta: {
@@ -171,8 +172,6 @@ export async function GET(request: NextRequest) {
         liveDataAvailable: false
       }
     };
-
-
 
     return NextResponse.json(responseData);
 
