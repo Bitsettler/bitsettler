@@ -165,7 +165,7 @@ export function SettlementProjectDetailView() {
   
   // Fetch project permissions
   const fetchProjectPermissions = useCallback(async () => {
-    if (!projectId || !session?.user) {
+    if (!projectId || !session?.user?.id) {
       setPermissionsLoading(false);
       return;
     }
@@ -200,7 +200,7 @@ export function SettlementProjectDetailView() {
     } finally {
       setPermissionsLoading(false);
     }
-  }, [projectId, session?.user]);
+  }, [projectId, session?.user?.id]);
   
   // Function to get item icon by name
   const getItemIcon = useCallback((itemName: string): string => {
