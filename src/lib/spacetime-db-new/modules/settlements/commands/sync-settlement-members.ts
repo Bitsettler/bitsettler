@@ -368,11 +368,13 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
 
   console.log('🔄 Starting bulk member sync for all settlements...');
 
-  // Get all active settlements from our master list
+  // Get only established/claimed settlements (settlements that have members in our database)
+  // This follows the user's requirement: only sync settlements that users have claimed/established
   const { data: settlements, error: fetchError } = await supabase
     .from('settlements_master')
     .select('id, name')
     .eq('is_active', true)
+    .in('sync_source', ['establishment', 'establishment_with_stats']) // Only settlements created through our establishment flow
     .order('population', { ascending: false }) // Sync largest settlements first
     .limit(50); // Limit to avoid API rate limits
 
