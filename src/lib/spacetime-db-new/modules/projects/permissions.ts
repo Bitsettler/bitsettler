@@ -74,7 +74,7 @@ export async function checkProjectPermissions(
     }
 
     // Define permissions based on ownership and role
-    const canEdit = isOwner || isCoOwner;
+    const canEdit = true; // Allow all settlement members to edit projects
     const canArchive = isOwner || isCoOwner;
     const canDelete = isOwner || isCoOwner;
     const canContribute = true; // Anyone can contribute to active projects
