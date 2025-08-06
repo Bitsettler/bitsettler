@@ -135,7 +135,7 @@ export function EnhancedSignInPage() {
               </CardDescription>
             </CardHeader>
             
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-6">
               {/* Error Alert */}
               {error && (
                 <Alert variant={error.includes('Check your email') ? 'default' : 'destructive'}>
@@ -145,7 +145,7 @@ export function EnhancedSignInPage() {
               )}
 
               {/* OAuth Buttons */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <Button
                   onClick={() => handleOAuthSignIn('discord')}
                   className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white border-none transition-colors"
