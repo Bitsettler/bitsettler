@@ -14,7 +14,7 @@ import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
-import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
+
 
 interface SettlementMember {
   id: string;
@@ -311,12 +311,10 @@ export function SettlementMembersView() {
                     </TableCell>
                     <TableCell>
                       <div className="text-sm">
-                        <div className="font-medium">{getDisplayProfession(member)}</div>
-                        {getSecondaryProfession(member) && (
-                          <div className="text-xs text-muted-foreground">
-                            Secondary: {getSecondaryProfession(member)}
-                          </div>
-                        )}
+                        <div className="font-medium">{member.top_profession || 'Settler'}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {member.total_skills || 0} skills
+                        </div>
                       </div>
                     </TableCell>
                     <TableCell className="text-center">
