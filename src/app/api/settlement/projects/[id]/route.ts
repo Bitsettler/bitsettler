@@ -22,14 +22,14 @@ async function handleGetProject(
   const { id: projectId } = await params;
   
   try {
-    // Handle both UUID and short_id formats
+    // Handle both UUID and project number formats
     const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);
-    const isShortId = /^proj_[a-z0-9]{6}$/i.test(projectId);
+    const isProjectNumber = /^\d+$/.test(projectId);
     
     let actualProjectId = projectId;
     
-    // If short_id, convert to UUID
-    if (isShortId) {
+    // If project number, convert to UUID
+    if (isProjectNumber) {
       const supabase = createServerClient();
       if (!supabase) {
         return apiError('Database not available', ErrorCodes.OPERATION_FAILED);
@@ -38,7 +38,7 @@ async function handleGetProject(
       const { data: project, error } = await supabase
         .from('settlement_projects')
         .select('id')
-        .eq('short_id', projectId)
+        .eq('project_number', parseInt(projectId))
         .single();
         
       if (error || !project) {
@@ -90,12 +90,24 @@ async function handleUpdateProject(
   let actualProjectId = projectId;
   const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);
   const isShortId = /^proj_[a-z0-9]{6}$/i.test(projectId);
+  const isProjectNumber = /^\d+$/.test(projectId);
   
-  if (!isUUID && !isShortId) {
+  if (!isUUID && !isShortId && !isProjectNumber) {
     return apiError('Invalid project ID format', ErrorCodes.INVALID_PARAMETER);
   }
 
-  if (isShortId) {
+  if (isProjectNumber) {
+    const { data: project } = await supabase
+      .from('settlement_projects')
+      .select('id')
+      .eq('project_number', parseInt(projectId))
+      .single();
+    
+    if (!project) {
+      return apiError('Project not found', ErrorCodes.NOT_FOUND);
+    }
+    actualProjectId = project.id;
+  } else if (isShortId) {
     const { data: project } = await supabase
       .from('settlement_projects')
       .select('id')
@@ -211,12 +223,24 @@ async function handleDeleteProject(
   let actualProjectId = projectId;
   const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);
   const isShortId = /^proj_[a-z0-9]{6}$/i.test(projectId);
+  const isProjectNumber = /^\d+$/.test(projectId);
   
-  if (!isUUID && !isShortId) {
+  if (!isUUID && !isShortId && !isProjectNumber) {
     return apiError('Invalid project ID format', ErrorCodes.INVALID_PARAMETER);
   }
 
-  if (isShortId) {
+  if (isProjectNumber) {
+    const { data: project } = await supabase
+      .from('settlement_projects')
+      .select('id')
+      .eq('project_number', parseInt(projectId))
+      .single();
+    
+    if (!project) {
+      return apiError('Project not found', ErrorCodes.NOT_FOUND);
+    }
+    actualProjectId = project.id;
+  } else if (isShortId) {
     const { data: project } = await supabase
       .from('settlement_projects')
       .select('id')

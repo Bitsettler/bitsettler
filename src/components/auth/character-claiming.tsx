@@ -200,36 +200,37 @@ export function CharacterClaiming() {
   const isProfessionStep = step === 'professions';
 
   return (
-    <Container>
-      <div className="max-w-4xl mx-auto space-y-6">
-        {/* Step Indicator */}
-        <div className="flex items-center justify-center space-x-8">
-          <div className={`flex items-center space-x-2 ${isCharacterStep ? 'text-primary' : isProfessionStep ? 'text-muted-foreground' : 'text-primary'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${isCharacterStep ? 'border-primary bg-primary text-primary-foreground' : isProfessionStep ? 'border-muted bg-background text-muted-foreground' : 'border-primary bg-primary text-primary-foreground'}`}>
-              {isProfessionStep && selectedCharacter ? <CheckCircle className="h-4 w-4" /> : '1'}
+    <div className="min-h-screen flex flex-col">
+      <Container className="flex-1 py-6">
+        <div className="max-w-4xl mx-auto h-full flex flex-col space-y-6">
+          {/* Step Indicator */}
+          <div className="flex items-center justify-center space-x-8">
+            <div className={`flex items-center space-x-2 ${isCharacterStep ? 'text-primary' : isProfessionStep ? 'text-muted-foreground' : 'text-primary'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${isCharacterStep ? 'border-primary bg-primary text-primary-foreground' : isProfessionStep ? 'border-muted bg-background text-muted-foreground' : 'border-primary bg-primary text-primary-foreground'}`}>
+                {isProfessionStep && selectedCharacter ? <CheckCircle className="h-4 w-4" /> : '1'}
+              </div>
+              <span className="font-medium">Choose Character</span>
             </div>
-            <span className="font-medium">Choose Character</span>
-          </div>
-          <div className={`w-12 h-px ${isProfessionStep ? 'bg-primary' : 'bg-muted'}`} />
-          <div className={`flex items-center space-x-2 ${isProfessionStep ? 'text-primary' : 'text-muted-foreground'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${isProfessionStep ? 'border-primary bg-primary text-primary-foreground' : 'border-muted bg-background text-muted-foreground'}`}>
-              2
+            <div className={`w-12 h-px ${isProfessionStep ? 'bg-primary' : 'bg-muted'}`} />
+            <div className={`flex items-center space-x-2 ${isProfessionStep ? 'text-primary' : 'text-muted-foreground'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${isProfessionStep ? 'border-primary bg-primary text-primary-foreground' : 'border-muted bg-background text-muted-foreground'}`}>
+                2
+              </div>
+              <span className="font-medium">Select Professions</span>
             </div>
-            <span className="font-medium">Select Professions</span>
           </div>
-        </div>
 
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">
-            {isCharacterStep ? 'Claim Your Character' : 'Choose Your Professions'}
-          </h1>
-          <p className="text-muted-foreground">
-            {isCharacterStep 
-              ? 'Select your in-game character to link it with your account'
-              : 'Define your primary and secondary professions to represent your playstyle'
-            }
-          </p>
-        </div>
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl font-bold">
+              {isCharacterStep ? 'Claim Your Character' : 'Choose Your Professions'}
+            </h1>
+            <p className="text-muted-foreground">
+              {isCharacterStep 
+                ? 'Select your in-game character to link it with your account'
+                : 'Define your primary and secondary professions to represent your playstyle'
+              }
+            </p>
+          </div>
 
         {error && (
           <Card className="border-destructive">
@@ -239,215 +240,252 @@ export function CharacterClaiming() {
           </Card>
         )}
 
-        {/* Character Selection Step */}
-        {isCharacterStep && (
-          <>
-            {/* Search Field */}
-            <Card>
-              <CardContent className="pt-6">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                  <Input
-                    placeholder="Search by character name, profession, or level..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-10"
-                  />
-                  {searchTerm && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => setSearchTerm('')}
-                      className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
-                    >
-                      <X className="h-4 w-4" />
-                    </Button>
-                  )}
-                </div>
-                {searchTerm && (
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Showing {filteredMembers.length} of {members.length} characters
-                  </p>
-                )}
-              </CardContent>
-            </Card>
-
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filteredMembers.length > 0 ? (
-            filteredMembers.map((member) => (
-            <Card 
-              key={member.id} 
-              className={`cursor-pointer transition-all border-2 ${
-                selectedCharacter?.entity_id === member.entity_id 
-                  ? 'border-primary bg-primary/5 shadow-md' 
-                  : 'border-border hover:border-primary/50 hover:shadow-md'
-              }`}
-              onClick={() => setSelectedCharacter(member)}
-            >
-              <CardHeader className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Avatar>
-                    <AvatarFallback>
-                      {member.name.substring(0, 2).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="font-semibold">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {getDisplayProfession(member)}
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2">
-                  <Badge variant="secondary">
-                    Level {member.highest_level}
-                  </Badge>
-                  <Badge variant="outline">
-                    Total: {member.total_level}
-                  </Badge>
-                  {member.is_active && (
-                    <Badge variant="default" className="text-xs">
-                      Active
-                    </Badge>
-                  )}
-                </div>
-              </CardHeader>
-
-              <CardContent className="space-y-3">
-                {/* Action Button - appears when this character is selected */}
-                {selectedCharacter?.entity_id === member.entity_id && (
-                  <div className="pt-3 border-t border-border space-y-3">
-                    <div className="space-y-2">
-                      <Label htmlFor={`display-name-${member.id}`} className="text-xs">
-                        Display Name (Optional)
-                      </Label>
-                      <Input
-                        id={`display-name-${member.id}`}
-                        placeholder={member.name}
-                        value={customDisplayName}
-                        onChange={(e) => setCustomDisplayName(e.target.value)}
-                        className="text-sm"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        Leave empty to use your character name
-                      </p>
-                    </div>
-
-                    <Button 
-                      onClick={proceedToProfessions}
-                      className="w-full"
-                      size="sm"
-                    >
-                      <ArrowRight className="h-4 w-4 mr-2" />
-                      Continue to Professions
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-            ))
-          ) : (
-            <div className="col-span-full">
+          {/* Character Selection Step */}
+          {isCharacterStep && (
+            <div className="flex-1 flex flex-col space-y-4">
+              {/* Search Field */}
               <Card>
                 <CardContent className="pt-6">
-                  <div className="text-center py-8 text-muted-foreground">
-                    <User className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="font-medium">No characters found</p>
-                    <p className="text-sm">Try adjusting your search terms</p>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    <Input
+                      placeholder="Search by character name, profession, or level..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10 pr-10"
+                    />
+                    {searchTerm && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setSearchTerm('')}
+                        className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
+                  {searchTerm && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Showing {filteredMembers.length} of {members.length} characters
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Character Grid - scrollable if needed */}
+              <div className="flex-1 min-h-0">
+                <div className="h-full overflow-y-auto">
+                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 pb-6">
+                    {filteredMembers.length > 0 ? (
+                      filteredMembers.map((member) => (
+                        <Card 
+                          key={member.id} 
+                          className={`cursor-pointer transition-all border-2 ${
+                            selectedCharacter?.entity_id === member.entity_id 
+                              ? 'border-primary bg-primary/5 shadow-md' 
+                              : 'border-border hover:border-primary/50 hover:shadow-md'
+                          }`}
+                          onClick={() => setSelectedCharacter(member)}
+                        >
+                          <CardHeader className="pb-3">
+                            <div className="flex items-center space-x-3">
+                              <Avatar>
+                                <AvatarFallback>
+                                  {member.name.substring(0, 2).toUpperCase()}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div className="flex-1 min-w-0">
+                                <h3 className="font-semibold truncate">{member.name}</h3>
+                                <p className="text-sm text-muted-foreground truncate">
+                                  {getDisplayProfession(member)}
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <Badge variant="secondary">
+                                Level {member.highest_level}
+                              </Badge>
+                              <Badge variant="outline">
+                                Total: {member.total_level}
+                              </Badge>
+                              {member.is_active && (
+                                <Badge variant="default" className="text-xs">
+                                  Active
+                                </Badge>
+                              )}
+                            </div>
+                          </CardHeader>
+                        </Card>
+                      ))
+                    ) : (
+                      <div className="col-span-full">
+                        <Card>
+                          <CardContent className="pt-6">
+                            <div className="text-center py-8 text-muted-foreground">
+                              <User className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                              <p className="font-medium">No characters found</p>
+                              <p className="text-sm">Try adjusting your search terms</p>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Character Selection Action Panel - Fixed at bottom */}
+              {selectedCharacter && (
+                <Card className="border-primary">
+                  <CardContent className="pt-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4">
+                        <Avatar className="h-12 w-12">
+                          <AvatarFallback>
+                            {selectedCharacter.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold truncate">{selectedCharacter.name}</h3>
+                          <p className="text-sm text-muted-foreground truncate">
+                            Level {selectedCharacter.highest_level} • {getDisplayProfession(selectedCharacter)}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="display-name" className="text-sm">
+                          Display Name (Optional)
+                        </Label>
+                        <Input
+                          id="display-name"
+                          placeholder={selectedCharacter.name}
+                          value={customDisplayName}
+                          onChange={(e) => setCustomDisplayName(e.target.value)}
+                          className="text-sm"
+                        />
+                        <p className="text-xs text-muted-foreground">
+                          Leave empty to use your character name
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <Button 
+                          variant="outline"
+                          onClick={() => setSelectedCharacter(null)}
+                          size="sm"
+                        >
+                          <X className="h-4 w-4 mr-2" />
+                          Clear Selection
+                        </Button>
+                        <Button 
+                          onClick={proceedToProfessions}
+                          size="sm"
+                        >
+                          <ArrowRight className="h-4 w-4 mr-2" />
+                          Continue to Professions
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              
+              {/* Help Message */}
+              {!selectedCharacter && members.length > 0 && (
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Click on a character card above to select and claim your character
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Profession Selection Step */}
+          {isProfessionStep && selectedCharacter && (
+            <div className="flex-1 flex flex-col space-y-4">
+              {/* Selected Character Summary */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="h-12 w-12">
+                      <AvatarFallback>
+                        {selectedCharacter.name.substring(0, 2).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold truncate">{selectedCharacter.name}</h3>
+                      <p className="text-sm text-muted-foreground truncate">
+                        Level {selectedCharacter.highest_level} • {getDisplayProfession(selectedCharacter)}
+                      </p>
+                      {customDisplayName && (
+                        <p className="text-xs text-muted-foreground truncate">
+                          Display name: {customDisplayName}
+                        </p>
+                      )}
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={backToCharacterSelection}
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2" />
+                      Change Character
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Profession Selector */}
+              <div className="flex-1 min-h-0">
+                <ProfessionSelector
+                  primaryProfession={primaryProfession}
+                  secondaryProfession={secondaryProfession}
+                  onPrimaryChange={setPrimaryProfession}
+                  onSecondaryChange={setSecondaryProfession}
+                  allowNone={true}
+                />
+              </div>
+
+              {/* Action Buttons - Fixed at bottom */}
+              <Card className="border-primary">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <Button 
+                      variant="outline" 
+                      onClick={backToCharacterSelection}
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2" />
+                      Back to Character Selection
+                    </Button>
+                    
+                    <Button 
+                      onClick={claimCharacter}
+                      disabled={claiming === selectedCharacter.entity_id}
+                      className="min-w-[200px]"
+                    >
+                      {claiming === selectedCharacter.entity_id ? (
+                        <>
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          Claiming Character...
+                        </>
+                      ) : (
+                        <>
+                          <CheckCircle className="h-4 w-4 mr-2" />
+                          Claim {selectedCharacter.name}
+                        </>
+                      )}
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             </div>
           )}
-            </div>
-            
-            {/* Help Message */}
-            {!selectedCharacter && members.length > 0 && (
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                  Click on a character card above to select and claim your character
-                </p>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Profession Selection Step */}
-        {isProfessionStep && selectedCharacter && (
-          <>
-            {/* Selected Character Summary */}
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <Avatar className="h-12 w-12">
-                    <AvatarFallback>
-                      {selectedCharacter.name.substring(0, 2).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <h3 className="font-semibold">{selectedCharacter.name}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Level {selectedCharacter.highest_level} • {getDisplayProfession(selectedCharacter)}
-                    </p>
-                    {customDisplayName && (
-                      <p className="text-xs text-muted-foreground">
-                        Display name: {customDisplayName}
-                      </p>
-                    )}
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={backToCharacterSelection}
-                  >
-                    <ArrowLeft className="h-4 w-4 mr-2" />
-                    Change Character
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Profession Selector */}
-            <ProfessionSelector
-              primaryProfession={primaryProfession}
-              secondaryProfession={secondaryProfession}
-              onPrimaryChange={setPrimaryProfession}
-              onSecondaryChange={setSecondaryProfession}
-              allowNone={true}
-            />
-
-            {/* Action Buttons */}
-            <div className="flex items-center justify-between">
-              <Button 
-                variant="outline" 
-                onClick={backToCharacterSelection}
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Character Selection
-              </Button>
-              
-              <Button 
-                onClick={claimCharacter}
-                disabled={claiming === selectedCharacter.entity_id}
-                className="min-w-[200px]"
-              >
-                {claiming === selectedCharacter.entity_id ? (
-                  <>
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Claiming Character...
-                  </>
-                ) : (
-                  <>
-                    <CheckCircle className="h-4 w-4 mr-2" />
-                    Claim {selectedCharacter.name}
-                  </>
-                )}
-              </Button>
-            </div>
-          </>
-        )}
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </div>
   );
 } 

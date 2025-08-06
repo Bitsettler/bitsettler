@@ -43,7 +43,6 @@ export async function POST(request: NextRequest) {
       .select('officer_permission, co_owner_permission')
       .eq('settlement_id', settlementId)
       .eq('supabase_user_id', user.id)
-      .eq('is_active', true)
       .single();
 
     if (memberError || !memberData) {
@@ -53,12 +52,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if user has management permissions
-    const hasManagementPermission = memberData.officer_permission > 0 || memberData.co_owner_permission > 0;
+    // Check if user has management permissions (flexible with permission types)
+    const hasManagementPermission = 
+      memberData.officer_permission > 0 || 
+      memberData.officer_permission === true ||
+      memberData.co_owner_permission > 0 || 
+      memberData.co_owner_permission === true;
     
     if (!hasManagementPermission) {
       return NextResponse.json(
-        { success: false, error: 'You do not have permission to manage settlement settings' },
+        { success: false, error: 'You do not have permission to manage settlement settings. Officer or Co-Owner permissions required.' },
         { status: 403 }
       );
     }

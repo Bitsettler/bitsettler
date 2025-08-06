@@ -110,18 +110,17 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     // Process the data
     const items: ProjectItem[] = (itemsData || []).map(item => ({
       id: item.id,
-      projectId: item.project_id,
-      itemName: item.item_name,
-      requiredQuantity: item.required_quantity,
-      currentQuantity: item.current_quantity,
+      project_id: item.project_id,
+      item_name: item.item_name,
+      required_quantity: item.required_quantity,
+      contributed_quantity: item.current_quantity,
       tier: item.tier,
       priority: item.priority,
-      rankOrder: item.rank_order,
+      rank_order: item.rank_order,
       status: item.status,
-      assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
-      notes: null, // TEMPORARILY SET TO NULL since column doesn't exist  
-      createdAt: new Date(item.created_at),
-      updatedAt: new Date(item.updated_at),
+      notes: item.notes,
+      created_at: item.created_at,
+      updated_at: item.updated_at,
     }));
 
     const contributions: MemberContribution[] = (contributionsData || []).map(contrib => {
@@ -156,6 +155,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
 
     return {
       id: projectData.id,
+      project_number: projectData.project_number,
       short_id: projectData.short_id,
       name: projectData.name,
       description: projectData.description,

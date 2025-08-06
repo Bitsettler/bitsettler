@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { ExternalLink, Edit2, Save, X, MessageCircle, Plus } from 'lucide-react';
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions';
+import { api } from '@/lib/api-client';
 
 interface SettlementDiscordLinkProps {
   settlementId: string;
@@ -56,22 +57,10 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink }: Sett
     setIsLoading(true);
     
     try {
-      const response = await fetch(`/api/settlement/discord-link`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          settlementId,
-          discordLink: trimmedLink || null,
-        }),
+      const result = await api.post('/api/settlement/discord-link', {
+        settlementId,
+        discordLink: trimmedLink || null,
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to update Discord link');
-      }
-
-      const result = await response.json();
       
       if (result.success) {
         setDiscordLink(trimmedLink);

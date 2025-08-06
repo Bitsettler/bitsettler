@@ -56,6 +56,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
 
     const createdProject: SettlementProject = {
       id: project.id,
+      project_number: project.project_number,
       short_id: project.short_id,
       name: project.name,
       description: project.description,

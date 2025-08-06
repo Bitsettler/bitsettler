@@ -40,7 +40,7 @@ export async function checkProjectPermissions(
     // Get project details
     const { data: project, error: projectError } = await supabase
       .from('settlement_projects')
-      .select('created_by, id, status')
+      .select('created_by_member_id, id, status')
       .eq('id', projectId)
       .single();
 
@@ -48,9 +48,15 @@ export async function checkProjectPermissions(
       throw new Error('Project not found');
     }
 
-    // Check if user is the project owner
-    const isOwner = project.created_by === userEmail || 
-                   project.created_by === userId;
+    // Get the current user's member record to check ownership
+    const { data: userMember, error: memberError } = await supabase
+      .from('settlement_members')
+      .select('id')
+      .eq('auth_user_id', userId)
+      .single();
+
+    // Check if user is the project owner (by member ID)
+    const isOwner = userMember && project.created_by_member_id === userMember.id;
 
     // Get user's settlement member info for co-owner status
     let isCoOwner = false;

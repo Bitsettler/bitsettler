@@ -2,6 +2,7 @@ import { createServerClient, handleSupabaseError } from '../../../shared/supabas
 
 export interface SettlementProject {
   id: string;
+  project_number: number;
   short_id: string;
   name: string;
   description: string | null;
@@ -84,12 +85,13 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
 
     return (data || []).map(project => ({
       id: project.id,
+      project_number: project.project_number,
       short_id: project.short_id,
       name: project.name,
       description: project.description,
       status: project.status,
       priority: project.priority,
-      createdBy: project.created_by,
+      createdByMemberId: project.created_by_member_id,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
     }));

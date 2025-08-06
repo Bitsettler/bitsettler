@@ -26,13 +26,42 @@ export async function GET(
 
     console.log(`🔍 Fetching member ${memberId} from unified settlement_members table`);
     
-    // Single query to unified table - no more complex joins!
-    const { data: member, error } = await supabase
+    // Try multiple ID matching strategies based on BitJita ID types
+    // 1. First try player_entity_id (recommended primary key)
+    let { data: member, error } = await supabase
       .from('settlement_members')
       .select('*')
       .eq('settlement_id', settlementId)
       .eq('player_entity_id', memberId)
       .maybeSingle();
+
+    // 2. If not found, try entity_id (generic identifier)
+    if (!member && !error) {
+      console.log(`🔍 Member not found by player_entity_id, trying entity_id...`);
+      const result = await supabase
+        .from('settlement_members')
+        .select('*')
+        .eq('settlement_id', settlementId)
+        .eq('entity_id', memberId)
+        .maybeSingle();
+      
+      member = result.data;
+      error = result.error;
+    }
+
+    // 3. If still not found, try the database id field
+    if (!member && !error) {
+      console.log(`🔍 Member not found by entity_id, trying database id...`);
+      const result = await supabase
+        .from('settlement_members')
+        .select('*')
+        .eq('settlement_id', settlementId)
+        .eq('id', memberId)
+        .maybeSingle();
+      
+      member = result.data;
+      error = result.error;
+    }
 
     if (error) {
       console.error('Member lookup error:', error);
@@ -75,7 +104,7 @@ export async function GET(
       lastLogin: member.last_login_timestamp,
       joinedAt: member.joined_settlement_at,
       isActive: member.is_active,
-      lastSyncInfo: `Last synced: ${new Date(member.last_synced_at).toLocaleString()}`,
+      lastSyncInfo: member.last_synced_at ? `Last synced: ${new Date(member.last_synced_at).toLocaleString()}` : 'Never synced',
       // App user data (if claimed)
       displayName: member.display_name,
       discordHandle: member.discord_handle,
