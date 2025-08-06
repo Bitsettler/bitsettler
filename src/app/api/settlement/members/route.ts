@@ -86,6 +86,8 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
       total_level,
       total_xp,
       top_profession,
+      primary_profession,
+      secondary_profession,
       inventory_permission,
       build_permission,
       officer_permission,
@@ -134,6 +136,8 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
     total_level: member.total_level || 0,
     total_xp: member.total_xp || 0,
     top_profession: member.top_profession || 'Unknown',
+    primary_profession: member.primary_profession,
+    secondary_profession: member.secondary_profession,
     
     // Permission data from database
     inventory_permission: member.inventory_permission || 0,
