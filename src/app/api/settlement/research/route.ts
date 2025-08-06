@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { createServerClient } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 
 interface ResearchItem {
   description: string;
@@ -19,14 +19,22 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Fetch settlement details from BitJita which includes research data
-    const result = await BitJitaAPI.fetchSettlementDetails(settlementId);
-
-    if (!result.success || !result.data) {
-      throw new Error(result.error || 'Failed to fetch settlement data from BitJita');
+    // Fetch settlement details from database (not BitJita directly)
+    const supabase = createServerClient();
+    if (!supabase) {
+      throw new Error('Database not available');
     }
 
-    const settlementData = result.data;
+    // Query settlement data from database
+    const { data: settlementData, error: settlementError } = await supabase
+      .from('settlements')
+      .select('*')
+      .eq('id', settlementId)
+      .single();
+
+    if (settlementError || !settlementData) {
+      throw new Error('Settlement not found in database');
+    }
     
     // Parse research data from the learned array
     // Based on the BitJita page, research data appears to be stored in a structured format
@@ -58,11 +66,11 @@ export async function GET(request: NextRequest) {
       { description: "Claim Upgrades", tier: 0 }
     ];
 
-    // Determine completed research based on settlement tier and stats
+    // Determine completed research based on settlement tier and stats from database
     const currentTier = settlementData.tier || 0;
-    const currentMembers = 151; // From the logs we see 151 members
+    const currentMembers = settlementData.population || 0;
     const currentSupplies = settlementData.supplies || 0;
-    const currentTiles = settlementData.numTiles || 0;
+    const currentTiles = settlementData.num_tiles || 0;
 
     // Map known research to completion status
     knownResearch.forEach(research => {
@@ -107,7 +115,7 @@ export async function GET(request: NextRequest) {
         totalResearch,
         completedResearch,
         highestTier: currentTier,
-        dataSource: 'bitjita_api',
+        dataSource: 'database',
         lastUpdated: new Date().toISOString()
       }
     });

@@ -41,7 +41,7 @@ export function SettlementResearchView() {
 
   useEffect(() => {
     fetchResearchData();
-  }, [selectedSettlement]);
+  }, [selectedSettlement?.id]);
 
   const fetchResearchData = async () => {
     // Don't fetch data if no settlement is selected
