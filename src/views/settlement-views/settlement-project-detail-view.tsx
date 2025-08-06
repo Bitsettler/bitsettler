@@ -19,7 +19,9 @@ import {
   Users,
   Trash2,
   Archive,
-  MoreHorizontal
+  MoreHorizontal,
+  Lock,
+  AlertCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,6 +35,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
 import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
@@ -89,6 +92,15 @@ interface NewItem {
   notes: string;
 }
 
+interface ProjectPermissions {
+  canEdit: boolean;
+  canArchive: boolean;
+  canDelete: boolean;
+  canContribute: boolean;
+  isOwner: boolean;
+  isCoOwner: boolean;
+}
+
 const priorityLabels = {
   1: { label: 'Low', color: 'bg-gray-100 text-gray-800' },
   2: { label: 'Normal', color: 'bg-blue-100 text-blue-800' },
@@ -109,6 +121,17 @@ export function SettlementProjectDetailView() {
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Permission state
+  const [permissions, setPermissions] = useState<ProjectPermissions>({
+    canEdit: false,
+    canArchive: false,
+    canDelete: false,
+    canContribute: false,
+    isOwner: false,
+    isCoOwner: false
+  });
+  const [permissionsLoading, setPermissionsLoading] = useState(true);
   
   // Editing state
   const [isEditing, setIsEditing] = useState(false);
@@ -139,6 +162,45 @@ export function SettlementProjectDetailView() {
   
   // Game data for item icons and links
   const gameData = useMemo(() => getCalculatorGameData(), []);
+  
+  // Fetch project permissions
+  const fetchProjectPermissions = useCallback(async () => {
+    if (!projectId || !session?.user) {
+      setPermissionsLoading(false);
+      return;
+    }
+    
+    try {
+      setPermissionsLoading(true);
+      const result = await api.get(`/api/settlement/projects/${projectId}/permissions`);
+      
+      if (result.success && result.data) {
+        setPermissions(result.data);
+      } else {
+        // Default to no permissions on error
+        setPermissions({
+          canEdit: false,
+          canArchive: false,
+          canDelete: false,
+          canContribute: false,
+          isOwner: false,
+          isCoOwner: false
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching permissions:', error);
+      setPermissions({
+        canEdit: false,
+        canArchive: false,
+        canDelete: false,
+        canContribute: false,
+        isOwner: false,
+        isCoOwner: false
+      });
+    } finally {
+      setPermissionsLoading(false);
+    }
+  }, [projectId, session?.user]);
   
   // Function to get item icon by name
   const getItemIcon = useCallback((itemName: string): string => {
@@ -195,8 +257,9 @@ export function SettlementProjectDetailView() {
   useEffect(() => {
     if (projectId) {
       fetchProjectDetails();
+      fetchProjectPermissions();
     }
-  }, [projectId]);
+  }, [projectId, fetchProjectDetails, fetchProjectPermissions]);
 
   // Handle item selection from search
   const handleItemSelect = (item: any) => {
@@ -320,6 +383,14 @@ export function SettlementProjectDetailView() {
       return;
     }
 
+    // Check permissions before making API call
+    if (!permissions.canEdit) {
+      toast.error('You do not have permission to add items to this project', {
+        description: permissions.isOwner ? 'Contact the settlement co-owner for access' : 'Only project owners and settlement co-owners can edit projects'
+      });
+      return;
+    }
+
     setIsAddingItem(true);
     try {
       const result = await api.post(`/api/settlement/projects/${projectId}/items`, {
@@ -339,11 +410,27 @@ export function SettlementProjectDetailView() {
         // Immediately refresh to get actual data
         await fetchProjectDetails();
       } else {
-        throw new Error(result.error || 'Failed to add item');
+        // Handle permission errors specifically
+        if (result.error?.includes('permission') || result.error?.includes('forbidden')) {
+          toast.error('Permission denied', {
+            description: 'You do not have permission to add items to this project'
+          });
+        } else {
+          throw new Error(result.error || 'Failed to add item');
+        }
       }
     } catch (error) {
       console.error('Error adding item:', error);
-      toast.error('Failed to add item. Please try again.');
+      const errorMessage = error instanceof Error ? error.message : 'Failed to add item';
+      
+      // Show specific permission error if detected
+      if (errorMessage.includes('permission') || errorMessage.includes('forbidden')) {
+        toast.error('Permission denied', {
+          description: 'You do not have permission to add items to this project'
+        });
+      } else {
+        toast.error('Failed to add item. Please try again.');
+      }
     } finally {
       setIsAddingItem(false);
     }
@@ -562,7 +649,8 @@ export function SettlementProjectDetailView() {
   const overallProgress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
 
   return (
-    <Container>
+    <TooltipProvider>
+      <Container>
       <div className="space-y-6 py-8 animate-in fade-in duration-300">
         {/* Header */}
         <div className="flex items-center gap-4">
@@ -712,6 +800,22 @@ export function SettlementProjectDetailView() {
             </div>
             
             <Progress value={overallProgress} className="mt-4" />
+            
+            {/* Permission Warning */}
+            {!permissionsLoading && !permissions.canEdit && (
+              <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                <div className="flex items-center gap-2 text-amber-800">
+                  <AlertCircle className="h-4 w-4" />
+                  <p className="text-sm font-medium">View-only access</p>
+                </div>
+                <p className="text-sm text-amber-700 mt-1">
+                  {permissions.isOwner 
+                    ? 'Contact the settlement co-owner to gain editing access to this project.' 
+                    : 'Only project owners and settlement co-owners can edit this project.'
+                  }
+                </p>
+              </div>
+            )}
           </CardHeader>
         </Card>
 
@@ -773,20 +877,46 @@ export function SettlementProjectDetailView() {
                         placeholder="Qty"
                       />
                       
-                      <Button
-                        disabled={isAddingItem || !newItem.itemName.trim()}
-                        onClick={handleAddItem}
-                        size="lg"
-                      >
-                        {isAddingItem ? (
-                          'Adding...'
-                        ) : (
-                          <>
-                            <Plus className="h-4 w-4 mr-2" />
-                            Add Item
-                          </>
-                        )}
-                      </Button>
+                      {permissions.canEdit ? (
+                        <Button
+                          disabled={isAddingItem || !newItem.itemName.trim() || permissionsLoading}
+                          onClick={handleAddItem}
+                          size="lg"
+                        >
+                          {isAddingItem ? (
+                            'Adding...'
+                          ) : (
+                            <>
+                              <Plus className="h-4 w-4 mr-2" />
+                              Add Item
+                            </>
+                          )}
+                        </Button>
+                      ) : (
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div>
+                              <Button
+                                disabled={true}
+                                size="lg"
+                                variant="outline"
+                              >
+                                <Lock className="h-4 w-4 mr-2" />
+                                Add Item
+                              </Button>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="font-medium">Permission Required</p>
+                            <p className="text-sm opacity-80">
+                              {permissions.isOwner 
+                                ? 'Contact the settlement co-owner for access' 
+                                : 'Only project owners and settlement co-owners can edit projects'
+                              }
+                            </p>
+                          </TooltipContent>
+                        </Tooltip>
+                      )}
                     </div>
                   </div>
                   
@@ -964,7 +1094,8 @@ export function SettlementProjectDetailView() {
                   );
                 })}
                 
-                  {/* Add Another Item Row - Only shown when items exist */}
+                  {/* Add Another Item Row - Only shown when items exist and user has permissions */}
+                  {permissions.canEdit && (
                   <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
                     <TableCell colSpan={5} className="p-4">
                       <div className="space-y-3">
@@ -1005,7 +1136,7 @@ export function SettlementProjectDetailView() {
                           />
                           
                           <Button
-                            disabled={isAddingItem || !newItem.itemName.trim()}
+                            disabled={isAddingItem || !newItem.itemName.trim() || permissionsLoading}
                             onClick={handleAddItem}
                           >
                             {isAddingItem ? (
@@ -1031,6 +1162,7 @@ export function SettlementProjectDetailView() {
                     </div>
                   </TableCell>
                 </TableRow>
+                )}
                 </TableBody>
               </Table>
             )}
@@ -1248,5 +1380,6 @@ export function SettlementProjectDetailView() {
         </AlertDialogContent>
       </AlertDialog>
     </Container>
+    </TooltipProvider>
   );
 }
