@@ -128,7 +128,7 @@ export async function POST(request: NextRequest) {
       id: char.id,
       name: char.name,
       settlement_id: char.settlement_id,
-      entity_id: char.entity_id,
+      player_entity_id: char.player_entity_id,
       bitjita_user_id: char.bitjita_user_id,
       skills: char.skills || {},
       top_profession: char.top_profession || 'Unknown',

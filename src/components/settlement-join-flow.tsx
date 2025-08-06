@@ -43,7 +43,7 @@ interface CharacterOption {
   id: string;
   name: string;
   settlement_id: string;
-  entity_id: string;
+  player_entity_id: string;
   bitjita_user_id: string;
   skills: Record<string, number>;
   top_profession: string;
@@ -93,7 +93,7 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete }: Settl
     setStep('claiming');
     try {
       const result = await api.post('/api/settlement/claim-character', {
-        characterId: selectedCharacter.entity_id, // Explicitly use entity_id for clarity
+        playerEntityId: selectedCharacter.player_entity_id, // Explicitly use player_entity_id for clarity
         settlementId: settlementData.settlement.id,
         primaryProfession,
         secondaryProfession

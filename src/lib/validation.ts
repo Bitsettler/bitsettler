@@ -314,7 +314,7 @@ export const SETTLEMENT_SCHEMAS = {
   },
   
   claimCharacter: {
-    characterId: {
+    playerEntityId: {
       required: true,
       type: 'string' as const,
       minLength: 1,

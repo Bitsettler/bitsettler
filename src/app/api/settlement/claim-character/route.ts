@@ -80,9 +80,9 @@ export async function POST(request: NextRequest) {
     
     console.log('🔍 Claim character validated data:', validationResult.data);
 
-    const { characterId, settlementId, displayName, primaryProfession, secondaryProfession } = validationResult.data!;
+    const { playerEntityId, settlementId, displayName, primaryProfession, secondaryProfession } = validationResult.data!;
     const claimLogger = userLogger.child({ 
-      characterId, 
+      playerEntityId, 
       settlementId,
       operation: 'character_claim'
     });
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
     const { data: character, error: characterError } = await serviceClient
       .from('settlement_members')
       .select('*')
-      .eq('player_entity_id', characterId) // Use BitJita player entity ID (stable, never changes)
+      .eq('player_entity_id', playerEntityId) // Use BitJita player entity ID (stable, never changes)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
 
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
           error: 'Character not available or already claimed',
           debug: {
             characterError: characterError?.message,
-            characterId,
+            playerEntityId,
             settlementId,
             characterFound: !!character
           }
@@ -166,14 +166,14 @@ export async function POST(request: NextRequest) {
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
       .update(updateData)
-      .eq('player_entity_id', characterId) // Use BitJita player entity ID (stable, never changes)
+      .eq('player_entity_id', playerEntityId) // Use BitJita player entity ID (stable, never changes)
       .is('supabase_user_id', null) // Double-check it's still unclaimed
       .select()
       .single();
 
     if (claimError) {
       console.error('❌ Failed to claim character:', claimError);
-      console.error('❌ Character ID:', characterId);
+      console.error('❌ Character ID:', playerEntityId);
       console.error('❌ Settlement ID:', settlementId);
       console.error('❌ User ID:', user.id);
       return NextResponse.json(
@@ -183,7 +183,7 @@ export async function POST(request: NextRequest) {
           debug: {
             error: claimError.message,
             code: claimError.code,
-            characterId,
+            playerEntityId,
             settlementId,
             userId: user.id
           }
