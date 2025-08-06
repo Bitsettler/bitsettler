@@ -135,7 +135,7 @@ export function EnhancedSignInPage() {
               </CardDescription>
             </CardHeader>
             
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-8">
               {/* Error Alert */}
               {error && (
                 <Alert variant={error.includes('Check your email') ? 'default' : 'destructive'}>
