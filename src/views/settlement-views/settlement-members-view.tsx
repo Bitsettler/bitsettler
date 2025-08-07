@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
 import { useCurrentMember } from '../../hooks/use-current-member';
-import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
+import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar, ChevronUp, ChevronDown } from 'lucide-react';
 import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
 import { getMemberActivityInfo } from '../../lib/utils/member-activity';
 
@@ -57,6 +57,8 @@ export function SettlementMembersView() {
   const [professionFilter, setProfessionFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [groupByProfession, setGroupByProfession] = useState<boolean>(false);
+  const [sortField, setSortField] = useState<string>('name');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -109,6 +111,16 @@ export function SettlementMembersView() {
     }
   };
 
+  // Handle sorting
+  const handleSort = (field: string) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+
   // Filter and sort members by search term and status (client-side)
   const filteredMembers = members.filter(member => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -118,7 +130,56 @@ export function SettlementMembersView() {
       (statusFilter === 'active' && activityInfo.isRecentlyActive) || 
       (statusFilter === 'inactive' && !activityInfo.isRecentlyActive);
     return matchesSearch && matchesStatus;
-  }).sort((a, b) => a.name.localeCompare(b.name)); // Sort A-Z by default
+  }).sort((a, b) => {
+    let aValue: any, bValue: any;
+    
+    switch (sortField) {
+      case 'name':
+        aValue = a.name.toLowerCase();
+        bValue = b.name.toLowerCase();
+        break;
+      case 'profession':
+        aValue = getDisplayProfession(a).toLowerCase();
+        bValue = getDisplayProfession(b).toLowerCase();
+        break;
+      case 'total_xp':
+        aValue = a.total_xp || 0;
+        bValue = b.total_xp || 0;
+        break;
+      case 'last_login':
+        aValue = a.last_login_timestamp ? new Date(a.last_login_timestamp).getTime() : 0;
+        bValue = b.last_login_timestamp ? new Date(b.last_login_timestamp).getTime() : 0;
+        break;
+      case 'joined':
+        aValue = a.joined_settlement_at ? new Date(a.joined_settlement_at).getTime() : 0;
+        bValue = b.joined_settlement_at ? new Date(b.joined_settlement_at).getTime() : 0;
+        break;
+      case 'role':
+        const getMemberRoleSort = (member: SettlementMember) => {
+          if (member.co_owner_permission >= 1) return 4;
+          if (member.officer_permission >= 1) return 3;
+          if (member.build_permission >= 1) return 2;
+          if (member.inventory_permission >= 1) return 1;
+          return 0;
+        };
+        aValue = getMemberRoleSort(a);
+        bValue = getMemberRoleSort(b);
+        break;
+      case 'status':
+        const aActivity = getMemberActivityInfo(a);
+        const bActivity = getMemberActivityInfo(b);
+        aValue = aActivity.isRecentlyActive ? 1 : 0;
+        bValue = bActivity.isRecentlyActive ? 1 : 0;
+        break;
+      default:
+        aValue = a.name.toLowerCase();
+        bValue = b.name.toLowerCase();
+    }
+    
+    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+    return 0;
+  });
 
   // Group members by profession if enabled
   const groupedMembers = groupByProfession 
@@ -143,6 +204,18 @@ export function SettlementMembersView() {
       .toUpperCase()
       .slice(0, 2);
   };
+
+  // Sortable header component
+  const SortableHeader = ({ field, children, className = "text-center" }: { field: string; children: React.ReactNode; className?: string }) => (
+    <TableHead className={`${className} cursor-pointer hover:bg-muted/50 transition-colors`} onClick={() => handleSort(field)}>
+      <div className="flex items-center justify-center gap-1">
+        {children}
+        {sortField === field && (
+          sortDirection === 'asc' ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />
+        )}
+      </div>
+    </TableHead>
+  );
 
   const getMemberRole = (member: SettlementMember) => {
     if (member.co_owner_permission >= 1) {
@@ -298,12 +371,12 @@ export function SettlementMembersView() {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-12"></TableHead>
-                <TableHead>Member</TableHead>
-                <TableHead>Professions</TableHead>
-                <TableHead className="text-center">Role</TableHead>
-                <TableHead className="text-center">Total XP</TableHead>
-                <TableHead className="text-center">Last Active</TableHead>
-                <TableHead className="text-center">Status</TableHead>
+                <SortableHeader field="name" className="">Member</SortableHeader>
+                <SortableHeader field="profession">Professions</SortableHeader>
+                <SortableHeader field="role">Role</SortableHeader>
+                <SortableHeader field="total_xp">Total XP</SortableHeader>
+                <SortableHeader field="last_login">Last Active</SortableHeader>
+                <SortableHeader field="status">Status</SortableHeader>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -367,9 +440,6 @@ export function SettlementMembersView() {
                                 <div className="font-medium flex items-center justify-center gap-1">
                                   <TrendingUp className="h-3 w-3" />
                                   {formatNumber(member.total_xp || 0)}
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                  Total XP
                                 </div>
                               </div>
                             </TableCell>
@@ -445,9 +515,6 @@ export function SettlementMembersView() {
                           <div className="font-medium flex items-center justify-center gap-1">
                             <TrendingUp className="h-3 w-3" />
                             {formatNumber(member.total_xp || 0)}
-                          </div>
-                          <div className="text-xs text-muted-foreground">
-                            Total XP
                           </div>
                         </div>
                       </TableCell>
