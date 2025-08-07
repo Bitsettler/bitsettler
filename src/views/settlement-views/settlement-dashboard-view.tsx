@@ -356,7 +356,7 @@ export function SettlementDashboardView() {
           <CardContent>
             <div className="text-2xl font-bold">{formatNumber(stats.totalMembers)}</div>
             <p className="text-xs text-muted-foreground">
-              {formatNumber(stats.activeMembers)} active in the last 7 days
+              {stats.totalMembers > 0 ? Math.round((stats.activeMembers / stats.totalMembers) * 100) : 0}% active in the last 7 days
             </p>
           </CardContent>
         </Card>
