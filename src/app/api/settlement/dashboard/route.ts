@@ -47,11 +47,18 @@ export async function GET(request: NextRequest) {
     // Calculate basic stats
     const totalMembers = typedMembers.length || 0; // Now shows only active settlement members
     const recentlyActiveMembers = typedMembers.filter(m => {
-      if (!m.last_login_timestamp) return false;
-      const lastLogin = new Date(m.last_login_timestamp);
-      const weekAgo = new Date(Date.now() - (7 * 24 * 60 * 60 * 1000));
-      return lastLogin > weekAgo;
-    }).length || 0;
+      if (!m.last_login_timestamp || m.last_login_timestamp === null) return false;
+      try {
+        const lastLogin = new Date(m.last_login_timestamp);
+        // Check if date is valid
+        if (isNaN(lastLogin.getTime())) return false;
+        const weekAgo = new Date(Date.now() - (7 * 24 * 60 * 60 * 1000));
+        return lastLogin > weekAgo;
+      } catch (error) {
+        console.warn(`Invalid date for member ${m.name}: ${m.last_login_timestamp}`);
+        return false;
+      }
+    }).length;
 
     // Get all member IDs for this settlement for project fetching
     const memberIds = typedMembers.map(m => m.id) || [];
@@ -146,7 +153,7 @@ export async function GET(request: NextRequest) {
         masterData: settlement,
         stats: {
           totalMembers,
-          recentlyActiveMembers,
+          activeMembers: recentlyActiveMembers,
           totalProjects,
           completedProjects,
           tiles: typedSettlement?.tiles || 0,
@@ -156,7 +163,7 @@ export async function GET(request: NextRequest) {
       treasury: treasuryData,
       stats: {
         totalMembers,
-        recentlyActiveMembers,
+        activeMembers: recentlyActiveMembers,
         totalProjects,
         completedProjects,
         currentBalance,
