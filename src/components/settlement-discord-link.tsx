@@ -12,9 +12,10 @@ import { api } from '@/lib/api-client';
 interface SettlementDiscordLinkProps {
   settlementId: string;
   initialDiscordLink?: string;
+  variant?: 'default' | 'inline-small';
 }
 
-export function SettlementDiscordLink({ settlementId, initialDiscordLink }: SettlementDiscordLinkProps) {
+export function SettlementDiscordLink({ settlementId, initialDiscordLink, variant = 'default' }: SettlementDiscordLinkProps) {
   const [discordLink, setDiscordLink] = useState(initialDiscordLink || '');
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState('');
@@ -107,6 +108,35 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink }: Sett
   // If no Discord link is set and user can't manage it, don't show anything
   if (!discordLink && !canManageDiscordLink) {
     return null;
+  }
+
+  // Inline small variant for dashboard header
+  if (variant === 'inline-small') {
+    if (!discordLink) {
+      return canManageDiscordLink ? (
+        <Button
+          onClick={handleStartEdit}
+          variant="ghost"
+          size="sm"
+          className="h-5 px-2 text-xs text-muted-foreground hover:text-foreground"
+        >
+          <Plus className="h-3 w-3 mr-1" />
+          Add Discord
+        </Button>
+      ) : null;
+    }
+
+    return (
+      <Button
+        variant="ghost"
+        size="sm"
+        className="h-5 px-2 text-xs text-blue-600 hover:text-blue-800"
+        onClick={handleDiscordLinkClick}
+      >
+        <MessageCircle className="h-3 w-3 mr-1" />
+        Discord
+      </Button>
+    );
   }
 
   return (
