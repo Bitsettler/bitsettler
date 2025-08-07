@@ -210,6 +210,7 @@ export function SettlementTreasuryView() {
 
       setSummary(data.data.summary);
       setStats(data.data.stats);
+      setLastUpdate(new Date()); // Set lastUpdate when data is successfully fetched
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load treasury data');
     }
