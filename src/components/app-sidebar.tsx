@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
 import { EnhancedSearchForm } from '@/components/enhanced-search-form'
-import { UserNavNew } from '@/components/user-nav-new'
+import { UserNav } from '@/components/user-nav'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -300,7 +300,7 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
 
       {/* User Navigation - Bottom of sidebar */}
       <div className="border-t p-4 space-y-4">
-        <UserNavNew />
+        <UserNav />
         <KofiWidget className="w-full" />
       </div>
 
