@@ -312,11 +312,10 @@ export function SettlementMembersView() {
                     <TableCell>
                       <div className="text-sm">
                         <div className="font-medium">
-                          {/* Debug: Let's see what we're actually getting */}
-                          {member.primary_profession || member.top_profession || 'No primary profession'}
+                          {getDisplayProfession(member)}
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          {member.secondary_profession || 'No secondary profession'}
+                          {getSecondaryProfession(member) ? `Secondary: ${getSecondaryProfession(member)}` : 'No secondary profession'}
                         </div>
                       </div>
                     </TableCell>
