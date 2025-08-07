@@ -112,6 +112,41 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
 
   // Inline small variant for dashboard header
   if (variant === 'inline-small') {
+    if (isEditing) {
+      return (
+        <div className="flex items-center gap-1">
+          <Input
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            placeholder="Discord invite link..."
+            className="h-5 text-xs w-48"
+            autoFocus
+          />
+          <Button
+            onClick={handleSave}
+            variant="ghost"
+            size="sm"
+            className="h-5 px-1"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <div className="animate-spin h-3 w-3 border border-current border-t-transparent rounded-full" />
+            ) : (
+              <Save className="h-3 w-3" />
+            )}
+          </Button>
+          <Button
+            onClick={handleCancelEdit}
+            variant="ghost"
+            size="sm"
+            className="h-5 px-1"
+          >
+            <X className="h-3 w-3" />
+          </Button>
+        </div>
+      );
+    }
+
     if (!discordLink) {
       return canManageDiscordLink ? (
         <Button
@@ -127,15 +162,27 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
     }
 
     return (
-      <Button
-        variant="ghost"
-        size="sm"
-        className="h-5 px-2 text-xs text-blue-600 hover:text-blue-800"
-        onClick={handleDiscordLinkClick}
-      >
-        <MessageCircle className="h-3 w-3 mr-1" />
-        Discord
-      </Button>
+      <div className="flex items-center gap-1">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-5 px-2 text-xs text-blue-600 hover:text-blue-800"
+          onClick={handleDiscordLinkClick}
+        >
+          <MessageCircle className="h-3 w-3 mr-1" />
+          Discord
+        </Button>
+        {canManageDiscordLink && (
+          <Button
+            onClick={handleStartEdit}
+            variant="ghost"
+            size="sm"
+            className="h-5 px-1 text-xs text-muted-foreground hover:text-foreground"
+          >
+            <Edit2 className="h-3 w-3" />
+          </Button>
+        )}
+      </div>
     );
   }
 
