@@ -16,7 +16,12 @@ interface ProjectsData {
   includesItems: boolean;
 }
 
-async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsData>> {
+interface ProjectsResponseType {
+  data: ProjectsData;
+  message: string | undefined;
+}
+
+async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsResponseType>> {
   try {
     const searchParams = request.nextUrl.searchParams;
     
@@ -60,7 +65,7 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsD
       includesItems: options.includeItems || false
     });
 
-    return apiSuccess({
+    const result: ProjectsData = {
       projects,
       count: projects.length,
       pagination: {
@@ -68,7 +73,15 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsD
         offset: options.offset,
       },
       includesItems: options.includeItems || false,
-    });
+    }
+
+    return {
+      success: true,
+      data: {
+        data: result,
+        message: "Fetched projects list successfully!"
+      }
+    };
 
   } catch (error) {
     logger.error('Projects API: Failed to fetch settlement projects', error instanceof Error ? error : new Error(String(error)), {

@@ -119,7 +119,7 @@ export function SettlementProjectsView() {
       const result = await api.get(`/api/settlement/projects?${params}`);
       
       if (result.success) {
-        setProjects(result.data?.data?.projects || []);
+        setProjects((result.data as any)?.data?.projects || []);
       } else {
         throw new Error(result.error || 'Failed to fetch projects');
       }
@@ -174,8 +174,7 @@ export function SettlementProjectsView() {
         setCreateDescription('');
         
         // Navigate to project detail page for adding items
-        const projectNumber = result.data?.project?.project_number;
-        
+        const projectNumber = (result.data as any)?.data?.project.project_number;
         if (projectNumber) {
           router.push(`/en/settlement/projects/${projectNumber}`);
         } else {
