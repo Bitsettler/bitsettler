@@ -77,7 +77,7 @@ export function SettlementMembersView() {
       const params = new URLSearchParams({
         limit: membersPerPage.toString(),
         offset: ((currentPage - 1) * membersPerPage).toString(),
-        includeInactive: 'true', // Always show ALL members (no is_active filtering)
+        includeInactive: 'false', // Show only active settlement members (Phase 2)
       });
 
       if (professionFilter !== 'all') {

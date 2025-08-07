@@ -6,6 +6,7 @@ import { useSession } from '@/hooks/use-auth';
 import { useCurrentMember } from '@/hooks/use-current-member';
 import { Container } from '@/components/container';
 import { SettlementOnboardingView } from '@/views/settlement-views/settlement-onboarding-view';
+import { FormerMemberView } from '@/components/settlement/former-member-view';
 
 interface AuthGuardProps {
   children: ReactNode;
@@ -58,6 +59,11 @@ export function AuthGuard({ children }: AuthGuardProps) {
     return <SettlementOnboardingView />;
   }
 
-  // Authenticated and has settlement - show protected content
+  // Authenticated with settlement character but no longer active - show former member view
+  if (member && !member.is_active) {
+    return <FormerMemberView member={member} />;
+  }
+
+  // Authenticated and has active settlement member - show protected content
   return <>{children}</>;
 }

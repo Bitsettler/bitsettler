@@ -19,7 +19,8 @@ export async function GET(request: NextRequest) {
     const { data: members, error: membersError } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('settlement_id', settlementId as any);
+      .eq('settlement_id', settlementId as any)
+      .eq('is_active', true); // Only include active settlement members (Phase 2)
 
     if (membersError) {
       console.error(`❌ Failed to fetch members:`, membersError);
@@ -44,8 +45,8 @@ export async function GET(request: NextRequest) {
     const typedSettlement = settlement as any || {};
 
     // Calculate basic stats
-    const totalMembers = typedMembers.length || 0;
-    const activeMembers = typedMembers.filter(m => {
+    const totalMembers = typedMembers.length || 0; // Now shows only active settlement members
+    const recentlyActiveMembers = typedMembers.filter(m => {
       if (!m.last_login_timestamp) return false;
       const lastLogin = new Date(m.last_login_timestamp);
       const weekAgo = new Date(Date.now() - (7 * 24 * 60 * 60 * 1000));
@@ -145,7 +146,7 @@ export async function GET(request: NextRequest) {
         masterData: settlement,
         stats: {
           totalMembers,
-          activeMembers,
+          recentlyActiveMembers,
           totalProjects,
           completedProjects,
           tiles: typedSettlement?.tiles || 0,
@@ -155,7 +156,7 @@ export async function GET(request: NextRequest) {
       treasury: treasuryData,
       stats: {
         totalMembers,
-        activeMembers,
+        recentlyActiveMembers,
         totalProjects,
         completedProjects,
         currentBalance,

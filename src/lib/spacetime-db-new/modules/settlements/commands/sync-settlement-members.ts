@@ -218,36 +218,11 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       }
     }
 
-
-
-    // Verify data was actually saved
-    const { count: memberCount, error: verifyError } = await supabase
-      .from('settlement_members')
-      .select('*', { count: 'exact', head: true })
-      .eq('settlement_id', options.settlementId);
-
-    if (verifyError) {
-      console.error('❌ Error verifying member count:', verifyError);
-    } else {
-  
-    }
-
-    // Verify view works
-    const { count: viewCount, error: viewError } = await supabase
-      .from('settlement_member_details')
-      .select('*', { count: 'exact', head: true })
-      .eq('settlement_id', options.settlementId);
-
-    if (viewError) {
-      console.error('❌ Error verifying view:', viewError);
-    } else {
-  
-    }
-
     // Mark members as no longer in settlement if they're not in the current BitJita roster
-    const currentMemberIds = users.map(u => u.playerEntityId);
+    // Use name-based matching since entity IDs are inconsistent between BitJita responses
+    const currentMemberNames = users.map(u => u.userName).filter(name => name); // Remove any undefined names
     
-    if (currentMemberIds.length > 0) {
+    if (currentMemberNames.length > 0) {
       const { error: deactivateError } = await supabase
         .from('settlement_members')
         .update({ 
@@ -255,10 +230,10 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
           last_synced_at: new Date().toISOString() 
         })
         .eq('settlement_id', options.settlementId)
-        .not('player_entity_id', 'in', `(${currentMemberIds.map(id => `'${id}'`).join(',')})`);
-
+        .not('name', 'in', currentMemberNames); // Fixed: Use array directly, not SQL string
+      
       if (deactivateError) {
-        console.error('Failed to mark former members as not in settlement:', deactivateError);
+        console.error(`❌ Failed to deactivate former members:`, deactivateError);
       }
     }
 
@@ -364,8 +339,7 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
     };
   }
 
-  console.log(`🎯 Found ${claimedSettlementIds.length} settlements with claimed users`);
-  console.log(`🔍 Claimed settlement IDs:`, claimedSettlementIds);
+  console.log(`Found ${claimedSettlementIds.length} settlements with claimed users`);
 
   // Now get the settlement details for these claimed settlements
   const { data: settlements, error: fetchError } = await supabase
