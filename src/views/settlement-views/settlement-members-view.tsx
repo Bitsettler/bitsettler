@@ -301,7 +301,7 @@ export function SettlementMembersView() {
                 <TableHead>Member</TableHead>
                 <TableHead>Professions</TableHead>
                 <TableHead className="text-center">Role</TableHead>
-                <TableHead className="text-center">Level</TableHead>
+                <TableHead className="text-center">Total XP</TableHead>
                 <TableHead className="text-center">Last Active</TableHead>
                 <TableHead className="text-center">Status</TableHead>
               </TableRow>
@@ -366,10 +366,10 @@ export function SettlementMembersView() {
                               <div className="text-sm">
                                 <div className="font-medium flex items-center justify-center gap-1">
                                   <TrendingUp className="h-3 w-3" />
-                                  Level {member.highest_level || 1}
+                                  {formatNumber(member.total_xp || 0)}
                                 </div>
                                 <div className="text-xs text-muted-foreground">
-                                  {formatNumber(member.total_xp || 0)} XP
+                                  Total XP
                                 </div>
                               </div>
                             </TableCell>
@@ -444,10 +444,10 @@ export function SettlementMembersView() {
                         <div className="text-sm">
                           <div className="font-medium flex items-center justify-center gap-1">
                             <TrendingUp className="h-3 w-3" />
-                            Level {member.highest_level || 1}
+                            {formatNumber(member.total_xp || 0)}
                           </div>
                           <div className="text-xs text-muted-foreground">
-                            {formatNumber(member.total_xp || 0)} XP
+                            Total XP
                           </div>
                         </div>
                       </TableCell>
@@ -574,7 +574,7 @@ function MembersLoadingSkeleton() {
                 <TableHead>Member</TableHead>
                 <TableHead>Professions</TableHead>
                 <TableHead className="text-center">Role</TableHead>
-                <TableHead className="text-center">Level</TableHead>
+                <TableHead className="text-center">Total XP</TableHead>
                 <TableHead className="text-center">Last Active</TableHead>
                 <TableHead className="text-center">Status</TableHead>
               </TableRow>
