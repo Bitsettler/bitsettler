@@ -27,7 +27,7 @@ function getSkillTier(level: number): number {
 
 interface CitizenSkills {
   name: string;
-  entityId: string;
+  playerEntityId: string;
   profession: string;
   totalSkillLevel: number;
   totalXP: number;
@@ -264,9 +264,9 @@ export function SettlementSkillsView() {
       const rawMembers = membersResult.data?.members || [];
       
       // Map API data to CitizenSkills interface
-      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; entity_id?: string; id?: string; top_profession?: string; total_level?: number; total_xp?: number; skills?: Record<string, number> }) => ({
+      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; top_profession?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
         name: member.name || 'Unknown Player',
-        entityId: member.entity_id || member.id,
+        playerEntityId: member.player_entity_id || '',
         profession: member.top_profession || 'Unknown',
         totalSkillLevel: member.total_level || 0,
         totalXP: member.total_xp || 0,
@@ -837,13 +837,13 @@ export function SettlementSkillsView() {
               {/* No headers in scrollable table - they're now floating above */}
               <TableBody>
                 {sortedCitizens.map((citizen, index) => {
-                  const citizenKey = citizen.entityId || `citizen-${index}`;
+                  const citizenKey = citizen.playerEntityId || `citizen-${index}`;
                   return (
                     <TableRow key={citizenKey} className="hover:bg-muted/30">
                       <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3 w-48">
                         <div className="truncate">
                           <button
-                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(citizen.entityId)}`)}
+                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(citizen.playerEntityId)}`)}
                             className="font-medium text-sm hover:text-primary hover:underline cursor-pointer text-left w-full"
                           >
                             {citizen.name}

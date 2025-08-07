@@ -77,7 +77,7 @@ export function SettlementProjectsView() {
   const { data: session } = useSession();
   const { member, isLoading: memberLoading } = useCurrentMember();
   const router = useRouter();
-  
+   
   // Core state
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
   const [loading, setLoading] = useState(true);
@@ -92,9 +92,7 @@ export function SettlementProjectsView() {
   const [searchTerm, setSearchTerm] = useState('');
   const [priorityFilter, setPriorityFilter] = useState<'all' | '1' | '2' | '3' | '4' | '5'>('all');
   const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Completed'>('Active');
-  
-
-  
+   
   // Project management state
   const [deletingProject, setDeletingProject] = useState<string | null>(null);
   const [archivingProject, setArchivingProject] = useState<string | null>(null);
@@ -102,6 +100,9 @@ export function SettlementProjectsView() {
   
   // Create inline form state
   const [showCreateForm, setShowCreateForm] = useState(false);
+
+  // Refresh 
+  const [refreshStatus, setRefreshStatus] = useState<boolean>(false);
 
   // Fetch projects
   const fetchProjects = useCallback(async () => {
@@ -128,15 +129,16 @@ export function SettlementProjectsView() {
       setProjects([]);
     } finally {
       setLoading(false);
+      setRefreshStatus(false);
     }
-  }, [session?.user?.id, statusFilter]);
+  }, [session?.user?.id, statusFilter, refreshStatus]);
 
   // Load projects on mount and when dependencies change
   useEffect(() => {
     if (session?.user?.id) {
       fetchProjects();
     }
-  }, [session?.user?.id, statusFilter]);
+  }, [session?.user?.id, statusFilter, refreshStatus]);
 
   // Quick create and close form
   const handleQuickCreateAndClose = async () => {
@@ -213,6 +215,7 @@ export function SettlementProjectsView() {
       toast.error('Failed to delete project. Please try again.');
     } finally {
       setDeletingProject(null);
+      setRefreshStatus(true);
     }
   };
 
@@ -240,6 +243,7 @@ export function SettlementProjectsView() {
       toast.error('Failed to archive project. Please try again.');
     } finally {
       setArchivingProject(null);
+      setRefreshStatus(true);
     }
   };
 
@@ -267,6 +271,7 @@ export function SettlementProjectsView() {
       toast.error('Failed to complete project. Please try again.');
     } finally {
       setCompletingProject(null);
+      setRefreshStatus(true);
     }
   };
 
@@ -600,6 +605,7 @@ export function SettlementProjectsView() {
                                 e.stopPropagation();
                                 handleCompleteProject(project.id);
                               }}
+                              onSelect={(e) => e.preventDefault()}
                               disabled={completingProject === project.id}
                             >
                               <CheckCircle2 className="h-4 w-4 mr-2" />
@@ -610,6 +616,7 @@ export function SettlementProjectsView() {
                                 e.stopPropagation();
                                 handleArchiveProject(project.id);
                               }}
+                              onSelect={(e) => e.preventDefault()}
                               disabled={archivingProject === project.id}
                             >
                               <Archive className="h-4 w-4 mr-2" />
@@ -636,10 +643,11 @@ export function SettlementProjectsView() {
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogCancel onClick={(e) => e.stopPropagation()}>Cancel</AlertDialogCancel>
                               <AlertDialogAction
                                 onClick={(e) => {
                                   e.stopPropagation();
+                                  e.preventDefault();
                                   handleDeleteProject(project.id, project.name);
                                 }}
                                 disabled={deletingProject === project.id}
