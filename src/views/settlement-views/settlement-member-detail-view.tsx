@@ -15,6 +15,9 @@ import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors'
 import { TierIcon } from '@/components/ui/tier-icon';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { getDisplayProfession, getSecondaryProfession, getProfessionSource } from '@/lib/utils/profession-utils';
+import { ProfessionSelector } from '@/components/profession-selector';
+import { api } from '@/lib/api-client';
+import { toast } from 'sonner';
 import { 
   User, 
   Calendar, 
@@ -32,7 +35,11 @@ import {
   Shield,
   Package,
   Hammer,
-  Crown
+  Crown,
+  Settings,
+  Save,
+  X,
+  Loader2
 } from 'lucide-react';
 
 /**
@@ -94,14 +101,32 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
+  // Profession editing state (only for current user)
+  const [isEditingProfessions, setIsEditingProfessions] = useState(false);
+  const [primaryProfession, setPrimaryProfession] = useState<string | undefined>();
+  const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>();
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  
   const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
+
+  // Check if this is the current user's own profile
+  const isOwnProfile = currentMember?.player_entity_id === memberId;
 
   useEffect(() => {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMemberDetails();
   }, [memberId, currentMember, memberLoading]);
+
+  // Initialize profession state when member data loads
+  useEffect(() => {
+    if (member) {
+      setPrimaryProfession(member.primary_profession || undefined);
+      setSecondaryProfession(member.secondary_profession || undefined);
+    }
+  }, [member]);
 
   const fetchMemberDetails = async () => {
     // Use selectedSettlement or fallback to member's settlement
@@ -138,6 +163,51 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
 
   const handleBackToMembers = () => {
     window.history.back();
+  };
+
+  const handleEditProfessions = () => {
+    setIsEditingProfessions(true);
+    setSaveError(null);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditingProfessions(false);
+    setSaveError(null);
+    // Reset to original values
+    setPrimaryProfession(member?.primary_profession || undefined);
+    setSecondaryProfession(member?.secondary_profession || undefined);
+  };
+
+  const handleSaveProfessions = async () => {
+    if (!member) return;
+    
+    setSaving(true);
+    setSaveError(null);
+
+    try {
+      const result = await api.post('/api/user/update-professions', {
+        primaryProfession: primaryProfession || null,
+        secondaryProfession: secondaryProfession || null
+      });
+
+      if (result.success) {
+        // Update the member data locally
+        setMember(prev => prev ? {
+          ...prev,
+          primary_profession: primaryProfession || null,
+          secondary_profession: secondaryProfession || null
+        } : null);
+        
+        setIsEditingProfessions(false);
+        toast.success('Professions updated successfully');
+      } else {
+        setSaveError(result.error || 'Failed to update professions');
+      }
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : 'An error occurred');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const formatDate = (dateString: string | null): string => {
@@ -318,6 +388,29 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
               
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-medium text-muted-foreground">Primary Profession</p>
+                    {isOwnProfile && !isEditingProfessions && (
+                      <Button variant="ghost" size="sm" onClick={handleEditProfessions}>
+                        <Settings className="h-3 w-3 mr-1" />
+                        Edit
+                      </Button>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm">{getDisplayProfession(member)}</p>
+                    {getProfessionSource(member) === 'calculated' && (
+                      <Badge variant="outline" className="text-xs">
+                        Auto-calculated
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-muted-foreground">Secondary Profession</p>
+                  <p className="text-sm">{getSecondaryProfession(member) || 'Not set'}</p>
+                </div>
+                <div className="space-y-1">
                   <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
                   <p className="font-mono text-sm">{member.entityId}</p>
                 </div>
@@ -334,6 +427,44 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
                   <p className="text-sm">{formatLastSeen(member.lastLogin)}</p>
                 </div>
               </div>
+              
+              {/* Profession Editing Section - Only for current user */}
+              {isOwnProfile && isEditingProfessions && (
+                <div className="space-y-4 border-t pt-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Edit Professions</h3>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm" onClick={handleCancelEdit} disabled={saving}>
+                        <X className="h-3 w-3 mr-1" />
+                        Cancel
+                      </Button>
+                      <Button size="sm" onClick={handleSaveProfessions} disabled={saving}>
+                        {saving ? (
+                          <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                        ) : (
+                          <Save className="h-3 w-3 mr-1" />
+                        )}
+                        Save
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {saveError && (
+                    <div className="text-sm text-red-500 bg-red-50 p-2 rounded">
+                      {saveError}
+                    </div>
+                  )}
+                  
+                  <ProfessionSelector
+                    primaryProfession={primaryProfession}
+                    secondaryProfession={secondaryProfession}
+                    onPrimaryChange={setPrimaryProfession}
+                    onSecondaryChange={setSecondaryProfession}
+                    memberSkills={member.skills}
+                    allowNone={true}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </CardContent>
