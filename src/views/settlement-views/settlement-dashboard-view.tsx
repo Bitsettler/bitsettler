@@ -295,16 +295,16 @@ export function SettlementDashboardView() {
         <CardContent className="pt-4 pb-4">
           <div className="flex items-start justify-between">
             <div>
-              <div className="flex items-center gap-3">
-                <h2 className="text-xl font-semibold">
-                  {settlementInfo?.name || 'Settlement Dashboard'}
-                </h2>
+              <div className="flex items-center gap-4">
                 <SettlementTierIcon tier={settlementInfo?.tier || 1} />
-              </div>
-              <div>
-                <span className="text-sm text-muted-foreground">
-                  Tier {settlementInfo?.tier || 1} Settlement
-                </span>
+                <div>
+                  <h2 className="text-2xl font-bold text-foreground">
+                    {settlementInfo?.name || 'Settlement Dashboard'}
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Tier {settlementInfo?.tier || 1} Settlement
+                  </p>
+                </div>
               </div>
               {/* Discord Community Link - Inline */}
               {settlementInfo?.id && (
