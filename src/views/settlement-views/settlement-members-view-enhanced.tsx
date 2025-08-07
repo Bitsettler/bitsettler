@@ -294,7 +294,7 @@ export function SettlementMembersView() {
                   <TableRow 
                     key={member.id} 
                     className="hover:bg-muted/50 cursor-pointer transition-colors"
-                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
+                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
                   >
                     <TableCell>
                       <Avatar className="h-10 w-10">

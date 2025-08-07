@@ -301,23 +301,23 @@ export function SettlementDashboardView() {
                   <h2 className="text-2xl font-bold text-foreground">
                     {settlementInfo?.name || 'Settlement Dashboard'}
                   </h2>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Tier {settlementInfo?.tier || 1} Settlement
-                    {dashboardData?.settlement?.masterData?.region_name && (
-                      <span> • {dashboardData.settlement.masterData.region_name}</span>
+                  <div className="flex items-center gap-2 mt-1">
+                    <p className="text-sm text-muted-foreground">
+                      Tier {settlementInfo?.tier || 1} Settlement
+                      {dashboardData?.settlement?.masterData?.region_name && (
+                        <span> • {dashboardData.settlement.masterData.region_name}</span>
+                      )}
+                    </p>
+                    {settlementInfo?.id && (
+                      <SettlementDiscordLink 
+                        settlementId={settlementInfo.id}
+                        variant="inline-small"
+                      />
                     )}
-                    {dashboardData?.settlement?.masterData?.location_x && dashboardData?.settlement?.masterData?.location_z && (
-                      <span> • {dashboardData.settlement.masterData.location_x}+{dashboardData.settlement.masterData.location_z}</span>
-                    )}
-                  </p>
+                  </div>
                 </div>
               </div>
-              {/* Discord Community Link - Inline */}
-              {settlementInfo?.id && (
-                <SettlementDiscordLink 
-                  settlementId={settlementInfo.id}
-                />
-              )}
+
             </div>
             <div className="flex flex-col items-end gap-2">
               {!settlementLoading && inviteCode ? (
