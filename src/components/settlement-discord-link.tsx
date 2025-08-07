@@ -29,6 +29,24 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink }: Sett
     setDiscordLink(initialDiscordLink || '');
   }, [initialDiscordLink]);
 
+  // Fetch Discord link if not provided as prop
+  useEffect(() => {
+    if (!initialDiscordLink && settlementId) {
+      const fetchDiscordLink = async () => {
+        try {
+          const result = await api.get(`/api/settlement/discord-link?settlementId=${settlementId}`);
+          if (result.success && result.data?.discordLink) {
+            setDiscordLink(result.data.discordLink);
+          }
+        } catch (error) {
+          console.error('Error fetching Discord link:', error);
+        }
+      };
+      
+      fetchDiscordLink();
+    }
+  }, [settlementId, initialDiscordLink]);
+
   const validateDiscordLink = (link: string): boolean => {
     if (!link.trim()) return true; // Allow empty links
     

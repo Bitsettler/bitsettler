@@ -44,6 +44,7 @@ import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/sh
 import Image from 'next/image';
 import Link from 'next/link';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
+import { SelectedItemDisplay } from '@/components/projects/selected-item-display';
 
 interface ProjectItem {
   id: string;
@@ -90,6 +91,7 @@ interface NewItem {
   tier: number;
   requiredQuantity: number;
   notes: string;
+  category?: string;
 }
 
 interface ProjectPermissions {
@@ -142,7 +144,8 @@ export function SettlementProjectDetailView() {
     itemName: '',
     tier: 1,
     requiredQuantity: 1,
-    notes: ''
+    notes: '',
+    category: ''
   });
   const [isAddingItem, setIsAddingItem] = useState(false);
   
@@ -171,17 +174,21 @@ export function SettlementProjectDetailView() {
   
   // Function to get item icon by name
   const getItemIcon = useCallback((itemName: string): string => {
+    if (!itemName) return '/assets/Unknown.webp';
+    
     const item = gameData.items.find(item => 
-      item.name.toLowerCase().trim() === itemName.toLowerCase().trim()
+      item.name?.toLowerCase().trim() === itemName.toLowerCase().trim()
     );
     return item?.icon_asset_name || '/assets/Unknown.webp';
   }, [gameData.items]);
   
   // Function to get item calculator link by name
   const getItemLink = useCallback((itemName: string): string | null => {
+    if (!itemName) return null;
+    
     // First check if the item exists in calculator data
     const calculatorItem = gameData.items.find(item => 
-      item.name.toLowerCase().trim() === itemName.toLowerCase().trim()
+      item.name?.toLowerCase().trim() === itemName.toLowerCase().trim()
     );
     if (calculatorItem) {
       return `/calculator/${calculatorItem.slug}`;
@@ -234,7 +241,8 @@ export function SettlementProjectDetailView() {
       setNewItem(prev => ({
         ...prev,
         itemName: item.name,
-        tier: item.tier || 1
+        tier: item.tier || 1,
+        category: item.category || ''
       }));
     }
   };
@@ -364,11 +372,11 @@ export function SettlementProjectDetailView() {
 
       if (result.success) {
         // Reset form
-        setNewItem({ itemName: '', tier: 1, requiredQuantity: 1, notes: '' });
+        setNewItem({ itemName: '', tier: 1, requiredQuantity: 1, notes: '', category: '' });
         
         toast.success('Item added successfully!');
         
-        // Immediately refresh to get actual data
+        // Refresh project data to get the updated items list
         await fetchProjectDetails();
       } else {
         // Handle permission errors specifically
@@ -796,19 +804,26 @@ export function SettlementProjectDetailView() {
                         value={newItem.itemName}
                         onValueChange={(value) => {
                           if (!value) {
-                            setNewItem(prev => ({
-                              ...prev,
-                              itemName: '',
-                              tier: 1
-                            }));
-                          }
-                        }}
-                        onItemSelect={handleItemSelect}
-                        placeholder="Search for an item..."
+                                                      setNewItem(prev => ({
+                            ...prev,
+                            itemName: '',
+                            tier: 1,
+                            category: ''
+                          }));
+                        }
+                      }}
+                      onItemSelect={handleItemSelect}
+                      placeholder="Search for an item..."
+                    />
+                    {newItem.itemName && (
+                      <SelectedItemDisplay 
+                        itemName={newItem.itemName}
+                        tier={newItem.tier}
+                        category={newItem.category}
+                        iconPath={getItemIcon(newItem.itemName)}
+                        className="mt-2"
                       />
-                      {newItem.itemName && (
-                        <p className="text-sm text-green-600 mt-2 text-left">Selected: {newItem.itemName}</p>
-                      )}
+                    )}
                     </div>
                     
                     <div className="flex items-start gap-2">
@@ -1057,7 +1072,8 @@ export function SettlementProjectDetailView() {
                                 setNewItem(prev => ({
                                   ...prev,
                                   itemName: '',
-                                  tier: 1
+                                  tier: 1,
+                                  category: ''
                                 }));
                               }
                             }}
@@ -1065,7 +1081,13 @@ export function SettlementProjectDetailView() {
                             placeholder="Search for an item..."
                           />
                           {newItem.itemName && (
-                            <p className="text-sm text-green-600 mt-1">Selected: {newItem.itemName}</p>
+                            <SelectedItemDisplay 
+                              itemName={newItem.itemName}
+                              tier={newItem.tier}
+                              category={newItem.category}
+                              iconPath={getItemIcon(newItem.itemName)}
+                              className="mt-1"
+                            />
                           )}
                         </div>
                         
