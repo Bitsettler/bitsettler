@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 
 import { toast } from 'sonner';
 import { ExternalLink, Edit2, Save, X, MessageCircle, Plus } from 'lucide-react';
+import { DiscordIcon } from '@/components/icons/discord-icon';
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions';
 import { api } from '@/lib/api-client';
 
@@ -20,8 +21,9 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [fetchAttempted, setFetchAttempted] = useState(false);
 
-  const { userRole } = useSettlementPermissions();
+  const { userRole, loading: permissionsLoading } = useSettlementPermissions();
 
   // Only officers and co-owners can manage the Discord link
   const canManageDiscordLink = userRole?.canManageSettlement || false;
@@ -32,9 +34,10 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
 
   // Fetch Discord link if not provided as prop
   useEffect(() => {
-    if (!initialDiscordLink && settlementId) {
+    if (!initialDiscordLink && settlementId && !fetchAttempted && !permissionsLoading) {
       const fetchDiscordLink = async () => {
         try {
+          setFetchAttempted(true);
           const result = await api.get(`/api/settlement/discord-link?settlementId=${settlementId}`);
           if (result.success && result.data?.discordLink) {
             setDiscordLink(result.data.discordLink);
@@ -46,7 +49,7 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
       
       fetchDiscordLink();
     }
-  }, [settlementId, initialDiscordLink]);
+  }, [settlementId, initialDiscordLink, fetchAttempted, permissionsLoading]);
 
   const validateDiscordLink = (link: string): boolean => {
     if (!link.trim()) return true; // Allow empty links
@@ -104,6 +107,11 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
       window.open(discordLink, '_blank', 'noopener,noreferrer');
     }
   };
+
+  // Don't render anything while permissions are loading to avoid flashing
+  if (permissionsLoading) {
+    return null;
+  }
 
   // If no Discord link is set and user can't manage it, don't show anything
   if (!discordLink && !canManageDiscordLink) {
@@ -166,10 +174,10 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
         <Button
           variant="ghost"
           size="sm"
-          className="h-5 px-2 text-xs text-blue-600 hover:text-blue-800"
+          className="h-5 px-2 text-xs text-[#5865F2] hover:text-[#4752C4]"
           onClick={handleDiscordLinkClick}
         >
-          <MessageCircle className="h-3 w-3 mr-1" />
+          <DiscordIcon size={12} className="mr-1" />
           Discord
         </Button>
         {canManageDiscordLink && (
@@ -195,10 +203,9 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
               <Button
                 onClick={handleDiscordLinkClick}
                 size="sm"
-                variant="outline"
-                className="gap-2"
+                className="gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white border-[#5865F2] hover:border-[#4752C4]"
               >
-                <MessageCircle className="h-4 w-4" />
+                <DiscordIcon size={16} />
                 Join Discord
                 <ExternalLink className="h-4 w-4" />
               </Button>
@@ -214,7 +221,7 @@ export function SettlementDiscordLink({ settlementId, initialDiscordLink, varian
             </>
           ) : (
             canManageDiscordLink && (
-              <Button onClick={handleStartEdit} variant="outline" size="sm" className="gap-2">
+              <Button onClick={handleStartEdit} variant="outline" size="sm" className="gap-2 border-[#5865F2] text-[#5865F2] hover:bg-[#5865F2] hover:text-white">
                 <Plus className="h-4 w-4" />
                 Add Discord
               </Button>

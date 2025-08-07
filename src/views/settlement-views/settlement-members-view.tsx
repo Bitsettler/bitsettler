@@ -7,6 +7,9 @@ import { Badge } from '../../components/ui/badge';
 import { Input } from '../../components/ui/input';
 import { Button } from '../../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
+import { Switch } from '../../components/ui/switch';
+import { Label } from '../../components/ui/label';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../../components/ui/collapsible';
 import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
@@ -54,9 +57,9 @@ export function SettlementMembersView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [professionFilter, setProfessionFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [groupByProfession, setGroupByProfession] = useState<boolean>(false);
+  const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
   const [sortField, setSortField] = useState<string>('name');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
@@ -71,7 +74,7 @@ export function SettlementMembersView() {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMembers();
-  }, [professionFilter, statusFilter, currentPage, member, memberLoading]);
+  }, [statusFilter, currentPage, member, memberLoading]);
 
   const fetchMembers = async () => {
     try {
@@ -82,10 +85,6 @@ export function SettlementMembersView() {
         offset: ((currentPage - 1) * membersPerPage).toString(),
         includeInactive: 'false', // Show only active settlement members (Phase 2)
       });
-
-      if (professionFilter !== 'all') {
-        params.append('profession', professionFilter);
-      }
 
       const settlementId = member?.settlement_id;
             
@@ -193,8 +192,13 @@ export function SettlementMembersView() {
       }, {} as Record<string, SettlementMember[]>)
     : null;
 
-  // Get unique professions for filter dropdown
-  const professions = Array.from(new Set(members.map(m => m.top_profession))).sort();
+  // Toggle group collapse state
+  const toggleGroupCollapse = (profession: string) => {
+    setCollapsedGroups(prev => ({
+      ...prev,
+      [profession]: !prev[profession]
+    }));
+  };
 
   const getInitials = (name: string) => {
     return name
@@ -320,7 +324,7 @@ export function SettlementMembersView() {
         </CardHeader>
         <CardContent>
           {/* Filters */}
-          <div className="flex gap-4 mb-6 flex-col sm:flex-row">
+          <div className="flex gap-4 mb-6 flex-col sm:flex-row items-start sm:items-center">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
@@ -330,20 +334,6 @@ export function SettlementMembersView() {
                 className="pl-10"
               />
             </div>
-            
-            <Select value={professionFilter} onValueChange={setProfessionFilter}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="All Professions" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Professions</SelectItem>
-                {professions.map(profession => (
-                  <SelectItem key={profession} value={profession}>
-                    {profession}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
 
             <Select value={statusFilter} onValueChange={setStatusFilter}>
               <SelectTrigger className="w-[120px]">
@@ -356,13 +346,16 @@ export function SettlementMembersView() {
               </SelectContent>
             </Select>
             
-            <Button
-              variant={groupByProfession ? "default" : "outline"}
-              size="sm"
-              onClick={() => setGroupByProfession(!groupByProfession)}
-            >
-              {groupByProfession ? "Ungroup" : "Group by Profession"}
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Switch
+                id="group-by-profession"
+                checked={groupByProfession}
+                onCheckedChange={setGroupByProfession}
+              />
+              <Label htmlFor="group-by-profession" className="text-sm font-medium">
+                Group by Profession
+              </Label>
+            </div>
           </div>
         </CardContent>
         
@@ -384,19 +377,35 @@ export function SettlementMembersView() {
                 // Grouped view by profession
                 Object.entries(groupedMembers)
                   .sort(([a], [b]) => a.localeCompare(b))
-                  .map(([profession, professionMembers]) => (
-                    <React.Fragment key={profession}>
-                      {/* Profession Group Header */}
-                      <TableRow className="bg-muted/30 hover:bg-muted/40">
-                        <TableCell colSpan={7} className="font-semibold text-foreground">
-                          <div className="flex items-center gap-2 py-1">
-                            <span className="text-lg">👥</span>
-                            <span>{profession} ({professionMembers.length} member{professionMembers.length !== 1 ? 's' : ''})</span>
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                      {/* Members in this profession */}
-                      {professionMembers.map((member) => {
+                  .map(([profession, professionMembers]) => {
+                    const isCollapsed = collapsedGroups[profession];
+                    return (
+                      <React.Fragment key={profession}>
+                        {/* Profession Group Header */}
+                        <TableRow className="bg-muted/30 hover:bg-muted/40">
+                          <TableCell colSpan={7} className="font-semibold text-foreground">
+                            <Collapsible>
+                              <CollapsibleTrigger asChild>
+                                <div 
+                                  className="flex items-center justify-between gap-2 py-1 cursor-pointer w-full"
+                                  onClick={() => toggleGroupCollapse(profession)}
+                                >
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-lg">👥</span>
+                                    <span>{profession} ({professionMembers.length} member{professionMembers.length !== 1 ? 's' : ''})</span>
+                                  </div>
+                                  {isCollapsed ? (
+                                    <ChevronDown className="h-4 w-4" />
+                                  ) : (
+                                    <ChevronUp className="h-4 w-4" />
+                                  )}
+                                </div>
+                              </CollapsibleTrigger>
+                            </Collapsible>
+                          </TableCell>
+                        </TableRow>
+                        {/* Members in this profession */}
+                        {!isCollapsed && professionMembers.map((member) => {
                         const memberRole = getMemberRole(member);
                         const RoleIcon = memberRole.icon;
                         return (
@@ -468,7 +477,8 @@ export function SettlementMembersView() {
                         );
                       })}
                     </React.Fragment>
-                  ))
+                  );
+                })
               ) : (
                 // Regular ungrouped view
                 filteredMembers.map((member) => {

@@ -129,7 +129,9 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      discordLink: settlementData?.discord_link || null
+      data: {
+        discordLink: settlementData?.discord_link || null
+      }
     });
 
   } catch (error) {

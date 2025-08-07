@@ -9,6 +9,7 @@ import { AlertCircle, RefreshCw, Beaker, TrendingUp, Target, CheckCircle2, Clock
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { TierIcon } from '../../components/ui/tier-icon';
+import { BricoTierBadge } from '../../components/ui/brico-tier-badge';
 
 interface ResearchItem {
   description: string;
@@ -196,7 +197,7 @@ export function SettlementResearchView() {
 
         {/* Analytics Cards */}
         {meta && (
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Research</CardTitle>
@@ -216,15 +217,18 @@ export function SettlementResearchView() {
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-3xl font-bold">Tier {meta.highestTier}</div>
+                <div className="flex items-center gap-2">
+                  <BricoTierBadge tier={meta.highestTier} size="md" />
+                  <span className="text-3xl font-bold">Tier {meta.highestTier}</span>
+                </div>
                 <div className="relative">
-                  <div className="w-full bg-muted rounded-full h-3">
+                  <div className="w-full bg-muted rounded-full h-5">
                     <div 
-                      className={`h-3 rounded-full transition-all ${getSettlementTierBadgeClasses(meta.highestTier).split(' ')[0]}`}
+                      className={`h-5 rounded-full transition-all ${getSettlementTierBadgeClasses(meta.highestTier).split(' ')[0]}`}
                       style={{ width: `${(meta.highestTier / 10) * 100}%` }}
                     />
                   </div>
-                  <div className="absolute left-1 -top-0.5">
+                  <div className="absolute left-1 top-[1px]">
                     <TierIcon tier={meta.highestTier} size="sm" variant="game-asset" />
                   </div>
                 </div>
@@ -253,16 +257,7 @@ export function SettlementResearchView() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Settlement</CardTitle>
-                <CheckCircle2 className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{meta.settlementName}</div>
-                <p className="text-xs text-muted-foreground">Currently viewing</p>
-              </CardContent>
-            </Card>
+
           </div>
         )}
 
