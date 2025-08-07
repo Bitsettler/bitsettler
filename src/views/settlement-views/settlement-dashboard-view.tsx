@@ -303,6 +303,12 @@ export function SettlementDashboardView() {
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Tier {settlementInfo?.tier || 1} Settlement
+                    {dashboardData?.settlement?.masterData?.region_name && (
+                      <span> • {dashboardData.settlement.masterData.region_name}</span>
+                    )}
+                    {dashboardData?.settlement?.masterData?.location_x && dashboardData?.settlement?.masterData?.location_z && (
+                      <span> • {dashboardData.settlement.masterData.location_x}+{dashboardData.settlement.masterData.location_z}</span>
+                    )}
                   </p>
                 </div>
               </div>
