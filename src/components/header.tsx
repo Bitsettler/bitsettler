@@ -46,7 +46,7 @@ export function Header({ className }: HeaderProps) {
   const t = useTranslations()
   // Generate breadcrumb items from current pathname
   const generateBreadcrumbs = (path: string) => {
-    const segments = path.split('/').filter(Boolean).slice(1) // Remove locale
+    const segments = path.split('/').filter(Boolean);
     const breadcrumbs = []
 
          // Add home
