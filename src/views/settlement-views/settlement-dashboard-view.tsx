@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 
 
 import { Container } from '@/components/container';
@@ -355,9 +356,13 @@ export function SettlementDashboardView() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{formatNumber(stats.totalMembers)}</div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground mb-2">
               {stats.totalMembers > 0 ? Math.round((stats.activeMembers / stats.totalMembers) * 100) : 0}% active in the last 7 days
             </p>
+            <Progress 
+              value={stats.totalMembers > 0 ? (stats.activeMembers / stats.totalMembers) * 100 : 0} 
+              className="h-2"
+            />
           </CardContent>
         </Card>
 
