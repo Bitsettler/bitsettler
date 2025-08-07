@@ -15,6 +15,7 @@ import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar } from 'lucide-react';
 import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
+import { getMemberActivityInfo } from '../../lib/utils/member-activity';
 
 interface SettlementMember {
   id: string;
@@ -110,12 +111,12 @@ export function SettlementMembersView() {
   const filteredMembers = members.filter(member => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
     
-    // Handle different possible is_active data types (boolean, string, number)
-    const isActive = member.is_active === true || member.is_active === 1 || member.is_active === "true";
+    // Use new activity calculation methods
+    const activityInfo = getMemberActivityInfo(member);
     
     const matchesStatus = statusFilter === 'all' || 
-      (statusFilter === 'active' && isActive) || 
-      (statusFilter === 'inactive' && !isActive);
+      (statusFilter === 'active' && activityInfo.isRecentlyActive) || 
+      (statusFilter === 'inactive' && !activityInfo.isRecentlyActive);
     return matchesSearch && matchesStatus;
   }).sort((a, b) => a.name.localeCompare(b.name)); // Sort A-Z by default
 
@@ -215,11 +216,11 @@ export function SettlementMembersView() {
         <div className="flex items-center gap-2">
           <Badge variant="outline" className="gap-1">
             <UserCheck className="h-3 w-3" />
-            {members.filter(m => m.is_active === true || m.is_active === 1 || m.is_active === "true").length} Active
+            {members.filter(m => getMemberActivityInfo(m).isRecentlyActive).length} Recently Active
           </Badge>
           <Badge variant="secondary" className="gap-1">
             <Users className="h-3 w-3" />
-            {members.filter(m => !(m.is_active === true || m.is_active === 1 || m.is_active === "true")).length} Inactive
+            {members.filter(m => !getMemberActivityInfo(m).isRecentlyActive).length} Inactive
           </Badge>
         </div>
       </div>
@@ -264,7 +265,7 @@ export function SettlementMembersView() {
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="active">Recently Active</SelectItem>
                 <SelectItem value="inactive">Inactive</SelectItem>
                 <SelectItem value="all">All</SelectItem>
               </SelectContent>
@@ -348,9 +349,14 @@ export function SettlementMembersView() {
                       </div>
                     </TableCell>
                     <TableCell className="text-center">
-                      <Badge variant={(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'default' : 'secondary'}>
-                        {(member.is_active === true || member.is_active === 1 || member.is_active === "true") ? 'Active' : 'Inactive'}
-                      </Badge>
+                      {(() => {
+                        const activityInfo = getMemberActivityInfo(member);
+                        return (
+                          <Badge variant={activityInfo.isRecentlyActive ? 'default' : 'secondary'}>
+                            {activityInfo.isRecentlyActive ? 'Recently Active' : 'Inactive'}
+                          </Badge>
+                        );
+                      })()}
                     </TableCell>
                   </TableRow>
                 );

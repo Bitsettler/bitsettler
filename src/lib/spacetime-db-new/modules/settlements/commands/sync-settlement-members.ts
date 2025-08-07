@@ -159,41 +159,9 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
         last_login_timestamp: user.lastLoginTimestamp ? new Date(user.lastLoginTimestamp).toISOString() : null,
         joined_settlement_at: user.joinedAt ? new Date(user.joinedAt).toISOString() : null,
         
-        // Active status: true if logged in within last 7 days
-        is_active: (() => {
-          // Handle null, undefined, empty string, or whitespace-only
-          if (!user.lastLoginTimestamp || typeof user.lastLoginTimestamp !== 'string' || !user.lastLoginTimestamp.trim()) {
-            return false;
-          }
-          
-          try {
-            const loginDate = new Date(user.lastLoginTimestamp);
-            
-            // Check if date is valid
-            if (isNaN(loginDate.getTime())) {
-              console.log(`   ⚠️ ${user.userName}: invalid login timestamp "${user.lastLoginTimestamp}" - marking inactive`);
-              return false;
-            }
-            
-            const daysSinceLogin = (Date.now() - loginDate.getTime()) / (24 * 60 * 60 * 1000);
-            
-            // Sanity check: if login is in the future or impossibly old, mark inactive
-            if (daysSinceLogin < 0 || daysSinceLogin > 365) {
-              console.log(`   ⚠️ ${user.userName}: suspicious login timestamp (${daysSinceLogin.toFixed(1)} days ago) - marking inactive`);
-              return false;
-            }
-            
-            const isActive = daysSinceLogin < 7;
-            if (!isActive) {
-              console.log(`   ⏰ ${user.userName}: last login ${daysSinceLogin.toFixed(1)} days ago - marking inactive`);
-            }
-            return isActive;
-            
-          } catch (error) {
-            console.log(`   ❌ ${user.userName}: error parsing login timestamp "${user.lastLoginTimestamp}" - marking inactive`);
-            return false;
-          }
-        })(),
+        // Active status: true if currently in settlement (from BitJita API response)
+        // REPURPOSED: is_active now means "currently in settlement" not "logged in last 7 days"
+        is_active: true, // If user is in BitJita response, they're in settlement
         last_synced_at: new Date().toISOString(),
         sync_source: 'bitjita'
       };
@@ -276,21 +244,21 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
   
     }
 
-    // Mark members as inactive if they're no longer in the roster
+    // Mark members as no longer in settlement if they're not in the current BitJita roster
     const currentMemberIds = users.map(u => u.playerEntityId);
     
     if (currentMemberIds.length > 0) {
       const { error: deactivateError } = await supabase
         .from('settlement_members')
         .update({ 
-          is_active: false, 
+          is_active: false, // No longer in settlement
           last_synced_at: new Date().toISOString() 
         })
         .eq('settlement_id', options.settlementId)
         .not('player_entity_id', 'in', `(${currentMemberIds.map(id => `'${id}'`).join(',')})`);
 
       if (deactivateError) {
-        console.error('Failed to deactivate missing members:', deactivateError);
+        console.error('Failed to mark former members as not in settlement:', deactivateError);
       }
     }
 
@@ -309,8 +277,8 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     console.log(`✅ Settlement sync completed for ${options.settlementId}:`);
     console.log(`   🎯 ACTUAL RESULTS: ${syncSuccessCount}/${users.length} users successfully synced`);
     console.log(`   ❌ FAILED: ${syncErrorCount} users failed to sync`);
-    console.log(`   Active: ${activeMemberCount} (logged in last 7 days)`);
-    console.log(`   Inactive: ${inactiveMemberCount} (no login or >7 days ago)`);
+    console.log(`   In Settlement: ${activeMemberCount} (currently in settlement)`);
+    console.log(`   Former Members: ${inactiveMemberCount} (no longer in settlement)`);
     console.log(`   With Skills: ${results.citizensUpdated} users have actual skills data`);
     console.log(`   Duration: ${results.syncDurationMs}ms`);
 
