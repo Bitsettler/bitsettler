@@ -78,6 +78,16 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     console.log(`📥 Fetched ${users.length} users from BitJita members API`);
     console.log(`🎯 Users that should have skills: ${results.citizensFound}/${users.length}`);
 
+    // CRITICAL: If we get no users, this likely indicates an API issue
+    // Don't proceed with sync to avoid marking everyone as inactive
+    if (users.length === 0) {
+      console.warn(`⚠️ No users returned from BitJita API for settlement ${options.settlementId}. This may indicate an API issue. Aborting sync to prevent data corruption.`);
+      results.error = `No users returned from BitJita API - possible API issue`;
+      results.success = false;
+      results.syncDurationMs = Date.now() - startTime;
+      return results;
+    }
+
     // Store/update skill names in database for caching
     if (Object.keys(skillNames).length > 0) {
       console.log(`💾 Caching ${Object.keys(skillNames).length} skill names...`);
@@ -222,7 +232,10 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     // Use name-based matching since entity IDs are inconsistent between BitJita responses
     const currentMemberNames = users.map(u => u.userName).filter(name => name); // Remove any undefined names
     
-    if (currentMemberNames.length > 0) {
+    // CRITICAL: Only deactivate members if we successfully got member data from BitJita
+    // If currentMemberNames is empty, it likely means API failed - don't deactivate anyone!
+    if (currentMemberNames.length > 0 && users.length > 0) {
+      console.log(`🔄 Deactivating members not in current roster of ${currentMemberNames.length} members...`);
       const { error: deactivateError } = await supabase
         .from('settlement_members')
         .update({ 
@@ -235,6 +248,8 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       if (deactivateError) {
         console.error(`❌ Failed to deactivate former members:`, deactivateError);
       }
+    } else {
+      console.log(`⚠️  Skipping member deactivation - no valid member data received from BitJita API (${users.length} users, ${currentMemberNames.length} valid names)`);
     }
 
     results.success = true;
