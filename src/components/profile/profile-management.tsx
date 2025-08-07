@@ -19,7 +19,7 @@ import { getDisplayProfession } from '@/lib/utils/profession-utils';
 const DEFAULT_COLORS = [
   '#3B82F6', '#EF4444', '#10B981', '#F59E0B', 
   '#8B5CF6', '#06B6D4', '#F97316', '#84CC16',
-  '#EC4899', '#6366F1', '#14B8A6', '#F59E0B'
+  '#EC4899', '#6366F1', '#14B8A6'
 ];
 
 const TIMEZONES = [

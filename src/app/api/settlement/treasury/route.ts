@@ -322,7 +322,7 @@ export async function GET(request: NextRequest) {
           const supabase = await import('../../../../lib/supabase-server-auth').then(m => m.createServerSupabaseClient());
           const { data, error } = await supabase
             .from('treasury_history')
-            .insert(sampleData)
+            .insert(sampleData as any)
             .select();
             
           if (error) {

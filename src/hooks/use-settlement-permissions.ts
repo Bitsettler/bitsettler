@@ -52,8 +52,6 @@ export function useSettlementPermissions() {
         build_permission: member.build_permission === 1,
         officer_permission: member.officer_permission === 1,
         co_owner_permission: member.co_owner_permission === 1,
-        canViewTreasury: true, // All members can view treasury
-        canViewMembers: true   // All members can view member list
       }
 
       const role = calculateUserRole(perms)
