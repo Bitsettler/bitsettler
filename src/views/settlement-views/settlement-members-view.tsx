@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Badge } from '../../components/ui/badge';
@@ -56,6 +56,7 @@ export function SettlementMembersView() {
   const [searchTerm, setSearchTerm] = useState('');
   const [professionFilter, setProfessionFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [groupByProfession, setGroupByProfession] = useState<boolean>(false);
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -118,6 +119,18 @@ export function SettlementMembersView() {
       (statusFilter === 'inactive' && !activityInfo.isRecentlyActive);
     return matchesSearch && matchesStatus;
   }).sort((a, b) => a.name.localeCompare(b.name)); // Sort A-Z by default
+
+  // Group members by profession if enabled
+  const groupedMembers = groupByProfession 
+    ? filteredMembers.reduce((groups, member) => {
+        const profession = getDisplayProfession(member);
+        if (!groups[profession]) {
+          groups[profession] = [];
+        }
+        groups[profession].push(member);
+        return groups;
+      }, {} as Record<string, SettlementMember[]>)
+    : null;
 
   // Get unique professions for filter dropdown
   const professions = Array.from(new Set(members.map(m => m.top_profession))).sort();
@@ -269,6 +282,14 @@ export function SettlementMembersView() {
                 <SelectItem value="all">All</SelectItem>
               </SelectContent>
             </Select>
+            
+            <Button
+              variant={groupByProfession ? "default" : "outline"}
+              size="sm"
+              onClick={() => setGroupByProfession(!groupByProfession)}
+            >
+              {groupByProfession ? "Ungroup" : "Group by Profession"}
+            </Button>
           </div>
         </CardContent>
         
@@ -286,80 +307,175 @@ export function SettlementMembersView() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredMembers.map((member) => {
-                const memberRole = getMemberRole(member);
-                const RoleIcon = memberRole.icon;
-                return (
-                  <TableRow 
-                    key={member.id} 
-                    className="hover:bg-muted/50 cursor-pointer transition-colors"
-                    onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
-                  >
-                    <TableCell>
-                      <Avatar className="h-10 w-10">
-                        <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
-                          {getInitials(member.name)}
-                        </AvatarFallback>
-                      </Avatar>
-                    </TableCell>
-                    <TableCell>
-                      <div className="font-medium">{member.name}</div>
-                      <div className="text-xs text-muted-foreground flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        Joined {formatTimeAgo(member.joined_settlement_at)}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="text-sm">
-                        <div className="font-medium">
-                          {getDisplayProfession(member)}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {getSecondaryProfession(member) ? `Secondary: ${getSecondaryProfession(member)}` : 'No secondary profession'}
-                        </div>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      <Badge variant={memberRole.variant} className="gap-1">
-                        <RoleIcon className="h-3 w-3" />
-                        {memberRole.label}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      <div className="text-sm">
-                        <div className="font-medium flex items-center justify-center gap-1">
-                          <TrendingUp className="h-3 w-3" />
-                          Level {member.highest_level || 1}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {formatNumber(member.total_xp || 0)} XP
-                        </div>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      <div className="text-sm">
-                        <div className="font-medium">{formatTimeAgo(member.last_login_timestamp)}</div>
-                        {member.last_login_timestamp && (
-                          <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {new Date(member.last_login_timestamp).toLocaleDateString()}
+              {groupByProfession && groupedMembers ? (
+                // Grouped view by profession
+                Object.entries(groupedMembers)
+                  .sort(([a], [b]) => a.localeCompare(b))
+                  .map(([profession, professionMembers]) => (
+                    <React.Fragment key={profession}>
+                      {/* Profession Group Header */}
+                      <TableRow className="bg-muted/30 hover:bg-muted/40">
+                        <TableCell colSpan={7} className="font-semibold text-foreground">
+                          <div className="flex items-center gap-2 py-1">
+                            <span className="text-lg">👥</span>
+                            <span>{profession} ({professionMembers.length} member{professionMembers.length !== 1 ? 's' : ''})</span>
                           </div>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {(() => {
-                        const activityInfo = getMemberActivityInfo(member);
+                        </TableCell>
+                      </TableRow>
+                      {/* Members in this profession */}
+                      {professionMembers.map((member) => {
+                        const memberRole = getMemberRole(member);
+                        const RoleIcon = memberRole.icon;
                         return (
-                          <Badge variant={activityInfo.isRecentlyActive ? 'default' : 'secondary'}>
-                            {activityInfo.isRecentlyActive ? 'Recently Active' : 'Inactive'}
-                          </Badge>
+                          <TableRow 
+                            key={member.id} 
+                            className="hover:bg-muted/50 cursor-pointer transition-colors"
+                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                          >
+                            <TableCell>
+                              <Avatar className="h-10 w-10">
+                                <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
+                                  {getInitials(member.name)}
+                                </AvatarFallback>
+                              </Avatar>
+                            </TableCell>
+                            <TableCell>
+                              <div className="font-medium">{member.name}</div>
+                              <div className="text-xs text-muted-foreground flex items-center gap-1">
+                                <Calendar className="h-3 w-3" />
+                                Joined {formatTimeAgo(member.joined_settlement_at)}
+                              </div>
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-sm">
+                                <div className="font-medium">
+                                  {getDisplayProfession(member)}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  {getSecondaryProfession(member) ? `Secondary: ${getSecondaryProfession(member)}` : 'No secondary profession'}
+                                </div>
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-center">
+                              <Badge variant={memberRole.variant} className="gap-1">
+                                <RoleIcon className="h-3 w-3" />
+                                {memberRole.label}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-center">
+                              <div className="text-sm">
+                                <div className="font-medium flex items-center justify-center gap-1">
+                                  <TrendingUp className="h-3 w-3" />
+                                  Level {member.highest_level || 1}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  {formatNumber(member.total_xp || 0)} XP
+                                </div>
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-center">
+                              <div className="text-sm">
+                                <div className="font-medium">{formatTimeAgo(member.last_login_timestamp)}</div>
+                                {member.last_login_timestamp && (
+                                  <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+                                    <Clock className="h-3 w-3" />
+                                    {new Date(member.last_login_timestamp).toLocaleDateString()}
+                                  </div>
+                                )}
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-center">
+                              {(() => {
+                                const activityInfo = getMemberActivityInfo(member);
+                                return (
+                                  <Badge variant={activityInfo.isRecentlyActive ? 'default' : 'secondary'}>
+                                    {activityInfo.isRecentlyActive ? 'Recently Active' : 'Inactive'}
+                                  </Badge>
+                                );
+                              })()}
+                            </TableCell>
+                          </TableRow>
                         );
-                      })()}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+                      })}
+                    </React.Fragment>
+                  ))
+              ) : (
+                // Regular ungrouped view
+                filteredMembers.map((member) => {
+                  const memberRole = getMemberRole(member);
+                  const RoleIcon = memberRole.icon;
+                  return (
+                    <TableRow 
+                      key={member.id} 
+                      className="hover:bg-muted/50 cursor-pointer transition-colors"
+                      onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                    >
+                      <TableCell>
+                        <Avatar className="h-10 w-10">
+                          <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
+                            {getInitials(member.name)}
+                          </AvatarFallback>
+                        </Avatar>
+                      </TableCell>
+                      <TableCell>
+                        <div className="font-medium">{member.name}</div>
+                        <div className="text-xs text-muted-foreground flex items-center gap-1">
+                          <Calendar className="h-3 w-3" />
+                          Joined {formatTimeAgo(member.joined_settlement_at)}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          <div className="font-medium">
+                            {getDisplayProfession(member)}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {getSecondaryProfession(member) ? `Secondary: ${getSecondaryProfession(member)}` : 'No secondary profession'}
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <Badge variant={memberRole.variant} className="gap-1">
+                          <RoleIcon className="h-3 w-3" />
+                          {memberRole.label}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <div className="text-sm">
+                          <div className="font-medium flex items-center justify-center gap-1">
+                            <TrendingUp className="h-3 w-3" />
+                            Level {member.highest_level || 1}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {formatNumber(member.total_xp || 0)} XP
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <div className="text-sm">
+                          <div className="font-medium">{formatTimeAgo(member.last_login_timestamp)}</div>
+                          {member.last_login_timestamp && (
+                            <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {new Date(member.last_login_timestamp).toLocaleDateString()}
+                            </div>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        {(() => {
+                          const activityInfo = getMemberActivityInfo(member);
+                          return (
+                            <Badge variant={activityInfo.isRecentlyActive ? 'default' : 'secondary'}>
+                              {activityInfo.isRecentlyActive ? 'Recently Active' : 'Inactive'}
+                            </Badge>
+                          );
+                        })()}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
+              )}
             </TableBody>
           </Table>
           
