@@ -386,30 +386,38 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
                 </div>
               </div>
               
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between">
+              {/* Professions Section */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-medium text-muted-foreground">Professions</h3>
+                  {isOwnProfile && !isEditingProfessions && (
+                    <Button variant="ghost" size="sm" onClick={handleEditProfessions}>
+                      <Settings className="h-3 w-3 mr-1" />
+                      Edit
+                    </Button>
+                  )}
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-1">
                     <p className="text-sm font-medium text-muted-foreground">Primary Profession</p>
-                    {isOwnProfile && !isEditingProfessions && (
-                      <Button variant="ghost" size="sm" onClick={handleEditProfessions}>
-                        <Settings className="h-3 w-3 mr-1" />
-                        Edit
-                      </Button>
-                    )}
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm">{getDisplayProfession(member)}</p>
+                      {getProfessionSource(member) === 'calculated' && (
+                        <Badge variant="outline" className="text-xs">
+                          Auto-calculated
+                        </Badge>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-sm">{getDisplayProfession(member)}</p>
-                    {getProfessionSource(member) === 'calculated' && (
-                      <Badge variant="outline" className="text-xs">
-                        Auto-calculated
-                      </Badge>
-                    )}
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium text-muted-foreground">Secondary Profession</p>
+                    <p className="text-sm">{getSecondaryProfession(member) || 'Not set'}</p>
                   </div>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Secondary Profession</p>
-                  <p className="text-sm">{getSecondaryProfession(member) || 'Not set'}</p>
-                </div>
+              </div>
+
+              {/* Other Details */}
+              <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
                   <p className="font-mono text-sm">{member.entityId}</p>

@@ -87,6 +87,7 @@ export async function GET(request: NextRequest) {
             settlementId
           }
         });
+        break;
       }
 
       case 'transactions': {
@@ -130,6 +131,7 @@ export async function GET(request: NextRequest) {
             includesDetails: false,
           });
         }
+        break;
       }
 
       case 'categories': {
@@ -149,6 +151,7 @@ export async function GET(request: NextRequest) {
             count: 0,
           });
         }
+        break;
       }
 
       case 'history': {
@@ -191,6 +194,7 @@ export async function GET(request: NextRequest) {
             }
           });
         }
+        break;
       }
 
       case 'start_polling': {
@@ -216,6 +220,7 @@ export async function GET(request: NextRequest) {
           initialSnapshot,
           status: treasuryPollingService.getStatus()
         });
+        break;
       }
 
       case 'stop_polling': {
@@ -226,6 +231,7 @@ export async function GET(request: NextRequest) {
           message: 'Treasury polling stopped',
           status: treasuryPollingService.getStatus()
         });
+        break;
       }
 
       case 'polling_status': {
@@ -233,6 +239,7 @@ export async function GET(request: NextRequest) {
           success: true,
           status: treasuryPollingService.getStatus()
         });
+        break;
       }
 
       case 'poll_now': {
@@ -251,6 +258,7 @@ export async function GET(request: NextRequest) {
           data: snapshot,
           message: snapshot ? 'Treasury data polled successfully' : 'No changes detected'
         });
+        break;
       }
 
       case 'cleanup_snapshots': {
@@ -268,6 +276,7 @@ export async function GET(request: NextRequest) {
           success: true,
           message: 'Excessive treasury snapshots cleaned up'
         });
+        break;
       }
 
       case 'create_sample_history': {
@@ -333,6 +342,7 @@ export async function GET(request: NextRequest) {
             error: error instanceof Error ? error.message : 'Failed to create sample data'
           }, { status: 500 });
         }
+        break;
       }
 
       default: {

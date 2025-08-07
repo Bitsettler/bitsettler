@@ -53,6 +53,8 @@ interface TreasuryTransaction {
   description: string | null;
   relatedProjectId: string | null;
   relatedMemberId: string | null;
+  relatedProjectName?: string;
+  relatedMemberName?: string;
   transactionDate: Date;
   createdAt: Date;
   createdBy: string;
@@ -239,6 +241,7 @@ export function SettlementTreasuryView() {
         settlementId: member.settlement_id,
         limit: itemsPerPage.toString(),
         offset: ((currentPage - 1) * itemsPerPage).toString(),
+        includeDetails: 'true',
       });
 
       if (typeFilter !== 'all') {
@@ -295,8 +298,8 @@ export function SettlementTreasuryView() {
   }
 
   const handleAddTransaction = async () => {
-    if (!member?.settlement_id || !newTransaction.amount || !newTransaction.transactionType) {
-      toast.error('Please fill in all required fields');
+    if (!member?.settlement_id || !newTransaction.amount || !newTransaction.transactionType || !newTransaction.description.trim()) {
+      toast.error('Please fill in all required fields (amount, type, and description)');
       return;
     }
 
@@ -785,6 +788,9 @@ export function SettlementTreasuryView() {
                         <div className="text-sm text-muted-foreground">
                           {new Date(transaction.transactionDate).toLocaleDateString()} • 
                           {transaction.transactionType}
+                          {transaction.relatedMemberName && (
+                            <> • by {transaction.relatedMemberName}</>
+                          )}
                         </div>
                       </div>
                     </div>

@@ -363,10 +363,10 @@ export function SettlementDashboardView() {
           <CardContent>
             <div className="text-2xl font-bold mb-2">{formatNumber(stats.totalMembers)}</div>
             <p className="text-xs text-muted-foreground mb-2">
-              {stats.totalMembers > 0 ? Math.round((stats.activeMembers / stats.totalMembers) * 100) : 0}% active in the last 7 days
+              {stats.totalMembers > 0 ? Math.round((stats.recentlyActiveMembers / stats.totalMembers) * 100) : 0}% active in the last 7 days
             </p>
             <Progress 
-              value={stats.totalMembers > 0 ? (stats.activeMembers / stats.totalMembers) * 100 : 0} 
+              value={stats.totalMembers > 0 ? (stats.recentlyActiveMembers / stats.totalMembers) * 100 : 0} 
               className="h-2"
             />
           </CardContent>

@@ -547,7 +547,11 @@ export function SettlementProjectsView() {
             <Card 
               key={project.id} 
               className="hover:shadow-md transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
-              onClick={() => router.push(`/en/settlement/projects/${project.project_number}`)}
+              onClick={() => {
+                // Don't navigate if this project is being deleted
+                if (deletingProject === project.id) return;
+                router.push(`/en/settlement/projects/${project.project_number}`);
+              }}
             >
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
@@ -616,7 +620,10 @@ export function SettlementProjectsView() {
                         
                         <AlertDialog>
                           <AlertDialogTrigger asChild>
-                            <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                            <DropdownMenuItem 
+                              onSelect={(e) => e.preventDefault()}
+                              onClick={(e) => e.stopPropagation()}
+                            >
                               <Trash2 className="h-4 w-4 mr-2" />
                               Delete
                             </DropdownMenuItem>
@@ -631,7 +638,10 @@ export function SettlementProjectsView() {
                             <AlertDialogFooter>
                               <AlertDialogCancel>Cancel</AlertDialogCancel>
                               <AlertDialogAction
-                                onClick={() => handleDeleteProject(project.id, project.name)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleDeleteProject(project.id, project.name);
+                                }}
                                 disabled={deletingProject === project.id}
                                 className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                               >

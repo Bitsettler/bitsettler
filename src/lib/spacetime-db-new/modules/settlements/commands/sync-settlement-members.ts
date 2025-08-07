@@ -236,17 +236,48 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
     // If currentMemberNames is empty, it likely means API failed - don't deactivate anyone!
     if (currentMemberNames.length > 0 && users.length > 0) {
       console.log(`🔄 Deactivating members not in current roster of ${currentMemberNames.length} members...`);
-      const { error: deactivateError } = await supabase
-        .from('settlement_members')
-        .update({ 
-          is_active: false, // No longer in settlement
-          last_synced_at: new Date().toISOString() 
-        })
-        .eq('settlement_id', options.settlementId)
-        .not('name', 'in', currentMemberNames);
+
       
-      if (deactivateError) {
-        console.error(`❌ Failed to deactivate former members:`, deactivateError);
+
+      
+      // Use client-side filtering: fetch all active members, then deactivate those not in current roster
+      const { data: allActiveMembers, error: fetchError2 } = await supabase
+        .from('settlement_members')
+        .select('id, name')
+        .eq('settlement_id', options.settlementId)
+        .eq('is_active', true);
+      
+      if (fetchError2) {
+        console.error(`❌ Failed to fetch active members:`, fetchError2);
+      } else if (allActiveMembers) {
+        // Filter client-side to find members not in current BitJita roster
+        const membersToDeactivate = allActiveMembers.filter(member => 
+          !currentMemberNames.includes(member.name)
+        );
+        
+        console.log(`🎯 Found ${membersToDeactivate.length} members to deactivate out of ${allActiveMembers.length} active`);
+        
+        if (membersToDeactivate.length > 0) {
+          const memberIdsToDeactivate = membersToDeactivate.map(m => m.id);
+          
+          const { data: deactivateData, error: deactivateError } = await supabase
+            .from('settlement_members')
+            .update({ 
+              is_active: false,
+              last_synced_at: new Date().toISOString() 
+            })
+            .in('id', memberIdsToDeactivate)
+            .select('name');
+          
+          if (deactivateError) {
+            console.error(`❌ Failed to deactivate former members:`, deactivateError);
+          } else {
+            console.log(`✅ Deactivated ${deactivateData?.length || 0} former members:`, deactivateData?.map(m => m.name).slice(0, 5));
+            results.membersDeactivated = deactivateData?.length || 0;
+          }
+        } else {
+          console.log(`✅ No members need to be deactivated`);
+        }
       }
     } else {
       console.log(`⚠️  Skipping member deactivation - no valid member data received from BitJita API (${users.length} users, ${currentMemberNames.length} valid names)`);

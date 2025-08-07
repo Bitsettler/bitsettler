@@ -712,7 +712,10 @@ export function SettlementProjectDetailView() {
                     
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                        <DropdownMenuItem 
+                          onSelect={(e) => e.preventDefault()}
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <Trash2 className="h-4 w-4 mr-2" />
                           Delete Project
                         </DropdownMenuItem>
@@ -727,7 +730,10 @@ export function SettlementProjectDetailView() {
                         <AlertDialogFooter>
                           <AlertDialogCancel>Cancel</AlertDialogCancel>
                           <AlertDialogAction
-                            onClick={handleDeleteProject}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDeleteProject();
+                            }}
                             disabled={isDeleting}
                             className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                           >

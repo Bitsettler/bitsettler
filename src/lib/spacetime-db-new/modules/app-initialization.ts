@@ -48,6 +48,7 @@ if (typeof window === 'undefined') {
       process.exit(0);
     });
   } else {
-    console.log('🔧 Development mode: Treasury polling disabled to prevent hot reload conflicts. Start manually if needed.');
+    // Development mode: Treasury polling disabled to prevent hot reload conflicts
+    // Treasury data will update on user interactions instead
   }
 } 

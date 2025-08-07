@@ -52,12 +52,14 @@ export function MyCharacterView() {
 
   // If user has claimed a character, show their member detail
   return (
-    <SettlementMemberDetailView 
-      memberId={member.player_entity_id} 
-      hideBackButton={true} 
-      hideHeader={true} 
-      hideProfileName={true}
-      hideContainer={true} 
-    />
+    <Container className="py-6">
+      <SettlementMemberDetailView 
+        memberId={member.player_entity_id} 
+        hideBackButton={true} 
+        hideHeader={true} 
+        hideProfileName={true}
+        hideContainer={true} 
+      />
+    </Container>
   );
 }
