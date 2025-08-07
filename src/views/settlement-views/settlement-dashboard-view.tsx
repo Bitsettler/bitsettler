@@ -19,7 +19,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { SettlementTierIcon } from '@/components/ui/tier-icon';
+import { TierIcon } from '@/components/ui/tier-icon';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 import { SettlementDiscordLink } from '../../components/settlement-discord-link';
 
@@ -296,7 +296,7 @@ export function SettlementDashboardView() {
           <div className="flex items-start justify-between">
             <div>
               <div className="flex items-center gap-4">
-                <SettlementTierIcon tier={settlementInfo?.tier || 1} />
+                <TierIcon tier={settlementInfo?.tier || 1} size="lg" variant="brico-style" />
                 <div>
                   <h2 className="text-2xl font-bold text-foreground">
                     {settlementInfo?.name || 'Settlement Dashboard'}
