@@ -230,7 +230,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
           last_synced_at: new Date().toISOString() 
         })
         .eq('settlement_id', options.settlementId)
-        .not('name', 'in', currentMemberNames); // Fixed: Use array directly, not SQL string
+        .not('name', 'in', currentMemberNames);
       
       if (deactivateError) {
         console.error(`❌ Failed to deactivate former members:`, deactivateError);
