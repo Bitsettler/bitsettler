@@ -243,7 +243,7 @@ export function MyCharacterView() {
         
         {/* Render the member detail view with custom styling */}
         <SettlementMemberDetailView 
-          memberId={member.entity_id} 
+          memberId={member.player_entity_id} 
           hideBackButton={true} 
           hideHeader={true} 
           hideProfileName={true}
