@@ -184,7 +184,7 @@ export async function GET(request: NextRequest) {
             data: [],
             count: 0,
             meta: {
-              settlementId: searchParams.get('settlementId') || '504403158277057776',
+              settlementId: searchParams.get('settlementId') || 'unknown',
               timeRange: parseInt(searchParams.get('timeRange') || '30'),
               timeUnit: (searchParams.get('timeUnit') || 'days') as 'days' | 'months',
               dataSource: 'empty_fallback'

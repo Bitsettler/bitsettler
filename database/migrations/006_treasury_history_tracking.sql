@@ -36,13 +36,14 @@ $$ LANGUAGE plpgsql;
 
 -- Insert current treasury state if we have settlement data
 -- This will be updated by the polling job
-INSERT INTO treasury_history (settlement_id, balance, recorded_at, data_source)
-SELECT 
-  '504403158277057776' as settlement_id,
-  0 as balance,
-  NOW() as recorded_at,
-  'migration_placeholder' as data_source
-ON CONFLICT (settlement_id, recorded_at) DO NOTHING;
+-- NOTE: Hardcoded seeding removed to avoid Port Taverna-specific references
+-- INSERT INTO treasury_history (settlement_id, balance, recorded_at, data_source)
+-- SELECT 
+--   'SETTLEMENT_ID_HERE' as settlement_id,
+--   0 as balance,
+--   NOW() as recorded_at,
+--   'migration_placeholder' as data_source
+-- ON CONFLICT (settlement_id, recorded_at) DO NOTHING;
 
 COMMENT ON TABLE treasury_history IS 'Time series tracking of settlement treasury balance changes from BitJita';
 COMMENT ON COLUMN treasury_history.change_amount IS 'Calculated difference from previous balance';
