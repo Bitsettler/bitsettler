@@ -223,14 +223,14 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
     }
 
     // Mark settlements as inactive if they weren't found in this sync
-    // (Only mark as inactive if they haven't been synced in the last hour)
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    // (Only mark as inactive if they haven't been synced in the last 24 hours)
+    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     
     const { data: outdatedSettlements, error: outdatedError } = await supabase
       .from('settlements_master')
       .select('id')
       .eq('is_active', true)
-      .lt('last_synced_at', oneHourAgo)
+      .lt('last_synced_at', oneDayAgo)
       .not('id', 'in', `(${Array.from(seenSettlementIds).map(id => `'${id}'`).join(',')})`);
 
     if (!outdatedError && outdatedSettlements && outdatedSettlements.length > 0) {

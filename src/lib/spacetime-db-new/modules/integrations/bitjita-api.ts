@@ -372,7 +372,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         console.log('🔄 Incremental mode: Checking first ~300 settlements for new/updated entries');
         console.log('⚡ API efficient: ~3 calls instead of 25 (10x reduction)');
       } else {
-        console.log('🎯 Full mode: All 2,323+ settlements from BitJita claims API');
+        console.log('🎯 Full mode: All 2,323+ settlements from BitJita claims API (up to 120 pages)');
         console.log('⚡ Using optimized bulk fetching: 100 settlements per API call');
       }
       
@@ -387,7 +387,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       let hasMore = true;
       let totalExpected = 0;
       
-      const maxPages = mode === 'incremental' ? 3 : 30; // Incremental: 3 pages (~300 settlements), Full: 30 pages (~3000 settlements)
+      const maxPages = mode === 'incremental' ? 3 : 120; // Incremental: 3 pages (~300 settlements), Full: 120 pages (covers all ~2,323+ settlements)
       
       while (hasMore && currentPage <= maxPages) {
         try {
