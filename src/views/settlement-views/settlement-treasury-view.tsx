@@ -8,6 +8,10 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { toast } from 'sonner';
 import { Container } from '@/components/container';
 import { 
   ArrowUpRight, 
@@ -154,6 +158,16 @@ export function SettlementTreasuryView() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
+  // Add transaction modal state
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [addingTransaction, setAddingTransaction] = useState(false);
+  const [newTransaction, setNewTransaction] = useState({
+    amount: '',
+    transactionType: 'Income' as 'Income' | 'Expense' | 'Transfer' | 'Adjustment',
+    category: '',
+    description: ''
+  });
+
   useEffect(() => {
     if (!memberLoading && member?.settlement_id) {
       fetchSummaryData();
@@ -280,7 +294,55 @@ export function SettlementTreasuryView() {
     }
   }
 
+  const handleAddTransaction = async () => {
+    if (!member?.settlement_id || !newTransaction.amount || !newTransaction.transactionType) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
 
+    setAddingTransaction(true);
+
+    try {
+      const response = await fetch('/api/settlement/treasury/transactions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          settlementId: member.settlement_id,
+          amount: parseFloat(newTransaction.amount),
+          transactionType: newTransaction.transactionType,
+          category: newTransaction.category || null,
+          description: newTransaction.description || null,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to add transaction');
+      }
+
+      // Reset form and close modal
+      setNewTransaction({
+        amount: '',
+        transactionType: 'Income',
+        category: '',
+        description: ''
+      });
+      setShowAddModal(false);
+
+      // Refresh data
+      fetchSummaryData();
+      fetchTransactions();
+
+      toast.success('Transaction added successfully');
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to add transaction');
+    } finally {
+      setAddingTransaction(false);
+    }
+  };
 
   // Filter transactions by search term
   const filteredTransactions = transactions.filter(transaction =>
@@ -597,7 +659,7 @@ export function SettlementTreasuryView() {
                   All treasury transactions, manual adjustments, and financial activity
                 </CardDescription>
               </div>
-              <Button className="gap-2" disabled>
+              <Button className="gap-2" onClick={() => setShowAddModal(true)}>
                 <Plus className="h-4 w-4" />
                 Add Manual Entry
               </Button>
@@ -753,6 +815,86 @@ export function SettlementTreasuryView() {
         </CardContent>
       </Card>
       </div>
+
+      {/* Add Transaction Modal */}
+      <Dialog open={showAddModal} onOpenChange={setShowAddModal}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add Manual Treasury Entry</DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="transaction-type">Transaction Type *</Label>
+              <Select 
+                value={newTransaction.transactionType} 
+                onValueChange={(value: any) => setNewTransaction(prev => ({ ...prev, transactionType: value }))}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Income">Income</SelectItem>
+                  <SelectItem value="Expense">Expense</SelectItem>
+                  <SelectItem value="Transfer">Transfer</SelectItem>
+                  <SelectItem value="Adjustment">Adjustment</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="amount">Amount *</Label>
+              <Input
+                id="amount"
+                type="number"
+                step="0.01"
+                placeholder="0.00"
+                value={newTransaction.amount}
+                onChange={(e) => setNewTransaction(prev => ({ ...prev, amount: e.target.value }))}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="category">Category</Label>
+              <Input
+                id="category"
+                placeholder="e.g., Building Materials, Trade, etc."
+                value={newTransaction.category}
+                onChange={(e) => setNewTransaction(prev => ({ ...prev, category: e.target.value }))}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                id="description"
+                placeholder="Optional details about this transaction..."
+                value={newTransaction.description}
+                onChange={(e) => setNewTransaction(prev => ({ ...prev, description: e.target.value }))}
+                rows={3}
+              />
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <Button 
+                variant="outline" 
+                onClick={() => setShowAddModal(false)}
+                className="flex-1"
+              >
+                Cancel
+              </Button>
+              <Button 
+                onClick={handleAddTransaction}
+                disabled={addingTransaction || !newTransaction.amount || !newTransaction.transactionType}
+                className="flex-1"
+              >
+                {addingTransaction ? 'Adding...' : 'Add Transaction'}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
     </Container>
   );
 } 
