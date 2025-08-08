@@ -129,7 +129,6 @@ export function ContributeModal({ open, onOpenChange, projectId, selectedItemNam
         },
         projectId: projectId,
         projectItemId: selectedItem?.id,
-        contributionType: 'Direct', // Direct contribution of an item
         itemName: currentSelectedItem,
         quantity: quantity,
         description: notes.trim() || undefined,

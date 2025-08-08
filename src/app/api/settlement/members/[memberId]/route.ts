@@ -77,6 +77,7 @@ export async function GET(
       name: member.name,
       settlement_name: settlement.name,
       entityId: member.entity_id,
+      playerEntityId: member.player_entity_id,
       profession: member.top_profession || 'Unknown',
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,

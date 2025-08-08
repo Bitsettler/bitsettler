@@ -5,7 +5,6 @@ export interface MemberContribution {
   id: string;
   memberId: string;
   memberName: string;
-  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   deliveryMethod: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
   itemName: string | null;
   quantity: number;
@@ -136,7 +135,6 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
         id: contrib.id,
         memberId: contrib.member_id,
         memberName: member?.name || 'Unknown Member',
-        contributionType: contrib.contribution_type,
         deliveryMethod: contrib.delivery_method,
         itemName: contrib.item_name,
         quantity: contrib.quantity,

@@ -44,6 +44,8 @@ import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/sh
 import Image from 'next/image';
 import Link from 'next/link';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
+import { ContributionDisplay } from '@/components/projects/contribution-display';
+import { resolveItemDisplay } from '@/lib/settlement/item-display';
 import { SelectedItemDisplay } from '@/components/projects/selected-item-display';
 
 interface ProjectItem {
@@ -63,7 +65,6 @@ interface MemberContribution {
   id: string;
   memberId: string;
   memberName: string;
-  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   itemName: string | null;
   quantity: number;
   description: string | null;
@@ -172,15 +173,10 @@ export function SettlementProjectDetailView() {
     return Promise.resolve();
   }, []);
   
-  // Function to get item icon by name
+  // Function to get item icon by name (use resolver)
   const getItemIcon = useCallback((itemName: string): string => {
-    if (!itemName) return '/assets/Unknown.webp';
-    
-    const item = gameData.items.find(item => 
-      item.name?.toLowerCase().trim() === itemName.toLowerCase().trim()
-    );
-    return item?.icon_asset_name || '/assets/Unknown.webp';
-  }, [gameData.items]);
+    return resolveItemDisplay(itemName).iconPath || '/assets/Unknown.webp';
+  }, []);
   
   // Function to get item calculator link by name
   const getItemLink = useCallback((itemName: string): string | null => {
@@ -923,56 +919,15 @@ export function SettlementProjectDetailView() {
                     <TableRow key={item.id}>
                       <TableCell>
                         <div className="flex items-center gap-3">
-                          {getItemLink(item.item_name) ? (
-                            <Link href={getItemLink(item.item_name)!} title="View in Calculator">
-                              <div className="relative h-12 w-12 flex-shrink-0 rounded bg-muted p-1 hover:bg-muted/80 cursor-pointer">
-                                <Image
-                                  src={getItemIcon(item.item_name)}
-                                  alt={item.item_name}
-                                  fill
-                                  sizes="48px"
-                                  className="object-contain"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.src = '/assets/Unknown.webp';
-                                  }}
-                                />
-                              </div>
-                            </Link>
-                          ) : (
-                            <div className="relative h-12 w-12 flex-shrink-0 rounded bg-muted p-1">
-                              <Image
-                                src={getItemIcon(item.item_name)}
-                                alt={item.item_name}
-                                fill
-                                sizes="48px"
-                                className="object-contain"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.src = '/assets/Unknown.webp';
-                                }}
-                              />
-                            </div>
+                          <ContributionDisplay
+                            itemName={item.item_name}
+                            quantity={item.required_quantity}
+                            tier={item.tier}
+                            showLink
+                          />
+                          {item.notes && (
+                            <div className="text-sm text-muted-foreground">{item.notes}</div>
                           )}
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              {getItemLink(item.item_name) ? (
-                                <Link 
-                                  href={getItemLink(item.item_name)!} 
-                                  className="font-medium text-primary hover:underline"
-                                  title="View in Calculator"
-                                >
-                                  {item.item_name}
-                                </Link>
-                              ) : (
-                                <div className="font-medium">{item.item_name}</div>
-                              )}
-                              <BricoTierBadge tier={item.tier} size="sm" />
-                            </div>
-                            {item.notes && (
-                              <div className="text-sm text-muted-foreground">{item.notes}</div>
-                            )}
-                          </div>
                         </div>
                       </TableCell>
                       
@@ -1160,46 +1115,25 @@ export function SettlementProjectDetailView() {
                   .slice(0, 20) // Show last 20 contributions
                   .map((contribution) => (
                     <div key={contribution.id} className="flex items-center justify-between py-3 border-b last:border-b-0">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">{contribution.memberName}</span>
-                          <Badge variant="secondary" className="text-xs">
-                            {contribution.contributionType}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {contribution.deliveryMethod}
-                          </Badge>
-                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">{contribution.memberName}</span>
+                            <Badge variant="outline" className="text-xs">
+                              {contribution.deliveryMethod}
+                            </Badge>
+                          </div>
                         <div className="text-sm text-muted-foreground mt-1">
                           {contribution.itemName && (
                             <div className="flex items-center gap-2">
                               {(() => {
-                                // Find the matching project item to get tier info
-                                const projectItem = project?.items?.find(item => 
-                                  item.item_name.toLowerCase() === contribution.itemName?.toLowerCase()
-                                );
-                                const iconPath = getItemIcon(contribution.itemName);
-                                
+                                const projectItem = project?.items?.find(i => i.item_name.toLowerCase() === contribution.itemName?.toLowerCase());
                                 return (
-                                  <>
-                                    <div className="relative">
-                                      <Image
-                                        src={iconPath}
-                                        alt={contribution.itemName}
-                                        width={20}
-                                        height={20}
-                                        className="rounded border"
-                                      />
-                                      {projectItem && (
-                                        <div className="absolute -top-1 -right-1">
-                                          <BricoTierBadge tier={projectItem.tier} size="sm" />
-                                        </div>
-                                      )}
-                                    </div>
-                                    <span className="font-medium">
-                                      {contribution.quantity}x {contribution.itemName}
-                                    </span>
-                                  </>
+                                  <ContributionDisplay
+                                    itemName={contribution.itemName || 'Unknown'}
+                                    quantity={contribution.quantity}
+                                    tier={projectItem?.tier}
+                                    showLink
+                                  />
                                 );
                               })()}
                               {contribution.description && (

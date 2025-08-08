@@ -7,7 +7,6 @@ export interface AddContributionRequest {
   memberName: string; // Settlement member name (like "PR3SIDENT")
   projectId: string;
   projectItemId?: string;
-  contributionType: 'Direct' | 'Crafted' | 'Purchased';
   deliveryMethod: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
   itemName?: string;
   quantity: number;
@@ -36,7 +35,6 @@ export async function addContribution(contributionData: AddContributionRequest):
       member_id: memberId,
       project_id: contributionData.projectId,
       project_item_id: contributionData.projectItemId,
-      contribution_type: contributionData.contributionType,
       item_name: contributionData.itemName,
       quantity: contributionData.quantity,
       description: contributionData.description
@@ -46,7 +44,6 @@ export async function addContribution(contributionData: AddContributionRequest):
       member_id: memberId,
       project_id: contributionData.projectId,
       // No project_item_id column - contributions link via project_id + item_name
-      contribution_type: contributionData.contributionType,
       delivery_method: contributionData.deliveryMethod,
       item_name: contributionData.itemName || null,
       quantity: contributionData.quantity,
@@ -61,7 +58,6 @@ export async function addContribution(contributionData: AddContributionRequest):
       .select(`
         id,
         member_id,
-        contribution_type,
         delivery_method,
         item_name,
         quantity,
@@ -103,7 +99,8 @@ export async function addContribution(contributionData: AddContributionRequest):
           contributionData.memberName,
           contribution.item_name || 'Unknown Item',
           contribution.quantity,
-          contribution.notes || undefined
+          contribution.notes || undefined,
+          contribution.delivery_method || undefined
         );
       }
     } catch (activityError) {
@@ -115,7 +112,6 @@ export async function addContribution(contributionData: AddContributionRequest):
       id: contribution.id,
       memberId: contribution.member_id,
       memberName: contributionData.memberName, // Use the settlement character's name (like "PR3SIDENT")
-      contributionType: contribution.contribution_type,
       deliveryMethod: contribution.delivery_method,
       itemName: contribution.item_name,
       quantity: contribution.quantity,

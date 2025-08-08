@@ -39,8 +39,10 @@ import {
   Settings,
   Save,
   X,
-  Loader2
+  Loader2,
+  RefreshCw
 } from 'lucide-react';
+import { ContributionDisplay } from '@/components/projects/contribution-display';
 
 /**
  * Convert skill level to tier (0-10 based on Bitcraft progression)
@@ -56,6 +58,7 @@ interface MemberDetail {
   id: string;
   name: string;
   entityId: string;
+  playerEntityId?: string | null;
   settlement_name: string;
   profession: string;
   primary_profession?: string | null;
@@ -88,6 +91,38 @@ interface MemberDetailResponse {
   };
 }
 
+interface MemberContributionItem {
+  id: string;
+  project_id: string;
+  contribution_type: 'Direct' | 'Crafted' | 'Purchased';
+  delivery_method: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
+  item_name: string | null;
+  quantity: number;
+  notes: string | null;
+  contributed_at: string;
+  project?: {
+    name: string;
+    short_id?: string | null;
+    project_number?: number | null;
+    status?: string | null;
+    priority?: number | null;
+  } | null;
+}
+
+interface MemberContributionsResponse {
+  success: boolean;
+  data?: {
+    settlementId: string;
+    memberId: string;
+    contributions: MemberContributionItem[];
+    totalCount: number;
+  };
+  error?: string;
+  meta?: {
+    generatedAt: string;
+  };
+}
+
 interface SettlementMemberDetailProps {
   memberId: string;
   hideBackButton?: boolean;
@@ -107,6 +142,8 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>();
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [contributions, setContributions] = useState<MemberContributionItem[] | null>(null);
+  const [contribError, setContribError] = useState<string | null>(null);
   
   const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
@@ -118,6 +155,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMemberDetails();
+    fetchMemberContributions();
   }, [memberId, currentMember, memberLoading]);
 
   // Initialize profession state when member data loads
@@ -158,6 +196,21 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
       // Member detail fetch failed
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchMemberContributions = async () => {
+    const settlementId = currentMember?.settlement_id;
+    if (!settlementId) return;
+    try {
+      setContribError(null);
+      const resp = await fetch(`/api/settlement/members/${encodeURIComponent(memberId)}/contributions?settlementId=${encodeURIComponent(settlementId)}`);
+      const result: MemberContributionsResponse = await resp.json();
+      if (!result.success) throw new Error(result.error || 'Failed to fetch contributions');
+      setContributions(result.data?.contributions || []);
+    } catch (e) {
+      setContribError(e instanceof Error ? e.message : 'Failed to fetch contributions');
+      setContributions([]);
     }
   };
 
@@ -322,21 +375,21 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
 
   const content = (
     <div className="space-y-6">
-        {/* Header */}
-        {!hideHeader && (
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              {!hideBackButton && (
-                <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Members
-                </Button>
-              )}
-              <div>
-                <h1 className="text-3xl font-bold">{member.name}</h1>
-                <p className="text-muted-foreground">Member details and profile information</p>
-              </div>
-            </div>
+        {/* Back button above cards */}
+        {!hideBackButton && (
+          <div>
+            <Button variant="ghost" size="sm" onClick={handleBackToMembers}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Members
+            </Button>
+          </div>
+        )}
+
+      {/* Member Profile + Top Skills */}
+      <div className="grid gap-4 md:grid-cols-2">
+      <Card>
+        <CardHeader className="pb-0">
+          <div className="flex items-center justify-end">
             {member.isActive ? (
               <Badge className="bg-green-500">
                 <UserCheck className="h-3 w-3 mr-1" />
@@ -349,96 +402,73 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
               </Badge>
             )}
           </div>
-        )}
-
-      {/* Member Profile */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <User className="h-5 w-5" />
-            Member Profile
-          </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="flex items-start gap-6">
+        <CardContent className="space-y-3 pt-4">
+          <div className="flex items-start gap-4">
             <Avatar className="h-16 w-16">
               <AvatarFallback className="text-lg font-bold">
                 {member.name.substring(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             
-            <div className="flex-1 space-y-3">
-              <div>
-                {!hideProfileName && (
-                  <h2 className="text-2xl font-bold">{member.name}</h2>
-                )}
-                <div className={hideProfileName ? "mt-0" : "mt-2"}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Badge variant={getMemberRole(member.permissions).variant} className="text-sm">
-                        {getMemberRole(member.permissions).role}
-                      </Badge>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{getMemberRole(member.permissions).description}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </div>
-              </div>
-              
-              {/* Professions Section */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-muted-foreground">Professions</h3>
-                  {isOwnProfile && !isEditingProfessions && (
-                    <Button variant="ghost" size="sm" onClick={handleEditProfessions}>
-                      <Settings className="h-3 w-3 mr-1" />
-                      Edit
-                    </Button>
-                  )}
-                </div>
-                <div className="space-y-3">
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium text-muted-foreground">Primary Profession</p>
-                    <div className="flex items-center gap-2">
-                      <p className="text-sm">{getDisplayProfession(member)}</p>
-                      {getProfessionSource(member) === 'calculated' && (
-                        <Badge variant="outline" className="text-xs">
-                          Auto-calculated
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium text-muted-foreground">Secondary Profession</p>
-                    <p className="text-sm">{getSecondaryProfession(member) || 'Not set'}</p>
-                  </div>
-                </div>
+            <div className="flex-1 space-y-2">
+              <div className="flex items-center gap-3 flex-wrap">
+                <h2 className="text-2xl font-bold m-0">{member.name}</h2>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge variant={getMemberRole(member.permissions).variant} className="text-xs">
+                      {getMemberRole(member.permissions).role}
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{getMemberRole(member.permissions).description}</p>
+                  </TooltipContent>
+                </Tooltip>
               </div>
 
-              {/* Other Details */}
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
-                  <p className="font-mono text-sm">{member.entityId}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Settlement</p>
-                  <p className="text-sm">{member.settlement_name}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Joined</p>
-                  <p className="text-sm">{formatDate(member.joinedAt)}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium text-muted-foreground">Last Seen</p>
-                  <p className="text-sm">{formatLastSeen(member.lastLogin)}</p>
-                </div>
+              {/* Professions */}
+              <div className="flex items-center gap-2 text-sm">
+                <span className="font-medium">{getDisplayProfession(member)}</span>
+                <span className="text-muted-foreground">/ {getSecondaryProfession(member) || 'Not set'}</span>
+                {getProfessionSource(member) === 'calculated' && (
+                  <Badge variant="outline" className="text-xxs uppercase tracking-wide">Auto</Badge>
+                )}
+                {isOwnProfile && !isEditingProfessions && (
+                  <Button variant="link" size="sm" className="h-auto p-0" onClick={handleEditProfessions}>
+                    Edit
+                  </Button>
+                )}
+              </div>
+
+              {/* Meta */}
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                <span>Joined {formatDate(member.joinedAt)}</span>
+                <span>• Last seen {formatLastSeen(member.lastLogin)}</span>
+              </div>
+
+              {/* Permissions (compact iconified chips) */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                <Badge className={`${inventoryPerm.color} text-xs inline-flex items-center gap-1`}>
+                  <inventoryPerm.icon className="h-3 w-3" />
+                  Inventory
+                </Badge>
+                <Badge className={`${buildPerm.color} text-xs inline-flex items-center gap-1`}>
+                  <buildPerm.icon className="h-3 w-3" />
+                  Building
+                </Badge>
+                <Badge className={`${officerPerm.color} text-xs inline-flex items-center gap-1`}>
+                  <officerPerm.icon className="h-3 w-3" />
+                  Officer
+                </Badge>
+                <Badge className={`${coOwnerPerm.color} text-xs inline-flex items-center gap-1`}>
+                  <coOwnerPerm.icon className="h-3 w-3" />
+                  Co-Owner
+                </Badge>
               </div>
               
               {/* Profession Editing Section - Only for current user */}
               {isOwnProfile && isEditingProfessions && (
-                <div className="space-y-4 border-t pt-4">
+                <div className="space-y-3 border-t pt-3">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium">Edit Professions</h3>
                     <div className="flex gap-2">
@@ -456,13 +486,11 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
                       </Button>
                     </div>
                   </div>
-                  
                   {saveError && (
                     <div className="text-sm text-red-500 bg-red-50 p-2 rounded">
                       {saveError}
                     </div>
                   )}
-                  
                   <ProfessionSelector
                     primaryProfession={primaryProfession}
                     secondaryProfession={secondaryProfession}
@@ -478,60 +506,27 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
         </CardContent>
       </Card>
 
-      {/* Skills & Stats */}
-      <div className="grid gap-6 md:grid-cols-2">
         <Card>
-          <CardHeader>
+          <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <Award className="h-5 w-5" />
               Top 5 Skills
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {topSkills.length > 0 ? (
-                topSkills.slice(0, 5).map((skill, index) => (
-                          <div key={skill.name} className="space-y-1">
-          <div className="flex items-center">
-            <span className="font-medium text-sm">{skill.name}</span>
-          </div>
-                    <div className="relative bg-muted rounded-full h-6">
-                      <div 
-                        className={`h-6 rounded-full transition-all ${getSettlementTierBadgeClasses(getSkillTier(skill.level)).split(' ')[0]}`}
-                        style={{ width: `${(() => {
-                          const tier = getSkillTier(skill.level);
-                          if (tier === 0) return 0;
-                          if (tier === 10) return 100; // Max tier is always full
-                          
-                          // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
-                          const tierStart = (tier - 1) * 10;
-                          const tierEnd = tier * 10 - 1;
-                          const progressInTier = ((skill.level - tierStart) / (tierEnd - tierStart)) * 100;
-                          return Math.min(Math.max(progressInTier, 0), 100);
-                        })()}%` }}
+                topSkills.slice(0, 5).map((skill) => (
+                  <div key={skill.name} className="space-y-1">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="font-medium text-sm truncate">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground font-medium">Lv {skill.level}</span>
+                    </div>
+                    <div className="h-2 w-full bg-muted rounded">
+                      <div
+                        className={`h-2 rounded transition-all ${getSettlementTierBadgeClasses(getSkillTier(skill.level)).split(' ')[0]}`}
+                        style={{ width: `${Math.min(Math.max(skill.level, 0), 100)}%` }}
                       />
-                      <div className="absolute left-2 top-1">
-                        <TierIcon tier={getSkillTier(skill.level)} size="sm" variant="game-asset" />
-                      </div>
-                      <div 
-                        className={`absolute top-0 -translate-y-1 inline-flex items-center justify-center w-10 h-8 rounded-lg text-sm font-bold shadow-lg border-2 border-background transition-all ${getSettlementTierBadgeClasses(getSkillTier(skill.level))}`}
-                        style={{ left: `${(() => {
-                          const tier = getSkillTier(skill.level);
-                          if (tier === 0) return 0;
-                          if (tier === 10) return 100; // Max tier is always full
-                          
-                          // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
-                          const tierStart = (tier - 1) * 10;
-                          const tierEnd = tier * 10 - 1;
-                          const progressInTier = ((skill.level - tierStart) / (tierEnd - tierStart)) * 100;
-                          const progress = Math.min(Math.max(progressInTier, 0), 100);
-                          
-                          // Position the badge at the end of the progress as an anchor
-                          return Math.max(progress - 5, 0); // Anchor at the tip
-                        })()}%` }}
-                      >
-                        {skill.level}
-                      </div>
                     </div>
                   </div>
                 ))
@@ -541,75 +536,83 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
             </div>
           </CardContent>
         </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              Skill Statistics
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center justify-center py-12 opacity-50">
-            <div className="text-center">
-              <div className="text-2xl font-medium text-muted-foreground mb-2">Coming Soon</div>
-              <p className="text-sm text-muted-foreground">Enhanced skill analytics</p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
 
-      {/* Permissions */}
+      {/* Contributions */}
+      <div className="grid gap-4">
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="flex items-center gap-2">
-            <Shield className="h-5 w-5" />
-            Settlement Permissions
+            <Package className="h-5 w-5" />
+            Contributions
           </CardTitle>
+          <Button variant="outline" size="sm" onClick={fetchMemberContributions}>
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Refresh
+          </Button>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Package className="h-4 w-4" />
-                <span className="font-medium">Inventory</span>
-              </div>
-              <Badge className={inventoryPerm.color}>
-                <inventoryPerm.icon className="h-3 w-3 mr-1" />
-                {inventoryPerm.label}
-              </Badge>
+          {contribError ? (
+            <div className="text-sm text-red-500">{contribError}</div>
+          ) : contributions === null ? (
+            <div className="text-sm text-muted-foreground">Loading contributions...</div>
+          ) : contributions.length === 0 ? (
+            <div className="text-sm text-muted-foreground">No contributions yet.</div>
+          ) : (
+            <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
+              {contributions.slice(0, 20).map((c) => (
+                <div key={c.id} className="flex items-center justify-between py-2 border-b last:border-b-0">
+                  <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {c.item_name && (
+                          <ContributionDisplay
+                            itemName={c.item_name}
+                            quantity={c.quantity}
+                          />
+                        )}
+                        {!c.item_name && (
+                          <span className="font-medium">{c.quantity} items</span>
+                        )}
+                        <Badge variant="outline" className="text-xs">{c.delivery_method}</Badge>
+                        {c.notes && <span className="text-sm text-muted-foreground">- {c.notes}</span>}
+                      </div>
+                    <div className="text-xs text-muted-foreground mt-1 truncate">
+                      {c.project ? (
+                        <a
+                          className="hover:underline"
+                          href={`/en/settlement/projects/${encodeURIComponent((c.project.project_number?.toString() ?? c.project_id))}`}
+                        >
+                          {c.project.name}
+                        </a>
+                      ) : (
+                        <span>Project</span>
+                      )}
+                      <span className="ml-2">• {new Date(c.contributed_at).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Hammer className="h-4 w-4" />
-                <span className="font-medium">Building</span>
-              </div>
-              <Badge className={buildPerm.color}>
-                <buildPerm.icon className="h-3 w-3 mr-1" />
-                {buildPerm.label}
-              </Badge>
+          )}
+        </CardContent>
+      </Card>
+
+      </div>
+
+      {/* Advanced Details */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Advanced Details</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-1">
+              <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
+              <p className="font-mono text-sm">{member.playerEntityId || member.entityId}</p>
             </div>
-            
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4" />
-                <span className="font-medium">Officer</span>
-              </div>
-              <Badge className={officerPerm.color}>
-                <officerPerm.icon className="h-3 w-3 mr-1" />
-                {officerPerm.label}
-              </Badge>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Crown className="h-4 w-4" />
-                <span className="font-medium">Co-Owner</span>
-              </div>
-              <Badge className={coOwnerPerm.color}>
-                <coOwnerPerm.icon className="h-3 w-3 mr-1" />
-                {coOwnerPerm.label}
-              </Badge>
+            <div className="space-y-1">
+              <p className="text-sm font-medium text-muted-foreground">Settlement</p>
+              <p className="text-sm">{member.settlement_name}</p>
             </div>
           </div>
         </CardContent>

@@ -21,6 +21,7 @@ export interface ProjectActivityData {
     itemName: string;
     quantity: number;
     notes?: string;
+    deliveryMethod?: string;
   };
   oldStatus?: string;
   newStatus?: string;
@@ -255,7 +256,8 @@ export async function logProjectContribution(
   contributorMemberName: string,
   itemName: string,
   quantity: number,
-  notes?: string
+  notes?: string,
+  deliveryMethod?: string
 ): Promise<void> {
   await trackProjectActivity({
     memberId: contributorMemberId,
@@ -267,7 +269,8 @@ export async function logProjectContribution(
     contributionDetails: {
       itemName,
       quantity,
-      notes
+      notes,
+      deliveryMethod
     }
   });
 }

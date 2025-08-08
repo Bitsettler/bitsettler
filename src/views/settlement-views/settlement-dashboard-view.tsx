@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 
 
@@ -20,6 +21,7 @@ import {
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { TierIcon } from '@/components/ui/tier-icon';
+import { ContributionDisplay } from '@/components/projects/contribution-display';
 import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 import { SettlementDiscordLink } from '../../components/settlement-discord-link';
 
@@ -442,11 +444,9 @@ export function SettlementDashboardView() {
                   const isProjectActivity = ['project_contribution', 'project_created', 'project_completed'].includes(activity.activity_type);
                   const projectId = activity.activity_data?.projectId;
                   
+                  const isContribution = !!activity.activity_data?.contributionDetails?.itemName;
                   const ActivityContent = (
-                    <div className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
-                      <div className="text-lg" title="Project Activity">
-                        {activity.activity_data.icon || '🤝'}
-                      </div>
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                       <div className="flex-1 min-w-0">
                         <div className="font-medium truncate">
                           {activity.activity_data.memberName}
@@ -454,8 +454,22 @@ export function SettlementDashboardView() {
                         <div className="text-sm text-muted-foreground truncate">
                           {activity.activity_data.description}
                         </div>
+                        {isContribution && (
+                          <div className="mt-2 flex items-center gap-3">
+                            <ContributionDisplay
+                              itemName={activity.activity_data.contributionDetails.itemName}
+                              quantity={activity.activity_data.contributionDetails.quantity}
+                            />
+                            {activity.activity_data.contributionDetails.deliveryMethod && (
+                              <Badge variant="outline" className="text-xs">
+                                {activity.activity_data.contributionDetails.deliveryMethod}
+                              </Badge>
+                            )}
+                          </div>
+                        )}
+                        {/* Project name already appears in description; avoid redundant second line */}
                       </div>
-                      <div className="text-xs text-muted-foreground flex-shrink-0">
+                      <div className="text-xs text-muted-foreground flex-shrink-0 whitespace-nowrap">
                         {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
                       </div>
                     </div>

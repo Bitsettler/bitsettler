@@ -69,7 +69,6 @@ export async function POST(request: NextRequest) {
       memberName: currentMember.name,
       projectId: body.projectId,
       projectItemId: body.projectItemId,
-      contributionType: body.contributionType,
       deliveryMethod: body.deliveryMethod,
       itemName: body.itemName,
       quantity: body.quantity,
@@ -82,8 +81,8 @@ export async function POST(request: NextRequest) {
     const contribution = await addContribution(contributionData);
     console.log('✅ Contribution added:', contribution.id);
 
-    // Update project item quantity if this is a direct item contribution
-    if (body.itemName && body.contributionType === 'Direct') {
+    // Update project item quantity when itemName is provided
+    if (body.itemName) {
       console.log('🔄 Updating project item quantity for:', body.itemName);
       await updateProjectItemQuantityByName(body.projectId, body.itemName, body.quantity);
       console.log('✅ Project item quantity updated');
