@@ -65,7 +65,7 @@ export async function getTreasurySummary(): Promise<TreasurySummary | null> {
 /**
  * Get treasury statistics for current month
  */
-export async function getTreasuryStats(): Promise<TreasuryStats> {
+export async function getTreasuryStats(settlementId: string): Promise<TreasuryStats> {
   // Use service role client to bypass RLS for treasury operations
   const supabase = createServerClient();
   if (!supabase) {
@@ -100,6 +100,7 @@ export async function getTreasuryStats(): Promise<TreasuryStats> {
     const { data: recentTransactions, error: transactionsError } = await supabase
       .from('treasury_transactions')
       .select('amount, transaction_type')
+      .eq('settlement_id', settlementId)
       .gte('transaction_date', `${currentYear}-${currentMonth.toString().padStart(2, '0')}-01`);
 
     if (transactionsError) {

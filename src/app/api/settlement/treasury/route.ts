@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
         }
         
         try {
-          stats = await getTreasuryStats();
+          stats = await getTreasuryStats(settlementId);
         } catch (error) {
           console.warn('⚠️ Treasury stats tables not available, using defaults');
           stats = {
@@ -92,7 +92,18 @@ export async function GET(request: NextRequest) {
 
       case 'transactions': {
         try {
+
+          const settlementId = searchParams.get('settlementId');
+        
+          if (!settlementId) {
+            return NextResponse.json(
+              { error: 'Settlement ID is required' },
+              { status: 400 }
+            );
+          }
+          
           const options: GetTransactionsOptions = {
+            settlementId: settlementId,
             type: searchParams.get('type') as 'Income' | 'Expense' | 'Transfer' | 'Adjustment' || undefined,
             category: searchParams.get('category') || undefined,
             startDate: searchParams.get('startDate') ? new Date(searchParams.get('startDate')!) : undefined,

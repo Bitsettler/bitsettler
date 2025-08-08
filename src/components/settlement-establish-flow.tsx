@@ -30,6 +30,7 @@ import {
   X
 } from 'lucide-react';
 import { getDisplayProfession } from '@/lib/utils/profession-utils';
+import { clog } from '@/lib/utils/client-logger';
 
 interface SettlementEstablishFlowProps {
   establishData?: {
@@ -328,7 +329,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
   };
 
   const handleEstablishSettlement = async () => {
-    if (!selectedCharacter || !selectedSettlement) return;
+    if (!selectedSettlement) return;
 
     setStep('establishing');
     try {
@@ -716,7 +717,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                 Back
               </Button>
               <Button 
-                onClick={establishData ? handleClaimCharacter : handleEstablishSettlement} 
+                onClick={establishData && availableCharacters.length !== 0 ? handleClaimCharacter : handleEstablishSettlement} 
                 disabled={filteredCharacters.length > 0 && !selectedCharacter}
                 className="flex-1"
               >

@@ -76,7 +76,7 @@ const priorityLabels = {
 export function SettlementProjectsView() {
   const { data: session } = useSession();
   const { member, isLoading: memberLoading } = useCurrentMember();
-  const router = useRouter();
+   const router = useRouter();
    
   // Core state
   const [projects, setProjects] = useState<ProjectWithItems[]>([]);
@@ -106,13 +106,15 @@ export function SettlementProjectsView() {
 
   // Fetch projects
   const fetchProjects = useCallback(async () => {
-    if (!session?.user) return;
+
+    if (!session?.user || !member) return;
     
     try {
       setLoading(true);
       setError(null);
       
       const params = new URLSearchParams({
+        settlementId: member?.settlement_id,
         includeItems: 'true',
         ...(statusFilter !== 'all' && { status: statusFilter }),
       });
@@ -131,14 +133,14 @@ export function SettlementProjectsView() {
       setLoading(false);
       setRefreshStatus(false);
     }
-  }, [session?.user?.id, statusFilter, refreshStatus]);
+  }, [session?.user?.id, member, statusFilter, refreshStatus]);
 
   // Load projects on mount and when dependencies change
   useEffect(() => {
-    if (session?.user?.id) {
+    if (session?.user?.id && member) {
       fetchProjects();
     }
-  }, [session?.user?.id, statusFilter, refreshStatus]);
+  }, [session?.user?.id, member, statusFilter, refreshStatus]);
 
   // Quick create and close form
   const handleQuickCreateAndClose = async () => {
@@ -167,6 +169,7 @@ export function SettlementProjectsView() {
         description: createDescription.trim() || null,
         priority: createData.priority,
         createdByMemberId: member.id, // Required field
+        settlementId: member.settlement_id, // Required field
         items: [] // Start with empty items, user adds them in detail view
       });
 

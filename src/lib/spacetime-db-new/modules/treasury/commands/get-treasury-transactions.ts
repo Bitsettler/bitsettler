@@ -23,6 +23,7 @@ export interface TreasuryTransactionWithDetails extends TreasuryTransaction {
 }
 
 export interface GetTransactionsOptions {
+  settlementId: string;
   type?: 'Income' | 'Expense' | 'Transfer' | 'Adjustment';
   category?: string;
   startDate?: Date;
@@ -37,7 +38,7 @@ export interface GetTransactionsOptions {
 /**
  * Get treasury transactions with filtering and pagination
  */
-export async function getTreasuryTransactions(options: GetTransactionsOptions = {}): Promise<TreasuryTransaction[]> {
+export async function getTreasuryTransactions(options: GetTransactionsOptions): Promise<TreasuryTransaction[]> {
   // Use service role client to bypass RLS for treasury operations
   const supabase = createServerClient();
   if (!supabase) {
@@ -48,7 +49,8 @@ export async function getTreasuryTransactions(options: GetTransactionsOptions = 
   try {
     let query = supabase
       .from('treasury_transactions')
-      .select('*');
+      .select('*')
+      .eq('settlement_id', options.settlementId);
 
     // Apply filters
     if (options.type) {
@@ -120,7 +122,7 @@ export async function getTreasuryTransactions(options: GetTransactionsOptions = 
 /**
  * Get treasury transactions with related project and member details
  */
-export async function getTreasuryTransactionsWithDetails(options: GetTransactionsOptions = {}): Promise<TreasuryTransactionWithDetails[]> {
+export async function getTreasuryTransactionsWithDetails(options: GetTransactionsOptions): Promise<TreasuryTransactionWithDetails[]> {
   // Use service role client to bypass RLS for treasury operations
   const supabase = createServerClient();
   if (!supabase) {
@@ -135,7 +137,8 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
         *,
         settlement_projects!left(name),
         settlement_members!left(name)
-      `);
+      `)
+      .eq('settlement_id', options.settlementId);
 
     // Apply same filters as basic query
     if (options.type) {

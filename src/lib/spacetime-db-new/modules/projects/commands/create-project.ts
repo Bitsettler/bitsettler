@@ -8,6 +8,7 @@ export interface CreateProjectRequest {
   status?: 'Active' | 'Completed' | 'Cancelled'
   priority?: number
   createdByMemberId: string
+  settlementId: string
   items?: CreateProjectItemRequest[]
 }
 
@@ -45,6 +46,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         status: projectData.status || 'Active',
         priority: projectData.priority || 3,
         created_by_member_id: projectData.createdByMemberId,
+        settlement_id: projectData.settlementId
       })
       .select()
       .single();
@@ -63,6 +65,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
       status: project.status,
       priority: project.priority,
       createdByMemberId: project.created_by_member_id,
+      settlementId: project.settlement_id,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
     };

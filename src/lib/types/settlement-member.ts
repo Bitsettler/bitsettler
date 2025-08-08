@@ -18,9 +18,12 @@ export interface DatabaseSettlementMember {
   supabase_user_id?: string;
   
   // Skills and progression
+  total_skills?: number;
+  highest_level?: number;
+  total_level?: number;
+  total_xp?: number;
   skills?: Record<string, number>;
   top_profession?: string;
-  total_level?: number;
   
   // Permissions
   inventory_permission?: boolean | number;
@@ -43,6 +46,13 @@ export interface DatabaseSettlementMember {
   is_active?: boolean;
   created_at?: string;
   updated_at?: string;
+
+  last_login_timestamp?: string;
+  joined_settlement_at?: string;
+  sync_source?: string;
+
+  is_claimed?: boolean;
+  last_synced_at?: string;
 }
 
 /**

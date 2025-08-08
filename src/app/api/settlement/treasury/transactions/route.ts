@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabase
       .from('treasury_transactions')
       .insert({
+        settlement_id: settlementId,
         related_member_id: member.id,
         amount: parseFloat(amount),
         transaction_type: transactionType,

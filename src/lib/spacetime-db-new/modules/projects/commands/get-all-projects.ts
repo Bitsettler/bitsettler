@@ -9,6 +9,7 @@ export interface SettlementProject {
   status: 'Active' | 'Completed' | 'Cancelled';
   priority: number;
   createdByMemberId: string;
+  settlementId: string;
   ownerName?: string;
   createdAt: Date;
   updatedAt: Date;
@@ -38,6 +39,7 @@ export interface ProjectWithItems extends SettlementProject {
 }
 
 export interface GetAllProjectsOptions {
+  settlementId: string;
   status?: 'Active' | 'Completed' | 'Cancelled';
   includeItems?: boolean;
   limit?: number;
@@ -47,7 +49,7 @@ export interface GetAllProjectsOptions {
 /**
  * Get all settlement projects
  */
-export async function getAllProjects(options: GetAllProjectsOptions = {}): Promise<SettlementProject[]> {
+export async function getAllProjects(options: GetAllProjectsOptions): Promise<SettlementProject[]> {
   // Use service role client to bypass RLS for project queries
   const supabase = createServerClient();
   if (!supabase) {
@@ -64,7 +66,8 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
           id,
           name
         )
-      `);
+      `).eq('settlement_id', options.settlementId)
+      ;
 
     // Apply filters
     if (options.status) {
@@ -99,6 +102,7 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
       status: project.status,
       priority: project.priority,
       createdByMemberId: project.created_by_member_id,
+      settlementId: project.settlement_id,
       ownerName: project.owner?.name || null,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
@@ -113,7 +117,7 @@ export async function getAllProjects(options: GetAllProjectsOptions = {}): Promi
 /**
  * Get all projects with their items and completion statistics
  */
-export async function getAllProjectsWithItems(options: GetAllProjectsOptions = {}): Promise<ProjectWithItems[]> {
+export async function getAllProjectsWithItems(options: GetAllProjectsOptions): Promise<ProjectWithItems[]> {
   // Use service role client to bypass RLS for project queries
   const supabase = createServerClient();
   if (!supabase) {

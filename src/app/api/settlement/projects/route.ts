@@ -3,7 +3,7 @@ import { getSupabaseSession } from '@/lib/supabase-server-auth';
 import { supabase, createServerClient } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 import { getAllProjects, getAllProjectsWithItems, createProject, type GetAllProjectsOptions, type CreateProjectRequest, CreateProjectItemRequest } from '../../../../lib/spacetime-db-new/modules';
 import { withErrorHandling, parseRequestBody, requireBodyFields, apiSuccess, apiError } from '@/lib/api-utils';
-import { Result, ErrorCodes } from '@/lib/result';
+import { Result, ErrorCodes, error } from '@/lib/result';
 import { logger } from '@/lib/logger';
 
 interface ProjectsData {
@@ -25,8 +25,17 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsR
   try {
     const searchParams = request.nextUrl.searchParams;
     
+    const settlementId = searchParams.get('settlementId');
+
+    if( !settlementId )
+      return apiError(
+        `Failed to fetch projects: Missing settlementId parameter`,
+        ErrorCodes.MISSING_PARAMETER
+      );
+    
     // Parse query parameters first
     const options: GetAllProjectsOptions = {
+      settlementId: settlementId,
       status: searchParams.get('status') as 'Active' | 'Completed' | 'Cancelled' || undefined,
       includeItems: searchParams.get('includeItems') === 'true',
       limit: searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined,
@@ -145,6 +154,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
     priority?: number
     items?: Array<CreateProjectItemRequest>
     createdByMemberId?: string
+    settlementId?: string
   }>(request)
   if (!bodyResult.success) {
     return bodyResult;
@@ -153,7 +163,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
   const body = bodyResult.data;
 
   // Validate required fields
-  if (!body.name || !body.createdByMemberId) {
+  if (!body.name || !body.createdByMemberId || !body.settlementId) {
     return apiError(
       'Project name and createdByMemberId are required',
       ErrorCodes.MISSING_PARAMETER
@@ -168,6 +178,7 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
     description: body.description,
     priority: body.priority,
     createdByMemberId: body.createdByMemberId,
+    settlementId: body.settlementId,
     items: body.items || []
   };
 
