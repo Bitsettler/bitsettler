@@ -358,6 +358,11 @@ export const SETTLEMENT_SCHEMAS = {
   },
   
   contribution: {
+    contributionType: {
+      required: true,
+      type: 'string' as const,
+      allowedValues: ['Direct', 'Crafted', 'Purchased']
+    },
     projectId: {
       required: true,
       type: 'uuid' as const
