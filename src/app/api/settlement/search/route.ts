@@ -80,24 +80,44 @@ export async function GET(request: NextRequest) {
     // Get database client to check for real member counts
     const supabase = createServerClient();
     
-    // Transform BitJita data and get real member counts from our database
-    const settlements = await Promise.all((result.data?.settlements || []).map(async (settlement) => {
+    // Transform BitJita data and filter out already established settlements
+    const settlementPromises = (result.data?.settlements || []).map(async (settlement) => {
       let memberCount = 0;
+      let isEstablished = false;
       
       if (supabase) {
         try {
-          // Check if this settlement exists in our database and get real member count
-          const { data: members, error } = await supabase
-            .from('settlement_members')
-            .select('entity_id', { count: 'exact' })
-            .eq('settlement_id', settlement.id);
+          // Check if this settlement is already established in our database
+          const { data: dbSettlement, error: settlementError } = await supabase
+            .from('settlements_master')
+            .select('is_established')
+            .eq('id', settlement.id)
+            .single();
           
-          if (!error && members) {
-            memberCount = members.length;
+          if (!settlementError && dbSettlement) {
+            isEstablished = dbSettlement.is_established;
+          }
+          
+          // If established, get real member count
+          if (isEstablished) {
+            const { data: members, error: membersError } = await supabase
+              .from('settlement_members')
+              .select('entity_id', { count: 'exact' })
+              .eq('settlement_id', settlement.id);
+            
+            if (!membersError && members) {
+              memberCount = members.length;
+            }
           }
         } catch (err) {
-          // Could not fetch member count
+          // Could not fetch settlement data
         }
+      }
+      
+      // Only show settlements that are NOT established (available to claim)
+      // OR settlements that ARE established and have members (joinable)
+      if (isEstablished && memberCount === 0) {
+        return null; // Skip established settlements with no members
       }
       
       // Settlement data retrieved
@@ -118,7 +138,11 @@ export async function GET(request: NextRequest) {
         regionName: settlement.regionName,
         regionId: settlement.regionId
       };
-    }));
+    });
+
+    // Wait for all promises and filter out null results (established settlements with no members)
+    const allSettlements = await Promise.all(settlementPromises);
+    const settlements = allSettlements.filter(settlement => settlement !== null);
 
     // Settlement search completed
 

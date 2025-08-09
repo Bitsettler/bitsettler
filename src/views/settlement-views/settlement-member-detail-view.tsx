@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { MemberAvatar } from '@/components/ui/discord-avatar';
 import { Container } from '@/components/container';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { useSkillNames } from '../../hooks/use-skill-names';
@@ -405,11 +406,11 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
         </CardHeader>
         <CardContent className="space-y-3 pt-4">
           <div className="flex items-start gap-4">
-            <Avatar className="h-16 w-16">
-              <AvatarFallback className="text-lg font-bold">
-                {member.name.substring(0, 2).toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+            <MemberAvatar 
+              member={member} 
+              size={64} 
+              className="h-16 w-16" 
+            />
             
             <div className="flex-1 space-y-2">
               <div className="flex items-center gap-3 flex-wrap">

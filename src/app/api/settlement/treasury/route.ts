@@ -9,6 +9,7 @@ import {
 } from '../../../../lib/spacetime-db-new/modules';
 import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
 import { treasuryPollingService } from '../../../../lib/spacetime-db-new/modules/treasury/services/treasury-polling-service';
+import { createServerClient } from '../../../../lib/spacetime-db-new/shared/supabase-client';
 
 export async function GET(request: NextRequest) {
   try {
@@ -29,9 +30,35 @@ export async function GET(request: NextRequest) {
           );
         }
         
-        // Fetch real-time treasury balance from BitJita
-        const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
+                // Get the latest treasury balance from polling history
+        const supabase = createServerClient();
+        let currentBalance = 0;
         
+        try {
+          const { data: latestHistory } = await supabase
+            .from('treasury_history')
+            .select('balance, recorded_at')
+            .eq('settlement_id', settlementId)
+            .order('recorded_at', { ascending: false })
+            .limit(1)
+            .single();
+            
+          if (latestHistory) {
+            currentBalance = latestHistory.balance;
+            console.log(`🏛️ Latest treasury balance from polling: ${currentBalance}`);
+          } else {
+            console.warn('⚠️ No treasury history found, trying direct BitJita call...');
+            // Fallback: get live balance directly from BitJita
+            const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
+            if (bitjitaResult.success && bitjitaResult.data) {
+              currentBalance = bitjitaResult.data.treasury;
+              console.log(`🏛️ Direct BitJita treasury balance: ${currentBalance}`);
+            }
+          }
+        } catch (error) {
+          console.error('⚠️ Error getting treasury history:', error);
+        }
+
         // Get local transaction data for statistics (with fallbacks for missing tables)
         let localSummary = null;
         let stats = null;
@@ -63,15 +90,8 @@ export async function GET(request: NextRequest) {
           lastUpdated: new Date().toISOString(),
         };
 
-        // Use BitJita treasury balance if available
-        if (bitjitaResult.success && bitjitaResult.data) {
-          console.log(`✅ Using BitJita treasury balance: ${bitjitaResult.data.treasury}`);
-          enhancedSummary.currentBalance = bitjitaResult.data.treasury;
-        } else {
-          console.warn(`⚠️ Failed to fetch BitJita balance: ${bitjitaResult.error}`);
-          // Fallback to local summary balance
-          enhancedSummary.currentBalance = localSummary?.currentBalance || 0;
-        }
+        // Use live BitJita balance as the source of truth
+        enhancedSummary.currentBalance = currentBalance;
 
         console.log(`📊 Treasury summary: Current Balance: ${enhancedSummary.currentBalance}, Transactions: ${stats?.transactionCount || 0}`);
 
@@ -82,7 +102,7 @@ export async function GET(request: NextRequest) {
             stats,
           },
           meta: {
-            dataSource: bitjitaResult.success ? 'bitjita_realtime' : 'local_database',
+            dataSource: 'manual_transactions',
             lastUpdated: enhancedSummary.lastUpdated,
             settlementId
           }
@@ -242,6 +262,28 @@ export async function GET(request: NextRequest) {
           message: 'Treasury polling stopped',
           status: treasuryPollingService.getStatus()
         });
+        break;
+      }
+
+      case 'ensure_established_polling': {
+        try {
+          const result = await treasuryPollingService.ensureEstablishedSettlementsPolling();
+          
+          return NextResponse.json({
+            success: result.success,
+            message: `Checked ${result.settlementsProcessed} established settlements, started polling for ${result.newPollingStarted} settlements`,
+            data: {
+              settlementsProcessed: result.settlementsProcessed,
+              newPollingStarted: result.newPollingStarted,
+              errors: result.errors
+            }
+          });
+        } catch (error) {
+          return NextResponse.json({
+            success: false,
+            error: error instanceof Error ? error.message : 'Failed to ensure established settlements polling'
+          }, { status: 500 });
+        }
         break;
       }
 

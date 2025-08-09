@@ -150,6 +150,7 @@ export function SettlementTreasuryView() {
   const [timeRange, setTimeRange] = useState<number>(30); // 30 days default instead of 7 days
   const [timeUnit, setTimeUnit] = useState<'days' | 'months'>('days'); // New time unit state
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [triedFallback, setTriedFallback] = useState<boolean>(false);
   
 
   
@@ -290,6 +291,14 @@ export function SettlementTreasuryView() {
         recordedAt: new Date(snapshot.recordedAt)
       }));
 
+      // If the selected range has no data, try a broader fallback once
+      if (historyWithDates.length === 0 && !triedFallback) {
+        setTriedFallback(true);
+        setTimeUnit('months');
+        setTimeRange(6); // broaden to last 6 months
+        return; // the useEffect will retrigger fetch with new range
+      }
+
       setHistory(historyWithDates);
     } catch (err) {
       // Treasury history fetch failed
@@ -358,15 +367,13 @@ export function SettlementTreasuryView() {
     return (
       <Container>
         <div className="space-y-8 py-8">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <Card key={`summary-skeleton-${i}`}>
-                <CardHeader>
-                  <Skeleton className="h-4 w-24" />
-                  <Skeleton className="h-8 w-32" />
-                </CardHeader>
-              </Card>
-            ))}
+          <div className="grid gap-6 max-w-sm">
+            <Card>
+              <CardHeader>
+                <Skeleton className="h-4 w-24" />
+                <Skeleton className="h-8 w-32" />
+              </CardHeader>
+            </Card>
           </div>
 
           <Card>
@@ -430,38 +437,28 @@ export function SettlementTreasuryView() {
         </div>
       </div>
 
-      {/* Live Treasury Balance */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Wallet className="h-5 w-5 text-muted-foreground" />
-              <CardTitle>Treasury Balance</CardTitle>
+      {/* Live Treasury Balance Summary */}
+      <div className="grid gap-6 max-w-sm">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Current Balance</CardTitle>
+            <Wallet className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {summary ? formatHexcoin(summary.currentBalance) : '---'}
             </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="text-4xl font-bold mb-2">
-            {summary ? formatHexcoin(summary.currentBalance) : '0 🪙'}
-          </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>
-              {summary?.lastUpdated ? 
-                `Last updated: ${new Date(summary.lastUpdated).toLocaleString()}` :
-                'Loading...'
-              }
-            </span>
-            <span>•</span>
-            <span>Tier 6 Settlement</span>
-            <span>•</span>
-            <span>7,981 tiles</span>
-          </div>
-        </CardContent>
-      </Card>
+            <p className="text-xs text-muted-foreground">
+              Live from game API
+            </p>
+          </CardContent>
+        </Card>
+
+
+      </div>
 
       {/* Treasury History Chart */}
-      {history.length > 0 && (
-        <Card>
+      <Card>
           <CardHeader>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -626,10 +623,10 @@ export function SettlementTreasuryView() {
                           <Line 
                             type="monotone" 
                             dataKey="balance" 
-                            stroke="var(--color-balance)" 
+                            stroke="hsl(var(--primary))" 
                             strokeWidth={3} // Thicker line for better visibility
-                            dot={{ fill: "var(--color-balance)", strokeWidth: 2, r: 5 }} // Bigger dots
-                            activeDot={{ r: 8, fill: "var(--color-balance)" }}
+                            dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 5 }} // Bigger dots
+                            activeDot={{ r: 8, fill: "hsl(var(--primary))" }}
                           />
                         </LineChart>
                       </ChartContainer>
@@ -653,158 +650,134 @@ export function SettlementTreasuryView() {
         </Card>
       )}
 
-              {/* Transaction History & Manual Adjustments */}
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle>Transaction History & Manual Adjustments</CardTitle>
-                <CardDescription>
-                  All treasury transactions, manual adjustments, and financial activity
-                </CardDescription>
-              </div>
-              <Button className="gap-2" onClick={() => setShowAddModal(true)}>
-                <Plus className="h-4 w-4" />
-                Add Manual Entry
-              </Button>
+      {/* Manual Transaction Management */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center gap-2">
+                <Wallet className="h-5 w-5" />
+                Manual Transaction Ledger
+              </CardTitle>
+              <CardDescription>
+                Log treasury transactions manually • For officer use
+              </CardDescription>
             </div>
-            
-            {/* Stats Row for Manual Adjustments */}
-            <div className="grid gap-4 md:grid-cols-3 mt-4">
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-sm text-muted-foreground">Manual Income</div>
-                <div className="text-lg font-medium text-emerald-600">
-                  {stats ? formatCurrency(stats.monthlyIncome) : '0'}
-                </div>
-              </div>
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-sm text-muted-foreground">Manual Expenses</div>
-                <div className="text-lg font-medium text-red-500">
-                  {stats ? formatCurrency(stats.monthlyExpenses) : '0'}
-                </div>
-              </div>
-              <div className="text-center p-3 border rounded-lg">
-                <div className="text-sm text-muted-foreground">Net Change</div>
-                <div className={`text-lg font-medium ${stats && stats.netChange >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                  {stats ? formatCurrency(stats.netChange) : '0'}
-                </div>
-              </div>
-            </div>
-          </CardHeader>
+            <Button onClick={() => setShowAddModal(true)} className="flex items-center gap-2">
+              <Plus className="h-4 w-4" />
+              Add Transaction
+            </Button>
+          </div>
+        </CardHeader>
         <CardContent>
-          {/* Filters */}
-          <div className="flex gap-4 mb-6 flex-col sm:flex-row">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                placeholder="Search transactions..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
+          {/* Filters and Search */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <div className="flex-1">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  placeholder="Search transactions..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
             </div>
-            
             <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger className="w-[180px]">
-                <Filter className="h-4 w-4 mr-2" />
+              <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem key="all-types" value="all">All Types</SelectItem>
-                <SelectItem key="type-income" value="Income">Income</SelectItem>
-                <SelectItem key="type-expense" value="Expense">Expense</SelectItem>
-                <SelectItem key="type-transfer" value="Transfer">Transfer</SelectItem>
-                <SelectItem key="type-adjustment" value="Adjustment">Adjustment</SelectItem>
+                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="Income">Income</SelectItem>
+                <SelectItem value="Expense">Expense</SelectItem>
+                <SelectItem value="Transfer">Transfer</SelectItem>
+                <SelectItem value="Adjustment">Adjustment</SelectItem>
               </SelectContent>
             </Select>
-
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem key="all-categories" value="all">All Categories</SelectItem>
-                {categories.map((cat, index) => (
-                  <SelectItem key={`category-${cat.category || `undefined-${index}`}`} value={cat.category || 'undefined'}>
-                    {cat.category || 'Uncategorized'} ({cat.count})
+                <SelectItem value="all">All Categories</SelectItem>
+                {categories.map((cat) => (
+                  <SelectItem key={cat.category} value={cat.category}>
+                    {cat.category} ({cat.count})
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
 
-          {/* Transactions List */}
+          {/* Transaction List */}
           {transactionsLoading ? (
             <div className="space-y-4">
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={`loading-transaction-${i}`} className="flex items-center justify-between py-3 border-b">
-                  <div className="flex items-center gap-3">
-                    <Skeleton className="h-8 w-8 rounded" />
-                    <div>
-                      <Skeleton className="h-4 w-32 mb-1" />
-                      <Skeleton className="h-3 w-24" />
-                    </div>
+                <div key={`transaction-skeleton-${i}`} className="flex items-center justify-between py-3 border-b">
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-3 w-32" />
                   </div>
-                  <Skeleton className="h-4 w-20" />
+                  <Skeleton className="h-6 w-24" />
                 </div>
               ))}
             </div>
           ) : filteredTransactions.length === 0 ? (
             <div className="text-center py-12 text-muted-foreground">
-              {searchTerm || typeFilter !== 'all' || categoryFilter !== 'all' ? (
-                <>
-                  <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No transactions found</p>
-                  <p>Try adjusting your search terms or filters.</p>
-                </>
-              ) : (
-                <>
-                  <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No transactions yet</p>
-                  <p>Treasury transactions will appear here when they&apos;re recorded.</p>
-                </>
-              )}
+              <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
+              <h3 className="text-lg font-medium mb-2">No transactions found</h3>
+              <p className="text-sm">
+                {searchTerm || typeFilter !== 'all' || categoryFilter !== 'all'
+                  ? "Try adjusting your filters"
+                  : "Start by adding your first transaction"}
+              </p>
             </div>
           ) : (
             <div className="space-y-1">
               {filteredTransactions.map((transaction) => {
-                const TypeIcon = transactionTypeIcons[transaction.transactionType];
+                const IconComponent = transactionTypeIcons[transaction.transactionType];
+                const isPositive = transaction.transactionType === 'Income';
+                
                 return (
-                  <div key={transaction.id} className="flex items-center justify-between py-3 border-b last:border-b-0 hover:bg-muted/50 rounded px-2">
+                  <div key={transaction.id} className="flex items-center justify-between py-3 border-b last:border-0 hover:bg-muted/30 rounded px-2 -mx-2">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${transactionTypeColors[transaction.transactionType]}`}>
-                        <TypeIcon className="h-4 w-4" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-medium">
-                            {transaction.description || `${transaction.transactionType} Transaction`}
-                          </span>
-                          {transaction.category && (
-                            <Badge variant="secondary" className="text-xs">
-                              {transaction.category}
-                            </Badge>
-                          )}
+                      <Badge
+                        variant="outline"
+                        className={`flex items-center gap-1.5 ${transactionTypeColors[transaction.transactionType]}`}
+                      >
+                        <IconComponent className="h-3 w-3" />
+                        {transaction.transactionType}
+                      </Badge>
+                      <div>
+                        <div className="font-medium text-sm">
+                          {transaction.description || 'No description'}
                         </div>
-                        <div className="text-sm text-muted-foreground">
-                          {new Date(transaction.transactionDate).toLocaleDateString()} • 
-                          {transaction.transactionType}
+                        <div className="text-xs text-muted-foreground flex items-center gap-2">
+                          <span>{new Date(transaction.transactionDate).toLocaleDateString()}</span>
+                          {transaction.category && (
+                            <>
+                              <span>•</span>
+                              <span>{transaction.category}</span>
+                            </>
+                          )}
+                          {transaction.relatedProjectName && (
+                            <>
+                              <span>•</span>
+                              <span>Project: {transaction.relatedProjectName}</span>
+                            </>
+                          )}
                           {transaction.relatedMemberName && (
-                            <> • by {transaction.relatedMemberName}</>
+                            <>
+                              <span>•</span>
+                              <span>Member: {transaction.relatedMemberName}</span>
+                            </>
                           )}
                         </div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className={`font-medium ${
-                        transaction.transactionType === 'Income' ? 'text-green-600' : 
-                        transaction.transactionType === 'Expense' ? 'text-red-600' : 
-                        'text-muted-foreground'
-                      }`}>
-                        {transaction.transactionType === 'Income' ? '+' : 
-                         transaction.transactionType === 'Expense' ? '-' : ''}
-                        {formatCurrency(transaction.amount)}
-                      </div>
+                    <div className={`font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+                      {isPositive ? '+' : '-'}{formatHexcoin(Math.abs(transaction.amount))}
                     </div>
                   </div>
                 );
@@ -812,15 +785,39 @@ export function SettlementTreasuryView() {
             </div>
           )}
 
-          {/* Pagination Info */}
+          {/* Pagination */}
           {filteredTransactions.length > 0 && (
-            <div className="mt-6 text-sm text-muted-foreground text-center">
-              Showing {filteredTransactions.length} transaction{filteredTransactions.length !== 1 ? 's' : ''}
-              {searchTerm && ' matching your search'}
+            <div className="flex items-center justify-between pt-4 border-t">
+              <div className="text-sm text-muted-foreground">
+                Showing {filteredTransactions.length} of {transactions.length} transactions
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </Button>
+                <span className="text-sm text-muted-foreground px-2">
+                  Page {currentPage}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disabled={filteredTransactions.length < itemsPerPage}
+                >
+                  Next
+                </Button>
+              </div>
             </div>
           )}
         </CardContent>
       </Card>
+
+      {/* End focus on graph only */}
       </div>
 
       {/* Add Transaction Modal */}

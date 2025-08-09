@@ -263,7 +263,8 @@ export async function POST(request: NextRequest) {
         name_normalized: settlementName.toLowerCase(),
         name_searchable: settlementName,
         is_active: true,
-        sync_source: 'establishment'
+        sync_source: 'establishment',
+        is_established: true
       } as any)
       .select()
       .single();
@@ -276,7 +277,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 3. Generate invite code using database function
+    // 3. Start treasury polling for the new settlement
+    try {
+      console.log('💰 Starting treasury polling for new settlement...');
+      const { TreasuryPollingService } = await import('@/lib/spacetime-db-new/modules/treasury/services/treasury-polling-service');
+      const treasuryService = TreasuryPollingService.getInstance();
+      
+      const initialSnapshot = await treasuryService.pollTreasuryData(settlementId);
+      if (initialSnapshot) {
+        console.log(`✅ Treasury polling started with initial balance: ${initialSnapshot.balance}`);
+      } else {
+        console.warn('⚠️ Treasury polling started but no initial snapshot created');
+      }
+    } catch (pollingError) {
+      console.error('❌ Failed to start treasury polling:', pollingError);
+      // Don't fail settlement creation if polling fails - it can be started manually later
+    }
+
+    // 4. Generate invite code using database function
     const { data: inviteCodeResult, error: codeError } = await supabase
       .rpc('create_settlement_invite_code', {
         p_settlement_id: settlementId,

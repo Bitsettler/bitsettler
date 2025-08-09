@@ -182,6 +182,117 @@ export class TreasuryPollingService {
   }
 
   /**
+   * Ensure all established settlements have treasury polling active
+   */
+  async ensureEstablishedSettlementsPolling(): Promise<{
+    success: boolean;
+    settlementsProcessed: number;
+    newPollingStarted: number;
+    errors: string[];
+  }> {
+    if (!this.supabase) {
+      return {
+        success: false,
+        settlementsProcessed: 0,
+        newPollingStarted: 0,
+        errors: ['Supabase client not available']
+      };
+    }
+
+    try {
+      console.log('🔍 Checking established settlements for treasury polling...');
+
+      // Get all established settlements
+      const { data: establishedSettlements, error: settlementsError } = await this.supabase
+        .from('settlements_master')
+        .select('id, name')
+        .eq('is_established', true)
+        .eq('is_active', true);
+
+      if (settlementsError) {
+        console.error('❌ Failed to fetch established settlements:', settlementsError);
+        return {
+          success: false,
+          settlementsProcessed: 0,
+          newPollingStarted: 0,
+          errors: [settlementsError.message]
+        };
+      }
+
+      if (!establishedSettlements || establishedSettlements.length === 0) {
+        console.log('ℹ️ No established settlements found');
+        return {
+          success: true,
+          settlementsProcessed: 0,
+          newPollingStarted: 0,
+          errors: []
+        };
+      }
+
+      console.log(`📊 Found ${establishedSettlements.length} established settlements`);
+
+      let newPollingStarted = 0;
+      const errors: string[] = [];
+
+      // Check each settlement for existing treasury history (indicates polling is active)
+      for (const settlement of establishedSettlements) {
+        try {
+          // Check if settlement already has recent treasury history
+          const { data: recentHistory, error: historyError } = await this.supabase
+            .from('treasury_history')
+            .select('recorded_at')
+            .eq('settlement_id', settlement.id)
+            .order('recorded_at', { ascending: false })
+            .limit(1)
+            .single();
+
+          // If no history error or no recent history (older than 7 days), start polling
+          const needsPolling = historyError || 
+            !recentHistory || 
+            (new Date().getTime() - new Date(recentHistory.recorded_at).getTime()) > (7 * 24 * 60 * 60 * 1000);
+
+          if (needsPolling) {
+            console.log(`🏛️ Starting treasury polling for ${settlement.name} (${settlement.id})`);
+            
+            const snapshot = await this.pollTreasuryData(settlement.id);
+            if (snapshot) {
+              newPollingStarted++;
+              console.log(`✅ Treasury polling started for ${settlement.name}`);
+            } else {
+              errors.push(`Failed to start polling for ${settlement.name}`);
+            }
+          } else {
+            console.log(`⏭️ ${settlement.name} already has recent treasury data`);
+          }
+        } catch (error) {
+          const errorMsg = `Error processing ${settlement.name}: ${error instanceof Error ? error.message : 'Unknown error'}`;
+          console.error('❌', errorMsg);
+          errors.push(errorMsg);
+        }
+      }
+
+      console.log(`📈 Treasury polling check complete: ${newPollingStarted} new, ${errors.length} errors`);
+
+      return {
+        success: true,
+        settlementsProcessed: establishedSettlements.length,
+        newPollingStarted,
+        errors
+      };
+
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+      console.error('❌ Error in ensureEstablishedSettlementsPolling:', errorMsg);
+      return {
+        success: false,
+        settlementsProcessed: 0,
+        newPollingStarted: 0,
+        errors: [errorMsg]
+      };
+    }
+  }
+
+  /**
    * Get treasury history for a settlement
    */
   async getTreasuryHistory(

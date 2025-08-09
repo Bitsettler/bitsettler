@@ -4,6 +4,7 @@ import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-clien
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 import { createRequestLogger } from '@/lib/logger';
 import { shouldRateLimit, characterClaimRateLimit } from '@/lib/rate-limiting';
+import { extractDiscordAvatarData } from '@/lib/discord-avatar';
 
 /**
  * Character Claim API
@@ -245,6 +246,18 @@ export async function POST(request: NextRequest) {
       updateData.secondary_profession = secondaryProfession;
     }
 
+    // Extract and add Discord avatar data if this is a Discord user
+    if (user.app_metadata?.provider === 'discord') {
+      const discordAvatarData = extractDiscordAvatarData(user);
+      if (discordAvatarData) {
+        Object.assign(updateData, discordAvatarData);
+        claimLogger.info('Adding Discord avatar data to character claim', {
+          discordUserId: discordAvatarData.discord_user_id,
+          hasAvatar: !!discordAvatarData.discord_avatar_hash
+        });
+      }
+    }
+
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')
       .update(updateData)
@@ -281,7 +294,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 4. Get settlement information for response using authenticated client
+    // 4. Mark settlement as established (since someone claimed a character)
+    await serviceClient
+      .from('settlements_master')
+      .update({ is_established: true })
+      .eq('id', settlementId);
+
+    // 5. Start treasury polling for the newly established settlement
+    try {
+      console.log('💰 Starting treasury polling for established settlement...');
+      const { TreasuryPollingService } = await import('@/lib/spacetime-db-new/modules/treasury/services/treasury-polling-service');
+      const treasuryService = TreasuryPollingService.getInstance();
+      
+      const initialSnapshot = await treasuryService.pollTreasuryData(settlementId);
+      if (initialSnapshot) {
+        console.log(`✅ Treasury polling started with initial balance: ${initialSnapshot.balance}`);
+      } else {
+        console.log('📊 Treasury polling started (no immediate balance change recorded)');
+      }
+    } catch (treasuryError) {
+      console.error('⚠️ Failed to start treasury polling:', treasuryError);
+      // Don't fail the character claim if treasury polling fails
+    }
+
+    // 6. Get settlement information for response using authenticated client
     const { data: settlement, error: settlementError } = await authenticatedClient
       .from('settlements_master')
       .select('id, name, tier, population')

@@ -12,6 +12,7 @@ import { Checkbox } from '../ui/checkbox';
 import { Separator } from '../ui/separator';
 import { Container } from '../container';
 import { Avatar, AvatarFallback } from '../ui/avatar';
+import { MemberAvatar } from '../ui/discord-avatar';
 import { Badge } from '../ui/badge';
 import { Loader2, Save, User, Settings, Palette, Bell } from 'lucide-react';
 import { getDisplayProfession } from '@/lib/utils/profession-utils';
@@ -144,11 +145,18 @@ export function ProfileManagement() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center gap-4">
-              <Avatar className="h-16 w-16">
-                <AvatarFallback style={{ backgroundColor: member.profile_color }}>
-                  {(member.display_name || member.name).substring(0, 2).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
+              <div className="relative">
+                <MemberAvatar 
+                  member={member} 
+                  size={64} 
+                  className="h-16 w-16" 
+                />
+                <Avatar className="h-16 w-16 absolute inset-0 opacity-0 hover:opacity-100 transition-opacity bg-black/20 flex items-center justify-center text-white text-xs">
+                  <AvatarFallback className="bg-transparent text-white">
+                    Discord
+                  </AvatarFallback>
+                </Avatar>
+              </div>
               <div className="space-y-1">
                 <h3 className="font-semibold">{member.name}</h3>
                 <p className="text-sm text-muted-foreground">{getDisplayProfession(member)}</p>
