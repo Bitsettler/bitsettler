@@ -4,7 +4,6 @@ import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-clien
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 import { createRequestLogger } from '@/lib/logger';
 import { shouldRateLimit, characterClaimRateLimit } from '@/lib/rate-limiting';
-import { extractDiscordAvatarData } from '@/lib/discord-avatar';
 
 /**
  * Character Claim API
@@ -246,17 +245,7 @@ export async function POST(request: NextRequest) {
       updateData.secondary_profession = secondaryProfession;
     }
 
-    // Extract and add Discord avatar data if this is a Discord user
-    if (user.app_metadata?.provider === 'discord') {
-      const discordAvatarData = extractDiscordAvatarData(user);
-      if (discordAvatarData) {
-        Object.assign(updateData, discordAvatarData);
-        claimLogger.info('Adding Discord avatar data to character claim', {
-          discordUserId: discordAvatarData.discord_user_id,
-          hasAvatar: !!discordAvatarData.discord_avatar_hash
-        });
-      }
-    }
+
 
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')

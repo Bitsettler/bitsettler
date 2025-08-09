@@ -44,8 +44,7 @@ export function UserNav() {
 
   const handleSignOut = async () => {
     await signOut()
-    router.push('/en/auth/signin')
-    router.refresh()
+    // signOut function handles page redirect automatically
   }
 
   if (loading || memberLoading) {

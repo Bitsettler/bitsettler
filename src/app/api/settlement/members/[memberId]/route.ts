@@ -97,12 +97,6 @@ export async function GET(
       joinedAt: member.joined_settlement_at,
       isActive: member.is_active,
       lastSyncInfo: member.last_synced_at ? `Last synced: ${new Date(member.last_synced_at).toLocaleString()}` : 'Never synced',
-      // Discord avatar data
-      discord_user_id: member.discord_user_id,
-      discord_username: member.discord_username,
-      discord_global_name: member.discord_global_name,
-      discord_avatar_hash: member.discord_avatar_hash,
-      discord_avatar_url: member.discord_avatar_url,
       // App user data (if claimed)
       displayName: member.display_name,
       discordHandle: member.discord_handle,

@@ -68,11 +68,36 @@ export const auth = {
 
   // Sign out
   async signOut() {
-    const { error } = await supabase.auth.signOut()
-    if (error) {
-      console.error('Error signing out:', error)
+    try {
+      // Force clear all Supabase auth data first
+      const keys = Object.keys(localStorage).filter(key => 
+        key.startsWith('supabase.auth') || 
+        key.startsWith('sb-') ||
+        key.includes('supabase')
+      )
+      keys.forEach(key => localStorage.removeItem(key))
+      
+      // Try graceful signout, but ignore errors
+      try {
+        await supabase.auth.signOut({ scope: 'local' })
+      } catch (signOutError) {
+        console.warn('SignOut API call failed (ignoring):', signOutError)
+      }
+      
+      // Force reload the page to clear all auth state
+      if (typeof window !== 'undefined') {
+        window.location.href = '/en/auth/signin'
+      }
+      
+      return { error: null }
+    } catch (err) {
+      console.warn('Sign out error (forcing page reload):', err)
+      // Force page reload as last resort
+      if (typeof window !== 'undefined') {
+        window.location.href = '/en/auth/signin'
+      }
+      return { error: null }
     }
-    return { error }
   },
 
   // Listen to auth state changes

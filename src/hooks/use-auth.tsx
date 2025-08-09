@@ -50,6 +50,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe()
   }, [])
 
+  const handleSignOut = async () => {
+    // The auth.signOut function now handles everything including page redirect
+    return await auth.signOut()
+  }
+
   const contextValue: AuthContextType = {
     user,
     session,
@@ -57,7 +62,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signIn: auth.signInWithEmail,
     signInWithProvider: auth.signInWithProvider,
     signUp: auth.signUp,
-    signOut: auth.signOut
+    signOut: handleSignOut
   }
 
   return (
