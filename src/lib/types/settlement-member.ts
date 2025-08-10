@@ -41,6 +41,7 @@ export interface DatabaseSettlementMember {
   discord_handle?: string;
   bio?: string;
   timezone?: string;
+  avatar_url?: string;
   
   // System fields
   is_active?: boolean;
@@ -90,6 +91,7 @@ export interface ApiFormattedMember {
     discordHandle?: string;
     bio?: string;
     timezone?: string;
+    avatarUrl?: string;
   };
   
   isActive: boolean;
@@ -181,11 +183,12 @@ export function formatMemberForApi(dbMember: DatabaseSettlementMember): ApiForma
       onboardingCompleted: dbMember.onboarding_completed_at ? new Date(dbMember.onboarding_completed_at) : undefined
     },
     
-    profile: dbMember.display_name || dbMember.discord_handle || dbMember.bio || dbMember.timezone ? {
+    profile: dbMember.display_name || dbMember.discord_handle || dbMember.bio || dbMember.timezone || dbMember.avatar_url ? {
       displayName: dbMember.display_name,
       discordHandle: dbMember.discord_handle,
       bio: dbMember.bio,
-      timezone: dbMember.timezone
+      timezone: dbMember.timezone,
+      avatarUrl: dbMember.avatar_url
     } : undefined,
     
     isActive: dbMember.is_active !== false

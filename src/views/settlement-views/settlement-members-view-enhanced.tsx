@@ -8,7 +8,7 @@ import { Input } from '../../components/ui/input';
 import { Button } from '../../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Skeleton } from '../../components/ui/skeleton';
-import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
@@ -298,6 +298,7 @@ export function SettlementMembersView() {
                   >
                     <TableCell>
                       <Avatar className="h-10 w-10">
+                        <AvatarImage src={member.avatar_url || ''} alt={member.name} />
                         <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
                           {getInitials(member.name)}
                         </AvatarFallback>

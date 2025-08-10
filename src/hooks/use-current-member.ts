@@ -35,6 +35,7 @@ export interface SettlementMember {
   discord_handle: string | null;
   bio: string | null;
   timezone: string | null;
+  avatar_url: string | null;
   preferred_contact: 'discord' | 'in-game' | 'app';
   theme: 'light' | 'dark' | 'system';
   profile_color: string;

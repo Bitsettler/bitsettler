@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { useSkillNames } from '../../hooks/use-skill-names';
@@ -406,6 +406,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
         <CardContent className="space-y-3 pt-4">
           <div className="flex items-start gap-4">
             <Avatar className="h-16 w-16">
+              <AvatarImage src={member.avatar_url || ''} alt={member.name} />
               <AvatarFallback className="text-lg font-bold">
                 {member.name.substring(0, 2).toUpperCase()}
               </AvatarFallback>

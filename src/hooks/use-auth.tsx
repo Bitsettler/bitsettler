@@ -2,6 +2,21 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import { auth, type AuthUser, type AuthSession } from '@/lib/supabase-auth'
+import { api } from '@/lib/api-client'
+
+// Function to update member avatar in database
+async function updateMemberAvatar(userId: string, avatarUrl: string) {
+  try {
+    const response = await api.post('/api/user/update-avatar', { avatar_url: avatarUrl })
+    if (!response.success) {
+      throw new Error(response.error || 'Failed to update avatar')
+    }
+    return response
+  } catch (error) {
+    console.error('Error updating member avatar:', error)
+    throw error
+  }
+}
 
 interface AuthContextType {
   user: AuthUser | null
@@ -38,8 +53,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         
         if (event === 'SIGNED_IN' && session?.user) {
           console.log('User signed in:', session.user.email)
-          if (session.user.user_metadata?.avatar_url) {
-            console.log('User has Discord avatar:', session.user.user_metadata.avatar_url)
+          // Store Discord avatar if available
+          const avatarUrl = session.user.user_metadata?.avatar_url
+          if (avatarUrl) {
+            console.log('User has Discord avatar:', avatarUrl)
+            // Update settlement member with avatar URL
+            updateMemberAvatar(session.user.id, avatarUrl).catch(err => {
+              console.error('Failed to update member avatar:', err)
+            })
           }
         } else if (event === 'SIGNED_OUT') {
           console.log('User signed out')
