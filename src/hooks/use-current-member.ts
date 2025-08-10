@@ -38,6 +38,7 @@ export interface SettlementMember {
   preferred_contact: 'discord' | 'in-game' | 'app';
   theme: 'light' | 'dark' | 'system';
   profile_color: string;
+
   
   // App settings
   default_settlement_view: string;

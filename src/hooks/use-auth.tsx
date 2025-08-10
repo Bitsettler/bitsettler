@@ -37,8 +37,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(session?.user ?? null)
         
         if (event === 'SIGNED_IN' && session?.user) {
-          // Optionally sync user data to settlement_members table
           console.log('User signed in:', session.user.email)
+          if (session.user.user_metadata?.avatar_url) {
+            console.log('User has Discord avatar:', session.user.user_metadata.avatar_url)
+          }
         } else if (event === 'SIGNED_OUT') {
           console.log('User signed out')
         }
