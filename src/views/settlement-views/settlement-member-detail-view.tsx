@@ -10,6 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
 import { useCurrentMember } from '../../hooks/use-current-member';
+import { useAuth } from '../../hooks/use-auth';
 import { useSkillNames } from '../../hooks/use-skill-names';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { TierIcon } from '@/components/ui/tier-icon';
@@ -146,6 +147,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [contribError, setContribError] = useState<string | null>(null);
   
   const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
+  const { user: authUser } = useAuth();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 
   // Check if this is the current user's own profile
@@ -406,7 +408,11 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
         <CardContent className="space-y-3 pt-4">
           <div className="flex items-start gap-4">
             <Avatar className="h-16 w-16">
-              <AvatarImage src={member.avatar_url || ''} alt={member.name} />
+              <AvatarImage src={
+                member.avatar_url || 
+                (isOwnProfile && authUser?.user_metadata?.avatar_url) || 
+                ''
+              } alt={member.name} />
               <AvatarFallback className="text-lg font-bold">
                 {member.name.substring(0, 2).toUpperCase()}
               </AvatarFallback>
