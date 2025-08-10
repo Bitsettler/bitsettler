@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client'
-import { getAuthUser } from '@/lib/admin-auth'
+import { getSupabaseSession } from '@/lib/supabase-server-auth'
 
 export async function POST(request: NextRequest) {
   try {
-    // Get authenticated user
-    const user = await getAuthUser(request)
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    // Get authenticated user session
+    const session = await getSupabaseSession(request)
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Authentication required' }, { status: 401 })
     }
 
     const { avatar_url } = await request.json()
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabase
       .from('settlement_members')
       .update({ avatar_url })
-      .eq('auth_user_id', user.id)
+      .eq('supabase_user_id', session.user.id)
       .select()
 
     if (error) {
