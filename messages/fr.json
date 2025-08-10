@@ -13,7 +13,7 @@
     "compendium": "Compendium"
   },
   "header": {
-    "title": "Guide des Colonies BitCraft",
+    "title": "Bitsettler",
     "subtitle": "Votre guide complet pour les colonies, ressources et artisanat BitCraft",
     "navigation": {
       "calculator": "Calculateur",
@@ -55,9 +55,9 @@
     "settlementTreasury": "Trésorerie",
     "settlementManage": "Gérer",
     "community": "Communauté",
-    "bitcraftGuideDiscord": "Discord BitCraft Guide",
-    "bitcraftGuideGithub": "GitHub BitCraft Guide",
-    "bitcraftGuideTwitter": "Twitter BitCraft Guide",
+    "bitcraftGuideDiscord": "Discord Bitsettler",
+    "bitcraftGuideGithub": "GitHub Bitsettler",
+    "bitcraftGuideTwitter": "Twitter Bitsettler",
     "recentChanges": "Changements récents",
     "changelog": "Journal des modifications",
     "recentChangesDescription": "Dernières mises à jour et modifications"

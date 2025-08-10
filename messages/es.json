@@ -13,7 +13,7 @@
     "compendium": "Compendio"
   },
   "header": {
-    "title": "Guía de Asentamientos BitCraft",
+    "title": "Bitsettler",
     "subtitle": "Tu guía completa para asentamientos, recursos y creación en BitCraft",
     "navigation": {
       "calculator": "Calculadora",
@@ -55,9 +55,9 @@
     "settlementTreasury": "Tesorería",
     "settlementManage": "Gestionar",
     "community": "Comunidad",
-    "bitcraftGuideDiscord": "Discord BitCraft Guide",
-    "bitcraftGuideGithub": "GitHub BitCraft Guide",
-    "bitcraftGuideTwitter": "Twitter BitCraft Guide",
+    "bitcraftGuideDiscord": "Discord Bitsettler",
+    "bitcraftGuideGithub": "GitHub Bitsettler",
+    "bitcraftGuideTwitter": "Twitter Bitsettler",
     "recentChanges": "Cambios recientes",
     "changelog": "Registro de cambios",
     "recentChangesDescription": "Últimas actualizaciones y cambios"

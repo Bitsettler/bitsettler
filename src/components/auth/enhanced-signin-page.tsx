@@ -95,7 +95,7 @@ export function EnhancedSignInPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold text-foreground">
-            Welcome to BitCraft.guide
+            Welcome to Bitsettler
           </h1>
           <p className="text-muted-foreground">
             Connect your account to manage your settlement
@@ -130,7 +130,7 @@ export function EnhancedSignInPage() {
               <CardDescription className="text-center">
                 {activeTab === 'signin' 
                   ? 'Welcome back! Sign in to access your settlement dashboard and data.'
-                  : 'New to BitCraft.guide? Create an account to start managing your settlement.'
+                  : 'New to Bitsettler? Create an account to start managing your settlement.'
                 }
               </CardDescription>
             </CardHeader>

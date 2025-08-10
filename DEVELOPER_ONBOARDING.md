@@ -1,5 +1,5 @@
 # 🚀 Developer Onboarding Guide
-**BitCraft.Guide Settlement Management System**
+**Bitsettler Settlement Management System**
 
 Welcome to the team! This guide will get you up and running with our comprehensive crafting guide and settlement management system for BitCraft.
 
@@ -8,7 +8,7 @@ Welcome to the team! This guide will get you up and running with our comprehensi
 ## 📋 **What You're Working On**
 
 ### **Project Overview**
-BitCraft.Guide is a Next.js application that provides:
+Bitsettler is a Next.js application that provides:
 - 🔍 **Crafting System**: Interactive recipe visualization and material calculator
 - 🏛️ **Settlement Management**: Real-time settlement dashboard with member/project/treasury tracking
 - 🔐 **Authentication**: Secure user accounts with character claiming
@@ -27,7 +27,7 @@ BitCraft.Guide is a Next.js application that provides:
 ### **1. Clone & Install**
 ```bash
 git clone <repository-url>
-cd bitcraft.guide-settlements
+cd bitsettler
 npm install
 ```
 
@@ -44,7 +44,7 @@ NODE_ENV=development
 NEXT_PUBLIC_DEBUG=true
 
 # BitJita API
-NEXT_PUBLIC_BITJITA_API_IDENTIFIER=PR3SIDENT/Bitcraft.guide
+NEXT_PUBLIC_BITJITA_API_IDENTIFIER=PR3SIDENT/Bitsettler
 ```
 
 **🔑 Get Supabase Keys:**

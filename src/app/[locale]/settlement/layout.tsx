@@ -3,7 +3,7 @@ import { AuthGuard } from '@/components/auth/auth-guard';
 import '@/styles/settlement-tiers.css';
 
 export const metadata: Metadata = {
-  title: 'Settlement - BitCraft.Guide',
+  title: 'Settlement - Bitsettler',
   description: 'Manage your BitCraft settlement, track members, projects, and treasury.',
 };
 

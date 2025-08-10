@@ -77,7 +77,7 @@
 -- - member_professions populated from BitJita citizen skills data
 -- - treasury data can be synced from BitJita settlement treasury
 
--- BitCraft.Guide Integration:
+-- Bitsettler Integration:
 -- - project_items.item_name can reference main item compendium
 -- - Cross-reference crafting recipes with settlement projects
 -- - Link member skills to crafting requirements
@@ -87,4 +87,4 @@
 -- - Automated sync schedules via scraping_schedules table
 -- - API call logging for monitoring and debugging
 
-COMMENT ON SCHEMA public IS 'Settlement Management System - Integrated with BitCraft.Guide for comprehensive settlement and crafting management'; 
+COMMENT ON SCHEMA public IS 'Settlement Management System - Integrated with Bitsettler for comprehensive settlement and crafting management'; 

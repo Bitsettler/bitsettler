@@ -16,7 +16,7 @@ export default function TermsOfServicePage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              By accessing and using Bitcraft.Guide, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+              By accessing and using Bitsettler, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
             </p>
           </CardContent>
         </Card>
@@ -27,7 +27,7 @@ export default function TermsOfServicePage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Bitcraft.Guide is a web application that provides tools and resources for the BitCraft game, including but not limited to:
+              Bitsettler is a web application that provides tools and resources for the BitCraft game, including but not limited to:
             </p>
             <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
               <li>Crafting guides and recipe calculators</li>
@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              The service and its original content, features, and functionality are owned by Bitcraft.Guide and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+              The service and its original content, features, and functionality are owned by Bitsettler and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
             </p>
           </CardContent>
         </Card>
@@ -149,7 +149,7 @@ export default function TermsOfServicePage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              IN NO EVENT SHALL BITCRAFT.GUIDE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, OR OTHER INTANGIBLE LOSSES.
+              IN NO EVENT SHALL BITSETTLER BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, OR OTHER INTANGIBLE LOSSES.
             </p>
           </CardContent>
         </Card>

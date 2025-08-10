@@ -139,7 +139,7 @@ CREATE POLICY "Users can view settlement data" ON settlement_projects
 const BITJITA_CONFIG = {
   baseUrl: 'https://bitjita.com/api',
   headers: {
-    'x-app-identifier': 'PR3SIDENT/Bitcraft.guide',
+    'x-app-identifier': 'PR3SIDENT/Bitsettler',
     'Content-Type': 'application/json'
   },
   timeout: 30000 // 30 seconds
@@ -604,7 +604,7 @@ console.log(status.running, treasuryStatus.isPolling);
 
 ```bash
 # .env.local
-NEXT_PUBLIC_BITJITA_API_IDENTIFIER=PR3SIDENT/Bitcraft.guide
+NEXT_PUBLIC_BITJITA_API_IDENTIFIER=PR3SIDENT/Bitsettler
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 ```
@@ -816,7 +816,7 @@ curl "http://localhost:3000/api/settlement/search?q=port"
 
 ## 📞 **Support & Contact**
 
-- **Project**: Bitcraft.Guide Settlement Management
+- **Project**: Bitsettler Settlement Management
 - **BitJita Integration**: Uses public BitJita.com API
 - **Questions**: Check GitHub issues for integration questions
 - **Rate Limiting**: Contact if experiencing API limits

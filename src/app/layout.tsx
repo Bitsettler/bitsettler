@@ -5,7 +5,7 @@ import { GameDataProvider } from '@/contexts/game-data-context';
 import { geistSans } from '@/styles/typography';
 
 export const metadata: Metadata = {
-  title: 'BitCraft Settlement Guide',
+  title: 'Bitsettler',
   description: 'Your comprehensive guide to BitCraft settlements, resources, and crafting.',
 };
 

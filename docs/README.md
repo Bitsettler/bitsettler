@@ -1,8 +1,8 @@
-# 📚 Bitcraft Settlement Management Documentation
+# 📚 Bitsettler Settlement Management Documentation
 
 ## Overview
 
-This documentation covers the complete Bitcraft Settlement Management web application, built with Next.js, Supabase, and TypeScript.
+This documentation covers the complete Bitsettler Settlement Management web application, built with Next.js, Supabase, and TypeScript.
 
 ## 📖 **Documentation Index**
 
@@ -61,7 +61,7 @@ graph TB
 ## 📁 Project Structure
 
 ```
-bitcraft.guide-web-next/
+bitsettler/
 ├── docs/                          # 📚 Complete documentation suite
 │   ├── AUTHENTICATION.md          # Auth system architecture
 │   ├── AUTH_DEVELOPER_GUIDE.md    # Auth implementation guide
@@ -111,7 +111,7 @@ bitcraft.guide-web-next/
 1. **Clone and Install**
    ```bash
    git clone <repository-url>
-   cd bitcraft.guide-web-next
+   cd bitsettler
    npm install
    ```
 

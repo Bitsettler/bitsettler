@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
             <p className="text-muted-foreground text-center text-sm md:text-left">
-              © 2025 Duy Nguyen & Cory Niblett. {t('footer.allRightsReserved')}
+              © 2025 Cory Niblett. {t('footer.allRightsReserved')}
             </p>
             <div className="flex items-center gap-4">
               <Link

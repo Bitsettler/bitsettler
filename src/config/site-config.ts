@@ -1,15 +1,15 @@
 export const SITE_CONFIG = {
-  name: 'Bitcraft.Guide',
+  name: 'Bitsettler',
   description:
-    'A comprehensive crafting guide and recipe visualizer for BitCraft',
-  url: 'https://bitcraft.guide',
-  ogImage: 'https://bitcraft.guide/og.jpg',
+    'A comprehensive crafting guide and settlement management system for BitCraft',
+  url: 'https://bitsettler.io',
+  ogImage: 'https://bitsettler.io/og.jpg',
   links: {
-    twitter: 'https://x.com/duy_the_dev',
-    github: 'https://github.com/duy-the-developer/bitcraft.guide-web-next',
+    twitter: 'https://x.com/bitsettler_io',
+    github: 'https://github.com/coryniblett/bitsettler',
     discord: 'https://discord.gg/DYzfsbVyNw'
   },
-  creator: 'Duy Nguyen'
+  creator: 'Cory Niblett'
 } as const
 
 export type SiteConfig = typeof SITE_CONFIG

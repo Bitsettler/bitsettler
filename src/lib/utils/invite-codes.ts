@@ -124,5 +124,5 @@ export function generateInviteLink(code: string, baseUrl: string = window.locati
  * Create invite message for sharing
  */
 export function createInviteMessage(settlementName: string, inviteCode: string): string {
-  return `🏘️ Join me in ${settlementName}!\n\nUse invite code: ${inviteCode}\n\nManage your settlement at Bitcraft.Guide`;
+  return `🏘️ Join me in ${settlementName}!\n\nUse invite code: ${inviteCode}\n\nManage your settlement at Bitsettler.io`;
 } 

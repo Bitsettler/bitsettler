@@ -1,4 +1,4 @@
-# 🎮 BitCraft.Guide
+# 🎮 Bitsettler
 **Comprehensive crafting guide and settlement management system for BitCraft**
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
@@ -6,12 +6,12 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Database-green?logo=supabase)](https://supabase.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://vercel.com/)
 
-> **🚀 Live at:** [bitcraft.guide](https://bitcraft.guide)  
+> **🚀 Live at:** [bitsettler.io](https://bitsettler.io)  
 > **💬 Community:** [Discord](https://discord.gg/DYzfsbVyNw)
 
 ---
 
-## ✨ **What is BitCraft.Guide?**
+## ✨ **What is Bitsettler?**
 
 ### 🔍 **Crafting & Recipe System**
 - **Interactive Recipe Visualization**: Flow diagrams showing crafting dependencies
@@ -35,7 +35,7 @@
 ## 🚀 **Quick Start**
 
 ### **For Users**
-1. **Visit**: [bitcraft.guide](https://bitcraft.guide)
+1. **Visit**: [bitsettler.io](https://bitsettler.io)
 2. **Sign Up**: Create account with OAuth or email
 3. **Claim Character**: Link to your in-game settlement character
 4. **Explore**: Use crafting calculator and settlement management features
@@ -44,7 +44,7 @@
 ```bash
 # 1. Clone and install
 git clone <repository-url>
-cd bitcraft.guide-settlements
+cd bitsettler
 npm install
 
 # 2. Configure environment (.env.local)
@@ -135,7 +135,7 @@ npx supabase db reset
 ## 📁 **Project Structure**
 
 ```
-bitcraft.guide-settlements/
+bitsettler/
 ├── src/
 │   ├── app/[locale]/              # Next.js App Router (Page Layer)
 │   ├── views/                     # React components (View Layer)  
@@ -225,7 +225,7 @@ curl -X POST http://localhost:3000/api/testing/clear-user-data
 
 ## 🔗 **Links & Resources**
 
-- **🌐 Live Site**: [bitcraft.guide](https://bitcraft.guide)
+- **🌐 Live Site**: [bitsettler.io](https://bitsettler.io)
 - **💬 Discord**: [Community Chat](https://discord.gg/DYzfsbVyNw)
 - **🗄️ Database**: [Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)
 - **🚀 Deployment**: [Vercel Dashboard](https://vercel.com)
