@@ -44,7 +44,17 @@ export async function generateMetadata({
 
   return {
     title: t('header.title'),
-    description: t('header.subtitle')
+    description: t('header.subtitle'),
+    icons: {
+      icon: [
+        { url: '/bitsettler-logo-16.svg', sizes: '16x16', type: 'image/svg+xml' },
+        { url: '/bitsettler-logo-32.svg', sizes: '32x32', type: 'image/svg+xml' }
+      ],
+      apple: [
+        { url: '/apple-icon', sizes: '180x180', type: 'image/png' }
+      ]
+    },
+    manifest: '/manifest.json'
   }
 }
 

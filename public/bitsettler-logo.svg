@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="currentColor">
+  <!-- Settlement Badge Background -->
+  <path d="M200 40 L280 80 L320 160 L280 240 L200 280 L120 240 L80 160 L120 80 Z" fill="currentColor" stroke="currentColor" stroke-width="8" opacity="0.9"/>
+  
+  <!-- House Icon -->
+  <path d="M160 180 L200 140 L240 180 L240 220 L220 220 L220 200 L180 200 L180 220 L160 220 Z" fill="currentColor"/>
+  <rect x="190" y="200" width="20" height="20" fill="currentColor"/>
+  
+  <!-- Star/Gear Element -->
+  <g transform="translate(200, 100)">
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="8" fill="currentColor"/>
+    <!-- Star points -->
+    <path d="M0,-20 L4,-8 L0,-6 L-4,-8 Z M20,0 L8,4 L6,0 L8,-4 Z M0,20 L-4,8 L0,6 L4,8 Z M-20,0 L-8,-4 L-6,0 L-8,4 Z" fill="currentColor"/>
+    <path d="M14,-14 L10,-6 L8,-8 L6,-10 Z M14,14 L6,10 L8,8 L10,6 Z M-14,14 L-10,6 L-8,8 L-6,10 Z M-14,-14 L-6,-10 L-8,-8 L-10,-6 Z" fill="currentColor"/>
+  </g>
+</svg>
