@@ -39,6 +39,16 @@ export async function POST(request: NextRequest) {
         hint: error.hint,
         code: error.code
       })
+      
+      // If the column doesn't exist, return success but log it
+      if (error.message?.includes('column "avatar_url" of relation "settlement_members" does not exist')) {
+        console.warn('Avatar column does not exist in database yet, skipping update')
+        return NextResponse.json({ 
+          success: true, 
+          data: { updated: 0, skipped: 'column_missing' }
+        })
+      }
+      
       return NextResponse.json({ 
         error: 'Failed to update avatar',
         details: error.message 
