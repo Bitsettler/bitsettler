@@ -108,8 +108,6 @@ export function Header({ className }: HeaderProps) {
         <div className="flex items-center justify-end gap-2">
           <LanguageSwitcher />
           <ThemeSwitcher />
-          
-
         </div>
       </div>
     </header>

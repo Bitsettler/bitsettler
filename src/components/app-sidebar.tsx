@@ -47,15 +47,16 @@ import {
   CalculatorIcon,
   ChartBarIcon,
   CoinsIcon,
-  DiscordLogoIcon,
+  CubeIcon,
   FlaskIcon,
   FolderIcon,
-  GithubLogoIcon,
   GraduationCapIcon,
   HammerIcon,
   HouseIcon,
   InfoIcon,
-  TwitterLogoIcon,
+  ListIcon,
+  MountainsIcon,
+  TreeIcon,
   UserIcon,
   UsersIcon
 } from '@phosphor-icons/react'
@@ -70,22 +71,6 @@ const data = {
     //   description: 'sidebar.guidesComingSoon'
     // },
     {
-      translationLabel: 'sidebar.tools',
-      children: [
-        {
-          translationKey: 'sidebar.calculator',
-          href: '/calculator',
-          icon: CalculatorIcon
-        },
-        {
-          translationKey: 'sidebar.projects',
-          href: '/projects',
-          icon: HammerIcon,
-          comingSoon: true
-        }
-      ]
-    },
-    {
       translationLabel: 'sidebar.settlement',
       children: [
         { translationKey: 'sidebar.settlementDashboard', href: '/settlement', icon: ChartBarIcon },
@@ -94,47 +79,31 @@ const data = {
         { translationKey: 'sidebar.skills', href: '/settlement/skills', icon: GraduationCapIcon },
         { translationKey: 'sidebar.research', href: '/settlement/research', icon: FlaskIcon },
         { translationKey: 'sidebar.projects', href: '/settlement/projects', icon: FolderIcon },
-        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury', icon: CoinsIcon }
+        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury', icon: CoinsIcon },
+        {
+          translationKey: 'sidebar.calculator',
+          href: '/calculator',
+          icon: CalculatorIcon
+        }
       ]
     },
     {
       translationLabel: 'sidebar.compendium',
       children: [
-        { translationKey: 'sidebar.codex', href: '/compendium/codex' },
+        { translationKey: 'sidebar.codex', href: '/compendium/codex', icon: BookOpenIcon },
         {
           translationKey: 'sidebar.compendiumTools',
-          href: '/compendium/tools'
+          href: '/compendium/tools',
+          icon: HammerIcon
         },
-        { translationKey: 'sidebar.resources', href: '/compendium/resources' },
-        { translationKey: 'sidebar.buildings', href: '/compendium/buildings' },
+        { translationKey: 'sidebar.resources', href: '/compendium/resources', icon: MountainsIcon },
+        { translationKey: 'sidebar.buildings', href: '/compendium/buildings', icon: CubeIcon },
         {
           translationKey: 'sidebar.deployables',
-          href: '/compendium/collectibles/deployable'
+          href: '/compendium/collectibles/deployable',
+          icon: TreeIcon
         },
-        { translationKey: 'sidebar.seeAll', href: '/compendium' }
-      ]
-    },
-    {
-      translationLabel: 'sidebar.community',
-      children: [
-        {
-          translationKey: 'sidebar.bitcraftGuideDiscord',
-          href: SITE_CONFIG.links.discord,
-          icon: DiscordLogoIcon,
-          external: true
-        },
-        {
-          translationKey: 'sidebar.bitcraftGuideGithub',
-          href: SITE_CONFIG.links.github,
-          icon: GithubLogoIcon,
-          external: true
-        },
-        {
-          translationKey: 'sidebar.bitcraftGuideTwitter',
-          href: SITE_CONFIG.links.twitter,
-          icon: TwitterLogoIcon,
-          external: true
-        }
+        { translationKey: 'sidebar.seeAll', href: '/compendium', icon: ListIcon }
       ]
     },
     {

@@ -12,15 +12,22 @@ import {
 } from '@/components/ui/popover'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
+import { 
+  CalculatorIcon, 
+  BookOpenIcon,
+  InfoIcon, 
+  HammerIcon 
+} from '@phosphor-icons/react'
 
 export function MobileNav({ className }: { className?: string }) {
   const [open, setOpen] = React.useState(false)
   const t = useTranslations()
 
   const items = [
-    { href: '/', label: t('header.navigation.calculator') },
-    { href: '/wiki', label: t('header.navigation.wiki') },
-    { href: '/projects', label: t('header.navigation.projects') }
+    { href: '/', label: t('header.navigation.calculator'), icon: CalculatorIcon },
+    { href: '/compendium', label: t('header.navigation.compendium'), icon: BookOpenIcon },
+    { href: '/wiki', label: t('header.navigation.wiki'), icon: InfoIcon },
+    { href: '/projects', label: t('header.navigation.projects'), icon: HammerIcon }
   ]
 
   return (
@@ -68,14 +75,17 @@ export function MobileNav({ className }: { className?: string }) {
               {t('common.menu')}
             </div>
             <div className="flex flex-col gap-3">
-              <MobileLink href="/" onOpenChange={setOpen}>
-                {t('header.navigation.calculator')}
-              </MobileLink>
-              {items.map((item, index) => (
-                <MobileLink key={index} href={item.href} onOpenChange={setOpen}>
-                  {item.label}
-                </MobileLink>
-              ))}
+              {items.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <MobileLink key={index} href={item.href} onOpenChange={setOpen}>
+                    <div className="flex items-center gap-3">
+                      <Icon className="h-6 w-6" />
+                      {item.label}
+                    </div>
+                  </MobileLink>
+                )
+              })}
             </div>
           </div>
         </div>

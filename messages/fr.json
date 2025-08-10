@@ -4,7 +4,8 @@
     "loading": "Chargement...",
     "error": "Erreur",
     "save": "Sauvegarder",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "menu": "Menu"
   },
   "navigation": {
     "home": "Accueil",

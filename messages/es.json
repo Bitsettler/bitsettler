@@ -4,7 +4,8 @@
     "loading": "Cargando...",
     "error": "Error",
     "save": "Guardar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "menu": "Menú"
   },
   "navigation": {
     "home": "Inicio",
