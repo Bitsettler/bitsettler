@@ -23,6 +23,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Update avatar for the user's settlement member record
+    console.log('Attempting to update avatar for user:', session.user.id, 'with URL:', avatar_url)
+    
     const { data, error } = await supabase
       .from('settlement_members')
       .update({ avatar_url })
@@ -31,8 +33,19 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Error updating member avatar:', error)
-      return NextResponse.json({ error: 'Failed to update avatar' }, { status: 500 })
+      console.error('Error details:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      })
+      return NextResponse.json({ 
+        error: 'Failed to update avatar',
+        details: error.message 
+      }, { status: 500 })
     }
+
+    console.log('Avatar update successful, affected rows:', data?.length || 0)
 
     return NextResponse.json({ 
       success: true, 
