@@ -125,7 +125,7 @@ export function SettlementSkillsView() {
     );
   }, [membersWithSkills, getSkillName]);
 
-  const closeToTieringUp = useMemo(() => {
+  const closeToLeveling = useMemo(() => {
     if (!Array.isArray(citizensData) || citizensData.length === 0) return [];
     
     const candidates: Array<{
@@ -618,15 +618,14 @@ export function SettlementSkillsView() {
 
             <Card className="h-full flex flex-col">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Close to Tiering Up</CardTitle>
+                <CardTitle className="text-sm font-medium">Close to Leveling</CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent className="flex-1">
-                {closeToTieringUp.length > 0 ? (
+                {closeToLeveling.length > 0 ? (
                   <div className="space-y-2">
-                    <div className="text-lg font-bold mb-2">{closeToTieringUp.length} members</div>
                     <div className="space-y-1.5 max-h-32 overflow-y-auto">
-                      {closeToTieringUp.slice(0, 6).map((candidate, index) => (
+                      {closeToLeveling.slice(0, 6).map((candidate, index) => (
                         <div key={`${candidate.name}-${candidate.skillName}`} className="flex justify-between items-center text-xs">
                           <div className="flex flex-col min-w-0 flex-1 mr-2">
                             <span className="font-medium truncate">{candidate.name}</span>
@@ -639,13 +638,12 @@ export function SettlementSkillsView() {
                           </div>
                         </div>
                       ))}
-                      {closeToTieringUp.length > 6 && (
+                      {closeToLeveling.length > 6 && (
                         <div className="text-xs text-muted-foreground text-center pt-1">
-                          +{closeToTieringUp.length - 6} more
+                          +{closeToLeveling.length - 6} more
                         </div>
                       )}
                     </div>
-                    <p className="text-xs text-muted-foreground">Ready for next tier</p>
                   </div>
                 ) : (
                   <div className="text-center py-4">

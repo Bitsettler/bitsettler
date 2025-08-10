@@ -24,7 +24,7 @@ import {
   Clock, 
   BarChart3 
 } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 
 interface TreasurySummary {
@@ -428,7 +428,7 @@ export function SettlementTreasuryView() {
         <div>
           <h1 className="text-3xl font-bold">Settlement Treasury</h1>
           <p className="text-muted-foreground text-sm">
-            Live treasury balance from the game • Updates every 5 minutes
+            Treasury balance from the game
           </p>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -437,95 +437,53 @@ export function SettlementTreasuryView() {
         </div>
       </div>
 
-      {/* Live Treasury Balance Summary */}
-      <div className="grid gap-6 max-w-sm">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Current Balance</CardTitle>
-            <Wallet className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {summary ? formatHexcoin(summary.currentBalance) : '---'}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Live from game API
-            </p>
-          </CardContent>
-        </Card>
-
-
-      </div>
-
-      {/* Treasury History Chart */}
+      {/* Integrated Treasury Balance & History */}
       <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5" />
-                <CardTitle>Treasury History</CardTitle>
-              </div>
-              <div className="flex items-center gap-2">
-                <Select 
-                  value={`${timeRange}-${timeUnit}`} 
-                  onValueChange={(value) => {
-                    const [range, unit] = value.split('-');
-                    setTimeRange(parseInt(range));
-                    setTimeUnit(unit as 'days' | 'months');
-                  }}
-                >
-                  <SelectTrigger className="w-40">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem key="1-days" value="1-days">1 Day</SelectItem>
-                    <SelectItem key="3-days" value="3-days">3 Days</SelectItem>
-                    <SelectItem key="7-days" value="7-days">7 Days</SelectItem>
-                    <SelectItem key="14-days" value="14-days">2 Weeks</SelectItem>
-                    <SelectItem key="30-days" value="30-days">30 Days</SelectItem>
-                    <SelectItem key="1-months" value="1-months">1 Month</SelectItem>
-                    <SelectItem key="3-months" value="3-months">3 Months</SelectItem>
-                    <SelectItem key="6-months" value="6-months">6 Months</SelectItem>
-                  </SelectContent>
-                </Select>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div>
+                <CardTitle>
+                  Treasury Balance
+                </CardTitle>
+                <div className="text-2xl font-bold mt-1">
+                  {summary ? formatHexcoin(summary.currentBalance) : '---'}
+                </div>
               </div>
             </div>
-          </CardHeader>
-          <CardContent>
+            <div className="flex items-center gap-2">
+              <Select 
+                value={`${timeRange}-${timeUnit}`} 
+                onValueChange={(value) => {
+                  const [range, unit] = value.split('-');
+                  setTimeRange(parseInt(range));
+                  setTimeUnit(unit as 'days' | 'months');
+                }}
+              >
+                <SelectTrigger className="w-40">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem key="1-days" value="1-days">1 Day</SelectItem>
+                  <SelectItem key="3-days" value="3-days">3 Days</SelectItem>
+                  <SelectItem key="7-days" value="7-days">7 Days</SelectItem>
+                  <SelectItem key="14-days" value="14-days">2 Weeks</SelectItem>
+                  <SelectItem key="30-days" value="30-days">30 Days</SelectItem>
+                  <SelectItem key="1-months" value="1-months">1 Month</SelectItem>
+                  <SelectItem key="3-months" value="3-months">3 Months</SelectItem>
+                  <SelectItem key="6-months" value="6-months">6 Months</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
             {historyLoading ? (
               <div className="h-32 flex items-center justify-center">
                 <RefreshCw className="h-4 w-4 animate-spin" />
               </div>
             ) : (
-              <div className="space-y-4">
-                <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Recent Change:</span>
-                    <div className="font-medium">
-                      {history.length > 1 && history[history.length - 1].changeAmount !== null && history[history.length - 1].changeAmount !== undefined ? (
-                        <span className={history[history.length - 1].changeAmount! >= 0 ? 'text-emerald-600' : 'text-red-500'}>
-                          {history[history.length - 1].changeAmount! >= 0 ? '+' : ''}
-                          {formatCurrency(history[history.length - 1].changeAmount!)}
-                        </span>
-                      ) : (
-                        <span className="text-muted-foreground">No change</span>
-                      )}
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Snapshots:</span>
-                    <div className="font-medium">{history.length} recorded</div>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Time Range:</span>
-                    <div className="font-medium">
-                      {timeRange} {timeUnit === 'days' ? (timeRange === 1 ? 'day' : 'days') : (timeRange === 1 ? 'month' : 'months')}
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Treasury Balance Chart */}
-                <div className="h-64 border rounded-lg p-4 bg-gradient-to-b from-background to-muted/20">
+              <div className="h-64 rounded-lg p-4 bg-gradient-to-b from-background to-muted/20 border">
                   {(() => {
                     if (history.length === 0) {
                       return (
@@ -574,20 +532,20 @@ export function SettlementTreasuryView() {
                     const chartConfig: ChartConfig = {
                       balance: {
                         label: "Treasury Balance",
-                        color: "hsl(var(--primary))",
+                        color: "#ffffff", // Clean white fill
                       },
                     };
 
                     return (
                       <ChartContainer config={chartConfig} className="h-full w-full">
-                        <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                          <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+                        <AreaChart data={chartData} margin={{ top: 12, right: 12, left: 12, bottom: 12 }}>
+                          <CartesianGrid vertical={false} stroke="#374151" strokeOpacity={0.5} />
                           <XAxis 
                             dataKey={allSameDate ? "label" : "dateTime"}
-                            tick={{ fontSize: 12 }}
-                            tickMargin={8}
                             tickLine={false}
                             axisLine={false}
+                            tickMargin={8}
+                            tick={{ fill: "#9ca3af", fontSize: 12 }}
                             tickFormatter={(value) => {
                               if (allSameDate) {
                                 return value; // Show #1, #2, #3, etc.
@@ -596,10 +554,10 @@ export function SettlementTreasuryView() {
                             }}
                           />
                           <YAxis 
-                            tick={{ fontSize: 12 }}
-                            tickMargin={8}
                             tickLine={false}
                             axisLine={false}
+                            tickMargin={8}
+                            tick={{ fill: "#9ca3af", fontSize: 12 }}
                             tickFormatter={(value) => formatCurrency(value)}
                             domain={
                               balanceRange < 100 
@@ -608,6 +566,7 @@ export function SettlementTreasuryView() {
                             }
                           />
                           <ChartTooltip 
+                            cursor={false}
                             content={
                               <ChartTooltipContent 
                                 labelFormatter={(label, payload) => {
@@ -620,35 +579,22 @@ export function SettlementTreasuryView() {
                               />
                             }
                           />
-                          <Line 
-                            type="monotone" 
-                            dataKey="balance" 
-                            stroke="hsl(var(--primary))" 
-                            strokeWidth={3} // Thicker line for better visibility
-                            dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 5 }} // Bigger dots
-                            activeDot={{ r: 8, fill: "hsl(var(--primary))" }}
+                          <Area
+                            dataKey="balance"
+                            type="natural"
+                            fill="#ffffff"
+                            fillOpacity={0.8}
+                            stroke="none"
+                            strokeWidth={0}
                           />
-                        </LineChart>
+                        </AreaChart>
                       </ChartContainer>
                     );
                   })()}
                 </div>
-                
-                {/* Chart Summary */}
-                <div className="flex justify-between text-xs text-muted-foreground border-t pt-2">
-                  <span>📈 Trend</span>
-                  <span className="text-center">
-                    {history.length > 0 && (
-                      <>Min: {formatHexcoin(Math.min(...history.map(h => h.balance)))} • Max: {formatHexcoin(Math.max(...history.map(h => h.balance)))}</>
-                    )}
-                  </span>
-                  <span>{history.length} snapshots</span>
-                </div>
-              </div>
             )}
-          </CardContent>
-        </Card>
-      )}
+        </CardContent>
+      </Card>
 
       {/* Manual Transaction Management */}
       <Card>
@@ -757,20 +703,20 @@ export function SettlementTreasuryView() {
                           <span>{new Date(transaction.transactionDate).toLocaleDateString()}</span>
                           {transaction.category && (
                             <>
-                              <span>•</span>
-                              <span>{transaction.category}</span>
+                              <span key={`${transaction.id}-category-sep`}>•</span>
+                              <span key={`${transaction.id}-category`}>{transaction.category}</span>
                             </>
                           )}
                           {transaction.relatedProjectName && (
                             <>
-                              <span>•</span>
-                              <span>Project: {transaction.relatedProjectName}</span>
+                              <span key={`${transaction.id}-project-sep`}>•</span>
+                              <span key={`${transaction.id}-project`}>Project: {transaction.relatedProjectName}</span>
                             </>
                           )}
                           {transaction.relatedMemberName && (
                             <>
-                              <span>•</span>
-                              <span>Member: {transaction.relatedMemberName}</span>
+                              <span key={`${transaction.id}-member-sep`}>•</span>
+                              <span key={`${transaction.id}-member`}>Member: {transaction.relatedMemberName}</span>
                             </>
                           )}
                         </div>

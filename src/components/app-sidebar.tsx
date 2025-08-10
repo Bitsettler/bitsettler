@@ -28,7 +28,7 @@ import { SITE_CONFIG } from '@/config/site-config'
 import type { SearchData } from '@/lib/spacetime-db-new/shared/dtos/search-dtos'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import { KofiWidget } from './kofi-widget'
+
 import { Logo } from './logo'
 import { useCurrentMember } from '../hooks/use-current-member'
 
@@ -299,9 +299,8 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
       </SidebarContent>
 
       {/* User Navigation - Bottom of sidebar */}
-      <div className="border-t p-4 space-y-4">
+      <div className="border-t p-4">
         <UserNav />
-        <KofiWidget className="w-full" />
       </div>
 
       <SidebarRail />

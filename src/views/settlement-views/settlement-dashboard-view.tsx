@@ -17,7 +17,7 @@ import {
   Coins, 
   Activity,
   Wallet,
-  RefreshCw,
+
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { TierIcon } from '@/components/ui/tier-icon';
@@ -86,7 +86,7 @@ export function SettlementDashboardView() {
   const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+
   
   const { inviteCode, regenerateInviteCode, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
   
@@ -148,17 +148,7 @@ export function SettlementDashboardView() {
     }
   }, [member]);
 
-  const handleManualRefresh = useCallback(async () => {
-    setIsRefreshing(true);
-    try {
-      await Promise.all([
-        fetchDashboardData(),
-        fetchRecentActivities()
-      ]);
-    } finally {
-      setIsRefreshing(false);
-    }
-  }, [fetchDashboardData, fetchRecentActivities]);
+
 
   useEffect(() => {
     const settlementId = member?.settlement_id;
@@ -277,18 +267,7 @@ export function SettlementDashboardView() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Settlement Overview</h1>
-            <p className="text-muted-foreground">Dashboard and management tools</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={handleManualRefresh}
-              disabled={isRefreshing}
-            >
-              <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
-              Refresh
-            </Button>
+            <p className="text-muted-foreground">An overview of your settlement with stats and graphs.</p>
           </div>
         </div>
 
@@ -439,7 +418,7 @@ export function SettlementDashboardView() {
           </CardHeader>
           <CardContent>
             {settlementActivities.length > 0 ? (
-              <div className="space-y-3 max-h-80 overflow-y-auto">
+              <div className="space-y-3 max-h-96 overflow-y-auto">
                 {settlementActivities.map((activity: any) => {
                   const isProjectActivity = ['project_contribution', 'project_created', 'project_completed'].includes(activity.activity_type);
                   const projectId = activity.activity_data?.projectId;
@@ -514,7 +493,7 @@ export function SettlementDashboardView() {
           </CardHeader>
           <CardContent>
             {memberActivities.length > 0 ? (
-              <div className="space-y-3 max-h-80 overflow-y-auto">
+              <div className="space-y-3 max-h-96 overflow-y-auto">
                 {memberActivities.map((activity: any) => (
                     <div key={activity.id} className="flex items-center gap-3 p-2 rounded-lg bg-muted/50">
                       <div className="text-lg" title={activity.activity_data.skillName}>
