@@ -43,16 +43,56 @@ export async function generateMetadata({
   const t = await getTranslations()
 
   return {
-    title: t('header.title'),
+    title: {
+      default: t('header.title'),
+      template: '%s | BitSettler'
+    },
     description: t('header.subtitle'),
+    keywords: ['BitCraft', 'settlement management', 'crafting calculator', 'BitCraft guide', 'BitCraft tools', 'settlement dashboard', 'BitCraft compendium'],
+    authors: [{ name: 'BitSettler Team' }],
+    creator: 'BitSettler',
+    publisher: 'BitSettler',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL('https://bitsettler.io'),
+    openGraph: {
+      type: 'website',
+      locale: locale,
+      url: 'https://bitsettler.io',
+      title: t('header.title'),
+      description: t('header.subtitle'),
+      siteName: 'BitSettler'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('header.title'),
+      description: t('header.subtitle'),
+      creator: '@bitsettler'
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     icons: {
       icon: [
         { url: '/bitsettler-logo-16.svg', sizes: '16x16', type: 'image/svg+xml' },
-        { url: '/bitsettler-logo-32.svg', sizes: '32x32', type: 'image/svg+xml' }
+        { url: '/bitsettler-logo-32.svg', sizes: '32x32', type: 'image/svg+xml' },
+        { url: '/icon', sizes: '32x32', type: 'image/png' }
       ],
       apple: [
         { url: '/apple-icon', sizes: '180x180', type: 'image/png' }
-      ]
+      ],
+      shortcut: '/bitsettler-logo-16.svg'
     },
     manifest: '/manifest.json'
   }

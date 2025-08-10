@@ -1,27 +1,43 @@
 {
-  "name": "Bitsettler",
-  "short_name": "Bitsettler",
-  "description": "A comprehensive crafting guide and settlement management system for BitCraft",
+  "name": "BitSettler - BitCraft Settlement Manager",
+  "short_name": "BitSettler",
+  "description": "Comprehensive BitCraft settlement management platform with crafting calculator, real-time dashboard, member tracking, and game data compendium",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a1a1a",
-  "theme_color": "#2a2a2a",
+  "background_color": "#09090b",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["games", "productivity", "utilities"],
   "icons": [
     {
       "src": "/icon",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "favicon"
     },
     {
       "src": "/apple-icon",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "apple touch icon"
     },
     {
       "src": "/bitsettler-logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/bitsettler-logo-16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/bitsettler-logo-32.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
     }
   ]
 }

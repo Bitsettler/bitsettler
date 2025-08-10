@@ -29,7 +29,7 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-6">
           <Button asChild size="lg" className="text-base">
-            <Link href="/en/settlement" className="flex items-center gap-2">
+            <Link href="/settlement" className="flex items-center gap-2">
               Start Managing Your Settlement
               <ArrowRight className="h-4 w-4" />
             </Link>
