@@ -57,10 +57,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           const avatarUrl = session.user.user_metadata?.avatar_url
           if (avatarUrl) {
             console.log('User has Discord avatar:', avatarUrl)
-            // Update settlement member with avatar URL
-            updateMemberAvatar(session.user.id, avatarUrl).catch(err => {
-              console.error('Failed to update member avatar:', err)
-            })
+            // Only update avatar in production or when not in development
+            if (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_VERCEL_ENV) {
+              // Update settlement member with avatar URL
+              updateMemberAvatar(session.user.id, avatarUrl).catch(err => {
+                console.error('Failed to update member avatar:', err)
+              })
+            } else {
+              console.log('Skipping avatar update in local development')
+            }
           }
         } else if (event === 'SIGNED_OUT') {
           console.log('User signed out')
