@@ -5,8 +5,11 @@ import { Star, Users, Calculator, TrendingUp } from 'lucide-react'
 export function SocialProofSection() {
   return (
     <section className="py-12">
+      {/* All content commented out */}
       <div className="space-y-8">
-        {/* Stats Grid */}
+        {/* 
+        Stats Grid - 30K+ Active Users, 500K+ Recipes Calculated, 2,000+ Game Items Tracked, 99.9% Uptime
+        
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <Card className="text-center p-6">
             <CardContent className="space-y-2 p-0">
@@ -37,7 +40,8 @@ export function SocialProofSection() {
           </Card>
         </div>
 
-        {/* Community Testimonials */}
+        Community Testimonials
+        
         <div className="space-y-6">
           <div className="text-center space-y-2">
             <Badge variant="outline" className="text-sm px-3 py-1">
@@ -103,7 +107,8 @@ export function SocialProofSection() {
           </div>
         </div>
 
-        {/* Trust Indicators */}
+        Trust Indicators - OAuth Security, Real-time Data, Open Source, Community Driven
+        
         <div className="border-t pt-8">
           <div className="text-center space-y-4">
             <h4 className="text-lg font-semibold">Trusted & Secure</h4>
@@ -127,6 +132,7 @@ export function SocialProofSection() {
             </div>
           </div>
         </div>
+        */}
       </div>
     </section>
   )

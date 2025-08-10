@@ -62,16 +62,8 @@ import {
 
 // Navigation data with icons and descriptions
 const data = {
+  homeItem: { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
   navMain: [
-    {
-      translationLabel: 'sidebar.navigation',
-      children: [
-        { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
-        { translationKey: 'sidebar.aboutUs', href: '/about', icon: InfoIcon }
-        // { translationKey: 'sidebar.randomPage', href: '/random', icon: ShuffleIcon, comingSoon: true }
-        // { translationKey: 'sidebar.contactUs', href: '/contact', icon: EnvelopeIcon }
-      ]
-    },
     // {
     //   translationLabel: 'sidebar.guides',
     //   children: [],
@@ -255,6 +247,15 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
         <EnhancedSearchForm searchData={searchData} />
       </SidebarHeader>
       <SidebarContent className="gap-0">
+        {/* Standalone Home Item */}
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {renderNavigationItem(data.homeItem)}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        
         {data.navMain.map((section) => (
           <Collapsible
             key={section.translationLabel}

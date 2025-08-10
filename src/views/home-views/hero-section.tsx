@@ -17,10 +17,10 @@ export function HeroSection() {
       
       <div className="space-y-6">
         <div className="space-y-4">
+          <h1 className="text-6xl font-bold tracking-tight">{t('header.title')}</h1>
           <Badge variant="secondary" className="text-sm px-3 py-1">
             🎮 The Ultimate BitCraft Companion
           </Badge>
-          <h1 className="text-6xl font-bold tracking-tight">{t('header.title')}</h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
             Complete settlement management platform with crafting calculator, real-time dashboard, 
             member tracking, and comprehensive game data - all in one place.
@@ -42,9 +42,7 @@ export function HeroSection() {
           </Button>
         </div>
 
-        <div className="pt-4 text-sm text-muted-foreground">
-          🚀 <strong>30,000+</strong> active settlements • <strong>500K+</strong> recipes calculated • <strong>Real-time</strong> data sync
-        </div>
+
       </div>
     </div>
   )

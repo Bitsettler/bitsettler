@@ -44,9 +44,6 @@ export function FAQSection() {
       <div className="space-y-8">
         {/* Section Header */}
         <div className="text-center space-y-4">
-          <Badge variant="outline" className="text-sm px-3 py-1">
-            ❓ Questions & Answers
-          </Badge>
           <h2 className="text-3xl font-bold tracking-tight">
             Frequently Asked Questions
           </h2>
@@ -94,7 +91,7 @@ export function FAQSection() {
               </Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/en/about">
+              <Link href="/#about">
                 Learn More About Bitsettler
               </Link>
             </Button>

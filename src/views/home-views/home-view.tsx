@@ -1,58 +1,31 @@
 import { Container } from '@/components/container'
-import { BuildingsSection } from './buildings-section'
-import { EquipmentSection } from './equipment-section'
+import { ContactSection } from './contact-section'
 import { FAQSection } from './faq-section'
 import { FeaturesSection } from './features-section'
 import { HeroSection } from './hero-section'
-import { ItemsSection } from './items-section'
-import { ProfessionsSection } from './professions-section'
-import { SocialProofSection } from './social-proof-section'
+import { TechStackSection } from './tech-stack-section'
 
 export function HomeView() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Full Width */}
+      {/* Hero Section */}
       <Container>
         <HeroSection />
       </Container>
 
-      {/* Features Section - Highlighted */}
+      {/* Features Section */}
       <div className="bg-muted/30 border-y">
         <Container>
           <FeaturesSection />
         </Container>
       </div>
 
-      {/* Social Proof Section */}
-      <Container>
-        <SocialProofSection />
-      </Container>
-
-      {/* Game Data Sections */}
-      <Container>
-        <div className="space-y-16 py-16">
-          <section>
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl font-bold tracking-tight">Explore Game Content</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Browse our comprehensive database of BitCraft items, equipment, buildings, and professions.
-              </p>
-            </div>
-            
-            <div className="grid gap-12 lg:grid-cols-2">
-              <EquipmentSection />
-              <BuildingsSection />
-            </div>
-          </section>
-
-          <section>
-            <div className="grid gap-12 lg:grid-cols-2">
-              <ItemsSection />
-              <ProfessionsSection />
-            </div>
-          </section>
-        </div>
-      </Container>
+      {/* Tech Stack Section */}
+      <div className="bg-muted/30 border-y">
+        <Container>
+          <TechStackSection />
+        </Container>
+      </div>
 
       {/* FAQ Section */}
       <div className="bg-muted/20 border-t">
@@ -60,6 +33,11 @@ export function HomeView() {
           <FAQSection />
         </Container>
       </div>
+
+      {/* Contact Section */}
+      <Container>
+        <ContactSection />
+      </Container>
     </div>
   )
 }

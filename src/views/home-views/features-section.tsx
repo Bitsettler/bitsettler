@@ -14,7 +14,8 @@ import {
   ChevronRight,
   TrendingUp,
   Building,
-  Package
+  Package,
+  ArrowRight
 } from 'lucide-react'
 
 export function FeaturesSection() {
@@ -23,9 +24,6 @@ export function FeaturesSection() {
       <div className="space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-4">
-          <Badge variant="outline" className="text-sm px-3 py-1">
-            ⚡ Powerful Features
-          </Badge>
           <h2 className="text-4xl font-bold tracking-tight">
             Everything You Need to Master BitCraft
           </h2>
@@ -219,26 +217,7 @@ export function FeaturesSection() {
 
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center space-y-6 pt-12">
-          <div className="space-y-3">
-            <h3 className="text-2xl font-bold">Ready to level up your BitCraft experience?</h3>
-            <p className="text-muted-foreground">
-              Join thousands of players already using Bitsettler to optimize their settlements and gameplay.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg">
-              <Link href="/en/auth/signin" className="flex items-center gap-2">
-                Get Started Free
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/en/about">Learn More</Link>
-            </Button>
-          </div>
-        </div>
+
 
       </div>
     </section>

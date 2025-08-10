@@ -1,14 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#000000">
-  <!-- Simplified hexagon -->
-  <path d="M8 1 L13 4 L13 10 L8 13 L3 10 L3 4 Z" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-  
-  <!-- Simple house -->
-  <path d="M6 8 L8 6 L10 8 L10 11 L6 11 Z" fill="#FFFFFF"/>
-  <rect x="7.5" y="9" width="1" height="2" fill="#000000"/>
-  
-  <!-- Small star -->
-  <g transform="translate(8, 4)">
-    <circle cx="0" cy="0" r="0.5" fill="#FFFFFF"/>
-    <path d="M0,-1.5 L0.3,-0.5 L0,-0.4 L-0.3,-0.5 Z M1.5,0 L0.5,0.3 L0.4,0 L0.5,-0.3 Z M0,1.5 L-0.3,0.5 L0,0.4 L0.3,0.5 Z M-1.5,0 L-0.5,-0.3 L-0.4,0 L-0.5,0.3 Z" fill="#FFFFFF"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="BitSettler logo">
+  <!-- Hexagon outline -->
+  <path d="M8 1.25 13.5 4.375v7.25L8 14.75l-5.5-3.125v-7.25z"
+        fill="none"
+        stroke="#000000"
+        stroke-width="1"
+        stroke-linejoin="round"/>
+
+  <!-- House (roof + body, filled) -->
+  <path d="M5.375 8.5l2.625-1.875L10.625 8.5v3.25h-5.25z"
+        fill="#000000"/>
+
+  <!-- Claim flag (pole + flag) -->
+  <path d="M8 6.625V4.75"
+        fill="none"
+        stroke="#000000"
+        stroke-width="0.625"
+        stroke-linecap="round"/>
+  <path d="M8 5.5l2.25-0.75L8 4z"
+        fill="#000000"/>
 </svg>

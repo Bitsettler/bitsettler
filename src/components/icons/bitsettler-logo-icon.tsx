@@ -13,17 +13,29 @@ export function BitsettlerLogoIcon(
       width={width}
       height={height}
       viewBox="0 0 256 256"
-      fill="none"
+      role="img"
+      aria-label="BitSettler logo"
       {...rest}
     >
-      <g stroke="currentColor" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M64 56 Q64 144 128 196 Q192 144 192 56" />
-        <path d="M88 140 128 112 168 140" />
-        <path d="M100 140V168H156V140" />
-        <path d="M124 168V152h8V168" />
-        <circle cx="128" cy="76" r="8" />
-        <path d="M128 52V64M128 88V100M104 76H116M140 76H152" />
-      </g>
+      {/* Hexagon outline */}
+      <path d="M128 20 216 70v116l-88 50-88-50V70z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="16"
+            strokeLinejoin="round"/>
+
+      {/* House (roof + body, filled) */}
+      <path d="M86 136l42-30 42 30v52H86z"
+            fill="currentColor"/>
+
+      {/* Claim flag (pole + flag) */}
+      <path d="M128 106V76"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="10"
+            strokeLinecap="round"/>
+      <path d="M128 88l36-12-36-12z"
+            fill="currentColor"/>
     </svg>
   )
 }
@@ -31,15 +43,26 @@ export function BitsettlerLogoIcon(
 // Outline variant (same as above, for consistency)
 export function BitsettlerIconOutline(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 256 256" fill="none" {...props}>
-      <g stroke="currentColor" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M64 56 Q64 144 128 196 Q192 144 192 56" />
-        <path d="M88 140 128 112 168 140" />
-        <path d="M100 140V168H156V140" />
-        <path d="M124 168V152h8V168" />
-        <circle cx="128" cy="76" r="8" />
-        <path d="M128 52V64M128 88V100M104 76H116M140 76H152" />
-      </g>
+    <svg viewBox="0 0 256 256" role="img" aria-label="BitSettler logo" {...props}>
+      {/* Hexagon outline */}
+      <path d="M128 20 216 70v116l-88 50-88-50V70z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="16"
+            strokeLinejoin="round"/>
+
+      {/* House (roof + body, filled) */}
+      <path d="M86 136l42-30 42 30v52H86z"
+            fill="currentColor"/>
+
+      {/* Claim flag (pole + flag) */}
+      <path d="M128 106V76"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="10"
+            strokeLinecap="round"/>
+      <path d="M128 88l36-12-36-12z"
+            fill="currentColor"/>
     </svg>
   );
 }
