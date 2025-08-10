@@ -97,7 +97,8 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
       is_active,
       last_synced_at,
       sync_source,
-      supabase_user_id
+      supabase_user_id,
+      avatar_url
     `)
       .eq('settlement_id', settlementId);
 

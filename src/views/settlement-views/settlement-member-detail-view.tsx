@@ -79,6 +79,7 @@ interface MemberDetail {
   joinedAt: string | null;
   isActive: boolean;
   lastSyncInfo?: string;
+  avatar_url?: string | null;
 }
 
 interface MemberDetailResponse {

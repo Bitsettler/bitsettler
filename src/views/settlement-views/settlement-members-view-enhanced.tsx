@@ -31,6 +31,7 @@ interface SettlementMember {
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
   entity_id: string;
+  avatar_url?: string | null;
   // Permissions
   inventory_permission: number;
   build_permission: number;

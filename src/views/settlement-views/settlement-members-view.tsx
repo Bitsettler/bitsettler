@@ -11,7 +11,7 @@ import { Switch } from '../../components/ui/switch';
 import { Label } from '../../components/ui/label';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../../components/ui/collapsible';
 import { Skeleton } from '../../components/ui/skeleton';
-import { Avatar, AvatarFallback } from '../../components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
 import { useCurrentMember } from '../../hooks/use-current-member';
@@ -35,6 +35,7 @@ interface SettlementMember {
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
   entity_id: string;
+  avatar_url?: string | null;
   // Permissions
   inventory_permission: number;
   build_permission: number;
@@ -416,6 +417,7 @@ export function SettlementMembersView() {
                           >
                             <TableCell>
                               <Avatar className="h-10 w-10">
+                                <AvatarImage src={member.avatar_url || ''} alt={member.name} />
                                 <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
                                   {getInitials(member.name)}
                                 </AvatarFallback>
@@ -492,6 +494,7 @@ export function SettlementMembersView() {
                     >
                       <TableCell>
                         <Avatar className="h-10 w-10">
+                          <AvatarImage src={member.avatar_url || ''} alt={member.name} />
                           <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">
                             {getInitials(member.name)}
                           </AvatarFallback>

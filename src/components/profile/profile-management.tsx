@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Checkbox } from '../ui/checkbox';
 import { Separator } from '../ui/separator';
 import { Container } from '../container';
-import { Avatar, AvatarFallback } from '../ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Badge } from '../ui/badge';
 import { Loader2, Save, User, Settings, Palette, Bell } from 'lucide-react';
 import { getDisplayProfession } from '@/lib/utils/profession-utils';
@@ -145,6 +145,7 @@ export function ProfileManagement() {
           <CardContent className="space-y-4">
             <div className="flex items-center gap-4">
               <Avatar className="h-16 w-16">
+                <AvatarImage src={member.avatar_url || ''} alt={member.display_name || member.name} />
                 <AvatarFallback style={{ backgroundColor: member.profile_color }}>
                   {(member.display_name || member.name).substring(0, 2).toUpperCase()}
                 </AvatarFallback>
