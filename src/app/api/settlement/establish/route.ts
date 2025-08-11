@@ -53,7 +53,9 @@ export async function POST(request: NextRequest) {
         // Call BitJita API directly instead of making internal HTTP calls
         console.log(`🔗 Calling BitJita API directly for settlement ${settlementId}`);
         
-        const { BitJitaAPI, type BitJitaRawMember } = await import('@/lib/spacetime-db-new/modules/integrations/bitjita-api');
+        const bitjitaModule = await import('@/lib/spacetime-db-new/modules/integrations/bitjita-api');
+        const { BitJitaAPI } = bitjitaModule;
+        type BitJitaRawMember = bitjitaModule.BitJitaRawMember;
         
         const [rosterResult, citizensResult] = await Promise.all([
           BitJitaAPI.fetchSettlementRoster(settlementId),
