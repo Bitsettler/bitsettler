@@ -31,10 +31,15 @@ export function cleanupApp(): void {
   }
 }
 
-// Auto-initialize when this module is imported
+// Auto-initialize when this module is imported (but not during build)
 if (typeof window === 'undefined') {
   // Only run on server-side in production to avoid hot reload issues
-  if (process.env.NODE_ENV === 'production') {
+  // Skip during Next.js build process to avoid multiple initializations
+  const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build' || 
+                      process.env.VERCEL_ENV === undefined || 
+                      process.argv.includes('build');
+  
+  if (process.env.NODE_ENV === 'production' && !isBuildTime) {
     initializeApp();
     
     // Cleanup on process termination
@@ -47,7 +52,7 @@ if (typeof window === 'undefined') {
       cleanupApp();
       process.exit(0);
     });
-  } else {
+  } else if (!isBuildTime) {
     // Development mode: Treasury polling disabled to prevent hot reload conflicts
     // Treasury data will update on user interactions instead
   }

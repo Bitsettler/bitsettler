@@ -9,7 +9,7 @@ import { AuthProvider } from '@/components/auth-provider'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { getSearchGameData } from '@/lib/spacetime-db-new/modules/search/flows'
 import { geistSans } from '@/styles/typography'
-// Initialize app services (treasury polling, etc.)
+// Initialize app services (treasury polling, etc.) - now with build-time guard
 import '@/lib/spacetime-db-new/modules/app-initialization'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
