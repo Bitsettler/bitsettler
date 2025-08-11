@@ -54,9 +54,9 @@ export function CalculatorNewView() {
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center gap-3">
           <Calculator className="h-8 w-8 text-primary" />
-          <h1 className="text-4xl font-bold tracking-tight">Calculator (New)</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Calculator ✨</h1>
           <Badge variant="secondary" className="text-sm">
-            v2.0
+            v2
           </Badge>
         </div>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ export function CalculatorNewView() {
           <Link href="/en/calculator">
             <Button variant="outline" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              View Original Calculator
+              Back to Calculator v1
             </Button>
           </Link>
         </div>
@@ -78,8 +78,8 @@ export function CalculatorNewView() {
       <Alert className="mx-auto max-w-4xl">
         <Lightbulb className="h-4 w-4" />
         <AlertDescription>
-          This is the new calculator engine with enhanced features. We're running both versions side-by-side to gather feedback. 
-          <Link href="/en/calculator" className="underline ml-1">Compare with the original</Link> or 
+          This is the enhanced v2 calculator with advanced features. We're running both versions side-by-side to gather feedback. 
+          <Link href="/en/calculator" className="underline ml-1">Compare with v1</Link> or 
           <a href="mailto:feedback@bitsettler.com" className="underline ml-1">share your thoughts</a>.
         </AlertDescription>
       </Alert>

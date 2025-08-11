@@ -44,7 +44,7 @@ export function CalculatorIndexClient({
               <span>Try our enhanced calculator with step-by-step crafting plans and optimized materials!</span>
               <Link href="/en/calculator-new">
                 <Button variant="outline" size="sm" className="ml-4">
-                  Try Calculator (New)
+                  Try Calculator ✨
                 </Button>
               </Link>
             </AlertDescription>

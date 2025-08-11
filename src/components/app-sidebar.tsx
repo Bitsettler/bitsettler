@@ -89,7 +89,7 @@ const data = {
           translationKey: 'sidebar.calculatorNew',
           href: '/calculator-new',
           icon: CalculatorIcon,
-          badge: 'New'
+          badge: 'v2'
         }
       ]
     },
