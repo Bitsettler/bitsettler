@@ -90,31 +90,127 @@ export async function POST(request: NextRequest) {
 
     // 1. Verify character exists and is unclaimed using service client
     // (RLS policies may block seeing unclaimed characters)
-    const { data: character, error: characterError } = await serviceClient
+    let character;
+    const { data: existingCharacter, error: characterError } = await serviceClient
       .from('settlement_members')
       .select('*')
       .eq('player_entity_id', playerEntityId) // Use BitJita player entity ID (stable, never changes)
       .is('supabase_user_id', null) // Must be unclaimed
       .single();
 
-    if (characterError || !character) {
-      claimLogger.warn('Character not found or already claimed', {
-        error: characterError?.message,
-        characterFound: !!character
+    if (characterError && characterError.code !== 'PGRST116') {
+      // Real database error, not just "no rows found"
+      claimLogger.error('Database error when checking character', {
+        error: characterError.message,
+        code: characterError.code
       });
       return NextResponse.json(
         { 
           success: false, 
-          error: 'Character not available or already claimed',
+          error: 'Database error while checking character availability',
           debug: {
-            characterError: characterError?.message,
+            characterError: characterError.message,
             playerEntityId,
-            settlementId,
-            characterFound: !!character
+            settlementId
           }
         },
-        { status: 404 }
+        { status: 500 }
       );
+    }
+
+    if (!existingCharacter) {
+      // Character doesn't exist, check if this settlement has no members yet
+      const { data: settlementMembers, error: membersError } = await serviceClient
+        .from('settlement_members')
+        .select('id')
+        .eq('settlement_id', settlementId);
+
+      if (membersError) {
+        claimLogger.error('Failed to check settlement members', {
+          error: membersError.message,
+          settlementId
+        });
+        return NextResponse.json(
+          { 
+            success: false, 
+            error: 'Failed to verify settlement status'
+          },
+          { status: 500 }
+        );
+      }
+
+      if (!settlementMembers || settlementMembers.length === 0) {
+        // This is a new settlement with no members, create the first member
+        claimLogger.info('Creating first member for new settlement', {
+          settlementId,
+          playerEntityId
+        });
+
+        const { data: newCharacter, error: createError } = await serviceClient
+          .from('settlement_members')
+          .insert({
+            settlement_id: settlementId,
+            player_entity_id: playerEntityId,
+            entity_id: `entity_${playerEntityId}`,
+            claim_entity_id: `claim_${playerEntityId}`,
+            name: displayName || 'Settlement Founder',
+            skills: {},
+            total_skills: 0,
+            highest_level: 0,
+            total_level: 0,
+            total_xp: 0,
+            top_profession: primaryProfession || 'New Resident',
+            inventory_permission: 1,
+            build_permission: 1,
+            officer_permission: 1,
+            co_owner_permission: 1,
+            is_active: true,
+            sync_source: 'manual_creation',
+            last_synced_at: new Date().toISOString()
+          })
+          .select()
+          .single();
+
+        if (createError) {
+          claimLogger.error('Failed to create new character', {
+            error: createError.message,
+            settlementId,
+            playerEntityId
+          });
+          return NextResponse.json(
+            { 
+              success: false, 
+              error: 'Failed to create character for new settlement'
+            },
+            { status: 500 }
+          );
+        }
+
+        character = newCharacter;
+        claimLogger.info('Successfully created first character for settlement');
+      } else {
+        // Settlement has members but this specific character doesn't exist
+        claimLogger.warn('Character not found in existing settlement', {
+          playerEntityId,
+          settlementId,
+          existingMemberCount: settlementMembers.length
+        });
+        return NextResponse.json(
+          { 
+            success: false, 
+            error: 'Character not available or already claimed',
+            debug: {
+              characterError: characterError?.message,
+              playerEntityId,
+              settlementId,
+              characterFound: false
+            }
+          },
+          { status: 404 }
+        );
+      }
+    } else {
+      character = existingCharacter;
     }
 
     // 2. Check if user already has a character in this settlement using authenticated client
@@ -224,26 +320,24 @@ export async function POST(request: NextRequest) {
       claimLogger.info('Successfully released existing character');
     }
     
-    // 3b. Claim the new character
-    const updateData: Record<string, unknown> = {
+    // 3b. Claim the character (update with user info)
+    const updateData: any = {
       supabase_user_id: user.id,
       onboarding_completed_at: new Date().toISOString()
     };
 
-    // Add display name if provided
-    if (displayName) {
+    // Add display name if provided (for existing characters) or update if different
+    if (displayName && displayName !== character.name) {
       updateData.display_name = displayName;
     }
 
-    // Add profession choices if provided
+    // Add profession choices if provided or update existing
     if (primaryProfession) {
       updateData.primary_profession = primaryProfession;
     }
     if (secondaryProfession) {
       updateData.secondary_profession = secondaryProfession;
     }
-
-
 
     const { data: claimedCharacter, error: claimError } = await serviceClient
       .from('settlement_members')

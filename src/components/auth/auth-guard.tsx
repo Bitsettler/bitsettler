@@ -56,6 +56,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
 
   // Authenticated but no settlement character claimed - show onboarding
   if (!isClaimed || !member) {
+    console.log('AuthGuard: Showing onboarding - isClaimed:', isClaimed, 'member:', !!member, 'memberLoading:', memberLoading);
     return <SettlementOnboardingView />;
   }
 

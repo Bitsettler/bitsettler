@@ -31,11 +31,13 @@ export function SettlementOnboardingView() {
   };
 
   const handleComplete = async () => {
+    console.log('Settlement onboarding completed, redirecting to dashboard...');
+    
     // Add a small delay to ensure database transaction is committed
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Force a hard refresh to clear any cached data
-    window.location.reload();
+    // Redirect to settlement dashboard to trigger proper re-evaluation
+    window.location.href = '/en/settlement';
   };
 
   return (

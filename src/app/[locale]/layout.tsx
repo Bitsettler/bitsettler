@@ -1,6 +1,7 @@
 import { AppSidebar } from '@/components/app-sidebar'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { TestingBanner } from '@/components/testing-banner'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
@@ -9,7 +10,7 @@ import { ErrorBoundary } from '@/components/error-boundary'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { getSearchGameData } from '@/lib/spacetime-db-new/modules/search/flows'
 import { geistSans } from '@/styles/typography'
-// Initialize app services (treasury polling, etc.)
+// Initialize app services (treasury polling, etc.) - now with build-time guard
 import '@/lib/spacetime-db-new/modules/app-initialization'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
@@ -133,6 +134,7 @@ export default async function LocaleLayout({
           <SidebarProvider>
             <AppSidebar searchData={searchData} />
             <SidebarInset className="flex min-h-screen flex-col">
+              <TestingBanner />
               <Header />
               <main className="flex-1">
                 <ErrorBoundary>
