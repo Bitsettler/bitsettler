@@ -1,10 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import { useMemo } from 'react'
 import { expandToBase } from '@/lib/depv2/engine'
 import { getItemById } from '@/lib/depv2/indexes'
-import { resolveItemDisplay } from '@/lib/settlement/item-display'
-import { getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 import { Badge } from '@/components/ui/badge'
 
@@ -17,38 +16,32 @@ export default function BaseMaterialsPanelV2({
   itemId, 
   qty = 1 
 }: BaseMaterialsPanelV2Props) {
-  const result = expandToBase(itemId, qty)
+  const result = useMemo(() => expandToBase(itemId, qty), [itemId, qty])
   const itemById = getItemById()
   
-  // Convert Map to sorted array for consistent rendering
-  const materials = Array.from(result.totals.entries())
-    .sort(([aId], [bId]) => aId - bId)
-    .map(([materialId, materialQty]) => {
-      const item = itemById.get(materialId)
-      const itemName = item?.name || `#${materialId}`
-      
-      // Try to get enhanced display info (icon, tier) from calculator data
-      const displayInfo = item?.name ? resolveItemDisplay(item.name) : {}
-      
-      // Determine icon path with fallbacks
-      let iconPath = displayInfo.iconPath
-      if (iconPath) {
-        iconPath = getServerIconPath(iconPath)
-      } else {
-        iconPath = '/assets/Unknown.webp'
-      }
-      
-      // Determine tier with fallbacks
-      const tier = displayInfo.tier || item?.tier || 0
-      
-      return {
-        id: materialId,
-        qty: materialQty,
-        name: itemName,
-        iconPath,
-        tier
-      }
-    })
+  // Convert Map to sorted array for consistent rendering - memoized to prevent loops
+  const materials = useMemo(() => {
+    return Array.from(result.totals.entries())
+      .sort(([aId], [bId]) => aId - bId)
+      .map(([materialId, materialQty]) => {
+        const item = itemById.get(materialId)
+        const itemName = item?.name || `#${materialId}`
+        
+        // Simple fallback to Unknown.webp for now to avoid expensive calculator calls
+        const iconPath = '/assets/Unknown.webp'
+        
+        // Use tier from our item data
+        const tier = item?.tier || 0
+        
+        return {
+          id: materialId,
+          qty: materialQty,
+          name: itemName,
+          iconPath,
+          tier
+        }
+      })
+  }, [result.totals, itemById])
   
   return (
     <div className="space-y-4">
