@@ -100,9 +100,8 @@ export function CalculatorNewView() {
           <div className="space-y-3">
             <Label className="text-base font-medium">Search Items</Label>
             <ItemPicker 
-              onItemSelect={setItemId}
-              selectedItemId={itemId}
-              placeholder="Type to search for items..."
+              onChange={setItemId}
+              value={itemId}
             />
           </div>
 
