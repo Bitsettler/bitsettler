@@ -36,11 +36,13 @@ function readSlug(it: any): string | undefined {
 }
 
 function readSkill(it: any): string | undefined {
-  // Try explicit skill fields first
+  // Try explicit skill fields first  
   const explicit = it?.skill ?? it?.Skill ?? it?.craftingSkill ?? undefined
   if (explicit) return explicit
   
-  // Try to infer gathering skills from item properties
+  // NOTE: Hard skill data from extraction recipes is handled in indexes.ts
+  // and takes priority via itemToSkill mapping. This inference is only
+  // a fallback for items not covered by recipes or extraction data.
   return inferGatheringSkill(it)
 }
 

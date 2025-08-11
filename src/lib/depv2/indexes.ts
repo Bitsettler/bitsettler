@@ -9,6 +9,7 @@ import { getAllCargo } from '@/lib/spacetime-db-new/modules/cargo/commands/get-a
 import { getAllCraftingRecipes } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-all-crafting-recipes'
 import { getItemPrefix } from '@/lib/spacetime-db-new/shared/calculator-utils'
 import skillDescData from '@/data/sdk-tables/skill_desc.json'
+import extractionRecipeData from '@/data/sdk-tables/extraction_recipe_desc.json'
 import type { DepItem, DepRecipe } from './types'
 
 // NOW USING PREFIXED STRING IDs LIKE THE CALCULATOR!
@@ -89,6 +90,9 @@ export function getRecipeByOutputId(): Map<string, DepRecipe> {
     const recipes = getAllCraftingRecipes()
     const skillById = getSkillById()
     
+    // First, build extraction-based skill mappings (gathering skills)
+    buildExtractionSkillMappings(skillById)
+    
     for (const recipe of recipes) {
       // Determine primary skill for this recipe
       let primarySkill: string | undefined
@@ -129,8 +133,8 @@ export function getRecipeByOutputId(): Map<string, DepRecipe> {
               inputs
             })
             
-            // Map item to skill using prefixed ID
-            if (primarySkill) {
+            // Map item to skill using prefixed ID (don't overwrite extraction skills)
+            if (primarySkill && !_itemToSkill.has(outputPrefixedId)) {
               _itemToSkill.set(outputPrefixedId, primarySkill)
             }
           }
@@ -140,6 +144,32 @@ export function getRecipeByOutputId(): Map<string, DepRecipe> {
   }
   
   return _recipeByOutputId
+}
+
+/**
+ * Build skill mappings from extraction recipes (gathering skills)
+ */
+function buildExtractionSkillMappings(skillById: Map<number, string>) {
+  for (const extractionRecipe of extractionRecipeData) {
+    // Get the skill required for this extraction
+    let extractionSkill: string | undefined
+    if (extractionRecipe.levelRequirements && extractionRecipe.levelRequirements.length > 0) {
+      const skillId = extractionRecipe.levelRequirements[0].skillId
+      extractionSkill = skillById.get(skillId)
+    }
+    
+    if (extractionSkill) {
+      // Map all extracted items to this skill
+      for (const extractedStack of extractionRecipe.extractedItemStacks) {
+        const itemStack = extractedStack.itemStack
+        if (itemStack.itemId) {
+          const itemPrefix = getItemPrefix(itemStack.itemType)
+          const itemPrefixedId = `${itemPrefix}${itemStack.itemId}`
+          _itemToSkill.set(itemPrefixedId, extractionSkill)
+        }
+      }
+    }
+  }
 }
 
 export function getItemToSkill(): Map<string, string> {
