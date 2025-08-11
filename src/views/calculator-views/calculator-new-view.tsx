@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { getItemById } from '@/lib/depv2/indexes'
 import { findDeepCraftables } from '@/lib/depv2/itemIndex'
-import BaseMaterialsPanelV2 from '@/components/depv2/BaseMaterialsPanelV2'
+import { MaterialsDisplayV2 } from '@/components/depv2/MaterialsDisplayV2'
 import CraftingStepsPanel from '@/components/depv2/CraftingStepsPanel'
 import ItemPicker from '@/components/depv2/ItemPicker'
 import { expandToBase } from '@/lib/depv2/engine'
@@ -15,7 +15,7 @@ import { Switch } from '@/components/ui/switch'
 import { Separator } from '@/components/ui/separator'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Package2, Search, Shuffle, Calculator, Lightbulb, ArrowLeft } from 'lucide-react'
+import { Package2, Search, Shuffle, Calculator, Lightbulb, ArrowLeft, List, Table } from 'lucide-react'
 import Link from 'next/link'
 
 export function CalculatorNewView() {
@@ -24,6 +24,8 @@ export function CalculatorNewView() {
   const [deepCraftables, setDeepCraftables] = useState<string[]>([])
   const [isInitialized, setIsInitialized] = useState(false)
   const [showSteps, setShowSteps] = useState<boolean>(false)
+  const [groupBySkill, setGroupBySkill] = useState<boolean>(false)
+  const [useTableView, setUseTableView] = useState<boolean>(false)
   
   useEffect(() => {
     // Load deep craftables but don't auto-select
@@ -142,7 +144,7 @@ export function CalculatorNewView() {
           <Separator />
 
           {/* Options */}
-          <div className="flex items-center justify-between">
+          <div className="space-y-4">
             <div>
               <Label className="text-base font-medium">Selected Item</Label>
               <div className="text-sm text-muted-foreground mt-1">
@@ -160,15 +162,40 @@ export function CalculatorNewView() {
                 )}
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Switch
-                id="show-steps"
-                checked={showSteps}
-                onCheckedChange={setShowSteps}
-              />
-              <Label htmlFor="show-steps" className="text-sm font-medium">
-                Show crafting steps
-              </Label>
+            
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-2">
+                  <Switch
+                    id="group-by-skill"
+                    checked={groupBySkill}
+                    onCheckedChange={setGroupBySkill}
+                  />
+                  <Label htmlFor="group-by-skill" className="text-sm font-medium">
+                    Group by skill
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Switch
+                    id="table-view"
+                    checked={useTableView}
+                    onCheckedChange={setUseTableView}
+                  />
+                  <Label htmlFor="table-view" className="text-sm font-medium">
+                    Table view
+                  </Label>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Switch
+                  id="show-steps"
+                  checked={showSteps}
+                  onCheckedChange={setShowSteps}
+                />
+                <Label htmlFor="show-steps" className="text-sm font-medium">
+                  Show crafting steps
+                </Label>
+              </div>
             </div>
           </div>
         </CardContent>
@@ -178,9 +205,11 @@ export function CalculatorNewView() {
       {expansionResult && (
         <div className="mx-auto max-w-6xl space-y-6">
           {/* Base Materials */}
-          <BaseMaterialsPanelV2 
+          <MaterialsDisplayV2 
             materialTotals={expansionResult.totals}
             totalSteps={expansionResult.steps}
+            groupBySkill={groupBySkill}
+            useTableView={useTableView}
             className="w-full"
           />
           
