@@ -81,8 +81,7 @@ export function CalculatorNewView() {
         <Lightbulb className="h-4 w-4" />
         <AlertDescription>
           This is the enhanced v2 calculator with advanced features. We're running both versions side-by-side to gather feedback. 
-          <Link href="/en/calculator" className="underline ml-1">Compare with v1</Link> or 
-          <a href="mailto:feedback@bitsettler.com" className="underline ml-1">share your thoughts</a>.
+          <Link href="/en/calculator" className="underline ml-1">Compare with v1</Link>.
         </AlertDescription>
       </Alert>
 
