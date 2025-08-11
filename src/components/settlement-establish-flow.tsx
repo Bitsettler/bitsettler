@@ -358,14 +358,16 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
           console.log('⚠️ No characters returned from establishment API, but proceeding to character claiming');
           // Keep any fallback characters that might exist, or create a basic one
           if (availableCharacters.length === 0) {
+            // Generate a numeric player_entity_id that matches validation pattern
+            const numericPlayerId = Date.now().toString(); // Use timestamp for unique numeric ID
             setAvailableCharacters([{
-              id: 'new_member',
+              id: numericPlayerId,
               name: 'Your Character',
               settlement_id: selectedSettlement.id,
-              player_entity_id: 'new_member', // Use consistent ID
-              entity_id: 'new_entity',
-              claim_entity_id: 'new_claim',
-              bitjita_user_id: 'new_user',
+              player_entity_id: numericPlayerId, // Use numeric ID that passes validation
+              entity_id: `entity_${numericPlayerId}`,
+              claim_entity_id: `claim_${numericPlayerId}`,
+              bitjita_user_id: `user_${numericPlayerId}`,
               skills: {},
               top_profession: 'New Resident',
               total_level: 0,

@@ -51,20 +51,32 @@ export async function POST(request: NextRequest) {
    
       try {
         // Fetch both roster (for permissions) and citizens (for character stats) in parallel
+        const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
+        const rosterUrl = `${baseUrl}/api/settlement/roster?settlementId=${settlementId}`;
+        const citizensUrl = `${baseUrl}/api/settlement/citizens?settlementId=${settlementId}`;
+        
+        console.log(`🔗 Calling roster API: ${rosterUrl}`);
+        console.log(`🔗 Calling citizens API: ${citizensUrl}`);
+        
         const [rosterResponse, citizensResponse] = await Promise.all([
-          fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/roster?settlementId=${settlementId}`),
-          fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/settlement/citizens?settlementId=${settlementId}`)
+          fetch(rosterUrl),
+          fetch(citizensUrl)
         ]);
+        
+        console.log(`📊 Roster API status: ${rosterResponse.status} ${rosterResponse.statusText}`);
+        console.log(`📊 Citizens API status: ${citizensResponse.status} ${citizensResponse.statusText}`);
         
         const [rosterResult, citizensResult] = await Promise.all([
           rosterResponse.json(),
           citizensResponse.json()
         ]);
 
-        console.log('🔍 BitJita roster result:', rosterResult.data);
-        console.log('🔍 BitJita citizens result:', citizensResult.data);
+        console.log('🔍 BitJita roster result:', rosterResult.success ? `Success: ${rosterResult.data?.members?.length || 0} members` : `Error: ${rosterResult.error}`);
+        console.log('🔍 BitJita citizens result:', citizensResult.success ? `Success: ${citizensResult.data?.citizens?.length || 0} citizens` : `Error: ${citizensResult.error}`);
 
         if (rosterResult.success && rosterResult.data.members) {
+          console.log(`🔍 BitJita roster returned ${rosterResult.data.members.length} members`);
+          
           // Create a map of citizens data by entity_id for quick lookup
           const citizensMap = new Map();
           if (citizensResult.success && citizensResult.data?.citizens) {
@@ -135,8 +147,18 @@ export async function POST(request: NextRequest) {
           }
         } else {
           console.warn('⚠️ No member data available from BitJita roster, settlement created without members');
+          console.warn('⚠️ Roster API result:', {
+            success: rosterResult.success,
+            error: rosterResult.error,
+            dataStructure: rosterResult.data ? Object.keys(rosterResult.data) : 'no data',
+            membersLength: rosterResult.data?.members?.length || 0
+          });
           if (!citizensResult.success) {
             console.warn('⚠️ Citizens API also failed, character stats will be defaults');
+            console.warn('⚠️ Citizens API result:', {
+              success: citizensResult.success,
+              error: citizensResult.error
+            });
           }
         }
       } catch (memberError) {
@@ -181,10 +203,21 @@ export async function POST(request: NextRequest) {
       }
 
       console.log(`👥 Establish API: Found ${members?.length || 0} members in database`);
+      
+      // Debug: Log member claim status
+      if (members && members.length > 0) {
+        members.forEach((member, index) => {
+          console.log(`🔍 Member ${index + 1}: ${member.name} (${member.player_entity_id}) - Claimed: ${!!member.supabase_user_id} (User ID: ${member.supabase_user_id || 'none'})`);
+        });
+      }
 
       // Transform database data to available characters format (only unclaimed characters)
       const availableCharacters = (members || [])
-        .filter(member => member && 'supabase_user_id' in member && !member.supabase_user_id) // Only unclaimed characters
+        .filter(member => {
+          const isUnclaimed = member && 'supabase_user_id' in member && !member.supabase_user_id;
+          console.log(`🔍 Filter check for ${member?.name}: unclaimed = ${isUnclaimed}`);
+          return isUnclaimed;
+        }) // Only unclaimed characters
         .map((member) => {
           if (!member || typeof member !== 'object') return null;
           return formatAsAvailableCharacter({
