@@ -310,7 +310,7 @@ export function SettlementDashboardView() {
               {settlementInfo?.id && (
                 <SettlementDiscordLink 
                   settlementId={settlementInfo.id}
-                  variant="default"
+                  variant="inline-small"
                 />
               )}
               {dashboardData?.meta?.lastUpdated && (
