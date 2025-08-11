@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { AuthProvider } from '@/components/auth-provider'
+import { ErrorBoundary } from '@/components/error-boundary'
 import { I18N_CONFIG, type Locale } from '@/i18n/config'
 import { getSearchGameData } from '@/lib/spacetime-db-new/modules/search/flows'
 import { geistSans } from '@/styles/typography'
@@ -133,7 +134,11 @@ export default async function LocaleLayout({
             <AppSidebar searchData={searchData} />
             <SidebarInset className="flex min-h-screen flex-col">
               <Header />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1">
+                <ErrorBoundary>
+                  {children}
+                </ErrorBoundary>
+              </main>
               <Footer />
             </SidebarInset>
           </SidebarProvider>

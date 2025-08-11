@@ -5,7 +5,7 @@ export interface DepItem {
   iconAssetName?: string
   // Add other fields from ItemDesc, ResourceDesc, CargoDesc as needed
   slug?: string
-  [key: string]: any // Allow other fields from the original data
+  [key: string]: unknown // Allow other fields from the original data
 }
 
 export interface DepRecipe {

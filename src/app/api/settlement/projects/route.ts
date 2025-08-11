@@ -110,9 +110,7 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsR
 // Temporary direct handler to bypass withErrorHandling wrapper for debugging
 export async function GET(request: NextRequest) {
   try {
-    console.log('Direct Projects API: Starting...');
     const result = await handleGetProjects(request);
-    console.log('Direct Projects API: Handler result:', result.success, typeof result);
     
     if (result.success) {
       return NextResponse.json({
@@ -127,7 +125,7 @@ export async function GET(request: NextRequest) {
       }, { status: 500 });
     }
   } catch (error) {
-    console.log('Direct Projects API: Caught error:', error);
+    // Error caught in projects API
     return NextResponse.json({
       success: false,
       error: error instanceof Error ? error.message : String(error)

@@ -13,7 +13,7 @@ async function updateMemberAvatar(userId: string, avatarUrl: string) {
     }
     return response
   } catch (error) {
-    console.error('Error updating member avatar:', error)
+    // Avatar update failed - continue silently
     throw error
   }
 }
@@ -46,24 +46,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Listen for auth changes
     const { data: { subscription } } = auth.onAuthStateChange(
       async (event, session) => {
-        console.log('Auth state change:', event, session?.user?.email)
-        
         setSession(session)
         setUser(session?.user ?? null)
         
         if (event === 'SIGNED_IN' && session?.user) {
-          console.log('User signed in:', session.user.email)
           // Store Discord avatar if available
           const avatarUrl = session.user.user_metadata?.avatar_url
           if (avatarUrl) {
-            console.log('User has Discord avatar:', avatarUrl)
             // Update settlement member with avatar URL
-            updateMemberAvatar(session.user.id, avatarUrl).catch(err => {
-              console.error('Failed to update member avatar:', err)
+            updateMemberAvatar(session.user.id, avatarUrl).catch(() => {
+              // Silent failure for avatar update
             })
           }
-        } else if (event === 'SIGNED_OUT') {
-          console.log('User signed out')
         }
         
         setLoading(false)

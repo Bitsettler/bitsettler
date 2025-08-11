@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase-auth';
 
 export async function GET(request: Request) {
   try {
-    const session = await getSupabaseSession(request as any);
+    const session = await getSupabaseSession(request);
     
     if (!session?.user?.id) {
       return NextResponse.json(
@@ -28,7 +28,7 @@ export async function GET(request: Request) {
       .maybeSingle();
 
     if (error) {
-      console.error('Failed to fetch current member:', error);
+      // Database error fetching member
       return NextResponse.json(
         { error: 'Failed to fetch member data' },
         { status: 500 }
@@ -48,7 +48,7 @@ export async function GET(request: Request) {
     });
 
   } catch (error) {
-    console.error('Current member API error:', error);
+    // API error handled
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

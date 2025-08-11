@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { getItemById } from '@/lib/depv2/indexes'
 import { findDeepCraftables } from '@/lib/depv2/itemIndex'
+import { runSkillAudit } from '@/lib/depv2/audit-skills'
 import BaseMaterialsPanelV2 from '@/components/depv2/BaseMaterialsPanelV2'
 import CraftingStepsPanel from '@/components/depv2/CraftingStepsPanel'
 import ItemPicker from '@/components/depv2/ItemPicker'
@@ -24,14 +25,16 @@ export default function DepV2DevPage() {
   const [showSteps, setShowSteps] = useState<boolean>(false)
   
   useEffect(() => {
-    // Load deep craftables and auto-select first one
+    // Load deep craftables but don't auto-select
     const deepItems = findDeepCraftables(12)
     setDeepCraftables(deepItems)
+    setIsInitialized(true)
     
-    if (deepItems.length > 0) {
-      setItemId(deepItems[0])
-      setIsInitialized(true)
-    }
+    // Run skill audit to check missing skills
+    setTimeout(() => runSkillAudit(), 500)
+    
+    // Optional: You can still auto-select if you want a specific item
+    // setItemId(deepItems[0])
   }, [])
   
   const itemById = getItemById()

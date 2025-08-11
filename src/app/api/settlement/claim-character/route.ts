@@ -65,9 +65,7 @@ export async function POST(request: NextRequest) {
     // Validate and sanitize request body
     const validationResult = await validateRequestBody(request, SETTLEMENT_SCHEMAS.claimCharacter);
     if (!validationResult.success) {
-      console.error('❌ Validation failed:', {
-        errors: validationResult.errors
-      });
+      // Validation failed
       return NextResponse.json(
         { 
           success: false, 
@@ -78,7 +76,7 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    console.log('🔍 Claim character validated data:', validationResult.data);
+    // Claim character data validated
 
     const { playerEntityId, settlementId, displayName, primaryProfession, secondaryProfession, replaceExisting } = validationResult.data!;
     const claimLogger = userLogger.child({ 
@@ -227,7 +225,7 @@ export async function POST(request: NextRequest) {
     }
     
     // 3b. Claim the new character
-    const updateData: any = {
+    const updateData: Record<string, unknown> = {
       supabase_user_id: user.id,
       onboarding_completed_at: new Date().toISOString()
     };

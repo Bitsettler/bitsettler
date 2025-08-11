@@ -27,15 +27,15 @@ function sanitizeName(n?: string) {
 }
 
 // Try a few common field names; leave undefined if missing
-function readTier(it: any): number | undefined {
+function readTier(it: Record<string, unknown>): number | undefined {
   return Number(it?.tier ?? it?.Tier ?? it?.T ?? it?.rank ?? it?.Rank) || undefined
 }
 
-function readSlug(it: any): string | undefined {
+function readSlug(it: Record<string, unknown>): string | undefined {
   return (it?.slug ?? it?.Slug ?? it?.code ?? undefined) || undefined
 }
 
-function readSkill(it: any): string | undefined {
+function readSkill(it: Record<string, unknown>): string | undefined {
   // Try explicit skill fields first  
   const explicit = it?.skill ?? it?.Skill ?? it?.craftingSkill ?? undefined
   if (explicit) return explicit
@@ -46,7 +46,7 @@ function readSkill(it: any): string | undefined {
   return inferGatheringSkill(it)
 }
 
-function inferGatheringSkill(it: any): string | undefined {
+function inferGatheringSkill(it: Record<string, unknown>): string | undefined {
   const name = it?.name?.toLowerCase() || ''
   const category = it?.category?.toLowerCase() || ''
   const tags = it?.tags || []
@@ -54,6 +54,8 @@ function inferGatheringSkill(it: any): string | undefined {
   // Mining/Extraction
   if (name.includes('ore') || name.includes('stone') || name.includes('clay') || 
       name.includes('sand') || name.includes('mineral') || name.includes('gem') ||
+      name.includes('braxite') || name.includes('pebbles') || name.includes('gypsite') ||
+      name.includes('ancient') || name.includes('damaged') ||
       category.includes('ore') || category.includes('stone')) {
     return 'Mining'
   }
@@ -94,7 +96,7 @@ function inferGatheringSkill(it: any): string | undefined {
   return undefined
 }
 
-function iconFrom(it: any, id: string, slug?: string): string {
+function iconFrom(it: Record<string, unknown>, id: string, slug?: string): string {
   // Try iconAssetName first (primary field in our data)
   const rawIconAssetName = it?.iconAssetName ?? it?.icon_asset_name
   if (rawIconAssetName && typeof rawIconAssetName === 'string' && rawIconAssetName.length > 0) {
@@ -125,8 +127,15 @@ function buildIndex() {
     let skill = itemToSkill.get(id) ?? readSkill(it)
     
     // Debug: Log skill resolution for specific items
-    if (name.includes('Crop Oil') || name.includes('Gypsite')) {
+    if (name.includes('Crop Oil') || name.includes('Gypsite') || 
+        name.includes('Braxite') || name.includes('Pebbles')) {
       console.log(`🎯 Display for ${name} (${id}): skill from map = ${itemToSkill.get(id)}, final skill = ${skill}`)
+    }
+    
+    // Count items without skills for audit
+    if (!skill) {
+      if (!window.itemsWithoutSkills) window.itemsWithoutSkills = []
+      window.itemsWithoutSkills.push({ id, name, tier })
     }
     
     const icon = iconFrom(it, id, slug)
@@ -151,3 +160,36 @@ export function getManyDisplays(ids: string[]): ItemDisplay[] {
 export function clearDisplayCache() {
   byId = null
 }
+
+/**
+ * Audit function to find items without skills
+ */
+export function auditItemsWithoutSkills(): { total: number; withoutSkills: Array<{id: string, name: string, tier?: number}> } {
+  if (!byId) byId = buildIndex()
+  
+  const allItems = Array.from(byId.values())
+  const withoutSkills = allItems.filter(item => !item.skill)
+  
+  console.log(`📊 Skill Assignment Audit:`)
+  console.log(`Total items: ${allItems.length}`)
+  console.log(`Items without skills: ${withoutSkills.length} (${((withoutSkills.length / allItems.length) * 100).toFixed(1)}%)`)
+  
+  // Log some examples
+  console.log(`\n🔍 Examples of items without skills:`)
+  withoutSkills.slice(0, 10).forEach(item => {
+    console.log(`  - ${item.name} (${item.id}) Tier: ${item.tier || 'N/A'}`)
+  })
+  
+  return {
+    total: allItems.length,
+    withoutSkills
+  }
+}
+
+// Clear cache on module reload in development
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  clearDisplayCache()
+}
+
+// Force rebuild for debugging
+clearDisplayCache()

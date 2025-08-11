@@ -295,7 +295,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
     return { label: 'Denied', color: 'text-muted-foreground bg-muted/50', icon: UserX };
   };
 
-  const getMemberRole = (permissions: any): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
+  const getMemberRole = (permissions: { coOwner?: number; officer?: number; member?: number }): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
     if (permissions.coOwner >= 1) return { 
       role: 'Co-Owner', 
       description: 'Has full administrative access and can manage all settlement functions',

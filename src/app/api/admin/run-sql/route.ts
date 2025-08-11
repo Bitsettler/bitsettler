@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Database connection failed' }, { status: 500 })
     }
 
-    console.log('🔄 Executing SQL:', sql)
+    // Executing SQL query
 
     // Execute raw SQL using Supabase's .from() method with a raw query
     const { data, error } = await supabase
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       .limit(0) // Don't actually select data, just test connection
 
     if (error) {
-      console.error('❌ Database connection test failed:', error)
+      // Database connection test failed
       return NextResponse.json({ 
         error: 'Database connection failed',
         details: error.message 
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Since we can't use exec_sql, let's try manual ALTER TABLE through the client
-    console.log('✅ Database connected, attempting manual column addition...')
+    // Database connected, attempting manual column addition
 
     // Try to select avatar_url to see if it exists
     const { error: testError } = await supabase
