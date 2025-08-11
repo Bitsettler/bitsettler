@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 import { getItemById } from '@/lib/depv2/indexes'
 import { findDeepCraftables } from '@/lib/depv2/itemIndex'
 import BaseMaterialsPanelV2 from '@/components/depv2/BaseMaterialsPanelV2'
+import CraftingStepsPanel from '@/components/depv2/CraftingStepsPanel'
 import ItemPicker from '@/components/depv2/ItemPicker'
+import { expandToBase } from '@/lib/depv2/engine'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
@@ -16,6 +18,7 @@ export default function DepV2DevPage() {
   const [qty, setQty] = useState<number>(1)
   const [deepCraftables, setDeepCraftables] = useState<string[]>([])
   const [isInitialized, setIsInitialized] = useState(false)
+  const [showSteps, setShowSteps] = useState<boolean>(false)
   
   useEffect(() => {
     // Load deep craftables and auto-select first one
@@ -30,6 +33,9 @@ export default function DepV2DevPage() {
   
   const itemById = getItemById()
   const currentItem = itemById.get(itemId)
+  
+  // Get expansion result with optional crafting plan
+  const expansionResult = itemId ? expandToBase(itemId, qty, showSteps) : null
   
   const handleRandomDeepItem = () => {
     if (deepCraftables.length > 0) {
@@ -129,21 +135,40 @@ export default function DepV2DevPage() {
               />
             </div>
           </div>
+          
+          <div className="flex items-center space-x-2">
+            <input
+              id="showSteps"
+              type="checkbox"
+              checked={showSteps}
+              onChange={(e) => setShowSteps(e.target.checked)}
+              className="rounded"
+            />
+            <Label htmlFor="showSteps" className="text-sm">
+              Generate detailed crafting steps
+            </Label>
+          </div>
         </CardContent>
       </Card>
       
       {itemId && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Base Materials Expansion</CardTitle>
-            <CardDescription>
-              Materials needed to craft {qty}× {currentItem?.name || itemId}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <BaseMaterialsPanelV2 itemId={itemId} qty={qty} />
-          </CardContent>
-        </Card>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle>Base Materials</CardTitle>
+              <CardDescription>
+                Materials needed to craft {qty}× {currentItem?.name || itemId}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <BaseMaterialsPanelV2 itemId={itemId} qty={qty} />
+            </CardContent>
+          </Card>
+          
+          {showSteps && expansionResult?.plan && (
+            <CraftingStepsPanel plan={expansionResult.plan} />
+          )}
+        </div>
       )}
     </div>
   )
