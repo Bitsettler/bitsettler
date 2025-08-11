@@ -288,14 +288,6 @@ export function SettlementDashboardView() {
                       <span> • {dashboardData.settlement.masterData.region_name}</span>
                     )}
                   </p>
-                  {settlementInfo?.id && (
-                    <div className="mt-3">
-                      <SettlementDiscordLink 
-                        settlementId={settlementInfo.id}
-                        variant="default"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
 
@@ -314,6 +306,12 @@ export function SettlementDashboardView() {
                 <div className="text-xs text-muted-foreground">
                   Loading invite code...
                 </div>
+              )}
+              {settlementInfo?.id && (
+                <SettlementDiscordLink 
+                  settlementId={settlementInfo.id}
+                  variant="default"
+                />
               )}
               {dashboardData?.meta?.lastUpdated && (
                 <div className="text-right">
