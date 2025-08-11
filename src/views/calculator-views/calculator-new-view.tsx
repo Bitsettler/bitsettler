@@ -89,88 +89,63 @@ export function CalculatorNewView() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Search className="h-5 w-5" />
-            Item Selection
+            Calculate Materials
           </CardTitle>
           <CardDescription>
-            Search for items by name or choose from complex craftables
+            Search for any item and specify how many you need to craft
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Search Bar */}
-          <div className="space-y-3">
-            <Label className="text-base font-medium">Search Items</Label>
-            <ItemPicker 
-              onChange={setItemId}
-              value={itemId}
-            />
-          </div>
-
-          <Separator />
-
-          {/* Quick Picks */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label className="text-base font-medium">
-                Complex Craftables ({deepCraftables.length})
-              </Label>
+          {/* Main Input Section */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Item Search */}
+            <div className="md:col-span-2 space-y-3">
+              <Label className="text-base font-medium">Search for any item</Label>
+              <ItemPicker 
+                onChange={setItemId}
+                value={itemId}
+              />
+              <p className="text-sm text-muted-foreground">
+                Search by name (e.g. "Iron Sword", "Healing Potion") or browse with random
+              </p>
+            </div>
+            
+            {/* Quantity & Random */}
+            <div className="space-y-4">
+              <div className="space-y-3">
+                <Label htmlFor="qty" className="text-base font-medium">How many?</Label>
+                <Input
+                  id="qty"
+                  type="number"
+                  min="1"
+                  max="1000"
+                  value={qty}
+                  onChange={(e) => setQty(parseInt(e.target.value) || 1)}
+                  className="text-base"
+                  placeholder="1"
+                />
+              </div>
+              
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleRandomDeepItem}
                 disabled={deepCraftables.length === 0}
-                className="gap-2"
+                className="gap-2 w-full"
               >
                 <Shuffle className="h-4 w-4" />
-                Random Item
+                Try Random Item
               </Button>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-              {deepCraftables.map((id) => {
-                const item = itemById.get(id)
-                const isSelected = itemId === id
-                return (
-                  <Button
-                    key={id}
-                    variant={isSelected ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setItemId(id)}
-                    className="h-auto p-3 justify-start"
-                  >
-                    <div className="flex flex-col items-start gap-1 min-w-0">
-                      <span className="text-xs font-medium truncate w-full text-left">
-                        {item?.name || id}
-                      </span>
-                      {item?.tier && (
-                        <Badge variant={isSelected ? "secondary" : "outline"} className="text-xs h-4">
-                          T{item.tier}
-                        </Badge>
-                      )}
-                    </div>
-                  </Button>
-                )
-              })}
             </div>
           </div>
 
           <Separator />
 
-          {/* Settings Section */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="qty" className="text-base font-medium">Quantity</Label>
-              <Input
-                id="qty"
-                type="number"
-                min="1"
-                max="1000"
-                value={qty}
-                onChange={(e) => setQty(parseInt(e.target.value) || 1)}
-                className="text-base"
-              />
-            </div>
-            <div className="space-y-2">
+          {/* Options */}
+          <div className="flex items-center justify-between">
+            <div>
               <Label className="text-base font-medium">Selected Item</Label>
-              <div className="text-sm p-2 bg-muted rounded-md">
+              <div className="text-sm text-muted-foreground mt-1">
                 {currentItem ? (
                   <div className="flex items-center gap-2">
                     <span className="font-medium">{currentItem.name}</span>
@@ -181,22 +156,19 @@ export function CalculatorNewView() {
                     )}
                   </div>
                 ) : (
-                  <span className="text-muted-foreground">No item selected</span>
+                  <span>No item selected</span>
                 )}
               </div>
             </div>
-            <div className="space-y-2">
-              <Label className="text-base font-medium">Show Crafting Steps</Label>
-              <div className="flex items-center space-x-2 pt-1">
-                <Switch
-                  id="show-steps"
-                  checked={showSteps}
-                  onCheckedChange={setShowSteps}
-                />
-                <Label htmlFor="show-steps" className="text-sm text-muted-foreground">
-                  Generate detailed plan
-                </Label>
-              </div>
+            <div className="flex items-center space-x-2">
+              <Switch
+                id="show-steps"
+                checked={showSteps}
+                onCheckedChange={setShowSteps}
+              />
+              <Label htmlFor="show-steps" className="text-sm font-medium">
+                Show crafting steps
+              </Label>
             </div>
           </div>
         </CardContent>
@@ -233,10 +205,11 @@ export function CalculatorNewView() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <p>• <strong>Search above</strong> to find any item by name</p>
-              <p>• <strong>Quick picks</strong> show complex items perfect for testing the engine</p>
-              <p>• <strong>Enable steps</strong> to see detailed crafting instructions with skill requirements</p>
-              <p>• The engine automatically detects cycles and optimizes material calculations</p>
+              <p>• <strong>Search for any item</strong> by typing its name (weapons, tools, potions, etc.)</p>
+              <p>• <strong>Set quantity</strong> to see materials needed for multiple items</p>
+              <p>• <strong>Try random item</strong> to discover complex crafting recipes</p>
+              <p>• <strong>Enable crafting steps</strong> for detailed instructions with skill requirements</p>
+              <p>• The engine automatically optimizes materials and detects recipe cycles</p>
             </div>
           </CardContent>
         </Card>
