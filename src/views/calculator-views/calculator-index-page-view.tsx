@@ -4,6 +4,10 @@ import { Container } from '@/components/container'
 import { useRouter } from '@/i18n/navigation'
 import type { CalculatorGameData } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { CalculatorSearchInput } from '@/views/calculator-views/calculator-search-input'
+import { Button } from '@/components/ui/button'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Sparkles } from 'lucide-react'
+import Link from 'next/link'
 
 interface CalculatorIndexClientProps {
   gameData: CalculatorGameData
@@ -32,6 +36,19 @@ export function CalculatorIndexClient({
               dependencies for any item in BitCraft.
             </p>
           </div>
+
+          {/* New Calculator Notice */}
+          <Alert className="mb-8 max-w-2xl mx-auto">
+            <Sparkles className="h-4 w-4" />
+            <AlertDescription className="flex items-center justify-between">
+              <span>Try our enhanced calculator with step-by-step crafting plans and optimized materials!</span>
+              <Link href="/en/calculator-new">
+                <Button variant="outline" size="sm" className="ml-4">
+                  Try Calculator (New)
+                </Button>
+              </Link>
+            </AlertDescription>
+          </Alert>
 
           {/* Search */}
           <div className="mb-8">
