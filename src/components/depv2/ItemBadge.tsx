@@ -14,6 +14,7 @@ export function ItemBadge({ id, qty }: { id: string; qty?: number }) {
           width={18} 
           height={18} 
           className="rounded-sm object-contain" 
+          style={{ width: '18px', height: 'auto' }}
           loading="lazy" 
           unoptimized
           onError={(e) => {

@@ -3,7 +3,7 @@
  * Builds a single Map at module scope and serves O(1) lookups.
  */
 import { getIndexes } from './indexes'
-import { getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
+import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/shared/assets'
 
 export type ItemDisplay = {
   id: string       // NOW PREFIXED: "item_123", "cargo_456", etc.
@@ -91,9 +91,13 @@ function inferGatheringSkill(it: any): string | undefined {
 
 function iconFrom(it: any, id: string, slug?: string): string {
   // Try iconAssetName first (primary field in our data)
-  const iconAssetName = it?.iconAssetName ?? it?.icon_asset_name
-  if (iconAssetName && typeof iconAssetName === 'string' && iconAssetName.length > 0) {
-    return getServerIconPath(iconAssetName)
+  const rawIconAssetName = it?.iconAssetName ?? it?.icon_asset_name
+  if (rawIconAssetName && typeof rawIconAssetName === 'string' && rawIconAssetName.length > 0) {
+    // Clean the asset name to fix double-nested paths and other issues
+    const cleanedAssetName = cleanIconAssetName(rawIconAssetName)
+    if (cleanedAssetName) {
+      return getServerIconPath(cleanedAssetName)
+    }
   }
   
   // Fallback to other possible icon fields
