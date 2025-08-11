@@ -1,0 +1,89 @@
+/* Calculator v2 Design Tokens and Utilities */
+
+/* Glass card styling */
+.glass {
+  border: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+  background: color-mix(in oklab, var(--background) 70%, transparent);
+}
+
+@supports (backdrop-filter: blur(6px)) {
+  .glass {
+    backdrop-filter: blur(6px);
+  }
+}
+
+/* Subtle ring styling */
+.ring-subtle {
+  @apply ring-1 ring-border/50;
+}
+
+/* Card radius token */
+.card-radius {
+  @apply rounded-2xl;
+}
+
+/* Chip styling */
+.chip {
+  @apply inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium;
+}
+
+/* Keyboard hint styling */
+.kbd {
+  @apply rounded-md border px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground bg-muted;
+}
+
+/* Skeleton animations */
+.skeleton {
+  @apply bg-muted/50 animate-pulse;
+}
+
+/* Hover lift animation */
+.hover-lift {
+  @apply transition-all duration-200 ease-out;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-0.5 shadow-md;
+}
+
+/* Sticky header offset */
+.sticky-header {
+  top: calc(var(--sticky-offset, 48px));
+  @apply sticky bg-background/95 backdrop-blur-sm border-b z-10;
+}
+
+/* Mono quantities */
+.qty-mono {
+  @apply font-mono tabular-nums text-sm font-medium;
+}
+
+/* Gradient hero background */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--primary) 10%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 5%, transparent) 50%,
+    transparent 100%
+  );
+}
+
+/* Item icon tile */
+.icon-tile {
+  @apply h-12 w-12 rounded-lg border bg-muted relative flex items-center justify-center overflow-hidden;
+}
+
+/* Tier chip positioning */
+.tier-chip {
+  @apply absolute -top-1 -right-1;
+}
+
+/* Segmented control */
+.segmented-control {
+  @apply inline-flex items-center gap-0.5 p-1 bg-muted/50 rounded-lg border;
+}
+
+.segmented-control-button {
+  @apply px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-150;
+  @apply hover:bg-background/60 data-[active=true]:bg-background data-[active=true]:shadow-sm;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+}

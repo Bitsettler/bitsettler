@@ -1,0 +1,10 @@
+[33m61d5810[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mtoolbelt[m[33m, [m[1;31morigin/toolbelt[m[33m)[m Add BitJita API header testing functionality and fix syntax errors
+[33m5aff695[m Fix Discord button styling on dashboard
+[33m0c22428[m Move Discord button under Invite Code on settlement dashboard
+[33mb7f776d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Add materials and crafting steps summary to selected item display
+[33m38d63bd[m Update navigation label to 'Calculator v2 ✨'
+[33m7c80f96[m Separate quantity into its own column for better readability
+[33mfdfddd0[m Match project page item styling in Calculator ✨
+[33m9d5b25d[m Remove 'share your thoughts' email link from Calculator ✨
+[33m12488fb[m Add grouping and table view toggles to Calculator ✨
+[33m0639c6f[m Simplify Calculator ✨ UI for better usability
