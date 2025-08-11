@@ -1,42 +1,42 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { getRecipeByOutputId, getItemById } from '@/lib/depv2/indexes'
+import { getItemById } from '@/lib/depv2/indexes'
+import { findDeepCraftables } from '@/lib/depv2/itemIndex'
 import BaseMaterialsPanelV2 from '@/components/depv2/BaseMaterialsPanelV2'
+import ItemPicker from '@/components/depv2/ItemPicker'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function DepV2DevPage() {
   const [itemId, setItemId] = useState<number>(0)
   const [qty, setQty] = useState<number>(1)
+  const [deepCraftables, setDeepCraftables] = useState<number[]>([])
   const [isInitialized, setIsInitialized] = useState(false)
   
   useEffect(() => {
-    // Auto-pick a valid craftable item on mount
-    const recipeByOutputId = getRecipeByOutputId()
-    const itemById = getItemById()
+    // Load deep craftables and auto-select first one
+    const deepItems = findDeepCraftables(12)
+    setDeepCraftables(deepItems)
     
-    // Find first craftable item with a name
-    for (const [outputId] of recipeByOutputId) {
-      const item = itemById.get(outputId)
-      if (item?.name) {
-        setItemId(outputId)
-        setIsInitialized(true)
-        break
-      }
-    }
-    
-    // Fallback to first available craftable item
-    if (!isInitialized && recipeByOutputId.size > 0) {
-      const firstCraftableId = Array.from(recipeByOutputId.keys())[0]
-      setItemId(firstCraftableId)
+    if (deepItems.length > 0) {
+      setItemId(deepItems[0])
       setIsInitialized(true)
     }
-  }, [isInitialized])
+  }, [])
   
   const itemById = getItemById()
   const currentItem = itemById.get(itemId)
+  
+  const handleRandomDeepItem = () => {
+    if (deepCraftables.length > 0) {
+      const randomIndex = Math.floor(Math.random() * deepCraftables.length)
+      setItemId(deepCraftables[randomIndex])
+    }
+  }
   
   return (
     <div className="container mx-auto py-8 space-y-6">
@@ -49,28 +49,72 @@ export default function DepV2DevPage() {
       
       <Card>
         <CardHeader>
-          <CardTitle>Input Parameters</CardTitle>
+          <CardTitle>Item Selection</CardTitle>
           <CardDescription>
-            Specify an item ID and quantity to expand
+            Search for items or use smart picks for complex craftables
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label>Search Items</Label>
+            <ItemPicker value={itemId} onChange={setItemId} />
+            {currentItem && (
+              <p className="text-sm text-muted-foreground">
+                Selected: {currentItem.name || `#${currentItem.id}`}
+                {currentItem.tier && ` (Tier ${currentItem.tier})`}
+              </p>
+            )}
+          </div>
+          
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Label>Deep Craftables</Label>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRandomDeepItem}
+                disabled={deepCraftables.length === 0}
+              >
+                Random deep item
+              </Button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {deepCraftables.map((id) => {
+                const item = itemById.get(id)
+                return (
+                  <Button
+                    key={id}
+                    variant={itemId === id ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setItemId(id)}
+                    className="h-auto py-1"
+                  >
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs">
+                        {item?.name || `#${id}`}
+                      </span>
+                      {item?.tier && (
+                        <Badge variant="secondary" className="text-xs h-4">
+                          T{item.tier}
+                        </Badge>
+                      )}
+                    </div>
+                  </Button>
+                )
+              })}
+            </div>
+          </div>
+          
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="itemId">Item ID</Label>
+              <Label htmlFor="itemId">Item ID (Manual)</Label>
               <Input
                 id="itemId"
                 type="number"
                 value={itemId}
                 onChange={(e) => setItemId(parseInt(e.target.value) || 0)}
-                placeholder="Enter item ID"
+                placeholder="Enter item ID directly"
               />
-              {currentItem && (
-                <p className="text-sm text-muted-foreground">
-                  {currentItem.name || `#${currentItem.id}`}
-                  {currentItem.tier && ` (Tier ${currentItem.tier})`}
-                </p>
-              )}
             </div>
             
             <div className="space-y-2">
