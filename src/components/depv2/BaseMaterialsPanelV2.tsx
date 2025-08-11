@@ -1,34 +1,33 @@
 'use client'
 
 import { useMemo } from 'react'
-import { expandToBase } from '@/lib/depv2/engine'
 import { ItemBadge } from './ItemBadge'
 
 interface BaseMaterialsPanelV2Props {
-  itemId: string // NOW STRING ID!
-  qty?: number
+  materialTotals: Map<string, number>
+  totalSteps: number
+  className?: string
 }
 
 export default function BaseMaterialsPanelV2({ 
-  itemId, 
-  qty = 1 
+  materialTotals,
+  totalSteps,
+  className
 }: BaseMaterialsPanelV2Props) {
-  const result = useMemo(() => expandToBase(itemId, qty), [itemId, qty])
-  
   // Convert Map to sorted array for consistent rendering - memoized to prevent loops
   const materials = useMemo(() => {
-    return Array.from(result.totals.entries())
+    return Array.from(materialTotals.entries())
       .sort(([aId], [bId]) => aId.localeCompare(bId)) // STRING SORT!
       .map(([materialId, materialQty]) => ({
         id: materialId,
         qty: materialQty
       }))
-  }, [result.totals])
+  }, [materialTotals])
   
   return (
-    <div className="space-y-4">
+    <div className={`space-y-4 ${className || ''}`}>
       <div className="text-sm text-muted-foreground">
-        {materials.length} materials • {result.steps} crafting steps
+        {materials.length} materials • {totalSteps} crafting steps
       </div>
       
       {/* Clean list using ItemBadge for all item details */}
