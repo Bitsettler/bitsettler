@@ -155,6 +155,11 @@ export function CalculatorNewView() {
                         T{currentItem.tier}
                       </Badge>
                     )}
+                    {expansionResult && (
+                      <span className="text-xs text-muted-foreground">
+                        • {Array.from(expansionResult.totals.entries()).length} materials • {expansionResult.steps} crafting steps
+                      </span>
+                    )}
                   </div>
                 ) : (
                   <span>No item selected</span>
