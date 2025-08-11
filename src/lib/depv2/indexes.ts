@@ -2,7 +2,7 @@ import type { ItemDesc } from '@/data/bindings/item_desc_type'
 import type { ResourceDesc } from '@/data/bindings/resource_desc_type'
 import type { CargoDesc } from '@/data/bindings/cargo_desc_type'
 import type { CraftingRecipeDesc } from '@/data/bindings/crafting_recipe_desc_type'
-import { getAllItems } from '@/lib/spacetime-db-new/modules/items/commands/get-all-items'
+import { getAllItemsUnfiltered } from '@/lib/spacetime-db-new/modules/items/commands/get-all-items-unfiltered'
 import { getAllResources } from '@/lib/spacetime-db-new/modules/resources/commands/get-all-resources'
 import { getAllCargo } from '@/lib/spacetime-db-new/modules/cargo/commands/get-all-cargo'
 import { getAllCraftingRecipes } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-all-crafting-recipes'
@@ -19,8 +19,8 @@ export function getItemById(): Map<number, DepItem> {
   if (_itemById === null) {
     _itemById = new Map()
     
-    // Add items
-    const items = getAllItems()
+    // Add items (unfiltered to match calculator behavior and include all recipe ingredients)
+    const items = getAllItemsUnfiltered()
     for (const item of items) {
       _itemById.set(item.id, {
         id: item.id,
