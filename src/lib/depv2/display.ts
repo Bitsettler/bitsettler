@@ -115,14 +115,6 @@ function buildIndex() {
     // Get skill from recipe mapping or try to read from item data
     let skill = itemToSkill.get(id) ?? readSkill(it)
     
-    // Debug: Log skill inference for a few items
-    if (id.startsWith('resource_') || id.startsWith('cargo_')) {
-      const inferredSkill = readSkill(it)
-      if (inferredSkill && name !== `#${id}`) {
-        console.log(`🎯 Inferred skill for ${name} (${id}): ${inferredSkill}`)
-      }
-    }
-    
     const icon = iconFrom(it, id, slug)
     m.set(id, { id, name, tier, slug, skill, icon })
   }

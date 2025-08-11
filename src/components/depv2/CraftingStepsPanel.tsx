@@ -96,20 +96,27 @@ export default function CraftingStepsPanel({
   const craftSteps = plan.steps.filter(s => s.action === 'craft')
   
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Hammer size={20} />
-          Crafting Steps
-        </CardTitle>
-        <div className="flex gap-4 text-sm text-muted-foreground">
-          <span>{gatherSteps.length} gather steps</span>
-          <span>{craftSteps.length} craft steps</span>
-          <span>{plan.totalSteps} total actions</span>
+    <div className="space-y-4">
+      {/* Summary Header */}
+      <div className="px-6 pt-6">
+        <div className="flex gap-6 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Package size={16} />
+            <span>{gatherSteps.length} gather</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Hammer size={16} />
+            <span>{craftSteps.length} craft</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>•</span>
+            <span>{plan.totalSteps} total actions</span>
+          </div>
         </div>
-      </CardHeader>
+      </div>
       
-      <CardContent className="space-y-1">
+      {/* Steps List */}
+      <div className="px-6 pb-6 space-y-1">
         {displaySteps.map((step, index) => (
           <CraftingStepComponent 
             key={step.id} 
@@ -141,7 +148,7 @@ export default function CraftingStepsPanel({
             </Button>
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
