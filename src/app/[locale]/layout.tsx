@@ -1,6 +1,7 @@
 import { AppSidebar } from '@/components/app-sidebar'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { TestingBanner } from '@/components/testing-banner'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { Toaster } from '@/components/ui/sonner'
@@ -132,6 +133,7 @@ export default async function LocaleLayout({
           <SidebarProvider>
             <AppSidebar searchData={searchData} />
             <SidebarInset className="flex min-h-screen flex-col">
+              <TestingBanner />
               <Header />
               <main className="flex-1">{children}</main>
               <Footer />
