@@ -3,6 +3,7 @@
  * Builds a single Map at module scope and serves O(1) lookups.
  */
 import { getIndexes } from './indexes'
+import { getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 
 export type ItemDisplay = {
   id: number
@@ -39,7 +40,13 @@ function readSkill(it: any): string | undefined {
 }
 
 function iconFrom(it: any, id: number, slug?: string): string {
-  // Prefer explicit URL/path on item; else build from slug; else unknown
+  // Try iconAssetName first (primary field in our data)
+  const iconAssetName = it?.iconAssetName ?? it?.icon_asset_name
+  if (iconAssetName && typeof iconAssetName === 'string' && iconAssetName.length > 0) {
+    return getServerIconPath(iconAssetName)
+  }
+  
+  // Fallback to other possible icon fields
   const direct = it?.iconUrl ?? it?.icon_url ?? it?.icon ?? it?.Icon ?? undefined
   if (typeof direct === 'string' && direct.length) return direct
   if (slug) return `/assets/items/${slug}.webp`
