@@ -112,13 +112,31 @@ export function MaterialsDisplayV2({
                 {materials.map((material) => (
                   <TableRow key={material.id}>
                     <TableCell>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
+                        <div className="relative h-8 w-8 flex-shrink-0 rounded-md bg-muted p-1 border">
+                          <img 
+                            src={getItemDisplay(material.id).icon} 
+                            alt={material.name}
+                            className="w-full h-full object-contain rounded-md" 
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement
+                              target.src = '/assets/Unknown.webp'
+                            }}
+                          />
+                          {material.tier && material.tier > 0 && (
+                            <div className="absolute -top-1 -right-1">
+                              <img
+                                className="size-3"
+                                src={`/assets/Badges/badge-tier-number-${Math.max(1, Math.min(10, material.tier))}.webp`}
+                                alt={`Tier ${material.tier}`}
+                                style={{
+                                  mask: 'url("/assets/Badges/badge-tier-container.webp") 0% 0% / contain'
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
                         <span className="font-medium">{material.name}</span>
-                        {material.tier && (
-                          <Badge variant="outline" className="text-xs">
-                            T{material.tier}
-                          </Badge>
-                        )}
                       </div>
                     </TableCell>
                     <TableCell className="text-right font-mono">
