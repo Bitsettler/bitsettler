@@ -36,7 +36,57 @@ function readSlug(it: any): string | undefined {
 }
 
 function readSkill(it: any): string | undefined {
-  return (it?.skill ?? it?.Skill ?? it?.craftingSkill ?? it?.category ?? it?.Category ?? undefined) || undefined
+  // Try explicit skill fields first
+  const explicit = it?.skill ?? it?.Skill ?? it?.craftingSkill ?? undefined
+  if (explicit) return explicit
+  
+  // Try to infer gathering skills from item properties
+  return inferGatheringSkill(it)
+}
+
+function inferGatheringSkill(it: any): string | undefined {
+  const name = it?.name?.toLowerCase() || ''
+  const category = it?.category?.toLowerCase() || ''
+  const tags = it?.tags || []
+  
+  // Mining/Extraction
+  if (name.includes('ore') || name.includes('stone') || name.includes('clay') || 
+      name.includes('sand') || name.includes('mineral') || name.includes('gem') ||
+      category.includes('ore') || category.includes('stone')) {
+    return 'Mining'
+  }
+  
+  // Forestry/Logging
+  if (name.includes('wood') || name.includes('log') || name.includes('bark') || 
+      name.includes('sap') || name.includes('timber') || name.includes('branch') ||
+      category.includes('wood') || category.includes('tree')) {
+    return 'Forestry'
+  }
+  
+  // Farming/Foraging
+  if (name.includes('berry') || name.includes('fruit') || name.includes('flower') || 
+      name.includes('seed') || name.includes('grain') || name.includes('vegetable') ||
+      name.includes('herb') || name.includes('plant') || name.includes('root') ||
+      category.includes('plant') || category.includes('food')) {
+    return 'Farming'
+  }
+  
+  // Fishing/Aquaculture  
+  if (name.includes('fish') || name.includes('scale') || name.includes('shell') ||
+      name.includes('seaweed') || name.includes('coral') || name.includes('pearl') ||
+      category.includes('fish') || category.includes('aquatic')) {
+    return 'Fishing'
+  }
+  
+  // Hunting/Animal Husbandry
+  if (name.includes('hide') || name.includes('pelt') || name.includes('leather') ||
+      name.includes('bone') || name.includes('horn') || name.includes('fur') ||
+      name.includes('feather') || name.includes('meat') ||
+      category.includes('animal') || category.includes('hide')) {
+    return 'Hunting'
+  }
+  
+  return undefined
 }
 
 function iconFrom(it: any, id: string, slug?: string): string {
@@ -64,6 +114,14 @@ function buildIndex() {
     
     // Get skill from recipe mapping or try to read from item data
     let skill = itemToSkill.get(id) ?? readSkill(it)
+    
+    // Debug: Log skill inference for a few items
+    if (id.startsWith('resource_') || id.startsWith('cargo_')) {
+      const inferredSkill = readSkill(it)
+      if (inferredSkill && name !== `#${id}`) {
+        console.log(`🎯 Inferred skill for ${name} (${id}): ${inferredSkill}`)
+      }
+    }
     
     const icon = iconFrom(it, id, slug)
     m.set(id, { id, name, tier, slug, skill, icon })
