@@ -15,7 +15,12 @@ export function ItemBadge({ id, qty }: { id: number; qty?: number }) {
           height={18} 
           className="rounded-sm object-contain" 
           loading="lazy" 
-          unoptimized 
+          unoptimized
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            console.log(`Image failed to load for ${d.name}: ${d.icon}`)
+            target.src = '/assets/Unknown.webp'
+          }}
         />
         <div className="min-w-0">
           <div className="truncate">{d.name}</div>

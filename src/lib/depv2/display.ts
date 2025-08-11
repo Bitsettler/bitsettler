@@ -43,7 +43,17 @@ function iconFrom(it: any, id: number, slug?: string): string {
   // Try iconAssetName first (primary field in our data)
   const iconAssetName = it?.iconAssetName ?? it?.icon_asset_name
   if (iconAssetName && typeof iconAssetName === 'string' && iconAssetName.length > 0) {
-    return getServerIconPath(iconAssetName)
+    const resolvedPath = getServerIconPath(iconAssetName)
+    // Debug logging for first few items
+    if (id < 20) {
+      console.log(`Icon for ${id} (${it?.name}): ${iconAssetName} -> ${resolvedPath}`)
+    }
+    return resolvedPath
+  }
+  
+  // Debug: log when we don't find iconAssetName
+  if (id < 20) {
+    console.log(`No iconAssetName for ${id} (${it?.name}), item data:`, it)
   }
   
   // Fallback to other possible icon fields
