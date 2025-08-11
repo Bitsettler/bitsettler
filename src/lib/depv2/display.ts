@@ -67,7 +67,9 @@ function inferGatheringSkill(it: any): string | undefined {
   if (name.includes('berry') || name.includes('fruit') || name.includes('flower') || 
       name.includes('seed') || name.includes('grain') || name.includes('vegetable') ||
       name.includes('herb') || name.includes('plant') || name.includes('root') ||
-      category.includes('plant') || category.includes('food')) {
+      name.includes('bulb') || name.includes('fiber') || name.includes('filament') ||
+      name.includes('straw') || name.includes('cotton') || name.includes('flax') ||
+      category.includes('plant') || category.includes('food') || category.includes('fiber')) {
     return 'Farming'
   }
   
@@ -81,7 +83,8 @@ function inferGatheringSkill(it: any): string | undefined {
   // Hunting/Animal Husbandry
   if (name.includes('hide') || name.includes('pelt') || name.includes('leather') ||
       name.includes('bone') || name.includes('horn') || name.includes('fur') ||
-      name.includes('feather') || name.includes('meat') ||
+      name.includes('feather') || name.includes('meat') || name.includes('hair') ||
+      name.includes('wool') || name.includes('silk') ||
       category.includes('animal') || category.includes('hide')) {
     return 'Hunting'
   }
@@ -133,4 +136,11 @@ export function getItemDisplay(id: string): ItemDisplay {
 export function getManyDisplays(ids: string[]): ItemDisplay[] {
   if (!byId) byId = buildIndex()
   return ids.map(id => byId!.get(id) ?? { id, name: `#${id}`, icon: UNKNOWN_ICON })
+}
+
+/**
+ * Clear the display cache - useful for development/debugging
+ */
+export function clearDisplayCache() {
+  byId = null
 }
