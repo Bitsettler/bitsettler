@@ -104,8 +104,8 @@ export function MaterialsDisplayV2({
               <TableHeader>
                 <TableRow>
                   <TableHead>Item</TableHead>
-                  <TableHead className="text-right">Quantity</TableHead>
-                  {!groupBySkill && <TableHead>Skill</TableHead>}
+                  <TableHead className="text-right w-24">Amount</TableHead>
+                  {!groupBySkill && <TableHead className="w-20">Skill</TableHead>}
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -139,7 +139,7 @@ export function MaterialsDisplayV2({
                         <span className="font-medium">{material.name}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-right font-mono">
+                    <TableCell className="text-right font-mono font-semibold">
                       {material.qty.toLocaleString()}
                     </TableCell>
                     {!groupBySkill && (
