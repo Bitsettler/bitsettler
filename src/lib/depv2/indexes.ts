@@ -136,6 +136,11 @@ export function getRecipeByOutputId(): Map<string, DepRecipe> {
             // Map item to skill using prefixed ID (don't overwrite extraction skills)
             if (primarySkill && !_itemToSkill.has(outputPrefixedId)) {
               _itemToSkill.set(outputPrefixedId, primarySkill)
+              
+              // Debug: Log some skill mappings for Crop Oil
+              if (output.itemId === 1120006 || output.itemId === 2120006) {
+                console.log(`🔍 Mapped ${outputPrefixedId} (${output.itemId}) to skill: ${primarySkill}`)
+              }
             }
           }
         }
@@ -184,4 +189,13 @@ export function getIndexes() {
     recipeByOutputId: getRecipeByOutputId(),
     itemToSkill: getItemToSkill()
   }
+}
+
+/**
+ * Clear all caches - useful for development/debugging
+ */
+export function clearIndexCaches() {
+  _itemById = null
+  _recipeByOutputId = null
+  _itemToSkill = null
 }
