@@ -50,25 +50,14 @@ export async function POST(request: NextRequest) {
       console.log(`🔍 Establish API: Fetching members directly from database for settlement ${settlementId}`);
    
       try {
-        // Fetch both roster (for permissions) and citizens (for character stats) in parallel
-        const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
-        const rosterUrl = `${baseUrl}/api/settlement/roster?settlementId=${settlementId}`;
-        const citizensUrl = `${baseUrl}/api/settlement/citizens?settlementId=${settlementId}`;
+        // Call BitJita API directly instead of making internal HTTP calls
+        console.log(`🔗 Calling BitJita API directly for settlement ${settlementId}`);
         
-        console.log(`🔗 Calling roster API: ${rosterUrl}`);
-        console.log(`🔗 Calling citizens API: ${citizensUrl}`);
-        
-        const [rosterResponse, citizensResponse] = await Promise.all([
-          fetch(rosterUrl),
-          fetch(citizensUrl)
-        ]);
-        
-        console.log(`📊 Roster API status: ${rosterResponse.status} ${rosterResponse.statusText}`);
-        console.log(`📊 Citizens API status: ${citizensResponse.status} ${citizensResponse.statusText}`);
+        const { BitJitaAPI, type BitJitaRawMember } = await import('@/lib/spacetime-db-new/modules/integrations/bitjita-api');
         
         const [rosterResult, citizensResult] = await Promise.all([
-          rosterResponse.json(),
-          citizensResponse.json()
+          BitJitaAPI.fetchSettlementRoster(settlementId),
+          BitJitaAPI.fetchSettlementCitizens(settlementId)
         ]);
 
         console.log('🔍 BitJita roster result:', rosterResult.success ? `Success: ${rosterResult.data?.members?.length || 0} members` : `Error: ${rosterResult.error}`);
@@ -88,40 +77,40 @@ export async function POST(request: NextRequest) {
             console.warn('⚠️ Citizens API failed or returned no data:', citizensResult.error);
           }
 
-          const memberData = rosterResult.data.members.map((member: DatabaseSettlementMember) => {
+          const memberData = rosterResult.data.members.map((member: BitJitaRawMember) => {
             // Get corresponding citizen data for character stats
-            const citizenData = citizensMap.get(member.player_entity_id) || {};
+            const citizenData = citizensMap.get(member.playerEntityId) || {};
             
             // Debug logging for character data
             if (Object.keys(citizenData).length > 0) {
-              console.log(`📊 Found citizen data for ${member.name}: Level ${citizenData.total_level}, Profession: ${citizenData.top_profession}`);
+              console.log(`📊 Found citizen data for ${member.userName}: Level ${citizenData.totalLevel}, Skills: ${citizenData.totalSkills}`);
             } else {
-              console.log(`⚠️ No citizen data found for ${member.name} (${member.entity_id})`);
+              console.log(`⚠️ No citizen data found for ${member.userName} (${member.entityId})`);
             }
             
             return {
               settlement_id: settlementId,
-              entity_id: member.entity_id,
-              claim_entity_id: member.claim_entity_id,
-              player_entity_id: member.player_entity_id,
-              bitjita_user_id: member.bitjita_user_id,
-              name: member.name,
+              entity_id: member.entityId,
+              claim_entity_id: member.claimEntityId,
+              player_entity_id: member.playerEntityId,
+              bitjita_user_id: member.playerEntityId, // Use playerEntityId as BitJita user ID
+              name: member.userName || 'Unknown Player',
               
               // Real character stats from citizens API
               skills: citizenData.skills || {},
-              total_skills: citizenData.total_skills || 0,
-              highest_level: citizenData.highest_level || 0,
-              total_level: citizenData.total_level || 0,
-              total_xp: citizenData.total_xp || 0,
-              top_profession: citizenData.top_profession || 'Settler',
+              total_skills: citizenData.totalSkills || 0,
+              highest_level: citizenData.highestLevel || 0,
+              total_level: citizenData.totalLevel || 0,
+              total_xp: citizenData.totalXP || 0,
+              top_profession: 'Settler', // BitJita citizen data doesn't include profession info
               
               // Permission data from roster API
-              inventory_permission: member.inventory_permission || 0,
-              build_permission: member.build_permission || 0,
-              officer_permission: member.officer_permission || 0,
-              co_owner_permission: member.co_owner_permission || 0,
-              last_login_timestamp: member.last_login_timestamp,
-              joined_settlement_at: member.joined_settlement_at,
+              inventory_permission: member.inventoryPermission || 0,
+              build_permission: member.buildPermission || 0,
+              officer_permission: member.officerPermission || 0,
+              co_owner_permission: member.coOwnerPermission || 0,
+              last_login_timestamp: member.lastLoginTimestamp ? new Date(member.lastLoginTimestamp) : null,
+              joined_settlement_at: member.createdAt ? new Date(member.createdAt) : null,
               is_active: true,
               last_synced_at: new Date(),
               sync_source: 'establishment_with_stats'
