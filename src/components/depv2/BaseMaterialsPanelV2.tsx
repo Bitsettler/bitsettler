@@ -5,7 +5,7 @@ import { expandToBase } from '@/lib/depv2/engine'
 import { ItemBadge } from './ItemBadge'
 
 interface BaseMaterialsPanelV2Props {
-  itemId: number
+  itemId: string // NOW STRING ID!
   qty?: number
 }
 
@@ -18,7 +18,7 @@ export default function BaseMaterialsPanelV2({
   // Convert Map to sorted array for consistent rendering - memoized to prevent loops
   const materials = useMemo(() => {
     return Array.from(result.totals.entries())
-      .sort(([aId], [bId]) => aId - bId)
+      .sort(([aId], [bId]) => aId.localeCompare(bId)) // STRING SORT!
       .map(([materialId, materialQty]) => ({
         id: materialId,
         qty: materialQty

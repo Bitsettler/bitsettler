@@ -8,8 +8,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
 interface ItemPickerProps {
-  value?: number
-  onChange: (id: number) => void
+  value?: string
+  onChange: (id: string) => void
 }
 
 export default function ItemPicker({ value, onChange }: ItemPickerProps) {
@@ -29,7 +29,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
       if (item?.name) {
         setQuery(item.name)
       } else {
-        setQuery(`#${value}`)
+        setQuery(value)
       }
     }
   }, [value])
@@ -65,7 +65,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
   
   const handleSelectItem = (item: ItemIndexEntry) => {
     setSelectedItem(item)
-    setQuery(item.name || `#${item.id}`)
+    setQuery(item.name || item.id)
     setIsOpen(false)
     onChange(item.id)
   }
@@ -114,7 +114,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
             >
               <div className="flex items-center gap-2 w-full">
                 <span className="font-medium">
-                  {item.name || `#${item.id}`}
+                  {item.name || item.id}
                 </span>
                 <div className="flex items-center gap-1 ml-auto">
                   {item.tier && (
@@ -128,7 +128,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
                     </Badge>
                   )}
                   <Badge variant="outline" className="text-xs text-muted-foreground">
-                    #{item.id}
+                    {item.id}
                   </Badge>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import { getItemById, getRecipeByOutputId } from './indexes'
 
 export interface ItemIndexEntry {
-  id: number
+  id: string // NOW PREFIXED STRING!
   name?: string
   tier?: number
   craftable?: boolean
@@ -25,17 +25,17 @@ export function getItemIndex(): ItemIndexEntry[] {
     })
   }
   
-  return items.sort((a, b) => a.id - b.id)
+  return items.sort((a, b) => a.id.localeCompare(b.id))
 }
 
 /**
  * Find deep craftable items (items whose recipes require other craftable items)
  * Returns item IDs sorted by complexity (deeper recipes first)
  */
-export function findDeepCraftables(limit: number = 12): number[] {
+export function findDeepCraftables(limit: number = 12): string[] {
   const recipeByOutputId = getRecipeByOutputId()
   const itemById = getItemById()
-  const deepCraftables: Array<{ id: number; depth: number }> = []
+  const deepCraftables: Array<{ id: string; depth: number }> = []
   
   for (const [outputId, recipe] of recipeByOutputId) {
     let depth = 1
@@ -74,8 +74,8 @@ export function findDeepCraftables(limit: number = 12): number[] {
     if (a.depth !== b.depth) return b.depth - a.depth
     const aItem = itemById.get(a.id)
     const bItem = itemById.get(b.id)
-    const aName = aItem?.name || `#${a.id}`
-    const bName = bItem?.name || `#${b.id}`
+    const aName = aItem?.name || a.id
+    const bName = bItem?.name || b.id
     return aName.localeCompare(bName)
   })
   
@@ -99,10 +99,8 @@ export function searchItems(query: string, take: number = 20): ItemIndexEntry[] 
   
   for (const item of itemIndex) {
     const name = item.name?.toLowerCase() || ''
-    const idStr = item.id.toString()
-    
-    // Check for ID match (exact or prefix)
-    if (idStr === q || idStr.startsWith(q)) {
+    // Check for ID match (exact or contains for prefixed IDs like "item_123")
+    if (item.id === q || item.id.includes(q)) {
       idMatches.push(item)
       continue
     }
@@ -123,7 +121,7 @@ export function searchItems(query: string, take: number = 20): ItemIndexEntry[] 
   const results = [...exact, ...prefix, ...contains, ...idMatches]
   
   // Remove duplicates and limit results
-  const seen = new Set<number>()
+  const seen = new Set<string>()
   const unique = results.filter(item => {
     if (seen.has(item.id)) return false
     seen.add(item.id)

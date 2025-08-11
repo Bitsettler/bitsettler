@@ -7,13 +7,15 @@ import { getAllItemsUnfiltered } from '@/lib/spacetime-db-new/modules/items/comm
 import { getAllResources } from '@/lib/spacetime-db-new/modules/resources/commands/get-all-resources'
 import { getAllCargo } from '@/lib/spacetime-db-new/modules/cargo/commands/get-all-cargo'
 import { getAllCraftingRecipes } from '@/lib/spacetime-db-new/modules/crafting-recipes/commands/get-all-crafting-recipes'
+import { getItemPrefix } from '@/lib/spacetime-db-new/shared/calculator-utils'
 import skillDescData from '@/data/sdk-tables/skill_desc.json'
 import type { DepItem, DepRecipe } from './types'
 
-let _itemById: Map<number, DepItem> | null = null
-let _recipeByOutputId: Map<number, DepRecipe> | null = null
+// NOW USING PREFIXED STRING IDs LIKE THE CALCULATOR!
+let _itemById: Map<string, DepItem> | null = null
+let _recipeByOutputId: Map<string, DepRecipe> | null = null
 let _skillById: Map<number, string> | null = null
-let _itemToSkill: Map<number, string> | null = null
+let _itemToSkill: Map<string, string> | null = null
 
 function isValidName(name: string): boolean {
   return name && name !== '{0}' && name !== '{1}' && !name.includes('{')
@@ -32,35 +34,44 @@ function getSkillById(): Map<number, string> {
   return _skillById
 }
 
-export function getItemById(): Map<number, DepItem> {
+export function getItemById(): Map<string, DepItem> {
   if (_itemById === null) {
     _itemById = new Map()
     
-    // Add items (unfiltered to match calculator behavior and include all recipe ingredients)
+    // Use calculator approach: ALL items get prefixed IDs, NO conflicts!
+    // Now Hex Coin = "item_1" and Sagi Bird = "cargo_1" can coexist!
+    
+    // 1. Add items with "item_" prefix
     const items = getAllItemsUnfiltered()
     for (const item of items) {
-      _itemById.set(item.id, {
-        id: item.id,
+      const prefixedId = `item_${item.id}`
+      _itemById.set(prefixedId, {
+        ...item, // Keep all original fields for icon resolution
+        id: prefixedId, // Store the prefixed ID
         name: isValidName(item.name) ? item.name : undefined,
         tier: item.tier || undefined
       })
     }
     
-    // Add resources
+    // 2. Add resources with "resource_" prefix
     const resources = getAllResources()
     for (const resource of resources) {
-      _itemById.set(resource.id, {
-        id: resource.id,
+      const prefixedId = `resource_${resource.id}`
+      _itemById.set(prefixedId, {
+        ...resource, // Keep all original fields for icon resolution
+        id: prefixedId, // Store the prefixed ID
         name: isValidName(resource.name) ? resource.name : undefined,
         tier: resource.tier || undefined
       })
     }
     
-    // Add cargo
+    // 3. Add cargo with "cargo_" prefix
     const cargo = getAllCargo()
     for (const cargoItem of cargo) {
-      _itemById.set(cargoItem.id, {
-        id: cargoItem.id,
+      const prefixedId = `cargo_${cargoItem.id}`
+      _itemById.set(prefixedId, {
+        ...cargoItem, // Keep all original fields for icon resolution
+        id: prefixedId, // Store the prefixed ID
         name: isValidName(cargoItem.name) ? cargoItem.name : undefined,
         tier: cargoItem.tier || undefined
       })
@@ -70,7 +81,7 @@ export function getItemById(): Map<number, DepItem> {
   return _itemById
 }
 
-export function getRecipeByOutputId(): Map<number, DepRecipe> {
+export function getRecipeByOutputId(): Map<string, DepRecipe> {
   if (_recipeByOutputId === null) {
     _recipeByOutputId = new Map()
     _itemToSkill = new Map()
@@ -89,13 +100,20 @@ export function getRecipeByOutputId(): Map<number, DepRecipe> {
       // Process each crafted item stack (outputs)
       for (const output of recipe.craftedItemStacks) {
         if (output.itemId && output.quantity > 0) {
-          const inputs: Array<{ item_id: number; qty: number }> = []
+          // Use calculator's approach to determine prefix
+          const outputPrefix = getItemPrefix(output.itemType)
+          const outputPrefixedId = `${outputPrefix}${output.itemId}`
+          
+          const inputs: Array<{ item_id: string; qty: number }> = []
           
           // Process consumed item stacks (inputs)
           for (const input of recipe.consumedItemStacks) {
             if (input.itemId && input.quantity > 0) {
+              const inputPrefix = getItemPrefix(input.itemType)
+              const inputPrefixedId = `${inputPrefix}${input.itemId}`
+              
               inputs.push({
-                item_id: input.itemId,
+                item_id: inputPrefixedId, // NOW PREFIXED!
                 qty: input.quantity
               })
             }
@@ -103,17 +121,17 @@ export function getRecipeByOutputId(): Map<number, DepRecipe> {
           
           // Only add recipe if it has inputs
           if (inputs.length > 0) {
-            _recipeByOutputId.set(output.itemId, {
+            _recipeByOutputId.set(outputPrefixedId, {
               crafted_output: {
-                item_id: output.itemId,
+                item_id: outputPrefixedId, // NOW PREFIXED!
                 qty: output.quantity
               },
               inputs
             })
             
-            // Map item to skill
+            // Map item to skill using prefixed ID
             if (primarySkill) {
-              _itemToSkill.set(output.itemId, primarySkill)
+              _itemToSkill.set(outputPrefixedId, primarySkill)
             }
           }
         }
@@ -124,7 +142,7 @@ export function getRecipeByOutputId(): Map<number, DepRecipe> {
   return _recipeByOutputId
 }
 
-export function getItemToSkill(): Map<number, string> {
+export function getItemToSkill(): Map<string, string> {
   // Ensure recipe processing is done (which builds the item-to-skill map)
   getRecipeByOutputId()
   return _itemToSkill || new Map()

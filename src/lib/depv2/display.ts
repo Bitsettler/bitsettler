@@ -6,7 +6,7 @@ import { getIndexes } from './indexes'
 import { getServerIconPath } from '@/lib/spacetime-db-new/shared/assets'
 
 export type ItemDisplay = {
-  id: number
+  id: string       // NOW PREFIXED: "item_123", "cargo_456", etc.
   name: string     // fallback '#<id>'
   tier?: number    // T1..T6
   slug?: string
@@ -16,7 +16,7 @@ export type ItemDisplay = {
 
 const UNKNOWN_ICON = '/assets/Unknown.webp'
 
-let byId: Map<number, ItemDisplay> | null = null
+let byId: Map<string, ItemDisplay> | null = null
 
 function sanitizeName(n?: string) {
   if (!n) return undefined
@@ -39,21 +39,11 @@ function readSkill(it: any): string | undefined {
   return (it?.skill ?? it?.Skill ?? it?.craftingSkill ?? it?.category ?? it?.Category ?? undefined) || undefined
 }
 
-function iconFrom(it: any, id: number, slug?: string): string {
+function iconFrom(it: any, id: string, slug?: string): string {
   // Try iconAssetName first (primary field in our data)
   const iconAssetName = it?.iconAssetName ?? it?.icon_asset_name
   if (iconAssetName && typeof iconAssetName === 'string' && iconAssetName.length > 0) {
-    const resolvedPath = getServerIconPath(iconAssetName)
-    // Debug logging for first few items
-    if (id < 20) {
-      console.log(`Icon for ${id} (${it?.name}): ${iconAssetName} -> ${resolvedPath}`)
-    }
-    return resolvedPath
-  }
-  
-  // Debug: log when we don't find iconAssetName
-  if (id < 20) {
-    console.log(`No iconAssetName for ${id} (${it?.name}), item data:`, it)
+    return getServerIconPath(iconAssetName)
   }
   
   // Fallback to other possible icon fields
@@ -65,7 +55,7 @@ function iconFrom(it: any, id: number, slug?: string): string {
 
 function buildIndex() {
   const { itemById, itemToSkill } = getIndexes() // must be a module-singleton in indexes.ts
-  const m = new Map<number, ItemDisplay>()
+  const m = new Map<string, ItemDisplay>()
   
   for (const [id, it] of itemById.entries()) {
     const name = sanitizeName(it?.name) ?? `#${id}`
@@ -81,12 +71,12 @@ function buildIndex() {
   return m
 }
 
-export function getItemDisplay(id: number): ItemDisplay {
+export function getItemDisplay(id: string): ItemDisplay {
   if (!byId) byId = buildIndex()       // build once, first call
   return byId.get(id) ?? { id, name: `#${id}`, icon: UNKNOWN_ICON }
 }
 
-export function getManyDisplays(ids: number[]): ItemDisplay[] {
+export function getManyDisplays(ids: string[]): ItemDisplay[] {
   if (!byId) byId = buildIndex()
   return ids.map(id => byId!.get(id) ?? { id, name: `#${id}`, icon: UNKNOWN_ICON })
 }

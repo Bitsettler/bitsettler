@@ -7,8 +7,9 @@ const _cache = new Map<string, ExpandResult>()
 /**
  * Expand an item and quantity to its base materials
  * Uses DFS expansion with cycle detection and memoization
+ * NOW USES PREFIXED STRING IDs!
  */
-export function expandToBase(itemId: number, qty: number): ExpandResult {
+export function expandToBase(itemId: string, qty: number): ExpandResult {
   const cacheKey = `${itemId}|${qty}`
   
   // Check cache first
@@ -32,9 +33,9 @@ export function expandToBase(itemId: number, qty: number): ExpandResult {
 }
 
 function _expandToBaseInternal(
-  itemId: number, 
+  itemId: string, 
   qty: number, 
-  path: Set<number>
+  path: Set<string>
 ): ExpandResult {
   const recipeByOutputId = getRecipeByOutputId()
   const recipe = recipeByOutputId.get(itemId)
@@ -51,7 +52,7 @@ function _expandToBaseInternal(
   const newPath = new Set(path)
   newPath.add(itemId)
   
-  const totals = new Map<number, number>()
+  const totals = new Map<string, number>()
   let totalSteps = 0
   
   // Calculate how many times we need to craft this recipe

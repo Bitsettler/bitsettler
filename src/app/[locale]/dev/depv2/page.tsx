@@ -12,9 +12,9 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function DepV2DevPage() {
-  const [itemId, setItemId] = useState<number>(0)
+  const [itemId, setItemId] = useState<string>('')
   const [qty, setQty] = useState<number>(1)
-  const [deepCraftables, setDeepCraftables] = useState<number[]>([])
+  const [deepCraftables, setDeepCraftables] = useState<string[]>([])
   const [isInitialized, setIsInitialized] = useState(false)
   
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function DepV2DevPage() {
             <ItemPicker value={itemId} onChange={setItemId} />
             {currentItem && (
               <p className="text-sm text-muted-foreground">
-                Selected: {currentItem.name || `#${currentItem.id}`}
+                Selected: {currentItem.name || currentItem.id}
                 {currentItem.tier && ` (Tier ${currentItem.tier})`}
               </p>
             )}
@@ -91,7 +91,7 @@ export default function DepV2DevPage() {
                   >
                     <div className="flex items-center gap-1">
                       <span className="text-xs">
-                        {item?.name || `#${id}`}
+                        {item?.name || id}
                       </span>
                       {item?.tier && (
                         <Badge variant="secondary" className="text-xs h-4">
@@ -110,10 +110,10 @@ export default function DepV2DevPage() {
               <Label htmlFor="itemId">Item ID (Manual)</Label>
               <Input
                 id="itemId"
-                type="number"
+                type="text"
                 value={itemId}
-                onChange={(e) => setItemId(parseInt(e.target.value) || 0)}
-                placeholder="Enter item ID directly"
+                onChange={(e) => setItemId(e.target.value)}
+                placeholder="Enter prefixed ID (item_123, cargo_456)"
               />
             </div>
             
@@ -132,12 +132,12 @@ export default function DepV2DevPage() {
         </CardContent>
       </Card>
       
-      {itemId > 0 && (
+      {itemId && (
         <Card>
           <CardHeader>
             <CardTitle>Base Materials Expansion</CardTitle>
             <CardDescription>
-              Materials needed to craft {qty}× {currentItem?.name || `#${itemId}`}
+              Materials needed to craft {qty}× {currentItem?.name || itemId}
             </CardDescription>
           </CardHeader>
           <CardContent>

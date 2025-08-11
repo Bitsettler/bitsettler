@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { getItemDisplay } from '@/lib/depv2/display'
 
-export function ItemBadge({ id, qty }: { id: number; qty?: number }) {
+export function ItemBadge({ id, qty }: { id: string; qty?: number }) {
   const d = getItemDisplay(id) // pure lookup
   return (
     <div className="flex items-center justify-between gap-3 rounded bg-muted/30 px-2 py-1 text-sm">
@@ -18,7 +18,6 @@ export function ItemBadge({ id, qty }: { id: number; qty?: number }) {
           unoptimized
           onError={(e) => {
             const target = e.target as HTMLImageElement
-            console.log(`Image failed to load for ${d.name}: ${d.icon}`)
             target.src = '/assets/Unknown.webp'
           }}
         />
