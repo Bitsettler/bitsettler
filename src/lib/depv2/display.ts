@@ -124,6 +124,11 @@ function buildIndex() {
     // Get skill from recipe mapping or try to read from item data
     let skill = itemToSkill.get(id) ?? readSkill(it)
     
+    // Debug: Log skill resolution for specific items
+    if (name.includes('Crop Oil') || name.includes('Gypsite')) {
+      console.log(`🎯 Display for ${name} (${id}): skill from map = ${itemToSkill.get(id)}, final skill = ${skill}`)
+    }
+    
     const icon = iconFrom(it, id, slug)
     m.set(id, { id, name, tier, slug, skill, icon })
   }

@@ -137,8 +137,9 @@ export function getRecipeByOutputId(): Map<string, DepRecipe> {
             if (primarySkill && !_itemToSkill.has(outputPrefixedId)) {
               _itemToSkill.set(outputPrefixedId, primarySkill)
               
-              // Debug: Log some skill mappings for Crop Oil
-              if (output.itemId === 1120006 || output.itemId === 2120006) {
+              // Debug: Log some skill mappings for Crop Oil and Gypsite
+              if (output.itemId === 1120006 || output.itemId === 2120006 || 
+                  output.itemId === 6120006 || output.itemId === 743503283) {
                 console.log(`🔍 Mapped ${outputPrefixedId} (${output.itemId}) to skill: ${primarySkill}`)
               }
             }
