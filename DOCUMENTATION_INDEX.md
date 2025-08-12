@@ -1,5 +1,5 @@
 # 📚 Documentation Index
-**BitCraft.Guide Settlement Management System**
+**Bitsettler Settlement Management System**
 
 Streamlined documentation for developers and contributors.
 

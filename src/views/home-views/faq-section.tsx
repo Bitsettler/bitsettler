@@ -86,7 +86,7 @@ export function FAQSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild>
-              <Link href="https://discord.gg/DYzfsbVyNw" target="_blank" rel="noopener noreferrer">
+              <Link href="https://discord.gg/hTD3mahCFv" target="_blank" rel="noopener noreferrer">
                 Join Discord Community
               </Link>
             </Button>

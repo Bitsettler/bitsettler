@@ -6,8 +6,8 @@ export const SITE_CONFIG = {
   ogImage: 'https://bitsettler.io/og.jpg',
   links: {
     twitter: 'https://x.com/bitsettler_io',
-    github: 'https://github.com/coryniblett/bitsettler',
-    discord: 'https://discord.gg/DYzfsbVyNw'
+    github: 'https://github.com/Bitsettler/bitsettler',
+    discord: 'https://discord.gg/hTD3mahCFv'
   },
   creator: 'Cory Niblett'
 } as const

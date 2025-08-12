@@ -1,5 +1,5 @@
 # 📋 Development TODO
-**BitCraft.Guide Settlement Management System**
+**Bitsettler Settlement Management System**
 
 Current development priorities and planned features.
 

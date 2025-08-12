@@ -218,7 +218,7 @@ Members    → Character claims → Permission checks
 ## 📁 **Project Structure**
 
 ```
-bitcraft.guide-settlements/
+bitsettler/
 ├── src/
 │   ├── app/[locale]/              # 🔄 Page Layer - Next.js routes
 │   │   ├── auth/                  # Authentication pages
@@ -423,7 +423,7 @@ Based on `TODO.md`, focus areas are:
 ### **Development Tools**
 - **[Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)** - Database management
 - **[Vercel Dashboard](https://vercel.com)** - Deployment and analytics
-- **[GitHub Repository](https://github.com/your-org/bitcraft.guide-settlements)** - Source code
+- **[GitHub Repository](https://github.com/Bitsettler/bitsettler)** - Source code
 
 ---
 

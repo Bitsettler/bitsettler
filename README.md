@@ -226,7 +226,7 @@ curl -X POST http://localhost:3000/api/testing/clear-user-data
 ## 🔗 **Links & Resources**
 
 - **🌐 Live Site**: [bitsettler.io](https://bitsettler.io)
-- **💬 Discord**: [Community Chat](https://discord.gg/DYzfsbVyNw)
+- **💬 Discord**: [Community Chat](https://discord.gg/hTD3mahCFv)
 - **🗄️ Database**: [Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)
 - **🚀 Deployment**: [Vercel Dashboard](https://vercel.com)
 - **📊 Settlement Data**: [BitJita.com](https://bitjita.com)

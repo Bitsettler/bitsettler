@@ -117,7 +117,7 @@ export function CalculatorHeader({
   //     // Get viewport transformation to fit all nodes
   //     const viewport = getViewportForBounds(nodesBounds, imageWidth, imageHeight, 0.5, 2, 20)
 
-  //     const filename = `bitcraft-guide_${selectedItem.slug}_qty-${desiredQuantity}.png`
+  //     const filename = `bitsettler_${selectedItem.slug}_qty-${desiredQuantity}.png`
 
   //     const baseExportOptions = {
   //       backgroundColor: '#ffffff',
