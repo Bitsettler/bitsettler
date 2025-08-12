@@ -55,6 +55,7 @@
     "settlementProjects": "Proyectos",
     "settlementTreasury": "Tesorería",
     "settlementManage": "Gestionar",
+    "calculatorNew": "Calculadora v2 ✨",
     "community": "Comunidad",
     "bitcraftGuideDiscord": "Discord Bitsettler",
     "bitcraftGuideGithub": "GitHub Bitsettler",
@@ -66,6 +67,11 @@
   "languageSwitcher": {
     "switchLanguage": "Cambiar idioma",
     "switchLanguageSr": "Cambiar idioma"
+  },
+  "calculator": {
+    "searchPlaceholder": "Buscar elementos...",
+    "searchItems": "Buscar Elementos",
+    "noItemsFound": "No se encontraron elementos"
   },
   "notFound": {
     "title": "Página No Encontrada",
