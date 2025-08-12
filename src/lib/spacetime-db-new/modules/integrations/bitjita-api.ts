@@ -244,6 +244,27 @@ export interface BitJitaAPIResponse<T = any> {
 }
 
 /**
+ * Raw BitJita Player Search Response (from /api/players?q={query})
+ * Contains basic player information from search results
+ */
+
+export interface BitJitaPlayerSearchRawType{
+    entityId: string;
+    username: string;
+    signedIn: boolean;
+    timePlayed: number;
+    timeSignedIn: number;
+    createdAt: string;
+    updatedAt: string;
+    lastLoginTimestamp: string;
+  }
+
+export interface BitJitaPlayerSearchResponse {
+  players: Array<BitJitaPlayerSearchRawType>;
+  total: number;
+}
+
+/**
  * BitJita API client for external settlement data integration
  */
 export class BitJitaAPI {
@@ -535,6 +556,92 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         error: errorMessage
       };
     }
+  }
+
+  /**
+   * Search characters by name from BitJita API
+   * Since BitJita doesn't have a direct character search endpoint, we'll use a combination approach:
+   * 1. Try to fetch player profile directly if the query looks like a player ID
+   * 2. Search through settlements and their members to find matching characters
+   */
+  static async searchCharacters(query: string, page: number = 1): Promise<BitJitaAPIResponse<BitJitaPlayerSearchResponse>> {
+    try {
+      console.log(`🔍 Searching characters for "${query}" (page ${page})...`);
+      
+      // Use the new direct player search endpoint
+      const searchUrl = `${this.BASE_URL}/players?q=${encodeURIComponent(query)}`;
+      console.log(`🔍 Calling BitJita API: ${searchUrl}`);
+      
+      const response = await fetch(searchUrl, {
+        method: 'GET',
+        headers: this.HEADERS,
+        cache: 'no-cache'
+      });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`❌ BitJita API error (${response.status}):`, errorText);
+        return {
+          success: false,
+          error: `BitJita API returned ${response.status}: ${errorText}`
+        };
+      }
+      
+      const searchData: BitJitaPlayerSearchResponse = await response.json();
+      console.log(`✅ Found ${searchData.players.length} players matching "${query}"`);
+      
+     
+      return {
+        success: true,
+        data: searchData
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error searching characters:', errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Helper method to determine the top profession from skills
+   */
+  private static getTopProfession(skills: Record<string, any>): string {
+    if (!skills || Object.keys(skills).length === 0) {
+      return 'Settler';
+    }
+    
+    // Define profession skill mappings
+    const professionSkills: Record<string, string[]> = {
+      'Warrior': ['combat', 'defense', 'weaponry', 'tactics'],
+      'Blacksmith': ['smithing', 'mining', 'engineering', 'crafting'],
+      'Guard': ['defense', 'combat', 'protection', 'vigilance'],
+      'Scholar': ['knowledge', 'research', 'magic', 'wisdom'],
+      'Merchant': ['trading', 'negotiation', 'economics', 'diplomacy'],
+      'Explorer': ['exploration', 'survival', 'navigation', 'discovery']
+    };
+    
+    // Find the profession with the highest total skill levels
+    let topProfession = 'Settler';
+    let highestScore = 0;
+    
+    for (const [profession, skillNames] of Object.entries(professionSkills)) {
+      const score = skillNames.reduce((total, skillName) => {
+        const skill = skills[skillName];
+        return total + (skill?.level || 0);
+      }, 0);
+      
+      if (score > highestScore) {
+        highestScore = score;
+        topProfession = profession;
+      }
+    }
+    
+    return topProfession;
   }
 
   /**

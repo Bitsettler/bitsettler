@@ -322,14 +322,7 @@ export const SETTLEMENT_SCHEMAS = {
       pattern: /^[0-9]+$/,  // BitJita player_entity_id are numeric strings
       sanitize: true
     },
-    settlementId: {
-      required: true,
-      type: 'string' as const,
-      minLength: 1,
-      maxLength: 50,
-      sanitize: true
-    },
-    displayName: {
+    characterName: {
       required: false,
       type: 'string' as const,
       minLength: 1,
@@ -350,11 +343,6 @@ export const SETTLEMENT_SCHEMAS = {
       maxLength: 50,
       sanitize: true
     },
-    replaceExisting: {
-      required: false,
-      type: 'boolean' as const,
-      default: false
-    }
   },
   
   contribution: {
