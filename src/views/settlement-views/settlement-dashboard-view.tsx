@@ -95,9 +95,11 @@ export function SettlementDashboardView() {
     if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
       const settlementInfo = dashboardData.settlement.settlementInfo;
       generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name).catch(error => {
+        console.error('Failed to generate invite code for settlement:', error);
+        // Don't retry infinitely - just log and continue
       });
     }
-  }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
+  }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name]);
 
   const fetchDashboardData = useCallback(async () => {
     try {

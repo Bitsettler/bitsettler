@@ -26,12 +26,24 @@ export function useSelectedSettlement() {
 
   const fetchInviteCodeFromDatabase = useCallback(async (): Promise<SettlementInviteCode | null> => {
     try {
+      // Add timeout to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
       const response = await fetch('/api/settlement/invite-code', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
+        signal: controller.signal,
       });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        console.warn(`Invite code API returned ${response.status}: ${response.statusText}`);
+        return null;
+      }
       
       const result = await response.json();
       
@@ -50,7 +62,11 @@ export function useSelectedSettlement() {
       
       return null;
     } catch (error) {
-      console.error('Failed to fetch invite code from database:', error);
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.warn('Invite code fetch timed out after 10 seconds');
+      } else {
+        console.error('Failed to fetch invite code from database:', error);
+      }
       return null;
     }
   }, []);
