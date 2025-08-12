@@ -15,13 +15,13 @@
       "src": "/icon",
       "sizes": "32x32",
       "type": "image/png",
-      "purpose": "favicon"
+      "purpose": "any"
     },
     {
       "src": "/apple-icon",
       "sizes": "180x180",
       "type": "image/png",
-      "purpose": "apple touch icon"
+      "purpose": "any"
     },
     {
       "src": "/bitsettler-logo.svg",
@@ -32,12 +32,14 @@
     {
       "src": "/bitsettler-logo-16.svg",
       "sizes": "16x16",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
       "src": "/bitsettler-logo-32.svg",
       "sizes": "32x32",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }
