@@ -17,7 +17,7 @@
     "title": "Bitsettler",
     "subtitle": "Tu guía completa para asentamientos, recursos y creación en BitCraft",
     "navigation": {
-      "calculator": "Calculadora",
+      "calculator": "Calculadora Visual",
       "compendium": "Compendio",
       "wiki": "Wiki",
       "projects": "Proyectos"
@@ -43,7 +43,8 @@
     "deployables": "Desplegables",
     "seeAll": "Ver todo",
     "tools": "Herramientas",
-    "calculator": "Calculadora",
+    "calculator": "Calculadora Visual",
+    "calculatorNew": "Calculadora de Proyectos",
     "projects": "Proyectos",
     "comingSoon": "Próximamente",
     "settlement": "Asentamiento",

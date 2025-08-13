@@ -18,15 +18,15 @@ export function CalculatorV2Hero({ locale, feedbackUrl }: CalculatorV2HeroProps)
           {/* Main title with icon and badge */}
           <div className="flex items-center justify-center gap-3">
             <Calculator className="h-8 w-8 text-primary" />
-            <h1 className="text-4xl font-bold tracking-tight">Calculator v2</h1>
+            <h1 className="text-4xl font-bold tracking-tight">Project Calculator</h1>
             <Badge variant="secondary" className="text-sm">
-              v2
+              Projects
             </Badge>
           </div>
           
           {/* Subtitle */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Advanced dependency engine with step-by-step plans and optimized materials
+            Project-focused crafting calculator with collaboration features and advanced planning
           </p>
           
           {/* Navigation and feedback links */}
@@ -34,7 +34,7 @@ export function CalculatorV2Hero({ locale, feedbackUrl }: CalculatorV2HeroProps)
             <Link href={`/${locale}/calculator`}>
               <Button variant="ghost" size="sm" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to Calculator v1
+                Back to Visual Calculator
               </Button>
             </Link>
             

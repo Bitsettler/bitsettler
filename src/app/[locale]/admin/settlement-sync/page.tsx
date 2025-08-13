@@ -319,7 +319,7 @@ export default function SettlementSyncPage() {
                 <p>• Clears all existing settlement data from database</p>
                 <p>• Fetches latest settlement data from BitJita API</p>
                 <p>• Imports all ~2,335 settlements with fresh member rosters</p>
-                <p>• Generates new invite codes and search indexes</p>
+                <p>• Generates search indexes</p>
                 <p>• Ensures completely up-to-date settlement information</p>
               </div>
             </div>
@@ -444,7 +444,7 @@ export default function SettlementSyncPage() {
               <p>• Fetches all settlements from BitJita claims API</p>
               <p>• Imports complete settlement data (location, tier, treasury, etc.)</p>
               <p>• Imports all member rosters with skills and professions</p>
-              <p>• Generates unique invite codes for each settlement</p>
+
               <p>• Creates search indexes for fast settlement lookup</p>
               <p>• Ensures completely fresh, up-to-date data</p>
             </div>

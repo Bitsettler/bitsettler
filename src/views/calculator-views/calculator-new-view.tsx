@@ -21,6 +21,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Calculator, Search, Shuffle, Package2, Lightbulb, Copy, Download } from 'lucide-react'
 import type { MaterialRow, Group } from '@/components/depv2/types'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 import '@/styles/depv2.css'
 
 export function CalculatorNewView() {
@@ -32,6 +33,128 @@ export function CalculatorNewView() {
   const [showSteps, setShowSteps] = useState<boolean>(false)
   const [isCalculating, setIsCalculating] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+
+  // CSV Export functionality
+  const exportToCSV = () => {
+    if (!materialRows || materialRows.length === 0 || !itemId) {
+      toast.error('No data to export')
+      return
+    }
+
+    const item = getItemById(itemId)
+    const itemName = item ? getItemDisplay(item).name : 'Unknown Item'
+    
+    // Prepare CSV data
+    const csvRows = [
+      ['Item Name', 'Quantity', 'Tier', 'Skill']
+    ]
+
+    // Add the data rows
+    materialRows.forEach(row => {
+      csvRows.push([
+        row.name,
+        row.qty.toString(),
+        row.tier?.toString() || 'N/A',
+        row.skill || 'Unknown'
+      ])
+    })
+
+    // Convert to CSV string
+    const csvContent = csvRows
+      .map(row => row.map(field => `"${field.replace(/"/g, '""')}"`).join(','))
+      .join('\n')
+
+    // Create and download file
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `bitcraft-${itemName.toLowerCase().replace(/\s+/g, '-')}-materials-qty${qty}.csv`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+
+    toast.success('Materials list exported to CSV!')
+  }
+
+  // Copy Plan functionality
+  const copyPlan = () => {
+    if (!materialRows || materialRows.length === 0 || !itemId) {
+      toast.error('No data to copy')
+      return
+    }
+
+    const item = getItemById(itemId)
+    const itemName = item ? getItemDisplay(item).name : 'Unknown Item'
+    
+    // Create formatted text
+    let planText = `BitCraft Materials Plan - ${itemName} (${qty}x)\n`
+    planText += '='.repeat(50) + '\n\n'
+
+    if (groupBy === 'tier') {
+      // Group by tier for copy
+      const groups = new Map<string, MaterialRow[]>()
+      
+      materialRows.forEach(row => {
+        const groupKey = (row.tier && row.tier > 0) ? `Tier ${row.tier}` : 'No Tier'
+        if (!groups.has(groupKey)) groups.set(groupKey, [])
+        groups.get(groupKey)!.push(row)
+      })
+
+      // Sort groups by tier
+      const sortedGroups = Array.from(groups.entries()).sort(([a], [b]) => {
+        if (a === 'No Tier') return 1
+        if (b === 'No Tier') return -1
+        const tierA = parseInt(a.split(' ')[1])
+        const tierB = parseInt(b.split(' ')[1])
+        return tierA - tierB
+      })
+
+      sortedGroups.forEach(([groupName, materials]) => {
+        planText += `${groupName}:\n`
+        materials.forEach(row => {
+          planText += `  • ${row.name}: ${row.qty.toLocaleString()}\n`
+        })
+        planText += '\n'
+      })
+    } else if (groupBy === 'skill') {
+      // Group by skill for copy
+      const groups = new Map<string, MaterialRow[]>()
+      
+      materialRows.forEach(row => {
+        const groupKey = row.skill || 'Unknown'
+        if (!groups.has(groupKey)) groups.set(groupKey, [])
+        groups.get(groupKey)!.push(row)
+      })
+
+      // Sort groups alphabetically
+      const sortedGroups = Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b))
+
+      sortedGroups.forEach(([groupName, materials]) => {
+        planText += `${groupName}:\n`
+        materials.forEach(row => {
+          planText += `  • ${row.name}: ${row.qty.toLocaleString()}\n`
+        })
+        planText += '\n'
+      })
+    } else {
+      // Flat list
+      materialRows.forEach(row => {
+        planText += `• ${row.name}: ${row.qty.toLocaleString()}\n`
+      })
+    }
+
+    planText += `\nGenerated with BitSettler Project Calculator`
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(planText).then(() => {
+      toast.success('Materials plan copied to clipboard!')
+    }).catch(() => {
+      toast.error('Failed to copy to clipboard')
+    })
+  }
   
   useEffect(() => {
     // Telemetry: Track page load
@@ -108,11 +231,12 @@ export function CalculatorNewView() {
       }
     }).sort((a, b) => {
       // Sort by tier first (1-10), then by name
-      const tierA = a.tier || 999 // Items without tier go to end
-      const tierB = b.tier || 999
+      // Treat tier -1 (no tier) as a special case and put at end
+      const tierA = (a.tier && a.tier > 0) ? a.tier : 999 // Items without tier or tier -1 go to end
+      const tierB = (b.tier && b.tier > 0) ? b.tier : 999
       
       if (tierA !== tierB) {
-        return tierA - tierB // Ascending tier order (1, 2, 3... 10)
+        return tierA - tierB // Ascending tier order (1, 2, 3... 10, then No Tier)
       }
       
       // If same tier (or both have no tier), sort by name
@@ -138,7 +262,7 @@ export function CalculatorNewView() {
       if (groupBy === 'skill') {
         groupKey = row.skill || 'Unknown Skill'
       } else if (groupBy === 'tier') {
-        groupKey = row.tier ? `Tier ${row.tier}` : 'No Tier'
+        groupKey = (row.tier && row.tier > 0) ? `Tier ${row.tier}` : 'No Tier'
       } else {
         groupKey = 'All Materials'
       }
@@ -170,26 +294,26 @@ export function CalculatorNewView() {
       <div className="text-center space-y-3">
         <div className="flex items-center justify-center gap-3">
           <Calculator className="h-8 w-8 text-primary" />
-          <h1 className="text-4xl font-bold tracking-tight">Calculator ✨</h1>
-          <Badge className="bg-secondary text-secondary-foreground">v2</Badge>
+          <h1 className="text-4xl font-bold tracking-tight">Project Calculator</h1>
+          <Badge className="bg-secondary text-secondary-foreground">Projects</Badge>
         </div>
         <p className="text-muted-foreground text-lg">
-          Advanced dependency engine with step‑by‑step plans and optimized materials
+          Project-focused crafting calculator with collaboration features and advanced planning
         </p>
       </div>
 
       {/* Controls card */}
       <Card className="mx-auto max-w-5xl">
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-4">
           <CardTitle className="text-lg">Calculate Materials</CardTitle>
-          <CardDescription>Search for any craftable item and set quantity.</CardDescription>
+          <CardDescription className="mt-1">Search for any craftable item and set quantity.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-8">
           {/* Search row */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="sm:col-span-2">
-              <Label htmlFor="search">Search for any item</Label>
-              <div className="flex gap-2">
+              <Label htmlFor="search" className="text-sm font-medium">Search for any item</Label>
+              <div className="flex gap-2 mt-2">
                 <div className="flex-1">
                   <ItemPicker 
                     onChange={setItemId}
@@ -200,8 +324,8 @@ export function CalculatorNewView() {
               </div>
             </div>
             <div>
-              <Label htmlFor="qty">How many?</Label>
-              <div className="flex gap-2">
+              <Label htmlFor="qty" className="text-sm font-medium">How many?</Label>
+              <div className="flex gap-2 mt-2">
                 <Input 
                   id="qty" 
                   type="number" 
@@ -321,10 +445,8 @@ export function CalculatorNewView() {
                               </td>
                               <td className="font-mono font-semibold">{row.qty.toLocaleString()}</td>
                               <td>
-                                {row.tier && (
-                                  <Badge variant="outline" className="text-xs">
-                                    T{row.tier}
-                                  </Badge>
+                                {(row.tier && row.tier > 0) && (
+                                  <BricoTierBadge tier={row.tier} size="sm" className="shrink-0" />
                                 )}
                               </td>
                               <td className="text-muted-foreground">{row.skill || 'Unknown'}</td>
@@ -383,15 +505,15 @@ export function CalculatorNewView() {
       )}
 
       {/* Sticky footer actions */}
-      {itemId && expansionResult && (
+      {itemId && materialRows && materialRows.length > 0 && (
         <div className="sticky bottom-4 z-10 mx-auto flex max-w-5xl justify-end">
           <div className="rounded-xl border bg-background/95 p-2 shadow-lg backdrop-blur">
             <div className="flex items-center gap-2">
-              <Button variant="outline" className="gap-2">
+              <Button variant="outline" className="gap-2" onClick={copyPlan}>
                 <Copy className="h-4 w-4" />
                 Copy Plan
               </Button>
-              <Button className="gap-2">
+              <Button className="gap-2" onClick={exportToCSV}>
                 <Download className="h-4 w-4" />
                 Export CSV
               </Button>

@@ -6,7 +6,6 @@ import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { Separator } from '../../components/ui/separator';
 // import { Alert, AlertDescription } from '../../components/ui/alert';
-import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { 
   ArrowLeft,
@@ -24,7 +23,7 @@ import {
 } from 'lucide-react';
 
 export function SettlementManageView() {
-  const { selectedSettlement, inviteCode, regenerateInviteCode, clearSettlement } = useSelectedSettlement();
+  const { clearSettlement } = useSelectedSettlement();
 
   const handleBackToDashboard = () => {
     window.location.href = '/en/settlement';
@@ -72,12 +71,7 @@ export function SettlementManageView() {
             <p className="text-muted-foreground">Administrative settings and controls</p>
           </div>
         </div>
-        {inviteCode && (
-          <CompactSettlementInviteCode 
-            inviteCode={inviteCode}
-            onRegenerate={regenerateInviteCode}
-          />
-        )}
+
       </div>
 
       {/* Current Settlement Info */}
@@ -178,19 +172,7 @@ export function SettlementManageView() {
                 </p>
               </div>
               
-              {inviteCode && (
-                <div className="bg-muted/50 rounded-lg p-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">Active Invite Code</span>
-                    <Badge variant="outline" className="font-mono">
-                      {inviteCode.formattedCode}
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Created: {new Date(inviteCode.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
-              )}
+
               
               <div className="space-y-2">
                 <h4 className="font-medium text-sm">Future Features</h4>

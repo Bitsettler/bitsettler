@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0] - Remove Invite Code System - 2025-01-13
+
+### Removed
+
+- **Invite Code System**: Completely removed settlement invite code and auth code functionality
+  - **Components Removed**: Settlement join flow, invite code display components, invite code compact UI
+  - **API Routes Removed**: `/api/settlement/join`, `/api/settlement/invite-code`, admin invite code endpoints
+  - **Database Changes**: Removed invite code related migrations and database functions
+  - **Settlement Flow**: Simplified onboarding to establishment-only (no more joining via codes)
+  - **Type Definitions**: Cleaned up invite code references from TypeScript interfaces
+  - **Validation**: Removed invite code validation schemas and patterns
+
+### Technical
+
+- Deleted 2,400+ lines of invite code related functionality across 23 files
+- Removed dependencies on invite code generation and management
+- Simplified settlement onboarding workflow to focus on establishment via BitJita search
+- Prepared codebase for upcoming database schema refactoring
+- Updated documentation to reflect establishment-only settlement workflow
+
+### Migration Notes
+
+- Users previously using invite codes to join settlements will need to use the establishment flow
+- Database schema missing `settlement_id` column will be resolved in upcoming database work
+- Discord linking functionality preserved and unaffected
+
 ## [1.9.2] - Dashboard Project Count Fix - 2025-01-08
 
 ### Fixed

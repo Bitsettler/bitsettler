@@ -88,8 +88,7 @@ const data = {
         {
           translationKey: 'sidebar.calculatorNew',
           href: '/calculator-new',
-          icon: CalculatorIcon,
-          badge: 'v2'
+          icon: CalculatorIcon
         }
       ]
     },

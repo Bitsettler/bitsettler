@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { CalculatorNewView } from '@/views/calculator-views/calculator-new-view'
+import '@/styles/settlement-tiers.css'
 
 interface CalculatorNewPageProps {
   params: Promise<{ locale: string }>
@@ -8,8 +9,8 @@ interface CalculatorNewPageProps {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Calculator (New) - BitSettler',
-    description: 'Advanced dependency engine for BitCraft crafting calculations with step-by-step plans and material optimization.',
+    title: 'Project Calculator - BitSettler',
+    description: 'Project-focused crafting calculator for BitCraft with collaboration features and advanced planning capabilities.',
   }
 }
 

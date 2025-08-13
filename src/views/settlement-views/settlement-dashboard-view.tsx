@@ -22,7 +22,6 @@ import {
 import { formatDistanceToNow } from 'date-fns';
 import { TierIcon } from '@/components/ui/tier-icon';
 import { ContributionDisplay } from '@/components/projects/contribution-display';
-import { CompactSettlementInviteCode } from '../../components/settlement-invite-code-compact';
 import { SettlementDiscordLink } from '../../components/settlement-discord-link';
 
 
@@ -88,16 +87,10 @@ export function SettlementDashboardView() {
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
 
   
-  const { inviteCode, regenerateInviteCode, isLoading: settlementLoading, generateInviteCodeForSettlement } = useSelectedSettlement();
+  const { isLoading: settlementLoading } = useSelectedSettlement();
   
 
-  useEffect(() => {
-    if (!settlementLoading && !inviteCode && member?.settlement_id && dashboardData?.settlement?.settlementInfo) {
-      const settlementInfo = dashboardData.settlement.settlementInfo;
-      generateInviteCodeForSettlement(member.settlement_id, settlementInfo.name).catch(error => {
-      });
-    }
-  }, [settlementLoading, inviteCode, member?.settlement_id, dashboardData?.settlement?.settlementInfo?.name, generateInviteCodeForSettlement]);
+
 
   const fetchDashboardData = useCallback(async () => {
     try {
@@ -293,20 +286,6 @@ export function SettlementDashboardView() {
 
             </div>
             <div className="flex flex-col items-end gap-2">
-              {!settlementLoading && inviteCode ? (
-                <CompactSettlementInviteCode 
-                  inviteCode={inviteCode}
-                  onRegenerate={regenerateInviteCode}
-                />
-              ) : !settlementLoading ? (
-                <div className="text-xs text-muted-foreground">
-                  No invite code available
-                </div>
-              ) : (
-                <div className="text-xs text-muted-foreground">
-                  Loading invite code...
-                </div>
-              )}
               {settlementInfo?.id && (
                 <SettlementDiscordLink 
                   settlementId={settlementInfo.id}

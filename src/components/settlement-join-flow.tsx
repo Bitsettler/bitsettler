@@ -1,283 +1,214 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { api } from '@/lib/api-client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ProfessionSelector } from '@/components/profession-selector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Badge } from '@/components/ui/badge';
 import { 
   ArrowLeft, 
+  Search, 
   CheckCircle, 
   AlertCircle, 
-  Users,
+  Users, 
   User,
-  MapPin,
   Loader2,
-  Search,
-  X
+  Crown
 } from 'lucide-react';
+import { getDisplayProfession } from '@/lib/utils/profession-utils';
+import { clog } from '@/lib/utils/client-logger';
 
 interface SettlementJoinFlowProps {
   settlementData: {
     settlement: {
       id: string;
       name: string;
-      tier?: number;
-      population?: number;
       memberCount: number;
     };
     availableCharacters: CharacterOption[];
-    totalAvailable: number;
+    currentCharacter?: {
+      id: string;
+      name: string;
+    };
   };
   onBack: () => void;
   onComplete: () => void;
-  isCharacterSwitch?: boolean; // Flag for character switching flow
+  isCharacterSwitch?: boolean;
 }
-
-
 
 interface CharacterOption {
   id: string;
   name: string;
-  settlement_id: string;
-  player_entity_id: string;
-  bitjita_user_id: string;
-  skills: Record<string, number>;
-  top_profession: string;
   total_level: number;
+  highest_level: number;
+  skill_levels: { [skill: string]: number };
+  is_member?: boolean;
+  position?: {
+    co_owner: boolean;
+  };
 }
 
-export function SettlementJoinFlow({ settlementData, onBack, onComplete, isCharacterSwitch = false }: SettlementJoinFlowProps) {
-  const [step, setStep] = useState<'character-select' | 'profession-select' | 'claiming' | 'complete' | 'error'>('character-select');
-  const [error, setError] = useState<string | null>(null);
+export function SettlementJoinFlow({ 
+  settlementData, 
+  onBack, 
+  onComplete, 
+  isCharacterSwitch = false 
+}: SettlementJoinFlowProps) {
+  const [step, setStep] = useState<'character-select' | 'confirming' | 'complete' | 'error'>('character-select');
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterOption | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  
-  // Profession selection state
-  const [primaryProfession, setPrimaryProfession] = useState<string | undefined>();
-  const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>();
+  const [characterSearchTerm, setCharacterSearchTerm] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Filter characters based on search term
   const filteredCharacters = useMemo(() => {
-    if (!searchTerm.trim()) {
+    if (!characterSearchTerm.trim()) {
       return settlementData.availableCharacters;
     }
     
-    const searchLower = searchTerm.toLowerCase();
+    const searchLower = characterSearchTerm.toLowerCase();
     return settlementData.availableCharacters.filter(character => 
-      character.name.toLowerCase().includes(searchLower) ||
-      character.top_profession.toLowerCase().includes(searchLower) ||
-      character.total_level.toString().includes(searchLower)
+      character.name?.toLowerCase().includes(searchLower) ||
+      getDisplayProfession(character)?.toLowerCase().includes(searchLower) ||
+      (character.total_level?.toString() || '').includes(searchLower) ||
+      (character.highest_level?.toString() || '').includes(searchLower)
     );
-  }, [settlementData.availableCharacters, searchTerm]);
+  }, [settlementData.availableCharacters, characterSearchTerm]);
 
-  // Data is already loaded from API call
+  const handleCharacterSelect = async (character: CharacterOption) => {
+    setSelectedCharacter(character);
+    setIsProcessing(true);
+    setStep('confirming');
 
-  const handleSelectCharacter = () => {
-    if (!selectedCharacter) return;
-    setStep('profession-select');
-    setError(null);
-  };
-
-  const handleBackToCharacterSelect = () => {
-    setStep('character-select');
-    setError(null);
-  };
-
-  const handleClaimCharacter = async () => {
-    if (!selectedCharacter) return;
-
-    setStep('claiming');
     try {
-      const result = await api.post('/api/settlement/claim-character', {
-        playerEntityId: selectedCharacter.player_entity_id, // Explicitly use player_entity_id for clarity
+      const action = isCharacterSwitch ? 'switch' : 'join';
+      clog(`Attempting to ${action} character:`, character.name);
+
+      // Call the appropriate API endpoint
+      const endpoint = isCharacterSwitch 
+        ? `/api/settlement/switch-character`
+        : `/api/settlement/join-character`;
+
+      const response = await api.post(endpoint, {
         settlementId: settlementData.settlement.id,
-        primaryProfession,
-        secondaryProfession,
-        replaceExisting: isCharacterSwitch // Pass replacement flag for switch operations
+        characterId: character.id,
+        characterName: character.name
       });
 
-      if (result.success) {
+      if (response.success) {
         setStep('complete');
+        // Small delay to show success state before calling onComplete
         setTimeout(() => {
           onComplete();
-        }, 2000);
+        }, 1500);
       } else {
-        setError(result.error || 'Failed to claim character');
-        setStep('error');
+        throw new Error(response.error || `Failed to ${action} character`);
       }
-    } catch (err) {
-      console.error('Failed to claim character:', err);
-      setError('Failed to claim character. Please try again.');
+    } catch (error) {
+      console.error(`Character ${isCharacterSwitch ? 'switch' : 'join'} error:`, error);
+      setError(error instanceof Error ? error.message : `Failed to ${isCharacterSwitch ? 'switch to' : 'join with'} character`);
       setStep('error');
+    } finally {
+      setIsProcessing(false);
     }
   };
 
+  const handleRetry = () => {
+    setError(null);
+    setStep('character-select');
+    setSelectedCharacter(null);
+  };
 
-
-  if (step === 'error') {
-    return (
-      <div className="max-w-2xl mx-auto p-6">
-        <Card>
-          <CardHeader className="text-center">
-            <div className="flex justify-center mb-4">
-              <AlertCircle className="w-12 h-12 text-destructive" />
-            </div>
-            <CardTitle>Unable to Join Settlement</CardTitle>
-            <CardDescription>There was a problem with your invite code</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Alert variant="destructive">
-              <AlertCircle className="w-4 h-4" />
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-            <div className="flex space-x-2">
-              <Button variant="outline" onClick={onBack} className="flex-1">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
+  // Character selection UI
   if (step === 'character-select') {
     return (
-      <div className="max-w-6xl mx-auto p-6 space-y-6">
+      <div className="max-w-4xl mx-auto p-6 space-y-6">
         <Card>
           <CardHeader>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="w-6 h-6 text-green-500" />
+            <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Settlement Found!</CardTitle>
-                <CardDescription>Select your character to complete the process</CardDescription>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  {isCharacterSwitch ? 'Switch Character' : 'Select Character'}
+                </CardTitle>
+                <CardDescription>
+                  {isCharacterSwitch 
+                    ? `Choose a character to switch to in ${settlementData.settlement.name}`
+                    : `Choose your character to join ${settlementData.settlement.name}`}
+                </CardDescription>
               </div>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {/* Settlement Info */}
-            <div className="bg-muted/50 rounded-lg p-4">
-              <h3 className="font-semibold text-lg mb-2">{settlementData.settlement.name}</h3>
-              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                <div className="flex items-center space-x-1">
-                  <Users className="w-4 h-4" />
-                  <span>{settlementData.settlement.memberCount} members</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <MapPin className="w-4 h-4" />
-                  <span>Population: {settlementData.settlement.population}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Character Selection */}
-            <div>
-              <Label className="text-base font-semibold">Choose Your Character</Label>
-              <p className="text-sm text-muted-foreground mb-4">
-                Select the character you want to link to your account
-              </p>
-              
-              {/* Search Field */}
-              <div className="relative mb-4">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  placeholder="Search by character name, profession, or level..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-10"
-                />
-                {searchTerm && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                )}
-              </div>
-              
-              {/* Results Count */}
-              {searchTerm && (
-                <p className="text-sm text-muted-foreground mb-3">
-                  Showing {filteredCharacters.length} of {settlementData.availableCharacters.length} characters
-                </p>
-              )}
-              
-              {/* Character Grid */}
-              <div className="grid gap-3 max-h-[500px] overflow-y-auto">
-                {filteredCharacters.length > 0 ? (
-                  filteredCharacters.map((character) => (
-                  <Card 
-                    key={character.id}
-                    className={`cursor-pointer transition-all border-2 ${
-                      selectedCharacter?.id === character.id 
-                        ? 'border-primary bg-primary/5' 
-                        : 'border-border hover:border-primary/50'
-                    }`}
-                    onClick={() => setSelectedCharacter(character)}
-                  >
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 bg-primary/10 rounded-full">
-                            <User className="w-5 h-5 text-primary" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold">{character.name}</h4>
-                            <p className="text-sm text-muted-foreground">
-                              {character.top_profession} • Level {character.total_level}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="text-right text-sm text-muted-foreground">
-                          <div>{Object.keys(character.skills).length} skills</div>
-                        </div>
-                      </div>
-                      
-                      {/* Action Button - appears when this character is selected */}
-                      {selectedCharacter?.id === character.id && (
-                        <div className="mt-4 pt-4 border-t border-border">
-                          <Button 
-                            onClick={handleSelectCharacter} 
-                            className="w-full"
-                            size="sm"
-                          >
-                            <CheckCircle className="w-4 h-4 mr-2" />
-                            Choose {character.name}
-                          </Button>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                  ))
-                ) : (
-                  <div className="text-center py-8 text-muted-foreground">
-                    <User className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="font-medium">No characters found</p>
-                    <p className="text-sm">Try adjusting your search terms</p>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex space-x-2">
               <Button variant="outline" onClick={onBack}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back
               </Button>
-              {!selectedCharacter && (
-                <Button disabled className="flex-1">
-                  Select a Character to Continue
-                </Button>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Search Bar */}
+            <div className="space-y-2">
+              <Label htmlFor="character-search">Search Characters</Label>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  id="character-search"
+                  placeholder="Search by name, profession, or level..."
+                  value={characterSearchTerm}
+                  onChange={(e) => setCharacterSearchTerm(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+            </div>
+
+            {/* Characters List */}
+            <div className="space-y-3">
+              {filteredCharacters.length === 0 ? (
+                <div className="text-center py-8 text-muted-foreground">
+                  {characterSearchTerm ? 'No characters found matching your search.' : 'No characters available.'}
+                </div>
+              ) : (
+                filteredCharacters.map((character) => (
+                  <Card 
+                    key={character.id} 
+                    className="cursor-pointer hover:bg-accent/50 transition-colors"
+                    onClick={() => handleCharacterSelect(character)}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-primary/10 rounded-full">
+                            <User className="w-4 h-4 text-primary" />
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-semibold">{character.name}</h3>
+                              {character.position?.co_owner && (
+                                <Badge variant="secondary" className="text-xs">
+                                  <Crown className="w-3 h-3 mr-1" />
+                                  Co-Owner
+                                </Badge>
+                              )}
+                              {character.is_member && (
+                                <Badge variant="outline" className="text-xs">
+                                  Member
+                                </Badge>
+                              )}
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              {getDisplayProfession(character)} • Level {character.total_level}
+                              {character.highest_level > 0 && ` (Highest: ${character.highest_level})`}
+                            </div>
+                          </div>
+                        </div>
+                        <Button variant="outline" size="sm">
+                          {isCharacterSwitch ? 'Switch' : 'Select'}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
               )}
             </div>
           </CardContent>
@@ -286,80 +217,26 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete, isChara
     );
   }
 
-  if (step === 'profession-select') {
-    return (
-      <div className="max-w-4xl mx-auto p-6">
-        <Card>
-          <CardHeader className="text-center">
-            <CardTitle>Choose Your Professions</CardTitle>
-            <CardDescription>
-              Define your primary and secondary professions to represent your playstyle
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {/* Selected Character Summary */}
-            {selectedCharacter && (
-              <Card className="bg-primary/5">
-                <CardContent className="pt-4">
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <User className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">{selectedCharacter.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Level {selectedCharacter.total_level} • {selectedCharacter.top_profession}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Profession Selector */}
-            <ProfessionSelector
-              primaryProfession={primaryProfession}
-              secondaryProfession={secondaryProfession}
-              onPrimaryChange={setPrimaryProfession}
-              onSecondaryChange={setSecondaryProfession}
-              allowNone={true}
-            />
-
-            {/* Action Buttons */}
-            <div className="flex items-center justify-between">
-              <Button variant="outline" onClick={handleBackToCharacterSelect}>
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Character Selection
-              </Button>
-              
-              <Button onClick={handleClaimCharacter} className="min-w-[200px]">
-                <CheckCircle className="h-4 w-4 mr-2" />
-                Claim {selectedCharacter?.name}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  if (step === 'claiming') {
+  // Processing state
+  if (step === 'confirming') {
     return (
       <div className="max-w-2xl mx-auto p-6">
         <Card>
-          <CardHeader className="text-center">
-            <CardTitle>Claiming Character</CardTitle>
-            <CardDescription>
-              Setting up your access to {settlementData.settlement.name}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
-            </div>
-            <div className="text-center text-sm text-muted-foreground space-y-1">
-              <p>Linking character: <strong>{selectedCharacter?.name}</strong></p>
-              <p>Updating settlement access...</p>
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto">
+                <Loader2 className="w-8 h-8 text-primary animate-spin" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">
+                  {isCharacterSwitch ? 'Switching Character...' : 'Joining Settlement...'}
+                </h3>
+                <p className="text-muted-foreground">
+                  {isCharacterSwitch 
+                    ? `Switching to ${selectedCharacter?.name}...`
+                    : `Setting up ${selectedCharacter?.name} in ${settlementData.settlement.name}...`}
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -367,23 +244,61 @@ export function SettlementJoinFlow({ settlementData, onBack, onComplete, isChara
     );
   }
 
+  // Success state
   if (step === 'complete') {
     return (
       <div className="max-w-2xl mx-auto p-6">
         <Card>
-          <CardHeader className="text-center">
-            <div className="flex justify-center mb-4">
-              <CheckCircle className="w-12 h-12 text-green-500" />
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div className="p-4 bg-green-100 dark:bg-green-900/20 rounded-full w-fit mx-auto">
+                <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">
+                  {isCharacterSwitch ? 'Character Switched!' : 'Successfully Joined!'}
+                </h3>
+                <p className="text-muted-foreground">
+                  {isCharacterSwitch 
+                    ? `You are now playing as ${selectedCharacter?.name}`
+                    : `${selectedCharacter?.name} has joined ${settlementData.settlement.name}`}
+                </p>
+              </div>
             </div>
-            <CardTitle>Welcome to {settlementData.settlement.name}!</CardTitle>
-            <CardDescription>
-              You've successfully joined the settlement as {selectedCharacter?.name}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-sm text-muted-foreground">
-              Redirecting to your settlement dashboard...
-            </p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // Error state
+  if (step === 'error') {
+    return (
+      <div className="max-w-2xl mx-auto p-6">
+        <Card>
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div className="p-4 bg-destructive/10 rounded-full w-fit mx-auto">
+                <AlertCircle className="w-8 h-8 text-destructive" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">
+                  {isCharacterSwitch ? 'Switch Failed' : 'Join Failed'}
+                </h3>
+                <Alert className="mt-4">
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              </div>
+              <div className="flex gap-3 justify-center">
+                <Button variant="outline" onClick={onBack}>
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back
+                </Button>
+                <Button onClick={handleRetry}>
+                  Try Again
+                </Button>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
