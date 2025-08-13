@@ -33,6 +33,129 @@ export function CalculatorNewView() {
   const [showSteps, setShowSteps] = useState<boolean>(false)
   const [isCalculating, setIsCalculating] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+
+  // CSV Export functionality
+  const exportToCSV = () => {
+    if (!expansionResult || !itemId) {
+      toast.error('No data to export')
+      return
+    }
+
+    const item = getItemById(itemId)
+    const itemName = item ? getItemDisplay(item).name : 'Unknown Item'
+    
+    // Prepare CSV data
+    const csvRows = [
+      ['Item Name', 'Quantity', 'Tier', 'Skill', 'Category']
+    ]
+
+    // Add the data rows
+    expansionResult.forEach(row => {
+      csvRows.push([
+        row.name,
+        row.qty.toString(),
+        row.tier?.toString() || 'N/A',
+        row.skill || 'Unknown',
+        row.category || 'Unknown'
+      ])
+    })
+
+    // Convert to CSV string
+    const csvContent = csvRows
+      .map(row => row.map(field => `"${field.replace(/"/g, '""')}"`).join(','))
+      .join('\n')
+
+    // Create and download file
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `bitcraft-${itemName.toLowerCase().replace(/\s+/g, '-')}-materials-qty${qty}.csv`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+
+    toast.success('Materials list exported to CSV!')
+  }
+
+  // Copy Plan functionality
+  const copyPlan = () => {
+    if (!expansionResult || !itemId) {
+      toast.error('No data to copy')
+      return
+    }
+
+    const item = getItemById(itemId)
+    const itemName = item ? getItemDisplay(item).name : 'Unknown Item'
+    
+    // Create formatted text
+    let planText = `BitCraft Materials Plan - ${itemName} (${qty}x)\n`
+    planText += '='.repeat(50) + '\n\n'
+
+    if (groupBy === 'tier') {
+      // Group by tier for copy
+      const groups = new Map<string, MaterialRow[]>()
+      
+      expansionResult.forEach(row => {
+        const groupKey = (row.tier && row.tier > 0) ? `Tier ${row.tier}` : 'No Tier'
+        if (!groups.has(groupKey)) groups.set(groupKey, [])
+        groups.get(groupKey)!.push(row)
+      })
+
+      // Sort groups by tier
+      const sortedGroups = Array.from(groups.entries()).sort(([a], [b]) => {
+        if (a === 'No Tier') return 1
+        if (b === 'No Tier') return -1
+        const tierA = parseInt(a.split(' ')[1])
+        const tierB = parseInt(b.split(' ')[1])
+        return tierA - tierB
+      })
+
+      sortedGroups.forEach(([groupName, materials]) => {
+        planText += `${groupName}:\n`
+        materials.forEach(row => {
+          planText += `  • ${row.name}: ${row.qty.toLocaleString()}\n`
+        })
+        planText += '\n'
+      })
+    } else if (groupBy === 'skill') {
+      // Group by skill for copy
+      const groups = new Map<string, MaterialRow[]>()
+      
+      expansionResult.forEach(row => {
+        const groupKey = row.skill || 'Unknown'
+        if (!groups.has(groupKey)) groups.set(groupKey, [])
+        groups.get(groupKey)!.push(row)
+      })
+
+      // Sort groups alphabetically
+      const sortedGroups = Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b))
+
+      sortedGroups.forEach(([groupName, materials]) => {
+        planText += `${groupName}:\n`
+        materials.forEach(row => {
+          planText += `  • ${row.name}: ${row.qty.toLocaleString()}\n`
+        })
+        planText += '\n'
+      })
+    } else {
+      // Flat list
+      expansionResult.forEach(row => {
+        planText += `• ${row.name}: ${row.qty.toLocaleString()}\n`
+      })
+    }
+
+    planText += `\nGenerated with BitSettler Project Calculator`
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(planText).then(() => {
+      toast.success('Materials plan copied to clipboard!')
+    }).catch(() => {
+      toast.error('Failed to copy to clipboard')
+    })
+  }
   
   useEffect(() => {
     // Telemetry: Track page load
@@ -387,11 +510,11 @@ export function CalculatorNewView() {
         <div className="sticky bottom-4 z-10 mx-auto flex max-w-5xl justify-end">
           <div className="rounded-xl border bg-background/95 p-2 shadow-lg backdrop-blur">
             <div className="flex items-center gap-2">
-              <Button variant="outline" className="gap-2">
+              <Button variant="outline" className="gap-2" onClick={copyPlan}>
                 <Copy className="h-4 w-4" />
                 Copy Plan
               </Button>
-              <Button className="gap-2">
+              <Button className="gap-2" onClick={exportToCSV}>
                 <Download className="h-4 w-4" />
                 Export CSV
               </Button>
