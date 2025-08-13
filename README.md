@@ -130,6 +130,35 @@ npx supabase db reset
 - **Prettier**: Automatic formatting with import organization
 - **Supabase CLI**: Required for all database changes
 
+### **Development Workflow**
+```bash
+# 1. Feature development
+git checkout -b feature/your-feature-name
+npm run dev
+
+# 2. Database changes (if needed)
+npx supabase migration new your_migration_name
+# Edit migration file, then apply:
+npx supabase db push --db-url "DATABASE_URL" --yes
+
+# 3. Testing
+npm run lint
+npm run build
+# Test auth flows and permissions
+
+# 4. Commit and push
+git add .
+git commit -m "feat: your feature description"
+git push origin feature/your-feature-name
+```
+
+### **Key Development Rules**
+1. **Architecture**: Always follow Data → Page → View pattern
+2. **Authentication**: All settlement features require user authentication  
+3. **Database**: Use Supabase CLI for all schema changes
+4. **Security**: Implement proper RLS policies and permission checks
+5. **Testing**: Test with different user roles and permission levels
+
 ---
 
 ## 📁 **Project Structure**

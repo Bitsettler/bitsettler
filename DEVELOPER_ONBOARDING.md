@@ -411,7 +411,7 @@ Based on `TODO.md`, focus areas are:
 
 ### **Technical Documentation**
 - **[Authentication System](./docs/AUTHENTICATION.md)** - Complete auth architecture
-- **[Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md)** - Code examples and patterns
+- **[Auth Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md)** - Code examples and patterns  
 - **[BitJita Integration](./SETTLEMENT-MANAGEMENT_REFERENCE.md)** - External API details
 
 ### **External APIs & Tools**

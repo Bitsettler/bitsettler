@@ -2,16 +2,17 @@
 
 For complete project context and development guidelines, please refer to:
 
-**📖 [DEVELOPER_ONBOARDING.md](./DEVELOPER_ONBOARDING.md)**
+**📖 [DEVELOPER_ONBOARDING.md](./DEVELOPER_ONBOARDING.md)** - Complete developer guide
+**📄 [README.md](./README.md)** - Project overview and quick start
 
-This comprehensive guide contains:
-- ⚡ Quick setup instructions
-- 🏗️ Architecture patterns (Data → Page → View)
-- 🔐 Authentication system details
-- 🏛️ Settlement management features
-- 🛠️ Development workflow and standards
-- 🧪 Testing and debugging procedures
-- 📁 Project structure and file organization
+## 📚 Essential Documentation Structure
+
+- **README.md** - Project overview, setup, development workflow
+- **DEVELOPER_ONBOARDING.md** - Complete development guide and architecture
+- **docs/AUTHENTICATION.md** - Auth system architecture and security
+- **docs/AUTH_DEVELOPER_GUIDE.md** - Auth implementation patterns
+- **SETTLEMENT-MANAGEMENT_REFERENCE.md** - BitJita API integration
+- **CHANGELOG.md** - Version history and changes
 
 ## Key Development Rules
 
