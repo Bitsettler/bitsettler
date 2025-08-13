@@ -36,7 +36,7 @@ export function CalculatorNewView() {
 
   // CSV Export functionality
   const exportToCSV = () => {
-    if (!expansionResult || !itemId) {
+    if (!materialRows || materialRows.length === 0 || !itemId) {
       toast.error('No data to export')
       return
     }
@@ -46,17 +46,16 @@ export function CalculatorNewView() {
     
     // Prepare CSV data
     const csvRows = [
-      ['Item Name', 'Quantity', 'Tier', 'Skill', 'Category']
+      ['Item Name', 'Quantity', 'Tier', 'Skill']
     ]
 
     // Add the data rows
-    expansionResult.forEach(row => {
+    materialRows.forEach(row => {
       csvRows.push([
         row.name,
         row.qty.toString(),
         row.tier?.toString() || 'N/A',
-        row.skill || 'Unknown',
-        row.category || 'Unknown'
+        row.skill || 'Unknown'
       ])
     })
 
@@ -82,7 +81,7 @@ export function CalculatorNewView() {
 
   // Copy Plan functionality
   const copyPlan = () => {
-    if (!expansionResult || !itemId) {
+    if (!materialRows || materialRows.length === 0 || !itemId) {
       toast.error('No data to copy')
       return
     }
@@ -98,7 +97,7 @@ export function CalculatorNewView() {
       // Group by tier for copy
       const groups = new Map<string, MaterialRow[]>()
       
-      expansionResult.forEach(row => {
+      materialRows.forEach(row => {
         const groupKey = (row.tier && row.tier > 0) ? `Tier ${row.tier}` : 'No Tier'
         if (!groups.has(groupKey)) groups.set(groupKey, [])
         groups.get(groupKey)!.push(row)
@@ -124,7 +123,7 @@ export function CalculatorNewView() {
       // Group by skill for copy
       const groups = new Map<string, MaterialRow[]>()
       
-      expansionResult.forEach(row => {
+      materialRows.forEach(row => {
         const groupKey = row.skill || 'Unknown'
         if (!groups.has(groupKey)) groups.set(groupKey, [])
         groups.get(groupKey)!.push(row)
@@ -142,7 +141,7 @@ export function CalculatorNewView() {
       })
     } else {
       // Flat list
-      expansionResult.forEach(row => {
+      materialRows.forEach(row => {
         planText += `• ${row.name}: ${row.qty.toLocaleString()}\n`
       })
     }
@@ -506,7 +505,7 @@ export function CalculatorNewView() {
       )}
 
       {/* Sticky footer actions */}
-      {itemId && expansionResult && (
+      {itemId && materialRows && materialRows.length > 0 && (
         <div className="sticky bottom-4 z-10 mx-auto flex max-w-5xl justify-end">
           <div className="rounded-xl border bg-background/95 p-2 shadow-lg backdrop-blur">
             <div className="flex items-center gap-2">
