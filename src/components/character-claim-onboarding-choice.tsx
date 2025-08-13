@@ -28,7 +28,6 @@ import {
   Zap,
   CheckCircle2,
   AlertCircle,
-  Check,
   XCircle,
   MessageSquare,
   ExternalLink
@@ -40,10 +39,53 @@ import { ProfessionSelector } from '@/components/profession-selector'
 
 interface VerificationResult {
   isClaimed: boolean
-  canClaim: boolean
   message: string
   claimedBy?: string
   characterName?: string
+}
+
+// Settlement data types based on the API response structure
+interface SettlementData {
+  entityId: string;
+  name: string;
+  tier: number;
+  treasury: number;
+  supplies: number;
+  tiles: number;
+  regionName: string;
+  regionId: string;
+  isOwner: boolean;
+  isEstablished: boolean;
+  permissions: {
+    inventory: boolean;
+    build: boolean;
+    officer: boolean;
+    coOwner: boolean;
+  };
+}
+
+interface SettlementsApiResponse {
+  established: SettlementData[];
+  joinable: SettlementData[];
+}
+
+interface SoloPlayerOption {
+  id: 'solo';
+  name: string;
+  description: string;
+  type: 'solo';
+}
+
+// Union type for selected settlement
+type SelectedSettlement = SettlementData | SoloPlayerOption;
+
+// Type guards
+function isSoloPlayer(settlement: SelectedSettlement | null): settlement is SoloPlayerOption {
+  return settlement !== null && 'type' in settlement && settlement.type === 'solo';
+}
+
+function isSettlementData(settlement: SelectedSettlement | null): settlement is SettlementData {
+  return settlement !== null && 'entityId' in settlement;
 }
 
 export function CharacterClaimOnboardingChoice() {
@@ -61,11 +103,24 @@ export function CharacterClaimOnboardingChoice() {
   const [verificationError, setVerificationError] = useState<string | null>(null)
   
   // Step management
-  const [currentStep, setCurrentStep] = useState<'search' | 'profession-select' | 'claiming' | 'complete'>('search')
+  const [currentStep, setCurrentStep] = useState<'search' | 'profession-select' | 'settlement-select' | 'claiming' | 'complete'>('search')
   
   // Profession selection state
   const [primaryProfession, setPrimaryProfession] = useState<string | undefined>()
   const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>()
+
+  // Settlement selection state
+  const [settlementsData, setSettlementsData] = useState<SettlementsApiResponse | null>(null)
+  const [selectedSettlement, setSelectedSettlement] = useState<SelectedSettlement | null>(null)
+  const [isLoadingSettlements, setIsLoadingSettlements] = useState(false)
+
+  // Solo player option
+  const soloPlayerOption: SoloPlayerOption = {
+    id: 'solo',
+    name: 'Solo Player',
+    description: 'Start your journey as a solo player and build your own settlement later',
+    type: 'solo'
+  }
 
   // Debounced search function for live search
   const searchCharacters = useCallback(async (query: string) => {
@@ -154,18 +209,19 @@ export function CharacterClaimOnboardingChoice() {
   }
 
   const handleClaimCharacter = async () => {
-    if (!selectedCharacter || isClaiming || !verificationResult?.canClaim) return
+    if (!selectedCharacter || isClaiming || verificationResult?.isClaimed || !selectedSettlement) return
 
     setCurrentStep('claiming')
     setIsClaiming(true)
     
     try {
-      const result = await api.post('/api/character/claim', {
-        playerEntityId: selectedCharacter.entityId,
-        characterName: selectedCharacter.username,
-        primaryProfession,
-        secondaryProfession
-      })
+              const result = await api.post('/api/character/claim', {
+          playerEntityId: selectedCharacter.entityId,
+          primaryProfession,
+          secondaryProfession,
+          settlementId: isSoloPlayer(selectedSettlement) ? 'solo' : selectedSettlement.entityId,
+          settlementType: isSoloPlayer(selectedSettlement) ? 'solo' : 'settlement'
+        })
 
       if (result.success) {
         console.log('✅ Character claimed successfully')
@@ -178,12 +234,12 @@ export function CharacterClaimOnboardingChoice() {
       } else {
         console.error('❌ Failed to claim character:', result.error)
         alert(`Failed to claim character: ${result.error}`)
-        setCurrentStep('search')
+        setCurrentStep('settlement-select')
       }
     } catch (error) {
       console.error('❌ Network error during character claim:', error)
       alert('Network error. Please try again.')
-      setCurrentStep('search')
+      setCurrentStep('settlement-select')
     } finally {
       setIsClaiming(false)
     }
@@ -213,7 +269,7 @@ export function CharacterClaimOnboardingChoice() {
     
     if (verificationResult.isClaimed) {
       return <XCircle size={24} className="text-red-500" />
-    } else if (verificationResult.canClaim) {
+    } else if (!verificationResult.isClaimed) {
       return <CheckCircle2 size={24} className="text-green-500" />
     }
     return <AlertCircle size={24} className="text-yellow-500" />
@@ -223,8 +279,34 @@ export function CharacterClaimOnboardingChoice() {
     setCurrentStep('search')
   }
 
+  // Handle transition to settlement selection step with API call
+  const handleNextToSettlementSelect = async () => {
+    if (!selectedCharacter) return
+    
+    try {
+      // Call the /character/get-settlement API
+      const result = await api.post('/api/character/settlement', {
+        playerEntityId: selectedCharacter.entityId,
+      })
+      
+      if (result.success) {
+        console.log('✅ Settlement data loaded successfully')
+
+        setSettlementsData(result.data as SettlementsApiResponse)
+        setCurrentStep('settlement-select')
+      } else {
+        console.error('❌ Failed to load settlement data:', result.error)
+        alert(`Failed to load settlement data: ${result.error}`)
+      }
+    } catch (error) {
+      console.error('❌ Network error loading settlement data:', error)
+      alert('Network error loading settlement data. Please try again.')
+    }
+  }
+
+
   return (
-    <div className="mx-auto max-w-4xl space-y-6 p-6">
+    <div className="mx-auto max-w-6xl space-y-6 p-6">
       {/* Header */}
       <div className="space-y-4 text-center">
         <div className="flex items-center justify-center space-x-2">
@@ -451,7 +533,7 @@ export function CharacterClaimOnboardingChoice() {
               </div>
 
               {/* Next Button - appears when character is verified and available */}
-              {verificationResult?.canClaim && !verificationError && selectedCharacter && (
+              {verificationResult && !verificationResult?.isClaimed && !verificationError && selectedCharacter && (
                 <Button
                   onClick={() => setCurrentStep('profession-select')}
                   className="w-full transition-all duration-200"
@@ -512,26 +594,192 @@ export function CharacterClaimOnboardingChoice() {
               </Button>
               
               <Button 
-                onClick={handleClaimCharacter} 
+                onClick={handleNextToSettlementSelect}
                 className="min-w-[200px]"
                 disabled={isClaiming}
               >
-                {isClaiming ? (
-                  <>
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Claiming...
-                  </>
-                ) : (
-                  <>
-                    <CheckCircle2 className="h-4 w-4 mr-2" />
-                    Claim {selectedCharacter?.username}
-                  </>
-                )}
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Next: Choose Settlement
               </Button>
             </div>
           </CardContent>
         </Card>
       )}
+
+      {/* Settlement Selection Step */}
+      {currentStep === 'settlement-select' && (
+                  <Card>
+                    <CardHeader className="text-center">
+                      <CardTitle>Choose Your Settlement</CardTitle>
+                      <CardDescription>
+                        Select your established or joinable settlement to manage
+                      </CardDescription>
+                    </CardHeader>
+                                         <CardContent className="space-y-6">
+                       {/* Three Cards Layout */}
+                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                         {/* Card 1: Established Settlements */}
+                         <Card className="h-full">
+                           <CardHeader>
+                             <CardTitle className="text-lg">Owner Settlements</CardTitle>
+                           </CardHeader>
+                           <CardContent className="space-y-4">
+                             {isLoadingSettlements ? (
+                               <div className="flex justify-center py-8">
+                                 <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                               </div>
+                             ) : settlementsData?.established && settlementsData.established.length > 0 ? (
+                               <div className="space-y-3">
+                                 {settlementsData.established.map((settlement: SettlementData) => (
+                                   <Card
+                                     key={settlement.entityId}
+                                     className={`cursor-pointer border-2 p-3 transition-all duration-200 hover:shadow-md ${
+                                       isSettlementData(selectedSettlement) && selectedSettlement.entityId === settlement.entityId
+                                         ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
+                                         : 'border-border hover:border-primary/50 hover:bg-muted/30'
+                                     }`}
+                                     onClick={() => setSelectedSettlement(settlement)}
+                                   >
+                                     <CardContent className="p-3">
+                                       <div className="space-y-2">
+                                         <div className="flex items-center justify-between">
+                                           <h4 className="font-semibold text-sm">{settlement.name}</h4>
+                                           <span className="text-xs text-muted-foreground">{settlement.tiles} Tiles</span>
+                                         </div>
+                                         <p className="text-xs text-muted-foreground">Region: {settlement.regionName}</p>
+                                         <div className="flex items-center justify-between">
+
+                                             {settlement.isOwner && (
+                                               <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Owner</span>
+                                             )}
+                                             {!settlement.isEstablished && (
+                                               <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Not Established</span>
+                                             )}
+                                         </div>
+                                       </div>
+                                     </CardContent>
+                                   </Card>
+                                 ))}
+                               </div>
+                             ) : (
+                               <div className="text-center py-8 text-muted-foreground">
+                                 <p className="text-sm">No established settlements found.</p>
+                               </div>
+                             )}
+                           </CardContent>
+                         </Card>
+
+                         {/* Card 2: Joinable Settlements */}
+                         <Card className="h-full">
+                           <CardHeader>
+                             <CardTitle className="text-lg">Member Settlements</CardTitle>
+                           </CardHeader>
+                           <CardContent className="space-y-4">
+                             {isLoadingSettlements ? (
+                               <div className="flex justify-center py-8">
+                                 <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                               </div>
+                             ) : settlementsData?.joinable && settlementsData.joinable.length > 0 ? (
+                               <div className="space-y-3">
+                                 {settlementsData.joinable.map((settlement: SettlementData) => (
+                                   <Card
+                                     key={settlement.entityId}
+                                     className={`cursor-pointer border-2 p-3 transition-all duration-200 hover:shadow-md ${
+                                       isSettlementData(selectedSettlement) && selectedSettlement.entityId === settlement.entityId
+                                         ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
+                                         : 'border-border hover:border-primary/50 hover:bg-muted/30'
+                                     }`}
+                                     onClick={() => setSelectedSettlement(settlement)}
+                                   >
+                                     <CardContent className="p-3">
+                                       <div className="space-y-2">
+                                         <div className="flex items-center justify-between">
+                                           <h4 className="font-semibold text-sm">{settlement.name}</h4>
+                                           <span className="text-xs text-muted-foreground">{settlement.tiles} Tiles</span>
+                                         </div>
+                                         <p className="text-xs text-muted-foreground">Region: {settlement.regionName}</p>
+                                         <div className="flex items-center justify-between">
+                                           <div className="flex gap-1">
+                                             {settlement.isOwner && (
+                                               <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Owner</span>
+                                             )}
+                                              <span className={`${!settlement.isEstablished ? 'text-red-800 bg-red-100' : 'bg-green-100 text-green-800'} text-xs px-2 py-1 rounded-full`}>{!settlement.isEstablished ? 'Not Established' : 'Established'}</span>
+                                           </div>
+                                           {settlement.isEstablished && (
+                                             <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Join</span>
+                                           )}
+                                         </div>
+                                       </div>
+                                     </CardContent>
+                                   </Card>
+                                 ))}
+                               </div>
+                             ) : (
+                               <div className="text-center py-8 text-muted-foreground">
+                                 <p className="text-sm">No joinable settlements found.</p>
+                               </div>
+                             )}
+                           </CardContent>
+                         </Card>
+
+                         {/* Card 3: Solo Player Option */}
+                         <Card className="h-full">
+                           <CardHeader>
+                             <CardTitle className="text-lg">Solo Player</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                             <Card
+                               className={`cursor-pointer border-2 p-4 transition-all duration-200 hover:shadow-md ${
+                                 isSoloPlayer(selectedSettlement)
+                                   ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
+                                   : 'border-border hover:border-primary/50 hover:bg-muted/30'
+                               }`}
+                               onClick={() => setSelectedSettlement(soloPlayerOption)}
+                             >
+                               <CardContent className="p-4">
+                                 <div className="space-y-3">
+                                   <div className="flex items-center justify-between">
+                                     <h4 className="font-semibold">Solo Player</h4>
+                                     <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Independent</span>
+                                   </div>
+                                   <p className="text-sm text-muted-foreground">
+                                     Play independently without joining a settlement. You can always join or create a settlement later.
+                                   </p>
+                                 </div>
+                               </CardContent>
+                             </Card>
+                           </CardContent>
+                         </Card>
+                       </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex items-center justify-between pt-4">
+                        <Button variant="outline" onClick={() => setCurrentStep('profession-select')}>
+                          <ArrowLeft className="h-4 w-4 mr-2" />
+                          Back to Professions
+                        </Button>
+
+                        <Button
+                          onClick={handleClaimCharacter}
+                          className="min-w-[200px]"
+                          disabled={isClaiming || !selectedSettlement || (isSettlementData(selectedSettlement) && !selectedSettlement.isEstablished && !selectedSettlement.isOwner)}
+                        >
+                          {isClaiming ? (
+                            <>
+                              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                              Claiming...
+                            </>
+                          ) : (
+                            <>
+                              <CheckCircle2 className="h-4 w-4 mr-2" />
+                              Claim {selectedCharacter?.username}
+                            </>
+                          )}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
 
       {/* Claiming Step */}
       {currentStep === 'claiming' && (

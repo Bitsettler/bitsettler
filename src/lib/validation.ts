@@ -322,13 +322,6 @@ export const SETTLEMENT_SCHEMAS = {
       pattern: /^[0-9]+$/,  // BitJita player_entity_id are numeric strings
       sanitize: true
     },
-    characterName: {
-      required: false,
-      type: 'string' as const,
-      minLength: 1,
-      maxLength: 50,
-      sanitize: true
-    },
     primaryProfession: {
       required: false,
       type: 'string' as const,

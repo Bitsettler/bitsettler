@@ -42,7 +42,6 @@ export async function POST(request: NextRequest) {
         success: true,
         data: {
           isClaimed: false,
-          canClaim: true,
           message: 'Character not claimed - available for claiming'
         }
       });
@@ -54,7 +53,6 @@ export async function POST(request: NextRequest) {
         success: true,
         data: {
           isClaimed: true,
-          canClaim: false,
           message: 'Character is already claimed. Please contact support if you believe this is an issue.',
           claimedBy: existingClaim.supabase_user_id
         }
@@ -66,7 +64,6 @@ export async function POST(request: NextRequest) {
       success: true,
       data: {
         isClaimed: false,
-        canClaim: true,
         message: 'Character is available for claiming',
         characterName: existingClaim.name
       }

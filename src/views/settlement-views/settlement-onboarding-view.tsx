@@ -5,8 +5,7 @@ import { CharacterClaimOnboardingChoice } from '@/components/character-claim-onb
 export function SettlementOnboardingView() {
   return (
     <Container>
-        <CharacterClaimOnboardingChoice
-        />
+        <CharacterClaimOnboardingChoice />
     </Container>
   );
 }

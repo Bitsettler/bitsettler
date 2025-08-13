@@ -165,6 +165,7 @@ export interface PlayerProfile {
     tiles: number;
     regionName: string;
     regionId: string;
+    isOwner: boolean;
     permissions: {
       inventory: boolean;
       build: boolean;
@@ -892,24 +893,24 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       const data = await response.json();
-      
-      console.log(`✅ Fetched player profile for ${data.userName || playerId}`);
+
+      console.log(`✅ Fetched player profile for ${data.player.username || playerId}`);
       
       // Debug: Log the structure of the response
       console.log(`🔍 Player API response structure:`);
       console.log(`   Keys: ${Object.keys(data)}`);
-      console.log(`   Claims count: ${data.claims?.length || 0}`);
-      console.log(`   Empires count: ${data.empires?.length || 0}`);
-      console.log(`   Skills count: ${data.skills ? Object.keys(data.skills).length : 0}`);
-      console.log(`   Exploration: ${data.exploration?.totalExplored || 0}/${data.exploration?.totalChunks || 0}`);
+      console.log(`   Claims count: ${data.player.claims?.length || 0}`);
+      console.log(`   Empires count: ${data.player.empires?.length || 0}`);
+      console.log(`   Skills count: ${data.player.skills ? Object.keys(data.player.skills).length : 0}`);
+      console.log(`   Exploration: ${data.player.exploration?.totalExplored || 0}/${data.player.exploration?.totalChunks || 0}`);
       
       // Transform the raw data to our clean format
       const playerProfile: PlayerProfile = {
         entityId: data.entityId || playerId,
-        userName: data.userName || `Player_${playerId.slice(-8)}`,
-        lastLoginTimestamp: data.lastLoginTimestamp,
+        userName: data.player.username || `Player_${playerId.slice(-8)}`,
+        lastLoginTimestamp: data.player.lastLoginTimestamp,
         
-        settlements: (data.claims || []).map((claim: any) => ({
+        settlements: (data.player.claims || []).map((claim: any) => ({
           entityId: claim.entityId,
           name: claim.name,
           tier: claim.tier || 0,
@@ -918,15 +919,16 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
           tiles: claim.numTiles || claim.tiles || 0,
           regionName: claim.regionName || 'Unknown Region',
           regionId: claim.regionId,
+          isOwner: claim.isOwner,
           permissions: {
-            inventory: claim.inventoryPermission > 0,
-            build: claim.buildPermission > 0,
-            officer: claim.officerPermission > 0,
-            coOwner: claim.coOwnerPermission > 0
+            inventory: claim.memberPermissions.inventoryPermission > 0,
+            build: claim.memberPermissions.buildPermission > 0,
+            officer: claim.memberPermissions.officerPermission > 0,
+            coOwner: claim.memberPermissions.coOwnerPermission > 0
           }
         })),
         
-        empires: (data.empires || []).map((empire: any) => ({
+        empires: (data.player.empires || []).map((empire: any) => ({
           entityId: empire.entityId,
           name: empire.name,
           rank: empire.rank || 0,
