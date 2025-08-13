@@ -60,7 +60,8 @@ npm run dev
 # Open http://localhost:3000
 ```
 
-**📚 New Developer?** → **[Read the Complete Onboarding Guide](./DEVELOPER_ONBOARDING.md)**
+**📚 New Developer?** → **[Read the Complete Onboarding Guide](./DEVELOPER_ONBOARDING.md)**  
+**🤖 AI Assistant?** → **[Follow Project Governance Rules](./CURSOR_GOVERNANCE.md)**
 
 ---
 
