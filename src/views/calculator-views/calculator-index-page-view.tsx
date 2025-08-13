@@ -29,10 +29,10 @@ export function CalculatorIndexClient({
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-foreground mb-4 text-4xl font-bold">
-              Recipe Calculator
+              Visual Calculator
             </h1>
             <p className="text-muted-foreground text-lg">
-              Calculate exact material requirements and visualize crafting
+              Quick visual tool to calculate exact material requirements and visualize crafting
               dependencies for any item in BitCraft.
             </p>
           </div>
@@ -41,10 +41,10 @@ export function CalculatorIndexClient({
           <Alert className="mb-8 max-w-2xl mx-auto">
             <Sparkles className="h-4 w-4" />
             <AlertDescription className="flex items-center justify-between">
-              <span>Try our enhanced calculator with step-by-step crafting plans and optimized materials!</span>
+              <span>Try our Project Calculator for collaboration features and advanced planning!</span>
               <Link href="/en/calculator-new">
                 <Button variant="outline" size="sm" className="ml-4">
-                  Try Calculator ✨
+                  Try Project Calculator
                 </Button>
               </Link>
             </AlertDescription>

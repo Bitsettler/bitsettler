@@ -17,7 +17,7 @@
     "title": "Bitsettler",
     "subtitle": "Your comprehensive guide to BitCraft settlements, resources, and crafting",
     "navigation": {
-      "calculator": "Calculator",
+      "calculator": "Visual Calculator",
       "compendium": "Compendium", 
       "wiki": "Wiki",
       "projects": "Projects"
@@ -43,7 +43,7 @@
     "deployables": "Deployables",
     "seeAll": "See All",
     "tools": "Tools",
-    "calculator": "Calculator",
+    "calculator": "Visual Calculator",
     "projects": "Projects",
     "comingSoon": "Coming Soon",
     "settlement": "Settlement",
@@ -55,7 +55,7 @@
     "settlementProjects": "Projects",
     "settlementTreasury": "Treasury",
     "settlementManage": "Manage",
-    "calculatorNew": "Calculator v2 ✨",
+    "calculatorNew": "Project Calculator",
     "community": "Community",
     "bitcraftGuideDiscord": "Discord",
     "bitcraftGuideGithub": "GitHub",
@@ -78,6 +78,6 @@
     "description": "The page you're looking for doesn't exist or has been moved.",
     "goHome": "Go Home",
     "browseCompendium": "Browse Compendium",
-    "helpText": "Need help? Check out our changelog or use the calculator to find what you're looking for."
+    "helpText": "Need help? Check out our changelog or use the visual calculator to find what you're looking for."
   }
 }

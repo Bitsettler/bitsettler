@@ -21,6 +21,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Calculator, Search, Shuffle, Package2, Lightbulb, Copy, Download } from 'lucide-react'
 import type { MaterialRow, Group } from '@/components/depv2/types'
+import { TierIcon } from '@/components/ui/tier-icon'
 import '@/styles/depv2.css'
 
 export function CalculatorNewView() {
@@ -108,11 +109,12 @@ export function CalculatorNewView() {
       }
     }).sort((a, b) => {
       // Sort by tier first (1-10), then by name
-      const tierA = a.tier || 999 // Items without tier go to end
-      const tierB = b.tier || 999
+      // Treat tier -1 (no tier) as a special case and put at end
+      const tierA = (a.tier && a.tier > 0) ? a.tier : 999 // Items without tier or tier -1 go to end
+      const tierB = (b.tier && b.tier > 0) ? b.tier : 999
       
       if (tierA !== tierB) {
-        return tierA - tierB // Ascending tier order (1, 2, 3... 10)
+        return tierA - tierB // Ascending tier order (1, 2, 3... 10, then No Tier)
       }
       
       // If same tier (or both have no tier), sort by name
@@ -138,7 +140,7 @@ export function CalculatorNewView() {
       if (groupBy === 'skill') {
         groupKey = row.skill || 'Unknown Skill'
       } else if (groupBy === 'tier') {
-        groupKey = row.tier ? `Tier ${row.tier}` : 'No Tier'
+        groupKey = (row.tier && row.tier > 0) ? `Tier ${row.tier}` : 'No Tier'
       } else {
         groupKey = 'All Materials'
       }
@@ -170,26 +172,26 @@ export function CalculatorNewView() {
       <div className="text-center space-y-3">
         <div className="flex items-center justify-center gap-3">
           <Calculator className="h-8 w-8 text-primary" />
-          <h1 className="text-4xl font-bold tracking-tight">Calculator ✨</h1>
-          <Badge className="bg-secondary text-secondary-foreground">v2</Badge>
+          <h1 className="text-4xl font-bold tracking-tight">Project Calculator</h1>
+          <Badge className="bg-secondary text-secondary-foreground">Projects</Badge>
         </div>
         <p className="text-muted-foreground text-lg">
-          Advanced dependency engine with step‑by‑step plans and optimized materials
+          Project-focused crafting calculator with collaboration features and advanced planning
         </p>
       </div>
 
       {/* Controls card */}
       <Card className="mx-auto max-w-5xl">
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-4">
           <CardTitle className="text-lg">Calculate Materials</CardTitle>
-          <CardDescription>Search for any craftable item and set quantity.</CardDescription>
+          <CardDescription className="mt-1">Search for any craftable item and set quantity.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-8">
           {/* Search row */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="sm:col-span-2">
-              <Label htmlFor="search">Search for any item</Label>
-              <div className="flex gap-2">
+              <Label htmlFor="search" className="text-sm font-medium">Search for any item</Label>
+              <div className="flex gap-2 mt-2">
                 <div className="flex-1">
                   <ItemPicker 
                     onChange={setItemId}
@@ -200,8 +202,8 @@ export function CalculatorNewView() {
               </div>
             </div>
             <div>
-              <Label htmlFor="qty">How many?</Label>
-              <div className="flex gap-2">
+              <Label htmlFor="qty" className="text-sm font-medium">How many?</Label>
+              <div className="flex gap-2 mt-2">
                 <Input 
                   id="qty" 
                   type="number" 
@@ -321,10 +323,8 @@ export function CalculatorNewView() {
                               </td>
                               <td className="font-mono font-semibold">{row.qty.toLocaleString()}</td>
                               <td>
-                                {row.tier && (
-                                  <Badge variant="outline" className="text-xs">
-                                    T{row.tier}
-                                  </Badge>
+                                {(row.tier && row.tier > 0) && (
+                                  <TierIcon tier={row.tier} variant="brico-style" size="sm" className="shrink-0" />
                                 )}
                               </td>
                               <td className="text-muted-foreground">{row.skill || 'Unknown'}</td>

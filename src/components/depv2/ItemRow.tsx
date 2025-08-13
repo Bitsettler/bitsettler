@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
+import { TierIcon } from '@/components/ui/tier-icon'
 import Image from 'next/image'
 
 interface ItemRowProps {
@@ -54,16 +54,7 @@ export function ItemRow({
         <div className="flex items-center gap-2">
           <span className="font-medium truncate">{name}</span>
           {tier && (
-            <img
-              className="size-6"
-              src={`/assets/Badges/badge-tier-number-${Math.max(1, Math.min(10, tier))}.webp`}
-              alt={`Tier ${tier}`}
-              style={{
-                backgroundColor: `var(--tier-${tier})`,
-                mask: 'url("/assets/Badges/badge-tier-container.webp") center/contain no-repeat',
-                WebkitMask: 'url("/assets/Badges/badge-tier-container.webp") center/contain no-repeat'
-              }}
-            />
+            <TierIcon tier={tier} variant="brico-style" size="sm" className="shrink-0" />
           )}
         </div>
       </div>
