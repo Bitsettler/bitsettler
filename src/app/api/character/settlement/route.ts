@@ -50,13 +50,13 @@ export async function POST(request: NextRequest) {
 
       const userLogger = logger.child({ userId: user.id });
       
-      if (shouldRateLimit(request)) {
-        const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
-        if (!rateLimitCheck.allowed && rateLimitCheck.response) {
-          userLogger.warn('Rate limit exceeded for character claiming');
-          return rateLimitCheck.response;
-        }
-      }
+      // if (shouldRateLimit(request)) {
+      //   const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
+      //   if (!rateLimitCheck.allowed && rateLimitCheck.response) {
+      //     userLogger.warn('Rate limit exceeded for character claiming');
+      //     return rateLimitCheck.response;
+      //   }
+      // }
          
       const serviceClient = createServerClient();
       

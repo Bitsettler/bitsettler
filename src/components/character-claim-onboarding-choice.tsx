@@ -113,6 +113,7 @@ export function CharacterClaimOnboardingChoice() {
   const [settlementsData, setSettlementsData] = useState<SettlementsApiResponse | null>(null)
   const [selectedSettlement, setSelectedSettlement] = useState<SelectedSettlement | null>(null)
   const [isLoadingSettlements, setIsLoadingSettlements] = useState(false)
+  const [isLoadingNextStep, setIsLoadingNextStep] = useState(false)
 
   // Solo player option
   const soloPlayerOption: SoloPlayerOption = {
@@ -215,12 +216,11 @@ export function CharacterClaimOnboardingChoice() {
     setIsClaiming(true)
     
     try {
-              const result = await api.post('/api/character/claim', {
+        const result = await api.post('/api/character/claim', {
           playerEntityId: selectedCharacter.entityId,
           primaryProfession,
           secondaryProfession,
-          settlementId: isSoloPlayer(selectedSettlement) ? 'solo' : selectedSettlement.entityId,
-          settlementType: isSoloPlayer(selectedSettlement) ? 'solo' : 'settlement'
+          settlementId: isSettlementData(selectedSettlement) ? selectedSettlement.entityId : 'solo',
         })
 
       if (result.success) {
@@ -283,6 +283,7 @@ export function CharacterClaimOnboardingChoice() {
   const handleNextToSettlementSelect = async () => {
     if (!selectedCharacter) return
     
+    setIsLoadingNextStep(true)
     try {
       // Call the /character/get-settlement API
       const result = await api.post('/api/character/settlement', {
@@ -301,6 +302,8 @@ export function CharacterClaimOnboardingChoice() {
     } catch (error) {
       console.error('❌ Network error loading settlement data:', error)
       alert('Network error loading settlement data. Please try again.')
+    } finally {
+      setIsLoadingNextStep(false)
     }
   }
 
@@ -596,10 +599,19 @@ export function CharacterClaimOnboardingChoice() {
               <Button 
                 onClick={handleNextToSettlementSelect}
                 className="min-w-[200px]"
-                disabled={isClaiming}
+                disabled={isClaiming || isLoadingNextStep}
               >
-                <ArrowRight className="h-4 w-4 mr-2" />
-                Next: Choose Settlement
+                {isLoadingNextStep ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Loading...
+                  </>
+                ) : (
+                  <>
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Next: Choose Settlement
+                  </>
+                )}
               </Button>
             </div>
           </CardContent>

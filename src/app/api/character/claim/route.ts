@@ -38,13 +38,13 @@ export async function POST(request: NextRequest) {
 
       const userLogger = logger.child({ userId: user.id });
       
-      if (shouldRateLimit(request)) {
-        const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
-        if (!rateLimitCheck.allowed && rateLimitCheck.response) {
-          userLogger.warn('Rate limit exceeded for character claiming');
-          return rateLimitCheck.response;
-        }
-      }
+      // if (shouldRateLimit(request)) {
+      //   const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
+      //   if (!rateLimitCheck.allowed && rateLimitCheck.response) {
+      //     userLogger.warn('Rate limit exceeded for character claiming');
+      //     return rateLimitCheck.response;
+      //   }
+      // }
          
       const serviceClient = createServerClient();
       
@@ -67,10 +67,11 @@ export async function POST(request: NextRequest) {
         );
       }
 
-    const { playerEntityId, primaryProfession, secondaryProfession } = validationResult.data as {
+    const { playerEntityId, primaryProfession, secondaryProfession, settlementId } = validationResult.data as {
       playerEntityId: string;
       primaryProfession: string;
       secondaryProfession: string;
+      settlementId: string;
     };
 
     // Fetch character details from BitJita API to verify it exists and get current data
@@ -86,238 +87,104 @@ export async function POST(request: NextRequest) {
     }
 
     const profile = profileResult.data as any;
-    console.log("profile", profile);
+ 
+    const { data: newCharacter, error: createError } = await serviceClient
+        .from('settlement_members')
+        .upsert({
+          player_entity_id: playerEntityId,
+          name: profile.userName || 'Settlement Founder',
+          skills: {},
+          total_skills: 0,
+          highest_level: 0,
+          total_level: 0,
+          total_xp: 0,
+          top_profession: getTopProfession(profile.skills || {}),
+          primary_profession: primaryProfession,
+          secondary_profession: secondaryProfession,
+          is_active: true,
+          supabase_user_id: user.id,
+          sync_source: 'manual_creation',
+          last_synced_at: new Date().toISOString()
+        }, {
+          onConflict: 'player_entity_id'
+        })
+        .select()
+        .single();
 
-    if (profile.settlements)
+        if (createError) {
+          console.error('❌ Error inserting character claim:', createError);
+          return NextResponse.json(
+            { 
+              success: false, 
+              error: `Failed to create character for new settlement: ${createError.message}`
+            },
+            { status: 500 }
+          );
+        }
 
-    // Get all settlements for the player
-    profile.settlements.map(async (settlement: any) => {
-      const data = await BitJitaAPI.fetchSettlementCitizens(settlement.entityId);
-      if (data.success && data.data) {
-        const membersData = data.data.citizens.map((citizen: any) => {
-          return {
-            default_settlement_id: settlement.entityId,
-            player_entity_id: citizen.entityId,
-            name: citizen.userName,
-            skills: citizen.skills,
-            total_skills: citizen.totalSkills,
-            highest_level: citizen.highestLevel,
-            total_level: citizen.totalLevel,
-            total_xp: citizen.totalXP,
-            top_profession: getTopLevelSkillId(citizen.skills),
-            primary_profession: primaryProfession,
-            secondary_profession: secondaryProfession,
-            last_synced_at: new Date().toISOString()
-          }
-        });
-        console.log("membersData", membersData);
-        const { error: characterError } = await serviceClient
-          .from('settlement_members')
-          .upsert(membersData, {
-            onConflict: 'player_entity_id'
-          })
-          .select();
+        console.log("newCharacter", newCharacter);
+    console.log('✅ Character claimed successfully');
+ 
+    const settlementMemberShip = profile.settlements.map((item: any) => ({
+      player_entity_id: playerEntityId,
+      settlement_id: item.entityId,
+      is_owner: item.isOwner,
+      inventory_permission: item.permissions.inventory ? 1 : 0,
+      build_permission: item.permissions.build ? 1 : 0,
+      officer_permission: item.permissions.officer ? 1 : 0,
+      co_owner_permission: item.permissions.coOwner ? 1 : 0,
+      is_claim: item.entityId === settlementId ? true : false,
+    }));
 
-          if (characterError) {
-            console.error('❌ Error inserting character claim:', characterError);
-            return NextResponse.json(
-              { success: false, error: 'Failed to save character claim' },
-              { status: 500 }
-            );
-          }
+    const { error: settlementMemberShipError } = await serviceClient
+      .from('settlement_members_memberships')
+      .upsert(settlementMemberShip, {
+        onConflict: 'player_entity_id, settlement_id'
+      })
+      .select();
+
+    if (settlementMemberShipError) {
+      console.error('❌ Error inserting settlement member ship:', settlementMemberShipError);
+      return NextResponse.json(
+        { success: false, error: 'Failed to save settlement member ship' },
+        { status: 500 }
+      );
+    }
+
+    const data = await BitJitaAPI.fetchSettlementCitizens(settlementId);
+    if (data.success && data.data) {
+      const membersData = data.data.citizens.map((citizen: any) => {
+        return {
+          player_entity_id: citizen.entityId,
+          name: citizen.userName,
+          skills: citizen.skills,
+          total_skills: citizen.totalSkills,
+          highest_level: citizen.highestLevel,
+          total_level: citizen.totalLevel,
+          total_xp: citizen.totalXP,
+          top_profession: getTopLevelSkillId(citizen.skills),
+          primary_profession: primaryProfession,
+          secondary_profession: secondaryProfession,
+          last_synced_at: new Date().toISOString()
+        }
+      });
+      console.log("membersData", membersData);
+      const { error: characterError } = await serviceClient
+        .from('settlement_members')
+        .upsert(membersData, {
+          onConflict: 'player_entity_id'
+        })
+        .select();
+
+      if (characterError) {
+        console.error('❌ Error inserting character claim:', characterError);
+        return NextResponse.json(
+          { success: false, error: 'Failed to save character claim' },
+          { status: 500 }
+        );
       }
-    });   
-
-    // // Get settlement information if available
-    // let settlementInfo = null;
-    // if (profile.settlements && profile.settlements.length > 0) {
-    //   const primarySettlement = profile.settlements[0];
-    //   settlementInfo = {
-    //     id: primarySettlement.entityId,
-    //     name: primarySettlement.name,
-    //     tier: primarySettlement.tier,
-    //     regionName: primarySettlement.regionName,
-    //     isOwner: primarySettlement.permissions?.coOwner || false
-    //   };
-    // }
-
-    // // Create the character claim record
-    // const { data: claimData, error: insertError } = await supabase
-    //   .from('characters')
-    //   .insert({
-    //     id: characterId,
-    //     name: characterName,
-    //     user_id: 'temp-user-id', // TODO: Replace with actual user ID from auth
-    //     claimed_at: new Date().toISOString(),
-    //     level: Math.max(...Object.values(profile.skills || {}).map((skill: any) => skill.level || 0), 0),
-    //     profession: getTopProfession(profile.skills || {}),
-    //     skills: Object.entries(profile.skills || {}).map(([name, skill]: [string, any]) => ({
-    //       name,
-    //       level: skill.level || 0
-    //     })),
-    //     settlement: settlementInfo,
-    //     last_active: profile.lastLoginTimestamp || new Date().toISOString(),
-    //     region_name: settlementInfo?.regionName
-    //   })
-    //   .select()
-    //   .single();
-
-    // if (insertError) {
-    //   console.error('❌ Error inserting character claim:', insertError);
-    //   return NextResponse.json(
-    //     { success: false, error: 'Failed to save character claim' },
-    //     { status: 500 }
-    //   );
-    // }
-
-    // console.log('✅ Character claimed successfully:', characterName);
-
-    // // Check if character is already claimed
-    // let character;
-    // const { data: existingCharacter, error: characterError } = await serviceClient
-    //   .from('settlement_members')
-    //   .select('*')
-    //   .eq('player_entity_id', playerEntityId) // Use BitJita player entity ID (stable, never changes)
-    //   .single();
-
-    // if (characterError && characterError.code !== 'PGRST116') {
-    //   // Real database error, not just "no rows found"
-    //   return NextResponse.json(
-    //     { 
-    //       success: false, 
-    //       error: 'Database error while checking character availability',
-    //       debug: {
-    //         characterError: characterError.message,
-    //         playerEntityId,
-    //       }
-    //     },
-    //     { status: 500 }
-    //   );
-    // }
-
-    // if (!existingCharacter) {
-    //   // Character doesn't exist, check if this settlement has no members yet
-    //   const { data: settlementMembers, error: membersError } = await serviceClient
-    //     .from('settlement_members')
-    //     .select('id')
-    //     .eq('settlement_id', settlementId);
-
-    //   if (membersError) {
-    //     claimLogger.error('Failed to check settlement members', {
-    //       error: membersError.message,
-    //       settlementId
-    //     });
-    //     return NextResponse.json(
-    //       { 
-    //         success: false, 
-    //         error: 'Failed to vferify settlement status'
-    //       },
-    //       { status: 500 }
-    //     );
-    //   }
-
-    //   if (!settlementMembers || settlementMembers.length === 0) {
-    //     // This is a new settlement with no members, create the first member
-    //     claimLogger.info('Creating first member for new settlement', {
-    //       settlementId,
-    //       playerEntityId
-    //     });
-
-    //     const { data: newCharacter, error: createError } = await serviceClient
-    //       .from('settlement_members')
-    //       .insert({
-    //         settlement_id: settlementId,
-    //         player_entity_id: playerEntityId,
-    //         entity_id: `entity_${playerEntityId}`,
-    //         claim_entity_id: `claim_${playerEntityId}`,
-    //         name: displayName || 'Settlement Founder',
-    //         skills: {},
-    //         total_skills: 0,
-    //         highest_level: 0,
-    //         total_level: 0,
-    //         total_xp: 0,
-    //         top_profession: primaryProfession || 'New Resident',
-    //         inventory_permission: 1,
-    //         build_permission: 1,
-    //         officer_permission: 1,
-    //         co_owner_permission: 1,
-    //         is_active: true,
-    //         sync_source: 'manual_creation',
-    //         last_synced_at: new Date().toISOString()
-    //       })
-    //       .select()
-    //       .single();
-
-    //     if (createError) {
-    //       claimLogger.error('Failed to create new character', {
-    //         error: createError.message,
-    //         settlementId,
-    //         playerEntityId
-    //       });
-    //       return NextResponse.json(
-    //         { 
-    //           success: false, 
-    //           error: 'Failed to create character for new settlement'
-    //         },
-    //         { status: 500 }
-    //       );
-    //     }
-
-    //     character = newCharacter;
-    //     claimLogger.info('Successfully created first character for settlement');
-    //   } else {
-    //     // Settlement has members but this specific character doesn't exist
-    //     claimLogger.warn('Character not found in existing settlement', {
-    //       playerEntityId,
-    //       settlementId,
-    //       existingMemberCount: settlementMembers.length
-    //     });
-    //     return NextResponse.json(
-    //       { 
-    //         success: false, 
-    //         error: 'Character not available or already claimed',
-    //         debug: {
-    //           characterError: characterError?.message,
-    //           playerEntityId,
-    //           settlementId,
-    //           characterFound: false
-    //         }
-    //       },
-    //       { status: 404 }
-    //     );
-    //   }
-    // } else {
-    //   character = existingCharacter;
-    // }
-
-
-    // // Return the claimed character data in the format expected by the UI
-    // const claimedCharacter = {
-    //   id: characterId,
-    //   name: characterName,
-    //   level: Math.max(...Object.values(profile.skills || {}).map((skill: any) => skill.level || 0), 0),
-    //   profession: getTopProfession(profile.skills || {}),
-    //   skills: Object.entries(profile.skills || {}).map(([name, skill]: [string, any]) => ({
-    //     name,
-    //     level: skill.level || 0
-    //   })),
-    //   settlement: settlementInfo ? {
-    //     id: settlementInfo.id,
-    //     name: settlementInfo.name,
-    //     tier: settlementInfo.tier
-    //   } : undefined,
-    //   isOwner: settlementInfo?.isOwner || false,
-    //   lastActive: profile.lastLoginTimestamp || new Date().toISOString(),
-    //   regionName: settlementInfo?.regionName
-    // };
-
-    return NextResponse.json({
-      success: true,
-      data: {
-        character: null,
-        settlement: null
-      }
-    });
+    }
+    return NextResponse.json({ success: true });
 
     } catch (error) {
       console.error('❌ Unexpected error in character claim:', error);
