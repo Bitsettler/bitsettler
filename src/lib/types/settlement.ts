@@ -18,7 +18,7 @@ export interface Settlement {
   // Metadata
   description?: string;
   established_date?: string;
-  invite_code?: string;
+
   discord_link?: string;
   
   // Activity stats
@@ -77,7 +77,6 @@ export interface TreasuryTransaction {
  */
 export interface SettlementEstablishmentResult {
   settlement: Settlement;
-  invite_code: string;
   members: Array<{
     id: string;
     name: string;

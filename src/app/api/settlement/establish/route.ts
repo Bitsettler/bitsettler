@@ -9,9 +9,8 @@ import { DatabaseSettlementMember, formatAsAvailableCharacter } from '@/lib/type
  * 1. User selects settlement from BitJita search
  * 2. API fetches settlement data from BitJita
  * 3. Creates settlement in settlements_master table
- * 4. Generates unique invite code for the settlement
- * 5. Fetches and stores all member data
- * 6. Returns invite code + available characters for user to claim
+ * 4. Fetches and stores all member data
+ * 5. Returns available characters for user to claim
  */
 export async function POST(request: NextRequest) {
   try {
@@ -31,7 +30,7 @@ export async function POST(request: NextRequest) {
     // 1. Check if settlement already exists
     const { data: existingSettlement, error: checkError } = await supabase
       .from('settlements_master')
-      .select('id, name, invite_code')
+      .select('id, name')
       .eq('id', settlementId)
       .single();
 
@@ -245,7 +244,6 @@ export async function POST(request: NextRequest) {
         message: 'Settlement already established - proceed to claim character',
         data: {
           settlement: existingSettlement,
-          inviteCode: existingSettlement.invite_code,
           availableCharacters
         }
       });
@@ -318,22 +316,7 @@ export async function POST(request: NextRequest) {
       // Don't fail settlement creation if polling fails - it can be started manually later
     }
 
-    // 4. Generate invite code using database function
-    const { data: inviteCodeResult, error: codeError } = await supabase
-      .rpc('create_settlement_invite_code', {
-        p_settlement_id: settlementId,
-        p_generated_by: user.id
-      });
-
-    if (codeError || !inviteCodeResult) {
-      console.error('❌ Failed to generate invite code:', codeError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to generate invite code' },
-        { status: 500 }
-      );
-    }
-
-    console.log(`✅ Generated invite code: ${inviteCodeResult}`);
+    // 4. Settlement created successfully
 
     // 4. Fetch real settlement data from BitJita API (treasury, roster, and citizens)
     console.log(`🔍 Fetching settlement data from BitJita for ${settlementId}...`);
@@ -478,7 +461,7 @@ export async function POST(request: NextRequest) {
       console.warn('⚠️ Settlement created but member import failed');
     }
 
-    // 6. Get the updated settlement with invite code
+    // 6. Get the updated settlement
     const { data: finalSettlement, error: fetchError } = await supabase
       .from('settlements_master')
       .select('*')
@@ -494,7 +477,6 @@ export async function POST(request: NextRequest) {
     }
 
     console.log(`🎉 Settlement established successfully: ${settlementName}`);
-    console.log(`📋 Invite code: ${inviteCodeResult}`);
     console.log(`👥 Members imported: ${members?.length || 0}`);
 
     // Transform member data to match frontend expectations
@@ -520,7 +502,6 @@ export async function POST(request: NextRequest) {
       message: `Settlement ${settlementName} established successfully`,
       data: {
         settlement: finalSettlement,
-        inviteCode: inviteCodeResult,
         availableCharacters: transformedCharacters,
         membersImported: members?.length || 0
       }

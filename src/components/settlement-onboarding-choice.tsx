@@ -12,12 +12,10 @@ import { TierIcon } from '@/components/ui/tier-icon';
 import { 
   Users, 
   Building2, 
-  UserPlus, 
   Search,
   MapPin,
   Sparkles,
   ArrowRight,
-  Key,
   Activity,
   Crown,
   Loader2
@@ -40,47 +38,19 @@ interface GameSettlement {
 }
 
 interface SettlementOnboardingChoiceProps {
-  onJoinSettlement: (inviteCode: string) => void;
   onEstablishSettlement: (settlement: GameSettlement) => void;
 }
 
 export function SettlementOnboardingChoice({ 
-  onJoinSettlement, 
   onEstablishSettlement 
 }: SettlementOnboardingChoiceProps) {
 
-  const [inviteCode, setInviteCode] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<GameSettlement[]>([]);
   const [selectedSettlement, setSelectedSettlement] = useState<GameSettlement | null>(null);
   const [isEstablishing, setIsEstablishing] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-
-  const handleJoinSubmit = async () => {
-    if (!inviteCode.trim()) return;
-
-    try {
-      const result = await api.post('/api/settlement/join', {
-        inviteCode: inviteCode.trim()
-      });
-
-      if (result.success) {
-        console.log('✅ Settlement found:', result.data.settlement.name);
-        console.log('👥 Available characters:', result.data.availableCharacters.length);
-        
-        // Pass settlement and character data to join flow
-        onJoinSettlement(result.data);
-      } else {
-        console.error('❌ Failed to join settlement:', result.error);
-        // TODO: Show proper error message to user
-        alert(`Failed to join settlement: ${result.error}`);
-      }
-    } catch (error) {
-      console.error('❌ Network error during settlement join:', error);
-      alert('Network error. Please try again.');
-    }
-  };
 
   // Debounced search function for live search
   const searchSettlements = useCallback(async (query: string) => {
@@ -140,13 +110,11 @@ export function SettlementOnboardingChoice({
 
       if (result.success) {
         console.log('✅ Settlement established:', result.data.settlement.name);
-        console.log('📋 Invite code generated:', result.data.inviteCode);
         console.log('👥 Available characters:', result.data.availableCharacters.length);
         
-        // Pass settlement, invite code, and character data to establish flow
+        // Pass settlement and character data to establish flow
         onEstablishSettlement({
           settlement: result.data.settlement,
-          inviteCode: result.data.inviteCode,
           availableCharacters: result.data.availableCharacters
         });
       } else {
@@ -171,64 +139,12 @@ export function SettlementOnboardingChoice({
           <h1 className="text-3xl font-bold">Welcome to Settlement Management</h1>
         </div>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          To get started, you can either join an existing settlement using an invite code, 
-          or establish a new settlement from the game data.
+          To get started, search for your settlement from the game data and establish management.
         </p>
       </div>
 
-      {/* Choice Cards */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Join Settlement Option */}
-        <Card className="transition-all border-2 hover:shadow-lg border-border hover:border-primary/50">
-          <CardHeader className="text-center space-y-4">
-            <div className="flex justify-center">
-              <div className="p-3 rounded-full bg-green-100 dark:bg-green-900/20">
-                <UserPlus className="w-8 h-8 text-green-600 dark:text-green-400" />
-              </div>
-            </div>
-            <div>
-              <CardTitle className="text-xl">Join Settlement</CardTitle>
-              <CardDescription className="text-base">
-                Already a member of a settlement? Use an invite code to connect.
-              </CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="invite-code" className="flex items-center space-x-2">
-                <Key className="w-4 h-4" />
-                <span>Invite Code</span>
-              </Label>
-              <Input
-                id="invite-code"
-                placeholder="Enter your invite code..."
-                value={inviteCode}
-                onChange={(e) => setInviteCode(e.target.value)}
-                className="text-center font-mono"
-                onKeyDown={(e) => e.key === 'Enter' && handleJoinSubmit()}
-              />
-            </div>
-            <Button 
-              onClick={handleJoinSubmit}
-              disabled={!inviteCode.trim()}
-              className="w-full"
-              size="lg"
-            >
-              <ArrowRight className="w-4 h-4 mr-2" />
-              Join Settlement
-            </Button>
-            <div className="text-sm text-muted-foreground">
-              <p className="font-medium mb-1">What happens next:</p>
-              <ul className="space-y-1 text-xs">
-                <li>• Connect to your settlement</li>
-                <li>• Claim your in-game character</li>
-                <li>• Access settlement dashboard</li>
-              </ul>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Establish Settlement Option */}
+      {/* Settlement Search */}
+      <div className="max-w-2xl mx-auto">
         <Card className="transition-all border-2 hover:shadow-lg border-border hover:border-primary/50">
           <CardHeader className="text-center space-y-4">
             <div className="flex justify-center">

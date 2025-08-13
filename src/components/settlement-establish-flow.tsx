@@ -35,7 +35,6 @@ import { clog } from '@/lib/utils/client-logger';
 interface SettlementEstablishFlowProps {
   establishData?: {
     settlement: Settlement;
-    inviteCode: string;
     availableCharacters: CharacterOption[];
   };
   onBack: () => void;
@@ -129,7 +128,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
         name: establishData.settlement.name,
         memberCount: establishData.availableCharacters.length,
         location: 'Game Settlement',
-        description: `Established settlement with invite code: ${establishData.inviteCode}`,
+        description: 'Established settlement from game data',
         isActive: true,
         owner: 'Current User',
         lastActive: new Date().toISOString()
@@ -881,12 +880,7 @@ export function SettlementEstablishFlow({ establishData, onBack, onComplete }: S
                     <span className="text-muted-foreground">Settlement:</span>
                     <span className="font-medium">{establishData.settlement.name}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Invite Code:</span>
-                    <code className="font-mono bg-background px-2 py-1 rounded border">
-                      {establishData.inviteCode}
-                    </code>
-                  </div>
+
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Members:</span>
                     <span>{establishData.availableCharacters.length}</span>
