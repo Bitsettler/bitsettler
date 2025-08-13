@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { TierIcon } from '@/components/ui/tier-icon'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 import Image from 'next/image'
 
 interface ItemRowProps {
@@ -54,7 +54,7 @@ export function ItemRow({
         <div className="flex items-center gap-2">
           <span className="font-medium truncate">{name}</span>
           {tier && (
-            <TierIcon tier={tier} variant="brico-style" size="sm" className="shrink-0" />
+            <BricoTierBadge tier={tier} size="sm" className="shrink-0" />
           )}
         </div>
       </div>

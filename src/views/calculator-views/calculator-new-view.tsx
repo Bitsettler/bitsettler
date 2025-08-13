@@ -21,7 +21,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Calculator, Search, Shuffle, Package2, Lightbulb, Copy, Download } from 'lucide-react'
 import type { MaterialRow, Group } from '@/components/depv2/types'
-import { TierIcon } from '@/components/ui/tier-icon'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 import '@/styles/depv2.css'
 
 export function CalculatorNewView() {
@@ -324,7 +324,7 @@ export function CalculatorNewView() {
                               <td className="font-mono font-semibold">{row.qty.toLocaleString()}</td>
                               <td>
                                 {(row.tier && row.tier > 0) && (
-                                  <TierIcon tier={row.tier} variant="brico-style" size="sm" className="shrink-0" />
+                                  <BricoTierBadge tier={row.tier} size="sm" className="shrink-0" />
                                 )}
                               </td>
                               <td className="text-muted-foreground">{row.skill || 'Unknown'}</td>

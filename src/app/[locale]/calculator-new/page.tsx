@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { CalculatorNewView } from '@/views/calculator-views/calculator-new-view'
+import '@/styles/settlement-tiers.css'
 
 interface CalculatorNewPageProps {
   params: Promise<{ locale: string }>

@@ -6,7 +6,7 @@ import type { ItemIndexEntry } from '@/lib/depv2/itemIndex'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { TierIcon } from '@/components/ui/tier-icon'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 
 interface ItemPickerProps {
   value?: string
@@ -139,7 +139,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
                 </span>
                 <div className="flex items-center gap-1 ml-auto">
                   {item.tier && (
-                    <TierIcon tier={item.tier} variant="brico-style" size="sm" className="shrink-0" />
+                                                <BricoTierBadge tier={item.tier} size="sm" className="shrink-0" />
                   )}
                   {item.craftable && (
                     <Badge variant="secondary" className="text-xs">
