@@ -155,7 +155,7 @@ bitsettler/
 
 ### **User Onboarding**
 1. **Authentication**: Sign in with OAuth or email/password
-2. **Settlement Search**: Find and join existing settlement via BitJita API
+2. **Settlement Setup**: Establish settlement management via BitJita API
 3. **Character Claiming**: Link account to in-game settlement character  
 4. **Dashboard Access**: View settlement stats, members, projects, treasury
 
