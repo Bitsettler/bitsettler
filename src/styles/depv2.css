@@ -14,7 +14,7 @@
 
 /* Subtle ring styling */
 .ring-subtle {
-  @apply ring-1 ring-border/50;
+  @apply ring-1 ring-border ring-opacity-50;
 }
 
 /* Card radius token */
