@@ -1,0 +1,28 @@
+# Bitsettler - Cursor AI Rules (Auto-loaded)
+
+## MANDATORY: Read and Follow Project Governance
+- ALWAYS read and strictly follow CURSOR_GOVERNANCE.md
+- This file contains complete project governance rules
+- Ask before editing ANY files not explicitly mentioned
+- Show diffs and get approval before making changes
+
+## Edit Permission System
+- Default: ASK FIRST before editing anything
+- Only edit files in zones explicitly approved for current work
+- Database changes: ONLY via Supabase CLI workflow
+- Authentication system: Read-only unless explicitly allowed
+
+## Session Start Checklist
+1. Read CURSOR_GOVERNANCE.md
+2. Ask what specific area I'm working on today  
+3. Only open files explicitly mentioned
+4. Confirm edit permissions for current work scope
+
+## Quick Reminders
+- Architecture: Data → Page → View pattern
+- Authentication: All settlement features require auth
+- Database: Supabase CLI only, never direct edits
+- TypeScript: Strict mode, fix errors don't ignore
+- Security: Never bypass auth or permission checks
+
+Follow CURSOR_GOVERNANCE.md for complete rules and context.
