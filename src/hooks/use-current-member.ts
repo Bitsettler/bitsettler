@@ -5,11 +5,9 @@ import { useSession } from '@/hooks/use-auth';
 
 export interface SettlementMember {
   id: string;
-  settlement_id: string;
-  player_entity_id: string; // PRIMARY: Stable BitJita player character ID
-  entity_id?: string;       // SECONDARY: Generic BitJita entity ID
-  claim_entity_id?: string; // Settlement claim ID
+  player_entity_id: string;
   name: string;
+  settlement_id: string | null;
   
   // Skills data (pre-calculated)
   skills: Record<string, number>;
@@ -17,20 +15,18 @@ export interface SettlementMember {
   highest_level: number;
   total_level: number;
   total_xp: number;
-  top_profession: string;
+  top_profession: string | null;
+  primary_profession: string | null;
+  secondary_profession: string | null;
   
-  // Permissions
-  inventory_permission: number;
-  build_permission: number;
-  officer_permission: number;
-  co_owner_permission: number;
+  // Status and activity
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
   is_active: boolean;
+  is_solo: boolean;
   
   // App user data (if claimed)
   supabase_user_id: string | null;
-  bitjita_user_id: string | null;
   display_name: string | null;
   discord_handle: string | null;
   bio: string | null;
@@ -39,15 +35,16 @@ export interface SettlementMember {
   preferred_contact: 'discord' | 'in-game' | 'app';
   theme: 'light' | 'dark' | 'system';
   profile_color: string;
-
   
   // App settings
   default_settlement_view: string;
   notifications_enabled: boolean;
   activity_tracking_enabled: boolean;
+  onboarding_completed_at: string | null;
   
-  // Timestamps
+  // Sync and timestamps
   last_synced_at: string;
+  sync_source: string;
   app_joined_at: string | null;
   app_last_active_at: string | null;
   created_at: string;
@@ -79,13 +76,33 @@ export function useCurrentMember() {
         .eq('supabase_user_id', session.user.id)
         .maybeSingle();
 
+        console.log("member => ", member)
+
       if (error) {
         console.error('Failed to fetch current member:', error);
         setError('Failed to fetch member data');
         setMember(null);
-      } else {
-        setMember(member);
+        return
       }
+
+      if (member) {
+        const { data: settlementMemberShip, error: settlementMemberShipError } = await supabase
+          .from('settlement_members_memberships')
+          .select('*')
+          .eq('player_entity_id', member.player_entity_id)
+          .eq('is_claim', true)
+          .maybeSingle();
+      
+        if (settlementMemberShipError) {
+          console.error('Failed to fetch settlement member ship:', settlementMemberShipError);
+          setError('Failed to fetch settlement member ship data');
+          setMember(null);
+        }
+        setMember({ ...member, settlement_id: settlementMemberShip?.settlement_id });
+      }
+      
+
+
     } catch (err) {
       console.error('Failed to fetch current member:', err);
       setError(err instanceof Error ? err.message : 'Failed to fetch member data');
@@ -136,21 +153,28 @@ export function useCurrentMember() {
     }
   };
 
-  const claimCharacter = async (memberId: string, bitjitaUserId: string, displayName?: string) => {
+  const claimCharacter = async (memberId: string, displayName?: string) => {
     if (!session?.user?.id) throw new Error('Must be authenticated to claim character');
 
     try {
       // Claim character directly with Supabase - RLS will protect the data
       const { supabase } = await import('@/lib/supabase-auth');
       
+      const now = new Date().toISOString();
       const { data: claimedMember, error } = await supabase
         .from('settlement_members')
         .update({
           supabase_user_id: session.user.id,
-          bitjita_user_id: bitjitaUserId,
           display_name: displayName || null,
-          app_joined_at: new Date().toISOString(),
-          app_last_active_at: new Date().toISOString()
+          app_joined_at: now,
+          app_last_active_at: now,
+          preferred_contact: 'discord',
+          theme: 'system',
+          profile_color: '#3b82f6',
+          default_settlement_view: 'dashboard',
+          notifications_enabled: true,
+          activity_tracking_enabled: true,
+          sync_source: 'bitjita'
         })
         .eq('player_entity_id', memberId) // Use player_entity_id for stable character identification
         .eq('supabase_user_id', null) // Only unclaimed characters

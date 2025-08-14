@@ -27,7 +27,6 @@ export async function GET(
     let { data: member, error: memberError } = await supabase
       .from('settlement_members')
       .select('*')
-      .eq('settlement_id', settlementId)
       .eq('player_entity_id', memberId)
       .maybeSingle();
 
