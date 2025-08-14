@@ -75,7 +75,6 @@ export async function POST(request: NextRequest) {
     };
 
     // Fetch character details from BitJita API to verify it exists and get current data
-    console.log("playerEntityId", playerEntityId);
     const profileResult = await BitJitaAPI.fetchPlayerProfile(playerEntityId);
     
     if (!profileResult.success || !profileResult.data) {
@@ -112,7 +111,7 @@ export async function POST(request: NextRequest) {
         .single();
 
         if (createError) {
-          console.error('❌ Error inserting character claim:', createError);
+          console.error('❌ Error inserting character claim: settlement_members processing', createError);
           return NextResponse.json(
             { 
               success: false, 
@@ -122,53 +121,22 @@ export async function POST(request: NextRequest) {
           );
         }
 
-        console.log("newCharacter", newCharacter);
-    console.log('✅ Character claimed successfully');
- 
-    const settlementMemberShip = profile.settlements.map((item: any) => ({
-      player_entity_id: playerEntityId,
-      settlement_id: item.entityId,
-      is_owner: item.isOwner,
-      inventory_permission: item.permissions.inventory ? 1 : 0,
-      build_permission: item.permissions.build ? 1 : 0,
-      officer_permission: item.permissions.officer ? 1 : 0,
-      co_owner_permission: item.permissions.coOwner ? 1 : 0,
-      is_claim: item.entityId === settlementId ? true : false,
-    }));
-
-    const { error: settlementMemberShipError } = await serviceClient
-      .from('settlement_members_memberships')
-      .upsert(settlementMemberShip, {
-        onConflict: 'player_entity_id, settlement_id'
-      })
-      .select();
-
-    if (settlementMemberShipError) {
-      console.error('❌ Error inserting settlement member ship:', settlementMemberShipError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to save settlement member ship' },
-        { status: 500 }
-      );
-    }
-
-    const data = await BitJitaAPI.fetchSettlementCitizens(settlementId);
+    const data = await BitJitaAPI.fetchSettlementUsers(settlementId);
     if (data.success && data.data) {
-      const membersData = data.data.citizens.map((citizen: any) => {
+      const membersData = data.data.users.map((member: any) => {
         return {
-          player_entity_id: citizen.entityId,
-          name: citizen.userName,
-          skills: citizen.skills,
-          total_skills: citizen.totalSkills,
-          highest_level: citizen.highestLevel,
-          total_level: citizen.totalLevel,
-          total_xp: citizen.totalXP,
-          top_profession: getTopLevelSkillId(citizen.skills),
-          primary_profession: primaryProfession,
-          secondary_profession: secondaryProfession,
+          player_entity_id: member.entityId,
+          name: member.userName,
+          skills: member.skills,
+          total_skills: member.totalSkills,
+          highest_level: member.highestLevel,
+          total_level: member.totalLevel,
+          total_xp: member.totalXP,
+          top_profession: getTopLevelSkillId(member.skills),
           last_synced_at: new Date().toISOString()
         }
       });
-      console.log("membersData", membersData);
+
       const { error: characterError } = await serviceClient
         .from('settlement_members')
         .upsert(membersData, {
@@ -177,13 +145,40 @@ export async function POST(request: NextRequest) {
         .select();
 
       if (characterError) {
-        console.error('❌ Error inserting character claim:', characterError);
+        console.error('❌ Error inserting character claim: settlement_members batch processing', characterError);
+        return NextResponse.json(
+          { success: false, error: 'Failed to save character claim' },
+          { status: 500 }
+        );
+      }
+
+      const settltmentMembersShip = data.data.users.map((member: any) => ({
+        player_entity_id: member.playerEntityId,
+        settlement_id: settlementId,
+        is_claim: member.playerEntityId === playerEntityId ? true : false,
+        is_owner: member.coOwnerPermission === 1 ? true : false,
+        inventory_permission: member.inventoryPermission,
+        build_permission: member.buildPermission,
+        officer_permission: member.officerPermission,
+        co_owner_permission: member.coOwnerPermission,
+      }));
+
+      const { error: characterMemberError } = await serviceClient
+        .from('settlement_members_memberships')
+        .upsert(settltmentMembersShip, {
+          onConflict: 'player_entity_id, settlement_id'
+        })
+        .select();
+
+      if (characterMemberError) {
+        console.error('❌ Error inserting character claim: settlement_members_memberships processing', characterMemberError);
         return NextResponse.json(
           { success: false, error: 'Failed to save character claim' },
           { status: 500 }
         );
       }
     }
+
     return NextResponse.json({ success: true });
 
     } catch (error) {

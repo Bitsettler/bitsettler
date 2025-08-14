@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
+import { logger } from '@/lib/logger';
 
 interface SkillsAnalytics {
   totalSkills: number;
@@ -32,18 +33,19 @@ export async function GET(request: NextRequest) {
     console.log('🎓 Fetching settlement skills analytics from unified table...');
 
     const supabase = createServerClient();
-
-    // Query the unified settlement_members table - much simpler!
-    let query = supabase
-      .from('settlement_members')
-      .select('*')
-      // Removed is_active filter;
-
-    if (settlementId) {
-      query = query.eq('settlement_id', settlementId);
+    if (!supabase) {
+      logger.error('Supabase service client not available');
+      return NextResponse.json({
+        success: false,
+        error: 'Database service unavailable'
+      }, { status: 500 });
     }
 
-    const { data: members, error } = await query;
+    // Query the unified settlement_members table - much simpler!
+    const { data: members, error } = await supabase
+      .from('settlement_members_memberships')
+      .select('*, player_entity_id(*)')
+      .eq('settlement_id', settlementId);
 
     if (error) {
       console.error('Error querying settlement_members:', error);
@@ -78,14 +80,14 @@ export async function GET(request: NextRequest) {
 
     // Calculate basic stats - data already aggregated!
     const totalMembers = members.length;
-    const totalSkillPoints = members.reduce((sum, member) => sum + (member.total_xp || 0), 0);
-    const totalSkillsCount = members.reduce((sum, member) => sum + (member.total_skills || 0), 0);
+    const totalSkillPoints = members.reduce((sum, member) => sum + (member.player_entity_id.total_xp || 0), 0);
+    const totalSkillsCount = members.reduce((sum, member) => sum + (member.player_entity_id.total_skills || 0), 0);
     const averageLevel = totalMembers > 0 ? totalSkillPoints / totalMembers : 0;
 
     // Find top profession - already calculated per member!
     const professionCounts: Record<string, number> = {};
     members.forEach(member => {
-      const profession = member.top_profession || 'Unknown';
+      const profession = member.player_entity_id.top_profession || 'Unknown';
       professionCounts[profession] = (professionCounts[profession] || 0) + 1;
     });
     const topProfession = Object.entries(professionCounts)
@@ -94,12 +96,12 @@ export async function GET(request: NextRequest) {
     // Calculate profession distribution
     const professionStats: Record<string, { count: number; levels: number[]; }> = {};
     members.forEach(member => {
-      const profession = member.top_profession || 'Unknown';
+      const profession = member.player_entity_id.top_profession || 'Unknown';
       if (!professionStats[profession]) {
         professionStats[profession] = { count: 0, levels: [] };
       }
       professionStats[profession].count++;
-      professionStats[profession].levels.push(member.highest_level || 0);
+      professionStats[profession].levels.push(member.player_entity_id.highest_level || 0);
     });
 
     const professionDistribution = Object.entries(professionStats).map(([profession, stats]) => ({
@@ -114,7 +116,7 @@ export async function GET(request: NextRequest) {
     
     members.forEach(member => {
       // Skills are already in {skillName: level} format!
-      const skills = member.skills || {};
+      const skills = member.player_entity_id.skills || {};
       
       Object.entries(skills).forEach(([skillName, level]) => {
         if (typeof level === 'number' && level > 0) {
@@ -122,7 +124,7 @@ export async function GET(request: NextRequest) {
             skillAggregation[skillName] = { levels: [], members: new Set() };
           }
           skillAggregation[skillName].levels.push(level);
-          skillAggregation[skillName].members.add(member.entity_id);
+          skillAggregation[skillName].members.add(member.player_entity_id.player_entity_id);
         }
       });
     });
@@ -141,7 +143,7 @@ export async function GET(request: NextRequest) {
     // Calculate skill level distribution - using pre-calculated highest_level
     const levelCounts = { '1-5': 0, '6-10': 0, '11-20': 0, '21+': 0 };
     members.forEach(member => {
-      const highestLevel = member.highest_level || 0;
+      const highestLevel = member.player_entity_id.highest_level || 0;
       if (highestLevel >= 1 && highestLevel <= 5) levelCounts['1-5']++;
       else if (highestLevel >= 6 && highestLevel <= 10) levelCounts['6-10']++;
       else if (highestLevel >= 11 && highestLevel <= 20) levelCounts['11-20']++;

@@ -17,10 +17,9 @@ export async function GET(request: NextRequest) {
     const supabase = await createServerSupabaseClient();
     
     const { data: members, error: membersError } = await supabase
-      .from('settlement_members')
-      .select('*')
+      .from('settlement_members_memberships')
+      .select('*, player_entity_id(*)')
       .eq('settlement_id', settlementId as any)
-      .eq('is_active', true); // Only include active settlement members (Phase 2)
     
     // Also get total member count for comparison
     const { count: totalMemberCount } = await supabase

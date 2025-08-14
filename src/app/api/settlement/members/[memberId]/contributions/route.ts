@@ -47,7 +47,6 @@ export async function GET(
     const { data: memberRow, error: memberError } = await supabase
       .from('settlement_members')
       .select('id, player_entity_id')
-      .eq('settlement_id', settlementId)
       .eq('player_entity_id', memberId)
       .maybeSingle();
 
