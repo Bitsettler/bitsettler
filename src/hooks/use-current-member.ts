@@ -41,6 +41,7 @@ export interface SettlementMember {
 export function useCurrentMember() {
   const { data: session, status } = useSession();
   const [member, setMember] = useState<SettlementMember | null>(null);
+  const [isSolo, setIsSolo] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -84,6 +85,7 @@ export function useCurrentMember() {
           setError('Failed to fetch settlement member ship data');
           setMember(null);
         }
+        setIsSolo(member.is_solo);
         setMember({ ...member, settlement_id: settlementMemberShip?.settlement_id });
       }
     } catch (err) {
@@ -138,6 +140,7 @@ export function useCurrentMember() {
 
   return {
     member,
+    isSolo,
     isLoading,
     error,
     updateMember,

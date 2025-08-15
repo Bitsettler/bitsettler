@@ -86,46 +86,55 @@ export async function POST(request: NextRequest) {
     }
 
     const profile = profileResult.data as any;
- 
-    const { data: newCharacter, error: createError } = await serviceClient
-        .from('settlement_members')
-        .upsert({
-          player_entity_id: playerEntityId,
-          name: profile.userName || 'Settlement Founder',
-          skills: {},
-          total_skills: 0,
-          highest_level: 0,
-          total_level: 0,
-          total_xp: 0,
-          top_profession: getTopProfession(profile.skills || {}),
-          primary_profession: primaryProfession,
-          secondary_profession: secondaryProfession,
-          is_active: true,
-          supabase_user_id: user.id,
-          sync_source: 'manual_creation',
-          last_synced_at: new Date().toISOString()
-        }, {
-          onConflict: 'player_entity_id'
-        })
-        .select()
-        .single();
+    
+
+    if (settlementId == 'solo') {
+      const default_settlement_id = profile.settlements[0].entityId;
+      const data = await BitJitaAPI.fetchSettlementUsers(default_settlement_id);
+      const membersData = data.data?.users.filter((member: any) => member.playerEntityId === playerEntityId)[0];
+
+      if (membersData) {
+        const { error: createError } = await serviceClient
+          .from('settlement_members')
+          .upsert({
+            player_entity_id: playerEntityId,
+            name: membersData.userName,
+            skills: membersData.skills,
+            total_skills: membersData.totalSkills,
+            highest_level: membersData.highestLevel,
+            total_level: membersData.totalLevel,
+            total_xp: membersData.totalXP,
+            top_profession: getTopProfession(membersData.skills || {}),
+            primary_profession: primaryProfession,
+            secondary_profession: secondaryProfession,
+            is_active: true,
+            is_solo: true,
+            supabase_user_id: user.id,
+            sync_source: 'manual_creation',
+            last_synced_at: new Date().toISOString()
+          }, {
+            onConflict: 'player_entity_id'
+          })
+          .select()
+          .single();
 
         if (createError) {
           console.error('❌ Error inserting character claim: settlement_members processing', createError);
           return NextResponse.json(
-            { 
-              success: false, 
-              error: `Failed to create character for new settlement: ${createError.message}`
-            },
+            { success: false, error: 'Failed to save character claim' },
             { status: 500 }
           );
         }
+
+        return NextResponse.json({ success: true });
+      }
+    }
 
     const data = await BitJitaAPI.fetchSettlementUsers(settlementId);
     if (data.success && data.data) {
       const membersData = data.data.users.map((member: any) => {
         return {
-          player_entity_id: member.entityId,
+          player_entity_id: member.playerEntityId,
           name: member.userName,
           skills: member.skills,
           total_skills: member.totalSkills,
@@ -177,6 +186,32 @@ export async function POST(request: NextRequest) {
           { status: 500 }
         );
       }
+    }
+
+    const { error: createError } = await serviceClient
+      .from('settlement_members')
+      .update({
+        is_active: true,
+        is_solo: false,
+        supabase_user_id: user.id,
+        sync_source: 'manual_creation',
+        last_synced_at: new Date().toISOString(),
+        primary_profession: primaryProfession,
+        secondary_profession: secondaryProfession,
+      })
+      .eq('player_entity_id', playerEntityId)
+      .select()
+      .single();
+
+    if (createError) {
+      console.error('❌ Error inserting character claim: settlement_members processing', createError);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Failed to create character for new settlement: ${createError.message}`
+        },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });

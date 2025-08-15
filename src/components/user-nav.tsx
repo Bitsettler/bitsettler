@@ -179,9 +179,9 @@ export function UserNav() {
             Character
           </DropdownMenuLabel>
           <DropdownMenuItem asChild>
-            <a href="/en/auth/switch-character">
+            <a href="/en/auth/claim-settlement">
               <RefreshCw className="mr-2 h-4 w-4" />
-              <span>Switch Character</span>
+              <span>Claim Settlement</span>
             </a>
           </DropdownMenuItem>
         </DropdownMenuGroup>

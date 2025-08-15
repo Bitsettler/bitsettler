@@ -14,15 +14,18 @@ interface AuthGuardProps {
 
 export function AuthGuard({ children }: AuthGuardProps) {
   const { data: session, status } = useSession();
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember();
+  const { member, isLoading: memberLoading, isClaimed, isSolo } = useCurrentMember();
   const router = useRouter();
 
   // Redirect to login if not authenticated
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/en/auth/signin');
+    } 
+    if (isSolo) {
+      router.push('/settlement/my-character');
     }
-  }, [status, router]);
+  }, [status, router, isSolo]);
 
   // Loading states
   if (status === 'loading' || (status === 'authenticated' && memberLoading)) {
