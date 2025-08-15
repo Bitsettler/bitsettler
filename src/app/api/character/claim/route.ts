@@ -188,10 +188,11 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const { data: newCharacter, error: createError } = await serviceClient
+    const { error: createError } = await serviceClient
       .from('settlement_members')
       .update({
         is_active: true,
+        is_solo: false,
         supabase_user_id: user.id,
         sync_source: 'manual_creation',
         last_synced_at: new Date().toISOString(),

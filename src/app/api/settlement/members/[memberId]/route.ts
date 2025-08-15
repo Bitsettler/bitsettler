@@ -10,13 +10,6 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const settlementId = searchParams.get('settlementId');
 
-    if (!settlementId) {
-      return NextResponse.json(
-        { error: 'Settlement ID is required' },
-        { status: 400 }
-      );
-    }
-
     if (!supabase) {
       return NextResponse.json(
         { error: 'Database not available' },
@@ -47,7 +40,8 @@ export async function GET(
     }
 
     console.log(`✅ Found member ${member.name} in unified table`);
-
+    let settlementData = null;
+    if (settlementId) {
     let { data: settlement, error: settlementError } = await supabase
       .from('settlements_master')
       .select('*')
@@ -69,10 +63,11 @@ export async function GET(
           { status: 404 }
         );
       }
-
+      settlementData = settlement;
+    }
     const formattedMember = {
       name: member.name,
-      settlement_name: settlement.name,
+      settlement_name: settlementData?.name || null,
       playerEntityId: member.player_entity_id,
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,
