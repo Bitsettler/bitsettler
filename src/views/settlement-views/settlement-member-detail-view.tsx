@@ -56,18 +56,11 @@ function getSkillTier(level: number): number {
 }
 
 interface MemberDetail {
-  id: string;
   name: string;
-  entityId: string;
-  playerEntityId?: string | null;
+  playerEntityId: string;
   settlement_name: string;
-  profession: string;
   primary_profession?: string | null;
   secondary_profession?: string | null;
-  top_profession?: string | null;
-  totalSkillLevel: number;
-  totalXP: number;
-  highestLevel: number;
   skills: Record<string, number>;
   permissions: {
     inventory: number;
@@ -295,7 +288,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
     return { label: 'Denied', color: 'text-muted-foreground bg-muted/50', icon: UserX };
   };
 
-  const getMemberRole = (permissions: { coOwner?: number; officer?: number; member?: number }): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
+  const getMemberRole = (permissions: { coOwner: number; officer: number; build: number; inventory: number }): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
     if (permissions.coOwner >= 1) return { 
       role: 'Co-Owner', 
       description: 'Has full administrative access and can manage all settlement functions',
@@ -616,7 +609,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-1">
               <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
-              <p className="font-mono text-sm">{member.playerEntityId || member.entityId}</p>
+              <p className="font-mono text-sm">{member.playerEntityId}</p>
             </div>
             <div className="space-y-1">
               <p className="text-sm font-medium text-muted-foreground">Settlement</p>

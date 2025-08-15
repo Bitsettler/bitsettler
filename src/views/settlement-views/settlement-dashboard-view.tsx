@@ -4,20 +4,15 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-
-
 import { Container } from '@/components/container';
-import { useSelectedSettlement } from '../../hooks/use-selected-settlement';
 import { useCurrentMember } from '../../hooks/use-current-member';
 import { useCallback } from 'react';
-import { Button } from '@/components/ui/button';
 import { 
   Users, 
   Package, 
   Coins, 
   Activity,
   Wallet,
-
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { TierIcon } from '@/components/ui/tier-icon';
@@ -85,13 +80,7 @@ export function SettlementDashboardView() {
   const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
-
-  
-  const { isLoading: settlementLoading } = useSelectedSettlement();
-  
-
-
-
+ 
   const fetchDashboardData = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -124,20 +113,15 @@ export function SettlementDashboardView() {
       const settlementId = member?.settlement_id;
       if (!settlementId) return;
       
-      const settlementResponse = await fetch(`/api/settlement/activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
-      const settlementData = await settlementResponse.json();
+      const response = await fetch(`/api/settlement/activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
+      const data = await response.json();
       
-      const memberResponse = await fetch(`/api/settlement/member-activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
-      const memberData = await memberResponse.json();
-      
-      if (settlementData.success) {
-        setSettlementActivities(settlementData.activities);
-      }
-      
-      if (memberData.success) {
-        setMemberActivities(memberData.activities);
+      if (data.success) {
+        setSettlementActivities(data.data.settlement.activities);
+        setMemberActivities(data.data.member.activities);
       }
     } catch (error) {
+      console.error('Error fetching activities:', error);
     }
   }, [member]);
 

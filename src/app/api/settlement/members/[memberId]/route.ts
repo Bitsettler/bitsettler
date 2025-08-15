@@ -70,22 +70,13 @@ export async function GET(
         );
       }
 
-    // Transform to API format - all data already available!
     const formattedMember = {
-      id: member.entity_id,
       name: member.name,
       settlement_name: settlement.name,
-      entityId: member.entity_id,
       playerEntityId: member.player_entity_id,
-      profession: member.top_profession || 'Unknown',
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,
-      top_profession: member.top_profession,
-      totalSkillLevel: member.total_level || 0,
-      totalXP: member.total_xp || 0,
-      highestLevel: member.highest_level || 0,
-      totalSkills: member.total_skills || 0,
-      skills: member.skills || {}, // Already in {skillName: level} format!
+      skills: member.skills || {},
       permissions: {
         inventory: member.inventory_permission || 0,
         build: member.build_permission || 0,
@@ -96,15 +87,7 @@ export async function GET(
       joinedAt: member.joined_settlement_at,
       isActive: member.is_active,
       lastSyncInfo: member.last_synced_at ? `Last synced: ${new Date(member.last_synced_at).toLocaleString()}` : 'Never synced',
-      // App user data (if claimed)
-      displayName: member.display_name,
-      discordHandle: member.discord_handle,
-      bio: member.bio,
-      timezone: member.timezone,
-      avatar_url: member.avatar_url,
-      isClaimed: !!member.supabase_user_id,
-      appJoinedAt: member.app_joined_at,
-      appLastActiveAt: member.app_last_active_at
+      avatar_url: member.avatar_url
     };
 
     return NextResponse.json({

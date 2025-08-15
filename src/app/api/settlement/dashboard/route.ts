@@ -50,10 +50,8 @@ export async function GET(request: NextRequest) {
     const typedSettlement = settlement as any || {};
 
     // Calculate basic stats
-        const activeMembers = typedMembers.length || 0; // Active settlement members only
+    const activeMembers = typedMembers.length || 0; // Active settlement members only
     const totalMembers = totalMemberCount || 0; // Total members (active + inactive)
-
-
 
     const recentlyActiveMembers = typedMembers.filter(m => {
       if (!m.last_login_timestamp || m.last_login_timestamp === null) return false;
@@ -70,12 +68,10 @@ export async function GET(request: NextRequest) {
     }).length;
 
 
-
     // Get all member IDs for this settlement for project fetching
-    const memberIds = typedMembers.map(m => m.id) || [];
+    const memberIds = typedMembers.map(m => m.player_entity_id?.id) || [];
     
     let projects: any[] = [];
-    let projectsError = null;
     
     if (memberIds.length > 0) {
       // Use service role client for projects query to bypass RLS
@@ -89,13 +85,11 @@ export async function GET(request: NextRequest) {
         .select('*')
         .in('created_by_member_id', memberIds);
       
+      if (projectsErr) {
+        console.error(`❌ Failed to fetch projects:`, projectsErr);
+        // Don't fail the entire request, just log the error and use 0 for project stats
+      }
       projects = projectsData || [];
-      projectsError = projectsErr;
-    }
-
-    if (projectsError) {
-      console.error(`❌ Failed to fetch projects:`, projectsError);
-      // Don't fail the entire request, just log the error and use 0 for project stats
     }
 
     const totalProjects = projects?.length || 0;

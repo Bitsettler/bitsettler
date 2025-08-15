@@ -74,7 +74,6 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
       .from('settlement_members_memberships')
       .select('*, player_entity_id(*)')
       .eq('settlement_id', settlementId);
-    console.log("members", members);
 
     console.log(`📊 Members API: Found ${members?.length || 0} members in database`);
 
