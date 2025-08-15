@@ -446,21 +446,16 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       // Create lookup maps for citizens - try multiple ID fields
-      const citizensByEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c]));
       const citizensByPlayerEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c])); // Citizens use entityId as their key
-      const citizensByUserName = new Map(citizens.map((c: BitJitaRawCitizen) => [c.userName, c]));
 
       // Merge members + citizens data
       const users: SettlementUser[] = members.map((member: BitJitaRawMember) => {
         // Try multiple matching strategies
-        let citizen = citizensByEntityId.get(member.entityId) ||
-                     citizensByPlayerEntityId.get(member.playerEntityId) ||
-                     citizensByEntityId.get(member.playerEntityId) ||
-                     citizensByUserName.get(member.userName);
+        let citizen = citizensByPlayerEntityId.get(member.playerEntityId);
         
         return {
           entityId: member.entityId,
-          userName: member.userName || citizen?.userName || `User_${member.entityId.slice(-8)}`,
+          userName: member.userName,
           settlementId,
           claimEntityId: member.claimEntityId,
           playerEntityId: member.playerEntityId,
