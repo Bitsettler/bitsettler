@@ -576,6 +576,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       const response = await fetch(searchUrl, {
         method: 'GET',
         headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout),
         cache: 'no-cache'
       });
       
@@ -599,7 +600,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      console.error('Error searching characters:', errorMessage);
+      console.error('Error searching characters:', error);
       
       return {
         success: false,

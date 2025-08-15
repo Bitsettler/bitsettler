@@ -6,14 +6,10 @@ import { Badge } from '@/components/ui/badge';
 import { AlertCircle, Users, Home, RefreshCw } from 'lucide-react';
 import { Container } from '@/components/container';
 import { useCurrentMember } from '@/hooks/use-current-member';
+import { SettlementMember } from '@/hooks/use-current-member';
 
 interface FormerMemberViewProps {
-  member: {
-    name: string;
-    settlement_id: string;
-    last_login_timestamp?: string | null;
-    joined_settlement_at?: string | null;
-  };
+  member: SettlementMember;
 }
 
 export function FormerMemberView({ member }: FormerMemberViewProps) {

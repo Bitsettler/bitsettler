@@ -15,8 +15,6 @@ import {
   Activity,
   ArrowLeft,
   ArrowRight,
-  BookOpen,
-  Hammer,
   Key,
   Loader2,
   Search,
@@ -64,11 +62,6 @@ interface SettlementData {
   };
 }
 
-interface SettlementsApiResponse {
-  established: SettlementData[];
-  joinable: SettlementData[];
-}
-
 interface SoloPlayerOption {
   id: 'solo';
   name: string;
@@ -110,7 +103,7 @@ export function CharacterClaimOnboardingChoice() {
   const [secondaryProfession, setSecondaryProfession] = useState<string | undefined>()
 
   // Settlement selection state
-  const [settlementsData, setSettlementsData] = useState<SettlementsApiResponse | null>(null)
+  const [settlementsData, setSettlementsData] = useState<Array<SettlementData> | null>(null)
   const [selectedSettlement, setSelectedSettlement] = useState<SelectedSettlement | null>(null)
   const [isLoadingSettlements, setIsLoadingSettlements] = useState(false)
   const [isLoadingNextStep, setIsLoadingNextStep] = useState(false)
@@ -244,26 +237,6 @@ export function CharacterClaimOnboardingChoice() {
       setIsClaiming(false)
     }
   }
-
-  const getProfessionIcon = (profession?: string) => {
-    switch (profession?.toLowerCase()) {
-      case 'warrior':
-      case 'fighter':
-        return <Sword className="h-3 w-3" />
-      case 'guard':
-      case 'defender':
-        return <Shield className="h-3 w-3" />
-      case 'blacksmith':
-      case 'craftsman':
-        return <Hammer className="h-3 w-3" />
-      case 'scholar':
-      case 'mage':
-        return <BookOpen className="h-3 w-3" />
-      default:
-        return <User className="h-3 w-3" />
-    }
-  }
-
   const getVerificationStatusIcon = () => {
     if (!verificationResult) return null
     
@@ -291,9 +264,9 @@ export function CharacterClaimOnboardingChoice() {
       })
       
       if (result.success) {
-        console.log('✅ Settlement data loaded successfully')
-
-        setSettlementsData(result.data as SettlementsApiResponse)
+        console.log('✅ Settlement data loaded successfully')      
+        const settlements = (result.data as { settlements: SettlementData[] }).settlements || [];
+        setSettlementsData(settlements)
         setCurrentStep('settlement-select')
       } else {
         console.error('❌ Failed to load settlement data:', result.error)
@@ -628,113 +601,87 @@ export function CharacterClaimOnboardingChoice() {
                       </CardDescription>
                     </CardHeader>
                                          <CardContent className="space-y-6">
-                       {/* Three Cards Layout */}
-                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                         {/* Card 1: Established Settlements */}
+                       {/* Two Cards Layout */}
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         {/* Card 1: All Settlements */}
                          <Card className="h-full">
                            <CardHeader>
-                             <CardTitle className="text-lg">Owner Settlements</CardTitle>
+                             <CardTitle className="text-lg">Settlements</CardTitle>
                            </CardHeader>
                            <CardContent className="space-y-4">
                              {isLoadingSettlements ? (
                                <div className="flex justify-center py-8">
                                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
-                               </div>
-                             ) : settlementsData?.established && settlementsData.established.length > 0 ? (
-                               <div className="space-y-3">
-                                 {settlementsData.established.map((settlement: SettlementData) => (
-                                   <Card
-                                     key={settlement.entityId}
-                                     className={`cursor-pointer border-2 p-3 transition-all duration-200 hover:shadow-md ${
-                                       isSettlementData(selectedSettlement) && selectedSettlement.entityId === settlement.entityId
-                                         ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
-                                         : 'border-border hover:border-primary/50 hover:bg-muted/30'
-                                     }`}
-                                     onClick={() => setSelectedSettlement(settlement)}
-                                   >
-                                     <CardContent className="p-3">
-                                       <div className="space-y-2">
-                                         <div className="flex items-center justify-between">
-                                           <h4 className="font-semibold text-sm">{settlement.name}</h4>
-                                           <span className="text-xs text-muted-foreground">{settlement.tiles} Tiles</span>
-                                         </div>
-                                         <p className="text-xs text-muted-foreground">Region: {settlement.regionName}</p>
-                                         <div className="flex items-center justify-between">
-
-                                             {settlement.isOwner && (
-                                               <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Owner</span>
-                                             )}
-                                             {!settlement.isEstablished && (
-                                               <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Not Established</span>
-                                             )}
-                                         </div>
-                                       </div>
-                                     </CardContent>
-                                   </Card>
-                                 ))}
                                </div>
                              ) : (
-                               <div className="text-center py-8 text-muted-foreground">
-                                 <p className="text-sm">No established settlements found.</p>
-                               </div>
-                             )}
-                           </CardContent>
-                         </Card>
-
-                         {/* Card 2: Joinable Settlements */}
-                         <Card className="h-full">
-                           <CardHeader>
-                             <CardTitle className="text-lg">Member Settlements</CardTitle>
-                           </CardHeader>
-                           <CardContent className="space-y-4">
-                             {isLoadingSettlements ? (
-                               <div className="flex justify-center py-8">
-                                 <Loader2 className="w-8 h-8 animate-spin text-primary" />
-                               </div>
-                             ) : settlementsData?.joinable && settlementsData.joinable.length > 0 ? (
                                <div className="space-y-3">
-                                 {settlementsData.joinable.map((settlement: SettlementData) => (
-                                   <Card
-                                     key={settlement.entityId}
-                                     className={`cursor-pointer border-2 p-3 transition-all duration-200 hover:shadow-md ${
-                                       isSettlementData(selectedSettlement) && selectedSettlement.entityId === settlement.entityId
-                                         ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
-                                         : 'border-border hover:border-primary/50 hover:bg-muted/30'
-                                     }`}
-                                     onClick={() => setSelectedSettlement(settlement)}
-                                   >
-                                     <CardContent className="p-3">
-                                       <div className="space-y-2">
-                                         <div className="flex items-center justify-between">
-                                           <h4 className="font-semibold text-sm">{settlement.name}</h4>
-                                           <span className="text-xs text-muted-foreground">{settlement.tiles} Tiles</span>
-                                         </div>
-                                         <p className="text-xs text-muted-foreground">Region: {settlement.regionName}</p>
-                                         <div className="flex items-center justify-between">
-                                           <div className="flex gap-1">
-                                             {settlement.isOwner && (
-                                               <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Owner</span>
-                                             )}
-                                              <span className={`${!settlement.isEstablished ? 'text-red-800 bg-red-100' : 'bg-green-100 text-green-800'} text-xs px-2 py-1 rounded-full`}>{!settlement.isEstablished ? 'Not Established' : 'Established'}</span>
+                                                                  {/* Display all settlements */}
+                                 {(settlementsData || []).map((settlement: SettlementData) => {
+                                   // Determine if settlement is active based on conditions
+                                   const isActive = settlement.isOwner || (settlement.isEstablished && !settlement.isOwner);
+                                   
+                                   return (
+                                     <Card
+                                       key={settlement.entityId}
+                                       className={`cursor-pointer border-2 p-3 transition-all duration-200 ${
+                                         !isActive ? 'opacity-50 cursor-not-allowed' :
+                                         isSettlementData(selectedSettlement) && selectedSettlement.entityId === settlement.entityId
+                                           ? 'border-primary bg-primary/5 shadow-lg scale-[1.02]'
+                                           : 'border-border hover:border-primary/50 hover:bg-muted/30'
+                                       }`}
+                                       onClick={() => isActive && setSelectedSettlement(settlement)}
+                                     >
+                                       <CardContent className="p-3">
+                                         <div className="space-y-2">
+                                           <div className="flex items-center justify-between">
+                                             <h4 className="font-semibold text-sm">{settlement.name}</h4>
+                                             <span className="text-xs text-muted-foreground">{settlement.tiles} Tiles</span>
                                            </div>
-                                           {settlement.isEstablished && (
-                                             <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Join</span>
-                                           )}
+                                           <p className="text-xs text-muted-foreground">Region: {settlement.regionName}</p>
+                                           <div className="flex items-center gap-2">
+                                             {/* Role Badge */}
+                                             <span className={`text-xs px-2 py-1 rounded-full ${
+                                               settlement.isOwner 
+                                                 ? 'bg-green-100 text-green-800' 
+                                                 : 'bg-blue-100 text-blue-800'
+                                             }`}>
+                                               {settlement.isOwner ? 'Owner' : 'Member'}
+                                             </span>
+                                             
+                                             {/* Status Badge */}
+                                             <span className={`text-xs px-2 py-1 rounded-full ${
+                                               settlement.isEstablished
+                                                 ? 'bg-green-100 text-green-800'
+                                                 : 'bg-yellow-100 text-yellow-800'
+                                             }`}>
+                                               {settlement.isEstablished ? 'Established' : 'Not Established'}
+                                             </span>
+                                             
+                                             {/* Active/Inactive Badge */}
+                                             <span className={`text-xs px-2 py-1 rounded-full ${
+                                               isActive
+                                                 ? 'bg-green-100 text-green-800'
+                                                 : 'bg-red-100 text-red-800'
+                                             }`}>
+                                               {isActive ? 'Active' : 'Inactive'}
+                                             </span>
+                                           </div>
                                          </div>
-                                       </div>
-                                     </CardContent>
-                                   </Card>
-                                 ))}
-                               </div>
-                             ) : (
-                               <div className="text-center py-8 text-muted-foreground">
-                                 <p className="text-sm">No joinable settlements found.</p>
+                                       </CardContent>
+                                     </Card>
+                                   );
+                                 })}
+                                 {(!settlementsData?.length) && (
+                                   <div className="text-center py-8 text-muted-foreground">
+                                     <p className="text-sm">No settlements found.</p>
+                                   </div>
+                                 )}
                                </div>
                              )}
                            </CardContent>
                          </Card>
 
-                         {/* Card 3: Solo Player Option */}
+                         {/* Card 2: Solo Player Option */}
                          <Card className="h-full">
                            <CardHeader>
                              <CardTitle className="text-lg">Solo Player</CardTitle>

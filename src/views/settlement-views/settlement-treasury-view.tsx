@@ -647,8 +647,8 @@ export function SettlementTreasuryView() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((cat) => (
-                  <SelectItem key={cat.category} value={cat.category}>
+                {categories.map((cat, index) => (
+                  <SelectItem key={`${cat.category}-${index}`} value={cat.category}>
                     {cat.category} ({cat.count})
                   </SelectItem>
                 ))}
