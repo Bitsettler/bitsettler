@@ -14,7 +14,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { AlertCircle, ChevronDown, Mail } from 'lucide-react';
 import { BitsettlerLogoIcon } from '@/components/icons/bitsettler-logo-icon';
 
-export function EnhancedSignInPage() {
+export function SignInComponent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [email, setEmail] = useState('');
