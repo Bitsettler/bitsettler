@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const next = searchParams.get('next') ?? '/en/settlement'
 
   if (code) {
-    const supabase = createServerSupabaseClient()
+    const supabase = await createServerSupabaseClient()
     
     try {
       const { data, error } = await supabase.auth.exchangeCodeForSession(code)
@@ -18,11 +18,11 @@ export async function GET(request: NextRequest) {
         // Redirect to settlement area after successful auth
         return NextResponse.redirect(`${origin}${next}`)
       } else {
-        console.error('❌ Auth callback error:', error)
+        console.error('Auth callback error:', error)
         return NextResponse.redirect(`${origin}/en/auth/signin?error=auth_callback_error`)
       }
     } catch (error) {
-      console.error('❌ Auth callback exception:', error)
+      console.error('Auth callback exception:', error)
       return NextResponse.redirect(`${origin}/en/auth/signin?error=auth_callback_error`)
     }
   }
