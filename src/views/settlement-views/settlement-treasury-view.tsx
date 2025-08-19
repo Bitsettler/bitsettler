@@ -443,11 +443,11 @@ export function SettlementTreasuryView() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div>
-                <CardTitle>
-                  Treasury Balance
+                <CardTitle className='text-lg font-bold'>
+                  Treasury History
                 </CardTitle>
-                <div className="text-2xl font-bold mt-1">
-                  {summary ? formatHexcoin(summary.currentBalance) : '---'}
+                <div className="text-base font-bold mt-1">
+                Balance: {summary ? formatHexcoin(summary.currentBalance) : '---'}
                 </div>
               </div>
             </div>
@@ -603,7 +603,7 @@ export function SettlementTreasuryView() {
             <div>
               <CardTitle className="flex items-center gap-2">
                 <Wallet className="h-5 w-5" />
-                Manual Transaction Ledger
+                Officer Ledger
               </CardTitle>
               <CardDescription>
                 Log treasury transactions manually • For officer use
