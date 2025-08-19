@@ -40,21 +40,13 @@ export async function POST(request: NextRequest) {
     // Get the user's settlement member record
     const { data: member, error: memberError } = await supabase
       .from('settlement_members')
-      .select('id, settlement_id')
+      .select('id')
       .eq('supabase_user_id', user.id)
       .single();
 
     if (memberError || !member) {
       return NextResponse.json(
         { success: false, error: 'Settlement member record not found. Please claim your character first.' },
-        { status: 403 }
-      );
-    }
-
-    // Validate settlement ID matches if provided
-    if (settlementId && member.settlement_id !== settlementId) {
-      return NextResponse.json(
-        { success: false, error: 'Settlement ID does not match user\'s settlement' },
         { status: 403 }
       );
     }
