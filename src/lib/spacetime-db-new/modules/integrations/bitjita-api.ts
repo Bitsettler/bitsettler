@@ -790,7 +790,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       
       // Search for the settlement using BitJita search to get the most up-to-date data
       // Since we don't know the settlement name, we'll search by a common term and then filter by ID
-      const response = await fetch(`${this.BASE_URL}/claims?page=1`, {
+      const response = await fetch(`${this.BASE_URL}/claims/${settlementId}`, {
         method: 'GET',
         headers: this.HEADERS,
         signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
@@ -801,52 +801,10 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       const data = await response.json();
-      console.log(`🔍 Searching through ${data.claims?.length || 0} claims for ${settlementId}...`);
       
       // Find the settlement with matching ID
-      const settlement = data.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-      
-      if (!settlement) {
-        // Try searching more pages if not found in the first page
-        for (let page = 2; page <= 5; page++) {
-          console.log(`🔍 Searching page ${page} for settlement ${settlementId}...`);
-          
-          const pageResponse = await fetch(`${this.BASE_URL}/claims?page=${page}&limit=100`, {
-            method: 'GET',
-            headers: this.HEADERS,
-            signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
-          });
-          
-          if (pageResponse.ok) {
-            const pageData = await pageResponse.json();
-            const foundSettlement = pageData.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-            
-            if (foundSettlement) {
-              console.log(`✅ Found settlement on page ${page}:`, foundSettlement.name);
-              return {
-                success: true,
-                data: {
-                  id: foundSettlement.entityId,
-                  name: foundSettlement.name,
-                  tier: foundSettlement.tier,
-                  treasury: parseInt(foundSettlement.treasury) || 0,
-                  supplies: foundSettlement.supplies || 0,
-                  tiles: foundSettlement.numTiles || 0,
-                  population: foundSettlement.numTiles || 0
-                }
-              };
-            }
-          }
-          
-          // Add small delay between pages to be polite to the API
-          await this.delay(200);
-        }
-        
-        throw new Error(`Settlement with ID ${settlementId} not found in BitJita claims`);
-      }
-      
-      console.log(`✅ Found settlement:`, settlement.name);
-      
+      const settlement = data.claim;
+           
       return {
         success: true,
         data: {

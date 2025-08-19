@@ -35,28 +35,13 @@ export async function GET(request: NextRequest) {
         let currentBalance = 0;
         
         try {
-          const { data: latestHistory } = await supabase
-            .from('treasury_history')
-            .select('balance, recorded_at')
-            .eq('settlement_id', settlementId)
-            .order('recorded_at', { ascending: false })
-            .limit(1)
-            .single();
-            
-          if (latestHistory) {
-            currentBalance = latestHistory.balance;
-            console.log(`🏛️ Latest treasury balance from polling: ${currentBalance}`);
-          } else {
-            console.warn('⚠️ No treasury history found, trying direct BitJita call...');
-            // Fallback: get live balance directly from BitJita
-            const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
-            if (bitjitaResult.success && bitjitaResult.data) {
-              currentBalance = bitjitaResult.data.treasury;
-              console.log(`🏛️ Direct BitJita treasury balance: ${currentBalance}`);
-            }
+          const bitjitaResult = await BitJitaAPI.fetchSettlementDetails(settlementId);
+          if (bitjitaResult.success && bitjitaResult.data) {
+            currentBalance = bitjitaResult.data.treasury;
+            console.log(`🏛️ Direct BitJita treasury balance: ${currentBalance}`);
           }
         } catch (error) {
-          console.error('⚠️ Error getting treasury history:', error);
+          console.error('Error fetching BitJita settlement details:', error);
         }
 
         // Get local transaction data for statistics (with fallbacks for missing tables)
