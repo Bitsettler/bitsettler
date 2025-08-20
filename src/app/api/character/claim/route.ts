@@ -164,7 +164,6 @@ export async function POST(request: NextRequest) {
       const settltmentMembersShip = data.data.users.map((member: any) => ({
         player_entity_id: member.playerEntityId,
         settlement_id: settlementId,
-        is_claim: member.playerEntityId === playerEntityId ? true : false,
         is_owner: member.coOwnerPermission === 1 ? true : false,
         inventory_permission: member.inventoryPermission,
         build_permission: member.buildPermission,
@@ -180,6 +179,23 @@ export async function POST(request: NextRequest) {
         .select();
 
       if (characterMemberError) {
+        console.error('❌ Error inserting character claim: settlement_members_memberships processing', characterMemberError);
+        return NextResponse.json(
+          { success: false, error: 'Failed to save character claim' },
+          { status: 500 }
+        );
+      }
+
+      const { error: characterMemberError2 } = await serviceClient
+        .from('settlement_members_memberships')
+        .update({
+          is_claim: true,
+        })
+        .eq('player_entity_id', playerEntityId)
+        .eq('settlement_id', settlementId)
+        .select();
+
+      if (characterMemberError2) {
         console.error('❌ Error inserting character claim: settlement_members_memberships processing', characterMemberError);
         return NextResponse.json(
           { success: false, error: 'Failed to save character claim' },
