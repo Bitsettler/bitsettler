@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     const supabase = createServerClient();
     
     const { data: currentMember, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id, name')
       .eq('supabase_user_id', session.user.id!)
       .single();

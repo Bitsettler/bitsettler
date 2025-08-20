@@ -93,17 +93,12 @@ export async function POST(request: NextRequest) {
 
       for (const item of settlements) {
         const { data: settlementData, error: settlementError } = await serviceClient
-          .from('settlements_master')
+          .from('settlements')
           .select('*')
           .eq('id', item.entityId)
           .single();
-        
-        if (settlementError) {
-          console.error('❌ Error fetching settlement data:', settlementError);
-          continue;
-        }
-        
-        const isEstablished = settlementData?.is_established || false;
+
+        const isEstablished = !settlementData ? false : settlementData?.is_established || false;
         
         const settlementWithEstablishedStatus = {
           ...item,

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
-import { useCurrentMember } from '@/hooks/use-current-member';
+import { useClaimPlayer } from '@/hooks/use-claim-player';
 import { useRouter } from 'next/navigation';
 import { 
   Plus, 
@@ -33,6 +33,7 @@ import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
 import { getSettlementTierBadgeClasses } from '@/lib/settlement/tier-colors';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface ProjectWithItems {
   id: string;
@@ -75,7 +76,7 @@ const priorityLabels = {
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
    const router = useRouter();
    
   // Core state
@@ -114,7 +115,7 @@ export function SettlementProjectsView() {
       setError(null);
       
       const params = new URLSearchParams({
-        settlementId: member?.settlement_id,
+        settlementId: member?.claim_settlement_id || 'solo',
         includeItems: 'true',
         ...(statusFilter !== 'all' && { status: statusFilter }),
       });
@@ -169,7 +170,7 @@ export function SettlementProjectsView() {
         description: createDescription.trim() || null,
         priority: createData.priority,
         createdByMemberId: member.id, // Required field
-        settlementId: member.settlement_id, // Required field
+        settlementId: member.claim_settlement_id, // Required field
         items: [] // Start with empty items, user adds them in detail view
       });
 

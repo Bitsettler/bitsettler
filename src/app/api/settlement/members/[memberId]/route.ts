@@ -18,9 +18,9 @@ export async function GET(
     }
 
     let { data: member, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('*')
-      .eq('player_entity_id', memberId)
+      .eq('id', memberId)
       .maybeSingle();
 
     if (memberError) {
@@ -32,7 +32,7 @@ export async function GET(
     }
 
     if (!member) {
-      console.log(`❌ Member ${memberId} not found in settlement_members table`);
+      console.log(`❌ Member ${memberId} not found in players table`);
       return NextResponse.json(
         { error: 'Member not found' },
         { status: 404 }
@@ -43,7 +43,7 @@ export async function GET(
     let settlementData = null;
     if (settlementId) {
     let { data: settlement, error: settlementError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('*')
       .eq('id', settlementId)
       .maybeSingle();
@@ -57,7 +57,7 @@ export async function GET(
       }
   
       if (!settlement) {
-        console.log(`❌ Member ${settlementId} not found in settlements_master table`);
+        console.log(`❌ Member ${settlementId} not found in settlements table`);
         return NextResponse.json(
           { error: 'Member not found' },
           { status: 404 }
@@ -68,7 +68,7 @@ export async function GET(
     const formattedMember = {
       name: member.name,
       settlement_name: settlementData?.name || null,
-      playerEntityId: member.player_entity_id,
+      playerEntityId: member.id,
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,
       skills: member.skills || {},

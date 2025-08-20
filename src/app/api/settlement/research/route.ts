@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
 
     // Query settlement data from database
     const { data: settlementData, error: settlementError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('*')
       .eq('id', settlementId)
       .single();

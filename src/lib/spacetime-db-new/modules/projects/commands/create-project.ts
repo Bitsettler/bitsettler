@@ -39,13 +39,13 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
   try {
     // Create the project
     const { data: project, error: projectError } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .insert({
         name: projectData.name,
         description: projectData.description || null,
         status: projectData.status || 'Active',
         priority: projectData.priority || 3,
-        created_by_member_id: projectData.createdByMemberId,
+        created_by_player_id: projectData.createdByMemberId,
         settlement_id: projectData.settlementId
       })
       .select()
@@ -64,7 +64,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
       description: project.description,
       status: project.status,
       priority: project.priority,
-      createdByMemberId: project.created_by_member_id,
+      createdByMemberId: project.created_by_player_id,
       settlementId: project.settlement_id,
       createdAt: new Date(project.created_at),
       updatedAt: new Date(project.updated_at),
@@ -108,7 +108,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
       });
 
       const { data: items, error: itemsError } = await supabase
-        .from('project_items')
+        .from('items')
         .insert(itemsToInsert)
         .select();
 
@@ -138,7 +138,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
         priority: item.priority,
         rankOrder: item.rank_order,
         status: item.status,
-        assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
+        assignedMemberId: null, // assigned_member_id column doesn't exist in items table
         notes: item.notes,
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),
@@ -149,7 +149,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
     try {
       // Get creator member name
       const { data: creatorMember } = await supabase
-        .from('settlement_members')
+        .from('players')
         .select('name')
         .eq('id', projectData.createdByMemberId)
         .single();

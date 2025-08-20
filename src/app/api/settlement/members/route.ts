@@ -70,45 +70,24 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
 
     console.log(`🔍 Members API: Querying settlement_members for settlement ${settlementId}`);
     
-    const { data: members, error } = await supabase
-      .from('settlement_members_memberships')
-      .select('*, player_entity_id(*)')
-      .eq('settlement_id', settlementId);
-
-    console.log(`📊 Members API: Found ${members?.length || 0} members in database`);
-
-    if (error) {
-      logger.error('Database query failed for settlement members', error, {
-        settlementId,
-        operation: 'GET_SETTLEMENT_MEMBERS'
-      });
-      return NextResponse.json({
-        success: false,
-        error: 'Failed to fetch members from database'
-      }, { status: 500 });
-    }
-
-    logger.info(`Successfully fetched ${members?.length || 0} members`, {
-      settlementId,
-      memberCount: members?.length || 0
-    });
+    const { data: members, error } = await supabase.rpc('fetch_players_by_claim_entity_id', { claim_id: settlementId });
 
     // Transform database data to frontend format
-    const formattedMembers = (members || []).map((member) => ({
-    id: member.player_entity_id.player_entity_id,
-    player_entity_id: member.player_entity_id.player_entity_id,
-    name: member.player_entity_id.name || 'Unknown Player',
-    settlement_id: member.settlement_id,
+    const formattedMembers = (members || []).map((member: any) => ({
+    id: member.id,
+    player_entity_id: member.id,
+    name: member.name || 'Unknown Player',
+    settlement_id: member.claim_settlement_id,
     
     // Skill data from database
-    skills: member.player_entity_id.skills || {},
-    total_skills: member.player_entity_id.total_skills || 0,
-    highest_level: member.player_entity_id.highest_level || 0,
-    total_level: member.player_entity_id.total_level || 0,
-    total_xp: member.player_entity_id.total_xp || 0,
-    top_profession: member.player_entity_id.top_profession || 'Unknown',
-    primary_profession: member.player_entity_id.primary_profession,
-    secondary_profession: member.player_entity_id.secondary_profession,
+    skills: member.skills || {},
+    total_skills: member.total_skills || 0,
+    highest_level: member.highest_level || 0,
+    total_level: member.total_level || 0,
+    total_xp: member.total_xp || 0,
+    top_profession: member.top_profession || 'Unknown',
+    primary_profession: member.primary_profession,
+    secondary_profession: member.secondary_profession,
     
     // Permission data from database
     inventory_permission: member.inventory_permission || 0,
@@ -117,14 +96,14 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
     co_owner_permission: member.co_owner_permission || 0,
     
     // Timestamps
-    last_login_timestamp: member.player_entity_id.last_login_timestamp,
-    joined_settlement_at: member.player_entity_id.joined_settlement_at,
+    last_login_timestamp: member.last_login_timestamp,
+    joined_settlement_at: member.joined_settlement_at,
     
     // Status
-    is_active: member.player_entity_id.is_active,
+    is_active: member.is_active,
     is_claimed: !!member.supabase_user_id, // Boolean indicating if character is claimed
-    last_synced_at: member.player_entity_id.last_synced_at,
-    sync_source: member.player_entity_id.sync_source
+    last_synced_at: member.last_synced_at,
+    sync_source: member.sync_source
     }));
 
     // Return data directly without double-wrapping to fix persistent members issue

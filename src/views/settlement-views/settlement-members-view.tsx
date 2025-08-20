@@ -14,10 +14,11 @@ import { Skeleton } from '../../components/ui/skeleton';
 import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
 import { Container } from '../../components/container';
-import { useCurrentMember } from '../../hooks/use-current-member';
+import { useClaimPlayer } from '../../hooks/use-claim-player';
 import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar, ChevronUp, ChevronDown } from 'lucide-react';
 import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
 import { getMemberActivityInfo } from '../../lib/utils/member-activity';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 
 interface SettlementMember {
@@ -53,6 +54,9 @@ interface MembersResponse {
 }
 
 export function SettlementMembersView() {
+
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
+
   const router = useRouter();
   const [members, setMembers] = useState<SettlementMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -68,8 +72,6 @@ export function SettlementMembersView() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalMembers, setTotalMembers] = useState(0);
   const membersPerPage = 200; // Increased to show all members
-
-  const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
     // Wait for member data to load before making API calls
@@ -87,7 +89,7 @@ export function SettlementMembersView() {
         includeInactive: 'false', // Show only active settlement members (Phase 2)
       });
 
-      const settlementId = member?.settlement_id;
+      const settlementId = member?.claim_settlement_id;
             
       if (!settlementId) {
         throw new Error('No settlement available - please select a settlement or claim a character');

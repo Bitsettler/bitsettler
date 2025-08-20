@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     // 2. Get user's current settlement by finding their claimed character
     const { data: currentMember, error: memberError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .select('settlement_id, name, id')
       .eq('supabase_user_id', user.id)
       .single();
@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
 
     // 3. Get unclaimed characters in the same settlement
     const { data: availableCharacters, error: charactersError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .select(`
         id,
         player_entity_id,

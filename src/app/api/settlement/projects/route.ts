@@ -43,7 +43,7 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsR
     };
 
     logger.info('Projects API: Starting request', {
-      operation: 'GET_SETTLEMENT_PROJECTS',
+      operation: 'GET_projects',
       options,
       hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY
     });
@@ -94,7 +94,7 @@ async function handleGetProjects(request: NextRequest): Promise<Result<ProjectsR
 
   } catch (error) {
     logger.error('Projects API: Failed to fetch settlement projects', error instanceof Error ? error : new Error(String(error)), {
-      operation: 'GET_SETTLEMENT_PROJECTS',
+      operation: 'GET_projects',
       errorMessage: error instanceof Error ? error.message : String(error)
     });
     
@@ -244,7 +244,7 @@ export async function DELETE(_request: NextRequest) {
 
     // Delete all projects (cascade will handle related data)
     const { error } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .delete()
       .gte('created_at', '1970-01-01'); // Delete all records (created_at is always >= epoch)
 

@@ -16,16 +16,7 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createServerSupabaseClient();
     
-    const { data: members, error: membersError } = await supabase
-      .from('settlement_members_memberships')
-      .select('*, player_entity_id(*)')
-      .eq('settlement_id', settlementId as any)
-    
-    // Also get total member count for comparison
-    const { count: totalMemberCount } = await supabase
-      .from('settlement_members')
-      .select('*', { count: 'exact', head: true })
-      .eq('settlement_id', settlementId as any);
+    const { data: members, error: membersError } = await supabase.rpc('fetch_players_by_claim_entity_id', { claim_id: settlementId });
 
     if (membersError) {
       console.error(`❌ Failed to fetch members:`, membersError);
@@ -36,7 +27,7 @@ export async function GET(request: NextRequest) {
     }
 
     const { data: settlement, error: settlementError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('*')
       .eq('id', settlementId as any)
       .single();
@@ -51,7 +42,7 @@ export async function GET(request: NextRequest) {
 
     // Calculate basic stats
     const activeMembers = typedMembers.length || 0; // Active settlement members only
-    const totalMembers = totalMemberCount || 0; // Total members (active + inactive)
+    const totalMembers = typedMembers.length || 0; // Total members (active + inactive)
 
     const recentlyActiveMembers = typedMembers.filter(m => {
       if (!m.last_login_timestamp || m.last_login_timestamp === null) return false;
@@ -69,7 +60,7 @@ export async function GET(request: NextRequest) {
 
 
     // Get all member IDs for this settlement for project fetching
-    const memberIds = typedMembers.map(m => m.player_entity_id?.id) || [];
+    const memberIds = typedMembers.map(m => m.id) || [];
     
     let projects: any[] = [];
     
@@ -81,9 +72,9 @@ export async function GET(request: NextRequest) {
       );
       
       const { data: projectsData, error: projectsErr } = await serviceSupabase
-        .from('settlement_projects')
+        .from('projects')
         .select('*')
-        .in('created_by_member_id', memberIds);
+        .in('created_by_player_id', memberIds);
       
       if (projectsErr) {
         console.error(`❌ Failed to fetch projects:`, projectsErr);

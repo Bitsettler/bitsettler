@@ -135,8 +135,8 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
       .from('treasury_transactions')
       .select(`
         *,
-        settlement_projects!left(name),
-        settlement_members!left(name)
+        projects!left(name),
+        players!left(name)
       `)
       .eq('settlement_id', options.settlementId);
 
@@ -199,8 +199,8 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
       transactionDate: new Date(transaction.transaction_date),
       recordedAt: new Date(transaction.recorded_at),
       createdAt: new Date(transaction.created_at),
-      relatedProjectName: (transaction.settlement_projects as any)?.name || undefined,
-      relatedMemberName: (transaction.settlement_members as any)?.name || undefined,
+      relatedProjectName: (transaction.projects as any)?.name || undefined,
+      relatedMemberName: (transaction.players as any)?.name || undefined,
     }));
 
   } catch (error) {

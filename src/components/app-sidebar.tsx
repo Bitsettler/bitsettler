@@ -30,7 +30,7 @@ import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 
 import { Logo } from './logo'
-import { useCurrentMember } from '../hooks/use-current-member'
+import { useClaimPlayer } from '../hooks/use-claim-player'
 
 // Type definitions for navigation items
 type NavigationItem = {
@@ -165,7 +165,7 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
   const pathname = usePathname()
   const t = useTranslations()
-  const { member, isClaimed, isSolo } = useCurrentMember()
+  const { member, isClaimed, isSolo } = useClaimPlayer()
 
   // Directly compute navItems without useState to avoid hydration mismatch
   const navItems = isSolo ? data.navSolo : data.navMain

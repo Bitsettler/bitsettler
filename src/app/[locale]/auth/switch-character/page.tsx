@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
-import { useCurrentMember } from '@/hooks/use-current-member';
+import { useClaimPlayer } from '@/hooks/use-claim-player';
 import { Container } from '../../../../components/container';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../../components/ui/card';
 import { Button } from '../../../../components/ui/button';
@@ -12,7 +12,7 @@ import { Loader2, AlertCircle } from 'lucide-react';
 
 export default function SwitchCharacterPage() {
   const { data: session, status } = useSession();
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember();
+  const { member, isLoading: memberLoading, isClaimed } = useClaimPlayer();
   const router = useRouter();
 
   // Redirect unauthenticated users

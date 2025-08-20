@@ -39,8 +39,8 @@ export async function checkProjectPermissions(
   try {
     // Get project details
     const { data: project, error: projectError } = await supabase
-      .from('settlement_projects')
-      .select('created_by_member_id, id, status')
+      .from('projects')
+      .select('created_by_player_id, id, status')
       .eq('id', projectId)
       .single();
 
@@ -50,20 +50,20 @@ export async function checkProjectPermissions(
 
     // Get the current user's member record to check ownership
     const { data: userMember, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id')
       .eq('supabase_user_id', userId)
       .single();
 
     // Check if user is the project owner (by member ID)
-    const isOwner = userMember && project.created_by_member_id === userMember.id;
+    const isOwner = userMember && project.created_by_player_id === userMember.id;
 
     // Get user's settlement member info for co-owner status
     let isCoOwner = false;
     
     if (userEmail) {
       const { data: member, error: memberError } = await supabase
-        .from('settlement_members')
+        .from('players')
         .select('co_owner_permission, officer_permission')
         .eq('supabase_user_id', userId)
         .single();
@@ -130,7 +130,7 @@ export async function getUserSettlementPermissions(userId: string): Promise<{
 
   try {
     const { data: member, error } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id, co_owner_permission, officer_permission')
       .eq('supabase_user_id', userId)
       .single();

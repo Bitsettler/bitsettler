@@ -47,7 +47,7 @@ export function createServerClient() {
 export interface Database {
   public: {
     Tables: {
-      settlement_members: {
+      players: {
         Row: {
           id: string;
           bitjita_id: string | null;
@@ -111,7 +111,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      settlement_projects: {
+      projects: {
         Row: {
           id: string;
           name: string;
@@ -143,7 +143,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      project_items: {
+      items: {
         Row: {
           id: string;
           project_id: string;

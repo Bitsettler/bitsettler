@@ -1,15 +1,15 @@
 'use client';
 
-import { useCurrentMember } from '../../hooks/use-current-member';
 import { SettlementMemberDetailView } from './settlement-member-detail-view';
 import { Container } from '@/components/container';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, User, UserPlus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 export function MyCharacterView() {
-  const { member, isLoading, isClaimed } = useCurrentMember();
+  const { member, isLoading, isClaimed } = useClaimPlayerContext();
   const router = useRouter();
 
   if (isLoading) {
@@ -54,7 +54,7 @@ export function MyCharacterView() {
   return (
     <Container className="py-6">
       <SettlementMemberDetailView 
-        memberId={member.player_entity_id} 
+        memberId={member.id} 
         hideBackButton={true} 
         hideHeader={true} 
         hideProfileName={true}

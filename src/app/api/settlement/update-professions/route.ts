@@ -110,7 +110,7 @@ export async function PUT(request: NextRequest) {
 
     // Update the user's profession choices
     const { data: updatedMember, error: updateError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .update({
         primary_profession: primaryProfession,
         secondary_profession: secondaryProfession

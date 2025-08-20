@@ -2,7 +2,7 @@
 
 import type { Edge, Node } from '@xyflow/react'
 import { useCallback, useEffect, useState } from 'react'
-import { useCurrentMember } from './use-current-member'
+import { useClaimPlayer } from './use-claim-player'
 
 export interface CalculatorSave {
   id: string
@@ -24,7 +24,7 @@ export interface CalculatorSavesMap {
 }
 
 export function useDatabaseCalculatorSaves() {
-  const { member, isClaimed } = useCurrentMember()
+  const { member, isClaimed } = useClaimPlayer()
   const [saves, setSaves] = useState<CalculatorSavesMap>({})
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)

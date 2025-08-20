@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, X, Star, User, TrendingUp, ArrowLeftRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useSkillNames } from '../hooks/use-skill-names';
+import { useSkillNames } from '../hooks/use-skills';
 
 interface ProfessionSelectorProps {
   primaryProfession?: string;

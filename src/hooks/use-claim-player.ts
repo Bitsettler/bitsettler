@@ -3,11 +3,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
 
-export interface SettlementMember {
+export interface Player {
   id: string;
-  player_entity_id: string;
   name: string;
-  settlement_id: string | null; 
+  is_claim: boolean;
+  is_active: boolean;
+  is_solo: boolean;
+
+  claim_settlement_id: string | null;
+  supabase_user_id: string | null;
+
+  settlements: any[] | null;
   skills: Record<string, number>;
   total_skills: number;
   highest_level: number;
@@ -18,9 +24,7 @@ export interface SettlementMember {
   secondary_profession: string | null;
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
-  is_active: boolean;
-  is_solo: boolean;
-  supabase_user_id: string | null;
+
   display_name: string | null;
   discord_handle: string | null;
   bio: string | null;
@@ -38,14 +42,14 @@ export interface SettlementMember {
   created_at: string;
 }
 
-export function useCurrentMember() {
+export function useClaimPlayer() {
   const { data: session, status } = useSession();
-  const [member, setMember] = useState<SettlementMember | null>(null);
+  const [member, setMember] = useState<Player | null>(null);
   const [isSolo, setIsSolo] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCurrentMember = useCallback(async () => {
+  const fetchClaimPlayer = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -60,7 +64,7 @@ export function useCurrentMember() {
       const { supabase } = await import('@/lib/supabase-auth');
       
       const { data: member, error } = await supabase
-        .from('settlement_members')
+        .from('players')
         .select('*')
         .eq('supabase_user_id', session.user.id)
         .maybeSingle();
@@ -73,20 +77,8 @@ export function useCurrentMember() {
       }
 
       if (member) {
-        const { data: settlementMemberShip, error: settlementMemberShipError } = await supabase
-          .from('settlement_members_memberships')
-          .select('*')
-          .eq('player_entity_id', member.player_entity_id)
-          .eq('is_claim', true)
-          .maybeSingle();
-      
-        if (settlementMemberShipError) {
-          console.error('Failed to fetch settlement member ship:', settlementMemberShipError);
-          setError('Failed to fetch settlement member ship data');
-          setMember(null);
-        }
         setIsSolo(member.is_solo);
-        setMember({ ...member, settlement_id: settlementMemberShip?.settlement_id });
+        setMember(member);
       }
     } catch (err) {
       console.error('Failed to fetch current member:', err);
@@ -108,11 +100,11 @@ export function useCurrentMember() {
     }
 
     if (status === 'authenticated' && session?.user?.id) {
-      fetchCurrentMember();
+      fetchClaimPlayer();
     }
-  }, [fetchCurrentMember, session?.user?.id, status]); // Include the memoized function
+  }, [fetchClaimPlayer, session?.user?.id, status]); // Include the memoized function
 
-  const updateMember = async (updates: Partial<SettlementMember>) => {
+  const updateMember = async (updates: Partial<Player>) => {
     if (!member || !session?.user?.id) return null;
 
     try {
@@ -120,7 +112,7 @@ export function useCurrentMember() {
       const { supabase } = await import('@/lib/supabase-auth');
       
       const { data: updatedMember, error } = await supabase
-        .from('settlement_members')
+        .from('players')
         .update(updates)
         .eq('supabase_user_id', session.user.id)
         .select()
@@ -144,7 +136,7 @@ export function useCurrentMember() {
     isLoading,
     error,
     updateMember,
-    refetch: fetchCurrentMember,
+    refetch: fetchClaimPlayer,
     isAuthenticated: !!session,
     isClaimed: !!member?.supabase_user_id,
     displayName: member?.display_name || member?.name || 'User'

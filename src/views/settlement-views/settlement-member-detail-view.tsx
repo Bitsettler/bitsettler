@@ -9,9 +9,9 @@ import { Progress } from '@/components/ui/progress';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
-import { useCurrentMember } from '../../hooks/use-current-member';
+import { useClaimPlayer } from '../../hooks/use-claim-player';
 import { useAuth } from '../../hooks/use-auth';
-import { useSkillNames } from '../../hooks/use-skill-names';
+import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { TierIcon } from '@/components/ui/tier-icon';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
@@ -140,12 +140,12 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [contributions, setContributions] = useState<MemberContributionItem[] | null>(null);
   const [contribError, setContribError] = useState<string | null>(null);
   
-  const { member: currentMember, isLoading: memberLoading, isSolo} = useCurrentMember();
+  const { member: currentMember, isLoading: memberLoading, isSolo} = useClaimPlayer();
   const { user: authUser } = useAuth();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 
   // Check if this is the current user's own profile
-  const isOwnProfile = currentMember?.player_entity_id === memberId;
+  const isOwnProfile = currentMember?.id === memberId;
 
   useEffect(() => {
     // Wait for member data to load before making API calls
@@ -167,7 +167,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
 
   const fetchMemberDetails = async () => {
     // Use selectedSettlement or fallback to member's settlement
-    const settlementId = currentMember?.settlement_id;
+    const settlementId = currentMember?.claim_settlement_id;
 
     try {
       setLoading(true);
@@ -193,7 +193,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   };
 
   const fetchMemberContributions = async () => {
-    const settlementId = currentMember?.settlement_id;
+    const settlementId = currentMember?.claim_settlement_id;
     if (!settlementId) return;
     try {
       setContribError(null);

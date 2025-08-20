@@ -1,6 +1,6 @@
 /**
  * Script to apply avatar_url column migration
- * Run this once to add the avatar_url column to settlement_members table
+ * Run this once to add the avatar_url column to players table
  */
 
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client'
@@ -14,11 +14,11 @@ async function applyAvatarMigration() {
   }
 
   try {
-    // Add avatar_url column to settlement_members table
+    // Add avatar_url column to players table
     console.log('📝 Adding avatar_url column...')
     const { error: alterError } = await supabase.rpc('exec_sql', {
       sql: `
-        ALTER TABLE settlement_members 
+        ALTER TABLE players 
         ADD COLUMN IF NOT EXISTS avatar_url TEXT;
       `
     })
@@ -34,8 +34,8 @@ async function applyAvatarMigration() {
     console.log('📝 Adding index for avatar_url...')
     const { error: indexError } = await supabase.rpc('exec_sql', {
       sql: `
-        CREATE INDEX IF NOT EXISTS idx_settlement_members_avatar_url 
-        ON settlement_members(avatar_url) 
+        CREATE INDEX IF NOT EXISTS idx_players_avatar_url 
+        ON players(avatar_url) 
         WHERE avatar_url IS NOT NULL;
       `
     })
@@ -53,7 +53,7 @@ async function applyAvatarMigration() {
       sql: `
         SELECT column_name, data_type 
         FROM information_schema.columns 
-        WHERE table_name = 'settlement_members' 
+        WHERE table_name = 'players' 
         AND column_name = 'avatar_url';
       `
     })

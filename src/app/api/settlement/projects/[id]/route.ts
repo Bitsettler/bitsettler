@@ -36,7 +36,7 @@ async function handleGetProject(
       }
       
       const { data: project, error } = await supabase
-        .from('settlement_projects')
+        .from('projects')
         .select('id')
         .eq('project_number', parseInt(projectId))
         .single();
@@ -98,7 +98,7 @@ async function handleUpdateProject(
 
   if (isProjectNumber) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('project_number', parseInt(projectId))
       .single();
@@ -109,7 +109,7 @@ async function handleUpdateProject(
     actualProjectId = project.id;
   } else if (isShortId) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('short_id', projectId)
       .single();
@@ -133,7 +133,7 @@ async function handleUpdateProject(
   try {
     // Get original project to compare status changes
     const { data: originalProject, error: getError } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('status, priority, name')
       .eq('id', actualProjectId)
       .single();
@@ -143,7 +143,7 @@ async function handleUpdateProject(
     }
 
     const { data: updatedProject, error } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .update({
         ...(updateData.name && { name: updateData.name }),
         ...(updateData.description !== undefined && { description: updateData.description }),
@@ -164,7 +164,7 @@ async function handleUpdateProject(
       try {
         // Get current user's settlement member
         const { data: currentMember } = await supabase
-          .from('settlement_members')
+          .from('players')
           .select('id, name')
           .eq('supabase_user_id', session.user.id)
           .single();
@@ -236,7 +236,7 @@ async function handleDeleteProject(
 
   if (isProjectNumber) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('project_number', parseInt(projectId))
       .single();
@@ -247,7 +247,7 @@ async function handleDeleteProject(
     actualProjectId = project.id;
   } else if (isShortId) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('short_id', projectId)
       .single();
@@ -261,9 +261,9 @@ async function handleDeleteProject(
   // PERMISSION CHECK DISABLED - Everyone can delete projects
 
   try {
-    // Delete project (cascade will handle related data like project_items and contributions)
+    // Delete project (cascade will handle related data like items and contributions)
     const { error } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .delete()
       .eq('id', actualProjectId);
 

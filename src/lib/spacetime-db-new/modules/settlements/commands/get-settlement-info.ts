@@ -88,25 +88,25 @@ export async function getSettlementStats(): Promise<SettlementStats> {
   try {
     // Get member counts
     const { count: totalMembers } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('*', { count: 'exact', head: true });
 
     const { count: activeMembers } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('*', { count: 'exact', head: true });
 
     // Get project counts
     const { count: totalProjects } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('*', { count: 'exact', head: true });
 
     const { count: activeProjects } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'Active');
 
     const { count: completedProjects } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'Completed');
 

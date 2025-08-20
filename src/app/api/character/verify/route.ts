@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { characterId } = body;
 
-    // Validate input
     if (!characterId) {
       return NextResponse.json(
         { success: false, error: 'Character ID is required' },
@@ -19,13 +18,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`🔍 Verifying character: ${characterId}`);
-
-    // Check if character is already claimed in settlement_members table
     const { data: existingClaim, error: checkError } = await supabase
-      .from('settlement_members')
-      .select('id, name, supabase_user_id, player_entity_id')
-      .eq('player_entity_id', characterId)
+      .from('players')
+      .select('id, name, supabase_user_id')
+      .eq('id', characterId)
       .single();
 
     if (checkError && checkError.code !== 'PGRST116') { // PGRST116 = no rows returned
@@ -37,7 +33,6 @@ export async function POST(request: NextRequest) {
     }
 
     if (!existingClaim) {
-      // Character not found in database - might need to be created
       return NextResponse.json({
         success: true,
         data: {
@@ -48,7 +43,6 @@ export async function POST(request: NextRequest) {
     }
 
     if (existingClaim.supabase_user_id) {
-      // Character is already claimed
       return NextResponse.json({
         success: true,
         data: {
@@ -59,7 +53,6 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Character exists but is not claimed
     return NextResponse.json({
       success: true,
       data: {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '../../../../lib/supabase-server-auth';
+import { UUID } from 'crypto';
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,10 +40,10 @@ export async function POST(request: NextRequest) {
     // Check if user has permission to manage this settlement
     // User must be a member with officer or co-owner permissions
     const { data: memberData, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('officer_permission, co_owner_permission')
-      .eq('settlement_id', settlementId)
-      .eq('supabase_user_id', user.id)
+      .eq('claim_settlement_id', settlementId)
+      .eq('supabase_user_id', user.id as any)
       .single();
 
     if (memberError || !memberData) {
@@ -66,9 +67,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update the Discord link in settlements_master
+    // Update the Discord link in settlements
     const { error: updateError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .update({ 
         discord_link: discordLink?.trim() || null,
         updated_at: new Date().toISOString()
@@ -112,11 +113,11 @@ export async function GET(request: NextRequest) {
     // Get Supabase client
     const supabase = await createServerSupabaseClient();
 
-    // Fetch Discord link from settlements_master
+    // Fetch Discord link from settlements
     const { data: settlementData, error: fetchError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('discord_link')
-      .eq('id', settlementId)
+      .eq('id', settlementId as any)
       .single();
 
     if (fetchError) {

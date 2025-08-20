@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getRecentSettlementActivities, getRecentMemberActivities } from '@/lib/settlement/activity-tracker';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 
@@ -18,20 +18,17 @@ export async function GET(request: NextRequest) {
     
     if (!supabase) return;
     
-    const { data: members, error: membersError } = await supabase
-        .from('settlement_members_memberships')
-        .select('*, player_entity_id(*)')
-        .eq('settlement_id', settlementId as any)
+    const { data: members, error: membersError } = await supabase.rpc('fetch_players_by_claim_entity_id', { claim_id: settlementId });
 
     if (membersError) {
-      console.error('Error fetching members:', membersError);
-      return Response.json({ 
-        success: false, 
-        error: 'Failed to fetch members' 
-      }, { status: 500 });
+      console.error(`❌ Failed to fetch members:`, membersError);
+      return NextResponse.json(
+        { error: 'Failed to fetch settlement members' },
+        { status: 500 }
+      );
     }
-    
-    const membersIdList = members?.map(m => m.player_entity_id?.id) || [];
+  
+    const membersIdList = members?.map((m:any) => m.id) || [];
 
     // Fetch both types of activities in parallel
     const [settlementActivities, memberActivities] = await Promise.all([

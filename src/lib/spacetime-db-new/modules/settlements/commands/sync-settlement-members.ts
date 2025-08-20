@@ -93,7 +93,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       console.log(`💾 Caching ${Object.keys(skillNames).length} skill names...`);
       for (const [skillId, skillName] of Object.entries(skillNames)) {
         await supabase
-          .from('skill_names')
+          .from('skills')
           .upsert({ 
             skill_id: skillId, 
             skill_name: skillName as string,
@@ -135,7 +135,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       
           // Get existing member data for activity tracking
     const { data: existingMemberData } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id, skills')
       .eq('settlement_id', options.settlementId)
       .eq('player_entity_id', user.playerEntityId)
@@ -177,7 +177,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       };
 
       const { data, error } = await supabase
-        .from('settlement_members')
+        .from('players')
         .upsert(memberRecord, {
           onConflict: 'settlement_id,player_entity_id',
           ignoreDuplicates: false
@@ -242,7 +242,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
       
       // Use client-side filtering: fetch all active members, then deactivate those not in current roster
       const { data: allActiveMembers, error: fetchError2 } = await supabase
-        .from('settlement_members')
+        .from('players')
         .select('id, name')
         .eq('settlement_id', options.settlementId)
         .eq('is_active', true);
@@ -261,7 +261,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
           const memberIdsToDeactivate = membersToDeactivate.map(m => m.id);
           
           const { data: deactivateData, error: deactivateError } = await supabase
-            .from('settlement_members')
+            .from('players')
             .update({ 
               is_active: false,
               last_synced_at: new Date().toISOString() 
@@ -288,7 +288,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
 
     // Count active vs inactive members after sync
     const { data: memberCounts } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('is_active')
       .eq('settlement_id', options.settlementId);
     
@@ -364,7 +364,7 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
   
   // First, get settlement IDs with claimed users
   const { data: claimedSettlements, error: claimedError } = await supabase
-    .from('settlement_members')
+    .from('players')
     .select('settlement_id')
     .not('supabase_user_id', 'is', null); // Has claimed users
   
@@ -389,7 +389,7 @@ export async function syncAllSettlementMembers(triggeredBy: string = 'scheduled'
 
   // Now get the settlement details for these claimed settlements
   const { data: settlements, error: fetchError } = await supabase
-    .from('settlements_master')
+    .from('settlements')
     .select('id, name, is_active')
     .in('id', claimedSettlementIds)
     .order('population', { ascending: false }) // Sync largest settlements first

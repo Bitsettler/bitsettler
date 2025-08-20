@@ -42,7 +42,7 @@ async function handleAddProjectItem(
 
   if (isProjectNumber) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('project_number', parseInt(projectId))
       .single();
@@ -75,7 +75,7 @@ async function handleAddProjectItem(
   try {
     // Insert the project item
     const { data: newItem, error } = await supabase
-      .from('project_items')
+      .from('items')
       .insert({
         project_id: actualProjectId,
         item_name: itemData.itemName.trim(),

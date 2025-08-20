@@ -38,10 +38,10 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
   try {
     // Get project details
     const { data: projectData, error: projectError } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select(`
         *,
-        owner:settlement_members!created_by_member_id(
+        owner:players!created_by_player_id(
           id,
           name
         )
@@ -62,7 +62,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
 
     // Get project items
     const { data: itemsData, error: itemsError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('*')
       .eq('project_id', projectId)
       .order('rank_order')
@@ -74,7 +74,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
 
     // Get project contributions (simplified query without join)
     const { data: contributionsData, error: contributionsError } = await supabase
-      .from('member_contributions')
+      .from('contributions')
       .select('*')
       .eq('project_id', projectId)
       .order('contributed_at', { ascending: false });
@@ -90,7 +90,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     
     if (memberIds.length > 0) {
       const { data: members } = await supabase
-        .from('settlement_members')
+        .from('players')
         .select('id, name')
         .in('id', memberIds);
       membersData = members || [];
@@ -103,7 +103,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
         id,
         role,
         assigned_at,
-        settlement_members(id, name)
+        players(id, name)
       `)
       .eq('project_id', projectId)
       .order('assigned_at');
@@ -144,8 +144,8 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
     });
 
     const assignedMembers = (assignedData || []).map(assigned => ({
-      id: assigned.settlement_members?.id || assigned.id,
-      name: assigned.settlement_members?.name || 'Unknown Member',
+      id: assigned.players?.id || assigned.id,
+      name: assigned.players?.name || 'Unknown Member',
       role: assigned.role,
       assignedAt: new Date(assigned.assigned_at),
     }));

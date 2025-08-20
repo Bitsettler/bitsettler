@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useCurrentMember } from '@/hooks/use-current-member';
+import { useClaimPlayer } from '@/hooks/use-claim-player';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface TreasurySummary {
   id: string;
@@ -119,7 +120,7 @@ const formatHexcoin = (amount: number): string => {
 };
 
 export function SettlementTreasuryView() {
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
   const [summary, setSummary] = useState<TreasurySummary | null>(null);
   const [transactions, setTransactions] = useState<TreasuryTransaction[]>([]);
   const [loading, setLoading] = useState(true);
@@ -152,7 +153,7 @@ export function SettlementTreasuryView() {
   });
 
   useEffect(() => {
-    if (!memberLoading && member?.settlement_id) {
+    if (!memberLoading && member?.claim_settlement_id) {
       fetchSummaryData();
       fetchTransactions();
       fetchTreasuryHistory();
@@ -166,7 +167,7 @@ export function SettlementTreasuryView() {
       
       return () => clearInterval(interval);
     }
-  }, [memberLoading, member?.settlement_id]);
+  }, [memberLoading, member?.claim_settlement_id]);
 
   useEffect(() => {
     fetchTransactions();
@@ -177,11 +178,11 @@ export function SettlementTreasuryView() {
   }, [timeRange, timeUnit]); // Add timeUnit to dependencies
 
   async function fetchSummaryData() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setError(null);
-      const response = await fetch(`/api/settlement/treasury?action=summary&settlementId=${member.settlement_id}`);
+      const response = await fetch(`/api/settlement/treasury?action=summary&settlementId=${member.claim_settlement_id}`);
       const data: TreasurySummaryResponse = await response.json();
 
       if (!data.success) {
@@ -196,14 +197,14 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchTransactions() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setTransactionsLoading(true);
       
       const params = new URLSearchParams({
         action: 'transactions',
-        settlementId: member.settlement_id,
+        settlementId: member.claim_settlement_id,
         limit: itemsPerPage.toString(),
         offset: ((currentPage - 1) * itemsPerPage).toString(),
         includeDetails: 'true',
@@ -230,13 +231,13 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchTreasuryHistory() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setHistoryLoading(true);
       
       const response = await fetch(
-        `/api/settlement/treasury?action=history&settlementId=${member.settlement_id}&timeRange=${timeRange}&timeUnit=${timeUnit}`
+        `/api/settlement/treasury?action=history&settlementId=${member.claim_settlement_id}&timeRange=${timeRange}&timeUnit=${timeUnit}`
       );
       const data: TreasuryHistoryResponse = await response.json();
 
@@ -267,7 +268,7 @@ export function SettlementTreasuryView() {
   }
 
   const handleAddTransaction = async () => {
-    if (!member?.settlement_id || !newTransaction.amount || !newTransaction.transactionType || !newTransaction.description.trim()) {
+    if (!member?.claim_settlement_id || !newTransaction.amount || !newTransaction.transactionType || !newTransaction.description.trim()) {
       toast.error('Please fill in all required fields (amount, type, and description)');
       return;
     }
@@ -281,7 +282,7 @@ export function SettlementTreasuryView() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          settlementId: member.settlement_id,
+          settlementId: member.claim_settlement_id,
           amount: parseFloat(newTransaction.amount),
           transactionType: newTransaction.transactionType,
           category: newTransaction.category || null,
@@ -322,7 +323,7 @@ export function SettlementTreasuryView() {
     (transaction.category && transaction.category.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  if (memberLoading || loading || !member?.settlement_id) {
+  if (memberLoading || loading || !member?.claim_settlement_id) {
     return (
       <Container>
         <div className="space-y-8 py-8">

@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
     // Get the user's settlement member record
     const { data: member, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id')
       .eq('supabase_user_id', user.id)
       .single();

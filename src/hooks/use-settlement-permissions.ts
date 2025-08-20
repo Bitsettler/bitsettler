@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useAuth } from './use-auth'
-import { useCurrentMember } from './use-current-member'
+import { useClaimPlayer } from './use-claim-player'
 
 export interface SettlementPermissions {
   inventory_permission: boolean
@@ -26,7 +26,7 @@ export interface UserRole {
 
 export function useSettlementPermissions() {
   const { user, session } = useAuth()
-  const { member, isClaimed, isLoading: memberLoading } = useCurrentMember()
+  const { member, isClaimed, isLoading: memberLoading } = useClaimPlayer()
   const [permissions, setPermissions] = useState<SettlementPermissions | null>(null)
   const [userRole, setUserRole] = useState<UserRole | null>(null)
   const [loading, setLoading] = useState(true)

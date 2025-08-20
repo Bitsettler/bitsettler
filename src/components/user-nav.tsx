@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/hooks/use-auth'
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions'
-import { useCurrentMember } from '@/hooks/use-current-member'
+import { useClaimPlayer } from '@/hooks/use-claim-player'
 import { useRouter } from 'next/navigation'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -35,7 +35,7 @@ import {
 export function UserNav() {
   const { user, session, loading, signOut } = useAuth()
   const { userRole, permissions, loading: permissionsLoading } = useSettlementPermissions()
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember()
+  const { member, isLoading: memberLoading, isClaimed } = useClaimPlayer()
   const router = useRouter()
 
   const handleSignIn = () => {

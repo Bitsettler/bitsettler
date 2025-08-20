@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Container } from '@/components/container';
-import { useCurrentMember } from '../../hooks/use-current-member';
+import { useClaimPlayer } from '../../hooks/use-claim-player';
 import { useCallback } from 'react';
 import { 
   Users, 
@@ -18,6 +18,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { TierIcon } from '@/components/ui/tier-icon';
 import { ContributionDisplay } from '@/components/projects/contribution-display';
 import { SettlementDiscordLink } from '../../components/settlement-discord-link';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 
 interface DashboardStats {
@@ -73,7 +74,7 @@ interface DashboardData {
 }
 
 export function SettlementDashboardView() {
-  const { member } = useCurrentMember();
+  const { member } = useClaimPlayerContext();
 
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
@@ -87,7 +88,7 @@ export function SettlementDashboardView() {
     try {
       setIsLoading(true);
 
-      const settlementId = member?.settlement_id;
+      const settlementId = member?.claim_settlement_id;
       
       if (!settlementId) {
         setError('No settlement available');
@@ -112,7 +113,7 @@ export function SettlementDashboardView() {
 
   const fetchRecentActivities = useCallback(async () => {
     try {
-      const settlementId = member?.settlement_id;
+      const settlementId = member?.claim_settlement_id;
       if (!settlementId) return;
       
       const response = await fetch(`/api/settlement/activities?settlementId=${encodeURIComponent(settlementId)}&limit=10`);
@@ -130,7 +131,7 @@ export function SettlementDashboardView() {
 
 
   useEffect(() => {
-    const settlementId = member?.settlement_id;
+    const settlementId = member?.claim_settlement_id;
     if (settlementId) {
       fetchDashboardData();
       fetchRecentActivities();
@@ -146,7 +147,7 @@ export function SettlementDashboardView() {
 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (!document.hidden && member?.settlement_id) {
+      if (!document.hidden && member?.claim_settlement_id) {
         fetchDashboardData();
         fetchRecentActivities();
       }
@@ -259,7 +260,7 @@ export function SettlementDashboardView() {
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Tier {settlementInfo?.tier || 1} Settlement
-                    {dashboardData?.settlement?.masterData?.region_name && (
+                    {dashboardData.settlement.masterData && (
                       <span> • {dashboardData.settlement.masterData.region_name}</span>
                     )}
                   </p>

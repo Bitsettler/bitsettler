@@ -9,11 +9,12 @@ import { Label } from '@/components/ui/label';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Container } from '@/components/container';
 import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
-import { useCurrentMember } from '../../hooks/use-current-member';
-import { useSkillNames } from '../../hooks/use-skill-names';
+import { useClaimPlayer } from '../../hooks/use-claim-player';
+import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { TierIcon } from '@/components/ui/tier-icon';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 /**
  * Convert skill level to tier (0-10 based on Bitcraft progression)
@@ -102,7 +103,7 @@ export function SettlementSkillsView() {
   const [showAdventureSkills, setShowAdventureSkills] = useState(true);
   const [showTierColors, setShowTierColors] = useState(true);
   
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
   const { getSkillName, loading: skillNamesLoading } = useSkillNames();
 
   // Memoize all computed values OUTSIDE of conditional renders
@@ -216,7 +217,7 @@ export function SettlementSkillsView() {
 
   const fetchSkillsData = async () => {
 
-    const settlementId = member?.settlement_id;
+    const settlementId = member?.claim_settlement_id;
    
     // Don't fetch data if no settlement is available
     if (!settlementId) {

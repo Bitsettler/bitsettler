@@ -204,7 +204,7 @@ export class TreasuryPollingService {
 
       // Get all established settlements
       const { data: establishedSettlements, error: settlementsError } = await this.supabase
-        .from('settlements_master')
+        .from('settlements')
         .select('id, name')
         .eq('is_established', true)
         .eq('is_active', true);

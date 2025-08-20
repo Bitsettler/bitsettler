@@ -1,6 +1,6 @@
 'use client';
 
-import { useCurrentMember } from './use-current-member';
+import { useClaimPlayer } from './use-claim-player';
 
 export interface ProfileUpdateData {
   display_name?: string;
@@ -16,7 +16,7 @@ export interface ProfileUpdateData {
 }
 
 export function useMemberProfile() {
-  const { member, updateMember, isLoading, error } = useCurrentMember();
+  const { member, updateMember, isLoading, error } = useClaimPlayer();
 
   const updateProfile = async (updates: ProfileUpdateData) => {
     if (!member) {

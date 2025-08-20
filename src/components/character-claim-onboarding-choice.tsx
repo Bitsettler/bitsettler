@@ -138,10 +138,6 @@ export function CharacterClaimOnboardingChoice() {
       const result = await response.json()
 
       if (result.success) {
-        console.log(
-          `✅ Found ${result.data.players.length} characters for "${query}"`
-        )
-        console.log('result.data.players => ', result.data.players)
         setSearchResults(result.data)
         setHasSearched(true)
       } else {
@@ -188,7 +184,6 @@ export function CharacterClaimOnboardingChoice() {
 
       if (result.success) {
         const data = result.data as VerificationResult
-        console.log('✅ Character verification result:', data)
         setVerificationResult(data)
       } else {
         console.error('❌ Character verification failed:', result.error)
@@ -217,7 +212,6 @@ export function CharacterClaimOnboardingChoice() {
         })
 
       if (result.success) {
-        console.log('✅ Character claimed successfully')
         setCurrentStep('complete')
         
         // Redirect to settlement dashboard after a short delay
@@ -264,7 +258,6 @@ export function CharacterClaimOnboardingChoice() {
       })
       
       if (result.success) {
-        console.log('✅ Settlement data loaded successfully')      
         const settlements = (result.data as { settlements: SettlementData[] }).settlements || [];
         setSettlementsData(settlements)
         setCurrentStep('settlement-select')
