@@ -74,12 +74,14 @@ interface DashboardData {
 
 export function SettlementDashboardView() {
   const { member } = useCurrentMember();
+
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
+  
+  const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
  
   const fetchDashboardData = useCallback(async () => {
     try {
@@ -237,10 +239,7 @@ export function SettlementDashboardView() {
 
   return (
     <Container>
-      <div className="space-y-6 py-8">
-
-        
-        {/* Header */}
+      <div className="space-y-6 py-8">      
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Settlement Overview</h1>
@@ -248,7 +247,6 @@ export function SettlementDashboardView() {
           </div>
         </div>
 
-      {/* Settlement Info - Enhanced with Live Data */}
       <Card>
         <CardContent className="pt-4 pb-4">
           <div className="flex items-start justify-between">

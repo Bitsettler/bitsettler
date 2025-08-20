@@ -264,7 +264,7 @@ export function UserNav() {
             Support
           </DropdownMenuLabel>
           <DropdownMenuItem asChild>
-            <a href="/help" target="_blank">
+            <a href="/contact" target="_blank">
               <HelpCircle className="mr-2 h-4 w-4" />
               <span>Get Help</span>
             </a>

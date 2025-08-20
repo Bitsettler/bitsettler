@@ -37,14 +37,6 @@ interface TreasurySummary {
   createdAt: Date;
 }
 
-interface TreasuryStats {
-  monthlyIncome: number;
-  monthlyExpenses: number;
-  netChange: number;
-  transactionCount: number;
-  averageTransactionSize: number;
-}
-
 interface TreasuryTransaction {
   id: string;
   amount: number;
@@ -64,7 +56,6 @@ interface TreasurySummaryResponse {
   success: boolean;
   data: {
     summary: TreasurySummary | null;
-    stats: TreasuryStats;
   };
   error?: string;
 }
@@ -77,13 +68,6 @@ interface TransactionsResponse {
     limit?: number;
     offset?: number;
   };
-  error?: string;
-}
-
-interface CategoriesResponse {
-  success: boolean;
-  data: Array<{ category: string; count: number }>;
-  count: number;
   error?: string;
 }
 
@@ -137,9 +121,7 @@ const formatHexcoin = (amount: number): string => {
 export function SettlementTreasuryView() {
   const { member, isLoading: memberLoading } = useCurrentMember();
   const [summary, setSummary] = useState<TreasurySummary | null>(null);
-  const [stats, setStats] = useState<TreasuryStats | null>(null);
   const [transactions, setTransactions] = useState<TreasuryTransaction[]>([]);
-  const [categories, setCategories] = useState<Array<{ category: string; count: number }>>([]);
   const [loading, setLoading] = useState(true);
   const [transactionsLoading, setTransactionsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -157,7 +139,6 @@ export function SettlementTreasuryView() {
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState<string>('all');
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
@@ -167,14 +148,12 @@ export function SettlementTreasuryView() {
   const [newTransaction, setNewTransaction] = useState({
     amount: '',
     transactionType: 'Income' as 'Income' | 'Expense' | 'Transfer' | 'Adjustment',
-    category: '',
     description: ''
   });
 
   useEffect(() => {
     if (!memberLoading && member?.settlement_id) {
       fetchSummaryData();
-      fetchCategories();
       fetchTransactions();
       fetchTreasuryHistory();
 
@@ -191,7 +170,7 @@ export function SettlementTreasuryView() {
 
   useEffect(() => {
     fetchTransactions();
-  }, [typeFilter, categoryFilter, currentPage]);
+  }, [typeFilter, currentPage]);
 
   useEffect(() => {
     fetchTreasuryHistory();
@@ -210,25 +189,9 @@ export function SettlementTreasuryView() {
       }
 
       setSummary(data.data.summary);
-      setStats(data.data.stats);
       setLastUpdate(new Date()); // Set lastUpdate when data is successfully fetched
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load treasury data');
-    }
-  }
-
-  async function fetchCategories() {
-    if (!member?.settlement_id) return;
-    
-    try {
-      const response = await fetch(`/api/settlement/treasury?action=categories&settlementId=${member.settlement_id}`);
-      const data: CategoriesResponse = await response.json();
-
-      if (data.success) {
-        setCategories(data.data || []);
-      }
-    } catch (err) {
-      // Category fetch failed
     }
   }
 
@@ -248,10 +211,6 @@ export function SettlementTreasuryView() {
 
       if (typeFilter !== 'all') {
         params.append('type', typeFilter);
-      }
-
-      if (categoryFilter !== 'all') {
-        params.append('category', categoryFilter);
       }
 
       const response = await fetch(`/api/settlement/treasury?${params}`);
@@ -641,19 +600,7 @@ export function SettlementTreasuryView() {
                 <SelectItem value="Adjustment">Adjustment</SelectItem>
               </SelectContent>
             </Select>
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((cat, index) => (
-                  <SelectItem key={`${cat.category}-${index}`} value={cat.category}>
-                    {cat.category} ({cat.count})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+
           </div>
 
           {/* Transaction List */}
@@ -674,7 +621,7 @@ export function SettlementTreasuryView() {
               <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-medium mb-2">No transactions found</h3>
               <p className="text-sm">
-                {searchTerm || typeFilter !== 'all' || categoryFilter !== 'all'
+                {searchTerm || typeFilter !== 'all'
                   ? "Try adjusting your filters"
                   : "Start by adding your first transaction"}
               </p>

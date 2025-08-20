@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { 
-  getTreasurySummary, 
-  getTreasuryStats, 
   getTreasuryTransactions, 
   getTreasuryTransactionsWithDetails,
-  getTreasuryCategories,
   type GetTransactionsOptions 
 } from '../../../../lib/spacetime-db-new/modules';
 import { BitJitaAPI } from '../../../../lib/spacetime-db-new/modules/integrations/bitjita-api';
@@ -44,33 +41,8 @@ export async function GET(request: NextRequest) {
           console.error('Error fetching BitJita settlement details:', error);
         }
 
-        // Get local transaction data for statistics (with fallbacks for missing tables)
-        let localSummary = null;
-        let stats = null;
-        
-        try {
-          localSummary = await getTreasurySummary();
-        } catch (error) {
-          console.warn('⚠️ Treasury summary table not available, using defaults');
-          localSummary = null;
-        }
-        
-        try {
-          stats = await getTreasuryStats(settlementId);
-        } catch (error) {
-          console.warn('⚠️ Treasury stats tables not available, using defaults');
-          stats = {
-            monthlyIncome: 0,
-            monthlyExpenses: 0,
-            netChange: 0,
-            transactionCount: 0,
-            averageTransactionSize: 0
-          };
-        }
-
         // Build enhanced summary with BitJita balance
         const enhancedSummary = {
-          ...localSummary,
           currentBalance: 0, // Will be updated with BitJita data
           lastUpdated: new Date().toISOString(),
         };
@@ -78,13 +50,10 @@ export async function GET(request: NextRequest) {
         // Use live BitJita balance as the source of truth
         enhancedSummary.currentBalance = currentBalance;
 
-        console.log(`📊 Treasury summary: Current Balance: ${enhancedSummary.currentBalance}, Transactions: ${stats?.transactionCount || 0}`);
-
         return NextResponse.json({
           success: true,
           data: {
             summary: enhancedSummary,
-            stats,
           },
           meta: {
             dataSource: 'manual_transactions',
@@ -145,26 +114,6 @@ export async function GET(request: NextRequest) {
               offset: searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : undefined,
             },
             includesDetails: false,
-          });
-        }
-        break;
-      }
-
-      case 'categories': {
-        try {
-          const categories = await getTreasuryCategories();
-
-          return NextResponse.json({
-            success: true,
-            data: categories,
-            count: categories.length,
-          });
-        } catch (error) {
-          console.warn('⚠️ Treasury categories table not available, returning empty list');
-          return NextResponse.json({
-            success: true,
-            data: [],
-            count: 0,
           });
         }
         break;

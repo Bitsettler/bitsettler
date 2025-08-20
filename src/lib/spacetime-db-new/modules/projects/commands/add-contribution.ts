@@ -1,6 +1,6 @@
 import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
-import { MemberContribution } from './get-project-by-id';
 import { logProjectContribution } from '../../../../settlement/project-activity-tracker';
+import type { MemberContribution } from '../types/member-contributions';
 
 export interface AddContributionRequest {
   memberId: string; // Settlement member ID (not auth user ID)
