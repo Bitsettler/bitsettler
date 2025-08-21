@@ -24,6 +24,7 @@ import {
 
 export function SettlementManageView() {
   const { clearSettlement } = useSelectedSettlement();
+  const { selectedSettlement } = useSelectedSettlement();
 
   const handleBackToDashboard = () => {
     window.location.href = '/en/settlement';
@@ -222,7 +223,7 @@ export function SettlementManageView() {
             </div>
             <div className="space-y-1">
               <h4 className="font-medium text-sm">Settlement ID</h4>
-              <p className="text-sm text-muted-foreground font-mono">{selectedSettlement.id}</p>
+              <p className="text-sm text-muted-foreground font-mono">{selectedSettlement?.id}</p>
             </div>
           </div>
         </CardContent>

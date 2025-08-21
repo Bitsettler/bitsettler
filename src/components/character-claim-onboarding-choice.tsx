@@ -40,6 +40,7 @@ interface VerificationResult {
   message: string
   claimedBy?: string
   characterName?: string
+  skills?: Record<string, number>
 }
 
 // Settlement data types based on the API response structure
@@ -553,6 +554,7 @@ export function CharacterClaimOnboardingChoice() {
               onPrimaryChange={setPrimaryProfession}
               onSecondaryChange={setSecondaryProfession}
               allowNone={true}
+              memberSkills={verificationResult?.skills || {}}
             />
 
             {/* Action Buttons */}
