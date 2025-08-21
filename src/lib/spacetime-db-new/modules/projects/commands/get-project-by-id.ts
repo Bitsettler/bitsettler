@@ -14,12 +14,6 @@ export interface MemberContribution {
 
 export interface ProjectDetails extends ProjectWithItems {
   contributions: MemberContribution[];
-  assignedMembers: Array<{
-    id: string;
-    name: string;
-    role: string;
-    assignedAt: Date;
-  }>;
   totalContributions: number;
   contributingMembers: number;
 }
@@ -96,30 +90,13 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       membersData = members || [];
     }
 
-    // Get assigned members (allow empty results)
-    const { data: assignedData, error: assignedError } = await supabase
-      .from('project_members')
-      .select(`
-        id,
-        role,
-        assigned_at,
-        players(id, name)
-      `)
-      .eq('project_id', projectId)
-      .order('assigned_at');
-
-    // Don't throw error if no assignments found, just log and continue
-    if (assignedError && assignedError.code !== 'PGRST116') {
-      console.warn('Error fetching assigned members:', assignedError);
-    }
-
-    // Process the data
+   // Process the data
     const items: ProjectItem[] = (itemsData || []).map(item => ({
       id: item.id,
-      project_id: item.project_id,
-      item_name: item.item_name,
-      required_quantity: item.required_quantity,
-      contributed_quantity: item.current_quantity,
+      projectId: item.project_id,
+      itemName: item.item_name,
+      requiredQuantity: item.required_quantity,
+      currentQuantity: item.current_quantity,
       tier: item.tier,
       priority: item.priority,
       rank_order: item.rank_order,
@@ -143,13 +120,6 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       };
     });
 
-    const assignedMembers = (assignedData || []).map(assigned => ({
-      id: assigned.players?.id || assigned.id,
-      name: assigned.players?.name || 'Unknown Member',
-      role: assigned.role,
-      assignedAt: new Date(assigned.assigned_at),
-    }));
-
     // Calculate completion statistics
     const completedItems = items.filter(item => item.status === 'Completed').length;
     const totalItems = items.length;
@@ -167,7 +137,8 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       description: projectData.description,
       status: projectData.status,
       priority: projectData.priority,
-      createdBy: projectData.created_by,
+      createdByMemberId: projectData.created_by_player_id,
+      settlementId: projectData.settlement_id,
       ownerName: projectData.owner?.name || null,
       createdAt: new Date(projectData.created_at),
       updatedAt: new Date(projectData.updated_at),
@@ -176,7 +147,6 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       totalItems,
       completedItems,
       contributions,
-      assignedMembers,
       totalContributions,
       contributingMembers,
     };

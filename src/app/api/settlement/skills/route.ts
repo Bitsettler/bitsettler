@@ -6,12 +6,6 @@ interface SkillsAnalytics {
   totalSkills: number;
   averageLevel: number;
   totalSkillPoints: number;
-  professionDistribution: Array<{
-    profession: string;
-    members: number;
-    avgLevel: number;
-    maxLevel: number;
-  }>;
   topSkills: Array<{
     name: string;
     totalMembers: number;
@@ -29,7 +23,12 @@ export async function GET(request: NextRequest) {
   const settlementId = searchParams.get('settlementId');
 
   try {
-    console.log('🎓 Fetching settlement skills analytics from unified table...');
+    if (!settlementId) {
+      return NextResponse.json({
+        success: false,
+        error: 'Settlement ID is required'
+      }, { status: 400 });
+    }
 
     const supabase = createServerClient();
     if (!supabase) {
@@ -42,40 +41,27 @@ export async function GET(request: NextRequest) {
 
     const { data: members, error } = await supabase.rpc('fetch_players_by_claim_entity_id', { claim_id: settlementId });
 
-    // Calculate basic stats - data already aggregated!
+    if (error) {
+      return NextResponse.json({
+        success: false,
+        error: 'Failed to fetch members'
+      }, { status: 500 });
+    }
+
+    if (members.length === 0) {
+      return NextResponse.json({
+        success: false,
+        error: 'No members found'
+      }, { status: 404 });
+    }
+
     const totalMembers = members.length;
     const totalSkillPoints = members.reduce((sum: number, member: any) => sum + (member.total_xp || 0), 0);
-    const totalSkillsCount = members.reduce((sum: number, member: any) => sum + (member.total_skills || 0), 0);
     const averageLevel = totalMembers > 0 ? totalSkillPoints / totalMembers : 0;
-
-
-    // Calculate profession distribution
-    const professionStats: Record<string, { count: number; levels: number[]; }> = {};
-    members.forEach((member: any) => {
-      const profession = member.profession;
-      if (profession) {
-        if (!professionStats[profession]) {
-          professionStats[profession] = { count: 0, levels: [] };
-        }
-        professionStats[profession].count++;
-        professionStats[profession].levels.push(member.highest_level || 0);
-      } else {
-        console.log('No profession found for member:', member);
-      }
-    });
-
-    const professionDistribution = Object.entries(professionStats).map(([profession, stats]) => ({
-      profession,
-      members: stats.count,
-      avgLevel: stats.levels.length > 0 ? stats.levels.reduce((sum, level) => sum + level, 0) / stats.levels.length : 0,
-      maxLevel: stats.levels.length > 0 ? Math.max(...stats.levels) : 0
-    })).sort((a, b) => b.members - a.members);
-
-    // Aggregate individual skills - skills already in correct format!
+    
     const skillAggregation: Record<string, { levels: number[]; members: Set<string> }> = {};
     
     members.forEach((member: any) => {
-      // Skills are already in {skillName: level} format!
       const skills = member.skills || {};
       
       Object.entries(skills).forEach(([skillName, level]) => {
@@ -88,8 +74,7 @@ export async function GET(request: NextRequest) {
         }
       });
     });
-
-    // Calculate top skills
+    
     const topSkills = Object.entries(skillAggregation)
       .map(([skillName, data]) => ({
         name: skillName,
@@ -99,8 +84,7 @@ export async function GET(request: NextRequest) {
       }))
       .sort((a, b) => b.totalMembers - a.totalMembers)
       .slice(0, 10);
-
-    // Calculate skill level distribution - using pre-calculated highest_level
+    
     const levelCounts = { '1-5': 0, '6-10': 0, '11-20': 0, '21+': 0 };
     members.forEach((member: any) => {
       const highestLevel = member.highest_level || 0;
@@ -119,17 +103,9 @@ export async function GET(request: NextRequest) {
       totalSkills: Object.keys(skillAggregation).length,
       averageLevel: Math.round(averageLevel * 10) / 10,
       totalSkillPoints,
-      professionDistribution,
       topSkills,
       skillLevelDistribution
     };
-
-    console.log(`✅ Skills analytics calculated:`, {
-      totalMembers,
-      totalSkills: analytics.totalSkills,
-      averageLevel: analytics.averageLevel,
-      dataSource: 'unified_settlement_members'
-    });
 
     return NextResponse.json({
       success: true,

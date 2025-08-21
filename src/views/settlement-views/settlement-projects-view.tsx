@@ -205,6 +205,7 @@ export function SettlementProjectsView() {
       if (result.success) {
         // Remove from local state immediately
         setProjects(prev => prev.filter(p => p.short_id !== projectId));
+        router.refresh();
         toast.success('Project deleted successfully!');
       } else {
         throw new Error(result.error || 'Failed to delete project');

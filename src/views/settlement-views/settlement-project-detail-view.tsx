@@ -40,7 +40,6 @@ import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
 import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
 import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows/get-calculator-game-data';
-import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/shared/assets';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
