@@ -200,6 +200,7 @@ export interface Database {
           description: string;
           related_project_id: string | null;
           related_member_id: string | null;
+          settlement_id: string | null;
           source: string | null;
           is_recurring: boolean;
           recurring_frequency: string | null;
@@ -216,6 +217,7 @@ export interface Database {
           description: string;
           related_project_id?: string | null;
           related_member_id?: string | null;
+          settlement_id?: string | null;
           source?: string | null;
           is_recurring?: boolean;
           recurring_frequency?: string | null;
@@ -232,6 +234,7 @@ export interface Database {
           description?: string;
           related_project_id?: string | null;
           related_member_id?: string | null;
+          settlement_id?: string | null;
           source?: string | null;
           is_recurring?: boolean;
           recurring_frequency?: string | null;
