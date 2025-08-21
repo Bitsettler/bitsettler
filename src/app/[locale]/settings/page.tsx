@@ -74,15 +74,15 @@ export default function SettingsPage() {
 
         {/* Tabbed Interface */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="account" className="flex items-center gap-2">
               <User className="h-4 w-4" />
               Account & Profile
             </TabsTrigger>
-            <TabsTrigger value="settlement" className="flex items-center gap-2">
+            {/* <TabsTrigger value="settlement" className="flex items-center gap-2">
               <Building className="h-4 w-4" />
               Settlement
-            </TabsTrigger>
+            </TabsTrigger> */}
             <TabsTrigger value="preferences" className="flex items-center gap-2">
               <SettingsIcon className="h-4 w-4" />
               Preferences
@@ -95,9 +95,9 @@ export default function SettingsPage() {
           </TabsContent>
 
           {/* Settlement Tab */}
-          <TabsContent value="settlement" className="space-y-6">
+          {/* <TabsContent value="settlement" className="space-y-6">
             <SettlementManageView />
-          </TabsContent>
+          </TabsContent> */}
 
           {/* Preferences Tab */}
           <TabsContent value="preferences" className="space-y-6">

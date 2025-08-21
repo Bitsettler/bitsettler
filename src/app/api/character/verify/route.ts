@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { BitJitaAPI, PlayerProfile } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
 
 // Initialize Supabase client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -32,15 +33,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const profileResult = await BitJitaAPI.fetchPlayerProfile(characterId);
+  
+    if (!profileResult.success || !profileResult.data) {
+      console.error('❌ Failed to fetch character profile from BitJita:', profileResult.error);
+      return NextResponse.json(
+        { success: false, error: 'Character not found or BitJita API error' },
+        { status: 404 }
+      );
+    }
+
+    const profile = profileResult.data as PlayerProfile;
+    const skills = profile.skills;
+
     if (!existingClaim) {
       return NextResponse.json({
         success: true,
         data: {
           isClaimed: false,
-          message: 'Character not claimed - available for claiming'
+          message: 'Character not claimed - available for claiming',
+          skills: skills
         }
       });
     }
+
 
     if (existingClaim.supabase_user_id) {
       return NextResponse.json({
@@ -52,13 +68,16 @@ export async function POST(request: NextRequest) {
         }
       });
     }
+    
+    
 
     return NextResponse.json({
       success: true,
       data: {
         isClaimed: false,
         message: 'Character is available for claiming',
-        characterName: existingClaim.name
+        characterName: existingClaim.name,
+        skills: skills
       }
     });
 

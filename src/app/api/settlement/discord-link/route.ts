@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '../../../../lib/supabase-server-auth';
-import { UUID } from 'crypto';
 
 export async function POST(request: NextRequest) {
   try {
@@ -41,7 +40,7 @@ export async function POST(request: NextRequest) {
     // User must be a member with officer or co-owner permissions
     const { data: memberData, error: memberError } = await supabase
       .from('players')
-      .select('officer_permission, co_owner_permission')
+      .select('*')
       .eq('claim_settlement_id', settlementId)
       .eq('supabase_user_id', user.id as any)
       .single();
@@ -53,12 +52,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const memberSettlements = memberData?.settlements as any[];
+
+    const permissions = memberSettlements.find((settlement: any) => settlement.claimEntityId === settlementId);
+
     // Check if user has management permissions (flexible with permission types)
-    const hasManagementPermission = 
-      memberData.officer_permission > 0 || 
-      memberData.officer_permission === true ||
-      memberData.co_owner_permission > 0 || 
-      memberData.co_owner_permission === true;
+    const hasManagementPermission = permissions.officerPermission == 1 || permissions.coOwnerPermission == 1;
     
     if (!hasManagementPermission) {
       return NextResponse.json(

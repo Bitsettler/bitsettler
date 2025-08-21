@@ -245,15 +245,6 @@ export function UserNav() {
             </DropdownMenuItem>
           )}
 
-          {/* Settlement Admin - Officers/Co-Owners only */}
-          {userRole?.canManageSettlement && (
-            <DropdownMenuItem asChild>
-              <a href="/en/settlement/manage">
-                <Shield className="mr-2 h-4 w-4" />
-                <span>Settlement Admin</span>
-              </a>
-            </DropdownMenuItem>
-          )}
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
