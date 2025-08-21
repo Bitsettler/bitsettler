@@ -5,19 +5,15 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AlertCircle, Users, Home, RefreshCw } from 'lucide-react';
 import { Container } from '@/components/container';
-import { useCurrentMember } from '@/hooks/use-current-member';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
+import { Player } from '@/hooks/use-claim-player';
 
 interface FormerMemberViewProps {
-  member: {
-    name: string;
-    settlement_id: string;
-    last_login_timestamp?: string | null;
-    joined_settlement_at?: string | null;
-  };
+  member: Player;
 }
 
 export function FormerMemberView({ member }: FormerMemberViewProps) {
-  const { refetch } = useCurrentMember();
+  const { refetch } = useClaimPlayerContext();
 
   const handleRefresh = () => {
     // Refresh member data to check if they've been re-added to settlement

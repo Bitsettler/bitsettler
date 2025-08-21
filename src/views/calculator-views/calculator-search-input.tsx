@@ -5,6 +5,7 @@ import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { DEFAULT_ICON_PATH } from '@/constants/assets'
 import type { CalculatorItem } from '@/lib/spacetime-db-new/shared/dtos/calculator-dtos'
 import { getTierColor } from '@/lib/spacetime-db-new/shared/utils/entities'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -57,9 +58,7 @@ export function CalculatorSearchInput({
         <div className="truncate font-medium">{option.label}</div>
         <div className="flex items-center gap-1">
           {option.tier !== -1 && (
-            <Badge variant="outline" className={getTierColor(option.tier || 1)}>
-              Tier {option.tier}
-            </Badge>
+            <BricoTierBadge tier={option.tier || 1} size="sm" className="shrink-0" />
           )}
           <Badge
             variant="outline"

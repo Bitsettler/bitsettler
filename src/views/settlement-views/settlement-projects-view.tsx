@@ -2,17 +2,14 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
-import { useCurrentMember } from '@/hooks/use-current-member';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 import { useRouter } from 'next/navigation';
 import { 
   Plus, 
   Package, 
   Clock, 
   CheckCircle2, 
-  Filter,
   Search,
-  ChevronRight,
-  Minus,
   Target,
   MoreHorizontal,
   Trash2,
@@ -31,7 +28,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
-import { getSettlementTierBadgeClasses } from '@/lib/settlement/tier-colors';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
 
 interface ProjectWithItems {
@@ -75,7 +71,7 @@ const priorityLabels = {
 
 export function SettlementProjectsView() {
   const { data: session } = useSession();
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
    const router = useRouter();
    
   // Core state
@@ -114,7 +110,7 @@ export function SettlementProjectsView() {
       setError(null);
       
       const params = new URLSearchParams({
-        settlementId: member?.settlement_id,
+        settlementId: member?.claim_settlement_id || 'solo',
         includeItems: 'true',
         ...(statusFilter !== 'all' && { status: statusFilter }),
       });
@@ -169,7 +165,7 @@ export function SettlementProjectsView() {
         description: createDescription.trim() || null,
         priority: createData.priority,
         createdByMemberId: member.id, // Required field
-        settlementId: member.settlement_id, // Required field
+        settlementId: member.claim_settlement_id, // Required field
         items: [] // Start with empty items, user adds them in detail view
       });
 
@@ -209,6 +205,7 @@ export function SettlementProjectsView() {
       if (result.success) {
         // Remove from local state immediately
         setProjects(prev => prev.filter(p => p.short_id !== projectId));
+        router.refresh();
         toast.success('Project deleted successfully!');
       } else {
         throw new Error(result.error || 'Failed to delete project');

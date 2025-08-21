@@ -1,6 +1,7 @@
 'use client'
 
 import { createBrowserClient } from '@supabase/ssr'
+import { createClient } from '@supabase/supabase-js'
 import type { Database } from '@/lib/spacetime-db-new/shared/supabase-client'
 
 // Create Supabase client for auth with SSR cookie support
@@ -101,7 +102,7 @@ export const auth = {
   },
 
   // Listen to auth state changes
-  onAuthStateChange(callback: (event: string, session: { user?: { id: string; email?: string; name?: string } } | null) => void) {
+  onAuthStateChange(callback: (event: string, session: any) => void) {
     return supabase.auth.onAuthStateChange(callback)
   }
 }

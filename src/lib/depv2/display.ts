@@ -124,7 +124,7 @@ function buildIndex() {
     const slug = readSlug(it)
     
     // Get skill from recipe mapping or try to read from item data
-    let skill = itemToSkill.get(id) ?? readSkill(it)
+    const skill = itemToSkill.get(id) ?? readSkill(it)
     
     // Debug: Log skill resolution for specific items
     if (name.includes('Crop Oil') || name.includes('Gypsite') || 

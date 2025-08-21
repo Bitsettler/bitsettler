@@ -118,7 +118,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
 
     // Get all existing settlements to compare
     const { data: existingSettlements, error: fetchError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('id, name, tier, treasury, supplies, tiles, population, last_synced_at');
 
     if (fetchError) {
@@ -147,7 +147,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         const existing = existingSettlementsMap.get(settlement.id);
         
         const { error: upsertError } = await supabase
-          .from('settlements_master')
+          .from('settlements')
           .upsert({
             // Core settlement data
             id: settlement.id,
@@ -184,24 +184,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
             onConflict: 'id' 
           });
 
-        // Generate invite code for new settlements
-        if (!existing && !upsertError) {
-          try {
-            const { data: inviteCode, error: codeError } = await supabase
-              .rpc('create_settlement_invite_code', {
-                p_settlement_id: settlement.id,
-                p_generated_by: 'sync_process'
-              });
-            
-            if (codeError) {
-              console.error(`❌ Failed to generate invite code for ${settlement.name}:`, codeError);
-            } else {
-              console.log(`✅ Generated invite code ${inviteCode} for new settlement: ${settlement.name}`);
-            }
-          } catch (error) {
-            console.error(`❌ Error generating invite code for ${settlement.name}:`, error);
-          }
-        }
+
 
         if (upsertError) {
           console.error(`Error upserting settlement ${settlement.name}:`, upsertError);
@@ -227,7 +210,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     
     const { data: outdatedSettlements, error: outdatedError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('id')
       .eq('is_active', true)
       .lt('last_synced_at', oneDayAgo)
@@ -235,7 +218,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
 
     if (!outdatedError && outdatedSettlements && outdatedSettlements.length > 0) {
       const { error: deactivateError } = await supabase
-        .from('settlements_master')
+        .from('settlements')
         .update({ is_active: false })
         .in('id', outdatedSettlements.map(s => s.id));
 

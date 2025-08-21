@@ -190,9 +190,9 @@ export async function getSettlementMemberFromUser(
   try {
     // Try to find existing settlement member using player_entity_id
     const { data: member, error } = await supabase
-      .from('settlement_members')
-      .select('id, name, player_entity_id')
-      .eq('player_entity_id', settlementMemberId)
+      .from('players')
+      .select('id, name')
+      .eq('id', settlementMemberId)
       .single()
     
     if (error || !member) {

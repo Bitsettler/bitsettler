@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     console.log('Attempting to update avatar for user:', session.user.id, 'with URL:', avatar_url)
     
     const { data, error } = await supabase
-      .from('settlement_members')
+      .from('players')
       .update({ avatar_url })
       .eq('supabase_user_id', session.user.id)
       .select()
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
       })
       
       // If the column doesn't exist, return success but log it
-      if (error.message?.includes('column "avatar_url" of relation "settlement_members" does not exist')) {
+      if (error.message?.includes('column "avatar_url" of relation "players" does not exist')) {
         console.warn('Avatar column does not exist in database yet, skipping update')
         return NextResponse.json({ 
           success: true, 

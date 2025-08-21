@@ -28,7 +28,7 @@ export async function getMemberById(memberId: string): Promise<MemberWithSkills 
   try {
     // Get member details using player_entity_id (BitJita character ID)
     const { data: memberData, error: memberError } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('*')
       .eq('player_entity_id', memberId)
       .single();

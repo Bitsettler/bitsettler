@@ -6,6 +6,7 @@ import type { ItemIndexEntry } from '@/lib/depv2/itemIndex'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge'
 
 interface ItemPickerProps {
   value?: string
@@ -37,6 +38,13 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
   // Search when query changes
   useEffect(() => {
     if (query.trim()) {
+      // Don't search if query exactly matches the selected item
+      if (selectedItem && query === selectedItem.name) {
+        setResults([])
+        setIsOpen(false)
+        return
+      }
+      
       const searchResults = searchItems(query, 10)
       setResults(searchResults)
       setIsOpen(searchResults.length > 0)
@@ -44,7 +52,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
       setResults([])
       setIsOpen(false)
     }
-  }, [query])
+  }, [query, selectedItem])
   
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -66,13 +74,23 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
   const handleSelectItem = (item: ItemIndexEntry) => {
     setSelectedItem(item)
     setQuery(item.name || item.id)
+    setResults([]) // Clear results immediately
     setIsOpen(false)
     onChange(item.id)
+    // Blur the input to prevent refocus issues
+    if (inputRef.current) {
+      inputRef.current.blur()
+    }
   }
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
-    if (!e.target.value.trim()) {
+    const newQuery = e.target.value
+    setQuery(newQuery)
+    
+    // Clear selected item if query doesn't match anymore
+    if (!newQuery.trim()) {
+      setSelectedItem(null)
+    } else if (selectedItem && newQuery !== selectedItem.name) {
       setSelectedItem(null)
     }
   }
@@ -94,7 +112,10 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         onFocus={() => {
-          if (results.length > 0) setIsOpen(true)
+          // Only open if we have results and no selected item, or if query doesn't match selected item
+          if (results.length > 0 && (!selectedItem || query !== selectedItem.name)) {
+            setIsOpen(true)
+          }
         }}
         placeholder="Search items by name or ID..."
         className="w-full"
@@ -118,9 +139,7 @@ export default function ItemPicker({ value, onChange }: ItemPickerProps) {
                 </span>
                 <div className="flex items-center gap-1 ml-auto">
                   {item.tier && (
-                    <Badge variant="outline" className="text-xs">
-                      T{item.tier}
-                    </Badge>
+                                                <BricoTierBadge tier={item.tier} size="sm" className="shrink-0" />
                   )}
                   {item.craftable && (
                     <Badge variant="secondary" className="text-xs">

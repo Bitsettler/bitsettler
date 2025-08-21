@@ -46,9 +46,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Listen for auth changes
     const { data: { subscription } } = auth.onAuthStateChange(
       async (event, session) => {
-        setSession(session)
-        setUser(session?.user ?? null)
+        setSession(session as AuthSession | null)
+        setUser(session?.user as AuthUser | null)
         
+        // Only update avatar on SIGNED_IN event (not on every auth state change)
         if (event === 'SIGNED_IN' && session?.user) {
           // Store Discord avatar if available
           const avatarUrl = session.user.user_metadata?.avatar_url

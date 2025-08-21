@@ -40,7 +40,6 @@ const MAX_ARRAY_LENGTH = 1000;   // Prevent array overflow attacks
 // Common patterns
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const INVITE_CODE_PATTERN = /^[A-Z0-9]{6}$/;
 const ALPHANUMERIC_PATTERN = /^[a-zA-Z0-9\s-_]+$/;
 
 // ===== SANITIZATION =====
@@ -98,12 +97,7 @@ export function isValidEmail(value: string): boolean {
   return typeof value === 'string' && EMAIL_PATTERN.test(value);
 }
 
-/**
- * Validate invite code format
- */
-export function isValidInviteCode(value: string): boolean {
-  return typeof value === 'string' && INVITE_CODE_PATTERN.test(value);
-}
+
 
 /**
  * Validate that a value is a safe string (alphanumeric + basic chars)
@@ -301,17 +295,6 @@ export function validateQueryParams(
 // ===== COMMON SCHEMAS =====
 
 export const SETTLEMENT_SCHEMAS = {
-  join: {
-    inviteCode: {
-      required: true,
-      type: 'string' as const,
-      minLength: 6,
-      maxLength: 6,
-      pattern: INVITE_CODE_PATTERN,
-      sanitize: true,
-      custom: (value: string) => value.toUpperCase() === value || 'Invite code must be uppercase'
-    }
-  },
   
   claimCharacter: {
     playerEntityId: {
@@ -320,20 +303,6 @@ export const SETTLEMENT_SCHEMAS = {
       minLength: 1,
       maxLength: 50,
       pattern: /^[0-9]+$/,  // BitJita player_entity_id are numeric strings
-      sanitize: true
-    },
-    settlementId: {
-      required: true,
-      type: 'string' as const,
-      minLength: 1,
-      maxLength: 50,
-      sanitize: true
-    },
-    displayName: {
-      required: false,
-      type: 'string' as const,
-      minLength: 1,
-      maxLength: 50,
       sanitize: true
     },
     primaryProfession: {
@@ -350,11 +319,13 @@ export const SETTLEMENT_SCHEMAS = {
       maxLength: 50,
       sanitize: true
     },
-    replaceExisting: {
+    settlementId: {
       required: false,
-      type: 'boolean' as const,
-      default: false
-    }
+      type: 'string' as const,
+      minLength: 1,
+      maxLength: 50,
+      sanitize: true
+    },
   },
   
   contribution: {

@@ -36,7 +36,7 @@ graph TB
 2. System checks for existing claimed character (`auth_user_id`)
 3. If no character claimed, redirect to character selection
 4. User selects their in-game character from settlement roster
-5. System links Supabase `user.id` to `settlement_members.auth_user_id`
+5. System links Supabase `user.id` to `players.auth_user_id`
 6. Character permissions sync from in-game data
 
 ### 3. Role-Based Access Control
@@ -134,24 +134,24 @@ All settlement-related tables have RLS enabled:
 
 ```sql
 -- Users can only access their own data
-CREATE POLICY "Users can update their own data" ON settlement_members
+CREATE POLICY "Users can update their own data" ON players
   FOR UPDATE USING (auth_user_id = auth.uid()::text);
 
 -- Users can view settlement data they belong to
-CREATE POLICY "Users can view settlement data" ON settlement_projects
+CREATE POLICY "Users can view settlement data" ON projects
   FOR SELECT USING (
     EXISTS (
-      SELECT 1 FROM settlement_members 
+      SELECT 1 FROM players 
       WHERE auth_user_id = auth.uid()::text 
-      AND settlement_id = settlement_projects.settlement_id
+      AND settlement_id = projects.settlement_id
     )
   );
 ```
 
 #### User-Settlement Linking
 ```sql
--- settlement_members table
-CREATE TABLE settlement_members (
+-- players table
+CREATE TABLE players (
   id UUID PRIMARY KEY,
   auth_user_id TEXT UNIQUE, -- Supabase Auth user.id
   name TEXT NOT NULL,       -- In-game character name
@@ -299,7 +299,7 @@ console.log('Server session:', session)
 - `src/app/auth/callback/route.ts` - OAuth callback handler
 
 ### Key Database Tables
-- `settlement_members` - User-character mapping with permissions
+- `players` - User-character mapping with permissions
 - `auth.users` - Supabase managed user accounts (read-only)
 
 ### Key Environment Variables

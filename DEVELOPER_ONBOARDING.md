@@ -166,8 +166,8 @@ import { useSession } from '@/hooks/use-auth';
 const { data: { user, session }, status } = useSession();
 
 // Get current member data  
-import { useCurrentMember } from '@/hooks/use-current-member';
-const { member, loading, error } = useCurrentMember();
+import { useClaimPlayer } from '@/hooks/use-current-member';
+const { member, loading, error } = useClaimPlayer();
 
 // Check permissions
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions';
@@ -411,7 +411,7 @@ Based on `TODO.md`, focus areas are:
 
 ### **Technical Documentation**
 - **[Authentication System](./docs/AUTHENTICATION.md)** - Complete auth architecture
-- **[Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md)** - Code examples and patterns
+- **[Auth Developer Guide](./docs/AUTH_DEVELOPER_GUIDE.md)** - Code examples and patterns  
 - **[BitJita Integration](./SETTLEMENT-MANAGEMENT_REFERENCE.md)** - External API details
 
 ### **External APIs & Tools**

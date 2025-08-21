@@ -50,7 +50,7 @@ async function handleUpdateProjectItem(
 
   if (isProjectNumber) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('project_number', parseInt(projectId))
       .single();
@@ -71,7 +71,7 @@ async function handleUpdateProjectItem(
   try {
     // First, check if the item exists and belongs to this project
     const { data: existingItem, error: fetchError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('id, item_name, project_id, required_quantity')
       .eq('id', itemId)
       .eq('project_id', actualProjectId)
@@ -83,7 +83,7 @@ async function handleUpdateProjectItem(
 
     // Update the project item
     const { data: updatedItem, error: updateError } = await supabase
-      .from('project_items')
+      .from('items')
       .update({ required_quantity })
       .eq('id', itemId)
       .eq('project_id', actualProjectId)
@@ -148,7 +148,7 @@ async function handleDeleteProjectItem(
 
   if (isProjectNumber) {
     const { data: project } = await supabase
-      .from('settlement_projects')
+      .from('projects')
       .select('id')
       .eq('project_number', parseInt(projectId))
       .single();
@@ -169,7 +169,7 @@ async function handleDeleteProjectItem(
   try {
     // First, check if the item exists and belongs to this project
     const { data: existingItem, error: fetchError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('id, item_name, project_id')
       .eq('id', itemId)
       .eq('project_id', actualProjectId)
@@ -181,7 +181,7 @@ async function handleDeleteProjectItem(
 
     // Delete the project item
     const { error: deleteError } = await supabase
-      .from('project_items')
+      .from('items')
       .delete()
       .eq('id', itemId)
       .eq('project_id', actualProjectId);

@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 
     // Get user's settlement member ID first
     const { data: member } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id')
       .eq('supabase_user_id', session.user.id)
       .single();
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     // Get user's settlement member ID first
     const { data: member } = await supabase
-      .from('settlement_members')
+      .from('players')
       .select('id')
       .eq('supabase_user_id', session.user.id)
       .single();

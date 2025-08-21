@@ -85,7 +85,7 @@ export async function GET(request: Request) {
 
   // Get user's settlement member data
   const { data: member } = await supabase
-    .from('settlement_members')
+    .from('players')
     .select('*')
     .eq('auth_user_id', session.user.id)
     .single()
@@ -165,7 +165,7 @@ import { supabase } from '@/lib/supabase-auth'
 
 // This automatically respects RLS policies
 const { data: projects } = await supabase
-  .from('settlement_projects')
+  .from('projects')
   .select('*')
   // User can only see projects from their settlement
 ```
@@ -176,7 +176,7 @@ import { supabase } from '@/lib/spacetime-db-new/shared/supabase-client'
 
 // When using service role, you must manually filter
 const { data: projects } = await supabase
-  .from('settlement_projects')
+  .from('projects')
   .select('*')
   .eq('settlement_id', userSettlementId) // Manual filtering required
 ```
@@ -185,10 +185,10 @@ const { data: projects } = await supabase
 
 ### Check if User Has Claimed Character
 ```typescript
-import { useCurrentMember } from '@/hooks/use-current-member'
+import { useClaimPlayer } from '@/hooks/use-current-member'
 
 function CharacterStatus() {
-  const { member, loading, error } = useCurrentMember()
+  const { member, loading, error } = useClaimPlayer()
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error: {error}</div>
@@ -339,7 +339,7 @@ const { canManageProjects, canManageTreasury, canManageSettlement } = userRole |
 ```typescript
 import { useQuery } from '@tanstack/react-query'
 
-function useCurrentMemberCached() {
+function useClaimPlayerCached() {
   return useQuery({
     queryKey: ['current-member'],
     queryFn: async () => {
@@ -381,7 +381,7 @@ function useCurrentMemberCached() {
 
 **"Character not claimed"**
 - User needs to complete character claiming process
-- Check if `auth_user_id` is set in `settlement_members` table
+- Check if `auth_user_id` is set in `players` table
 - Verify character claiming API is working
 
 **"Access denied"**

@@ -25,23 +25,11 @@ export interface GameItem {
 }
 
 /**
- * Settlement establishment/join callback data
+ * Settlement establishment callback data
  */
-export interface SettlementJoinData {
-  settlement_id: string;
-  settlement_name: string;
-  character_id?: string;
-  character_name?: string;
-  invite_code?: string;
-  success: boolean;
-  message?: string;
-  errors?: string[];
-}
-
 export interface SettlementEstablishData {
   settlement_id: string;
   settlement_name: string;
-  invite_code: string;
   character_id?: string;
   character_name?: string;
   member_count: number;

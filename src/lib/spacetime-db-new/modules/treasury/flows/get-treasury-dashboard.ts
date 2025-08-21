@@ -1,18 +1,10 @@
 import { 
-  getTreasurySummary, 
-  getTreasuryStats, 
   getTreasuryTransactions, 
-  getTreasuryCategories,
-  type TreasurySummary, 
-  type TreasuryStats, 
   type TreasuryTransaction 
 } from '../commands';
 
 export interface TreasuryDashboard {
-  summary: TreasurySummary | null;
-  stats: TreasuryStats;
   recentTransactions: TreasuryTransaction[];
-  categories: Array<{ id: string; name: string; type: string; color: string | null }>;
   monthlyBreakdown: {
     income: Array<{ category: string; amount: number; count: number }>;
     expenses: Array<{ category: string; amount: number; count: number }>;
@@ -26,11 +18,8 @@ export interface TreasuryDashboard {
 export async function getTreasuryDashboard(): Promise<TreasuryDashboard> {
   try {
     // Fetch core data in parallel
-    const [summary, stats, recentTransactions, categories] = await Promise.all([
-      getTreasurySummary(),
-      getTreasuryStats(),
+    const [recentTransactions] = await Promise.all([
       getTreasuryTransactions({ limit: 20 }), // Last 20 transactions
-      getTreasuryCategories(),
     ]);
 
     // Calculate monthly breakdown by category
@@ -74,10 +63,7 @@ export async function getTreasuryDashboard(): Promise<TreasuryDashboard> {
       .sort((a, b) => b.amount - a.amount);
 
     return {
-      summary,
-      stats,
       recentTransactions,
-      categories,
       monthlyBreakdown: {
         income,
         expenses,

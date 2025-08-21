@@ -17,7 +17,7 @@
     "title": "Bitsettler",
     "subtitle": "Votre guide complet pour les colonies, ressources et artisanat BitCraft",
     "navigation": {
-      "calculator": "Calculateur",
+      "calculator": "Calculateur Visuel",
       "compendium": "Compendium",
       "wiki": "Wiki",
       "projects": "Projets"
@@ -43,7 +43,8 @@
     "deployables": "Déployables",
     "seeAll": "Voir tout",
     "tools": "Outils",
-    "calculator": "Calculateur",
+    "calculator": "Calculateur Visuel",
+    "calculatorNew": "Calculateur de Projets",
     "projects": "Projets",
     "comingSoon": "Bientôt disponible",
     "settlement": "Colonie",

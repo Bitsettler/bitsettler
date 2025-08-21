@@ -26,7 +26,6 @@ export interface SettlementMemberV2 {
   highest_level: number;
   total_level: number;
   total_xp: number;
-  top_profession: string;
   
   // Permissions (unchanged)
   inventory_permission: number;
@@ -125,7 +124,6 @@ export function memberV2ToLegacy(memberV2: SettlementMemberV2): any {
     highest_level: memberV2.highest_level,
     total_level: memberV2.total_level,
     total_xp: memberV2.total_xp,
-    top_profession: memberV2.top_profession,
     
     inventory_permission: memberV2.inventory_permission,
     build_permission: memberV2.build_permission,
@@ -177,7 +175,6 @@ export function legacyToMemberV2(legacyMember: any): SettlementMemberV2 {
     highest_level: legacyMember.highest_level || 0,
     total_level: legacyMember.total_level || 0,
     total_xp: legacyMember.total_xp || 0,
-    top_profession: legacyMember.top_profession || 'Unknown',
     
     inventory_permission: legacyMember.inventory_permission || 0,
     build_permission: legacyMember.build_permission || 0,

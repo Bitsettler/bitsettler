@@ -59,10 +59,10 @@ export async function getAllProjects(options: GetAllProjectsOptions): Promise<Se
 
   try {
     let query = supabase
-      .from('settlement_projects')
+      .from('projects')
       .select(`
         *,
-        owner:settlement_members!created_by_member_id(
+        owner:players!created_by_player_id(
           id,
           name
         )
@@ -101,7 +101,7 @@ export async function getAllProjects(options: GetAllProjectsOptions): Promise<Se
       description: project.description,
       status: project.status,
       priority: project.priority,
-      createdByMemberId: project.created_by_member_id,
+      createdByMemberId: project.created_by_player_id,
       settlementId: project.settlement_id,
       ownerName: project.owner?.name || null,
       createdAt: new Date(project.created_at),
@@ -137,7 +137,7 @@ export async function getAllProjectsWithItems(options: GetAllProjectsOptions): P
     const projectIds = projects.map(p => p.id);
     
     const { data: itemsData, error: itemsError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('*')
       .in('project_id', projectIds)
       .order('rank_order')
@@ -165,7 +165,7 @@ export async function getAllProjectsWithItems(options: GetAllProjectsOptions): P
         priority: item.priority,
         rankOrder: item.rank_order,
         status: item.status,
-        assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
+        assignedMemberId: null, // assigned_member_id column doesn't exist in items table
         notes: null, // TEMPORARILY SET TO NULL since column doesn't exist
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),

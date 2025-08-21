@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/hooks/use-auth'
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions'
-import { useCurrentMember } from '@/hooks/use-current-member'
+import { useClaimPlayerContext } from '@/contexts/claim-player-context'
 import { useRouter } from 'next/navigation'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -35,7 +35,7 @@ import {
 export function UserNav() {
   const { user, session, loading, signOut } = useAuth()
   const { userRole, permissions, loading: permissionsLoading } = useSettlementPermissions()
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember()
+  const { member, isLoading: memberLoading, isClaimed } = useClaimPlayerContext()
   const router = useRouter()
 
   const handleSignIn = () => {
@@ -179,9 +179,9 @@ export function UserNav() {
             Character
           </DropdownMenuLabel>
           <DropdownMenuItem asChild>
-            <a href="/en/auth/switch-character">
+            <a href="/en/auth/claim-settlement">
               <RefreshCw className="mr-2 h-4 w-4" />
-              <span>Switch Character</span>
+              <span>Claim Settlement</span>
             </a>
           </DropdownMenuItem>
         </DropdownMenuGroup>
@@ -264,7 +264,7 @@ export function UserNav() {
             Support
           </DropdownMenuLabel>
           <DropdownMenuItem asChild>
-            <a href="/help" target="_blank">
+            <a href="/contact" target="_blank">
               <HelpCircle className="mr-2 h-4 w-4" />
               <span>Get Help</span>
             </a>

@@ -92,7 +92,7 @@ if (!session?.user) {
 
 // User must have claimed a settlement character
 const { data: member } = await supabase
-  .from('settlement_members')
+  .from('players')
   .select('*')
   .eq('supabase_user_id', session.user.id)
   .single();
@@ -119,12 +119,12 @@ Settlement data visibility depends on user's in-game role:
 
 ```sql
 -- Example RLS policy protecting settlement data
-CREATE POLICY "Users can view settlement data" ON settlement_projects
+CREATE POLICY "Users can view settlement data" ON projects
   FOR SELECT USING (
     EXISTS (
-      SELECT 1 FROM settlement_members 
+      SELECT 1 FROM players 
       WHERE supabase_user_id = auth.uid()::text 
-      AND settlement_id = settlement_projects.settlement_id
+      AND settlement_id = projects.settlement_id
     )
   );
 ```
@@ -374,10 +374,10 @@ await treasuryPollingService.cleanupExcessiveSnapshots(settlementId);
 
 ## 🗄️ **Local Database Schema**
 
-### **settlements_master Table**
+### **settlements Table**
 
 ```sql
-CREATE TABLE settlements_master (
+CREATE TABLE settlements (
     -- Core settlement data
     id TEXT PRIMARY KEY,                  -- BitJita settlement ID
     name TEXT NOT NULL,                   -- Settlement name
@@ -428,20 +428,20 @@ CREATE TABLE treasury_history (
 
 ```sql
 -- Fast name searching
-CREATE INDEX idx_settlements_master_name_normalized 
-ON settlements_master(name_normalized);
+CREATE INDEX idx_settlements_name_normalized 
+ON settlements(name_normalized);
 
 -- Population/tier ranking
-CREATE INDEX idx_settlements_master_population 
-ON settlements_master(population DESC);
+CREATE INDEX idx_settlements_population 
+ON settlements(population DESC);
 
 -- Full-text search
-CREATE INDEX idx_settlements_master_search 
-ON settlements_master USING gin(to_tsvector('english', name_searchable));
+CREATE INDEX idx_settlements_search 
+ON settlements USING gin(to_tsvector('english', name_searchable));
 
 -- Active settlements only
-CREATE INDEX idx_settlements_master_active 
-ON settlements_master(is_active) WHERE is_active = true;
+CREATE INDEX idx_settlements_active 
+ON settlements(is_active) WHERE is_active = true;
 
 -- Treasury history performance
 CREATE INDEX idx_treasury_history_settlement_id ON treasury_history(settlement_id);
@@ -525,7 +525,7 @@ Total Daily API Usage: ~1,920 calls/day
 ```typescript
 // Fast local search with PostgreSQL
 const { data: settlements } = await supabase
-  .from('settlements_master')
+  .from('settlements')
   .select('*')
   .eq('is_active', true)
   .ilike('name_normalized', `%${query.toLowerCase()}%`)
@@ -718,7 +718,7 @@ Returns sync service health and last sync information.
 
 ```bash
 # Run migration to create tables
-psql -f database/migrations/003_settlements_master_list.sql
+psql -f database/migrations/003_settlements_list.sql
 ```
 
 ### **2. Environment Setup**

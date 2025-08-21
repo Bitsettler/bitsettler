@@ -30,7 +30,7 @@ import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 
 import { Logo } from './logo'
-import { useCurrentMember } from '../hooks/use-current-member'
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 // Type definitions for navigation items
 type NavigationItem = {
@@ -65,11 +65,6 @@ import {
 const data = {
   homeItem: { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
   navMain: [
-    // {
-    //   translationLabel: 'sidebar.guides',
-    //   children: [],
-    //   description: 'sidebar.guidesComingSoon'
-    // },
     {
       translationLabel: 'sidebar.settlement',
       children: [
@@ -88,9 +83,46 @@ const data = {
         {
           translationKey: 'sidebar.calculatorNew',
           href: '/calculator-new',
-          icon: CalculatorIcon,
-          badge: 'v2'
+          icon: CalculatorIcon
         }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.compendium',
+      children: [
+        { translationKey: 'sidebar.codex', href: '/compendium/codex', icon: BookOpenIcon },
+        {
+          translationKey: 'sidebar.compendiumTools',
+          href: '/compendium/tools',
+          icon: HammerIcon
+        },
+        { translationKey: 'sidebar.resources', href: '/compendium/resources', icon: MountainsIcon },
+        { translationKey: 'sidebar.buildings', href: '/compendium/buildings', icon: CubeIcon },
+        {
+          translationKey: 'sidebar.deployables',
+          href: '/compendium/collectibles/deployable',
+          icon: TreeIcon
+        },
+        { translationKey: 'sidebar.seeAll', href: '/compendium', icon: ListIcon }
+      ]
+    },
+    {
+      translationLabel: 'sidebar.recentChanges',
+      children: [
+        {
+          translationKey: 'sidebar.changelog',
+          href: '/changelog',
+          icon: BookOpenIcon
+        }
+      ],
+      description: 'sidebar.recentChangesDescription'
+    }
+  ],
+  navSolo: [
+    {
+      translationLabel: 'sidebar.settlement',
+      children: [
+        { translationKey: 'sidebar.myCharacter', href: '/settlement/my-character', icon: UserIcon },
       ]
     },
     {
@@ -133,7 +165,10 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
   const pathname = usePathname()
   const t = useTranslations()
-  const { member, isClaimed } = useCurrentMember()
+  const { member, isClaimed, isSolo } = useClaimPlayerContext()
+
+  // Directly compute navItems without useState to avoid hydration mismatch
+  const navItems = isSolo ? data.navSolo : data.navMain
 
   const isActive = (href: string) => {
     // Exact match for home page
@@ -231,7 +266,7 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
           </SidebarGroupContent>
         </SidebarGroup>
         
-        {data.navMain.map((section) => (
+        {navItems.map((section: any) => (
           <Collapsible
             key={section.translationLabel}
             defaultOpen

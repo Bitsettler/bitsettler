@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
     // Fetch all skill names from cache
     const { data: skillNames, error } = await supabase
-      .from('skill_names')
+      .from('skills')
       .select('skill_id, skill_name')
       .order('skill_name');
 
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
         count: Object.keys(skillMapping).length
       },
       meta: {
-        dataSource: 'cached_skill_names',
+        dataSource: 'cached_skills',
         lastUpdated: new Date().toISOString()
       }
     });

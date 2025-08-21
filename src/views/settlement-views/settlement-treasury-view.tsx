@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useCurrentMember } from '@/hooks/use-current-member';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -26,6 +25,7 @@ import {
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface TreasurySummary {
   id: string;
@@ -35,14 +35,6 @@ interface TreasurySummary {
   lastTransactionDate: Date | null;
   lastUpdated: Date;
   createdAt: Date;
-}
-
-interface TreasuryStats {
-  monthlyIncome: number;
-  monthlyExpenses: number;
-  netChange: number;
-  transactionCount: number;
-  averageTransactionSize: number;
 }
 
 interface TreasuryTransaction {
@@ -64,7 +56,6 @@ interface TreasurySummaryResponse {
   success: boolean;
   data: {
     summary: TreasurySummary | null;
-    stats: TreasuryStats;
   };
   error?: string;
 }
@@ -77,13 +68,6 @@ interface TransactionsResponse {
     limit?: number;
     offset?: number;
   };
-  error?: string;
-}
-
-interface CategoriesResponse {
-  success: boolean;
-  data: Array<{ category: string; count: number }>;
-  count: number;
   error?: string;
 }
 
@@ -135,11 +119,9 @@ const formatHexcoin = (amount: number): string => {
 };
 
 export function SettlementTreasuryView() {
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
   const [summary, setSummary] = useState<TreasurySummary | null>(null);
-  const [stats, setStats] = useState<TreasuryStats | null>(null);
   const [transactions, setTransactions] = useState<TreasuryTransaction[]>([]);
-  const [categories, setCategories] = useState<Array<{ category: string; count: number }>>([]);
   const [loading, setLoading] = useState(true);
   const [transactionsLoading, setTransactionsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -157,7 +139,6 @@ export function SettlementTreasuryView() {
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState<string>('all');
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
@@ -172,9 +153,8 @@ export function SettlementTreasuryView() {
   });
 
   useEffect(() => {
-    if (!memberLoading && member?.settlement_id) {
+    if (!memberLoading && member?.claim_settlement_id) {
       fetchSummaryData();
-      fetchCategories();
       fetchTransactions();
       fetchTreasuryHistory();
 
@@ -187,22 +167,22 @@ export function SettlementTreasuryView() {
       
       return () => clearInterval(interval);
     }
-  }, [memberLoading, member?.settlement_id]);
+  }, [memberLoading, member?.claim_settlement_id]);
 
   useEffect(() => {
     fetchTransactions();
-  }, [typeFilter, categoryFilter, currentPage]);
+  }, [typeFilter, currentPage]);
 
   useEffect(() => {
     fetchTreasuryHistory();
   }, [timeRange, timeUnit]); // Add timeUnit to dependencies
 
   async function fetchSummaryData() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setError(null);
-      const response = await fetch(`/api/settlement/treasury?action=summary&settlementId=${member.settlement_id}`);
+      const response = await fetch(`/api/settlement/treasury?action=summary&settlementId=${member.claim_settlement_id}`);
       const data: TreasurySummaryResponse = await response.json();
 
       if (!data.success) {
@@ -210,37 +190,21 @@ export function SettlementTreasuryView() {
       }
 
       setSummary(data.data.summary);
-      setStats(data.data.stats);
       setLastUpdate(new Date()); // Set lastUpdate when data is successfully fetched
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load treasury data');
     }
   }
 
-  async function fetchCategories() {
-    if (!member?.settlement_id) return;
-    
-    try {
-      const response = await fetch(`/api/settlement/treasury?action=categories&settlementId=${member.settlement_id}`);
-      const data: CategoriesResponse = await response.json();
-
-      if (data.success) {
-        setCategories(data.data || []);
-      }
-    } catch (err) {
-      // Category fetch failed
-    }
-  }
-
   async function fetchTransactions() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setTransactionsLoading(true);
       
       const params = new URLSearchParams({
         action: 'transactions',
-        settlementId: member.settlement_id,
+        settlementId: member.claim_settlement_id,
         limit: itemsPerPage.toString(),
         offset: ((currentPage - 1) * itemsPerPage).toString(),
         includeDetails: 'true',
@@ -248,10 +212,6 @@ export function SettlementTreasuryView() {
 
       if (typeFilter !== 'all') {
         params.append('type', typeFilter);
-      }
-
-      if (categoryFilter !== 'all') {
-        params.append('category', categoryFilter);
       }
 
       const response = await fetch(`/api/settlement/treasury?${params}`);
@@ -271,13 +231,13 @@ export function SettlementTreasuryView() {
   }
 
   async function fetchTreasuryHistory() {
-    if (!member?.settlement_id) return;
+    if (!member?.claim_settlement_id) return;
     
     try {
       setHistoryLoading(true);
       
       const response = await fetch(
-        `/api/settlement/treasury?action=history&settlementId=${member.settlement_id}&timeRange=${timeRange}&timeUnit=${timeUnit}`
+        `/api/settlement/treasury?action=history&settlementId=${member.claim_settlement_id}&timeRange=${timeRange}&timeUnit=${timeUnit}`
       );
       const data: TreasuryHistoryResponse = await response.json();
 
@@ -308,7 +268,7 @@ export function SettlementTreasuryView() {
   }
 
   const handleAddTransaction = async () => {
-    if (!member?.settlement_id || !newTransaction.amount || !newTransaction.transactionType || !newTransaction.description.trim()) {
+    if (!member?.claim_settlement_id || !newTransaction.amount || !newTransaction.transactionType || !newTransaction.description.trim()) {
       toast.error('Please fill in all required fields (amount, type, and description)');
       return;
     }
@@ -322,7 +282,7 @@ export function SettlementTreasuryView() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          settlementId: member.settlement_id,
+          settlementId: member.claim_settlement_id,
           amount: parseFloat(newTransaction.amount),
           transactionType: newTransaction.transactionType,
           category: newTransaction.category || null,
@@ -363,7 +323,7 @@ export function SettlementTreasuryView() {
     (transaction.category && transaction.category.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  if (memberLoading || loading || !member?.settlement_id) {
+  if (memberLoading || loading || !member?.claim_settlement_id) {
     return (
       <Container>
         <div className="space-y-8 py-8">
@@ -443,11 +403,11 @@ export function SettlementTreasuryView() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div>
-                <CardTitle>
-                  Treasury Balance
+                <CardTitle className='text-lg font-bold'>
+                  Treasury History
                 </CardTitle>
-                <div className="text-2xl font-bold mt-1">
-                  {summary ? formatHexcoin(summary.currentBalance) : '---'}
+                <div className="text-base font-bold mt-1">
+                Balance: {summary ? formatHexcoin(summary.currentBalance) : '---'}
                 </div>
               </div>
             </div>
@@ -603,7 +563,7 @@ export function SettlementTreasuryView() {
             <div>
               <CardTitle className="flex items-center gap-2">
                 <Wallet className="h-5 w-5" />
-                Manual Transaction Ledger
+                Officer Ledger
               </CardTitle>
               <CardDescription>
                 Log treasury transactions manually • For officer use
@@ -641,19 +601,7 @@ export function SettlementTreasuryView() {
                 <SelectItem value="Adjustment">Adjustment</SelectItem>
               </SelectContent>
             </Select>
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((cat) => (
-                  <SelectItem key={cat.category} value={cat.category}>
-                    {cat.category} ({cat.count})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+
           </div>
 
           {/* Transaction List */}
@@ -674,7 +622,7 @@ export function SettlementTreasuryView() {
               <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-medium mb-2">No transactions found</h3>
               <p className="text-sm">
-                {searchTerm || typeFilter !== 'all' || categoryFilter !== 'all'
+                {searchTerm || typeFilter !== 'all'
                   ? "Try adjusting your filters"
                   : "Start by adding your first transaction"}
               </p>

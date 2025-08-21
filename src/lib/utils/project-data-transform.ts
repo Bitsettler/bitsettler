@@ -1,6 +1,6 @@
 /**
  * Transform project API response to match frontend expectations
- * Handles the API returning `project_items` instead of `items` and field name mismatches
+ * Handles the API returning `items` instead of `items` and field name mismatches
  */
 export function transformProjectData(apiData: any) {
   const projectData = apiData?.data || apiData;
@@ -13,10 +13,10 @@ export function transformProjectData(apiData: any) {
     return projectData;
   }
   
-  // Legacy format - transform project_items to items
+  // Legacy format - transform items to items
   return {
     ...projectData,
-    items: (projectData.project_items || []).map((item: any) => ({
+    items: (projectData.items || []).map((item: any) => ({
       id: item.id,
       projectId: projectData.id,
       itemName: item.item_name,
@@ -26,15 +26,15 @@ export function transformProjectData(apiData: any) {
       priority: item.priority,
       rankOrder: item.rank_order || 0,
       status: item.status || 'Needed',
-      assignedMemberId: null, // assigned_member_id column doesn't exist in project_items table
+      assignedMemberId: null, // assigned_member_id column doesn't exist in items table
       notes: item.notes,
       createdAt: new Date(item.created_at),
       updatedAt: new Date(item.updated_at)
     })),
-    totalItems: projectData.project_items?.length || 0,
-    completedItems: (projectData.project_items || []).filter((item: any) => item.status === 'Completed').length,
-    completionPercentage: projectData.project_items?.length > 0 
-      ? Math.round(((projectData.project_items || []).filter((item: any) => item.status === 'Completed').length / projectData.project_items.length) * 100)
+    totalItems: projectData.items?.length || 0,
+    completedItems: (projectData.items || []).filter((item: any) => item.status === 'Completed').length,
+    completionPercentage: projectData.items?.length > 0 
+      ? Math.round(((projectData.items || []).filter((item: any) => item.status === 'Completed').length / projectData.items.length) * 100)
       : 0
   };
 }

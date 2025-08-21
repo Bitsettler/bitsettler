@@ -5,7 +5,6 @@
 interface MemberWithProfessions {
   primary_profession?: string | null;
   secondary_profession?: string | null;
-  top_profession?: string | null;
 }
 
 /**
@@ -46,11 +45,6 @@ export function getDisplayProfession(member: MemberWithProfessions): string {
   // Prioritize user-selected primary profession
   if (member.primary_profession) {
     return mapProfessionId(member.primary_profession) || member.primary_profession;
-  }
-  
-  // Fall back to calculated top profession (convert numerical IDs)
-  if (member.top_profession) {
-    return mapProfessionId(member.top_profession) || 'Settler';
   }
   
   // Final fallback

@@ -1,3 +1,4 @@
+import { processExperienceData } from '@/lib/utils';
 import { settlementConfig } from '../../../../config/settlement-config';
 import { transformBitJitaClaims, type RawBitJitaClaim, type BitJitaSettlementDetails } from './bitjita-api-mapping';
 
@@ -70,6 +71,169 @@ export interface SettlementUser {
   lastSyncedAt: string;
 }
 
+/**
+ * Raw BitJita Player Data (from /players/{playerId})
+ * Contains individual player profile, skills, and experience
+ */
+export interface BitJitaRawPlayer {
+  entityId: string;           // Player's unique ID
+  userName: string;           // Display name
+  lastLoginTimestamp?: string;
+  claims: Array<{
+    entityId: string;
+    name: string;
+    tier: number;
+    treasury: number;
+    supplies: number;
+    tiles: number;
+    regionName: string;
+    regionId: string;
+    permissions: {
+      inventory: boolean;
+      build: boolean;
+      officer: boolean;
+      coOwner: boolean;
+    };
+  }>;
+  empires: Array<{
+    entityId: string;
+    name: string;
+    rank: number;
+    donatedShards: number;
+    nobleSince: string;
+  }>;
+  skills: Record<string, {
+    level: number;
+    xp: number;
+    progressToNext: number;
+    tool?: string;
+    toolTier?: number;
+    toolRarity?: string;
+  }>;
+  exploration: {
+    totalExplored: number;
+    totalChunks: number;
+    progress: number;
+    regions: Array<{
+      name: string;
+      explored: number;
+      total: number;
+      progress: number;
+    }>;
+  };
+  inventory?: {
+    toolbelt: Array<{
+      itemId: string;
+      name: string;
+      tier: number;
+      rarity: string;
+      quantity: number;
+    }>;
+    wallet: Array<{
+      itemId: string;
+      name: string;
+      quantity: number;
+    }>;
+    storage: Array<{
+      location: string;
+      items: Array<{
+        itemId: string;
+        name: string;
+        tier: number;
+        rarity: string;
+        quantity: number;
+      }>;
+    }>;
+  };
+}
+
+/**
+ * UNIFIED PLAYER MODEL - Clean player data for our app
+ */
+export interface  PlayerProfile {
+  // Core Identity
+  entityId: string;
+  userName: string;
+  lastLoginTimestamp?: string;
+  
+  // Settlement Memberships
+  settlements: Array<{
+    entityId: string;
+    name: string;
+    tier: number;
+    treasury: number;
+    supplies: number;
+    tiles: number;
+    regionName: string;
+    regionId: string;
+    isOwner: boolean;
+    permissions: {
+      inventory: boolean;
+      build: boolean;
+      officer: boolean;
+      coOwner: boolean;
+    };
+  }>;
+  
+  // Empire Memberships
+  empires: Array<{
+    entityId: string;
+    name: string;
+    rank: number;
+    donatedShards: number;
+    nobleSince: string;
+  }>;
+  
+  // Skills & Progression
+  skills: Record<string, number>;
+  totalSkills: number;
+  highestLevel: number;
+  totalLevel: number;
+  totalXP: number;
+  
+  // Exploration Progress
+  exploration: {
+    totalExplored: number;
+    totalChunks: number;
+    progress: number;
+    regions: Array<{
+      name: string;
+      explored: number;
+      total: number;
+      progress: number;
+    }>;
+  };
+  
+  // Inventory (optional - may not always be included)
+  inventory?: {
+    toolbelt: Array<{
+      itemId: string;
+      name: string;
+      tier: number;
+      rarity: string;
+      quantity: number;
+    }>;
+    wallet: Array<{
+      itemId: string;
+      name: string;
+      quantity: number;
+    }>;
+    storage: Array<{
+      location: string;
+      items: Array<{
+        itemId: string;
+        name: string;
+        tier: number;
+        rarity: string;
+        quantity: number;
+      }>;
+    }>;
+  };
+  
+  // Metadata
+  lastSyncedAt: string;
+}
+
 // BitJitaSettlementDetails interface moved to bitjita-api-mapping.ts
 
 export interface BitJitaAPIResponse<T = any> {
@@ -79,13 +243,52 @@ export interface BitJitaAPIResponse<T = any> {
 }
 
 /**
+ * Raw BitJita Player Search Response (from /api/players?q={query})
+ * Contains basic player information from search results
+ */
+
+export interface BitJitaPlayerSearchRawType{
+    entityId: string;
+    username: string;
+    signedIn: boolean;
+    timePlayed: number;
+    timeSignedIn: number;
+    createdAt: string;
+    updatedAt: string;
+    lastLoginTimestamp: string;
+  }
+
+export interface BitJitaPlayerSearchResponse {
+  players: Array<BitJitaPlayerSearchRawType>;
+  total: number;
+}
+
+/**
  * BitJita API client for external settlement data integration
  */
 export class BitJitaAPI {
   private static readonly BASE_URL = settlementConfig.bitjita.baseUrl;
   private static readonly HEADERS = {
     'x-app-identifier': settlementConfig.bitjita.appIdentifier,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'User-Agent': 'BitSettler/1.0 (https://bitsettler.io)',
+    'Accept': 'application/json',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache'
+  };
+
+  // Alternative headers that might work better
+  private static readonly ALTERNATIVE_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (compatible; BitSettler/1.0; +https://bitsettler.io)',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin'
   };
 
     /**
@@ -241,21 +444,16 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       // Create lookup maps for citizens - try multiple ID fields
-      const citizensByEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c]));
       const citizensByPlayerEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c])); // Citizens use entityId as their key
-      const citizensByUserName = new Map(citizens.map((c: BitJitaRawCitizen) => [c.userName, c]));
 
       // Merge members + citizens data
       const users: SettlementUser[] = members.map((member: BitJitaRawMember) => {
         // Try multiple matching strategies
-        let citizen = citizensByEntityId.get(member.entityId) ||
-                     citizensByPlayerEntityId.get(member.playerEntityId) ||
-                     citizensByEntityId.get(member.playerEntityId) ||
-                     citizensByUserName.get(member.userName);
+        const citizen = citizensByPlayerEntityId.get(member.playerEntityId);
         
         return {
           entityId: member.entityId,
-          userName: member.userName || citizen?.userName || `User_${member.entityId.slice(-8)}`,
+          userName: member.userName,
           settlementId,
           claimEntityId: member.claimEntityId,
           playerEntityId: member.playerEntityId,
@@ -352,6 +550,93 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         error: errorMessage
       };
     }
+  }
+
+  /**
+   * Search characters by name from BitJita API
+   * Since BitJita doesn't have a direct character search endpoint, we'll use a combination approach:
+   * 1. Try to fetch player profile directly if the query looks like a player ID
+   * 2. Search through settlements and their members to find matching characters
+   */
+  static async searchCharacters(query: string, page: number = 1): Promise<BitJitaAPIResponse<BitJitaPlayerSearchResponse>> {
+    try {
+      console.log(`🔍 Searching characters for "${query}" (page ${page})...`);
+      
+      // Use the new direct player search endpoint
+      const searchUrl = `${this.BASE_URL}/players?q=${encodeURIComponent(query)}`;
+      console.log(`🔍 Calling BitJita API: ${searchUrl}`);
+      
+      const response = await fetch(searchUrl, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout),
+        cache: 'no-cache'
+      });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`❌ BitJita API error (${response.status}):`, errorText);
+        return {
+          success: false,
+          error: `BitJita API returned ${response.status}: ${errorText}`
+        };
+      }
+      
+      const searchData: BitJitaPlayerSearchResponse = await response.json();
+      console.log(`✅ Found ${searchData.players.length} players matching "${query}"`);
+      
+     
+      return {
+        success: true,
+        data: searchData
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error searching characters:', error);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Helper method to determine the top profession from skills
+   */
+  private static getTopProfession(skills: Record<string, any>): string {
+    if (!skills || Object.keys(skills).length === 0) {
+      return 'Settler';
+    }
+    
+    // Define profession skill mappings
+    const professionSkills: Record<string, string[]> = {
+      'Warrior': ['combat', 'defense', 'weaponry', 'tactics'],
+      'Blacksmith': ['smithing', 'mining', 'engineering', 'crafting'],
+      'Guard': ['defense', 'combat', 'protection', 'vigilance'],
+      'Scholar': ['knowledge', 'research', 'magic', 'wisdom'],
+      'Merchant': ['trading', 'negotiation', 'economics', 'diplomacy'],
+      'Explorer': ['exploration', 'survival', 'navigation', 'discovery']
+    };
+    
+    // Find the profession with the highest total skill levels
+    let topProfession = 'Settler';
+    let highestScore = 0;
+    
+    for (const [profession, skillNames] of Object.entries(professionSkills)) {
+      const score = skillNames.reduce((total, skillName) => {
+        const skill = skills[skillName];
+        return total + (skill?.level || 0);
+      }, 0);
+      
+      if (score > highestScore) {
+        highestScore = score;
+        topProfession = profession;
+      }
+    }
+    
+    return topProfession;
   }
 
   /**
@@ -503,7 +788,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       
       // Search for the settlement using BitJita search to get the most up-to-date data
       // Since we don't know the settlement name, we'll search by a common term and then filter by ID
-      const response = await fetch(`${this.BASE_URL}/claims?page=1`, {
+      const response = await fetch(`${this.BASE_URL}/claims/${settlementId}`, {
         method: 'GET',
         headers: this.HEADERS,
         signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
@@ -514,52 +799,10 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       const data = await response.json();
-      console.log(`🔍 Searching through ${data.claims?.length || 0} claims for ${settlementId}...`);
       
       // Find the settlement with matching ID
-      const settlement = data.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-      
-      if (!settlement) {
-        // Try searching more pages if not found in the first page
-        for (let page = 2; page <= 5; page++) {
-          console.log(`🔍 Searching page ${page} for settlement ${settlementId}...`);
-          
-          const pageResponse = await fetch(`${this.BASE_URL}/claims?page=${page}&limit=100`, {
-            method: 'GET',
-            headers: this.HEADERS,
-            signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
-          });
-          
-          if (pageResponse.ok) {
-            const pageData = await pageResponse.json();
-            const foundSettlement = pageData.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-            
-            if (foundSettlement) {
-              console.log(`✅ Found settlement on page ${page}:`, foundSettlement.name);
-              return {
-                success: true,
-                data: {
-                  id: foundSettlement.entityId,
-                  name: foundSettlement.name,
-                  tier: foundSettlement.tier,
-                  treasury: parseInt(foundSettlement.treasury) || 0,
-                  supplies: foundSettlement.supplies || 0,
-                  tiles: foundSettlement.numTiles || 0,
-                  population: foundSettlement.numTiles || 0
-                }
-              };
-            }
-          }
-          
-          // Add small delay between pages to be polite to the API
-          await this.delay(200);
-        }
-        
-        throw new Error(`Settlement with ID ${settlementId} not found in BitJita claims`);
-      }
-      
-      console.log(`✅ Found settlement:`, settlement.name);
-      
+      const settlement = data.claim;
+           
       return {
         success: true,
         data: {
@@ -575,6 +818,430 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       console.error(`❌ Error fetching settlement details for ${settlementId}:`, errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Fetch individual player profile from BitJita API
+   * Returns comprehensive player data including skills, settlements, and exploration
+   */
+  static async fetchPlayerProfile(playerId: string): Promise<BitJitaAPIResponse<PlayerProfile>> {
+    try {
+      
+      const response = await fetch(`${this.BASE_URL}/players/${playerId}`, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      const data = result.player;
+
+      const formattedSkills = processExperienceData(data.experience);
+
+      const playerProfile: PlayerProfile = {
+        entityId: data.entityId,
+        userName: data.username,
+        lastLoginTimestamp: data.lastLoginTimestamp,
+        settlements: (data.claims || []).map((claim: any) => ({
+          entityId: claim.entityId,
+          name: claim.name,
+          tier: claim.tier || 0,
+          treasury: parseInt(claim.treasury) || 0,
+          supplies: claim.supplies || 0,
+          tiles: claim.numTiles || claim.tiles || 0,
+          regionName: claim.regionName || 'Unknown Region',
+          regionId: claim.regionId,
+          isOwner: claim.isOwner,
+          permissions: {
+            inventory: claim.memberPermissions.inventoryPermission > 0,
+            build: claim.memberPermissions.buildPermission > 0,
+            officer: claim.memberPermissions.officerPermission > 0,
+            coOwner: claim.memberPermissions.coOwnerPermission > 0
+          }
+        })),       
+        empires: (data.empires || []).map((empire: any) => ({
+          entityId: empire.entityId,
+          name: empire.name,
+          rank: empire.rank || 0,
+          donatedShards: empire.donatedShards || 0,
+          nobleSince: empire.nobleSince
+        })),
+        skills: formattedSkills.skills,
+        totalSkills: formattedSkills.totalSkills || 0,
+        highestLevel: formattedSkills.highestLevel || 0,
+        totalLevel: formattedSkills.totalLevel || 0,
+        totalXP: formattedSkills.totalXP || 0,
+        exploration: {
+          totalExplored: data.exploration?.totalExplored || 0,
+          totalChunks: data.exploration?.totalChunks || 57600, // Default total from BitJita
+          progress: data.exploration?.progress || 0,
+          regions: data.exploration?.regions || []
+        },
+        
+        inventory: data.inventory ? {
+          toolbelt: data.inventory.toolbelt || [],
+          wallet: data.inventory.wallet || [],
+          storage: data.inventory.storage || []
+        } : undefined,
+        
+        lastSyncedAt: new Date().toISOString()
+      };
+      
+      return {
+        success: true,
+        data: playerProfile
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error fetching player profile for ${playerId}:`, errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Test different header combinations and API endpoints
+   * This will help us find the right combination that works with BitJita
+   */
+  static async testBitJitaAccess(playerId: string): Promise<BitJitaAPIResponse<{
+    workingEndpoints: string[];
+    workingHeaders: string[];
+    testResults: Array<{
+      endpoint: string;
+      headers: string;
+      success: boolean;
+      status: number;
+      data?: any;
+      error?: string;
+    }>;
+  }>> {
+    try {
+      console.log(`🧪 Testing BitJita API access for player ${playerId}...`);
+      
+      const endpoints = [
+        `/players/${playerId}`,
+        `/players/${playerId}/profile`,
+        `/players/${playerId}/data`,
+        `/players/${playerId}/full`,
+        `/players/${playerId}?include=all`,
+        `/players/${playerId}?format=json`,
+        `/api/players/${playerId}`,
+        `/api/players/${playerId}/profile`
+      ];
+      
+      const headerSets = [
+        { name: 'Default', headers: this.HEADERS },
+        { name: 'Alternative', headers: this.ALTERNATIVE_HEADERS },
+        { name: 'Minimal', headers: { 'Accept': 'application/json' } },
+        { name: 'Browser-like', headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'application/json, text/plain, */*',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Accept-Encoding': 'gzip, deflate, br',
+          'Connection': 'keep-alive'
+        }},
+        { name: 'With-App-ID', headers: {
+          ...this.HEADERS,
+          'x-app-identifier': 'BitSettler/1.0',
+          'x-requested-with': 'XMLHttpRequest'
+        }}
+      ];
+      
+      const testResults = [];
+      const workingEndpoints = [];
+      const workingHeaders = [];
+      
+      for (const endpoint of endpoints) {
+        for (const headerSet of headerSets) {
+          try {
+            console.log(`🔍 Testing ${endpoint} with ${headerSet.name} headers...`);
+            
+            const response = await fetch(`${this.BASE_URL}${endpoint}`, {
+              method: 'GET',
+              headers: headerSet.headers,
+              signal: AbortSignal.timeout(10000) // 10 second timeout for tests
+            });
+            
+            const result = {
+              endpoint,
+              headers: headerSet.name,
+              success: response.ok,
+              status: response.status,
+              data: undefined,
+              error: undefined
+            };
+            
+            if (response.ok) {
+              try {
+                const data = await response.json();
+                result.data = data;
+                workingEndpoints.push(endpoint);
+                if (!workingHeaders.includes(headerSet.name)) {
+                  workingHeaders.push(headerSet.name);
+                }
+                console.log(`✅ ${endpoint} with ${headerSet.name} headers: SUCCESS`);
+              } catch (parseError) {
+                result.error = 'Failed to parse JSON response';
+                console.log(`⚠️ ${endpoint} with ${headerSet.name} headers: JSON parse error`);
+              }
+            } else {
+              result.error = `${response.status}: ${response.statusText}`;
+              console.log(`❌ ${endpoint} with ${headerSet.name} headers: ${response.status}`);
+            }
+            
+            testResults.push(result);
+            
+            // Small delay between tests to be respectful
+            await new Promise(resolve => setTimeout(resolve, 100));
+            
+          } catch (error) {
+            const result = {
+              endpoint,
+              headers: headerSet.name,
+              success: false,
+              status: 0,
+              data: undefined,
+              error: error instanceof Error ? error.message : 'Unknown error'
+            };
+            testResults.push(result);
+            console.log(`❌ ${endpoint} with ${headerSet.name} headers: ${result.error}`);
+          }
+        }
+      }
+      
+      console.log(`🧪 Test complete. Working endpoints: ${workingEndpoints.length}, Working headers: ${workingHeaders.length}`);
+      
+      return {
+        success: true,
+        data: {
+          workingEndpoints,
+          workingHeaders,
+          testResults
+        }
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error testing BitJita access:`, errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Fetch player inventory by trying multiple potential API endpoints
+   * Attempts to find the right endpoint that provides inventory data
+   */
+  static async fetchPlayerInventory(playerId: string): Promise<BitJitaAPIResponse<{
+    entityId: string;
+    userName: string;
+    inventory: {
+      toolbelt: Array<{
+        itemId: string;
+        name: string;
+        tier: number;
+        rarity: string;
+        quantity: number;
+      }>;
+      wallet: Array<{
+        itemId: string;
+        name: string;
+        quantity: number;
+      }>;
+      storage: Array<{
+        location: string;
+        items: Array<{
+          itemId: string;
+          name: string;
+          tier: number;
+          rarity: string;
+          quantity: number;
+        }>;
+      }>;
+    };
+  }>> {
+    try {
+      console.log(`🔍 Fetching player inventory for ${playerId}...`);
+      
+      // Try multiple possible inventory endpoints
+      const endpoints = [
+        `/players/${playerId}/inventory`,
+        `/players/${playerId}/items`,
+        `/players/${playerId}/equipment`,
+        `/players/${playerId}/toolbelt`
+      ];
+      
+      for (const endpoint of endpoints) {
+        try {
+          console.log(`🔍 Trying endpoint: ${endpoint}`);
+          
+          const response = await fetch(`${this.BASE_URL}${endpoint}`, {
+            method: 'GET',
+            headers: this.HEADERS,
+            signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log(`✅ Found inventory data at ${endpoint}:`, data);
+            
+            return {
+              success: true,
+              data: {
+                entityId: data.entityId || playerId,
+                userName: data.userName || `Player_${playerId.slice(-8)}`,
+                inventory: {
+                  toolbelt: data.toolbelt || data.equipment || [],
+                  wallet: data.wallet || [],
+                  storage: data.storage || data.inventory || []
+                }
+              }
+            };
+          } else {
+            console.log(`❌ Endpoint ${endpoint} failed: ${response.status}`);
+          }
+        } catch (error) {
+          console.log(`❌ Endpoint ${endpoint} error:`, error);
+        }
+      }
+      
+      // If no inventory endpoints work, try the main player endpoint with different parameters
+      console.log(`🔍 Trying main player endpoint with inventory parameter...`);
+      
+      const response = await fetch(`${this.BASE_URL}/players/${playerId}?include=inventory`, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(`✅ Main endpoint with inventory parameter:`, data);
+        
+        return {
+          success: true,
+          data: {
+            entityId: data.entityId || playerId,
+            userName: data.userName || `Player_${playerId.slice(-8)}`,
+            inventory: {
+              toolbelt: data.inventory?.toolbelt || [],
+              wallet: data.inventory?.wallet || [],
+              storage: data.inventory?.storage || []
+            }
+          }
+        };
+      }
+      
+      throw new Error('No inventory endpoints returned data');
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error fetching player inventory for ${playerId}:`, errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Fetch player data using web scraping approach (fallback)
+   * This would be used if the API doesn't provide the data we need
+   */
+  static async fetchPlayerDataViaWeb(playerId: string): Promise<BitJitaAPIResponse<{
+    entityId: string;
+    userName: string;
+    skills: Record<string, any>;
+    inventory: {
+      toolbelt: Array<any>;
+      wallet: Array<any>;
+      storage: Array<any>;
+    };
+    settlements: Array<any>;
+    empires: Array<any>;
+    exploration: any;
+  }>> {
+    try {
+      console.log(`🔍 Attempting web scraping approach for player ${playerId}...`);
+      
+      // This would require a server-side web scraping solution
+      // For now, we'll return an error indicating this approach isn't implemented
+      throw new Error('Web scraping approach not implemented - would require server-side HTML parsing');
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error in web scraping approach for ${playerId}:`, errorMessage);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Fetch player skills specifically (lightweight version)
+   * Useful when you only need skills data without full profile
+   */
+  static async fetchPlayerSkills(playerId: string): Promise<BitJitaAPIResponse<{
+    entityId: string;
+    userName: string;
+    skills: Record<string, {
+      level: number;
+      xp: number;
+      progressToNext: number;
+      tool?: string;
+      toolTier?: number;
+      toolRarity?: string;
+    }>;
+  }>> {
+    try {
+      console.log(`🔍 Fetching player skills for ${playerId}...`);
+      
+      const response = await fetch(`${this.BASE_URL}/players/${playerId}/skills`, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      
+      console.log(`✅ Fetched skills for ${data.userName || playerId}: ${Object.keys(data.skills || {}).length} skills`);
+      
+      return {
+        success: true,
+        data: {
+          entityId: data.entityId || playerId,
+          userName: data.userName || `Player_${playerId.slice(-8)}`,
+          skills: data.skills || {}
+        }
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Error fetching player skills for ${playerId}:`, errorMessage);
       
       return {
         success: false,
@@ -626,4 +1293,4 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
 
     return results;
   }
-} 
+}

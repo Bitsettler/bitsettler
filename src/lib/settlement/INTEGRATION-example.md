@@ -6,7 +6,7 @@ In `sync-settlement-members.ts`, add this code:
 
 ```typescript
 import { trackMemberActivity, detectSkillChanges } from './activity-tracker';
-import { useSkillNames } from '@/hooks/use-skill-names';
+import { useSkillNames } from '@/hooks/use-skills';
 
 // Inside the sync loop, after updating each member:
 for (const user of users) {
