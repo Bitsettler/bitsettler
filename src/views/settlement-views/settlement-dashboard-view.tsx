@@ -23,6 +23,7 @@ import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 interface DashboardStats {
   totalMembers: number;
   activeMembers: number;
+  recentlyActiveMembers: number;
   totalProjects: number;
   completedProjects: number;
   currentBalance: number;
@@ -31,42 +32,19 @@ interface DashboardStats {
   supplies?: number;
 }
 
-interface SkillsInsights {
-  totalSkilledMembers: number;
-  avgSkillLevel: number;
-  topProfession: string;
-  totalSkillPoints: number;
-  topSkills: Array<{name: string, members: number, avgLevel: number}>;
-}
 
-interface Settlement {
-  settlementInfo?: {
+
+interface DashboardData {
+  settlement: {
     id: string;
     name: string;
     tier: number;
-    region?: string;
-    treasury?: number;
-    supplies?: number;
-    tiles?: number;
-    population?: number;
-  };
-  stats?: DashboardStats;
-  masterData?: {
+    treasury: number;
+    supplies: number;
+    tiles: number;
     region_name: string;
   };
-}
-
-interface Treasury {
-  summary?: {
-    currentBalance: number;
-  };
-}
-
-interface DashboardData {
-  settlement?: Settlement;
-  treasury?: Treasury;
   stats: DashboardStats;
-  skills?: SkillsInsights;
   meta?: {
     dataSource: string;
     liveDataAvailable: boolean;
@@ -82,7 +60,6 @@ export function SettlementDashboardView() {
   const [settlementActivities, setSettlementActivities] = useState<any[]>([]);
   const [memberActivities, setMemberActivities] = useState<any[]>([]);
   
-  const [nextUpdateCountdown, setNextUpdateCountdown] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
  
@@ -106,6 +83,7 @@ export function SettlementDashboardView() {
       
       const data = await response.json();
       setDashboardData(data);
+      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -137,52 +115,8 @@ export function SettlementDashboardView() {
     if (settlementId) {
       fetchDashboardData();
       fetchRecentActivities();
-
-      const interval = setInterval(() => {
-        fetchDashboardData();
-        fetchRecentActivities();
-      }, 30000);
-      
-      return () => clearInterval(interval);
     }
   }, [fetchDashboardData, fetchRecentActivities, member]);
-
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (!document.hidden && member?.claim_settlement_id) {
-        fetchDashboardData();
-        fetchRecentActivities();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, [fetchDashboardData, fetchRecentActivities, member]);
-
-  useEffect(() => {
-    if (!dashboardData?.meta?.lastUpdated) return;
-
-    const updateCountdown = () => {
-      const lastUpdate = new Date(dashboardData.meta!.lastUpdated);
-      const nextUpdate = new Date(lastUpdate.getTime() + 5 * 60 * 1000); // 5 minutes later
-      const now = new Date();
-      const timeLeft = nextUpdate.getTime() - now.getTime();
-
-      if (timeLeft <= 0) {
-        setNextUpdateCountdown('Updating...');
-        return;
-      }
-
-      const minutes = Math.floor(timeLeft / 60000);
-      const seconds = Math.floor((timeLeft % 60000) / 1000);
-      setNextUpdateCountdown(`${minutes}m ${seconds}s`);
-    };
-
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    
-    return () => clearInterval(countdownInterval);
-  }, [dashboardData?.meta?.lastUpdated]);
 
   const formatNumber = (num: number): string => {
     return new Intl.NumberFormat().format(num);
@@ -229,6 +163,7 @@ export function SettlementDashboardView() {
   const stats = dashboardData?.stats || {
     totalMembers: 0,
     activeMembers: 0,
+    recentlyActiveMembers: 0,
     totalProjects: 0,
     completedProjects: 0,
     currentBalance: 0,
@@ -238,9 +173,7 @@ export function SettlementDashboardView() {
   };
 
 
-  const settlementInfo = dashboardData?.settlement?.settlementInfo;
-
-  return (
+ return (
     <Container>
       <div className="space-y-6 py-8">      
         <div className="flex items-center justify-between">
@@ -255,15 +188,15 @@ export function SettlementDashboardView() {
           <div className="flex items-start justify-between">
             <div>
               <div className="flex items-center gap-4">
-                <TierIcon tier={settlementInfo?.tier || 1} size="lg" variant="brico-style" />
+                <TierIcon tier={dashboardData?.settlement?.tier || 1} size="lg" variant="brico-style" />
                 <div>
                   <h2 className="text-2xl font-bold text-foreground">
-                    {settlementInfo?.name || 'Settlement Dashboard'}
+                    {dashboardData?.settlement?.name || 'Settlement Dashboard'}
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tier {settlementInfo?.tier || 1} Settlement
-                    {dashboardData?.settlement?.masterData && (
-                      <span> • {dashboardData.settlement.masterData.region_name}</span>
+                    Tier {dashboardData?.settlement?.tier || 1} Settlement
+                    {dashboardData?.settlement?.region_name && (
+                      <span> • {dashboardData.settlement.region_name}</span>
                     )}
                   </p>
                 </div>
@@ -271,9 +204,9 @@ export function SettlementDashboardView() {
 
             </div>
             <div className="flex flex-col items-end gap-2">
-              {settlementInfo?.id && (
+              {dashboardData?.settlement?.id && (
                 <SettlementDiscordLink 
-                  settlementId={settlementInfo.id}
+                  settlementId={dashboardData.settlement.id}
                   variant="inline-small"
                 />
               )}
@@ -282,11 +215,6 @@ export function SettlementDashboardView() {
                   <div className="text-sm font-medium">
                     Updated {new Date(dashboardData.meta.lastUpdated).toLocaleTimeString()}
                   </div>
-                  {nextUpdateCountdown && (
-                    <div className="text-xs text-muted-foreground">
-                      Next update in: {nextUpdateCountdown}
-                    </div>
-                  )}
                 </div>
               )}
             </div>

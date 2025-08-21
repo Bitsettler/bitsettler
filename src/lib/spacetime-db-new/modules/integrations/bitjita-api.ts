@@ -449,7 +449,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       // Merge members + citizens data
       const users: SettlementUser[] = members.map((member: BitJitaRawMember) => {
         // Try multiple matching strategies
-        let citizen = citizensByPlayerEntityId.get(member.playerEntityId);
+        const citizen = citizensByPlayerEntityId.get(member.playerEntityId);
         
         return {
           entityId: member.entityId,

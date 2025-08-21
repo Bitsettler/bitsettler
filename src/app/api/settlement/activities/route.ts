@@ -28,12 +28,29 @@ export async function GET(request: NextRequest) {
       );
     }
   
-    const membersIdList = members?.map((m:any) => m.id) || [];
+    if (members.length === 0) {
+      return Response.json({ 
+        success: true, 
+        data: {
+          settlement: {
+            activities: [],
+            count: 0,
+            type: 'settlement'
+          },
+          member: {
+            activities: [],
+            count: 0,
+            type: 'member'
+          }
+        }
+      });
+    }
 
-    // Fetch both types of activities in parallel
+    const membersIdList = members?.map((m:any) => m.id);
+
     const [settlementActivities, memberActivities] = await Promise.all([
-      getRecentSettlementActivities(settlementId, limit, membersIdList),
-      getRecentMemberActivities(settlementId, limit, membersIdList)
+      getRecentSettlementActivities(limit, membersIdList),
+      getRecentMemberActivities(limit, membersIdList)
     ]);
     
     return Response.json({ 

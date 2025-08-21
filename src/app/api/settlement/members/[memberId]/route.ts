@@ -17,7 +17,7 @@ export async function GET(
       );
     }
 
-    let { data: member, error: memberError } = await supabase
+    const { data: member, error: memberError } = await supabase
       .from('players')
       .select('*')
       .eq('id', memberId)
@@ -42,7 +42,7 @@ export async function GET(
     console.log(`✅ Found member ${member.name} in unified table`);
     let settlementData = null;
     if (settlementId) {
-    let { data: settlement, error: settlementError } = await supabase
+    const { data: settlement, error: settlementError } = await supabase
       .from('settlements')
       .select('*')
       .eq('id', settlementId)

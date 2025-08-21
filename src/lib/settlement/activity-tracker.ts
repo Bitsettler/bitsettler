@@ -153,7 +153,6 @@ async function logActivitiesToDatabase(activities: ActivityLogEntry[]): Promise<
  * Get recent settlement activities (collective actions affecting the settlement)
  */
 export async function getRecentSettlementActivities(
-  settlementId: string, 
   limit: number = 20,
   membersIdList: string[]
 ): Promise<any[]> {
@@ -196,7 +195,6 @@ export async function getRecentSettlementActivities(
  * Get recent member activities (individual member actions)
  */
 export async function getRecentMemberActivities(
-  settlementId: string, 
   limit: number = 20,
   membersIdList: string[]
 ): Promise<any[]> {
