@@ -24,7 +24,6 @@ import { getSecondaryProfession } from '@/lib/utils/profession-utils';
 
 interface SettlementMember {
   id: string;
-  player_entity_id: string;
   name: string;
   primary_profession?: string;
   secondary_profession?: string;
@@ -32,16 +31,15 @@ interface SettlementMember {
   total_skills: number;
   total_level: number;
   total_xp: number;
-  is_active: boolean;
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
-  entity_id: string;
-  avatar_url?: string | null;
-  // Permissions
   inventory_permission: number;
   build_permission: number;
   officer_permission: number;
   co_owner_permission: number;
+  claim_settlement_id: string;
+  skills: Record<string, number>;
+  avatar_url?: string | null;
 }
 
 interface MembersResponse {
@@ -415,7 +413,7 @@ export function SettlementMembersView() {
                           <TableRow 
                             key={member.id} 
                             className="hover:bg-muted/50 cursor-pointer transition-colors"
-                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
                           >
                             <TableCell>
                               <Avatar className="h-10 w-10">
@@ -427,10 +425,6 @@ export function SettlementMembersView() {
                             </TableCell>
                             <TableCell>
                               <div className="font-medium">{member.name}</div>
-                              <div className="text-xs text-muted-foreground flex items-center gap-1">
-                                <Calendar className="h-3 w-3" />
-                                Joined {formatTimeAgo(member.joined_settlement_at)}
-                              </div>
                             </TableCell>
                             <TableCell>
                               <div className="text-sm">
@@ -492,7 +486,7 @@ export function SettlementMembersView() {
                     <TableRow 
                       key={member.id} 
                       className="hover:bg-muted/50 cursor-pointer transition-colors"
-                      onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                      onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
                     >
                       <TableCell>
                         <Avatar className="h-10 w-10">
@@ -504,10 +498,6 @@ export function SettlementMembersView() {
                       </TableCell>
                       <TableCell>
                         <div className="font-medium">{member.name}</div>
-                        <div className="text-xs text-muted-foreground flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          Joined {formatTimeAgo(member.joined_settlement_at)}
-                        </div>
                       </TableCell>
                       <TableCell>
                         <div className="text-sm">

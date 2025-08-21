@@ -34,17 +34,10 @@ interface MemberData {
   lastUpdated: string;
 }
 
-/**
- * Settlement Members API (Database Only)
- * 
- * Fetches settlement member data from OUR database (not BitJita)
- * This should be used after settlement establishment when data is already stored
- */
 async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(request.url);
     
-    // Validate required parameters
     const paramsResult = requireQueryParams(searchParams, 'settlementId');
     if (!paramsResult.success) {
       return NextResponse.json(paramsResult, { status: 400 });
@@ -52,59 +45,66 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
     
     const { settlementId } = paramsResult.data;
 
-    logger.info('Fetching settlement members from database', {
-      settlementId,
-      operation: 'GET_SETTLEMENT_MEMBERS'
-    });
+    if (!settlementId) {
+      return NextResponse.json({
+        success: false,
+        error: 'Settlement ID is required'
+      }, { status: 400 });
+    }
 
-    // Get database client
     const supabase = createServerClient();
     if (!supabase) {
-      logger.error('Supabase service client not available');
       return NextResponse.json({
         success: false,
         error: 'Database service unavailable'
       }, { status: 500 });
     }
 
-    console.log(`🔍 Members API: Querying settlement_members for settlement ${settlementId}`);
-    
     const { data: members, error } = await supabase.rpc('fetch_players_by_claim_entity_id', { claim_id: settlementId });
 
-    // Transform database data to frontend format
-    const formattedMembers = (members || []).map((member: any) => ({
-    id: member.id,
-    player_entity_id: member.id,
-    name: member.name || 'Unknown Player',
-    settlement_id: member.claim_settlement_id,
-    
-    // Skill data from database
-    skills: member.skills || {},
-    total_skills: member.total_skills || 0,
-    highest_level: member.highest_level || 0,
-    total_level: member.total_level || 0,
-    total_xp: member.total_xp || 0,
-    primary_profession: member.primary_profession,
-    secondary_profession: member.secondary_profession,
-    
-    // Permission data from database
-    inventory_permission: member.inventory_permission || 0,
-    build_permission: member.build_permission || 0,
-    officer_permission: member.officer_permission || 0,
-    co_owner_permission: member.co_owner_permission || 0,
-    
-    // Timestamps
-    last_login_timestamp: member.last_login_timestamp,
-    joined_settlement_at: member.joined_settlement_at,
-    
-    // Status
-    is_active: member.is_active,
-    is_claimed: !!member.supabase_user_id, // Boolean indicating if character is claimed
-    last_synced_at: member.last_synced_at,
-    sync_source: member.sync_source
-    }));
+    if (error) {
+      return NextResponse.json({
+        success: false,
+        error: 'Failed to fetch members'
+      }, { status: 500 });
+    }
 
-    // Return data directly without double-wrapping to fix persistent members issue
+    if (members.length === 0) {
+      return NextResponse.json({
+        success: true,
+        data: {
+          settlementId,
+          members: [],
+          memberCount: 0,
+          source: 'database',
+          lastUpdated: new Date().toISOString()
+        }
+      });
+    }
+
+    const formattedMembers = members.map((member: any) => {
+      const settlementPermission = member.settlements.find((s: any) => s.claimEntityId === settlementId);
+      return {
+        id: member.id,
+        name: member.name || 'Unknown Player',
+        primary_profession: member.primary_profession,
+        secondary_profession: member.secondary_profession,
+        highest_level: member.highest_level || 0,
+        total_skills: member.total_skills || 0,
+        total_level: member.total_level || 0,
+        total_xp: member.total_xp || 0,
+        last_login_timestamp: member.last_login_timestamp,
+        joined_settlement_at: member.joined_settlement_at,
+        inventory_permission: settlementPermission?.inventoryPermission || 0,
+        build_permission: settlementPermission?.buildPermission || 0,
+        officer_permission: settlementPermission?.officerPermission || 0,
+        co_owner_permission: settlementPermission?.coOwnerPermission || 0,
+        claim_settlement_id: member.claim_settlement_id,
+        skills: member.skills || {},
+        avatar_url: member.avatar_url ?? null,
+      };
+    });
+
     return NextResponse.json({
       success: true,
       data: {

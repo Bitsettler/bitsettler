@@ -39,14 +39,14 @@ export async function GET(
       );
     }
 
-    console.log(`✅ Found member ${member.name} in unified table`);
     let settlementData = null;
+    let settlementPermission = null
     if (settlementId) {
-    const { data: settlement, error: settlementError } = await supabase
-      .from('settlements')
-      .select('*')
-      .eq('id', settlementId)
-      .maybeSingle();
+      const { data: settlement, error: settlementError } = await supabase
+        .from('settlements')
+        .select('*')
+        .eq('id', settlementId)
+        .maybeSingle();
 
       if (settlementError) {
         console.error('Settlement lookup error:', settlementError);
@@ -64,19 +64,21 @@ export async function GET(
         );
       }
       settlementData = settlement;
+      settlementPermission = member.settlements.find((s: any) => s.claimEntityId === settlementId);
     }
-    const formattedMember = {
+
+    const MemberData = {
       name: member.name,
-      settlement_name: settlementData?.name || null,
+      settlement_name: settlementData?.name || 'No Settlement',
       playerEntityId: member.id,
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,
       skills: member.skills || {},
       permissions: {
-        inventory: member.inventory_permission || 0,
-        build: member.build_permission || 0,
-        officer: member.officer_permission || 0,
-        coOwner: member.co_owner_permission || 0
+        inventory: settlementPermission?.inventoryPermission || 0,
+        build: settlementPermission?.buildPermission || 0,  
+        officer: settlementPermission?.officerPermission || 0,
+        coOwner: settlementPermission?.coOwnerPermission || 0
       },
       lastLogin: member.last_login_timestamp,
       joinedAt: member.joined_settlement_at,
@@ -87,9 +89,9 @@ export async function GET(
 
     return NextResponse.json({
       success: true,
-      data: formattedMember,
+      data: MemberData,
       meta: {
-        dataSource: 'unified_settlement_members',
+        dataSource: 'members',
         lastUpdated: new Date().toISOString(),
         skillsCount: Object.keys(member.skills || {}).length,
         isClaimed: !!member.supabase_user_id
