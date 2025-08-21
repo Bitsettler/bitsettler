@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
 
     // Query settlement data from database
     const { data: settlementData, error: settlementError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('*')
       .eq('id', settlementId)
       .single();
@@ -66,7 +66,6 @@ export async function GET(request: NextRequest) {
       { description: "Claim Upgrades", tier: 0 }
     ];
 
-    // Determine completed research based on settlement tier and stats from database
     const currentTier = settlementData.tier || 0;
     const currentMembers = settlementData.population || 0;
     const currentSupplies = settlementData.supplies || 0;
@@ -104,7 +103,6 @@ export async function GET(request: NextRequest) {
     // Calculate statistics
     const totalResearch = researchItems.length;
     const completedResearch = researchItems.filter(item => item.isCompleted).length;
-    const highestTier = Math.max(...researchItems.map(item => item.tier));
 
     return NextResponse.json({
       success: true,

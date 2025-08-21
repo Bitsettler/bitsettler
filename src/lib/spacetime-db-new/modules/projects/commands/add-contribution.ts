@@ -1,6 +1,6 @@
 import { createServerClient, handleSupabaseError } from '../../../shared/supabase-client';
-import { MemberContribution } from './get-project-by-id';
 import { logProjectContribution } from '../../../../settlement/project-activity-tracker';
+import type { MemberContribution } from '../types/member-contributions';
 
 export interface AddContributionRequest {
   memberId: string; // Settlement member ID (not auth user ID)
@@ -53,7 +53,7 @@ export async function addContribution(contributionData: AddContributionRequest):
     console.log('🔍 Final insert data:', insertData);
 
     const { data: contribution, error: contributionError } = await supabase
-      .from('member_contributions')
+      .from('contributions')
       .insert(insertData)
       .select(`
         id,
@@ -85,7 +85,7 @@ export async function addContribution(contributionData: AddContributionRequest):
     // Get project details for activity logging
     try {
       const { data: project, error: projectError } = await supabase
-        .from('settlement_projects')
+        .from('projects')
         .select('name, priority')
         .eq('id', contributionData.projectId)
         .single();
@@ -143,7 +143,7 @@ export async function updateProjectItemQuantityByName(
   try {
     // Find project item by project_id + item_name
     const { data: currentItem, error: fetchError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('id, current_quantity, required_quantity')
       .eq('project_id', projectId)
       .eq('item_name', itemName)
@@ -163,7 +163,7 @@ export async function updateProjectItemQuantityByName(
 
     // Update quantity and status
     const { error: updateError } = await supabase
-      .from('project_items')
+      .from('items')
       .update({
         current_quantity: newQuantity,
         status: newStatus,
@@ -200,7 +200,7 @@ export async function updateProjectItemQuantity(
   try {
     // Get current quantity
     const { data: currentItem, error: fetchError } = await supabase
-      .from('project_items')
+      .from('items')
       .select('current_quantity, required_quantity')
       .eq('id', projectItemId)
       .single();
@@ -214,7 +214,7 @@ export async function updateProjectItemQuantity(
 
     // Update quantity and status
     const { error: updateError } = await supabase
-      .from('project_items')
+      .from('items')
       .update({
         current_quantity: newQuantity,
         status: newStatus,

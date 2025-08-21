@@ -175,8 +175,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Technical
 
 - **Database Schema**: Comprehensive settlement data caching infrastructure
-  - `settlements_master` table with sync logging
-  - `settlement_members` and `settlement_citizens` tables for member data
+  - `settlements` table with sync logging
+  - `players` and `settlement_citizens` tables for member data
   - `settlement_member_details` view for optimized member queries
   - Auto-updating top profession triggers and sync audit trails
 

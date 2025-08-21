@@ -1,19 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
-import { useCurrentMember } from '../../hooks/use-current-member';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 import { useAuth } from '../../hooks/use-auth';
-import { useSkillNames } from '../../hooks/use-skill-names';
+import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
-import { TierIcon } from '@/components/ui/tier-icon';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { getDisplayProfession, getSecondaryProfession, getProfessionSource } from '@/lib/utils/profession-utils';
 import { ProfessionSelector } from '@/components/profession-selector';
@@ -56,18 +52,11 @@ function getSkillTier(level: number): number {
 }
 
 interface MemberDetail {
-  id: string;
   name: string;
-  entityId: string;
-  playerEntityId?: string | null;
+  playerEntityId: string;
   settlement_name: string;
-  profession: string;
   primary_profession?: string | null;
   secondary_profession?: string | null;
-  top_profession?: string | null;
-  totalSkillLevel: number;
-  totalXP: number;
-  highestLevel: number;
   skills: Record<string, number>;
   permissions: {
     inventory: number;
@@ -147,18 +136,21 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [contributions, setContributions] = useState<MemberContributionItem[] | null>(null);
   const [contribError, setContribError] = useState<string | null>(null);
   
-  const { member: currentMember, isLoading: memberLoading } = useCurrentMember();
+  const { member: currentMember, isLoading: memberLoading, isSolo} = useClaimPlayerContext();
   const { user: authUser } = useAuth();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 
   // Check if this is the current user's own profile
-  const isOwnProfile = currentMember?.player_entity_id === memberId;
+  const isOwnProfile = currentMember?.id === memberId;
 
   useEffect(() => {
     // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchMemberDetails();
-    fetchMemberContributions();
+    // Only fetch contributions if not solo
+    if (!currentMember?.is_solo) {
+      fetchMemberContributions();
+    }
   }, [memberId, currentMember, memberLoading]);
 
   // Initialize profession state when member data loads
@@ -171,20 +163,14 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
 
   const fetchMemberDetails = async () => {
     // Use selectedSettlement or fallback to member's settlement
-    const settlementId = currentMember?.settlement_id;
-    
-    if (!settlementId) {
-      setError('No settlement available - please select a settlement or claim a character');
-      setLoading(false);
-      return;
-    }
+    const settlementId = currentMember?.claim_settlement_id;
 
     try {
       setLoading(true);
       setError(null);
 
       const response = await fetch(
-        `/api/settlement/members/${encodeURIComponent(memberId)}?settlementId=${encodeURIComponent(settlementId)}`
+        `/api/settlement/members/${encodeURIComponent(memberId)}${settlementId ? `?settlementId=${encodeURIComponent(settlementId)}` : ''}` 
       );
       
       const result: MemberDetailResponse = await response.json();
@@ -203,7 +189,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   };
 
   const fetchMemberContributions = async () => {
-    const settlementId = currentMember?.settlement_id;
+    const settlementId = currentMember?.claim_settlement_id;
     if (!settlementId) return;
     try {
       setContribError(null);
@@ -295,7 +281,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
     return { label: 'Denied', color: 'text-muted-foreground bg-muted/50', icon: UserX };
   };
 
-  const getMemberRole = (permissions: { coOwner?: number; officer?: number; member?: number }): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
+  const getMemberRole = (permissions: { coOwner: number; officer: number; build: number; inventory: number }): { role: string; description: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' } => {
     if (permissions.coOwner >= 1) return { 
       role: 'Co-Owner', 
       description: 'Has full administrative access and can manage all settlement functions',
@@ -546,66 +532,67 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
         </Card>
       </div>
 
-      {/* Contributions */}
-      <div className="grid gap-4">
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="flex items-center gap-2">
-            <Package className="h-5 w-5" />
-            Contributions
-          </CardTitle>
-          <Button variant="outline" size="sm" onClick={fetchMemberContributions}>
-            <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
-          </Button>
-        </CardHeader>
-        <CardContent>
-          {contribError ? (
-            <div className="text-sm text-red-500">{contribError}</div>
-          ) : contributions === null ? (
-            <div className="text-sm text-muted-foreground">Loading contributions...</div>
-          ) : contributions.length === 0 ? (
-            <div className="text-sm text-muted-foreground">No contributions yet.</div>
-          ) : (
-            <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
-              {contributions.slice(0, 20).map((c) => (
-                <div key={c.id} className="flex items-center justify-between py-2 border-b last:border-b-0">
-                  <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        {c.item_name && (
-                          <ContributionDisplay
-                            itemName={c.item_name}
-                            quantity={c.quantity}
-                          />
-                        )}
-                        {!c.item_name && (
-                          <span className="font-medium">{c.quantity} items</span>
-                        )}
-                        <Badge variant="outline" className="text-xs">{c.delivery_method}</Badge>
-                        {c.notes && <span className="text-sm text-muted-foreground">- {c.notes}</span>}
+      {/* Contributions - Only show if not solo */}
+      {!isSolo && (
+        <div className="grid gap-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="flex items-center gap-2">
+                <Package className="h-5 w-5" />
+                Contributions
+              </CardTitle>
+              <Button variant="outline" size="sm" onClick={fetchMemberContributions}>
+                <RefreshCw className="h-4 w-4 mr-2" />
+                Refresh
+              </Button>
+            </CardHeader>
+            <CardContent>
+              {contribError ? (
+                <div className="text-sm text-red-500">{contribError}</div>
+              ) : contributions === null ? (
+                <div className="text-sm text-muted-foreground">Loading contributions...</div>
+              ) : contributions.length === 0 ? (
+                <div className="text-sm text-muted-foreground">No contributions yet.</div>
+              ) : (
+                <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
+                  {contributions.slice(0, 20).map((c) => (
+                    <div key={c.id} className="flex items-center justify-between py-2 border-b last:border-b-0">
+                      <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            {c.item_name && (
+                              <ContributionDisplay
+                                itemName={c.item_name}
+                                quantity={c.quantity}
+                              />
+                            )}
+                            {!c.item_name && (
+                              <span className="font-medium">{c.quantity} items</span>
+                            )}
+                            <Badge variant="outline" className="text-xs">{c.delivery_method}</Badge>
+                            {c.notes && <span className="text-sm text-muted-foreground">- {c.notes}</span>}
+                          </div>
+                        <div className="text-xs text-muted-foreground mt-1 truncate">
+                          {c.project ? (
+                            <a
+                              className="hover:underline"
+                              href={`/en/settlement/projects/${encodeURIComponent((c.project.project_number?.toString() ?? c.project_id))}`}
+                            >
+                              {c.project.name}
+                            </a>
+                          ) : (
+                            <span>Project</span>
+                          )}
+                          <span className="ml-2">• {new Date(c.contributed_at).toLocaleString()}</span>
+                        </div>
                       </div>
-                    <div className="text-xs text-muted-foreground mt-1 truncate">
-                      {c.project ? (
-                        <a
-                          className="hover:underline"
-                          href={`/en/settlement/projects/${encodeURIComponent((c.project.project_number?.toString() ?? c.project_id))}`}
-                        >
-                          {c.project.name}
-                        </a>
-                      ) : (
-                        <span>Project</span>
-                      )}
-                      <span className="ml-2">• {new Date(c.contributed_at).toLocaleString()}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       {/* Advanced Details */}
       <Card>
@@ -616,7 +603,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-1">
               <p className="text-sm font-medium text-muted-foreground">Bitcraft ID</p>
-              <p className="font-mono text-sm">{member.playerEntityId || member.entityId}</p>
+              <p className="font-mono text-sm">{member.playerEntityId}</p>
             </div>
             <div className="space-y-1">
               <p className="text-sm font-medium text-muted-foreground">Settlement</p>

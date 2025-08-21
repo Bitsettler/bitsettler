@@ -135,8 +135,8 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
       .from('treasury_transactions')
       .select(`
         *,
-        settlement_projects!left(name),
-        settlement_members!left(name)
+        projects!left(name),
+        players!left(name)
       `)
       .eq('settlement_id', options.settlementId);
 
@@ -199,8 +199,8 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
       transactionDate: new Date(transaction.transaction_date),
       recordedAt: new Date(transaction.recorded_at),
       createdAt: new Date(transaction.created_at),
-      relatedProjectName: (transaction.settlement_projects as any)?.name || undefined,
-      relatedMemberName: (transaction.settlement_members as any)?.name || undefined,
+      relatedProjectName: (transaction.projects as any)?.name || undefined,
+      relatedMemberName: (transaction.players as any)?.name || undefined,
     }));
 
   } catch (error) {
@@ -208,32 +208,3 @@ export async function getTreasuryTransactionsWithDetails(options: GetTransaction
     throw error;
   }
 }
-
-/**
- * Get treasury categories for filtering
- */
-export async function getTreasuryCategories(): Promise<Array<{ id: string; name: string; type: string; color: string | null }>> {
-  // Use service role client to bypass RLS for treasury operations
-  const supabase = createServerClient();
-  if (!supabase) {
-    console.warn('Supabase service role client not available, returning empty categories list');
-    return [];
-  }
-
-  try {
-    const { data, error } = await supabase
-      .from('treasury_categories')
-      .select('id, name, type, color')
-      .order('name');
-
-    if (error) {
-      throw handleSupabaseError(error, 'getting treasury categories');
-    }
-
-    return data || [];
-
-  } catch (error) {
-    console.error('Error fetching treasury categories:', error);
-    throw error;
-  }
-} 

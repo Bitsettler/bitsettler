@@ -2,45 +2,44 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Input } from '../../components/ui/input';
-import { Button } from '../../components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
-import { Switch } from '../../components/ui/switch';
-import { Label } from '../../components/ui/label';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../../components/ui/collapsible';
-import { Skeleton } from '../../components/ui/skeleton';
-import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
-import { Container } from '../../components/container';
-import { useCurrentMember } from '../../hooks/use-current-member';
-import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar, ChevronUp, ChevronDown } from 'lucide-react';
-import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
-import { getMemberActivityInfo } from '../../lib/utils/member-activity';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { Search, Calendar, TrendingUp, Clock } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Container } from '@/components/container';
+import { Users, UserCheck, Crown, Shield, Hammer, Package, ChevronUp, ChevronDown } from 'lucide-react';
+import { getDisplayProfession } from '@/lib/utils/profession-utils';
+import { getMemberActivityInfo } from '@/lib/utils/member-activity';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
+import { getSecondaryProfession } from '@/lib/utils/profession-utils';
 
 
 interface SettlementMember {
   id: string;
-  player_entity_id: string;
   name: string;
-  top_profession: string;
   primary_profession?: string;
   secondary_profession?: string;
   highest_level: number;
   total_skills: number;
   total_level: number;
   total_xp: number;
-  is_active: boolean;
   last_login_timestamp: string | null;
   joined_settlement_at: string | null;
-  entity_id: string;
-  avatar_url?: string | null;
-  // Permissions
   inventory_permission: number;
   build_permission: number;
   officer_permission: number;
   co_owner_permission: number;
+  claim_settlement_id: string;
+  skills: Record<string, number>;
+  avatar_url?: string | null;
 }
 
 interface MembersResponse {
@@ -53,6 +52,9 @@ interface MembersResponse {
 }
 
 export function SettlementMembersView() {
+
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
+
   const router = useRouter();
   const [members, setMembers] = useState<SettlementMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -68,8 +70,6 @@ export function SettlementMembersView() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalMembers, setTotalMembers] = useState(0);
   const membersPerPage = 200; // Increased to show all members
-
-  const { member, isLoading: memberLoading } = useCurrentMember();
 
   useEffect(() => {
     // Wait for member data to load before making API calls
@@ -87,7 +87,7 @@ export function SettlementMembersView() {
         includeInactive: 'false', // Show only active settlement members (Phase 2)
       });
 
-      const settlementId = member?.settlement_id;
+      const settlementId = member?.claim_settlement_id;
             
       if (!settlementId) {
         throw new Error('No settlement available - please select a settlement or claim a character');
@@ -413,7 +413,7 @@ export function SettlementMembersView() {
                           <TableRow 
                             key={member.id} 
                             className="hover:bg-muted/50 cursor-pointer transition-colors"
-                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
                           >
                             <TableCell>
                               <Avatar className="h-10 w-10">
@@ -425,10 +425,6 @@ export function SettlementMembersView() {
                             </TableCell>
                             <TableCell>
                               <div className="font-medium">{member.name}</div>
-                              <div className="text-xs text-muted-foreground flex items-center gap-1">
-                                <Calendar className="h-3 w-3" />
-                                Joined {formatTimeAgo(member.joined_settlement_at)}
-                              </div>
                             </TableCell>
                             <TableCell>
                               <div className="text-sm">
@@ -490,7 +486,7 @@ export function SettlementMembersView() {
                     <TableRow 
                       key={member.id} 
                       className="hover:bg-muted/50 cursor-pointer transition-colors"
-                      onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.player_entity_id)}`)}
+                      onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(member.id)}`)}
                     >
                       <TableCell>
                         <Avatar className="h-10 w-10">
@@ -502,10 +498,6 @@ export function SettlementMembersView() {
                       </TableCell>
                       <TableCell>
                         <div className="font-medium">{member.name}</div>
-                        <div className="text-xs text-muted-foreground flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          Joined {formatTimeAgo(member.joined_settlement_at)}
-                        </div>
                       </TableCell>
                       <TableCell>
                         <div className="text-sm">

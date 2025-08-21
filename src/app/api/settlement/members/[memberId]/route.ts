@@ -10,13 +10,6 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const settlementId = searchParams.get('settlementId');
 
-    if (!settlementId) {
-      return NextResponse.json(
-        { error: 'Settlement ID is required' },
-        { status: 400 }
-      );
-    }
-
     if (!supabase) {
       return NextResponse.json(
         { error: 'Database not available' },
@@ -24,11 +17,10 @@ export async function GET(
       );
     }
 
-    let { data: member, error: memberError } = await supabase
-      .from('settlement_members')
+    const { data: member, error: memberError } = await supabase
+      .from('players')
       .select('*')
-      .eq('settlement_id', settlementId)
-      .eq('player_entity_id', memberId)
+      .eq('id', memberId)
       .maybeSingle();
 
     if (memberError) {
@@ -40,20 +32,21 @@ export async function GET(
     }
 
     if (!member) {
-      console.log(`❌ Member ${memberId} not found in settlement_members table`);
+      console.log(`❌ Member ${memberId} not found in players table`);
       return NextResponse.json(
         { error: 'Member not found' },
         { status: 404 }
       );
     }
 
-    console.log(`✅ Found member ${member.name} in unified table`);
-
-    let { data: settlement, error: settlementError } = await supabase
-      .from('settlements_master')
-      .select('*')
-      .eq('id', settlementId)
-      .maybeSingle();
+    let settlementData = null;
+    let settlementPermission = null
+    if (settlementId) {
+      const { data: settlement, error: settlementError } = await supabase
+        .from('settlements')
+        .select('*')
+        .eq('id', settlementId)
+        .maybeSingle();
 
       if (settlementError) {
         console.error('Settlement lookup error:', settlementError);
@@ -64,55 +57,41 @@ export async function GET(
       }
   
       if (!settlement) {
-        console.log(`❌ Member ${settlementId} not found in settlements_master table`);
+        console.log(`❌ Member ${settlementId} not found in settlements table`);
         return NextResponse.json(
           { error: 'Member not found' },
           { status: 404 }
         );
       }
+      settlementData = settlement;
+      settlementPermission = member.settlements.find((s: any) => s.claimEntityId === settlementId);
+    }
 
-    // Transform to API format - all data already available!
-    const formattedMember = {
-      id: member.entity_id,
+    const MemberData = {
       name: member.name,
-      settlement_name: settlement.name,
-      entityId: member.entity_id,
-      playerEntityId: member.player_entity_id,
-      profession: member.top_profession || 'Unknown',
+      settlement_name: settlementData?.name || 'No Settlement',
+      playerEntityId: member.id,
       primary_profession: member.primary_profession,
       secondary_profession: member.secondary_profession,
-      top_profession: member.top_profession,
-      totalSkillLevel: member.total_level || 0,
-      totalXP: member.total_xp || 0,
-      highestLevel: member.highest_level || 0,
-      totalSkills: member.total_skills || 0,
-      skills: member.skills || {}, // Already in {skillName: level} format!
+      skills: member.skills || {},
       permissions: {
-        inventory: member.inventory_permission || 0,
-        build: member.build_permission || 0,
-        officer: member.officer_permission || 0,
-        coOwner: member.co_owner_permission || 0
+        inventory: settlementPermission?.inventoryPermission || 0,
+        build: settlementPermission?.buildPermission || 0,  
+        officer: settlementPermission?.officerPermission || 0,
+        coOwner: settlementPermission?.coOwnerPermission || 0
       },
       lastLogin: member.last_login_timestamp,
       joinedAt: member.joined_settlement_at,
       isActive: member.is_active,
       lastSyncInfo: member.last_synced_at ? `Last synced: ${new Date(member.last_synced_at).toLocaleString()}` : 'Never synced',
-      // App user data (if claimed)
-      displayName: member.display_name,
-      discordHandle: member.discord_handle,
-      bio: member.bio,
-      timezone: member.timezone,
-      avatar_url: member.avatar_url,
-      isClaimed: !!member.supabase_user_id,
-      appJoinedAt: member.app_joined_at,
-      appLastActiveAt: member.app_last_active_at
+      avatar_url: member.avatar_url
     };
 
     return NextResponse.json({
       success: true,
-      data: formattedMember,
+      data: MemberData,
       meta: {
-        dataSource: 'unified_settlement_members',
+        dataSource: 'members',
         lastUpdated: new Date().toISOString(),
         skillsCount: Object.keys(member.skills || {}).length,
         isClaimed: !!member.supabase_user_id

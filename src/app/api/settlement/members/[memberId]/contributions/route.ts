@@ -43,36 +43,13 @@ export async function GET(
       );
     }
 
-    // Look up the settlement member row to get the internal member UUID used by contributions
-    const { data: memberRow, error: memberError } = await supabase
-      .from('settlement_members')
-      .select('id, player_entity_id')
-      .eq('settlement_id', settlementId)
-      .eq('player_entity_id', memberId)
-      .maybeSingle();
-
-    if (memberError) {
-      console.error('Member lookup error (for contributions):', memberError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to lookup member' },
-        { status: 500 }
-      );
-    }
-
-    if (!memberRow) {
-      return NextResponse.json(
-        { success: false, error: 'Member not found in this settlement' },
-        { status: 404 }
-      );
-    }
-
-    // Fetch contributions for this member, include basic project info
+   // Fetch contributions for this member, include basic project info
     const { data: contributions, error: contribError } = await supabase
-      .from('member_contributions')
+      .from('contributions')
       .select(
-        `*, settlement_projects ( name, short_id, project_number, status, priority )`
+        `*, projects ( name, short_id, project_number, status, priority )`
       )
-      .eq('member_id', memberRow.id)
+      .eq('member_id', memberId)
       .order('contributed_at', { ascending: false });
 
     if (contribError) {
@@ -92,13 +69,13 @@ export async function GET(
       quantity: row.quantity,
       notes: row.notes,
       contributed_at: row.contributed_at,
-      project: row.settlement_projects
+      project: row.projects
         ? {
-            name: row.settlement_projects.name,
-            short_id: row.settlement_projects.short_id ?? null,
-            project_number: row.settlement_projects.project_number ?? null,
-            status: row.settlement_projects.status ?? null,
-            priority: row.settlement_projects.priority ?? null,
+            name: row.projects.name,
+            short_id: row.projects.short_id ?? null,
+            project_number: row.projects.project_number ?? null,
+            status: row.projects.status ?? null,
+            priority: row.projects.priority ?? null,
           }
         : null,
     }));

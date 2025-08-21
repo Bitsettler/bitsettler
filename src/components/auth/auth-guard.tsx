@@ -3,10 +3,10 @@
 import { useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
-import { useCurrentMember } from '@/hooks/use-current-member';
 import { Container } from '@/components/container';
 import { SettlementOnboardingView } from '@/views/settlement-views/settlement-onboarding-view';
 import { FormerMemberView } from '@/components/settlement/former-member-view';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface AuthGuardProps {
   children: ReactNode;
@@ -14,15 +14,18 @@ interface AuthGuardProps {
 
 export function AuthGuard({ children }: AuthGuardProps) {
   const { data: session, status } = useSession();
-  const { member, isLoading: memberLoading, isClaimed } = useCurrentMember();
+  const { member, isLoading: memberLoading, isClaimed, isSolo } = useClaimPlayerContext();
   const router = useRouter();
 
   // Redirect to login if not authenticated
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/en/auth/signin');
+    } 
+    if (isSolo) {
+      router.push('/settlement/my-character');
     }
-  }, [status, router]);
+  }, [status, router, isSolo]);
 
   // Loading states
   if (status === 'loading' || (status === 'authenticated' && memberLoading)) {
@@ -56,7 +59,6 @@ export function AuthGuard({ children }: AuthGuardProps) {
 
   // Authenticated but no settlement character claimed - show onboarding
   if (!isClaimed || !member) {
-    console.log('AuthGuard: Showing onboarding - isClaimed:', isClaimed, 'member:', !!member, 'memberLoading:', memberLoading);
     return <SettlementOnboardingView />;
   }
 

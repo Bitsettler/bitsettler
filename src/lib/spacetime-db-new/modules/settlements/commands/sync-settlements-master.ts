@@ -118,7 +118,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
 
     // Get all existing settlements to compare
     const { data: existingSettlements, error: fetchError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('id, name, tier, treasury, supplies, tiles, population, last_synced_at');
 
     if (fetchError) {
@@ -147,7 +147,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
         const existing = existingSettlementsMap.get(settlement.id);
         
         const { error: upsertError } = await supabase
-          .from('settlements_master')
+          .from('settlements')
           .upsert({
             // Core settlement data
             id: settlement.id,
@@ -210,7 +210,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     
     const { data: outdatedSettlements, error: outdatedError } = await supabase
-      .from('settlements_master')
+      .from('settlements')
       .select('id')
       .eq('is_active', true)
       .lt('last_synced_at', oneDayAgo)
@@ -218,7 +218,7 @@ export async function syncSettlementsMaster(mode: 'full' | 'incremental' = 'full
 
     if (!outdatedError && outdatedSettlements && outdatedSettlements.length > 0) {
       const { error: deactivateError } = await supabase
-        .from('settlements_master')
+        .from('settlements')
         .update({ is_active: false })
         .in('id', outdatedSettlements.map(s => s.id));
 

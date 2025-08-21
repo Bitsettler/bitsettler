@@ -166,8 +166,8 @@ import { useSession } from '@/hooks/use-auth';
 const { data: { user, session }, status } = useSession();
 
 // Get current member data  
-import { useCurrentMember } from '@/hooks/use-current-member';
-const { member, loading, error } = useCurrentMember();
+import { useClaimPlayer } from '@/hooks/use-current-member';
+const { member, loading, error } = useClaimPlayer();
 
 // Check permissions
 import { useSettlementPermissions } from '@/hooks/use-settlement-permissions';

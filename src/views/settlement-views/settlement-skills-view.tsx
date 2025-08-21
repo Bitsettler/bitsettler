@@ -9,16 +9,12 @@ import { Label } from '@/components/ui/label';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Container } from '@/components/container';
 import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
-import { useCurrentMember } from '../../hooks/use-current-member';
-import { useSkillNames } from '../../hooks/use-skill-names';
+import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { TierIcon } from '@/components/ui/tier-icon';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
-/**
- * Convert skill level to tier (0-10 based on Bitcraft progression)
- * 0 = tier 0, 1-10 = tier 1, 11-20 = tier 2, 21-30 = tier 3, 31-40 = tier 4, etc.
- */
 function getSkillTier(level: number): number {
   if (level === 0) return 0;
   if (level >= 100) return 10;
@@ -28,7 +24,6 @@ function getSkillTier(level: number): number {
 interface CitizenSkills {
   name: string;
   playerEntityId: string;
-  profession: string;
   totalSkillLevel: number;
   totalXP: number;
   highestLevel: number;
@@ -94,18 +89,15 @@ export function SettlementSkillsView() {
   const [error, setError] = useState<string | null>(null);
   const [meta, setMeta] = useState<SkillsResponse['meta'] | null>(null);
   
-  // Sorting state
   const [sortField, setSortField] = useState<string>('name');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   
-  // View options state
   const [showAdventureSkills, setShowAdventureSkills] = useState(true);
   const [showTierColors, setShowTierColors] = useState(true);
   
-  const { member, isLoading: memberLoading } = useCurrentMember();
+  const { member, isLoading: memberLoading } = useClaimPlayerContext();
   const { getSkillName, loading: skillNamesLoading } = useSkillNames();
 
-  // Memoize all computed values OUTSIDE of conditional renders
   const membersWithSkills = useMemo(() => 
     Array.isArray(citizensData) ? citizensData.filter(m => m.totalSkillLevel > 0) : [],
     [citizensData]
@@ -134,14 +126,12 @@ export function SettlementSkillsView() {
       currentLevel: number;
       nextTier: number;
       levelsToGo: number;
-      profession: string;
     }> = [];
 
     membersWithSkills.forEach(member => {
       Object.entries(member.skills || {}).forEach(([skillId, level]) => {
         const skillDisplayName = getSkillName(skillId);
         
-        // Skip adventure skills if they're hidden
         const adventureSkills = ['cooking', 'construction', 'taming', 'slayer', 'merchanting', 'sailing'];
         if (!showAdventureSkills && adventureSkills.some(adventure => 
           skillDisplayName.toLowerCase().includes(adventure)
@@ -149,11 +139,9 @@ export function SettlementSkillsView() {
           return;
         }
 
-        // Calculate next tier milestone (10, 20, 30, 40, 50, 60, etc.)
         const currentTier = getSkillTier(level);
-        const nextTierLevel = currentTier * 10; // Next milestone level
+        const nextTierLevel = currentTier * 10;
         
-        // Only consider if they're close (within 2 levels) and not at max tier
         if (level > 0 && level < 100 && nextTierLevel - level <= 2 && nextTierLevel - level > 0) {
           candidates.push({
             name: member.name,
@@ -161,21 +149,19 @@ export function SettlementSkillsView() {
             currentLevel: level,
             nextTier: currentTier + 1,
             levelsToGo: nextTierLevel - level,
-            profession: member.profession
           });
         }
       });
     });
 
-    // Sort by levels to go (closest first), then by next tier level (higher tiers first)
     return candidates
       .sort((a, b) => {
         if (a.levelsToGo !== b.levelsToGo) {
-          return a.levelsToGo - b.levelsToGo; // Closest first
+          return a.levelsToGo - b.levelsToGo;
         }
-        return b.nextTier - a.nextTier; // Higher tiers first if same distance
+        return b.nextTier - a.nextTier;
       })
-      .slice(0, 10); // Top 10
+      .slice(0, 10);
   }, [membersWithSkills, getSkillName, showAdventureSkills]);
 
   const professionPeaks = useMemo(() => {
@@ -209,16 +195,14 @@ export function SettlementSkillsView() {
   }, [membersWithSkills, getSkillName]);
 
   useEffect(() => {
-    // Wait for member data to load before making API calls
     if (memberLoading) return;
     fetchSkillsData();
   }, [member, memberLoading]);
 
   const fetchSkillsData = async () => {
 
-    const settlementId = member?.settlement_id;
+    const settlementId = member?.claim_settlement_id;
    
-    // Don't fetch data if no settlement is available
     if (!settlementId) {
       setLoading(false);
       setCitizensData([]);
@@ -235,16 +219,12 @@ export function SettlementSkillsView() {
       const params = new URLSearchParams();
       params.append('settlementId', settlementId);
 
-      // Prepare members params with high limit to show all members
       const membersParams = new URLSearchParams();
       membersParams.append('settlementId', settlementId);
-      membersParams.append('limit', '500'); // High limit to show all members
-      membersParams.append('includeInactive', 'true'); // Include all members
+      membersParams.append('limit', '500');
+      membersParams.append('includeInactive', 'true');
 
-  
-
-      // Fetch both analytics and detailed member data
-      const [analyticsResponse, membersResponse] = await Promise.all([
+     const [analyticsResponse, membersResponse] = await Promise.all([
         fetch(`/api/settlement/skills?${params}`),
         fetch(`/api/settlement/members?${membersParams}`)
       ]);
@@ -263,11 +243,9 @@ export function SettlementSkillsView() {
       setSkillsData(analyticsResult.data || null);
       const rawMembers = membersResult.data?.members || [];
       
-      // Map API data to CitizenSkills interface
-      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; top_profession?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
+      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
         name: member.name || 'Unknown Player',
         playerEntityId: member.player_entity_id || '',
-        profession: member.top_profession || 'Unknown',
         totalSkillLevel: member.total_level || 0,
         totalXP: member.total_xp || 0,
         highestLevel: member.highest_level || 0,
@@ -284,11 +262,6 @@ export function SettlementSkillsView() {
     }
   };
 
-  const formatNumber = (num: number): string => {
-    return new Intl.NumberFormat().format(num);
-  };
-
-  // Get all unique skills across all citizens with proper names
   const allSkills = useMemo(() => {
     const skillIds = Array.from(
       new Set(
@@ -296,57 +269,47 @@ export function SettlementSkillsView() {
       )
     ).sort();
     
-    // Map skill IDs to names for display
     return skillIds.map(skillId => ({
       id: skillId,
       name: getSkillName(skillId)
     }));
   }, [citizensData, getSkillName]);
 
-  // Group skills by category for better organization
   const groupedSkills = useMemo(() => {
     const groups: { [key: string]: typeof allSkills } = {};
     
-    // Initialize groups
     const categories = ['Profession Skills', 'Adventure Skills', 'Other Skills'];
     categories.forEach(category => {
       groups[category] = [];
     });
     
-    // Core profession skills as shown in the game
     const professionSkills = [
       'forestry', 'carpentry', 'masonry', 'mining', 'smithing', 'scholar',
       'leatherworking', 'hunting', 'tailoring', 'farming', 'fishing', 'foraging'
     ];
     
-    // Adventure skills as shown in the game
     const adventureSkills = [
       'cooking', 'construction', 'taming', 'slayer', 'merchanting', 'sailing'
     ];
     
-    // Categorize skills based on name patterns
     allSkills.forEach(skill => {
       let categorized = false;
       const skillName = skill.name.toLowerCase();
       
-      // Check if this is a profession skill
       if (professionSkills.some(profession => skillName.includes(profession))) {
         groups['Profession Skills'].push(skill);
         categorized = true;
       }
-      // Check if this is an adventure skill
       else if (adventureSkills.some(adventure => skillName.includes(adventure))) {
         groups['Adventure Skills'].push(skill);
         categorized = true;
       }
       
-      // If not categorized, put in Other Skills
       if (!categorized) {
         groups['Other Skills'].push(skill);
       }
     });
     
-    // Return only non-empty groups, optionally filtering out Adventure Skills
     const filteredGroups = Object.entries(groups).filter(([_, skills]) => skills.length > 0);
     
     if (!showAdventureSkills) {
@@ -356,8 +319,7 @@ export function SettlementSkillsView() {
     return filteredGroups;
   }, [allSkills, showAdventureSkills]);
 
-
-  // Sorting logic
+  
   const handleSort = (field: string) => {
     if (sortField === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : sortDirection === 'desc' ? null : 'asc');
@@ -375,9 +337,6 @@ export function SettlementSkillsView() {
     if (sortField === 'name') {
       aValue = a.name.toLowerCase();
       bValue = b.name.toLowerCase();
-    } else if (sortField === 'profession') {
-      aValue = a.profession.toLowerCase();
-      bValue = b.profession.toLowerCase();
     } else if (sortField === 'totalSkillLevel') {
       aValue = a.totalSkillLevel;
       bValue = b.totalSkillLevel;
@@ -455,7 +414,6 @@ export function SettlementSkillsView() {
     return (
       <Container>
         <div className="space-y-6 py-8">
-          {/* Header */}
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold">Skills Overview</h1>
@@ -469,7 +427,6 @@ export function SettlementSkillsView() {
             </Button>
           </div>
 
-          {/* Loading Analytics Cards */}
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
               <Card key={`loading-card-${i}`}>
@@ -485,7 +442,6 @@ export function SettlementSkillsView() {
             ))}
           </div>
 
-          {/* Loading Skills Table */}
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -528,17 +484,13 @@ export function SettlementSkillsView() {
           </Button>
         </div>
 
-      {/* High-level Analytics */}
       {(Array.isArray(citizensData) && citizensData.length > 0) && (() => {
-        // Calculate average skill level (profession skills only)
         const avgSkillLevel = allSkillLevels.length > 0 
           ? allSkillLevels.reduce((sum, level) => sum + level, 0) / allSkillLevels.length 
           : 0;
 
-        // Find highest individual profession skill
         const highestSkill = Math.max(...allSkillLevels, 0);
 
-        // Calculate highest skill in each profession
         const professionSkills = [
           'forestry', 'carpentry', 'masonry', 'mining', 'smithing', 'scholar',
           'leatherworking', 'hunting', 'tailoring', 'farming', 'fishing', 'foraging'
@@ -598,9 +550,8 @@ export function SettlementSkillsView() {
                       style={{ width: `${(() => {
                         const tier = getSkillTier(avgSkillLevel);
                         if (tier === 0) return 0;
-                        if (tier === 10) return 100; // Max tier is always full
+                        if (tier === 10) return 100;
                         
-                        // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
                         const tierStart = (tier - 1) * 10;
                         const tierEnd = tier * 10 - 1;
                         const progressInTier = ((avgSkillLevel - tierStart) / (tierEnd - tierStart)) * 100;
@@ -670,9 +621,8 @@ export function SettlementSkillsView() {
                       style={{ width: `${(() => {
                         const tier = getSkillTier(highestSkill);
                         if (tier === 0) return 0;
-                        if (tier === 10) return 100; // Max tier is always full
+                        if (tier === 10) return 100;
                         
-                        // Calculate progress within current tier (0-9, 10-19, 20-29, 30-39, etc.)
                         const tierStart = (tier - 1) * 10;
                         const tierEnd = tier * 10 - 1;
                         const progressInTier = ((highestSkill - tierStart) / (tierEnd - tierStart)) * 100;
@@ -691,9 +641,7 @@ export function SettlementSkillsView() {
         );
       })()}
 
-
-
-      {/* Member Skills Matrix */}
+      
       <Card>
         <CardHeader>
           <div className="flex items-start justify-between">
@@ -707,7 +655,6 @@ export function SettlementSkillsView() {
               </CardDescription>
             </div>
             
-            {/* View Options Toggles - moved to top right */}
             <div className="flex flex-col items-end space-y-2 ml-4">
               <div className="flex items-center space-x-2">
                 <Label htmlFor="adventure-skills-toggle" className="text-sm font-medium whitespace-nowrap">
@@ -732,7 +679,6 @@ export function SettlementSkillsView() {
             </div>
           </div>
           
-          {/* Tier Color Legend - Compact */}
           {showTierColors && (
           <div className="mt-4 p-3 bg-muted/20 rounded border">
             <div className="flex items-center gap-4">
@@ -767,12 +713,11 @@ export function SettlementSkillsView() {
           )}
         </CardHeader>
         <CardContent className="p-0">
-          {/* Floating Sticky Headers */}
+          
           <div className="sticky top-0 z-40 bg-background border-b shadow-sm">
             <div className="overflow-x-auto">
               <Table className="table-fixed">
                 <TableHeader>
-                  {/* Group Header Row */}
                   <TableRow>
                     <TableHead className="border-r w-48 bg-background"></TableHead>
                     {groupedSkills.map(([groupName, skills]) => (
@@ -786,7 +731,6 @@ export function SettlementSkillsView() {
                     ))}
                   </TableRow>
                   
-                  {/* Individual Skill Header Row */}
                   <TableRow>
                     <TableHead className="border-r w-48 bg-background">
                       <Button
@@ -828,11 +772,9 @@ export function SettlementSkillsView() {
               </Table>
             </div>
           </div>
-
-          {/* Scrollable Table Content */}
+          
           <div className="overflow-x-auto max-h-[75vh] overflow-y-auto">
             <Table className="table-fixed">
-              {/* No headers in scrollable table - they're now floating above */}
               <TableBody>
                 {sortedCitizens.map((citizen, index) => {
                   const citizenKey = citizen.playerEntityId || `citizen-${index}`;
@@ -847,7 +789,7 @@ export function SettlementSkillsView() {
                             {citizen.name}
                           </button>
                           <div className="text-xs text-muted-foreground truncate">
-                            <span className="font-medium">{citizen.totalSkillLevel}</span> skills • <span className="capitalize">{citizen.profession}</span>
+                            <span className="font-medium">{citizen.totalSkillLevel}</span> skills
                           </div>
                         </div>
                       </TableCell>

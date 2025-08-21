@@ -153,11 +153,12 @@ async function logActivitiesToDatabase(activities: ActivityLogEntry[]): Promise<
  * Get recent settlement activities (collective actions affecting the settlement)
  */
 export async function getRecentSettlementActivities(
-  settlementId: string, 
-  limit: number = 20
+  limit: number = 20,
+  membersIdList: string[]
 ): Promise<any[]> {
   const supabase = createServerClient();
   if (!supabase) return [];
+
   
   // Settlement activity types (collective actions)
   const settlementActivityTypes = [
@@ -169,30 +170,20 @@ export async function getRecentSettlementActivities(
   ];
   
   try {
-    const { data, error } = await supabase
+     const { data, error } = await supabase
       .from('user_activity')
-      .select(`
-        id,
-        activity_type,
-        activity_data,
-        created_at,
-        settlement_members!inner (
-          id,
-          name,
-          settlement_id
-        )
-      `)
-      .eq('settlement_members.settlement_id', settlementId)
+      .select('*')
+      .in('member_id', membersIdList)
       .in('activity_type', settlementActivityTypes)
       .order('created_at', { ascending: false })
       .limit(limit);
-    
-    if (error) {
-      console.error('Error fetching recent settlement activities:', error);
-      return [];
-    }
-    
-    return data || [];
+      
+      if (error) {
+        console.error('Error fetching recent settlement activities:', error);
+        return [];
+      }
+      
+      return data || [];
     
   } catch (error) {
     console.error('Error getting recent settlement activities:', error);
@@ -204,8 +195,8 @@ export async function getRecentSettlementActivities(
  * Get recent member activities (individual member actions)
  */
 export async function getRecentMemberActivities(
-  settlementId: string, 
-  limit: number = 20
+  limit: number = 20,
+  membersIdList: string[]
 ): Promise<any[]> {
   const supabase = createServerClient();
   if (!supabase) return [];
@@ -220,20 +211,11 @@ export async function getRecentMemberActivities(
   ];
   
   try {
-    const { data, error } = await supabase
+
+     const { data, error } = await supabase
       .from('user_activity')
-      .select(`
-        id,
-        activity_type,
-        activity_data,
-        created_at,
-        settlement_members!inner (
-          id,
-          name,
-          settlement_id
-        )
-      `)
-      .eq('settlement_members.settlement_id', settlementId)
+      .select('*')
+      .in('member_id', membersIdList)
       .in('activity_type', memberActivityTypes)
       .order('created_at', { ascending: false })
       .limit(limit);

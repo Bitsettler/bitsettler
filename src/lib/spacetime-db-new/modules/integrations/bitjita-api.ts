@@ -1,3 +1,4 @@
+import { processExperienceData } from '@/lib/utils';
 import { settlementConfig } from '../../../../config/settlement-config';
 import { transformBitJitaClaims, type RawBitJitaClaim, type BitJitaSettlementDetails } from './bitjita-api-mapping';
 
@@ -149,7 +150,7 @@ export interface BitJitaRawPlayer {
 /**
  * UNIFIED PLAYER MODEL - Clean player data for our app
  */
-export interface PlayerProfile {
+export interface  PlayerProfile {
   // Core Identity
   entityId: string;
   userName: string;
@@ -165,6 +166,7 @@ export interface PlayerProfile {
     tiles: number;
     regionName: string;
     regionId: string;
+    isOwner: boolean;
     permissions: {
       inventory: boolean;
       build: boolean;
@@ -183,14 +185,11 @@ export interface PlayerProfile {
   }>;
   
   // Skills & Progression
-  skills: Record<string, {
-    level: number;
-    xp: number;
-    progressToNext: number;
-    tool?: string;
-    toolTier?: number;
-    toolRarity?: string;
-  }>;
+  skills: Record<string, number>;
+  totalSkills: number;
+  highestLevel: number;
+  totalLevel: number;
+  totalXP: number;
   
   // Exploration Progress
   exploration: {
@@ -241,6 +240,27 @@ export interface BitJitaAPIResponse<T = any> {
   success: boolean;
   data?: T;
   error?: string;
+}
+
+/**
+ * Raw BitJita Player Search Response (from /api/players?q={query})
+ * Contains basic player information from search results
+ */
+
+export interface BitJitaPlayerSearchRawType{
+    entityId: string;
+    username: string;
+    signedIn: boolean;
+    timePlayed: number;
+    timeSignedIn: number;
+    createdAt: string;
+    updatedAt: string;
+    lastLoginTimestamp: string;
+  }
+
+export interface BitJitaPlayerSearchResponse {
+  players: Array<BitJitaPlayerSearchRawType>;
+  total: number;
 }
 
 /**
@@ -424,21 +444,16 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       // Create lookup maps for citizens - try multiple ID fields
-      const citizensByEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c]));
       const citizensByPlayerEntityId = new Map(citizens.map((c: BitJitaRawCitizen) => [c.entityId, c])); // Citizens use entityId as their key
-      const citizensByUserName = new Map(citizens.map((c: BitJitaRawCitizen) => [c.userName, c]));
 
       // Merge members + citizens data
       const users: SettlementUser[] = members.map((member: BitJitaRawMember) => {
         // Try multiple matching strategies
-        let citizen = citizensByEntityId.get(member.entityId) ||
-                     citizensByPlayerEntityId.get(member.playerEntityId) ||
-                     citizensByEntityId.get(member.playerEntityId) ||
-                     citizensByUserName.get(member.userName);
+        const citizen = citizensByPlayerEntityId.get(member.playerEntityId);
         
         return {
           entityId: member.entityId,
-          userName: member.userName || citizen?.userName || `User_${member.entityId.slice(-8)}`,
+          userName: member.userName,
           settlementId,
           claimEntityId: member.claimEntityId,
           playerEntityId: member.playerEntityId,
@@ -535,6 +550,93 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         error: errorMessage
       };
     }
+  }
+
+  /**
+   * Search characters by name from BitJita API
+   * Since BitJita doesn't have a direct character search endpoint, we'll use a combination approach:
+   * 1. Try to fetch player profile directly if the query looks like a player ID
+   * 2. Search through settlements and their members to find matching characters
+   */
+  static async searchCharacters(query: string, page: number = 1): Promise<BitJitaAPIResponse<BitJitaPlayerSearchResponse>> {
+    try {
+      console.log(`🔍 Searching characters for "${query}" (page ${page})...`);
+      
+      // Use the new direct player search endpoint
+      const searchUrl = `${this.BASE_URL}/players?q=${encodeURIComponent(query)}`;
+      console.log(`🔍 Calling BitJita API: ${searchUrl}`);
+      
+      const response = await fetch(searchUrl, {
+        method: 'GET',
+        headers: this.HEADERS,
+        signal: AbortSignal.timeout(settlementConfig.bitjita.timeout),
+        cache: 'no-cache'
+      });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`❌ BitJita API error (${response.status}):`, errorText);
+        return {
+          success: false,
+          error: `BitJita API returned ${response.status}: ${errorText}`
+        };
+      }
+      
+      const searchData: BitJitaPlayerSearchResponse = await response.json();
+      console.log(`✅ Found ${searchData.players.length} players matching "${query}"`);
+      
+     
+      return {
+        success: true,
+        data: searchData
+      };
+      
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error searching characters:', error);
+      
+      return {
+        success: false,
+        error: errorMessage
+      };
+    }
+  }
+
+  /**
+   * Helper method to determine the top profession from skills
+   */
+  private static getTopProfession(skills: Record<string, any>): string {
+    if (!skills || Object.keys(skills).length === 0) {
+      return 'Settler';
+    }
+    
+    // Define profession skill mappings
+    const professionSkills: Record<string, string[]> = {
+      'Warrior': ['combat', 'defense', 'weaponry', 'tactics'],
+      'Blacksmith': ['smithing', 'mining', 'engineering', 'crafting'],
+      'Guard': ['defense', 'combat', 'protection', 'vigilance'],
+      'Scholar': ['knowledge', 'research', 'magic', 'wisdom'],
+      'Merchant': ['trading', 'negotiation', 'economics', 'diplomacy'],
+      'Explorer': ['exploration', 'survival', 'navigation', 'discovery']
+    };
+    
+    // Find the profession with the highest total skill levels
+    let topProfession = 'Settler';
+    let highestScore = 0;
+    
+    for (const [profession, skillNames] of Object.entries(professionSkills)) {
+      const score = skillNames.reduce((total, skillName) => {
+        const skill = skills[skillName];
+        return total + (skill?.level || 0);
+      }, 0);
+      
+      if (score > highestScore) {
+        highestScore = score;
+        topProfession = profession;
+      }
+    }
+    
+    return topProfession;
   }
 
   /**
@@ -686,7 +788,7 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       
       // Search for the settlement using BitJita search to get the most up-to-date data
       // Since we don't know the settlement name, we'll search by a common term and then filter by ID
-      const response = await fetch(`${this.BASE_URL}/claims?page=1`, {
+      const response = await fetch(`${this.BASE_URL}/claims/${settlementId}`, {
         method: 'GET',
         headers: this.HEADERS,
         signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
@@ -697,52 +799,10 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
       }
 
       const data = await response.json();
-      console.log(`🔍 Searching through ${data.claims?.length || 0} claims for ${settlementId}...`);
       
       // Find the settlement with matching ID
-      const settlement = data.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-      
-      if (!settlement) {
-        // Try searching more pages if not found in the first page
-        for (let page = 2; page <= 5; page++) {
-          console.log(`🔍 Searching page ${page} for settlement ${settlementId}...`);
-          
-          const pageResponse = await fetch(`${this.BASE_URL}/claims?page=${page}&limit=100`, {
-            method: 'GET',
-            headers: this.HEADERS,
-            signal: AbortSignal.timeout(settlementConfig.bitjita.timeout)
-          });
-          
-          if (pageResponse.ok) {
-            const pageData = await pageResponse.json();
-            const foundSettlement = pageData.claims?.find((claim: RawBitJitaClaim) => claim.entityId === settlementId);
-            
-            if (foundSettlement) {
-              console.log(`✅ Found settlement on page ${page}:`, foundSettlement.name);
-              return {
-                success: true,
-                data: {
-                  id: foundSettlement.entityId,
-                  name: foundSettlement.name,
-                  tier: foundSettlement.tier,
-                  treasury: parseInt(foundSettlement.treasury) || 0,
-                  supplies: foundSettlement.supplies || 0,
-                  tiles: foundSettlement.numTiles || 0,
-                  population: foundSettlement.numTiles || 0
-                }
-              };
-            }
-          }
-          
-          // Add small delay between pages to be polite to the API
-          await this.delay(200);
-        }
-        
-        throw new Error(`Settlement with ID ${settlementId} not found in BitJita claims`);
-      }
-      
-      console.log(`✅ Found settlement:`, settlement.name);
-      
+      const settlement = data.claim;
+           
       return {
         success: true,
         data: {
@@ -772,7 +832,6 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
    */
   static async fetchPlayerProfile(playerId: string): Promise<BitJitaAPIResponse<PlayerProfile>> {
     try {
-      console.log(`🔍 Fetching player profile for ${playerId}...`);
       
       const response = await fetch(`${this.BASE_URL}/players/${playerId}`, {
         method: 'GET',
@@ -784,24 +843,15 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const data = await response.json();
-      
-      console.log(`✅ Fetched player profile for ${data.userName || playerId}`);
-      
-      // Debug: Log the structure of the response
-      console.log(`🔍 Player API response structure:`);
-      console.log(`   Keys: ${Object.keys(data)}`);
-      console.log(`   Claims count: ${data.claims?.length || 0}`);
-      console.log(`   Empires count: ${data.empires?.length || 0}`);
-      console.log(`   Skills count: ${data.skills ? Object.keys(data.skills).length : 0}`);
-      console.log(`   Exploration: ${data.exploration?.totalExplored || 0}/${data.exploration?.totalChunks || 0}`);
-      
-      // Transform the raw data to our clean format
+      const result = await response.json();
+      const data = result.player;
+
+      const formattedSkills = processExperienceData(data.experience);
+
       const playerProfile: PlayerProfile = {
-        entityId: data.entityId || playerId,
-        userName: data.userName || `Player_${playerId.slice(-8)}`,
+        entityId: data.entityId,
+        userName: data.username,
         lastLoginTimestamp: data.lastLoginTimestamp,
-        
         settlements: (data.claims || []).map((claim: any) => ({
           entityId: claim.entityId,
           name: claim.name,
@@ -811,14 +861,14 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
           tiles: claim.numTiles || claim.tiles || 0,
           regionName: claim.regionName || 'Unknown Region',
           regionId: claim.regionId,
+          isOwner: claim.isOwner,
           permissions: {
-            inventory: claim.inventoryPermission > 0,
-            build: claim.buildPermission > 0,
-            officer: claim.officerPermission > 0,
-            coOwner: claim.coOwnerPermission > 0
+            inventory: claim.memberPermissions.inventoryPermission > 0,
+            build: claim.memberPermissions.buildPermission > 0,
+            officer: claim.memberPermissions.officerPermission > 0,
+            coOwner: claim.memberPermissions.coOwnerPermission > 0
           }
-        })),
-        
+        })),       
         empires: (data.empires || []).map((empire: any) => ({
           entityId: empire.entityId,
           name: empire.name,
@@ -826,9 +876,11 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
           donatedShards: empire.donatedShards || 0,
           nobleSince: empire.nobleSince
         })),
-        
-        skills: data.skills || {},
-        
+        skills: formattedSkills.skills,
+        totalSkills: formattedSkills.totalSkills || 0,
+        highestLevel: formattedSkills.highestLevel || 0,
+        totalLevel: formattedSkills.totalLevel || 0,
+        totalXP: formattedSkills.totalXP || 0,
         exploration: {
           totalExplored: data.exploration?.totalExplored || 0,
           totalChunks: data.exploration?.totalChunks || 57600, // Default total from BitJita

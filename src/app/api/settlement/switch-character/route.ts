@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     // 2. Get user's current settlement by finding their claimed character
     const { data: currentMember, error: memberError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .select('settlement_id, name, id')
       .eq('supabase_user_id', user.id)
       .single();
@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
 
     // 3. Get unclaimed characters in the same settlement
     const { data: availableCharacters, error: charactersError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .select(`
         id,
         player_entity_id,
@@ -74,7 +74,6 @@ export async function GET(request: NextRequest) {
         settlement_id,
         bitjita_user_id,
         skills,
-        top_profession,
         total_level,
         highest_level,
         inventory_permission,
@@ -122,7 +121,6 @@ export async function GET(request: NextRequest) {
       claim_entity_id: char.claim_entity_id,
       bitjita_user_id: char.bitjita_user_id,
       skills: char.skills || {},
-      top_profession: char.top_profession || 'Unknown',
       total_level: char.total_level || 0,
       highest_level: char.highest_level || 0,
       permissions: {

@@ -110,13 +110,13 @@ export async function PUT(request: NextRequest) {
 
     // Update the user's profession choices
     const { data: updatedMember, error: updateError } = await authenticatedClient
-      .from('settlement_members')
+      .from('players')
       .update({
         primary_profession: primaryProfession,
         secondary_profession: secondaryProfession
       })
       .eq('supabase_user_id', user.id)
-      .select('id, name, primary_profession, secondary_profession, top_profession')
+      .select('id, name, primary_profession, secondary_profession')
       .single();
 
     if (updateError) {
@@ -158,7 +158,6 @@ export async function PUT(request: NextRequest) {
           name: updatedMember.name,
           primary_profession: updatedMember.primary_profession,
           secondary_profession: updatedMember.secondary_profession,
-          top_profession: updatedMember.top_profession
         }
       }
     });

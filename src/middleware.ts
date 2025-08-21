@@ -12,7 +12,7 @@ const intlMiddleware = createMiddleware({
 
 export async function middleware(request: NextRequest) {
   // Start with the internationalization middleware
-  let response = intlMiddleware(request);
+  const response = intlMiddleware(request);
 
   // EXPERIMENTAL: Add Supabase middleware (can be disabled)
   const ENABLE_SUPABASE_MIDDLEWARE = false; // Set to true to test

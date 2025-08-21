@@ -130,7 +130,7 @@ npm run build         # Must pass before deployment
 - **Auth**: `useSession()` from `@/hooks/use-auth`
 - **Permissions**: `useSettlementPermissions()` for role-based access
 - **Server Auth**: `requireAuth(request)` in API routes
-- **Current Member**: `useCurrentMember()` for settlement data
+- **Current Member**: `useClaimPlayer()` for settlement data
 
 ### **Key Directories**
 - **Pages**: `src/app/[locale]/` (App Router)
