@@ -5,7 +5,6 @@ import { logger } from '@/lib/logger';
 interface SkillsAnalytics {
   totalSkills: number;
   averageLevel: number;
-  topProfession: string;
   totalSkillPoints: number;
   professionDistribution: Array<{
     profession: string;
@@ -49,24 +48,20 @@ export async function GET(request: NextRequest) {
     const totalSkillsCount = members.reduce((sum: number, member: any) => sum + (member.total_skills || 0), 0);
     const averageLevel = totalMembers > 0 ? totalSkillPoints / totalMembers : 0;
 
-    // Find top profession - already calculated per member!
-    const professionCounts: Record<string, number> = {};
-    members.forEach((member: any) => {
-      const profession = member.top_profession || 'Unknown';
-      professionCounts[profession] = (professionCounts[profession] || 0) + 1;
-    });
-    const topProfession = Object.entries(professionCounts)
-      .sort((a, b) => b[1] - a[1])[0]?.[0] || 'Unknown';
 
     // Calculate profession distribution
     const professionStats: Record<string, { count: number; levels: number[]; }> = {};
     members.forEach((member: any) => {
-      const profession = member.top_profession || 'Unknown';
-      if (!professionStats[profession]) {
-        professionStats[profession] = { count: 0, levels: [] };
+      const profession = member.profession;
+      if (profession) {
+        if (!professionStats[profession]) {
+          professionStats[profession] = { count: 0, levels: [] };
+        }
+        professionStats[profession].count++;
+        professionStats[profession].levels.push(member.highest_level || 0);
+      } else {
+        console.log('No profession found for member:', member);
       }
-      professionStats[profession].count++;
-      professionStats[profession].levels.push(member.highest_level || 0);
     });
 
     const professionDistribution = Object.entries(professionStats).map(([profession, stats]) => ({
@@ -123,7 +118,6 @@ export async function GET(request: NextRequest) {
     const analytics: SkillsAnalytics = {
       totalSkills: Object.keys(skillAggregation).length,
       averageLevel: Math.round(averageLevel * 10) / 10,
-      topProfession,
       totalSkillPoints,
       professionDistribution,
       topSkills,
@@ -134,7 +128,6 @@ export async function GET(request: NextRequest) {
       totalMembers,
       totalSkills: analytics.totalSkills,
       averageLevel: analytics.averageLevel,
-      topProfession,
       dataSource: 'unified_settlement_members'
     });
 

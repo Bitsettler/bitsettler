@@ -116,7 +116,7 @@ export async function PUT(request: NextRequest) {
         secondary_profession: secondaryProfession
       })
       .eq('supabase_user_id', user.id)
-      .select('id, name, primary_profession, secondary_profession, top_profession')
+      .select('id, name, primary_profession, secondary_profession')
       .single();
 
     if (updateError) {
@@ -158,7 +158,6 @@ export async function PUT(request: NextRequest) {
           name: updatedMember.name,
           primary_profession: updatedMember.primary_profession,
           secondary_profession: updatedMember.secondary_profession,
-          top_profession: updatedMember.top_profession
         }
       }
     });

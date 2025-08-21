@@ -34,6 +34,9 @@ const totals = [
 
 export function getLevelFromTable(xp: number) {
   xp = Math.max(0, xp);
+  if (xp === 0) {
+    return { level: 0, exact: true };
+  }
   let lo = 0, hi = totals.length - 1;
   while (lo <= hi) {
     const mid = Math.floor((lo + hi) / 2);
@@ -47,4 +50,51 @@ export function getLevelFromTable(xp: number) {
   }
   const level = Math.max(1, hi + 1); // hi is index of largest total <= xp
   return { level: level, exact: false };
+}
+
+
+interface ExperienceEntry {
+  quantity: number;
+  skill_id: number;
+}
+
+interface ProcessedSkillsData {
+  skills: Record<string, number>;
+  totalSkills: number;
+  highestLevel: number;
+  totalLevel: number;
+  totalXP: number;
+}
+
+export function processExperienceData(experience: ExperienceEntry[]): ProcessedSkillsData {
+  const skills: Record<string, number> = {};
+  let totalXP = 0;
+  let totalLevel = 0;
+  let highestLevel = 0;
+  let nonZeroSkills = 0;
+
+  for (const entry of experience) {
+    const { quantity, skill_id } = entry;
+    totalXP += quantity;
+    
+    const { level } = getLevelFromTable(quantity);
+    
+    if (level !== 0) {
+      skills[skill_id.toString()] = level;
+    }
+
+    if (quantity > 0) {
+      nonZeroSkills++;
+      totalLevel += level;
+      highestLevel = Math.max(highestLevel, level);
+    }
+  }
+
+  return {
+    skills,
+    totalSkills: nonZeroSkills,
+    highestLevel,
+    totalLevel,
+    totalXP
+  };
 }

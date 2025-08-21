@@ -48,11 +48,7 @@ export async function GET(request: NextRequest) {
       highest_level: citizen.highestLevel || 0,
       total_level: citizen.totalLevel || 0,
       total_xp: citizen.totalXP || 0,
-      
-      // Calculate top profession from skills
-      top_profession: getTopProfession(citizen.skills, skillNames),
-      
-      // Status
+            // Status
       source: 'bitjita_citizens'
     }));
 

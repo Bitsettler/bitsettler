@@ -39,7 +39,6 @@ interface SettlementMemberDetailsRow {
   highest_level: number;
   total_level: number;
   total_xp: number;
-  top_profession: string | null;
   is_recently_active: boolean;
   last_synced_at: string;
 }
@@ -64,13 +63,6 @@ export async function getAllMembers(options: GetAllMembersOptions = {}): Promise
     // Apply settlement filter (this is critical!)
     if (options.settlementId) {
       query = query.eq('settlement_id', options.settlementId);
-    }
-
-    // Apply other filters
-    // Note: Removed is_active filtering for now - can add back later for UI purposes only
-
-    if (options.profession && options.profession !== 'all') {
-      query = query.ilike('top_profession', `%${options.profession}%`);
     }
 
     // Apply pagination
@@ -103,7 +95,6 @@ export async function getAllMembers(options: GetAllMembersOptions = {}): Promise
       id: member.player_entity_id, // Use player_entity_id as the primary identifier
       bitjitaId: member.entity_id, // entity_id is the BitJita ID
       name: member.user_name, // View uses user_name column
-      profession: member.top_profession || 'Unknown', // From citizens data
       professionLevel: member.highest_level || 1, // From citizens data
       lastOnline: member.last_login_timestamp ? new Date(member.last_login_timestamp) : null,
       joinDate: member.joined_settlement_at ? new Date(member.joined_settlement_at) : new Date(),

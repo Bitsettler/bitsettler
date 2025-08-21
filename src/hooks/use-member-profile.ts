@@ -1,6 +1,6 @@
 'use client';
 
-import { useClaimPlayer } from './use-claim-player';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context'
 
 export interface ProfileUpdateData {
   display_name?: string;
@@ -16,7 +16,7 @@ export interface ProfileUpdateData {
 }
 
 export function useMemberProfile() {
-  const { member, updateMember, isLoading, error } = useClaimPlayer();
+  const { member, updateMember, isLoading, error } = useClaimPlayerContext();
 
   const updateProfile = async (updates: ProfileUpdateData) => {
     if (!member) {

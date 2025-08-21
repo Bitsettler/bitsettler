@@ -74,7 +74,6 @@ export async function GET(request: NextRequest) {
         settlement_id,
         bitjita_user_id,
         skills,
-        top_profession,
         total_level,
         highest_level,
         inventory_permission,
@@ -122,7 +121,6 @@ export async function GET(request: NextRequest) {
       claim_entity_id: char.claim_entity_id,
       bitjita_user_id: char.bitjita_user_id,
       skills: char.skills || {},
-      top_profession: char.top_profession || 'Unknown',
       total_level: char.total_level || 0,
       highest_level: char.highest_level || 0,
       permissions: {

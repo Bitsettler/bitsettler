@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Container } from '@/components/container';
-import { useClaimPlayer } from '../../hooks/use-claim-player';
 import { useCallback } from 'react';
 import { 
   Users, 
@@ -52,6 +51,9 @@ interface Settlement {
     population?: number;
   };
   stats?: DashboardStats;
+  masterData?: {
+    region_name: string;
+  };
 }
 
 interface Treasury {
@@ -260,7 +262,7 @@ export function SettlementDashboardView() {
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Tier {settlementInfo?.tier || 1} Settlement
-                    {dashboardData.settlement.masterData && (
+                    {dashboardData?.settlement?.masterData && (
                       <span> • {dashboardData.settlement.masterData.region_name}</span>
                     )}
                   </p>

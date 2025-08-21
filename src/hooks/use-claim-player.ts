@@ -19,7 +19,6 @@ export interface Player {
   highest_level: number;
   total_level: number;
   total_xp: number;
-  top_profession: string | null;
   primary_profession: string | null;
   secondary_profession: string | null;
   last_login_timestamp: string | null;

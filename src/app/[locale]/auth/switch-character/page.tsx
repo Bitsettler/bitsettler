@@ -3,16 +3,16 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
-import { useClaimPlayer } from '@/hooks/use-claim-player';
 import { Container } from '../../../../components/container';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../../components/ui/card';
 import { Button } from '../../../../components/ui/button';
 import { SettlementSwitchFlow } from '../../../../components/settlement-switch-flow';
 import { Loader2, AlertCircle } from 'lucide-react';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 export default function SwitchCharacterPage() {
   const { data: session, status } = useSession();
-  const { member, isLoading: memberLoading, isClaimed } = useClaimPlayer();
+  const { member, isLoading: memberLoading, isClaimed } = useClaimPlayerContext();
   const router = useRouter();
 
   // Redirect unauthenticated users

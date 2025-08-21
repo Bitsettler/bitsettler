@@ -3,7 +3,7 @@ import { createRequestLogger } from '@/lib/logger';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { requireAuth } from '@/lib/supabase-server-auth';
 import { createClient } from '@supabase/supabase-js';
-import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
+import { BitJitaAPI, PlayerProfile } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
 import { validateRequestBody, SETTLEMENT_SCHEMAS } from '@/lib/validation';
 import { shouldRateLimit, characterClaimRateLimit } from '@/lib/rate-limiting';
 
@@ -67,69 +67,61 @@ export async function POST(request: NextRequest) {
         );
       }
 
-    const { playerEntityId, primaryProfession, secondaryProfession, settlementId } = validationResult.data as {
-      playerEntityId: string;
-      primaryProfession: string;
-      secondaryProfession: string;
-      settlementId: string;
-    };
+      const { playerEntityId, primaryProfession, secondaryProfession, settlementId } = validationResult.data as {
+        playerEntityId: string;
+        primaryProfession: string;
+        secondaryProfession: string;
+        settlementId: string;
+      };
 
-    // if (settlementId == 'solo') {
-    //   const profileResult = await BitJitaAPI.fetchPlayerProfile(playerEntityId);
+    if (settlementId == 'solo') {
+      const profileResult = await BitJitaAPI.fetchPlayerProfile(playerEntityId);
   
-    //   if (!profileResult.success || !profileResult.data) {
-    //     console.error('❌ Failed to fetch character profile from BitJita:', profileResult.error);
-    //     return NextResponse.json(
-    //       { success: false, error: 'Character not found or BitJita API error' },
-    //       { status: 404 }
-    //     );
-    //   }
+      if (!profileResult.success || !profileResult.data) {
+        console.error('❌ Failed to fetch character profile from BitJita:', profileResult.error);
+        return NextResponse.json(
+          { success: false, error: 'Character not found or BitJita API error' },
+          { status: 404 }
+        );
+      }
 
-    //   const profile = profileResult.data as any;
-    //   const default_settlement_id = profile.settlements[0].entityId;
-    //   const data = await BitJitaAPI.fetchSettlementUsers(default_settlement_id);
-    //   const membersData = data.data?.users.filter((member: any) => member.playerEntityId === playerEntityId)[0];
+      const profile = profileResult.data as PlayerProfile;
 
-    //   if (membersData) {
-    //     const { error: createError } = await serviceClient
-    //       .from('players')
-    //       .upsert({
-    //         id: playerEntityId,
-    //         name: membersData.userName,
-    //         skills: membersData.skills,
-    //         total_skills: membersData.totalSkills,
-    //         highest_level: membersData.highestLevel,
-    //         total_level: membersData.totalLevel,
-    //         total_xp: membersData.totalXP,
-    //         top_profession: getTopProfession(membersData.skills || {}),
-    //         primary_profession: primaryProfession,
-    //         secondary_profession: secondaryProfession,
-    //         is_active: true,
-    //         is_solo: true,
-    //         supabase_user_id: user.id,
-    //         sync_source: 'manual_creation',
-    //         last_synced_at: new Date().toISOString()
-    //       }, {
-    //         onConflict: 'player_entity_id'
-    //       })
-    //       .select()
-    //       .single();
+      const { error: updsertError } = await serviceClient
+        .from('players')
+        .upsert({
+          id: playerEntityId,
+          name: profile.userName,
+          skills: profile.skills,
+          total_skills: profile.totalSkills,
+          highest_level: profile.highestLevel,
+          total_level: profile.totalLevel,
+          total_xp: profile.totalXP,
+          primary_profession: primaryProfession,
+          secondary_profession: secondaryProfession,
+          is_active: true,
+          is_solo: true,
+          is_claim: true,
+          supabase_user_id: user.id,
+          sync_source: 'bitjita',
+          last_synced_at: new Date().toISOString()
+        }, {
+          onConflict: 'id'
+        })
+        .select()
+        .single();
 
-    //     if (createError) {
-    //       console.error('❌ Error inserting character claim: players processing', createError);
-    //       return NextResponse.json(
-    //         { success: false, error: 'Failed to save character claim' },
-    //         { status: 500 }
-    //       );
-    //     }
+        if (updsertError) {
+          console.error('❌ Error inserting character claim: players processing', updsertError);
+          return NextResponse.json(
+            { success: false, error: 'Failed to save character claim' },
+            { status: 500 }
+          );
+        }
 
-    //     return NextResponse.json({ success: true });
-    //   }
-    // }
+        return NextResponse.json({ success: true });
+      }
 
-
-    try {
-      // Call the Edge Function to sync settlement members
       const { data: syncResult, error: syncError } = await supabase.functions.invoke('sync_players_by_settlement_id', {
         body: { settlementId }
       });
@@ -164,14 +156,24 @@ export async function POST(request: NextRequest) {
           { status: 500 }
         );
       }
+      
+      const { error: settlementError } = await serviceClient
+        .from('settlements')
+        .update({
+          is_established: true
+        })
+        .eq('id', settlementId)
+        .single();
+        
+      if (settlementError) {
+        console.error('❌ Error updating settlement population', settlementError);
+        return NextResponse.json(
+          { success: false, error: 'Failed to update settlement population' },
+          { status: 500 }
+        );
+      }
+
       return NextResponse.json({ success: true });
-
-    } catch (error) {
-      console.error('❌ Error fetching players by claim entity ID:', error);
-      return NextResponse.json({ success: false, error: 'Failed to fetch players by claim entity ID' }, { status: 500 });
-    }
-
-
 
     } catch (error) {
       console.error('❌ Unexpected error in character claim:', error);

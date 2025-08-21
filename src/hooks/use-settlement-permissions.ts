@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useAuth } from './use-auth'
-import { useClaimPlayer } from './use-claim-player'
+import { useClaimPlayerContext } from '@/contexts/claim-player-context'
 
 export interface SettlementPermissions {
   inventory_permission: boolean
@@ -26,7 +26,7 @@ export interface UserRole {
 
 export function useSettlementPermissions() {
   const { user, session } = useAuth()
-  const { member, isClaimed, isLoading: memberLoading } = useClaimPlayer()
+  const { member, isClaimed, isLoading: memberLoading } = useClaimPlayerContext()
   const [permissions, setPermissions] = useState<SettlementPermissions | null>(null)
   const [userRole, setUserRole] = useState<UserRole | null>(null)
   const [loading, setLoading] = useState(true)
@@ -46,12 +46,14 @@ export function useSettlementPermissions() {
         return
       }
 
+      const settlement = member.settlements?.find(s => s.claimEntityId === member.claim_settlement_id)
+
       // User has a claimed character - use the member data directly
       const perms: SettlementPermissions = {
-        inventory_permission: member.inventory_permission === 1,
-        build_permission: member.build_permission === 1,
-        officer_permission: member.officer_permission === 1,
-        co_owner_permission: member.co_owner_permission === 1,
+        inventory_permission: settlement?.inventoryPermission === 1,
+        build_permission: settlement?.buildPermission === 1,
+        officer_permission: settlement?.officerPermission === 1,
+        co_owner_permission: settlement?.coOwnerPermission === 1,
       }
 
       const role = calculateUserRole(perms)

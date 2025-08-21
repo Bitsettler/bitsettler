@@ -18,7 +18,6 @@ interface MemberData {
     highest_level: number;
     total_level: number;
     total_xp: number;
-    top_profession: string;
     inventory_permission: number;
     build_permission: number;
     officer_permission: number;
@@ -85,7 +84,6 @@ async function handleGetMembers(request: NextRequest): Promise<NextResponse> {
     highest_level: member.highest_level || 0,
     total_level: member.total_level || 0,
     total_xp: member.total_xp || 0,
-    top_profession: member.top_profession || 'Unknown',
     primary_profession: member.primary_profession,
     secondary_profession: member.secondary_profession,
     

@@ -23,7 +23,6 @@ export interface DatabaseSettlementMember {
   total_level?: number;
   total_xp?: number;
   skills?: Record<string, number>;
-  top_profession?: string;
   
   // Permissions
   inventory_permission?: boolean | number;
@@ -70,7 +69,6 @@ export interface ApiFormattedMember {
   bitjita_user_id?: string;
   
   skills: Record<string, number>;
-  top_profession: string;
   total_level: number;
   
   permissions: {
@@ -110,7 +108,6 @@ export interface AvailableCharacter {
   bitjita_user_id?: string;
   
   skills: Record<string, number>;
-  top_profession: string;
   total_level: number;
   
   permissions: {
@@ -167,7 +164,6 @@ export function formatMemberForApi(dbMember: DatabaseSettlementMember): ApiForma
     bitjita_user_id: dbMember.bitjita_user_id,
     
     skills: dbMember.skills || {},
-    top_profession: dbMember.top_profession || 'Unknown',
     total_level: dbMember.total_level || 0,
     
     permissions: {
@@ -209,7 +205,6 @@ export function formatAsAvailableCharacter(dbMember: DatabaseSettlementMember): 
     bitjita_user_id: dbMember.bitjita_user_id,
     
     skills: dbMember.skills || {},
-    top_profession: dbMember.top_profession || 'Unknown',
     total_level: dbMember.total_level || 0,
     
     permissions: {

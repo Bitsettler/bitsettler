@@ -101,16 +101,6 @@ export async function GET(request: NextRequest) {
       if (skilledMembers.length > 0) {
         skillsInsights.totalSkillPoints = skilledMembers.reduce((sum, m) => sum + (m.total_xp || 0), 0);
         skillsInsights.avgSkillLevel = skilledMembers.reduce((sum, m) => sum + (m.total_level || 0), 0) / skilledMembers.length;
-        
-        // Find most common profession
-        const professionCounts = skilledMembers.reduce((counts, m) => {
-          const prof = m.top_profession || 'Settler';
-          counts[prof] = (counts[prof] || 0) + 1;
-          return counts;
-        }, {} as Record<string, number>);
-        
-        skillsInsights.topProfession = Object.entries(professionCounts)
-          .sort(([,a], [,b]) => (b as number) - (a as number))[0]?.[0] || 'Settler';
       }
     }
 

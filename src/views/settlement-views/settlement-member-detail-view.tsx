@@ -1,19 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Container } from '@/components/container';
-import { useClaimPlayer } from '../../hooks/use-claim-player';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 import { useAuth } from '../../hooks/use-auth';
 import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
-import { TierIcon } from '@/components/ui/tier-icon';
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { getDisplayProfession, getSecondaryProfession, getProfessionSource } from '@/lib/utils/profession-utils';
 import { ProfessionSelector } from '@/components/profession-selector';
@@ -140,7 +136,7 @@ export function SettlementMemberDetailView({ memberId, hideBackButton = false, h
   const [contributions, setContributions] = useState<MemberContributionItem[] | null>(null);
   const [contribError, setContribError] = useState<string | null>(null);
   
-  const { member: currentMember, isLoading: memberLoading, isSolo} = useClaimPlayer();
+  const { member: currentMember, isLoading: memberLoading, isSolo} = useClaimPlayerContext();
   const { user: authUser } = useAuth();
   const { getTopSkillsWithNames, loading: skillNamesLoading } = useSkillNames();
 

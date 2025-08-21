@@ -1,3 +1,4 @@
+import { processExperienceData } from '@/lib/utils';
 import { settlementConfig } from '../../../../config/settlement-config';
 import { transformBitJitaClaims, type RawBitJitaClaim, type BitJitaSettlementDetails } from './bitjita-api-mapping';
 
@@ -149,7 +150,7 @@ export interface BitJitaRawPlayer {
 /**
  * UNIFIED PLAYER MODEL - Clean player data for our app
  */
-export interface PlayerProfile {
+export interface  PlayerProfile {
   // Core Identity
   entityId: string;
   userName: string;
@@ -184,14 +185,11 @@ export interface PlayerProfile {
   }>;
   
   // Skills & Progression
-  skills: Record<string, {
-    level: number;
-    xp: number;
-    progressToNext: number;
-    tool?: string;
-    toolTier?: number;
-    toolRarity?: string;
-  }>;
+  skills: Record<string, number>;
+  totalSkills: number;
+  highestLevel: number;
+  totalLevel: number;
+  totalXP: number;
   
   // Exploration Progress
   exploration: {
@@ -834,7 +832,6 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
    */
   static async fetchPlayerProfile(playerId: string): Promise<BitJitaAPIResponse<PlayerProfile>> {
     try {
-      console.log(`🔍 Fetching player profile for ${playerId}...`);
       
       const response = await fetch(`${this.BASE_URL}/players/${playerId}`, {
         method: 'GET',
@@ -846,25 +843,16 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const result = await response.json();
+      const data = result.player;
 
-      console.log(`✅ Fetched player profile for ${data.player.username || playerId}`);
-      
-      // Debug: Log the structure of the response
-      console.log(`🔍 Player API response structure:`);
-      console.log(`   Keys: ${Object.keys(data)}`);
-      console.log(`   Claims count: ${data.player.claims?.length || 0}`);
-      console.log(`   Empires count: ${data.player.empires?.length || 0}`);
-      console.log(`   Skills count: ${data.player.skills ? Object.keys(data.player.skills).length : 0}`);
-      console.log(`   Exploration: ${data.player.exploration?.totalExplored || 0}/${data.player.exploration?.totalChunks || 0}`);
-      
-      // Transform the raw data to our clean format
+      const formattedSkills = processExperienceData(data.experience);
+
       const playerProfile: PlayerProfile = {
-        entityId: data.entityId || playerId,
-        userName: data.player.username || `Player_${playerId.slice(-8)}`,
-        lastLoginTimestamp: data.player.lastLoginTimestamp,
-        
-        settlements: (data.player.claims || []).map((claim: any) => ({
+        entityId: data.entityId,
+        userName: data.username,
+        lastLoginTimestamp: data.lastLoginTimestamp,
+        settlements: (data.claims || []).map((claim: any) => ({
           entityId: claim.entityId,
           name: claim.name,
           tier: claim.tier || 0,
@@ -880,18 +868,19 @@ static async fetchSettlementRoster(settlementId: string): Promise<BitJitaAPIResp
             officer: claim.memberPermissions.officerPermission > 0,
             coOwner: claim.memberPermissions.coOwnerPermission > 0
           }
-        })),
-        
-        empires: (data.player.empires || []).map((empire: any) => ({
+        })),       
+        empires: (data.empires || []).map((empire: any) => ({
           entityId: empire.entityId,
           name: empire.name,
           rank: empire.rank || 0,
           donatedShards: empire.donatedShards || 0,
           nobleSince: empire.nobleSince
         })),
-        
-        skills: data.skills || {},
-        
+        skills: formattedSkills.skills,
+        totalSkills: formattedSkills.totalSkills || 0,
+        highestLevel: formattedSkills.highestLevel || 0,
+        totalLevel: formattedSkills.totalLevel || 0,
+        totalXP: formattedSkills.totalXP || 0,
         exploration: {
           totalExplored: data.exploration?.totalExplored || 0,
           totalChunks: data.exploration?.totalChunks || 57600, // Default total from BitJita

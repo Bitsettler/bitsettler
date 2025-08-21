@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Container } from '@/components/container';
 import { Award, TrendingUp, Users, Target, RefreshCw, AlertCircle, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
-import { useClaimPlayer } from '../../hooks/use-claim-player';
 import { useSkillNames } from '../../hooks/use-skills';
 import { getSettlementTierBadgeClasses } from '../../lib/settlement/tier-colors';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
@@ -29,7 +28,6 @@ function getSkillTier(level: number): number {
 interface CitizenSkills {
   name: string;
   playerEntityId: string;
-  profession: string;
   totalSkillLevel: number;
   totalXP: number;
   highestLevel: number;
@@ -265,10 +263,9 @@ export function SettlementSkillsView() {
       const rawMembers = membersResult.data?.members || [];
       
       // Map API data to CitizenSkills interface
-      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; top_profession?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
+      const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
         name: member.name || 'Unknown Player',
         playerEntityId: member.player_entity_id || '',
-        profession: member.top_profession || 'Unknown',
         totalSkillLevel: member.total_level || 0,
         totalXP: member.total_xp || 0,
         highestLevel: member.highest_level || 0,

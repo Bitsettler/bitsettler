@@ -182,7 +182,7 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
           onConflict: 'settlement_id,player_entity_id',
           ignoreDuplicates: false
         })
-        .select('id, name, total_skills, highest_level, top_profession');
+        .select('id, name, total_skills, highest_level');
 
       if (error) {
         console.error(`❌ [${i+1}/${users.length}] FAILED to sync user ${user.userName} (${user.entityId}):`, {
@@ -196,9 +196,8 @@ export async function syncSettlementMembers(options: SyncSettlementMembersOption
         const syncedUser = data[0];
         const skillsDisplay = syncedUser.total_skills || 'Unknown';
         const maxLevelDisplay = syncedUser.highest_level || 'Unknown';  
-        const topProfessionDisplay = syncedUser.top_profession || 'Unknown';
         
-        console.log(`✅ SYNCED ${syncedUser.name}: Skills=${skillsDisplay}, Max Level=${maxLevelDisplay}, Top=${topProfessionDisplay}`);
+        console.log(`✅ SYNCED ${syncedUser.name}: Skills=${skillsDisplay}, Max Level=${maxLevelDisplay}`);
         
         // Track member activity for skill changes
         try {

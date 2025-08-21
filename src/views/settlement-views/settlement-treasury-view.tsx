@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useClaimPlayer } from '@/hooks/use-claim-player';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -149,6 +148,7 @@ export function SettlementTreasuryView() {
   const [newTransaction, setNewTransaction] = useState({
     amount: '',
     transactionType: 'Income' as 'Income' | 'Expense' | 'Transfer' | 'Adjustment',
+    category: '',
     description: ''
   });
 

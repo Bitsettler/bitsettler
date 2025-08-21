@@ -2,30 +2,30 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Input } from '../../components/ui/input';
-import { Button } from '../../components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
-import { Switch } from '../../components/ui/switch';
-import { Label } from '../../components/ui/label';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../../components/ui/collapsible';
-import { Skeleton } from '../../components/ui/skeleton';
-import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
-import { Container } from '../../components/container';
-import { useClaimPlayer } from '../../hooks/use-claim-player';
-import { Search, Users, UserCheck, Crown, Shield, Hammer, Package, Clock, TrendingUp, Award, Calendar, ChevronUp, ChevronDown } from 'lucide-react';
-import { getDisplayProfession, getSecondaryProfession } from '../../lib/utils/profession-utils';
-import { getMemberActivityInfo } from '../../lib/utils/member-activity';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { Search, Calendar, TrendingUp, Clock } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Container } from '@/components/container';
+import { Users, UserCheck, Crown, Shield, Hammer, Package, ChevronUp, ChevronDown } from 'lucide-react';
+import { getDisplayProfession } from '@/lib/utils/profession-utils';
+import { getMemberActivityInfo } from '@/lib/utils/member-activity';
 import { useClaimPlayerContext } from '@/contexts/claim-player-context';
+import { getSecondaryProfession } from '@/lib/utils/profession-utils';
 
 
 interface SettlementMember {
   id: string;
   player_entity_id: string;
   name: string;
-  top_profession: string;
   primary_profession?: string;
   secondary_profession?: string;
   highest_level: number;

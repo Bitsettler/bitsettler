@@ -2,17 +2,14 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from '@/hooks/use-auth';
-import { useClaimPlayer } from '@/hooks/use-claim-player';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 import { useRouter } from 'next/navigation';
 import { 
   Plus, 
   Package, 
   Clock, 
   CheckCircle2, 
-  Filter,
   Search,
-  ChevronRight,
-  Minus,
   Target,
   MoreHorizontal,
   Trash2,
@@ -31,9 +28,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
-import { getSettlementTierBadgeClasses } from '@/lib/settlement/tier-colors';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
-import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface ProjectWithItems {
   id: string;

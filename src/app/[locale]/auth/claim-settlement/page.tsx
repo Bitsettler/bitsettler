@@ -7,7 +7,7 @@ import { Loader2, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { api } from '@/lib/api-client';
-import { useClaimPlayer } from '@/hooks/use-claim-player';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface SettlementData {
   entityId: string;
@@ -26,7 +26,7 @@ type SelectedSettlementType = SettlementData | SoloPlayerOption | null;
 
 export default function ClaimSettlementPage() {
   const router = useRouter();
-  const { member: currentMember, isLoading: memberLoading, isSolo} = useClaimPlayer();
+  const { member: currentMember, isLoading: memberLoading} = useClaimPlayerContext();
   const [isLoadingSettlements, setIsLoadingSettlements] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
   const [settlementsData, setSettlementsData] = useState<SettlementData[]>([]);
@@ -43,7 +43,7 @@ export default function ClaimSettlementPage() {
       setIsLoadingSettlements(true);
 
       const result = await api.post('/api/character/settlement', {
-        playerEntityId: currentMember?.player_entity_id,
+        playerEntityId: currentMember?.id,
       })
         
         if (result.success) {
@@ -82,7 +82,7 @@ export default function ClaimSettlementPage() {
 
 
       const result = await api.post('/api/character/claim', {
-        playerEntityId: currentMember?.player_entity_id,
+        playerEntityId: currentMember?.id,
         settlementId: isSettlementData(selectedSettlement) ? selectedSettlement.entityId : 'solo',
       })
 
