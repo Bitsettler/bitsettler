@@ -86,8 +86,8 @@ export function CalculatorNewView() {
       return
     }
 
-    const item = getItemById(itemId)
-    const itemName = item ? getItemDisplay(item).name : 'Unknown Item'
+    const item = getItemById()
+    const itemName = item ? getItemDisplay(itemId).name : 'Unknown Item'
     
     // Create formatted text
     let planText = `BitCraft Materials Plan - ${itemName} (${qty}x)\n`
@@ -157,16 +157,9 @@ export function CalculatorNewView() {
   }
   
   useEffect(() => {
-    // Telemetry: Track page load
-    console.info('calc2_load_start')
-    
-    // Load deep craftables but don't auto-select
     const deepItems = findDeepCraftables(12)
     setDeepCraftables(deepItems)
     setIsInitialized(true)
-    
-    // Telemetry: Track page loaded
-    setTimeout(() => console.info('calc2_load_end'), 0)
   }, [])
   
   const itemById = getItemById()
@@ -183,10 +176,7 @@ export function CalculatorNewView() {
       const startTime = performance.now()
       const result = expandToBase(itemId, qty, showSteps)
       const endTime = performance.now()
-      
-      // Telemetry: Track calculation performance
-      console.info(`calc2_run_ms: ${Math.round(endTime - startTime)}`)
-      
+     
       return result
     } catch (err) {
       console.error('Calculation error:', err)

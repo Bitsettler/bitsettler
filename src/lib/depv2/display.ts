@@ -129,7 +129,6 @@ function buildIndex() {
     // Debug: Log skill resolution for specific items
     if (name.includes('Crop Oil') || name.includes('Gypsite') || 
         name.includes('Braxite') || name.includes('Pebbles')) {
-      console.log(`🎯 Display for ${name} (${id}): skill from map = ${itemToSkill.get(id)}, final skill = ${skill}`)
     }
     
     // Count items without skills for audit

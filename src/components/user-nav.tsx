@@ -181,7 +181,7 @@ export function UserNav() {
           <DropdownMenuItem asChild>
             <a href="/en/auth/claim-settlement">
               <RefreshCw className="mr-2 h-4 w-4" />
-              <span>Claim Settlement</span>
+              <span>Switch Settlement</span>
             </a>
           </DropdownMenuItem>
         </DropdownMenuGroup>
