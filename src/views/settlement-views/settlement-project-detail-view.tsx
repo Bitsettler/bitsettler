@@ -49,11 +49,9 @@ import { SelectedItemDisplay } from '@/components/projects/selected-item-display
 
 interface ProjectItem {
   id: string;
-  item_name: string;
-  item_slug?: string;
-  item_category?: string;
-  required_quantity: number;
-  contributed_quantity: number;
+  itemName: string;
+  requiredQuantity: number;
+  contributedQuantity: number;
   tier: number;
   priority: number;
   notes?: string;
@@ -67,6 +65,7 @@ interface MemberContribution {
   itemName: string | null;
   quantity: number;
   description: string | null;
+  deliveryMethod: 'Dropbox' | 'Officer Handoff' | 'Added to Building' | 'Other';
   contributedAt: Date;
 }
 
@@ -306,7 +305,7 @@ export function SettlementProjectDetailView() {
     try {
       const result = await api.post('/api/settlement/contributions', {
         projectId: project.id,
-        itemName: item.item_name,
+        itemName: item.itemName,
         quantity: amount,
         contributionType: 'Direct',
         deliveryMethod: deliveryMethod,
@@ -317,7 +316,7 @@ export function SettlementProjectDetailView() {
         throw new Error(result.error || 'Failed to contribute');
       }
 
-      toast.success(`Contributed ${amount} ${item.item_name}!`);
+      toast.success(`Contributed ${amount} ${item.itemName}!`);
       
       // Close dialog and reset
       setContributingItem(null);
@@ -608,7 +607,7 @@ export function SettlementProjectDetailView() {
     );
   }
 
-  const completedItems = (project.items || []).filter(item => item.contributed_quantity >= item.required_quantity).length;
+  const completedItems = (project.items || []).filter(item => item.contributedQuantity >= item.requiredQuantity).length;
   const totalItems = (project.items || []).length;
   const overallProgress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
 
@@ -909,9 +908,9 @@ export function SettlementProjectDetailView() {
                 </TableHeader>
                 <TableBody>
                   {(project.items || []).map((item) => {
-                  const remaining = item.required_quantity - item.contributed_quantity;
-                  const progress = Math.round((item.contributed_quantity / item.required_quantity) * 100);
-                  const isComplete = item.contributed_quantity >= item.required_quantity;
+                  const remaining = item.requiredQuantity - item.contributedQuantity;
+                  const progress = Math.round((item.contributedQuantity / item.requiredQuantity) * 100);
+                  const isComplete = item.contributedQuantity >= item.requiredQuantity;
                   const isEditing = editingItems[item.id] !== undefined;
                   
                   return (
@@ -919,8 +918,8 @@ export function SettlementProjectDetailView() {
                       <TableCell>
                         <div className="flex items-center gap-3">
                           <ContributionDisplay
-                            itemName={item.item_name}
-                            quantity={item.required_quantity}
+                            itemName={item.itemName}
+                            quantity={item.requiredQuantity}
                             tier={item.tier}
                             showLink
                           />
@@ -960,11 +959,11 @@ export function SettlementProjectDetailView() {
                             </>
                           ) : (
                             <>
-                              <span className="text-lg font-mono">{item.required_quantity}</span>
+                              <span className="text-lg font-mono">{item.requiredQuantity}</span>
                               <Button
                                 size="sm"
                                 variant="ghost"
-                                onClick={() => handleEditQuantity(item.id, item.required_quantity)}
+                                onClick={() => handleEditQuantity(item.id, item.requiredQuantity)}
                                 className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
                                 title="Edit required quantity"
                               >
@@ -979,9 +978,9 @@ export function SettlementProjectDetailView() {
                         <div className="space-y-2">
                           <div className="text-sm">
                             <span className={isComplete ? 'text-green-600 font-medium' : ''}>
-                              {item.contributed_quantity}
+                              {item.contributedQuantity}
                             </span>
-                            <span className="text-muted-foreground"> / {item.required_quantity}</span>
+                            <span className="text-muted-foreground"> / {item.requiredQuantity}</span>
                           </div>
                           <Progress value={progress} className="h-2" />
                           <div className="text-xs text-muted-foreground">
@@ -1006,7 +1005,7 @@ export function SettlementProjectDetailView() {
                           size="sm"
                           variant="outline"
                           className="h-8 w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
-                          onClick={() => setItemToDelete({id: item.id, name: item.item_name})}
+                          onClick={() => setItemToDelete({id: item.id, name: item.itemName})}
                           title="Remove item from project"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -1125,7 +1124,7 @@ export function SettlementProjectDetailView() {
                           {contribution.itemName && (
                             <div className="flex items-center gap-2">
                               {(() => {
-                                const projectItem = project?.items?.find(i => i.item_name.toLowerCase() === contribution.itemName?.toLowerCase());
+                                const projectItem = project?.items?.find(i => i.itemName.toLowerCase() === contribution.itemName?.toLowerCase());
                                 return (
                                   <ContributionDisplay
                                     itemName={contribution.itemName || 'Unknown'}
@@ -1181,8 +1180,8 @@ export function SettlementProjectDetailView() {
                 {(() => {
                   const item = (project?.items || []).find(i => i.id === contributingItem);
                   if (!item) return null;
-                  const remaining = item.required_quantity - item.contributed_quantity;
-                  const iconPath = getItemIcon(item.item_name);
+                  const remaining = item.requiredQuantity - item.contributedQuantity;
+                  const iconPath = getItemIcon(item.itemName);
                   
                   return (
                     <>
@@ -1191,7 +1190,7 @@ export function SettlementProjectDetailView() {
                         <div className="relative">
                           <Image
                             src={iconPath}
-                            alt={item.item_name}
+                            alt={item.itemName}
                             width={48}
                             height={48}
                             className="rounded-md border"
@@ -1201,9 +1200,9 @@ export function SettlementProjectDetailView() {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium">{item.item_name}</div>
+                          <div className="font-medium">{item.itemName}</div>
                           <div className="text-sm text-muted-foreground">
-                            {remaining} of {item.required_quantity} still needed
+                            {remaining} of {item.requiredQuantity} still needed
                           </div>
                         </div>
                       </div>

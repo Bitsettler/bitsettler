@@ -25,7 +25,6 @@ export interface ProjectItem {
   priority: number;
   rankOrder: number;
   status: 'Needed' | 'In Progress' | 'Completed';
-  assignedMemberId: string | null;
   notes: string | null;
   createdAt: Date;
   updatedAt: Date;
@@ -165,7 +164,6 @@ export async function getAllProjectsWithItems(options: GetAllProjectsOptions): P
         priority: item.priority,
         rankOrder: item.rank_order,
         status: item.status,
-        assignedMemberId: null, // assigned_member_id column doesn't exist in items table
         notes: null, // TEMPORARILY SET TO NULL since column doesn't exist
         createdAt: new Date(item.created_at),
         updatedAt: new Date(item.updated_at),

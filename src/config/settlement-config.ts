@@ -143,7 +143,6 @@ export interface ProjectItem {
   currentQuantity: number;
   tier: 1 | 2 | 3 | 4;
   status: 'Needed' | 'In Progress' | 'Completed';
-  assignedMemberId?: string;
 }
 
 export interface TreasuryTransaction {

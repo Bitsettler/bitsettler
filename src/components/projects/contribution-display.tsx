@@ -28,7 +28,7 @@ export function ContributionDisplay({ itemName, quantity, tier, iconPath, classN
       <div className="relative h-10 w-10 flex-shrink-0 rounded-md bg-muted p-1 border">
         <Image
           src={finalIcon}
-          alt={itemName}
+          alt={itemName ? `${itemName} icon` : 'Item icon'}
           fill
           sizes="40px"
           className="object-contain rounded-md"

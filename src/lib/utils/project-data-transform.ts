@@ -26,7 +26,6 @@ export function transformProjectData(apiData: any) {
       priority: item.priority,
       rankOrder: item.rank_order || 0,
       status: item.status || 'Needed',
-      assignedMemberId: null, // assigned_member_id column doesn't exist in items table
       notes: item.notes,
       createdAt: new Date(item.created_at),
       updatedAt: new Date(item.updated_at)

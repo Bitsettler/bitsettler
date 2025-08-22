@@ -613,7 +613,7 @@ export function CharacterClaimOnboardingChoice() {
                                                                   {/* Display all settlements */}
                                  {(settlementsData || []).map((settlement: SettlementData) => {
                                    // Determine if settlement is active based on conditions
-                                   const isActive = settlement.isOwner || (settlement.isEstablished && !settlement.isOwner);
+                                   const isActive = settlement.isOwner || settlement.permissions.coOwner || settlement.isEstablished;
                                    
                                    return (
                                      <Card
@@ -636,11 +636,11 @@ export function CharacterClaimOnboardingChoice() {
                                            <div className="flex items-center gap-2">
                                              {/* Role Badge */}
                                              <span className={`text-xs px-2 py-1 rounded-full ${
-                                               settlement.isOwner 
+                                               settlement.isOwner || settlement.permissions.coOwner
                                                  ? 'bg-green-100 text-green-800' 
                                                  : 'bg-blue-100 text-blue-800'
                                              }`}>
-                                               {settlement.isOwner ? 'Owner' : 'Member'}
+                                               {settlement.isOwner ? 'Owner' : settlement.permissions.coOwner ? 'Co-Owner' : 'Member'}
                                              </span>
                                              
                                              {/* Status Badge */}
