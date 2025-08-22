@@ -19,7 +19,6 @@ export interface ProjectItemWithLink {
   priority: number;
   rankOrder: number;
   status: 'Needed' | 'In Progress' | 'Completed';
-  assignedMemberId: string | null;
   notes: string | null;
   createdAt: Date;
   updatedAt: Date;
