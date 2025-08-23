@@ -716,7 +716,11 @@ export function CharacterClaimOnboardingChoice() {
                         <Button
                           onClick={handleClaimCharacter}
                           className="min-w-[200px]"
-                          disabled={isClaiming || !selectedSettlement || (isSettlementData(selectedSettlement) && !selectedSettlement.isEstablished && !selectedSettlement.isOwner)}
+                          disabled={
+                            isClaiming || 
+                            !selectedSettlement || 
+                            (isSettlementData(selectedSettlement) && !selectedSettlement.isEstablished && !selectedSettlement.isOwner && !selectedSettlement.permissions.coOwner)
+                          }
                         >
                           {isClaiming ? (
                             <>
