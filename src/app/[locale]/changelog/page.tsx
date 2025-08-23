@@ -42,6 +42,152 @@ export default async function ChangelogPage({
             </p>
           </div>
 
+          {/* Version Card - v1.10.1 Complete Settlement Project Management System */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">
+                  v1.10.1 Complete Settlement Project Management System
+                </CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Major feature release: comprehensive project management interface with real-time progress tracking and advanced contribution workflows
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* New Features Section */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🎯 Advanced Project Detail View
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Interactive Project Overview
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Edit project names, descriptions, and metadata inline with instant updates. Complete project status management with archive and delete functionality.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Smart Progress Tracking
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Visual progress bars showing completion percentages for individual items and overall project progress with real-time updates.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Live Item Management
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Add, edit, and remove project items with quantity tracking, tier badges, and inline editing capabilities with validation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Enhanced Contribution System */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  👥 Advanced Contribution Workflow
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Real-time Contribution System
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Members can contribute items with delivery method tracking (Dropbox, Officer Handoff, Building placement) and instant progress updates.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Contribution History
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Complete audit trail of all member contributions with timestamps, delivery methods, and optional notes for coordination.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Enhanced Item Search & Display
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Auto-complete item search with tier and category filtering, visual item icons with tier badges, and direct calculator integration.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Technical Improvements */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  ⚙️ Technical Improvements
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Performance Optimization
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Efficient pagination for large project item lists, optimized data loading with skeleton states, and real-time data synchronization.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Robust API Integration
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Comprehensive input validation and sanitization, proper error handling with user feedback, and TypeScript interfaces ensuring type safety.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">
+                  Complete settlement project management system with real-time collaboration! 🎯👥✨
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.3.2 Import Path Refactoring */}
           <Card className="mb-8">
             <CardHeader>
@@ -49,8 +195,8 @@ export default async function ChangelogPage({
                 <CardTitle className="text-2xl">
                   v1.3.2 Import Path Refactoring
                 </CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">
