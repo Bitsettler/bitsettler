@@ -69,10 +69,30 @@ export default function ProjectWizard() {
                   <Plus className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-lg mb-2">Add items manually</h3>
+                  <h3 className="font-semibold text-lg mb-3">Add items manually</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Add items one at a time with custom quantities. Perfect for simple projects or when you know exactly what you need.
+                    Build your project item by item with full control over quantities and requirements.
                   </p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <span>Perfect for simple collection projects</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <span>When you know exactly what you need</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <span>Custom quantities and mixed item types</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <span>Quick setup for experienced players</span>
+                    </div>
+                  </div>
+                  
                   <Button variant="outline" className="w-full">
                     Start Manual Entry
                   </Button>
@@ -88,10 +108,30 @@ export default function ProjectWizard() {
                   <Calculator className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-lg mb-2">Auto-generate supplies</h3>
+                  <h3 className="font-semibold text-lg mb-3">Auto-generate supplies</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Use the calculator workflow to automatically generate a complete materials list for crafting items.
+                    Use our Material Calculator to automatically generate complete supply lists for complex crafting projects.
                   </p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                      <span>Perfect for complex crafting projects</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                      <span>Calculates all raw materials needed</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                      <span>Includes intermediate crafting steps</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                      <span>Saves time with accurate quantities</span>
+                    </div>
+                  </div>
+                  
                   <Button variant="outline" className="w-full">
                     Use Calculator
                   </Button>
