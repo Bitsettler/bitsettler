@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.1] - Fix Settlement Project Detail View - 2025-01-14
+
+### Fixed
+
+- **Settlement Project Detail View**: Restored full functionality after refactoring broke the UI
+  - **Build Issues**: Fixed critical syntax errors that prevented compilation (179+ linter errors resolved)
+  - **Progress Calculations**: Fixed NaN% display with null-safe math for contribution progress
+  - **Contribution System**: Fixed validation schema mismatch preventing contribution submissions
+  - **Data Mapping**: Added `contributedQuantity` field mapping for proper frontend compatibility
+  - **UI Styling**: Removed problematic green background styling that made table rows unreadable
+  - **Component Structure**: Restored complete JSX return statement that was accidentally commented out
+
+### Technical
+
+- Fixed malformed comment blocks that broke JSX parsing
+- Updated validation schema to include missing `projectItemId` field
+- Added proper null checks for quantity calculations to prevent NaN values
+- Restored contribution display functionality with proper data flow
+- Updated TypeScript interfaces to match API data structure
+
 ## [1.10.0] - Remove Invite Code System - 2025-01-13
 
 ### Removed
