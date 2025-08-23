@@ -60,7 +60,7 @@ import {
   UserIcon,
   UsersIcon,
   DiscordLogoIcon,
-  Package2Icon
+  PackageIcon
 } from '@phosphor-icons/react'
 
 // Navigation data with icons and descriptions
@@ -77,7 +77,7 @@ const data = {
     {
       translationKey: 'sidebar.materialCalculator',
       href: '/calculator-new',
-      icon: Package2Icon
+      icon: PackageIcon
     }
   ],
   navMain: [
