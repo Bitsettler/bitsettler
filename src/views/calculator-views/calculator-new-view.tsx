@@ -146,7 +146,7 @@ export function CalculatorNewView() {
       })
     }
 
-    planText += `\nGenerated with BitSettler Project Calculator`
+    planText += `\nGenerated with BitSettler Material Calculator`
 
     // Copy to clipboard
     navigator.clipboard.writeText(planText).then(() => {
@@ -284,11 +284,11 @@ export function CalculatorNewView() {
       <div className="text-center space-y-3">
         <div className="flex items-center justify-center gap-3">
           <Calculator className="h-8 w-8 text-primary" />
-          <h1 className="text-4xl font-bold tracking-tight">Project Calculator</h1>
-          <Badge className="bg-secondary text-secondary-foreground">Projects</Badge>
+          <h1 className="text-4xl font-bold tracking-tight">Material Calculator</h1>
+          <Badge className="bg-secondary text-secondary-foreground">Materials</Badge>
         </div>
         <p className="text-muted-foreground text-lg">
-          Project-focused crafting calculator with collaboration features and advanced planning
+          Material-focused crafting calculator with collaboration features and advanced planning
         </p>
       </div>
 

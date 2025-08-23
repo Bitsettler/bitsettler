@@ -41,10 +41,10 @@ export function CalculatorIndexClient({
           <Alert className="mb-8 max-w-2xl mx-auto">
             <Sparkles className="h-4 w-4" />
             <AlertDescription className="flex items-center justify-between">
-              <span>Try our Project Calculator for collaboration features and advanced planning!</span>
+              <span>Try our Material Calculator for collaboration features and advanced planning!</span>
               <Link href="/en/calculator-new">
                 <Button variant="outline" size="sm" className="ml-4">
-                  Try Project Calculator
+                  Try Material Calculator
                 </Button>
               </Link>
             </AlertDescription>
