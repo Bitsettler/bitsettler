@@ -61,9 +61,10 @@
     "bitcraftGuideDiscord": "Discord Bitsettler",
     "bitcraftGuideGithub": "GitHub Bitsettler",
     "bitcraftGuideTwitter": "Twitter Bitsettler",
-    "recentChanges": "Changements récents",
+    "recentChanges": "Développement & Mises à jour",
     "changelog": "Journal des modifications",
-    "recentChangesDescription": "Dernières mises à jour et modifications"
+    "recentChangesDescription": "Dernières mises à jour et modifications",
+    "joinDiscord": "Rejoindre le Discord BitSettler"
   },
   "languageSwitcher": {
     "switchLanguage": "Changer de langue",

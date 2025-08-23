@@ -58,7 +58,8 @@ import {
   MountainsIcon,
   TreeIcon,
   UserIcon,
-  UsersIcon
+  UsersIcon,
+  DiscordLogoIcon
 } from '@phosphor-icons/react'
 
 // Navigation data with icons and descriptions
@@ -113,6 +114,12 @@ const data = {
           translationKey: 'sidebar.changelog',
           href: '/changelog',
           icon: BookOpenIcon
+        },
+        {
+          translationKey: 'sidebar.joinDiscord',
+          href: 'https://discord.com/invite/hTD3mahCFv',
+          icon: DiscordLogoIcon,
+          external: true
         }
       ],
       description: 'sidebar.recentChangesDescription'
@@ -151,6 +158,12 @@ const data = {
           translationKey: 'sidebar.changelog',
           href: '/changelog',
           icon: BookOpenIcon
+        },
+        {
+          translationKey: 'sidebar.joinDiscord',
+          href: 'https://discord.com/invite/hTD3mahCFv',
+          icon: DiscordLogoIcon,
+          external: true
         }
       ],
       description: 'sidebar.recentChangesDescription'
