@@ -42,36 +42,36 @@ export default async function ChangelogPage({
             </p>
           </div>
 
-          {/* Version Card - v1.10.1 Complete Settlement Project Management System */}
+          {/* Version Card - v1.10.1 Calculator-to-Project Integration */}
           <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl">
-                  v1.10.1 Complete Settlement Project Management System
+                  v1.10.1 Calculator-to-Project Integration & Enhanced Project Creation
                 </CardTitle>
                 <Badge variant="default" className="text-sm">
                   Latest
                 </Badge>
               </div>
               <p className="text-muted-foreground">
-                Major feature release: comprehensive project management interface with real-time progress tracking and advanced contribution workflows
+                Revolutionary calculator-to-project workflow with enhanced project creation wizard and seamless crafting integration
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* New Features Section */}
+              {/* Project Creation Wizard */}
               <div>
                 <h3 className="text-foreground mb-3 text-lg font-semibold">
-                  🎯 Advanced Project Detail View
+                  🧙‍♂️ Project Creation Wizard
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Interactive Project Overview
+                        Dual-Mode Creation
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Edit project names, descriptions, and metadata inline with instant updates. Complete project status management with archive and delete functionality.
+                        Choose between Manual Mode for traditional item-by-item creation or Auto-Generate Mode for calculator-powered project generation.
                       </p>
                     </div>
                   </div>
@@ -79,10 +79,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Smart Progress Tracking
+                        Smart Project Titles
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Visual progress bars showing completion percentages for individual items and overall project progress with real-time updates.
+                        Automatic title generation based on target items and quantities with seamless workflow transitions.
                       </p>
                     </div>
                   </div>
@@ -90,10 +90,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Live Item Management
+                        Enhanced Item Search
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Add, edit, and remove project items with quantity tracking, tier badges, and inline editing capabilities with validation.
+                        Advanced combobox with tier filtering, category organization, and visual item cards with badges and icons.
                       </p>
                     </div>
                   </div>
@@ -102,20 +102,20 @@ export default async function ChangelogPage({
 
               <Separator />
 
-              {/* Enhanced Contribution System */}
+              {/* Calculator Integration */}
               <div>
                 <h3 className="text-foreground mb-3 text-lg font-semibold">
-                  👥 Advanced Contribution Workflow
+                  🔗 Calculator-to-Project Bridge
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Real-time Contribution System
+                        Material List Export
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Members can contribute items with delivery method tracking (Dropbox, Officer Handoff, Building placement) and instant progress updates.
+                        Convert any calculator result into a complete settlement project with one click - a first-of-its-kind integration.
                       </p>
                     </div>
                   </div>
@@ -123,10 +123,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Contribution History
+                        Intelligent Item Mapping
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Complete audit trail of all member contributions with timestamps, delivery methods, and optional notes for coordination.
+                        Automatic conversion of calculator materials to project items with proper quantities, skill context, and tier preservation.
                       </p>
                     </div>
                   </div>
@@ -134,10 +134,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Enhanced Item Search & Display
+                        Enhanced Calculator UI
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Auto-complete item search with tier and category filtering, visual item icons with tier badges, and direct calculator integration.
+                        Direct "Create Project" action from calculator results with improved material display and streamlined controls.
                       </p>
                     </div>
                   </div>
@@ -156,10 +156,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Performance Optimization
+                        ProjectSeed System
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Efficient pagination for large project item lists, optimized data loading with skeleton states, and real-time data synchronization.
+                        New staging system for calculator results with enhanced TypeScript interfaces and optimized data flow integration.
                       </p>
                     </div>
                   </div>
@@ -167,10 +167,10 @@ export default async function ChangelogPage({
                     <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
                     <div>
                       <h4 className="text-foreground font-medium">
-                        Robust API Integration
+                        Enhanced Project Management
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Comprehensive input validation and sanitization, proper error handling with user feedback, and TypeScript interfaces ensuring type safety.
+                        Restored and enhanced project detail view with contribution tracking, improved validation, and better error handling.
                       </p>
                     </div>
                   </div>
@@ -182,7 +182,7 @@ export default async function ChangelogPage({
               {/* Footer */}
               <div className="pt-4 text-center">
                 <p className="text-muted-foreground text-sm">
-                  Complete settlement project management system with real-time collaboration! 🎯👥✨
+                  Game-changing calculator integration with revolutionary project creation workflow! 🧙‍♂️🔗✨
                 </p>
               </div>
             </CardContent>
