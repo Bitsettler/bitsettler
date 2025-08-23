@@ -69,6 +69,7 @@ export function ItemSearchCombobox({
         width={32}
         height={32}
         className="flex-shrink-0 rounded"
+        style={{ width: 'auto', height: 'auto' }}
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.src = `${DEFAULT_ICON_PATH}.webp`;

@@ -110,8 +110,6 @@ const priorityLabels = {
   5: { label: 'Critical', color: 'bg-purple-100 text-purple-800' }
 };
 
-
-
 export function SettlementProjectDetailView() {
   const params = useParams();
   const router = useRouter();
@@ -139,7 +137,7 @@ export function SettlementProjectDetailView() {
   const [editData, setEditData] = useState({ name: '', description: '' });
   
   // New item state
-    const [newItem, setNewItem] = useState<NewItem>({
+  const [newItem, setNewItem] = useState<NewItem>({
     itemName: '',
     tier: 1,
     requiredQuantity: 1,
@@ -160,6 +158,10 @@ export function SettlementProjectDetailView() {
   // Project management state
   const [isDeleting, setIsDeleting] = useState(false);
   const [isArchiving, setIsArchiving] = useState(false);
+  
+  // Pagination state for performance
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(20); // Show 20 items per page
   const [isCompleting, setIsCompleting] = useState(false);
   
   // Game data for item icons and links
@@ -206,7 +208,7 @@ export function SettlementProjectDetailView() {
       
       if (result.success && result.data) {
         // The actual project data is nested under result.data.data
-        const projectData = result.data.data || result.data;
+        const projectData = (result.data as any).data || result.data;
         setProject(projectData);
         setEditData({
           name: projectData.name,
@@ -304,10 +306,11 @@ export function SettlementProjectDetailView() {
 
     try {
       const result = await api.post('/api/settlement/contributions', {
+        contributionType: 'Direct',
         projectId: project.id,
+        projectItemId: item.id,
         itemName: item.itemName,
         quantity: amount,
-        contributionType: 'Direct',
         deliveryMethod: deliveryMethod,
         notes: contributionNote.trim() || ''
       });
@@ -533,7 +536,6 @@ export function SettlementProjectDetailView() {
     return (
       <Container>
         <div className="space-y-6 py-8">
-          {/* Header Skeleton */}
           <div className="flex items-center gap-4">
             <div className="animate-pulse bg-muted rounded h-8 w-8"></div>
             <div className="flex-1">
@@ -543,7 +545,6 @@ export function SettlementProjectDetailView() {
             <div className="animate-pulse bg-muted rounded h-10 w-24"></div>
           </div>
 
-          {/* Progress Skeleton */}
           <div className="border rounded-lg p-6 space-y-4">
             <div className="animate-pulse bg-muted rounded h-6 w-32"></div>
             <div className="animate-pulse bg-muted rounded h-3 w-full"></div>
@@ -553,18 +554,14 @@ export function SettlementProjectDetailView() {
             </div>
           </div>
 
-          {/* Content Skeleton */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Project Info */}
               <div className="border rounded-lg p-6 space-y-4">
                 <div className="animate-pulse bg-muted rounded h-6 w-40"></div>
                 <div className="animate-pulse bg-muted rounded h-4 w-full"></div>
                 <div className="animate-pulse bg-muted rounded h-4 w-3/4"></div>
               </div>
 
-              {/* Items List */}
               <div className="border rounded-lg p-6 space-y-4">
                 <div className="animate-pulse bg-muted rounded h-6 w-32"></div>
                 {[1, 2, 3].map((i) => (
@@ -582,7 +579,6 @@ export function SettlementProjectDetailView() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <div className="space-y-6">
               <div className="border rounded-lg p-4 space-y-4">
                 <div className="animate-pulse bg-muted rounded h-6 w-24"></div>
@@ -607,612 +603,461 @@ export function SettlementProjectDetailView() {
     );
   }
 
-  const completedItems = (project.items || []).filter(item => item.contributedQuantity >= item.requiredQuantity).length;
+  const completedItems = (project.items || []).filter(item => 
+    (item.contributedQuantity || 0) >= (item.requiredQuantity || 1)
+  ).length;
   const totalItems = (project.items || []).length;
   const overallProgress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
 
   return (
     <TooltipProvider>
       <Container>
-      <div className="space-y-6 py-8 animate-in fade-in duration-300">
-        {/* Header */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={() => router.back()}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Projects
-          </Button>
-        </div>
+        <div className="space-y-6 py-8 animate-in fade-in duration-300">
+          {/* Header */}
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={() => router.back()}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Projects
+            </Button>
+          </div>
 
-        {/* Project Overview */}
-        <Card>
-          <CardHeader>
-            <div className="flex items-start justify-between">
-              <div className="flex-1">
-                {isEditing ? (
-                  <div className="space-y-3">
-                    <Input
-                      value={editData.name}
-                      onChange={(e) => setEditData(prev => ({ ...prev, name: e.target.value }))}
-                      placeholder="Project name"
-                      className="text-xl font-bold"
-                    />
-                    <Textarea
-                      value={editData.description}
-                      onChange={(e) => setEditData(prev => ({ ...prev, description: e.target.value }))}
-                      placeholder="Project description (optional)"
-                      rows={3}
-                    />
-                    <div className="flex gap-2">
-                      <Button size="sm" onClick={handleSaveEdit}>
-                        <Save className="h-4 w-4 mr-2" />
-                        Save
-                      </Button>
-                      <Button size="sm" variant="outline" onClick={() => setIsEditing(false)}>
-                        <X className="h-4 w-4 mr-2" />
-                        Cancel
-                      </Button>
-                    </div>
-                  </div>
-                ) : (
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <CardTitle className="text-2xl">{project.name}</CardTitle>
-                      <Button size="sm" variant="ghost" onClick={() => setIsEditing(true)}>
-                        <Edit className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    {project.description && (
-                      <p className="text-muted-foreground mt-2">{project.description}</p>
-                    )}
-                    <div className="flex items-center gap-3 mt-3">
-                      <Badge variant="outline" className="text-sm font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
-                        #{project.project_number}
-                      </Badge>
-                      {project.ownerName && (
-                        <Badge variant="outline" className="text-sm font-mono bg-muted/50 text-muted-foreground border-muted-foreground/20">
-                          {project.ownerName}
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <Badge className={priorityLabels[project.priority as keyof typeof priorityLabels]?.color || 'bg-gray-100 text-gray-800'}>
-                  {priorityLabels[project.priority as keyof typeof priorityLabels]?.label || 'Unknown'}
-                </Badge>
-                
-                {/* Project Actions Dropdown */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <MoreHorizontal className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    {project.status === 'Active' && (
-                      <>
-                        <DropdownMenuItem onClick={handleCompleteProject} disabled={isCompleting}>
-                          <CheckCircle2 className="h-4 w-4 mr-2" />
-                          {isCompleting ? 'Completing...' : 'Mark Completed'}
-                        </DropdownMenuItem>
-                        <DropdownMenuItem onClick={handleArchiveProject} disabled={isArchiving}>
-                          <Archive className="h-4 w-4 mr-2" />
-                          {isArchiving ? 'Archiving...' : 'Archive'}
-                        </DropdownMenuItem>
-                      </>
-                    )}
-                    
-                    <AlertDialog>
-                      <AlertDialogTrigger asChild>
-                        <DropdownMenuItem 
-                          onSelect={(e) => e.preventDefault()}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Trash2 className="h-4 w-4 mr-2" />
-                          Delete Project
-                        </DropdownMenuItem>
-                      </AlertDialogTrigger>
-                      <AlertDialogContent>
-                        <AlertDialogHeader>
-                          <AlertDialogTitle>Delete Project</AlertDialogTitle>
-                          <AlertDialogDescription>
-                            Are you sure you want to delete "{project.name}"? This action cannot be undone and will remove all project data including items and contributions.
-                          </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                          <AlertDialogCancel>Cancel</AlertDialogCancel>
-                          <AlertDialogAction
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDeleteProject();
-                            }}
-                            disabled={isDeleting}
-                            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                          >
-                            {isDeleting ? 'Deleting...' : 'Delete Project'}
-                          </AlertDialogAction>
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            </div>
-
-            {/* Progress Overview */}
-            <div className="grid gap-4 md:grid-cols-3 mt-6">
-              <div className="flex items-center gap-3">
-                <Target className="h-8 w-8 text-blue-500" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Progress</p>
-                  <p className="text-2xl font-bold">{overallProgress}%</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Package className="h-8 w-8 text-green-500" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Items</p>
-                  <p className="text-2xl font-bold">{completedItems}/{totalItems}</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Clock className="h-8 w-8 text-orange-500" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Status</p>
-                  <p className="text-lg font-semibold">{project.status}</p>
-                </div>
-              </div>
-            </div>
-            
-            <Progress value={overallProgress} className="mt-4" />
-            
-            {/* Permission Warning - DISABLED */}
-          </CardHeader>
-        </Card>
-
-        {/* Items Table */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Package className="h-5 w-5" />
-              Required Items
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {(project.items || []).length === 0 ? (
-              /* Empty State - Clean, prominent add first item experience */
-              <div className="text-center py-12">
-                <div className="mx-auto w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <Package className="h-12 w-12 text-primary/60" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">No items defined yet</h3>
-                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                  Start building your project by adding the items and resources needed to complete it.
-                </p>
-                
-                {/* Add First Item Form */}
-                <div className="max-w-2xl mx-auto space-y-4 p-6 border-2 border-dashed border-primary/20 rounded-lg bg-primary/5">
-                  <h4 className="font-medium text-left">Add Your First Item</h4>
-                  
-                  <div className="grid gap-4 md:grid-cols-3">
-                    <div className="md:col-span-2">
-                      <ItemSearchCombobox
-                        value={newItem.itemName}
-                        onValueChange={(value) => {
-                          if (!value) {
-                                                      setNewItem(prev => ({
-                            ...prev,
-                            itemName: '',
-                            tier: 1,
-                            category: ''
-                          }));
-                        }
-                      }}
-                      onItemSelect={handleItemSelect}
-                      placeholder="Search for an item..."
-                    />
-                    {newItem.itemName && (
-                      <SelectedItemDisplay 
-                        itemName={newItem.itemName}
-                        tier={newItem.tier}
-                        category={newItem.category}
-                        iconPath={getItemIcon(newItem.itemName)}
-                        className="mt-2"
-                      />
-                    )}
-                    </div>
-                    
-                    <div className="flex items-start gap-2">
+          {/* Project Overview */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  {isEditing ? (
+                    <div className="space-y-3">
                       <Input
-                        type="number"
-                        min="1"
-                        value={newItem.requiredQuantity}
-                        onChange={(e) => setNewItem(prev => ({ 
-                          ...prev, 
-                          requiredQuantity: parseInt(e.target.value) || 1 
-                        }))}
-                        className="w-24 text-center"
-                        placeholder="Qty"
+                        value={editData.name}
+                        onChange={(e) => setEditData(prev => ({ ...prev, name: e.target.value }))}
+                        placeholder="Project name"
+                        className="text-xl font-bold"
                       />
-                      
-                      {true ? ( // PERMISSION CHECK DISABLED
-                        <Button
-                          disabled={isAddingItem || !newItem.itemName.trim()}
-                          onClick={handleAddItem}
-                          size="lg"
-                        >
-                          {isAddingItem ? (
-                            'Adding...'
-                          ) : (
-                            <>
-                              <Plus className="h-4 w-4 mr-2" />
-                              Add Item
-                            </>
-                          )}
+                      <Textarea
+                        value={editData.description}
+                        onChange={(e) => setEditData(prev => ({ ...prev, description: e.target.value }))}
+                        placeholder="Project description (optional)"
+                        rows={3}
+                      />
+                      <div className="flex gap-2">
+                        <Button size="sm" onClick={handleSaveEdit}>
+                          <Save className="h-4 w-4 mr-2" />
+                          Save
                         </Button>
-                      ) : (
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div>
-                              <Button
-                                disabled={true}
-                                size="lg"
-                                variant="outline"
-                              >
-                                <Lock className="h-4 w-4 mr-2" />
-                                Add Item
-                              </Button>
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p className="font-medium">Permission Required</p>
-                            <p className="text-sm opacity-80">
-                              {permissions.isOwner 
-                                ? 'Contact the settlement co-owner for access' 
-                                : 'Only project owners and settlement co-owners can edit projects'
-                              }
-                            </p>
-                          </TooltipContent>
-                        </Tooltip>
-                      )}
+                        <Button size="sm" variant="outline" onClick={() => setIsEditing(false)}>
+                          <X className="h-4 w-4 mr-2" />
+                          Cancel
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {newItem.itemName && (
-                    <div className="text-left">
-                      <Input
-                        placeholder="Notes (optional)"
-                        value={newItem.notes}
-                        onChange={(e) => setNewItem(prev => ({ ...prev, notes: e.target.value }))}
-                        className="max-w-md"
-                      />
+                  ) : (
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <CardTitle className="text-2xl">{project.name}</CardTitle>
+                        <Button size="sm" variant="ghost" onClick={() => setIsEditing(true)}>
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      {project.description && (
+                        <p className="text-muted-foreground mt-2">{project.description}</p>
+                      )}
+                      <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
+                        {project.ownerName && (
+                          <span>Created by {project.ownerName}</span>
+                        )}
+                        <Badge variant="outline">#{project.project_number}</Badge>
+                        <Badge 
+                          variant={project.status === 'Active' ? 'default' : 'secondary'}
+                        >
+                          {project.status}
+                        </Badge>
+                      </div>
                     </div>
                   )}
                 </div>
+                <div className="flex items-center gap-2">
+                  {project.status === 'Active' && (
+                    <Button 
+                      size="sm" 
+                      onClick={handleCompleteProject}
+                      disabled={isCompleting}
+                    >
+                      {isCompleting ? (
+                        'Completing...'
+                      ) : (
+                        <>
+                          <CheckCircle2 className="h-4 w-4 mr-2" />
+                          Mark Complete
+                        </>
+                      )}
+                    </Button>
+                  )}
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" size="sm">
+                        <MoreHorizontal className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem onClick={handleArchiveProject} disabled={isArchiving}>
+                        <Archive className="h-4 w-4 mr-2" />
+                        {isArchiving ? 'Archiving...' : 'Archive Project'}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        onClick={handleDeleteProject} 
+                        disabled={isDeleting}
+                        className="text-destructive"
+                      >
+                        <Trash2 className="h-4 w-4 mr-2" />
+                        {isDeleting ? 'Deleting...' : 'Delete Project'}
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
               </div>
-            ) : (
-              /* Items Table - When items exist */
+            </CardHeader>
+          </Card>
+
+          {/* Progress Overview */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Progress Overview
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>Overall Progress</span>
+                    <span>{overallProgress}%</span>
+                  </div>
+                  <Progress value={overallProgress} className="h-2" />
+                </div>
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>{completedItems} of {totalItems} items completed</span>
+                  <span>{totalItems - completedItems} remaining</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Project Items */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Package className="h-5 w-5" />
+                Project Items
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Item</TableHead>
-                    <TableHead className="text-center">Required Quantity</TableHead>
-                    <TableHead className="text-center">Progress</TableHead>
-                    <TableHead className="text-center">Contribute</TableHead>
-                    <TableHead className="text-center">Actions</TableHead>
+                    <TableHead>Required</TableHead>
+                    <TableHead>Contributed</TableHead>
+                    <TableHead>Progress</TableHead>
+                    <TableHead>Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {(project.items || []).map((item) => {
-                  const remaining = item.requiredQuantity - item.contributedQuantity;
-                  const progress = Math.round((item.contributedQuantity / item.requiredQuantity) * 100);
-                  const isComplete = item.contributedQuantity >= item.requiredQuantity;
-                  const isEditing = editingItems[item.id] !== undefined;
-                  
-                  return (
-                    <TableRow key={item.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          <ContributionDisplay
-                            itemName={item.itemName}
-                            quantity={item.requiredQuantity}
-                            tier={item.tier}
-                            showLink
-                          />
-                          {item.notes && (
-                            <div className="text-sm text-muted-foreground">{item.notes}</div>
-                          )}
-                        </div>
-                      </TableCell>
+                  {project.items && project.items.length > 0 ? (
+                    <>
+                      {project.items
+                        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                        .map((item) => {
+                          const progress = item.requiredQuantity > 0 
+                            ? Math.min(100, Math.round(((item.contributedQuantity || 0) / item.requiredQuantity) * 100))
+                            : 0;
+                          const isCompleted = (item.contributedQuantity || 0) >= (item.requiredQuantity || 1);
+                          const itemIcon = getItemIcon(item.itemName);
+                          const itemLink = getItemLink(item.itemName);
+                          
+                          return (
+                            <TableRow key={item.id}>
+                              <TableCell>
+                                <div className="flex items-center gap-3">
+                                  <div className="relative">
+                                    <Image
+                                      src={itemIcon}
+                                      alt={item.itemName}
+                                      width={40}
+                                      height={40}
+                                      className="rounded border"
+                                    />
+                                    <BricoTierBadge tier={item.tier} className="absolute -top-1 -right-1" />
+                                  </div>
+                                  <div>
+                                    <div className="flex items-center gap-2">
+                                      {itemLink ? (
+                                        <Link href={itemLink} className="font-medium hover:underline">
+                                          {item.itemName}
+                                        </Link>
+                                      ) : (
+                                        <span className="font-medium">{item.itemName}</span>
+                                      )}
+                                      {isCompleted && <CheckCircle2 className="h-4 w-4 text-green-600" />}
+                                    </div>
+                                    {item.notes && (
+                                      <p className="text-sm text-muted-foreground mt-1">{item.notes}</p>
+                                    )}
+                                  </div>
+                                </div>
+                              </TableCell>
+                              <TableCell>
+                                {editingItems[item.id] ? (
+                                  <div className="flex items-center gap-2">
+                                    <Input
+                                      type="number"
+                                      value={editingItems[item.id]}
+                                      onChange={(e) => setEditingItems(prev => ({ ...prev, [item.id]: e.target.value }))}
+                                      className="w-20"
+                                      min="1"
+                                    />
+                                    <Button size="sm" onClick={() => handleSaveQuantity(item.id)}>
+                                      <Check className="h-4 w-4" />
+                                    </Button>
+                                    <Button size="sm" variant="outline" onClick={() => handleCancelEdit(item.id)}>
+                                      <X className="h-4 w-4" />
+                                    </Button>
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center gap-2">
+                                    <span>{item.requiredQuantity || 0}</span>
+                                    <Button 
+                                      size="sm" 
+                                      variant="ghost" 
+                                      onClick={() => handleEditQuantity(item.id, item.requiredQuantity || 0)}
+                                    >
+                                      <Edit className="h-4 w-4" />
+                                    </Button>
+                                  </div>
+                                )}
+                              </TableCell>
+                              <TableCell>
+                                <span className={isCompleted ? 'text-green-600 font-medium' : ''}>
+                                  {item.contributedQuantity}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex items-center gap-2">
+                                  <Progress value={progress} className="w-16 h-2" />
+                                  <span className="text-sm">{progress}%</span>
+                                </div>
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex items-center gap-2">
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={() => handleOpenContribution(item.id)}
+                                  >
+                                    <Plus className="h-4 w-4 mr-1" />
+                                    Contribute
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    onClick={() => setItemToDelete({ id: item.id, name: item.itemName })}
+                                  >
+                                    <Trash2 className="h-4 w-4" />
+                                  </Button>
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
                       
-                      <TableCell className="text-center">
-                        <div className="flex items-center gap-2 justify-center">
-                          {isEditing ? (
-                            <>
+                      {/* Add New Item Row */}
+                      <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
+                        <TableCell colSpan={5} className="p-4">
+                          <div className="space-y-3">
+                            <h4 className="font-medium text-sm">Add New Item</h4>
+                            <div className="grid gap-3 md:grid-cols-3">
+                              <div className="md:col-span-2">
+                                <ItemSearchCombobox
+                                  value={newItem.itemName}
+                                  onValueChange={(value) => {
+                                    if (!value) {
+                                      setNewItem(prev => ({
+                                        ...prev,
+                                        itemName: '',
+                                        tier: 1,
+                                        category: ''
+                                      }));
+                                    }
+                                  }}
+                                  onItemSelect={handleItemSelect}
+                                />
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Input
+                                  type="number"
+                                  placeholder="Quantity"
+                                  value={newItem.requiredQuantity}
+                                  onChange={(e) => setNewItem(prev => ({ ...prev, requiredQuantity: parseInt(e.target.value) || 1 }))}
+                                  className="w-24"
+                                  min="1"
+                                />
+                                <Button
+                                  onClick={handleAddItem}
+                                  disabled={isAddingItem || !newItem.itemName}
+                                  size="lg"
+                                >
+                                  {isAddingItem ? (
+                                    'Adding...'
+                                  ) : (
+                                    <>
+                                      <Plus className="h-4 w-4 mr-2" />
+                                      Add
+                                    </>
+                                  )}
+                                </Button>
+                              </div>
+                            </div>
+                            {newItem.itemName && (
                               <Input
-                                type="number"
-                                min="1"
-                                value={editingItems[item.id]}
-                                onChange={(e) => setEditingItems(prev => ({ ...prev, [item.id]: e.target.value }))}
-                                className="w-20 text-center"
-                                autoFocus
+                                placeholder="Notes (optional)"
+                                value={newItem.notes}
+                                onChange={(e) => setNewItem(prev => ({ ...prev, notes: e.target.value }))}
+                                className="max-w-md"
                               />
-                              <Button
-                                size="sm"
-                                onClick={() => handleSaveQuantity(item.id)}
-                                className="h-8 w-8 p-0"
-                              >
-                                <Check className="h-4 w-4" />
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={() => handleCancelEdit(item.id)}
-                                className="h-8 w-8 p-0"
-                              >
-                                <X className="h-4 w-4" />
-                              </Button>
-                            </>
-                          ) : (
-                            <>
-                              <span className="text-lg font-mono">{item.requiredQuantity}</span>
-                              <Button
-                                size="sm"
-                                variant="ghost"
-                                onClick={() => handleEditQuantity(item.id, item.requiredQuantity)}
-                                className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
-                                title="Edit required quantity"
-                              >
-                                <Edit className="h-4 w-4" />
-                              </Button>
-                            </>
-                          )}
-                        </div>
-                      </TableCell>
-                      
-                      <TableCell className="text-center">
-                        <div className="space-y-2">
-                          <div className="text-sm">
-                            <span className={isComplete ? 'text-green-600 font-medium' : ''}>
-                              {item.contributedQuantity}
-                            </span>
-                            <span className="text-muted-foreground"> / {item.requiredQuantity}</span>
+                            )}
                           </div>
-                          <Progress value={progress} className="h-2" />
-                          <div className="text-xs text-muted-foreground">
-                            {remaining === 0 && 'Complete! ✅'}
-                          </div>
-                        </div>
-                      </TableCell>
-                      
-                      <TableCell className="text-center">
-                        <Button
-                          size="sm"
-                          onClick={() => handleOpenContribution(item.id)}
-                          disabled={isComplete}
-                          className="min-w-[80px]"
-                        >
-                          {isComplete ? 'Complete' : 'Contribute'}
-                        </Button>
-                      </TableCell>
-                      
-                      <TableCell className="text-center">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="h-8 w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
-                          onClick={() => setItemToDelete({id: item.id, name: item.itemName})}
-                          title="Remove item from project"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
+                        </TableCell>
+                      </TableRow>
+                    </>
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                        No items in this project yet. Add some items to get started!
                       </TableCell>
                     </TableRow>
-                  );
-                })}
-                
-                  {/* Add Another Item Row - Only shown when items exist and user has permissions */}
-                  {true && ( // PERMISSION CHECK DISABLED
-                  <TableRow className="border-t-2 border-dashed border-primary/30 bg-primary/5">
-                    <TableCell colSpan={5} className="p-4">
-                      <div className="space-y-3">
-                        <h4 className="font-medium text-sm">Add Another Item</h4>
-                      
-                      <div className="grid gap-3 md:grid-cols-3">
-                        <div className="md:col-span-2">
-                          <ItemSearchCombobox
-                            value={newItem.itemName}
-                            onValueChange={(value) => {
-                              if (!value) {
-                                setNewItem(prev => ({
-                                  ...prev,
-                                  itemName: '',
-                                  tier: 1,
-                                  category: ''
-                                }));
-                              }
-                            }}
-                            onItemSelect={handleItemSelect}
-                            placeholder="Search for an item..."
-                          />
-                          {newItem.itemName && (
-                            <SelectedItemDisplay 
-                              itemName={newItem.itemName}
-                              tier={newItem.tier}
-                              category={newItem.category}
-                              iconPath={getItemIcon(newItem.itemName)}
-                              className="mt-1"
-                            />
-                          )}
-                        </div>
-                        
-                        <div className="flex items-center gap-2">
-                          <Input
-                            type="number"
-                            min="1"
-                            value={newItem.requiredQuantity}
-                            onChange={(e) => setNewItem(prev => ({ 
-                              ...prev, 
-                              requiredQuantity: parseInt(e.target.value) || 1 
-                            }))}
-                            className="w-20 text-center"
-                            placeholder="Qty"
-                          />
-                          
-                          <Button
-                            disabled={isAddingItem || !newItem.itemName.trim()}
-                            onClick={handleAddItem}
-                          >
-                            {isAddingItem ? (
-                              'Adding...'
-                            ) : (
-                              <>
-                                <Plus className="h-4 w-4 mr-2" />
-                                Add
-                              </>
-                            )}
-                          </Button>
-                        </div>
-                      </div>
-                      
-                      {newItem.itemName && (
-                        <Input
-                          placeholder="Notes (optional)"
-                          value={newItem.notes}
-                          onChange={(e) => setNewItem(prev => ({ ...prev, notes: e.target.value }))}
-                          className="max-w-md"
-                        />
-                      )}
-                    </div>
-                  </TableCell>
-                </TableRow>
-                )}
+                  )}
                 </TableBody>
               </Table>
-            )}
-          </CardContent>
-        </Card>
+              
+              {/* Pagination Controls */}
+              {project.items && project.items.length > itemsPerPage && (
+                <div className="flex items-center justify-between px-4 py-3 border-t">
+                  <div className="text-sm text-muted-foreground">
+                    Showing {((currentPage - 1) * itemsPerPage) + 1} to {Math.min(currentPage * itemsPerPage, project.items.length)} of {project.items.length} items
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </Button>
+                    <span className="text-sm font-medium px-3">
+                      Page {currentPage} of {Math.ceil(project.items.length / itemsPerPage)}
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(prev => Math.min(Math.ceil(project.items.length / itemsPerPage), prev + 1))}
+                      disabled={currentPage >= Math.ceil(project.items.length / itemsPerPage)}
+                    >
+                      Next
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
 
-        {/* Contribution History */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              Contribution History
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {project.contributions && project.contributions.length > 0 ? (
-              <div className="space-y-4">
-                {project.contributions
-                  .sort((a, b) => new Date(b.contributedAt).getTime() - new Date(a.contributedAt).getTime())
-                  .slice(0, 20) // Show last 20 contributions
-                  .map((contribution) => (
-                    <div key={contribution.id} className="flex items-center justify-between py-3 border-b last:border-b-0">
+          {/* Contribution History */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                Recent Contributions
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {project.contributions && project.contributions.length > 0 ? (
+                <div className="space-y-4">
+                  {project.contributions
+                    .sort((a, b) => new Date(b.contributedAt).getTime() - new Date(a.contributedAt).getTime())
+                    .slice(0, 10)
+                    .map((contribution, i) => (
+                      <div key={contribution.id} className="flex items-start gap-3 p-3 rounded-lg border">
                         <div className="flex-1">
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 mb-1">
                             <span className="font-medium">{contribution.memberName}</span>
-                            <Badge variant="outline" className="text-xs">
-                              {contribution.deliveryMethod}
-                            </Badge>
+                            {contribution.itemName && (
+                              <span className="text-sm text-muted-foreground">
+                                contributed {contribution.quantity}x {contribution.itemName}
+                              </span>
+                            )}
                           </div>
-                        <div className="text-sm text-muted-foreground mt-1">
-                          {contribution.itemName && (
-                            <div className="flex items-center gap-2">
-                              {(() => {
-                                const projectItem = project?.items?.find(i => i.itemName.toLowerCase() === contribution.itemName?.toLowerCase());
-                                return (
-                                  <ContributionDisplay
-                                    itemName={contribution.itemName || 'Unknown'}
-                                    quantity={contribution.quantity}
-                                    tier={projectItem?.tier}
-                                    showLink
-                                  />
-                                );
-                              })()}
-                              {contribution.description && (
-                                <span className="ml-1">- {contribution.description}</span>
-                              )}
-                            </div>
+                          {contribution.description && (
+                            <p className="text-sm text-muted-foreground">{contribution.description}</p>
                           )}
                           {!contribution.itemName && (
-                            <span>{contribution.quantity} items</span>
+                            <p className="text-sm text-muted-foreground">General contribution</p>
                           )}
                         </div>
+                        <div className="text-right text-sm text-muted-foreground">
+                          <div>{new Date(contribution.contributedAt).toLocaleDateString()}</div>
+                          <div className="text-xs">{contribution.deliveryMethod}</div>
+                        </div>
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                        {new Date(contribution.contributedAt).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            ) : (
-              <div className="text-center py-8 text-muted-foreground">
-                <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No contributions yet. Be the first to contribute!</p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
+                    ))}
+                </div>
+              ) : (
+                <p className="text-center py-8 text-muted-foreground">
+                  No contributions yet. Be the first to contribute!
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </div>
 
-      {/* Contribution Dialog */}
-      <Dialog open={!!contributingItem} onOpenChange={handleCloseContribution}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Contribute Items</DialogTitle>
-            <DialogDescription>
-              Add items to help complete this project
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            {contributingItem && (
-              <>
+        {/* Contribution Dialog */}
+        {contributingItem && (
+          <Dialog open={!!contributingItem} onOpenChange={handleCloseContribution}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Contribute to Project</DialogTitle>
+                <DialogDescription>
+                  Add your contribution to this project item.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4">
                 {(() => {
-                  const item = (project?.items || []).find(i => i.id === contributingItem);
+                  const item = (project.items || []).find(i => i.id === contributingItem);
                   if (!item) return null;
-                  const remaining = item.requiredQuantity - item.contributedQuantity;
-                  const iconPath = getItemIcon(item.itemName);
                   
                   return (
                     <>
-                      {/* Item Display with Icon and Tier */}
-                      <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg border">
-                        <div className="relative">
-                          <Image
-                            src={iconPath}
-                            alt={item.itemName}
-                            width={48}
-                            height={48}
-                            className="rounded-md border"
-                          />
-                          <div className="absolute -top-1 -right-1">
-                            <BricoTierBadge tier={item.tier} size="sm" />
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="font-medium">{item.itemName}</div>
-                          <div className="text-sm text-muted-foreground">
-                            {remaining} of {item.requiredQuantity} still needed
-                          </div>
+                      <div className="flex items-center gap-3 p-3 border rounded-lg">
+                        <Image
+                          src={getItemIcon(item.itemName)}
+                          alt={item.itemName}
+                          width={48}
+                          height={48}
+                          className="rounded border"
+                        />
+                        <div>
+                          <h3 className="font-medium">{item.itemName}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {item.contributedQuantity} / {item.requiredQuantity} contributed
+                          </p>
                         </div>
                       </div>
-
-                      {/* Field Order: Delivery Method → Amount → Note */}
-                      <div className="space-y-2">
+                      
+                      <div>
                         <label className="text-sm font-medium">Delivery Method</label>
                         <Select value={deliveryMethod} onValueChange={setDeliveryMethod}>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select delivery method" />
+                            <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="Dropbox">Dropbox</SelectItem>
@@ -1223,70 +1068,66 @@ export function SettlementProjectDetailView() {
                         </Select>
                       </div>
                       
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium">Amount to contribute</label>
+                      <div>
+                        <label className="text-sm font-medium">Quantity</label>
                         <Input
                           type="number"
-                          min="1"
                           value={contributionAmount}
                           onChange={(e) => setContributionAmount(e.target.value)}
-                          placeholder="Enter amount"
-                          className="text-center"
+                          placeholder="How many are you contributing?"
+                          min="1"
                         />
-
                       </div>
                       
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium">Note (optional)</label>
+                      <div>
+                        <label className="text-sm font-medium">Notes (Optional)</label>
                         <Textarea
                           value={contributionNote}
                           onChange={(e) => setContributionNote(e.target.value)}
-                          placeholder="Add a note about your contribution..."
-                          className="resize-none"
-                          rows={2}
+                          placeholder="Any additional notes..."
+                          rows={3}
                         />
                       </div>
                     </>
                   );
                 })()}
-              </>
-            )}
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={handleCloseContribution}>
-              Cancel
-            </Button>
-            <Button 
-              onClick={handleContribute}
-              disabled={!contributionAmount || parseInt(contributionAmount) <= 0}
-            >
-              Contribute
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={handleCloseContribution}>
+                  Cancel
+                </Button>
+                <Button 
+                  onClick={handleContribute}
+                  disabled={!contributionAmount || parseInt(contributionAmount) <= 0}
+                >
+                  Contribute
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        )}
 
-      {/* Delete Item Dialog */}
-      <AlertDialog open={!!itemToDelete} onOpenChange={() => setItemToDelete(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Remove Item</AlertDialogTitle>
-            <AlertDialogDescription>
-              Are you sure you want to remove "{itemToDelete?.name}" from this project? This action cannot be undone.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={handleDeleteItem}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            >
-              Remove Item
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </Container>
+        {/* Delete Item Dialog */}
+        <AlertDialog open={!!itemToDelete} onOpenChange={() => setItemToDelete(null)}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Remove Item</AlertDialogTitle>
+              <AlertDialogDescription>
+                Are you sure you want to remove "{itemToDelete?.name}" from this project? This action cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleDeleteItem}
+                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              >
+                Remove Item
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </Container>
     </TooltipProvider>
   );
 }

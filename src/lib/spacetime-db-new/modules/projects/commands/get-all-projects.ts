@@ -20,6 +20,7 @@ export interface ProjectItem {
   projectId: string;
   itemName: string;
   requiredQuantity: number;
+  contributedQuantity: number; // Added for frontend compatibility
   currentQuantity: number;
   tier: number;
   priority: number;

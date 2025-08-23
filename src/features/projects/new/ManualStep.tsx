@@ -10,6 +10,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Trash2, Plus, Package } from 'lucide-react';
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
+import { ItemBadge } from '@/components/depv2/ItemBadge';
 import { ItemSearchCombobox } from '@/components/projects/item-search-combobox';
 import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 import { api } from '@/lib/api-client';
@@ -201,7 +203,7 @@ export default function ManualStep({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-32">
       {/* Project Details */}
       <Card>
         <CardHeader>
@@ -275,19 +277,32 @@ export default function ManualStep({
             <div className="space-y-2">
               {items.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 p-3 border rounded-lg">
-                  <div className="flex-1">
-                    <div className="font-medium">{item.name}</div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      {item.tier && (
-                        <Badge variant="outline">Tier {item.tier}</Badge>
-                      )}
-                      {item.skill && (
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700">
-                          {item.skill}
-                        </Badge>
-                      )}
+                  {item.itemId ? (
+                    <div className="flex items-center gap-3 flex-1">
+                      <ItemBadge id={item.itemId} qty={item.qty} showQuantity={false} />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="relative h-8 w-8 flex-shrink-0 rounded bg-muted border">
+                        <div className="w-full h-full bg-muted-foreground/20 rounded flex items-center justify-center">
+                          <span className="text-sm text-muted-foreground">?</span>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium">{item.name}</div>
+                        <div className="flex items-center gap-2 text-sm">
+                          {item.tier && item.tier > 0 && (
+                            <BricoTierBadge tier={item.tier} size="sm" />
+                          )}
+                          {item.skill && (
+                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded dark:bg-blue-900/20 dark:text-blue-400">
+                              {item.skill}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <Input
                       type="number"
@@ -362,17 +377,31 @@ export default function ManualStep({
         </CardContent>
       </Card>
 
-      {/* Actions */}
-      <div className="flex items-center justify-between">
-        <Button variant="outline" onClick={onBack}>
-          Back
-        </Button>
-        <Button 
-          onClick={handleCreateProject}
-          disabled={isCreating || !title.trim() || items.length === 0}
-        >
-          {isCreating ? 'Creating...' : 'Create Project'}
-        </Button>
+      {/* Sticky Footer - matches AutoGenerateStep style */}
+      <div className="sticky bottom-0 left-0 right-0 z-10 bg-background/95 backdrop-blur-sm border-t border-border/40 p-4 shadow-lg">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="text-sm text-muted-foreground">
+            {items.length > 0 ? (
+              <>
+                Ready to create: <strong className="text-foreground">{title || 'Untitled Project'}</strong> ({items.length} items)
+              </>
+            ) : (
+              'Add items to continue'
+            )}
+          </div>
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={onBack} className="min-w-[80px]">
+              Back
+            </Button>
+            <Button 
+              onClick={handleCreateProject}
+              disabled={isCreating || !title.trim() || items.length === 0}
+              className="min-w-[140px] bg-primary hover:bg-primary/90 disabled:opacity-50"
+            >
+              {isCreating ? 'Creating...' : 'Create Project'}
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

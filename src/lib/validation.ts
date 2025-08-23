@@ -338,6 +338,10 @@ export const SETTLEMENT_SCHEMAS = {
       required: true,
       type: 'uuid' as const
     },
+    projectItemId: {
+      required: false,
+      type: 'uuid' as const
+    },
     itemName: {
       required: true,
       type: 'string' as const,
@@ -351,7 +355,6 @@ export const SETTLEMENT_SCHEMAS = {
       min: 1,
       max: 10000 // Reasonable limit to prevent abuse
     },
-    // contributionType removed; we now only track delivery method
     deliveryMethod: {
       required: true,
       type: 'string' as const,

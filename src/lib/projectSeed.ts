@@ -21,14 +21,14 @@ export type ProjectSeed = {
  * Convert calculator material rows to project seed items
  */
 export function convertMaterialsToSeedItems(materials: Array<{
-  id: string | number;
+  itemId?: string;
   name: string;
   qty: number;
   tier?: number;
   skill?: string;
 }>): ProjectSeedItem[] {
   return materials.map(material => ({
-    itemId: typeof material.id === 'string' ? material.id : material.id.toString(),
+    itemId: material.itemId,
     name: material.name,
     qty: Math.ceil(material.qty), // Ensure integer quantities
     skill: material.skill || null,

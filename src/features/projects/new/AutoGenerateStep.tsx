@@ -1,14 +1,20 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useCalculatorState } from '@/features/calculator/core';
 import { CalculatorUI } from '@/features/calculator/CalculatorUI';
 import { convertMaterialsToSeedItems, generateProjectTitle } from '@/lib/projectSeed';
 import type { ProjectSeedItem } from '@/lib/projectSeed';
 import { Calculator, ArrowRight, Package } from 'lucide-react';
+import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
+import { ItemBadge } from '@/components/depv2/ItemBadge';
+import ItemPicker from '@/components/depv2/ItemPicker';
+import Image from 'next/image';
 
 export default function AutoGenerateStep({
   onBack,
@@ -23,25 +29,30 @@ export default function AutoGenerateStep({
   const disabled = !calc.selectedItemName || !calc.qty || calc.qty <= 0 || calc.flatMaterials.length === 0;
   const hasResults = calc.flatMaterials.length > 0;
 
-  async function handleUse() {
+  // Memoize expensive calculations
+  const totalItems = useMemo(() => calc.materialRows.length, [calc.materialRows.length]);
+  const totalQuantity = useMemo(() => 
+    calc.materialRows.reduce((sum, item) => sum + item.qty, 0), 
+    [calc.materialRows]
+  );
+
+  const handleUse = useCallback(async () => {
     if (disabled) return;
 
     // Convert calculator materials to project seed items
-    const items = convertMaterialsToSeedItems(calc.materialRows);
+    const items = convertMaterialsToSeedItems(calc.flatMaterials);
     const title = generateProjectTitle(calc.selectedItemName, calc.qty);
 
     onUse({
       title,
       items,
     });
-  }
+  }, [disabled, calc.flatMaterials, calc.selectedItemName, calc.qty, onUse]);
 
-  // Calculate totals for display
-  const totalItems = calc.flatMaterials.length;
-  const totalQuantity = calc.flatMaterials.reduce((sum, item) => sum + item.qty, 0);
+
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-32">
       {/* Calculator UI */}
       <Card>
         <CardHeader>
@@ -54,7 +65,40 @@ export default function AutoGenerateStep({
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <CalculatorUI {...calc.uiProps} />
+                            {/* Simplified Calculator UI - only item search and quantity */}
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                      <div>
+                        <Label htmlFor="search" className="text-sm font-medium">
+                          Search for any item
+                        </Label>
+                        <div className="flex gap-2 mt-2">
+                          <div className="flex-1">
+                            <ItemPicker 
+                              onChange={(id) => calc.setItemId(id)} 
+                              value={calc.itemId} 
+                            />
+                          </div>
+                          <Button variant="secondary" className="shrink-0">
+                            ⌘K
+                          </Button>
+                        </div>
+                      </div>
+                      <div>
+                        <Label htmlFor="qty" className="text-sm font-medium">
+                          How many?
+                        </Label>
+                        <Input
+                          id="qty"
+                          type="number"
+                          min={1}
+                          value={calc.qty}
+                          onChange={(e) => calc.setQty(parseInt(e.target.value) || 1)}
+                          className="h-10 mt-2"
+                        />
+                      </div>
+                    </div>
+                  </div>
         </CardContent>
       </Card>
 
@@ -71,31 +115,37 @@ export default function AutoGenerateStep({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-2 max-h-60 overflow-y-auto">
-              {calc.flatMaterials.slice(0, 10).map((material, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-2 rounded border"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">{material.name}</span>
-                    {material.tier && (
-                      <span className="text-xs bg-muted px-2 py-1 rounded">
-                        Tier {material.tier}
-                      </span>
-                    )}
-                    {material.skill && (
-                      <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded dark:bg-blue-900/20 dark:text-blue-400">
-                        {material.skill}
-                      </span>
-                    )}
+            <div className="grid gap-2 max-h-80 overflow-y-auto">
+              {calc.flatMaterials.slice(0, 8).map((material, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 rounded border"
+                  >
+                    <div className="flex items-center gap-3">
+                      {material.itemId ? (
+                        <ItemBadge id={material.itemId} showQuantity={false} />
+                      ) : (
+                        <div className="relative h-8 w-8 flex-shrink-0 rounded bg-muted border">
+                          <Image
+                            src={'/assets/Unknown.webp'}
+                            alt={material.name}
+                            fill
+                            sizes="32px"
+                            className="object-contain p-1"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <span className="font-mono text-sm font-semibold">
+                      {material.qty?.toLocaleString()}x
+                    </span>
                   </div>
-                  <span className="font-mono text-sm">{material.qty}x</span>
-                </div>
-              ))}
-              {calc.flatMaterials.length > 10 && (
+                );
+              })}
+              {calc.flatMaterials.length > 8 && (
                 <div className="text-center text-sm text-muted-foreground py-2">
-                  ... and {calc.flatMaterials.length - 10} more items
+                  ... and {calc.flatMaterials.length - 8} more items
                 </div>
               )}
             </div>
@@ -113,23 +163,27 @@ export default function AutoGenerateStep({
         </Alert>
       )}
 
-      {/* Sticky Footer */}
-      <div className="sticky bottom-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-4 border-t rounded-lg">
-        <div className="flex items-center justify-between">
+      {/* Sticky Footer - matches calculator page style */}
+      <div className="sticky bottom-0 left-0 right-0 z-10 bg-background/95 backdrop-blur-sm border-t border-border/40 p-4 shadow-lg">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="text-sm text-muted-foreground">
             {hasResults ? (
               <>
-                Ready to create project: <strong>{calc.selectedItemName} x {calc.qty}</strong>
+                Ready to create project: <strong className="text-foreground">{calc.selectedItemName} x {calc.qty}</strong>
               </>
             ) : (
               'Select an item to continue'
             )}
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={onBack}>
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={onBack} className="min-w-[80px]">
               Back
             </Button>
-            <Button onClick={handleUse} disabled={disabled}>
+            <Button 
+              onClick={handleUse} 
+              disabled={disabled}
+              className="min-w-[140px] bg-primary hover:bg-primary/90 disabled:opacity-50"
+            >
               Use these items
               <ArrowRight className="h-4 w-4 ml-2" />
             </Button>

@@ -44,7 +44,10 @@ export function CalculatorUI({
           </Label>
           <div className="flex gap-2 mt-2">
             <div className="flex-1">
-              <ItemPicker onChange={setItemId} value={itemId} />
+              <ItemPicker 
+                onChange={setItemId} 
+                value={itemId} 
+              />
             </div>
             <Button variant="secondary" className="shrink-0">
               ⌘K
