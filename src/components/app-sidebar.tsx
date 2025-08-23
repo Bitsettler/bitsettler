@@ -65,27 +65,30 @@ import {
 // Navigation data with icons and descriptions
 const data = {
   homeItem: { translationKey: 'sidebar.mainPage', href: '/', icon: HouseIcon },
+  // Common items that appear for all users
+  commonItems: [
+    { translationKey: 'sidebar.myCharacter', href: '/settlement/my-character', icon: UserIcon },
+    {
+      translationKey: 'sidebar.calculator',
+      href: '/calculator',
+      icon: CalculatorIcon
+    },
+    {
+      translationKey: 'sidebar.calculatorNew',
+      href: '/calculator-new',
+      icon: CalculatorIcon
+    }
+  ],
   navMain: [
     {
       translationLabel: 'sidebar.settlement',
       children: [
         { translationKey: 'sidebar.settlementDashboard', href: '/settlement', icon: ChartBarIcon },
-        { translationKey: 'sidebar.myCharacter', href: '/settlement/my-character', icon: UserIcon },
         { translationKey: 'sidebar.settlementMembers', href: '/settlement/members', icon: UsersIcon },
         { translationKey: 'sidebar.skills', href: '/settlement/skills', icon: GraduationCapIcon },
         { translationKey: 'sidebar.research', href: '/settlement/research', icon: FlaskIcon },
         { translationKey: 'sidebar.projects', href: '/settlement/projects', icon: FolderIcon },
-        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury', icon: CoinsIcon },
-        {
-          translationKey: 'sidebar.calculator',
-          href: '/calculator',
-          icon: CalculatorIcon
-        },
-        {
-          translationKey: 'sidebar.calculatorNew',
-          href: '/calculator-new',
-          icon: CalculatorIcon
-        }
+        { translationKey: 'sidebar.settlementTreasury', href: '/settlement/treasury', icon: CoinsIcon }
       ]
     },
     {
@@ -126,12 +129,6 @@ const data = {
     }
   ],
   navSolo: [
-    {
-      translationLabel: 'sidebar.settlement',
-      children: [
-        { translationKey: 'sidebar.myCharacter', href: '/settlement/my-character', icon: UserIcon },
-      ]
-    },
     {
       translationLabel: 'sidebar.compendium',
       children: [
@@ -275,6 +272,15 @@ export function AppSidebar({ searchData, ...props }: AppSidebarProps) {
           <SidebarGroupContent>
             <SidebarMenu>
               {renderNavigationItem(data.homeItem)}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* Common Items - Always visible for all users */}
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {data.commonItems.map(renderNavigationItem)}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
