@@ -26,8 +26,8 @@ export default function AutoGenerateStep({
   const calc = useCalculatorState();
 
   // Check if we have valid data to proceed
-  const disabled = !calc.selectedItemName || !calc.qty || calc.qty <= 0 || calc.flatMaterials.length === 0;
-  const hasResults = calc.flatMaterials.length > 0;
+  const disabled = !calc.selectedItemName || !calc.qty || calc.qty <= 0 || calc.materialRows.length === 0;
+  const hasResults = calc.materialRows.length > 0;
 
   // Memoize expensive calculations
   const totalItems = useMemo(() => calc.materialRows.length, [calc.materialRows.length]);
@@ -40,14 +40,21 @@ export default function AutoGenerateStep({
     if (disabled) return;
 
     // Convert calculator materials to project seed items
-    const items = convertMaterialsToSeedItems(calc.flatMaterials);
+    // Use materialRows instead of flatMaterials to include all calculated materials
+    const items = convertMaterialsToSeedItems(calc.materialRows.map(row => ({
+      itemId: row.id,
+      name: row.name,
+      qty: row.qty,
+      tier: row.tier,
+      skill: row.skill
+    })));
     const title = generateProjectTitle(calc.selectedItemName, calc.qty);
 
     onUse({
       title,
       items,
     });
-  }, [disabled, calc.flatMaterials, calc.selectedItemName, calc.qty, onUse]);
+  }, [disabled, calc.materialRows, calc.selectedItemName, calc.qty, onUse]);
 
 
 
@@ -116,7 +123,7 @@ export default function AutoGenerateStep({
           </CardHeader>
           <CardContent>
             <div className="grid gap-2 max-h-80 overflow-y-auto">
-              {calc.flatMaterials.slice(0, 8).map((material, index) => {
+              {calc.materialRows.slice(0, 8).map((material, index) => {
                 return (
                   <div
                     key={index}
@@ -143,9 +150,9 @@ export default function AutoGenerateStep({
                   </div>
                 );
               })}
-              {calc.flatMaterials.length > 8 && (
+              {calc.materialRows.length > 8 && (
                 <div className="text-center text-sm text-muted-foreground py-2">
-                  ... and {calc.flatMaterials.length - 8} more items
+                  ... and {calc.materialRows.length - 8} more items
                 </div>
               )}
             </div>
