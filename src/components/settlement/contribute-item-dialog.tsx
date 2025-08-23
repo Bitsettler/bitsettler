@@ -42,13 +42,19 @@ export function ContributeItemDialog({
   const [deliveryMethod, setDeliveryMethod] = useState('Dropbox');
   const [notes, setNotes] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  // Memoize item display data - safe to call even when item is null
+  const itemDisplay = useMemo(() => {
+    if (!item) return { iconSrc: '/assets/Unknown.webp', link: '#' };
+    return resolveItemDisplay(item.itemName);
+  }, [item?.itemName]);
+
+  const itemIcon = imageError ? '/assets/Unknown.webp' : (itemDisplay.iconSrc || '/assets/Unknown.webp');
 
   if (!item) return null;
 
   const remaining = Math.max(0, item.requiredQuantity - (item.contributedQuantity || 0));
-  const [imageError, setImageError] = useState(false);
-  const itemDisplay = useMemo(() => resolveItemDisplay(item.itemName), [item.itemName]);
-  const itemIcon = imageError ? '/assets/Unknown.webp' : (itemDisplay.iconSrc || '/assets/Unknown.webp');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
