@@ -48,12 +48,15 @@ cd bitsettler
 npm install
 
 # 2. Configure environment (.env.local)
-NEXT_PUBLIC_SUPABASE_URL=https://hnoiuyjdlecajbsjslwh.supabase.co
+# Create .env.local file with your Supabase credentials:
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+SUPABASE_DB_URL=your_database_connection_string
+SUPABASE_PROJECT_ID=your_project_id
 
 # 3. Setup database
-npx supabase db push --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres" --yes
+npx supabase db push --db-url "${SUPABASE_DB_URL}" --yes
 
 # 4. Start development
 npm run dev
@@ -62,6 +65,11 @@ npm run dev
 
 **📚 New Developer?** → **[Read the Complete Onboarding Guide](./DEVELOPER_ONBOARDING.md)**  
 **🤖 AI Assistant?** → **[Follow Project Governance Rules](./CURSOR_GOVERNANCE.md)**
+
+### **🔒 Security Notice**
+- **NEVER commit `.env.local` files** - they contain sensitive credentials
+- **Use environment variables** for all database connections and API keys
+- **Rotate credentials regularly** and monitor for unauthorized access
 
 ---
 
@@ -119,7 +127,7 @@ npm run format       # Format with Prettier
 npx supabase migration new migration_name
 
 # Apply migrations  
-npx supabase db push --db-url "DATABASE_URL" --yes
+npx supabase db push --db-url "${SUPABASE_DB_URL}" --yes
 
 # Reset development database
 npx supabase db reset
@@ -140,7 +148,7 @@ npm run dev
 # 2. Database changes (if needed)
 npx supabase migration new your_migration_name
 # Edit migration file, then apply:
-npx supabase db push --db-url "DATABASE_URL" --yes
+npx supabase db push --db-url "${SUPABASE_DB_URL}" --yes
 
 # 3. Testing
 npm run lint
@@ -257,7 +265,7 @@ curl -X POST http://localhost:3000/api/testing/clear-user-data
 
 - **🌐 Live Site**: [bitsettler.io](https://bitsettler.io)
 - **💬 Discord**: [Community Chat](https://discord.gg/hTD3mahCFv)
-- **🗄️ Database**: [Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)
+- **🗄️ Database**: [Supabase Dashboard](https://supabase.com/dashboard/project/${SUPABASE_PROJECT_ID})
 - **🚀 Deployment**: [Vercel Dashboard](https://vercel.com)
 - **📊 Settlement Data**: [BitJita.com](https://bitjita.com)
 

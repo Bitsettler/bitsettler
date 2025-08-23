@@ -35,9 +35,12 @@ npm install
 Create `.env.local` in project root:
 ```env
 # Supabase (Database & Auth)
-NEXT_PUBLIC_SUPABASE_URL=https://hnoiuyjdlecajbsjslwh.supabase.co
+# Get these from your Supabase project dashboard
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+SUPABASE_DB_URL=your_database_connection_string
+SUPABASE_PROJECT_ID=your_project_id
 
 # Development
 NODE_ENV=development
@@ -48,14 +51,15 @@ NEXT_PUBLIC_BITJITA_API_IDENTIFIER=PR3SIDENT/Bitsettler
 ```
 
 **🔑 Get Supabase Keys:**
-- Project ID: `hnoiuyjdlecajbsjslwh`
-- Database Password: `8lhYYvTo5WAQsvsd`
-- URL: `https://hnoiuyjdlecajbsjslwh.supabase.co`
+- Go to [Supabase Dashboard](https://supabase.com/dashboard)
+- Create a new project or use existing one
+- Get Project URL, Anon Key, and Service Role Key from Settings > API
+- Get Database URL from Settings > Database
 
 ### **3. Database Setup**
 ```bash
 # Apply all migrations
-npx supabase db push --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres" --yes
+npx supabase db push --db-url "${SUPABASE_DB_URL}" --yes
 ```
 
 ### **4. Start Development**
@@ -68,6 +72,12 @@ npm run dev
 1. Visit [http://localhost:3000/en/auth/signin](http://localhost:3000/en/auth/signin)
 2. Create account → Claim character → Set professions
 3. Explore settlement dashboard and features
+
+### **🔒 Security Best Practices**
+- **NEVER commit `.env.local` files** to version control
+- **Use environment variables** for all sensitive configuration
+- **Rotate credentials** regularly and monitor access logs
+- **Test with different user roles** to verify permission systems
 
 ---
 
@@ -291,7 +301,7 @@ npx supabase migration new your_migration_name
 # 2. Write SQL in: supabase/migrations/[timestamp]_your_migration_name.sql
 
 # 3. Apply migration
-npx supabase db push --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres" --yes
+npx supabase db push --db-url "${SUPABASE_DB_URL}" --yes
 
 # 4. Commit migration files
 git add supabase/migrations/
@@ -371,7 +381,7 @@ npm install --force
 ### **Database Connection Issues**
 ```bash
 # Test database connection
-npx supabase db reset --db-url "postgresql://postgres.hnoiuyjdlecajbsjslwh:8lhYYvTo5WAQsvsd@aws-0-us-east-2.pooler.supabase.com:5432/postgres"
+npx supabase db reset --db-url "${SUPABASE_DB_URL}"
 
 # Reapply migrations
 npx supabase db push --db-url "..." --yes
@@ -421,7 +431,7 @@ Based on `TODO.md`, focus areas are:
 - **[shadcn/ui](https://ui.shadcn.com)** - UI component library
 
 ### **Development Tools**
-- **[Supabase Dashboard](https://supabase.com/dashboard/project/hnoiuyjdlecajbsjslwh)** - Database management
+- **[Supabase Dashboard](https://supabase.com/dashboard/project/${SUPABASE_PROJECT_ID})** - Database management
 - **[Vercel Dashboard](https://vercel.com)** - Deployment and analytics
 - **[GitHub Repository](https://github.com/Bitsettler/bitsettler)** - Source code
 
