@@ -75,8 +75,9 @@ export function SettlementProjectDetailView() {
   // UI state
   const [contributingItem, setContributingItem] = useState<ProjectItem | null>(null);
   
-  // Game data for item search
-  const gameData = useMemo(() => getCalculatorGameData(), []);
+  // Game data for item search - lazy load only when needed
+  const [gameData, setGameData] = useState<any>(null);
+  const [gameDataLoading, setGameDataLoading] = useState(false);
   
   // Permissions - simplified for now (everyone can do everything)
   const permissions = {
@@ -114,13 +115,28 @@ export function SettlementProjectDetailView() {
     }
   }, [projectId]);
 
+  // Lazy load game data only when adding items
+  const loadGameData = async () => {
+    if (gameData || gameDataLoading) return;
+    
+    setGameDataLoading(true);
+    try {
+      const data = getCalculatorGameData();
+      setGameData(data);
+    } catch (error) {
+      console.error('Failed to load game data:', error);
+    } finally {
+      setGameDataLoading(false);
+    }
+  };
+
   // Project update handler
   const handleProjectUpdate = async (updates: { name?: string; description?: string }) => {
     if (!project) return;
     
     try {
       const result = await api.put(`/api/settlement/projects/${project.id}`, updates);
-      
+
       if (result.success) {
         setProject(prev => prev ? { ...prev, ...updates } : null);
         toast.success('Project updated successfully');
@@ -145,7 +161,7 @@ export function SettlementProjectDetailView() {
         priority: 3, // Default priority
         notes: newItem.notes
       });
-      
+
       if (result.success) {
         await fetchProject(); // Refresh to get updated data
         toast.success('Item added successfully');
@@ -158,7 +174,7 @@ export function SettlementProjectDetailView() {
     }
   };
 
-  // Contribute handler
+  // Contribute handler - optimistic updates
   const handleContribute = async (contribution: {
     itemId: string;
     quantity: number;
@@ -169,6 +185,33 @@ export function SettlementProjectDetailView() {
     
     const item = project.items.find(i => i.id === contribution.itemId);
     if (!item) return;
+    
+    // Optimistic update - update UI immediately
+    const optimisticContribution = {
+      id: `temp-${Date.now()}`,
+      memberId: session?.user?.id || 'unknown',
+      memberName: session?.user?.name || 'You',
+      itemName: item.itemName,
+      quantity: contribution.quantity,
+      description: contribution.notes,
+      deliveryMethod: contribution.deliveryMethod as any,
+      contributedAt: new Date()
+    };
+    
+    const updatedItems = project.items.map(i => 
+      i.id === contribution.itemId 
+        ? { ...i, contributedQuantity: (i.contributedQuantity || 0) + contribution.quantity }
+        : i
+    );
+    
+    const updatedProject = {
+      ...project,
+      items: updatedItems,
+      contributions: [optimisticContribution, ...project.contributions]
+    };
+    
+    setProject(updatedProject);
+    toast.success('Contribution added successfully');
     
     try {
       const result = await api.post('/api/settlement/contributions', {
@@ -181,13 +224,14 @@ export function SettlementProjectDetailView() {
         notes: contribution.notes
       });
       
-      if (result.success) {
-        await fetchProject(); // Refresh to get updated data
-        toast.success('Contribution added successfully');
-      } else {
+      if (!result.success) {
+        // Revert optimistic update on failure
+        setProject(project);
         toast.error(result.error || 'Failed to add contribution');
       }
     } catch (error) {
+      // Revert optimistic update on error
+      setProject(project);
       console.error('Failed to contribute:', error);
       toast.error('Failed to add contribution');
     }
@@ -196,12 +240,12 @@ export function SettlementProjectDetailView() {
   // Edit quantity handler
   const handleEditQuantity = async (itemId: string, quantity: number) => {
     if (!project) return;
-    
+
     try {
       const result = await api.put(`/api/settlement/projects/${project.id}/items/${itemId}`, {
         requiredQuantity: quantity
       });
-      
+
       if (result.success) {
         await fetchProject(); // Refresh to get updated data
         toast.success('Quantity updated successfully');
@@ -217,10 +261,10 @@ export function SettlementProjectDetailView() {
   // Remove item handler
   const handleRemoveItem = async (itemId: string) => {
     if (!project) return;
-    
+
     try {
       const result = await api.delete(`/api/settlement/projects/${project.id}/items/${itemId}`);
-      
+
       if (result.success) {
         await fetchProject(); // Refresh to get updated data
         toast.success('Item removed successfully');
@@ -252,22 +296,22 @@ export function SettlementProjectDetailView() {
   if (loading) {
     return (
       <TooltipProvider>
-        <Container>
+      <Container>
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
               <p className="text-muted-foreground">Loading project...</p>
-            </div>
           </div>
-        </Container>
+        </div>
+      </Container>
       </TooltipProvider>
     );
   }
 
   if (error || !project) {
-    return (
-      <TooltipProvider>
-        <Container>
+  return (
+    <TooltipProvider>
+      <Container>
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
               <p className="text-destructive mb-4">{error || 'Project not found'}</p>
@@ -275,11 +319,11 @@ export function SettlementProjectDetailView() {
                 Try again
               </button>
             </div>
-          </div>
-        </Container>
-      </TooltipProvider>
-    );
-  }
+        </div>
+      </Container>
+    </TooltipProvider>
+  );
+}
 
   return (
     <TooltipProvider>
@@ -299,6 +343,8 @@ export function SettlementProjectDetailView() {
           <AddItemForm
             onAddItem={handleAddItem}
             gameData={gameData}
+            onRequestGameData={loadGameData}
+            gameDataLoading={gameDataLoading}
           />
 
           {/* Project Items Table */}
@@ -313,7 +359,7 @@ export function SettlementProjectDetailView() {
             onRemoveItem={handleRemoveItem}
           />
 
-          {/* Contribution History */}
+        {/* Contribution History */}
           <ProjectContributions contributions={project.contributions} />
 
           {/* Contribute Item Dialog */}
@@ -323,7 +369,7 @@ export function SettlementProjectDetailView() {
             onClose={() => setContributingItem(null)}
             onContribute={handleContribute}
           />
-        </div>
+                          </div>
       </Container>
     </TooltipProvider>
   );

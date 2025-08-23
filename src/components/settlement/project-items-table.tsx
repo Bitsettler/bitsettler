@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo, useCallback } from 'react';
 import { Plus, Package, Edit, Save, X, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -80,6 +80,7 @@ export function ProjectItemsTable({
 }: ProjectItemsTableProps) {
   const [groupBy, setGroupBy] = useState<GroupBy>('skill');
   const [editingItems, setEditingItems] = useState<Record<string, string>>({});
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   // Group items based on groupBy setting
   const groupedItems = useMemo(() => {
@@ -151,13 +152,33 @@ export function ProjectItemsTable({
     });
   };
 
-  const renderItemRow = (item: ProjectItem) => {
+  // Memoize item display data to avoid repeated resolveItemDisplay calls
+  const itemDisplayData = useMemo(() => {
+    const displayMap = new Map();
+    items.forEach(item => {
+      if (!displayMap.has(item.itemName)) {
+        const display = resolveItemDisplay(item.itemName);
+        displayMap.set(item.itemName, {
+          iconSrc: display.iconSrc || '/assets/Unknown.webp',
+          link: display.link || '#'
+        });
+      }
+    });
+    return displayMap;
+  }, [items]);
+
+  const handleImageError = useCallback((itemName: string) => {
+    setImageErrors(prev => new Set(prev).add(itemName));
+  }, []);
+
+  const renderItemRow = useCallback((item: ProjectItem) => {
     const progress = item.requiredQuantity > 0 
       ? Math.min(100, Math.round(((item.contributedQuantity || 0) / item.requiredQuantity) * 100))
       : 0;
     const isCompleted = (item.contributedQuantity || 0) >= (item.requiredQuantity || 1);
-    const itemIcon = getItemIcon(item.itemName);
-    const itemLink = getItemLink(item.itemName);
+    const displayData = itemDisplayData.get(item.itemName);
+    const itemIcon = imageErrors.has(item.itemName) ? '/assets/Unknown.webp' : displayData?.iconSrc || '/assets/Unknown.webp';
+    const itemLink = displayData?.link || '#';
     const isEditing = editingItems[item.id] !== undefined;
 
     return (
@@ -171,6 +192,8 @@ export function ProjectItemsTable({
                 fill
                 sizes="32px"
                 className="object-contain rounded"
+                onError={() => handleImageError(item.itemName)}
+                unoptimized={itemIcon.includes('/assets/')}
               />
             </div>
             <div className="flex flex-col">
@@ -267,7 +290,7 @@ export function ProjectItemsTable({
         </TableCell>
       </TableRow>
     );
-  };
+  }, [itemDisplayData, imageErrors, editingItems, permissions, handleQuantityEdit, handleQuantitySave, handleQuantityCancel, onContribute, onRemoveItem]);
 
   return (
     <Card>

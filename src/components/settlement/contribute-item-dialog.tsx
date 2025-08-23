@@ -46,7 +46,9 @@ export function ContributeItemDialog({
   if (!item) return null;
 
   const remaining = Math.max(0, item.requiredQuantity - (item.contributedQuantity || 0));
-  const itemIcon = resolveItemDisplay(item.itemName).iconSrc || '/assets/Unknown.webp';
+  const [imageError, setImageError] = useState(false);
+  const itemDisplay = useMemo(() => resolveItemDisplay(item.itemName), [item.itemName]);
+  const itemIcon = imageError ? '/assets/Unknown.webp' : (itemDisplay.iconSrc || '/assets/Unknown.webp');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -107,6 +109,8 @@ export function ContributeItemDialog({
                 fill
                 sizes="40px"
                 className="object-contain rounded"
+                onError={() => setImageError(true)}
+                unoptimized={itemIcon.includes('/assets/')}
               />
             </div>
             <div className="flex-1">

@@ -21,9 +21,11 @@ interface NewItem {
 interface AddItemFormProps {
   onAddItem: (item: NewItem) => Promise<void>;
   gameData: any; // TODO: Type this properly
+  onRequestGameData: () => Promise<void>;
+  gameDataLoading: boolean;
 }
 
-export function AddItemForm({ onAddItem, gameData }: AddItemFormProps) {
+export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLoading }: AddItemFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [newItem, setNewItem] = useState<NewItem>({
@@ -81,11 +83,18 @@ export function AddItemForm({ onAddItem, gameData }: AddItemFormProps) {
     setIsOpen(false);
   };
 
+  const handleOpenForm = async () => {
+    setIsOpen(true);
+    if (!gameData && !gameDataLoading) {
+      await onRequestGameData();
+    }
+  };
+
   if (!isOpen) {
     return (
       <Card>
         <CardContent className="pt-6">
-          <Button onClick={() => setIsOpen(true)} className="w-full">
+          <Button onClick={handleOpenForm} className="w-full">
             <Plus className="h-4 w-4 mr-2" />
             Add Item to Project
           </Button>
@@ -110,11 +119,22 @@ export function AddItemForm({ onAddItem, gameData }: AddItemFormProps) {
           {/* Item Search */}
           <div className="space-y-2">
             <Label htmlFor="item-search">Search for Item</Label>
-            <ItemSearchCombobox
-              gameData={gameData}
-              onItemSelect={handleItemSelect}
-              placeholder="Search for any item..."
-            />
+            {gameDataLoading ? (
+              <div className="flex items-center justify-center p-4 border rounded-md">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary mr-2"></div>
+                <span className="text-sm text-muted-foreground">Loading items...</span>
+              </div>
+            ) : gameData ? (
+              <ItemSearchCombobox
+                gameData={gameData}
+                onItemSelect={handleItemSelect}
+                placeholder="Search for any item..."
+              />
+            ) : (
+              <div className="p-4 border rounded-md text-center text-muted-foreground">
+                <p>Game data not loaded</p>
+              </div>
+            )}
           </div>
 
           {/* Selected Item Display */}
