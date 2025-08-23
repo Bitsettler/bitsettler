@@ -12,10 +12,20 @@ import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 interface SettlementData {
   entityId: string;
   name: string;
+  tier: number;
+  treasury: number;
+  supplies: number;
   tiles: number;
   regionName: string;
+  regionId: string;
   isOwner: boolean;
   isEstablished: boolean;
+  permissions: {
+    inventory: boolean;
+    build: boolean;
+    officer: boolean;
+    coOwner: boolean;
+  };
 }
 
 interface SoloPlayerOption {
@@ -131,7 +141,7 @@ export default function ClaimSettlementPage() {
                     {/* Display all settlements */}
                     {(settlementsData || []).map((settlement: SettlementData) => {
                         // Determine if settlement is active based on conditions
-                        const isActive = settlement.isOwner || (settlement.isEstablished && !settlement.isOwner);
+                        const isActive = settlement.isOwner || settlement.permissions.coOwner || settlement.isEstablished;
                         
                         return (
                         <Card
@@ -154,11 +164,11 @@ export default function ClaimSettlementPage() {
                                 <div className="flex items-center gap-2">
                                 {/* Role Badge */}
                                 <span className={`text-xs px-2 py-1 rounded-full ${
-                                    settlement.isOwner 
-                                    ? 'bg-green-100 text-green-800' 
-                                    : 'bg-blue-100 text-blue-800'
+                                    settlement.isOwner || settlement.permissions.coOwner
+                                        ? 'bg-green-100 text-green-800' 
+                                        : 'bg-blue-100 text-blue-800'
                                 }`}>
-                                    {settlement.isOwner ? 'Owner' : 'Member'}
+                                    {settlement.isOwner ? 'Owner' : settlement.permissions.coOwner ? 'Co-Owner' : 'Member'}
                                 </span>
                                 
                                 {/* Status Badge */}
@@ -234,7 +244,7 @@ export default function ClaimSettlementPage() {
             <Button
                 onClick={handleClaimSettlement}
                 className="min-w-[200px]"
-                disabled={isClaiming || !selectedSettlement || (isSettlementData(selectedSettlement) && !selectedSettlement.isEstablished && !selectedSettlement.isOwner)}
+                disabled={isClaiming || !selectedSettlement || (isSettlementData(selectedSettlement) && !selectedSettlement.isEstablished && !selectedSettlement.isOwner && !selectedSettlement.permissions.coOwner)}
             >
                 {isClaiming ? (
                 <>
