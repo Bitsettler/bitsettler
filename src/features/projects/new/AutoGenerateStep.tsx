@@ -130,8 +130,8 @@ export default function AutoGenerateStep({
                     className="flex items-center justify-between p-3 rounded border"
                   >
                     <div className="flex items-center gap-3">
-                      {material.itemId ? (
-                        <ItemBadge id={material.itemId} showQuantity={false} />
+                      {material.id ? (
+                        <ItemBadge id={material.id} showQuantity={false} />
                       ) : (
                         <div className="relative h-8 w-8 flex-shrink-0 rounded bg-muted border">
                           <Image
@@ -143,6 +143,7 @@ export default function AutoGenerateStep({
                           />
                         </div>
                       )}
+                      <span className="text-sm font-medium">{material.name}</span>
                     </div>
                     <span className="font-mono text-sm font-semibold">
                       {material.qty?.toLocaleString()}x

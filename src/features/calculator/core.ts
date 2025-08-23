@@ -105,11 +105,8 @@ export function useCalculatorState() {
       if (result.totals && typeof result.totals.entries === 'function') {
         const itemsMap = getItemById(); // Get the items Map once
         
-        // Limit to first 50 items for performance
-        let count = 0;
+        // Process all materials - users need complete lists for crafting
         for (const [id, quantity] of result.totals.entries()) {
-          if (count >= 50) break;
-          
           const item = itemsMap.get(id); // Get specific item from Map
           if (item) {
             const display = getItemDisplay(item.id);
@@ -121,7 +118,6 @@ export function useCalculatorState() {
               skill: display.skill,
               iconSrc: display.iconSrc,
             });
-            count++;
           }
         }
       }
