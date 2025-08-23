@@ -66,7 +66,7 @@ export const RATE_LIMITS = {
   // Character claiming (by user) - very strict
   characterClaim: {
     windowMs: 60 * 60 * 1000, // 1 hour
-    maxRequests: 3,           // 3 claims per hour
+    maxRequests: 10,           // 3 claims per hour
     message: 'Character claiming rate limit exceeded. Only 3 attempts per hour allowed.'
   },
   

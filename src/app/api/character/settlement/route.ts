@@ -3,7 +3,7 @@ import { createRequestLogger } from '@/lib/logger';
 import { createServerClient } from '@/lib/spacetime-db-new/shared/supabase-client';
 import { requireAuth } from '@/lib/supabase-server-auth';
 import { BitJitaAPI } from '@/lib/spacetime-db-new/modules/integrations/bitjita-api';
-import { shouldRateLimit, characterClaimRateLimit } from '@/lib/rate-limiting';
+import { shouldRateLimit, apiRateLimit } from '@/lib/rate-limiting';
 
 interface SettlementData {
     entityId: string;
@@ -50,14 +50,15 @@ export async function POST(request: NextRequest) {
 
       const userLogger = logger.child({ userId: user.id });
       
+      
       if (shouldRateLimit(request)) {
-        const rateLimitCheck = await characterClaimRateLimit(user.id)(request);
+        const rateLimitCheck = await apiRateLimit(request);
         if (!rateLimitCheck.allowed && rateLimitCheck.response) {
-          userLogger.warn('Rate limit exceeded for character claiming');
+          userLogger.warn('Rate limit exceeded for profession updates');
           return rateLimitCheck.response;
         }
       }
-         
+
       const serviceClient = createServerClient();
       
       if (!serviceClient) {
