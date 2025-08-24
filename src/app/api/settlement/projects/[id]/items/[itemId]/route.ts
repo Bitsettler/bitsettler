@@ -39,6 +39,12 @@ async function handleUpdateProjectItem(
     return apiError('Required quantity must be a positive integer', ErrorCodes.INVALID_PARAMETER);
   }
 
+  // Set reasonable maximum (1 million) to prevent overflow issues
+  const MAX_QUANTITY = 1000000;
+  if (required_quantity > MAX_QUANTITY) {
+    return apiError(`Maximum quantity is ${MAX_QUANTITY.toLocaleString()}`, ErrorCodes.INVALID_PARAMETER);
+  }
+
   // First, resolve the project ID to get the actual UUID for permissions
   let actualProjectId = projectId;
   const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(projectId);

@@ -20,14 +20,12 @@ interface NewItem {
 
 interface AddItemFormProps {
   onAddItem: (item: NewItem) => Promise<void>;
-  gameData: any; // TODO: Type this properly
-  onRequestGameData: () => Promise<void>;
-  gameDataLoading: boolean;
+  onCancel: () => void;
 }
 
-export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLoading }: AddItemFormProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function AddItemForm({ onAddItem, onCancel }: AddItemFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedItemValue, setSelectedItemValue] = useState('');
   const [newItem, setNewItem] = useState<NewItem>({
     itemName: '',
     tier: 1,
@@ -64,7 +62,7 @@ export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLo
         notes: '',
         category: ''
       });
-      setIsOpen(false);
+      setSelectedItemValue('');
     } catch (error) {
       console.error('Failed to add item:', error);
     } finally {
@@ -80,24 +78,9 @@ export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLo
       notes: '',
       category: ''
     });
-    setIsOpen(false);
+    setSelectedItemValue('');
+    onCancel();
   };
-
-  const handleOpenForm = async () => {
-    setIsOpen(true);
-    if (!gameData && !gameDataLoading) {
-      await onRequestGameData();
-    }
-  };
-
-  if (!isOpen) {
-    return (
-      <Button onClick={handleOpenForm}>
-        <Plus className="h-4 w-4 mr-2" />
-        Add Item to Project
-      </Button>
-    );
-  }
 
   return (
     <Card>
@@ -115,22 +98,12 @@ export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLo
           {/* Item Search */}
           <div className="space-y-2">
             <Label htmlFor="item-search">Search for Item</Label>
-            {gameDataLoading ? (
-              <div className="flex items-center justify-center p-4 border rounded-md">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary mr-2"></div>
-                <span className="text-sm text-muted-foreground">Loading items...</span>
-              </div>
-            ) : gameData ? (
-              <ItemSearchCombobox
-                gameData={gameData}
-                onItemSelect={handleItemSelect}
-                placeholder="Search for any item..."
-              />
-            ) : (
-              <div className="p-4 border rounded-md text-center text-muted-foreground">
-                <p>Game data not loaded</p>
-              </div>
-            )}
+            <ItemSearchCombobox
+              value={selectedItemValue}
+              onValueChange={setSelectedItemValue}
+              onItemSelect={handleItemSelect}
+              placeholder="Search for any item..."
+            />
           </div>
 
           {/* Selected Item Display */}
@@ -174,11 +147,10 @@ export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLo
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 pt-4">
+          <div className="flex justify-end gap-2 pt-4">
             <Button 
               type="submit" 
               disabled={!newItem.itemName || newItem.requiredQuantity <= 0 || isSubmitting}
-              className="flex-1"
             >
               {isSubmitting ? 'Adding...' : 'Add Item'}
             </Button>

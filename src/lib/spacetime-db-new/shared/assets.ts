@@ -39,11 +39,21 @@ export function cleanIconAssetName(
   }
 
   if (cleanPath === 'Items/LeatherGloves') {
-    cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves'
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves_B'
+  }
+
+  // Handle Woven Cap items - map to BurlapCap instead of BurlapBonnet
+  if (cleanPath === 'GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapBonnet') {
+    cleanPath = 'GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapCap'
   }
 
   if (cleanPath === 'Items/HexCoin[,3,10,500]') {
     cleanPath = 'GeneratedIcons/Items/HexCoin'
+  }
+
+  // Fix metalworking flux double path issue
+  if (cleanPath === 'GeneratedIcons/Other/GeneratedIcons/Items/MetalworkersFlux') {
+    cleanPath = 'GeneratedIcons/Items/MetalworkersFlux'
   }
 
   // Fix hair color filename mismatches (data references vs actual filenames)

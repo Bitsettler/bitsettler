@@ -130,7 +130,7 @@ export function ProjectHeader({
                     </Badge>
                   </div>
                   <p className="text-muted-foreground">
-                    Project #{project.project_number} • Created {new Date(project.created_at).toLocaleDateString()}
+                    Project #{project.project_number} • Created {project.created_at ? new Date(project.created_at).toLocaleDateString() : 'Unknown date'}
                     {project.ownerName && ` • by ${project.ownerName}`}
                   </p>
                   {project.description && (

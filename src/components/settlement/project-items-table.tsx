@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, memo, useCallback } from 'react';
-import { Plus, Package, Edit, Save, X, Target, HandHeart } from 'lucide-react';
+import { Plus, Package, Edit, Save, X, Target, HandHeart, ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +15,7 @@ import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
 import Image from 'next/image';
 import Link from 'next/link';
 import { inferSkillFromPatterns } from '@/lib/skill-inference-patterns';
+import { resolveItemDisplay } from '@/lib/settlement/item-display';
 
 interface ProjectItem {
   id: string;
@@ -39,6 +40,8 @@ interface ProjectItemsTableProps {
 }
 
 type GroupBy = 'none' | 'skill' | 'tier' | 'status';
+type SortField = 'name' | 'required' | 'contributed' | 'progress' | 'tier';
+type SortDirection = 'asc' | 'desc';
 
 // Helper function to determine skill from item name using centralized patterns
 function getItemSkill(itemName: string): string {
@@ -57,6 +60,79 @@ export function ProjectItemsTable({
   const [groupBy, setGroupBy] = useState<GroupBy>('skill');
   const [editingItems, setEditingItems] = useState<Record<string, string>>({});
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+  const [sortField, setSortField] = useState<SortField>('name');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+
+  // Auto-expand accordion groups when total items < 20
+  const shouldAutoExpand = items.length < 20;
+
+  // Sortable header component
+  const SortableHeader = ({ field, children, className }: { field: SortField; children: React.ReactNode; className?: string }) => {
+    const isActive = sortField === field;
+    const icon = isActive ? (
+      sortDirection === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
+    ) : <ChevronsUpDown className="h-4 w-4" />;
+    
+    return (
+      <TableHead className={className}>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-8 data-[state=open]:bg-accent flex items-center gap-1 p-1 hover:bg-accent"
+          onClick={() => handleSort(field)}
+        >
+          {children}
+          {icon}
+        </Button>
+      </TableHead>
+    );
+  };
+
+  // Handle sorting
+  const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+
+  // Sort items function
+  const sortItems = (items: ProjectItem[]) => {
+    return [...items].sort((a, b) => {
+      let aValue: any, bValue: any;
+      
+      switch (sortField) {
+        case 'name':
+          aValue = a.itemName.toLowerCase();
+          bValue = b.itemName.toLowerCase();
+          break;
+        case 'required':
+          aValue = a.requiredQuantity;
+          bValue = b.requiredQuantity;
+          break;
+        case 'contributed':
+          aValue = a.contributedQuantity;
+          bValue = b.contributedQuantity;
+          break;
+        case 'progress':
+          aValue = a.requiredQuantity > 0 ? (a.contributedQuantity / a.requiredQuantity) * 100 : 0;
+          bValue = b.requiredQuantity > 0 ? (b.contributedQuantity / b.requiredQuantity) * 100 : 0;
+          break;
+        case 'tier':
+          aValue = a.tier;
+          bValue = b.tier;
+          break;
+        default:
+          return 0;
+      }
+      
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+  };
 
   // Group items based on groupBy setting
   const groupedItems = useMemo(() => {
@@ -75,7 +151,7 @@ export function ProjectItemsTable({
       return [{
         title: 'All Items',
         count: items.length,
-        items: items.sort((a, b) => a.itemName.localeCompare(b.itemName)),
+        items: sortItems(items),
         progressPercentage,
         totalRequired,
         totalContributed,
@@ -130,24 +206,55 @@ export function ProjectItemsTable({
         return {
           title,
           count: groupItems.length,
-          items: groupItems.sort((a, b) => a.itemName.localeCompare(b.itemName)),
+          items: sortItems(groupItems),
           progressPercentage,
           totalRequired,
           totalContributed,
           completedItemCount
         };
       });
-  }, [items, groupBy]);
+  }, [items, groupBy, sortField, sortDirection]);
 
   const handleQuantityEdit = (itemId: string, value: string) => {
     setEditingItems(prev => ({ ...prev, [itemId]: value }));
   };
 
   const handleQuantitySave = async (itemId: string) => {
-    const newQuantity = parseInt(editingItems[itemId]);
-    if (!isNaN(newQuantity) && newQuantity > 0) {
-      await onEditQuantity(itemId, newQuantity);
+    const inputValue = editingItems[itemId];
+    const newQuantity = parseInt(inputValue);
+    
+    // Comprehensive validation
+    if (isNaN(newQuantity)) {
+      alert('Please enter a valid number');
+      return;
     }
+    
+    if (newQuantity < 1) {
+      alert('Quantity must be at least 1');
+      return;
+    }
+    
+    // Set reasonable maximum (1 million)
+    const MAX_QUANTITY = 1000000;
+    if (newQuantity > MAX_QUANTITY) {
+      alert(`Maximum quantity is ${MAX_QUANTITY.toLocaleString()}`);
+      return;
+    }
+    
+    // Check for scientific notation or extremely large numbers
+    if (inputValue.includes('e') || inputValue.includes('E') || inputValue.length > 10) {
+      alert(`Please enter a number between 1 and ${MAX_QUANTITY.toLocaleString()}`);
+      return;
+    }
+    
+    try {
+      await onEditQuantity(itemId, newQuantity);
+    } catch (error) {
+      alert('Failed to update quantity. Please try again.');
+      return;
+    }
+    
+    // Clear editing state only on success
     setEditingItems(prev => {
       const { [itemId]: _, ...rest } = prev;
       return rest;
@@ -177,6 +284,24 @@ export function ProjectItemsTable({
     // Handle plural to singular conversions for common cases
     if (cleanName.endsWith(' Carvings')) {
       cleanName = cleanName.replace(' Carvings', ' Carving');
+    }
+    
+    // Handle specific item name mappings that don't follow the standard pattern
+    if (cleanName === 'Crop Oil') {
+      return '/assets/GeneratedIcons/Items/VegetableOil.webp';
+    }
+    if (cleanName === 'Metalworking Flux') {
+      return '/assets/GeneratedIcons/Items/MetalworkersFlux.webp';
+    }
+    
+    // Handle fish filets - all use the generic FishFilet asset
+    if (cleanName.includes('Filet') || cleanName.includes('filet')) {
+      return '/assets/GeneratedIcons/Items/FishFilet.webp';
+    }
+    
+    // Handle Tree Sap - map to correct asset name
+    if (cleanName === 'Tree Sap') {
+      return '/assets/GeneratedIcons/Items/Sap.webp';
     }
     
     // Helper function to try multiple asset locations
@@ -337,7 +462,8 @@ export function ProjectItemsTable({
     };
     
     const itemIcon = getItemIconWithFallback(item.itemName);
-    const itemLink = '#'; // Simple fallback
+    const itemDisplay = resolveItemDisplay(item.itemName);
+    const itemLink = itemDisplay.link || `/compendium?search=${encodeURIComponent(item.itemName)}`;
     const isEditing = editingItems[item.id] !== undefined;
 
     return (
@@ -378,8 +504,11 @@ export function ProjectItemsTable({
                 type="number"
                 value={editingItems[item.id]}
                 onChange={(e) => handleQuantityEdit(item.id, e.target.value)}
-                className="w-20"
+                className="w-24"
                 min="1"
+                max="1000000"
+                placeholder="1-1M"
+                title="Enter quantity (1 to 1,000,000)"
               />
               <Button
                 size="sm"
@@ -488,10 +617,10 @@ export function ProjectItemsTable({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[40%]">Item</TableHead>
-                  <TableHead className="w-[12%] text-center">Required</TableHead>
-                  <TableHead className="w-[12%] text-center">Contributed</TableHead>
-                  <TableHead className="w-[20%]">Progress</TableHead>
+                  <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                  <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
+                  <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
+                  <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
                   <TableHead className="w-[16%] text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -501,7 +630,11 @@ export function ProjectItemsTable({
             </Table>
           ) : (
             // Clean accordion with proper table headers in each section
-            <Accordion type="multiple" defaultValue={[]} className="space-y-4">
+            <Accordion 
+              type="multiple" 
+              defaultValue={shouldAutoExpand ? groupedItems.map((_, index) => `group-${index}`) : []} 
+              className="space-y-4"
+            >
               {groupedItems.map((group, groupIndex) => (
                 <AccordionItem key={group.title} value={`group-${groupIndex}`} className="border rounded-lg">
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
@@ -527,10 +660,10 @@ export function ProjectItemsTable({
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-[40%]">Item</TableHead>
-                          <TableHead className="w-[12%] text-center">Required</TableHead>
-                          <TableHead className="w-[12%] text-center">Contributed</TableHead>
-                          <TableHead className="w-[20%]">Progress</TableHead>
+                          <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                          <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
+                          <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
+                          <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
                           <TableHead className="w-[16%] text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>

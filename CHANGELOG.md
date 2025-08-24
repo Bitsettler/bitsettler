@@ -5,6 +5,97 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.0] - Settlement Projects UX & Stability Overhaul - 2025-01-15
+
+### Added
+
+- **🔄 Sortable Project Tables**: Added sortable columns (Item, Required, Contributed, Progress) with visual indicators
+  - **Sort Icons**: Up/down arrows show current sort state
+  - **Multi-Column Support**: Sort by any column in project item tables
+  - **Consistent Behavior**: Works in both flat view and accordion grouped views
+
+- **📝 Enhanced Add Item Experience**: Complete workflow overhaul for adding items to projects
+  - **Streamlined UI**: Removed duplicate buttons, single "Add Item" action in project header
+  - **Improved Form Layout**: Right-aligned action buttons with proper order (Add Item → Cancel)
+  - **Smart Item Search**: Fixed ItemSearchCombobox integration with proper value binding
+  - **Form State Management**: Proper cleanup and error handling throughout workflow
+
+- **🎯 Smart Accordion Behavior**: Auto-expanding accordions for better user experience
+  - **Small Project Optimization**: Projects with <20 items auto-expand by default
+  - **Reduced Clicks**: Eliminates unnecessary accordion interaction for smaller projects
+  - **Large Project Grouping**: Maintains organization for projects with many items
+
+- **🔢 Robust Quantity Validation**: Comprehensive input validation for item quantities
+  - **Maximum Limits**: 1,000,000 item limit with clear messaging
+  - **Scientific Notation Prevention**: Blocks problematic inputs like `2e173` from extreme numbers
+  - **Input Constraints**: Visual hints (placeholders, tooltips) and proper input field configuration
+  - **Frontend/Backend Sync**: Consistent validation on both client and server
+
+### Fixed
+
+- **📅 Project Date Display**: Resolved "Invalid Date" showing for project creation dates
+  - **Backend/Frontend Alignment**: Fixed Date object vs ISO string mismatch
+  - **Null Safety**: Added proper date validation and fallback handling
+  - **Data Consistency**: Ensured `created_at` field properly mapped across API layers
+
+- **🖼️ Asset & Thumbnail Coverage**: Comprehensive fixes for missing item thumbnails
+  - **Crop Oil Icons**: Fixed missing thumbnails → `VegetableOil.webp`
+  - **Metalworking Flux**: Corrected double-path issue → `MetalworkersFlux.webp`  
+  - **Fish Filets**: All filet variants now use correct `FishFilet.webp` thumbnail
+  - **Tree Sap**: Fixed path mismatch → `Sap.webp`
+  - **Leather Items**: Resolved missing thumbnails for woven caps and leather gloves
+
+- **⚡ Item Quantity Editing**: Fixed critical API field name mismatch
+  - **Field Consistency**: Corrected `requiredQuantity` vs `required_quantity` between frontend/backend
+  - **Error Prevention**: Proper validation prevents database constraint violations
+  - **User Feedback**: Clear error messages for validation failures
+
+- **🎯 Skill Classification Accuracy**: Major improvements to skill inference system
+  - **Specificity-Based Matching**: Replaced order-dependent logic with smart scoring system
+  - **Exact > Boundary > Substring**: Prioritizes precise matches over broad patterns
+  - **Conflict Resolution**: Fixed major misclassifications:
+    - **Brickworking Binding Ash**: Mining → **Masonry** ✅
+    - **Hideworking Salt**: Mining → **Leatherworking** ✅  
+    - **Crop Oil**: Added specific pattern for **Farming** ✅
+    - **Clay Pebbles**: Mining → **Masonry** ✅
+    - **Pelts**: Fishing → **Leatherworking** ✅
+
+- **🔗 Item Linking System**: Improved item hyperlinks in project tables
+  - **Calculator Links**: Switched to reliable `/calculator/[slug]` links
+  - **Data Resolution**: Two-tier system (calculator data → item_desc.json fallback)
+  - **Missing Item Handling**: Eliminated console error spam with proper fallback system
+  - **Performance**: Optimized data loading to prevent rendering loops
+
+### Enhanced
+
+- **🏗️ Component Architecture**: Streamlined form and table components
+  - **Add Item Form**: Removed unnecessary state and props, cleaner component interface
+  - **Project Tables**: Optimized icon resolution with targeted data loading
+  - **Error Handling**: Comprehensive validation and graceful error recovery
+  - **Memory Management**: Proper cleanup and caching for game data operations
+
+- **🎨 Visual Polish**: Consistent UI improvements across project management
+  - **Button Sizing**: Standardized action button proportions and alignment
+  - **Input Fields**: Added placeholders, tooltips, and validation hints
+  - **Icon Coverage**: Complete thumbnail support for all item categories
+  - **Layout Consistency**: Proper spacing and alignment throughout project interfaces
+
+- **📊 Data Quality**: Enhanced item data handling and validation
+  - **Asset Path Resolution**: Intelligent path cleaning and fallback systems
+  - **Skill Pattern Library**: Comprehensive patterns with conflict prevention
+  - **Input Sanitization**: Robust validation for all user inputs
+  - **Type Safety**: Improved TypeScript coverage for data operations
+
+### Technical Improvements
+
+- **Pattern Matching Algorithm**: Implemented specificity-based skill inference with scoring system
+- **Data Resolution System**: Two-tier fallback (calculator data → complete item database)
+- **Component Optimization**: Eliminated heavy operations in render-critical paths
+- **Validation Framework**: Consistent frontend/backend validation with clear error messaging
+- **Asset Management**: Enhanced path resolution with specific mappings for problematic items
+
+---
+
 ## [1.11.0] - Advanced Skill Inference & Asset Management System - 2025-01-14
 
 ### Added

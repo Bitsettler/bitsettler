@@ -26,11 +26,11 @@ export const SKILL_PATTERNS: SkillPattern[] = [
   {
     skill: 'Mining',
     namePatterns: [
-      'ore', 'raw stone', 'mineral', 'gem', 'crystal',
+      'ore', 'mineral', 'gem', 'crystal',
       'gypsite', 'ancient', 'damaged',
       'chunk', 'flint', 'quarried', 'ruby', 'emerald', 'diamond',
       'sapphire', 'topaz', 'amethyst', 'uncut', 'rough gem',
-      'nugget', 'rock', 'salt', 'ash', 'charcoal'
+      'nugget', 'rock', 'charcoal'
     ],
     categoryPatterns: ['ore', 'mineral', 'raw stone'],
     description: 'Raw materials extracted from the earth'
@@ -46,11 +46,11 @@ export const SKILL_PATTERNS: SkillPattern[] = [
     categoryPatterns: ['wood', 'tree', 'lumber'],
     description: 'Raw materials from trees and forests'
   },
-  
-    {
+
+  {
     skill: 'Farming',
     namePatterns: [
-      'berry', 'fruit', 'flower', 'seed', 'grain', 'vegetable',
+      'crop oil', 'berry', 'fruit', 'flower', 'seed', 'grain', 'vegetable',
       'herb', 'bulb', 'fiber', 'straw', 'cotton',
       'flax', 'crop', 'harvest', 'fertilizer', 'tannin', 'bait',
       'cultivated', 'farmed', 'grown'
@@ -87,7 +87,8 @@ export const SKILL_PATTERNS: SkillPattern[] = [
     namePatterns: [
       'wild', 'foraged', 'mushroom', 'nut', 'wild berry', 'wild herb',
       'wild flower', 'wild plant', 'gathered', 'natural', 'cocoon',
-      'plant root', 'plant roots', 'wild root', 'roots', 'root', 'pebbles'
+      'plant root', 'plant roots', 'wild root', 'roots', 'root'
+      // Removed 'pebbles' - too broad, conflicts with specific materials like 'clay pebbles'
     ],
     categoryPatterns: ['wild', 'foraged', 'natural'],
     description: 'Wild plants, herbs, and natural materials'
@@ -97,8 +98,8 @@ export const SKILL_PATTERNS: SkillPattern[] = [
   {
     skill: 'Smithing',
     namePatterns: [
-      'ingot', 'bar', 'concentrate', 'alloy', 'steel', 'iron', 'copper',
-      'tin', 'metal', 'refined', 'smelted', 'forged', 'plated',
+      'metalworking flux', 'ingot', 'bar', 'concentrate', 'alloy', 'steel', 'iron', 'copper',
+      'tin', 'metal', 'refined', 'smelted', 'forged', 'plated', 'flux',
       'aurumite', 'umbracite', 'celestium', 'astralite', 'rathium', 
       'luminite', 'elenvar', 'emarium', 'ferralith', 'pyrelite'
     ],
@@ -143,14 +144,14 @@ export const SKILL_PATTERNS: SkillPattern[] = [
     description: 'Prepared foods and cooking ingredients'
   },
   
+  
   {
     skill: 'Leatherworking',
     namePatterns: [
-      'hide', 'pelt', 'leather', 'fur', 'hair', 'animal hair', 'wool', 'silk',
+      'hideworking salt', 'animal hair', 'hide', 'pelt', 'leather', 'fur', 'hair',
       'tanned', 'cured leather', 'leather armor', 'leather goods',
       'processed hide', 'worked leather', 'belt', 'strap', 'harness',
-      'leather belt', 'leather strap', 'leather boots', 'boots',
-      'hideworking salt'
+      'leather belt', 'leather strap', 'leather boots', 'boots'
     ],
     categoryPatterns: ['leather goods', 'leather armor', 'hide'],
     description: 'Animal hides, pelts, and processed leather goods'
@@ -159,10 +160,11 @@ export const SKILL_PATTERNS: SkillPattern[] = [
   {
     skill: 'Masonry',
     namePatterns: [
+      'brickworking binding ash', 'brickwork ash', 'binding ash', 'clay pebbles', 'pebbles',
       'brick', 'block', 'stone block', 'stone brick', 'limestone', 'sandstone', 'marble',
       'granite', 'cobblestone', 'flagstone', 'tile', 'mortar',
       'cement', 'concrete', 'carved stone', 'stone wall', 'foundation',
-      'braxite', 'sand', 'clay', 'raw stone', 'brickworking', 'binding ash'
+      'braxite', 'sand', 'clay', 'raw stone', 'brickworking'
     ],
     categoryPatterns: ['construction', 'building materials', 'stonework'],
     description: 'Processed stone and construction materials'
@@ -207,7 +209,36 @@ export const SKILL_PATTERNS: SkillPattern[] = [
 ];
 
 /**
- * Infer skill from item name and category using centralized patterns
+ * Smart pattern matching that prioritizes specificity over order
+ * 1. Exact phrase matches (highest priority)
+ * 2. Word boundary matches 
+ * 3. Substring matches (lowest priority)
+ */
+function matchesPattern(text: string, pattern: string): { matches: boolean; specificity: number } {
+  const lowerText = text.toLowerCase();
+  const lowerPattern = pattern.toLowerCase();
+  
+  // 1. Exact phrase match (highest specificity)
+  if (lowerText === lowerPattern) {
+    return { matches: true, specificity: 100 };
+  }
+  
+  // 2. Exact phrase within text (high specificity)
+  if (lowerText.includes(lowerPattern)) {
+    // Check if it's a word boundary match (not just substring)
+    const regex = new RegExp(`\\b${lowerPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+    if (regex.test(lowerText)) {
+      return { matches: true, specificity: 90 };
+    }
+    // Regular substring match (lower specificity)
+    return { matches: true, specificity: 50 };
+  }
+  
+  return { matches: false, specificity: 0 };
+}
+
+/**
+ * Infer skill from item name and category using smart pattern matching
  */
 export function inferSkillFromPatterns(
   name: string, 
@@ -217,19 +248,34 @@ export function inferSkillFromPatterns(
   const lowerName = name.toLowerCase();
   const lowerCategory = category?.toLowerCase() || '';
   
+  let bestMatch: { skill: string; specificity: number } | null = null;
+  
   for (const pattern of SKILL_PATTERNS) {
+    let maxSpecificity = 0;
+    
     // Check name patterns
-    if (pattern.namePatterns.some(p => lowerName.includes(p))) {
-      return pattern.skill;
+    for (const namePattern of pattern.namePatterns) {
+      const result = matchesPattern(lowerName, namePattern);
+      if (result.matches && result.specificity > maxSpecificity) {
+        maxSpecificity = result.specificity;
+      }
     }
     
     // Check category patterns
-    if (pattern.categoryPatterns.some(p => lowerCategory.includes(p))) {
-      return pattern.skill;
+    for (const categoryPattern of pattern.categoryPatterns) {
+      const result = matchesPattern(lowerCategory, categoryPattern);
+      if (result.matches && result.specificity > maxSpecificity) {
+        maxSpecificity = result.specificity;
+      }
+    }
+    
+    // Update best match if this pattern is more specific
+    if (maxSpecificity > 0 && (!bestMatch || maxSpecificity > bestMatch.specificity)) {
+      bestMatch = { skill: pattern.skill, specificity: maxSpecificity };
     }
   }
   
-  return undefined;
+  return bestMatch?.skill;
 }
 
 /**

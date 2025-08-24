@@ -7,7 +7,7 @@ import { Container } from '@/components/container';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
-import { getCalculatorGameData } from '@/lib/spacetime-db-new/modules/calculator/flows/get-calculator-game-data';
+
 
 // Import our new components
 import { ProjectHeader } from '@/components/settlement/project-header';
@@ -78,8 +78,7 @@ export function SettlementProjectDetailView() {
   const [showAddItemForm, setShowAddItemForm] = useState(false);
   
   // Game data for item search - lazy load only when needed
-  const [gameData, setGameData] = useState<any>(null);
-  const [gameDataLoading, setGameDataLoading] = useState(false);
+
   
   // Permissions - simplified for now (everyone can do everything)
   const permissions = {
@@ -117,20 +116,7 @@ export function SettlementProjectDetailView() {
     }
   }, [projectId]);
 
-  // Lazy load game data only when adding items
-  const loadGameData = async () => {
-    if (gameData || gameDataLoading) return;
-    
-    setGameDataLoading(true);
-    try {
-      const data = getCalculatorGameData();
-      setGameData(data);
-    } catch (error) {
-      console.error('Failed to load game data:', error);
-    } finally {
-      setGameDataLoading(false);
-    }
-  };
+
 
   // Project update handler
   const handleProjectUpdate = async (updates: { name?: string; description?: string }) => {
@@ -245,7 +231,7 @@ export function SettlementProjectDetailView() {
 
     try {
       const result = await api.put(`/api/settlement/projects/${project.id}/items/${itemId}`, {
-        requiredQuantity: quantity
+        required_quantity: quantity
       });
 
       if (result.success) {
@@ -398,9 +384,7 @@ export function SettlementProjectDetailView() {
                 await handleAddItem(item);
                 setShowAddItemForm(false);
               }}
-              gameData={gameData}
-              onRequestGameData={loadGameData}
-              gameDataLoading={gameDataLoading}
+              onCancel={() => setShowAddItemForm(false)}
             />
           )}
 

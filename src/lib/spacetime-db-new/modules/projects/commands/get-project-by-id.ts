@@ -143,6 +143,9 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       ownerName: projectData.owner?.name || null,
       createdAt: new Date(projectData.created_at),
       updatedAt: new Date(projectData.updated_at),
+      // Convert Date objects to strings for frontend compatibility
+      created_at: projectData.created_at, // Keep as ISO string
+      created_by: projectData.created_by_player_id,
       items,
       completionPercentage,
       totalItems,
