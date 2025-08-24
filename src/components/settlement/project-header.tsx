@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, Edit, Save, X, Archive, Trash2, MoreHorizontal } from 'lucide-react';
+import { ArrowLeft, Edit, Save, X, Archive, Trash2, MoreHorizontal, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -35,6 +35,7 @@ interface ProjectHeaderProps {
   onArchive: () => Promise<void>;
   onDelete: () => Promise<void>;
   onComplete: () => Promise<void>;
+  onAddItem: () => void;
 }
 
 const priorityLabels = {
@@ -51,7 +52,8 @@ export function ProjectHeader({
   onUpdate, 
   onArchive, 
   onDelete, 
-  onComplete 
+  onComplete,
+  onAddItem 
 }: ProjectHeaderProps) {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
@@ -142,6 +144,15 @@ export function ProjectHeader({
             
             {!isEditing && (
               <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={onAddItem}
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Item
+                </Button>
+                
                 {permissions.canEdit && (
                   <Button
                     variant="outline"

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
 import { Container } from '@/components/container';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -64,6 +64,7 @@ interface NewItem {
 
 export function SettlementProjectDetailView() {
   const params = useParams();
+  const router = useRouter();
   const { data: session } = useSession();
   const projectId = params.id as string;
   
@@ -74,6 +75,7 @@ export function SettlementProjectDetailView() {
   
   // UI state
   const [contributingItem, setContributingItem] = useState<ProjectItem | null>(null);
+  const [showAddItemForm, setShowAddItemForm] = useState(false);
   
   // Game data for item search - lazy load only when needed
   const [gameData, setGameData] = useState<any>(null);
@@ -279,18 +281,67 @@ export function SettlementProjectDetailView() {
 
   // Project action handlers
   const handleArchive = async () => {
-    // TODO: Implement archive functionality
-    toast.info('Archive functionality coming soon');
+    if (!project) return;
+
+    try {
+      const result = await api.put(`/api/settlement/projects/${projectId}`, {
+        status: 'Completed'
+      });
+
+      if (result.success) {
+        setProject(prev => prev ? {
+          ...prev,
+          status: 'Completed'
+        } : null);
+        toast.success('Project archived successfully!');
+      } else {
+        toast.error(result.error || 'Failed to archive project');
+      }
+    } catch (error) {
+      console.error('Error archiving project:', error);
+      toast.error('Failed to archive project. Please try again.');
+    }
   };
 
   const handleDelete = async () => {
-    // TODO: Implement delete functionality
-    toast.info('Delete functionality coming soon');
+    if (!project) return;
+
+    try {
+      const result = await api.delete(`/api/settlement/projects/${projectId}`);
+
+      if (result.success) {
+        toast.success('Project deleted successfully!');
+        router.push('/en/settlement/projects');
+      } else {
+        toast.error(result.error || 'Failed to delete project');
+      }
+    } catch (error) {
+      console.error('Error deleting project:', error);
+      toast.error('Failed to delete project. Please try again.');
+    }
   };
 
   const handleComplete = async () => {
-    // TODO: Implement complete functionality
-    toast.info('Complete functionality coming soon');
+    if (!project) return;
+
+    try {
+      const result = await api.put(`/api/settlement/projects/${projectId}`, {
+        status: 'Completed'
+      });
+
+      if (result.success) {
+        setProject(prev => prev ? {
+          ...prev,
+          status: 'Completed'
+        } : null);
+        toast.success('Project marked as complete!');
+      } else {
+        toast.error(result.error || 'Failed to complete project');
+      }
+    } catch (error) {
+      console.error('Error completing project:', error);
+      toast.error('Failed to complete project. Please try again.');
+    }
   };
 
   if (loading) {
@@ -337,15 +388,21 @@ export function SettlementProjectDetailView() {
             onArchive={handleArchive}
             onDelete={handleDelete}
             onComplete={handleComplete}
+            onAddItem={() => setShowAddItemForm(true)}
           />
 
-          {/* Add Item Form */}
-          <AddItemForm
-            onAddItem={handleAddItem}
-            gameData={gameData}
-            onRequestGameData={loadGameData}
-            gameDataLoading={gameDataLoading}
-          />
+          {/* Add Item Form - only show when requested */}
+          {showAddItemForm && (
+            <AddItemForm
+              onAddItem={async (item) => {
+                await handleAddItem(item);
+                setShowAddItemForm(false);
+              }}
+              gameData={gameData}
+              onRequestGameData={loadGameData}
+              gameDataLoading={gameDataLoading}
+            />
+          )}
 
           {/* Project Items Table */}
           <ProjectItemsTable

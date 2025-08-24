@@ -92,14 +92,10 @@ export function AddItemForm({ onAddItem, gameData, onRequestGameData, gameDataLo
 
   if (!isOpen) {
     return (
-      <Card>
-        <CardContent className="pt-6">
-          <Button onClick={handleOpenForm} className="w-full">
-            <Plus className="h-4 w-4 mr-2" />
-            Add Item to Project
-          </Button>
-        </CardContent>
-      </Card>
+      <Button onClick={handleOpenForm}>
+        <Plus className="h-4 w-4 mr-2" />
+        Add Item to Project
+      </Button>
     );
   }
 

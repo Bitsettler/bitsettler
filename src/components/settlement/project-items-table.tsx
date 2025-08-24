@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useMemo, memo, useCallback } from 'react';
-import { Plus, Package, Edit, Save, X, Target } from 'lucide-react';
+import React, { useState, useMemo, memo, useCallback } from 'react';
+import { Plus, Package, Edit, Save, X, Target, HandHeart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -11,9 +11,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { BricoTierBadge } from '@/components/ui/brico-tier-badge';
-import { resolveItemDisplay } from '@/lib/settlement/item-display';
+// No imports needed - just use simple icon paths
 import Image from 'next/image';
 import Link from 'next/link';
+import { inferSkillFromPatterns } from '@/lib/skill-inference-patterns';
 
 interface ProjectItem {
   id: string;
@@ -39,37 +40,12 @@ interface ProjectItemsTableProps {
 
 type GroupBy = 'none' | 'skill' | 'tier' | 'status';
 
-// Helper function to determine skill from item name
+// Helper function to determine skill from item name using centralized patterns
 function getItemSkill(itemName: string): string {
-  const name = itemName.toLowerCase();
-  
-  if (name.includes('wood') || name.includes('log') || name.includes('plank')) {
-    return 'Forestry';
-  } else if (name.includes('stone') || name.includes('rock') || name.includes('ore')) {
-    return 'Mining';
-  } else if (name.includes('cloth') || name.includes('fiber') || name.includes('thread')) {
-    return 'Textiles';
-  } else if (name.includes('metal') || name.includes('ingot') || name.includes('tool')) {
-    return 'Smithing';
-  } else if (name.includes('food') || name.includes('berry') || name.includes('seed')) {
-    return 'Farming';
-  } else if (name.includes('leather') || name.includes('hide') || name.includes('fur')) {
-    return 'Leatherworking';
-  }
-  
-  return 'Unknown';
+  return inferSkillFromPatterns(itemName) || 'Unknown';
 }
 
-// Helper function to get item icon and link
-function getItemIcon(itemName: string): string {
-  const display = resolveItemDisplay(itemName);
-  return display.iconSrc || '/assets/Unknown.webp';
-}
-
-function getItemLink(itemName: string): string {
-  const display = resolveItemDisplay(itemName);
-  return display.link || '#';
-}
+// These helper functions are now replaced by the memoized itemDisplayData
 
 export function ProjectItemsTable({ 
   items, 
@@ -85,10 +61,25 @@ export function ProjectItemsTable({
   // Group items based on groupBy setting
   const groupedItems = useMemo(() => {
     if (groupBy === 'none') {
+      // Calculate overall progress for ungrouped items
+      const totalRequired = items.reduce((sum, item) => sum + (item.requiredQuantity || 0), 0);
+      const totalContributed = items.reduce((sum, item) => {
+        const cappedContribution = Math.min(item.contributedQuantity || 0, item.requiredQuantity || 0);
+        return sum + cappedContribution;
+      }, 0);
+      const completedItemCount = items.filter(item => 
+        (item.contributedQuantity || 0) >= (item.requiredQuantity || 1)
+      ).length;
+      const progressPercentage = totalRequired > 0 ? Math.round((totalContributed / totalRequired) * 100) : 0;
+      
       return [{
         title: 'All Items',
         count: items.length,
-        items: items.sort((a, b) => a.itemName.localeCompare(b.itemName))
+        items: items.sort((a, b) => a.itemName.localeCompare(b.itemName)),
+        progressPercentage,
+        totalRequired,
+        totalContributed,
+        completedItemCount
       }];
     }
     
@@ -123,11 +114,29 @@ export function ProjectItemsTable({
         }
         return a.localeCompare(b);
       })
-      .map(([title, items]) => ({
-        title,
-        count: items.length,
-        items: items.sort((a, b) => a.itemName.localeCompare(b.itemName))
-      }));
+      .map(([title, groupItems]) => {
+        // Calculate group progress based on actual contributions vs requirements
+        const totalRequired = groupItems.reduce((sum, item) => sum + (item.requiredQuantity || 0), 0);
+        const totalContributed = groupItems.reduce((sum, item) => {
+          // Cap each item's contribution at its requirement for group calculation
+          const cappedContribution = Math.min(item.contributedQuantity || 0, item.requiredQuantity || 0);
+          return sum + cappedContribution;
+        }, 0);
+        const completedItemCount = groupItems.filter(item => 
+          (item.contributedQuantity || 0) >= (item.requiredQuantity || 1)
+        ).length;
+        const progressPercentage = totalRequired > 0 ? Math.round((totalContributed / totalRequired) * 100) : 0;
+        
+        return {
+          title,
+          count: groupItems.length,
+          items: groupItems.sort((a, b) => a.itemName.localeCompare(b.itemName)),
+          progressPercentage,
+          totalRequired,
+          totalContributed,
+          completedItemCount
+        };
+      });
   }, [items, groupBy]);
 
   const handleQuantityEdit = (itemId: string, value: string) => {
@@ -152,33 +161,183 @@ export function ProjectItemsTable({
     });
   };
 
-  // Memoize item display data to avoid repeated resolveItemDisplay calls
-  const itemDisplayData = useMemo(() => {
-    const displayMap = new Map();
-    items.forEach(item => {
-      if (!displayMap.has(item.itemName)) {
-        const display = resolveItemDisplay(item.itemName);
-        displayMap.set(item.itemName, {
-          iconSrc: display.iconSrc || '/assets/Unknown.webp',
-          link: display.link || '#'
-        });
+  // Simple: just generate icon paths from item names
+  const getItemIcon = (itemName: string) => {
+    // Remove quality prefixes and clean the name
+    const qualityPrefixes = ['Basic', 'Simple', 'Fine', 'Exquisite', 'Peerless', 'Infused', 'Rough', 'Sturdy', 'Advanced', 'Comprehensive', 'Essential', 'Novice', 'Proficient', "Beginner's"];
+    
+    let cleanName = itemName;
+    for (const prefix of qualityPrefixes) {
+      if (cleanName.startsWith(prefix + ' ')) {
+        cleanName = cleanName.substring(prefix.length + 1);
+        break;
       }
-    });
-    return displayMap;
-  }, [items]);
+    }
+    
+    // Handle plural to singular conversions for common cases
+    if (cleanName.endsWith(' Carvings')) {
+      cleanName = cleanName.replace(' Carvings', ' Carving');
+    }
+    
+    // Helper function to try multiple asset locations
+    const tryAssetPaths = (baseName: string, specificPaths: string[] = []) => {
+      // Try specific paths first
+      for (const path of specificPaths) {
+        return path;
+      }
+      
+      // Try both Cargo and Items folders with the clean name
+      const cleanAssetName = baseName.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
+      
+      // We'll return the Items path as default, but the image onError will handle fallbacks
+      return `/assets/GeneratedIcons/Items/${cleanAssetName}.webp`;
+    };
+    
+    // Handle roots - try cargo first, then items
+    if (cleanName.endsWith(' Roots') || cleanName.endsWith(' Root')) {
+      if (cleanName.includes('Plant')) {
+        return '/assets/GeneratedIcons/Cargo/PlantRoots.webp';
+      }
+      return tryAssetPaths(cleanName);
+    }
+    
+    // Handle filaments - use the generic filament asset
+    if (cleanName.includes('Filament')) {
+      if (cleanName.includes('Plant') || cleanName.includes('Wispweave')) {
+        return '/assets/GeneratedIcons/Items/FilamentPlant.webp';
+      }
+      return '/assets/GeneratedIcons/Items/Filament.webp';
+    }
+    
+    // Handle crushed items - map to appropriate crushed assets
+    if (cleanName.startsWith('Crushed ')) {
+      if (cleanName.includes('Shell') || cleanName.includes('Seashell')) {
+        return '/assets/GeneratedIcons/Items/CrushedSeashell.webp';
+      }
+      // For other crushed items, try to find the specific crushed version
+      return tryAssetPaths(cleanName);
+    }
+    
+    // Handle shells - map to shell assets
+    if (cleanName.includes('Shell') && !cleanName.startsWith('Crushed')) {
+      if (cleanName.includes('Seashell') || cleanName === 'Shell') {
+        return '/assets/GeneratedIcons/Items/Seashell.webp';
+      }
+      if (cleanName.includes('Crab')) {
+        return '/assets/GeneratedIcons/Items/SwarmCrabShell.webp';
+      }
+      // Generic shell fallback
+      return '/assets/GeneratedIcons/Items/Seashell.webp';
+    }
+    
+    // Handle bark - all bark items use the generic Bark asset
+    if (cleanName.includes('Bark')) {
+      return '/assets/GeneratedIcons/Items/Bark.webp';
+    }
+    
+    // Handle hair - map to appropriate hair assets
+    if (cleanName.includes('Hair')) {
+      if (cleanName.includes('Rabbit')) {
+        return '/assets/GeneratedIcons/Items/RabbitHair.webp';
+      }
+      // Generic hair for all other hair items (Animal Hair, etc.)
+      return '/assets/GeneratedIcons/Items/Hair.webp';
+    }
+    
+    // Handle flowers - map to appropriate flower assets
+    if (cleanName.includes('Flower')) {
+      if (cleanName.includes('Snowdrop')) {
+        return '/assets/GeneratedIcons/Items/SnowdropFlower.webp';
+      }
+      // Generic flowers for all other flower items
+      return '/assets/GeneratedIcons/Items/Flowers.webp';
+    }
+    
+    // Handle salt - map to appropriate salt assets
+    if (cleanName.includes('Salt')) {
+      if (cleanName.includes('Hideworking')) {
+        return '/assets/GeneratedIcons/Items/HideworkingSalt.webp';
+      }
+      // Generic salt for other salt items
+      return '/assets/GeneratedIcons/Items/Salt.webp';
+    }
+    
+    // Handle bulbs - use generic flower asset as fallback
+    if (cleanName.includes('Bulb') || cleanName.includes('bulb')) {
+      // No specific bulb assets found, use flowers as closest match
+      return '/assets/GeneratedIcons/Items/Flowers.webp';
+    }
+    
+    // Handle ore chunks - most don't have separate chunk files, use the base ore
+    if (cleanName.endsWith(' Ore Chunk')) {
+      const baseName = cleanName.replace(' Ore Chunk', ' Ore');
+      const baseCleanName = baseName.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
+      // Only Copper, Iron, and Tin have separate chunk files
+      if (['CopperOre', 'IronOre', 'TinOre'].includes(baseCleanName)) {
+        cleanName = cleanName; // Keep as chunk
+      } else {
+        cleanName = baseName; // Use base ore file
+      }
+    }
+    
+    // Handle other common patterns from Material Calculator
+    // HexCoin variations
+    if (cleanName.includes('HexCoin[') || cleanName.includes('Hex Coin[')) {
+      cleanName = 'Hex Coin';
+    }
+    
+    // Handle cosmetic items that might have different paths
+    if (cleanName === 'Leather Bonnet') {
+      return '/assets/GeneratedIcons/Other/Cosmetics/Head/Hat_BurlapBonnet.webp';
+    }
+    if (cleanName === 'Leather Gloves') {
+      return '/assets/GeneratedIcons/Other/Cosmetics/Hands/Hands_BasicGloves.webp';
+    }
+    
+    // Remove spaces and special characters
+    cleanName = cleanName.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
+    return `/assets/GeneratedIcons/Items/${cleanName}.webp`;
+  };
+
+  const [imageAttempts, setImageAttempts] = useState<Map<string, number>>(new Map());
 
   const handleImageError = useCallback((itemName: string) => {
-    setImageErrors(prev => new Set(prev).add(itemName));
-  }, []);
+    const currentAttempts = imageAttempts.get(itemName) || 0;
+    
+    if (currentAttempts === 0) {
+      // First failure - try Cargo folder
+      setImageAttempts(prev => new Map(prev).set(itemName, 1));
+    } else {
+      // Second failure - mark as error (will show Unknown.webp)
+      setImageErrors(prev => new Set(prev).add(itemName));
+    }
+  }, [imageAttempts]);
 
   const renderItemRow = useCallback((item: ProjectItem) => {
     const progress = item.requiredQuantity > 0 
       ? Math.min(100, Math.round(((item.contributedQuantity || 0) / item.requiredQuantity) * 100))
       : 0;
     const isCompleted = (item.contributedQuantity || 0) >= (item.requiredQuantity || 1);
-    const displayData = itemDisplayData.get(item.itemName);
-    const itemIcon = imageErrors.has(item.itemName) ? '/assets/Unknown.webp' : displayData?.iconSrc || '/assets/Unknown.webp';
-    const itemLink = displayData?.link || '#';
+    // Smart icon path generation with fallback system
+    const getItemIconWithFallback = (itemName: string) => {
+      if (imageErrors.has(itemName)) {
+        return '/assets/Unknown.webp';
+      }
+      
+      const attempts = imageAttempts.get(itemName) || 0;
+      if (attempts === 1) {
+        // Try Cargo folder on first retry
+        const cleanName = itemName.replace(/^(Basic|Simple|Fine|Exquisite|Peerless|Infused|Rough|Sturdy|Advanced|Comprehensive|Essential|Novice|Proficient|Beginner's)\s+/, '');
+        const cleanAssetName = cleanName.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
+        return `/assets/GeneratedIcons/Cargo/${cleanAssetName}.webp`;
+      }
+      
+      // Default to Items folder
+      return getItemIcon(itemName);
+    };
+    
+    const itemIcon = getItemIconWithFallback(item.itemName);
+    const itemLink = '#'; // Simple fallback
     const isEditing = editingItems[item.id] !== undefined;
 
     return (
@@ -197,24 +356,24 @@ export function ProjectItemsTable({
               />
             </div>
             <div className="flex flex-col">
-              <Link 
-                href={itemLink} 
-                className="font-medium hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.itemName}
-              </Link>
-              <div className="flex items-center gap-2 mt-1">
+              <div className="flex items-center gap-2">
+                <Link 
+                  href={itemLink} 
+                  className="font-medium hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.itemName}
+                </Link>
                 <BricoTierBadge tier={item.tier} />
               </div>
             </div>
           </div>
         </TableCell>
         
-        <TableCell>
+        <TableCell className="text-center">
           {isEditing ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2">
               <Input
                 type="number"
                 value={editingItems[item.id]}
@@ -237,7 +396,7 @@ export function ProjectItemsTable({
               </Button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2">
               <span>{item.requiredQuantity || 0}</span>
               {permissions.canEdit && (
                 <Button
@@ -252,7 +411,7 @@ export function ProjectItemsTable({
           )}
         </TableCell>
         
-        <TableCell>
+        <TableCell className="text-center">
           <span>{item.contributedQuantity || 0}</span>
         </TableCell>
         
@@ -266,14 +425,14 @@ export function ProjectItemsTable({
           </div>
         </TableCell>
         
-        <TableCell>
-          <div className="flex items-center gap-2">
+        <TableCell className="text-center">
+          <div className="flex items-center justify-center gap-2">
             {permissions.canContribute && !isCompleted && (
               <Button
                 size="sm"
                 onClick={() => onContribute(item.id)}
               >
-                <Target className="h-3 w-3 mr-1" />
+                <HandHeart className="h-3 w-3 mr-1" />
                 Contribute
               </Button>
             )}
@@ -290,7 +449,7 @@ export function ProjectItemsTable({
         </TableCell>
       </TableRow>
     );
-  }, [itemDisplayData, imageErrors, editingItems, permissions, handleQuantityEdit, handleQuantitySave, handleQuantityCancel, onContribute, onRemoveItem]);
+  }, [imageErrors, editingItems, permissions, handleQuantityEdit, handleQuantitySave, handleQuantityCancel, onContribute, onRemoveItem]);
 
   return (
     <Card>
@@ -329,11 +488,11 @@ export function ProjectItemsTable({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Item</TableHead>
-                  <TableHead>Required</TableHead>
-                  <TableHead>Contributed</TableHead>
-                  <TableHead>Progress</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead className="w-[40%]">Item</TableHead>
+                  <TableHead className="w-[12%] text-center">Required</TableHead>
+                  <TableHead className="w-[12%] text-center">Contributed</TableHead>
+                  <TableHead className="w-[20%]">Progress</TableHead>
+                  <TableHead className="w-[16%] text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -341,8 +500,8 @@ export function ProjectItemsTable({
               </TableBody>
             </Table>
           ) : (
-            // Accordion for grouped display
-            <Accordion type="multiple" defaultValue={groupedItems.map((_, index) => `group-${index}`)} className="space-y-4">
+            // Clean accordion with proper table headers in each section
+            <Accordion type="multiple" defaultValue={[]} className="space-y-4">
               {groupedItems.map((group, groupIndex) => (
                 <AccordionItem key={group.title} value={`group-${groupIndex}`} className="border rounded-lg">
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
@@ -350,6 +509,17 @@ export function ProjectItemsTable({
                       <div className="flex items-center gap-3">
                         <h3 className="font-semibold text-left">{group.title}</h3>
                         <Badge variant="secondary">{group.count} items</Badge>
+                        <div className="flex items-center gap-2">
+                          <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-primary transition-all duration-300" 
+                              style={{ width: `${Math.min(100, group.progressPercentage)}%` }}
+                            />
+                          </div>
+                          <span className="text-sm text-muted-foreground min-w-[4rem]">
+                            {group.progressPercentage}%
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </AccordionTrigger>
@@ -357,11 +527,11 @@ export function ProjectItemsTable({
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead>Item</TableHead>
-                          <TableHead>Required</TableHead>
-                          <TableHead>Contributed</TableHead>
-                          <TableHead>Progress</TableHead>
-                          <TableHead>Actions</TableHead>
+                          <TableHead className="w-[40%]">Item</TableHead>
+                          <TableHead className="w-[12%] text-center">Required</TableHead>
+                          <TableHead className="w-[12%] text-center">Contributed</TableHead>
+                          <TableHead className="w-[20%]">Progress</TableHead>
+                          <TableHead className="w-[16%] text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>

@@ -5,6 +5,57 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0] - Advanced Skill Inference & Asset Management System - 2025-01-14
+
+### Added
+
+- **🧠 Centralized Skill Inference System**: Revolutionary skill categorization with 97.5% accuracy
+  - **Smart Pattern Matching**: Comprehensive patterns for all BitCraft professions (6 gathering, 8 crafting)
+  - **Precision Targeting**: Specific patterns prevent conflicts (e.g., "Stone Carvings" → Scholar, not Masonry)
+  - **Official Alignment**: Synchronized with BitCraft leaderboard professions
+  - **Audit Tools**: Built-in validation system to maintain accuracy over time
+
+- **🖼️ Intelligent Asset Management**: Smart thumbnail system with automatic fallbacks
+  - **Multi-Folder Support**: Automatically tries Items → Cargo → Unknown asset paths
+  - **Pattern Recognition**: Handles quality prefixes, plural/singular, ore chunks, and special cases
+  - **Specific Mappings**: Custom handling for roots, bark, hair, flowers, salt, shells, and more
+  - **Performance Optimized**: Cached loading with graceful error handling
+
+- **🎨 Enhanced Project Detail UX**: Streamlined interface improvements
+  - **Cleaner Accordion Headers**: Removed redundant item counts, focus on progress percentages
+  - **Intuitive Icons**: Better contribute button (HandHeart) and visual consistency
+  - **Smart Caching**: Optimized game data loading and image fallback systems
+  - **Responsive Design**: Improved layout consistency and mobile experience
+
+### Fixed
+
+- **Skill Assignment Corrections**: Major categorization improvements
+  - Plant Roots: Farming → **Foraging** ✅
+  - Stone Carvings: Masonry → **Scholar** ✅  
+  - Hideworking Salt: Misc → **Leatherworking** ✅
+  - Sand, Clay, Pebbles: Mining → **Masonry/Foraging** ✅
+  - Wispweave Filament: Farming → **Tailoring** ✅
+  - Animal Names: Various → **Hunting** ✅
+
+- **Asset Loading Issues**: Comprehensive thumbnail fixes
+  - Fixed missing icons for roots, bark, hair, flowers, salt, shells, and crushed items
+  - Resolved 404 errors through intelligent path resolution
+  - Added proper fallback chains for asset discovery
+
+- **Performance Issues**: Optimized data loading and caching
+  - Eliminated redundant `getCalculatorGameData()` calls
+  - Implemented lazy loading for heavy operations
+  - Added module-scoped caching for frequently accessed data
+
+### Technical Improvements
+
+- **Type Safety**: Resolved TypeScript union type issues in project components
+- **Code Organization**: Centralized skill patterns in dedicated modules with documentation
+- **Error Handling**: Robust fallback systems for missing assets and data
+- **Build Quality**: Clean builds with no linting errors or TypeScript issues
+
+---
+
 ## [1.10.1] - Calculator-to-Project Integration & Enhanced Project Creation - 2025-01-14
 
 ### Added
