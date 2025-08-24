@@ -482,19 +482,20 @@ export function ProjectItemsTable({
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <Link 
-                  href={itemLink} 
-                  className="font-medium hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.itemName}
-                </Link>
-                <BricoTierBadge tier={item.tier} />
-              </div>
+              <Link 
+                href={itemLink} 
+                className="font-medium hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.itemName}
+              </Link>
             </div>
           </div>
+        </TableCell>
+        
+        <TableCell className="text-center">
+          <BricoTierBadge tier={item.tier} />
         </TableCell>
         
         <TableCell className="text-center">
@@ -617,10 +618,11 @@ export function ProjectItemsTable({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                  <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
+                  <SortableHeader field="tier" className="w-[10%] text-center">Tier</SortableHeader>
                   <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                   <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                  <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
+                  <SortableHeader field="progress" className="w-[15%]">Progress</SortableHeader>
                   <TableHead className="w-[16%] text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -660,10 +662,11 @@ export function ProjectItemsTable({
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                          <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
+                          <SortableHeader field="tier" className="w-[10%] text-center">Tier</SortableHeader>
                           <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                           <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                          <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
+                          <SortableHeader field="progress" className="w-[15%]">Progress</SortableHeader>
                           <TableHead className="w-[16%] text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>
