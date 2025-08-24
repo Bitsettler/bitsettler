@@ -26,27 +26,30 @@ export function parseChangelog(): ChangelogVersion[] {
     const content = fs.readFileSync(changelogPath, 'utf-8');
     
     // Split by version headers (## [version])
-    const versionSections = content.split(/^## \[([^\]]+)\]/gm).slice(1);
+    const matches = [...content.matchAll(/^## \[([^\]]+)\] - (.+?) - (.+?)$/gm)];
     
     const versions: ChangelogVersion[] = [];
     
-    for (let i = 0; i < versionSections.length; i += 2) {
-      const versionInfo = versionSections[i];
-      const versionContent = versionSections[i + 1] || '';
+    for (let i = 0; i < matches.length; i++) {
+      const match = matches[i];
+      const version = match[1].trim();
+      const title = match[2].trim();
+      const date = match[3].trim();
       
-      // Parse version info (e.g., "1.12.2] - Enhanced Safety & Visual Improvements - 2025-01-16")
-      const versionMatch = versionInfo.match(/^([^\]]+)\]\s*-\s*(.+?)\s*-\s*(.+)$/);
-      if (!versionMatch) continue;
+      // Find content between this version and the next
+      const currentIndex = match.index!;
+      const nextMatch = matches[i + 1];
+      const nextIndex = nextMatch ? nextMatch.index! : content.length;
       
-      const [, version, title, date] = versionMatch;
+      const versionContent = content.slice(currentIndex, nextIndex);
       
       // Parse sections (### Added, ### Fixed, etc.)
       const sections = parseVersionSections(versionContent);
       
       versions.push({
-        version: version.trim(),
-        title: title.trim(),
-        date: date.trim(),
+        version,
+        title,
+        date,
         ...sections
       });
     }
@@ -114,32 +117,60 @@ function parseSectionItems(content: string): ChangelogItem[] {
   const items: ChangelogItem[] = [];
   
   // Split by main bullet points (- **Title**: Description)
-  const bulletPoints = content.split(/^- \*\*(.+?)\*\*:/gm);
+  const lines = content.split('\n');
+  let currentItem: ChangelogItem | null = null;
   
-  for (let i = 1; i < bulletPoints.length; i += 2) {
-    const title = bulletPoints[i].trim();
-    const description = bulletPoints[i + 1] || '';
+  for (const line of lines) {
+    const trimmedLine = line.trim();
     
-    // Parse sub-items (  - **Sub-item**: Description)
-    const subItems: string[] = [];
-    const subItemMatches = description.matchAll(/^\s+- \*\*(.+?)\*\*:\s*(.+?)(?=\n\s+- |\n\n|$)/gm);
-    
-    for (const match of subItemMatches) {
-      subItems.push(`${match[1]}: ${match[2].trim()}`);
+    // Main bullet point (- **Title**: Description)
+    const mainMatch = trimmedLine.match(/^- \*\*(.+?)\*\*:\s*(.*)$/);
+    if (mainMatch) {
+      // Save previous item if exists
+      if (currentItem) {
+        items.push(currentItem);
+      }
+      
+      currentItem = {
+        title: mainMatch[1].trim(),
+        items: []
+      };
+      
+      // Add description if present
+      if (mainMatch[2].trim()) {
+        currentItem.items.push(mainMatch[2].trim());
+      }
+      continue;
     }
     
-    // If no sub-items, use the main description
-    if (subItems.length === 0) {
-      const cleanDescription = description.replace(/^\s+/gm, '').trim();
-      if (cleanDescription) {
-        subItems.push(cleanDescription);
+    // Sub-item (  - **Sub-item**: Description)
+    const subMatch = trimmedLine.match(/^- \*\*(.+?)\*\*:\s*(.*)$/);
+    if (subMatch && currentItem) {
+      currentItem.items.push(`${subMatch[1]}: ${subMatch[2].trim()}`);
+      continue;
+    }
+    
+    // Regular sub-item (  - Description)
+    const regularSubMatch = trimmedLine.match(/^- (.+)$/);
+    if (regularSubMatch && currentItem) {
+      currentItem.items.push(regularSubMatch[1].trim());
+      continue;
+    }
+    
+    // Continuation line (if we have a current item and line has content)
+    if (currentItem && trimmedLine && !trimmedLine.startsWith('###') && !trimmedLine.startsWith('##')) {
+      if (currentItem.items.length === 0) {
+        currentItem.items.push(trimmedLine);
+      } else {
+        // Append to last item
+        currentItem.items[currentItem.items.length - 1] += ' ' + trimmedLine;
       }
     }
-    
-    items.push({
-      title,
-      items: subItems
-    });
+  }
+  
+  // Add the last item
+  if (currentItem) {
+    items.push(currentItem);
   }
   
   return items;
