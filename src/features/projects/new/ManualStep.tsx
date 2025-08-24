@@ -307,9 +307,12 @@ export default function ManualStep({
                     <Input
                       type="number"
                       min="1"
+                      max="999999"
                       value={item.qty}
-                      onChange={(e) => handleUpdateQuantity(index, parseInt(e.target.value) || 1)}
+                      onChange={(e) => handleUpdateQuantity(index, Math.min(999999, parseInt(e.target.value) || 1))}
                       className="w-20 text-center"
+                      placeholder="1-999,999"
+                      title="Enter quantity (1 to 999,999)"
                     />
                     <Button
                       variant="ghost"

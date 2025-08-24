@@ -50,6 +50,13 @@ export function AddItemForm({ onAddItem, onCancel }: AddItemFormProps) {
       return;
     }
 
+    // Validate maximum quantity
+    const MAX_QUANTITY = 999999;
+    if (newItem.requiredQuantity > MAX_QUANTITY) {
+      alert(`Maximum quantity is ${MAX_QUANTITY.toLocaleString()}`);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       await onAddItem(newItem);
@@ -125,12 +132,14 @@ export function AddItemForm({ onAddItem, onCancel }: AddItemFormProps) {
               id="quantity"
               type="number"
               min="1"
+              max="999999"
               value={newItem.requiredQuantity}
               onChange={(e) => setNewItem(prev => ({ 
                 ...prev, 
                 requiredQuantity: parseInt(e.target.value) || 1 
               }))}
-              placeholder="How many are needed?"
+              placeholder="How many are needed? (max 999,999)"
+              title="Enter quantity (1 to 999,999)"
             />
           </div>
 

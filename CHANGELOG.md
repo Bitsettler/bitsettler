@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.1] - Enhanced Quantity Validation & UI Fixes - 2025-01-15
+
+### Added
+
+- **🛡️ Comprehensive 999,999 Quantity Limit**: Implemented frontend validation to prevent project creation failures
+  - **Calculator Inputs**: Added max validation and auto-capping in calculator quantity fields
+  - **Project Creation**: Manual project step now enforces 999,999 limit with helpful UI hints
+  - **Item Editing**: Project item table editing respects maximum quantity with clear messaging
+  - **Contribution Dialog**: Smart validation limits contributions to min(remaining, 999,999)
+  - **User Experience**: Placeholder text, tooltips, and auto-capping prevent invalid inputs
+
+### Fixed
+
+- **✏️ Project Item Editing**: Restored missing edit buttons in project item tables
+  - **Edit Button Recovery**: Re-added pencil icon buttons next to item quantities for editing
+  - **Permission Checking**: Proper canEdit permission validation for edit functionality
+  - **UI Consistency**: Maintained existing save/cancel workflow while adding validation
+  - **Quantity Limits**: Edit inputs now properly cap at 999,999 to prevent API errors
+
 ## [1.12.0] - Settlement Projects UX & Stability Overhaul - 2025-01-15
 
 ### Added

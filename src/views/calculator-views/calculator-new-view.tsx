@@ -303,35 +303,27 @@ export function CalculatorNewView() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="sm:col-span-2">
               <Label htmlFor="search" className="text-sm font-medium">Search for any item</Label>
-              <div className="flex gap-2 mt-2">
-                <div className="flex-1">
-                  <ItemPicker 
-                    onChange={setItemId}
-                    value={itemId}
-                  />
-                </div>
-                <Button variant="secondary" className="shrink-0">⌘K</Button>
+              <div className="mt-2">
+                <ItemPicker 
+                  onChange={setItemId}
+                  value={itemId}
+                />
               </div>
             </div>
             <div>
               <Label htmlFor="qty" className="text-sm font-medium">How many?</Label>
-              <div className="flex gap-2 mt-2">
+              <div className="mt-2">
                 <Input 
                   id="qty" 
                   type="number" 
                   min={1} 
+                  max={999999}
                   value={qty}
-                  onChange={(e) => setQty(parseInt(e.target.value) || 1)}
+                  onChange={(e) => setQty(Math.min(999999, parseInt(e.target.value) || 1))}
                   className="h-10" 
+                  placeholder="1-999,999"
+                  title="Enter quantity (1 to 999,999)"
                 />
-                <Button 
-                  variant="outline" 
-                  className="whitespace-nowrap"
-                  onClick={handleRandomDeepItem}
-                  disabled={deepCraftables.length === 0}
-                >
-                  Try random
-                </Button>
               </div>
             </div>
           </div>
@@ -486,7 +478,6 @@ export function CalculatorNewView() {
             <div className="space-y-3 text-sm text-muted-foreground">
               <p>• <strong>Search for any item</strong> by typing its name (weapons, tools, potions, etc.)</p>
               <p>• <strong>Set quantity</strong> to see materials needed for multiple items</p>
-              <p>• <strong>Try random item</strong> to discover complex crafting recipes</p>
               <p>• <strong>Group materials</strong> by skill, tier, or view as a flat list</p>
               <p>• The engine automatically optimizes materials and detects recipe cycles</p>
             </div>

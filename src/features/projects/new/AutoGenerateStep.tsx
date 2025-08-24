@@ -79,16 +79,11 @@ export default function AutoGenerateStep({
                         <Label htmlFor="search" className="text-sm font-medium">
                           Search for any item
                         </Label>
-                        <div className="flex gap-2 mt-2">
-                          <div className="flex-1">
-                            <ItemPicker 
-                              onChange={(id) => calc.setItemId(id)} 
-                              value={calc.itemId} 
-                            />
-                          </div>
-                          <Button variant="secondary" className="shrink-0">
-                            ⌘K
-                          </Button>
+                        <div className="mt-2">
+                          <ItemPicker 
+                            onChange={(id) => calc.setItemId(id)} 
+                            value={calc.itemId} 
+                          />
                         </div>
                       </div>
                       <div>

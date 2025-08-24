@@ -63,6 +63,42 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Found claimed member:', currentMember.name, 'ID:', currentMember.id);
 
+    // Validate contribution quantity
+    if (body.quantity <= 0) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Contribution quantity must be positive',
+        },
+        { status: 400 }
+      );
+    }
+
+    // Check for over-contribution if we have project item info
+    if (body.projectItemId) {
+      const supabase = createServerClient();
+      if (supabase) {
+        const { data: projectItem, error: itemError } = await supabase
+          .from('items')
+          .select('required_quantity, current_quantity')
+          .eq('id', body.projectItemId)
+          .single();
+
+        if (!itemError && projectItem) {
+          const remaining = projectItem.required_quantity - (projectItem.current_quantity || 0);
+          if (body.quantity > remaining) {
+            return NextResponse.json(
+              {
+                success: false,
+                error: `Cannot contribute ${body.quantity}. Only ${remaining} needed to complete this item.`,
+              },
+              { status: 400 }
+            );
+          }
+        }
+      }
+    }
+
     // Create contribution data using settlement member info
     const contributionData: AddContributionRequest = {
       memberId: currentMember.id,

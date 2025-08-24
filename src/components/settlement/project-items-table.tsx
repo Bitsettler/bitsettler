@@ -73,12 +73,15 @@ export function ProjectItemsTable({
       sortDirection === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
     ) : <ChevronsUpDown className="h-4 w-4" />;
     
+    // Center the button content for center-aligned columns, left-align for others
+    const shouldCenter = field === 'required' || field === 'contributed' || field === 'progress' || field === 'tier';
+    
     return (
       <TableHead className={className}>
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 data-[state=open]:bg-accent flex items-center gap-1 p-1 hover:bg-accent"
+          className={`h-8 data-[state=open]:bg-accent flex items-center gap-1 p-1 hover:bg-accent w-full ${shouldCenter ? 'justify-center' : 'justify-start'}`}
           onClick={() => handleSort(field)}
         >
           {children}
@@ -482,66 +485,73 @@ export function ProjectItemsTable({
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <Link 
-                  href={itemLink} 
-                  className="font-medium hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.itemName}
-                </Link>
-                <BricoTierBadge tier={item.tier} />
-              </div>
+              <Link 
+                href={itemLink} 
+                className="font-medium hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.itemName}
+              </Link>
             </div>
           </div>
         </TableCell>
         
-        <TableCell className="text-center">
-          {isEditing ? (
-            <div className="flex items-center justify-center gap-2">
-              <Input
-                type="number"
-                value={editingItems[item.id]}
-                onChange={(e) => handleQuantityEdit(item.id, e.target.value)}
-                className="w-24"
-                min="1"
-                max="1000000"
-                placeholder="1-1M"
-                title="Enter quantity (1 to 1,000,000)"
-              />
-              <Button
-                size="sm"
-                onClick={() => handleQuantitySave(item.id)}
-              >
-                <Save className="h-3 w-3" />
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => handleQuantityCancel(item.id)}
-              >
-                <X className="h-3 w-3" />
-              </Button>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center gap-2">
-              <span>{item.requiredQuantity || 0}</span>
-              {permissions.canEdit && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => handleQuantityEdit(item.id, item.requiredQuantity.toString())}
-                >
-                  <Edit className="h-3 w-3" />
-                </Button>
-              )}
-            </div>
-          )}
+        <TableCell>
+          <div className="flex justify-center">
+            <BricoTierBadge tier={item.tier} />
+          </div>
         </TableCell>
         
-        <TableCell className="text-center">
-          <span>{item.contributedQuantity || 0}</span>
+        <TableCell>
+          <div className="flex justify-center">
+            {isEditing ? (
+              <div className="flex items-center gap-2">
+                <Input
+                  type="number"
+                  value={editingItems[item.id]}
+                  onChange={(e) => handleQuantityEdit(item.id, e.target.value)}
+                  className="w-24"
+                  min="1"
+                  max="999999"
+                  placeholder="1-999,999"
+                  title="Enter quantity (1 to 999,999)"
+                />
+                <Button
+                  size="sm"
+                  onClick={() => handleQuantitySave(item.id)}
+                >
+                  <Save className="h-3 w-3" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => handleQuantityCancel(item.id)}
+                >
+                  <X className="h-3 w-3" />
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center justify-center gap-2">
+                <span>{item.requiredQuantity || 0}</span>
+                {permissions.canEdit && (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => handleQuantityEdit(item.id, item.requiredQuantity.toString())}
+                  >
+                    <Edit className="h-3 w-3" />
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+        </TableCell>
+        
+        <TableCell>
+          <div className="flex justify-center">
+            <span>{item.contributedQuantity || 0}</span>
+          </div>
         </TableCell>
         
         <TableCell>
@@ -617,10 +627,11 @@ export function ProjectItemsTable({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                  <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
+                  <SortableHeader field="tier" className="w-[8%] text-center">Tier</SortableHeader>
                   <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                   <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                  <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
+                  <SortableHeader field="progress" className="w-[17%]">Progress</SortableHeader>
                   <TableHead className="w-[16%] text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -660,10 +671,11 @@ export function ProjectItemsTable({
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <SortableHeader field="name" className="w-[40%]">Item</SortableHeader>
+                          <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
+                          <SortableHeader field="tier" className="w-[8%] text-center">Tier</SortableHeader>
                           <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                           <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                          <SortableHeader field="progress" className="w-[20%]">Progress</SortableHeader>
+                          <SortableHeader field="progress" className="w-[17%]">Progress</SortableHeader>
                           <TableHead className="w-[16%] text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>

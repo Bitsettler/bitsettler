@@ -180,23 +180,12 @@ async function handleCreateProject(request: NextRequest): Promise<Result<unknown
     items: body.items || []
   };
 
-  logger.info('Project creation request details', {
-    userName,
-    userInfo: {
-      id: session.user.id,
-      name: userName,
-      email: session.user.email
-    },
-    projectData: {
-      name: body.name,
-      itemCount: body.items?.length || 0
-    }
-  });
-
   logger.info('Creating new settlement project', {
     operation: 'CREATE_PROJECT',
     userId: session.user.id,
-    projectName: body.name
+    userName,
+    projectName: body.name,
+    itemCount: body.items?.length || 0
   });
 
   try {

@@ -190,6 +190,11 @@ export function ContributeItemDialog({
       return;
     }
 
+    // Prevent over-contribution
+    if (amount > remaining) {
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       await onContribute({
@@ -274,15 +279,17 @@ export function ContributeItemDialog({
               id="contribute-quantity"
               type="number"
               min="1"
-              max={remaining > 0 ? remaining * 2 : 1000} // Allow over-contribution
+              max={remaining > 0 ? Math.min(remaining, 999999) : 1}
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
-              placeholder={`How many? (${remaining} needed)`}
+              placeholder={remaining > 0 ? `How many? (${Math.min(remaining, 999999)} max)` : "Item is complete"}
+              title={`Enter quantity (1 to ${remaining > 0 ? Math.min(remaining, 999999) : 1})`}
               required
+              disabled={remaining === 0}
             />
             {remaining === 0 && (
               <p className="text-sm text-muted-foreground">
-                This item is already complete, but you can still contribute extra if needed.
+                This item is already complete. No additional contributions needed.
               </p>
             )}
           </div>
@@ -321,7 +328,7 @@ export function ContributeItemDialog({
             </Button>
             <Button 
               type="submit" 
-              disabled={!quantity || parseInt(quantity) <= 0 || isSubmitting}
+              disabled={!quantity || parseInt(quantity) <= 0 || parseInt(quantity) > remaining || isSubmitting || remaining === 0}
             >
               {isSubmitting ? 'Contributing...' : 'Contribute'}
             </Button>
