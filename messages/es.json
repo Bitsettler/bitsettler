@@ -45,6 +45,7 @@
     "tools": "Herramientas",
     "calculator": "Calculadora Visual",
     "calculatorNew": "Calculadora de Proyectos",
+    "materialCalculator": "Calculadora de Materiales",
     "projects": "Proyectos",
     "comingSoon": "Próximamente",
     "settlement": "Asentamiento",
@@ -61,9 +62,10 @@
     "bitcraftGuideDiscord": "Discord Bitsettler",
     "bitcraftGuideGithub": "GitHub Bitsettler",
     "bitcraftGuideTwitter": "Twitter Bitsettler",
-    "recentChanges": "Cambios recientes",
+    "recentChanges": "Desarrollo y Actualizaciones",
     "changelog": "Registro de cambios",
-    "recentChangesDescription": "Últimas actualizaciones y cambios"
+    "recentChangesDescription": "Últimas actualizaciones y cambios",
+    "joinDiscord": "Únete al Discord de BitSettler"
   },
   "languageSwitcher": {
     "switchLanguage": "Cambiar idioma",

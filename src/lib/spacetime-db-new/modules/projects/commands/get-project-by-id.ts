@@ -96,6 +96,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       projectId: item.project_id,
       itemName: item.item_name,
       requiredQuantity: item.required_quantity,
+      contributedQuantity: item.current_quantity, // Map current_quantity to contributedQuantity for frontend
       currentQuantity: item.current_quantity,
       tier: item.tier,
       priority: item.priority,

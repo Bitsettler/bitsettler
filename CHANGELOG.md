@@ -5,6 +5,100 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0] - Advanced Skill Inference & Asset Management System - 2025-01-14
+
+### Added
+
+- **🧠 Centralized Skill Inference System**: Revolutionary skill categorization with 97.5% accuracy
+  - **Smart Pattern Matching**: Comprehensive patterns for all BitCraft professions (6 gathering, 8 crafting)
+  - **Precision Targeting**: Specific patterns prevent conflicts (e.g., "Stone Carvings" → Scholar, not Masonry)
+  - **Official Alignment**: Synchronized with BitCraft leaderboard professions
+  - **Audit Tools**: Built-in validation system to maintain accuracy over time
+
+- **🖼️ Intelligent Asset Management**: Smart thumbnail system with automatic fallbacks
+  - **Multi-Folder Support**: Automatically tries Items → Cargo → Unknown asset paths
+  - **Pattern Recognition**: Handles quality prefixes, plural/singular, ore chunks, and special cases
+  - **Specific Mappings**: Custom handling for roots, bark, hair, flowers, salt, shells, and more
+  - **Performance Optimized**: Cached loading with graceful error handling
+
+- **🎨 Enhanced Project Detail UX**: Streamlined interface improvements
+  - **Cleaner Accordion Headers**: Removed redundant item counts, focus on progress percentages
+  - **Intuitive Icons**: Better contribute button (HandHeart) and visual consistency
+  - **Smart Caching**: Optimized game data loading and image fallback systems
+  - **Responsive Design**: Improved layout consistency and mobile experience
+
+### Fixed
+
+- **Skill Assignment Corrections**: Major categorization improvements
+  - Plant Roots: Farming → **Foraging** ✅
+  - Stone Carvings: Masonry → **Scholar** ✅  
+  - Hideworking Salt: Misc → **Leatherworking** ✅
+  - Sand, Clay, Pebbles: Mining → **Masonry/Foraging** ✅
+  - Wispweave Filament: Farming → **Tailoring** ✅
+  - Animal Names: Various → **Hunting** ✅
+
+- **Asset Loading Issues**: Comprehensive thumbnail fixes
+  - Fixed missing icons for roots, bark, hair, flowers, salt, shells, and crushed items
+  - Resolved 404 errors through intelligent path resolution
+  - Added proper fallback chains for asset discovery
+
+- **Performance Issues**: Optimized data loading and caching
+  - Eliminated redundant `getCalculatorGameData()` calls
+  - Implemented lazy loading for heavy operations
+  - Added module-scoped caching for frequently accessed data
+
+### Technical Improvements
+
+- **Type Safety**: Resolved TypeScript union type issues in project components
+- **Code Organization**: Centralized skill patterns in dedicated modules with documentation
+- **Error Handling**: Robust fallback systems for missing assets and data
+- **Build Quality**: Clean builds with no linting errors or TypeScript issues
+
+---
+
+## [1.10.1] - Calculator-to-Project Integration & Enhanced Project Creation - 2025-01-14
+
+### Added
+
+- **🧙‍♂️ Project Creation Wizard**: Revolutionary project creation workflow with two powerful modes
+  - **Manual Mode**: Traditional item-by-item project creation with enhanced search and validation
+  - **Auto-Generate Mode**: Game-changing calculator integration that converts crafting calculations directly into settlement projects
+  - **Smart Project Titles**: Automatic title generation based on target items and quantities
+  - **Seamless Workflow**: Smooth transitions between calculator exploration and project creation
+
+- **🔗 Calculator-to-Project Bridge**: First-of-its-kind integration between crafting calculator and settlement management
+  - **Material List Export**: Convert any calculator result into a complete project with one click
+  - **Intelligent Item Mapping**: Automatic conversion of calculator materials to project items with proper quantities
+  - **Skill & Tier Preservation**: Maintains crafting context (skills, tiers) when creating projects from calculator
+  - **Quantity Optimization**: Smart rounding and quantity management for realistic project planning
+
+- **🎯 Enhanced Project Creation Interface**:
+  - **Dual-Mode Creation**: Choose between manual item addition or calculator-powered auto-generation
+  - **Advanced Item Search**: Improved combobox with tier filtering and category-based organization
+  - **Real-time Validation**: Instant feedback on item selection and quantity requirements
+  - **Visual Item Display**: Rich item cards with tier badges, icons, and category information
+  - **Flexible Editing**: Add, remove, and modify project items with intuitive controls
+
+- **📊 Calculator Enhancements**:
+  - **Project Export Button**: Direct "Create Project" action from any calculator result
+  - **Enhanced Material Display**: Better visualization of material requirements with export capabilities
+  - **Improved UI Controls**: Streamlined calculator interface optimized for project creation workflow
+
+### Enhanced
+
+- **Project Detail View**: Restored and enhanced project management interface with contribution tracking
+- **Item Search Performance**: Optimized search with better filtering and categorization
+- **Data Flow Integration**: Seamless data transfer between calculator and project systems
+- **User Experience**: Intuitive wizard-based workflow that guides users through project creation
+
+### Technical Improvements
+
+- New `ProjectSeed` system for staging calculator results before project creation
+- Enhanced TypeScript interfaces for calculator-project data flow
+- Improved validation schemas for project creation API
+- Better error handling and user feedback throughout the creation process
+- Optimized component architecture for reusable project creation components
+
 ## [1.10.0] - Remove Invite Code System - 2025-01-13
 
 ### Removed

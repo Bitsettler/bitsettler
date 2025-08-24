@@ -18,9 +18,9 @@ export function CalculatorV2Hero({ locale, feedbackUrl }: CalculatorV2HeroProps)
           {/* Main title with icon and badge */}
           <div className="flex items-center justify-center gap-3">
             <Calculator className="h-8 w-8 text-primary" />
-            <h1 className="text-4xl font-bold tracking-tight">Project Calculator</h1>
+            <h1 className="text-4xl font-bold tracking-tight">Material Calculator</h1>
             <Badge variant="secondary" className="text-sm">
-              Projects
+              Materials
             </Badge>
           </div>
           

@@ -56,13 +56,15 @@
     "settlementTreasury": "Treasury",
     "settlementManage": "Manage",
     "calculatorNew": "Project Calculator",
+    "materialCalculator": "Material Calculator",
     "community": "Community",
     "bitcraftGuideDiscord": "Discord",
     "bitcraftGuideGithub": "GitHub",
     "bitcraftGuideTwitter": "Twitter",
-    "recentChanges": "Recent Changes",
+    "recentChanges": "Development & Updates",
     "changelog": "Changelog",
-    "recentChangesDescription": "Latest updates and changes"
+    "recentChangesDescription": "Latest updates and changes",
+    "joinDiscord": "Join BitSettler Discord"
   },
   "languageSwitcher": {
     "switchLanguage": "Switch Language",
