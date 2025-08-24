@@ -497,55 +497,51 @@ export function ProjectItemsTable({
           </div>
         </TableCell>
         
-        <TableCell>
-          <div className="flex justify-center">
-            <BricoTierBadge tier={item.tier} />
-          </div>
+        <TableCell className="text-center">
+          <BricoTierBadge tier={item.tier} />
         </TableCell>
         
-        <TableCell>
-          <div className="flex justify-center">
-            {isEditing ? (
-              <div className="flex items-center gap-2">
-                <Input
-                  type="number"
-                  value={editingItems[item.id]}
-                  onChange={(e) => handleQuantityEdit(item.id, e.target.value)}
-                  className="w-24"
-                  min="1"
-                  max="999999"
-                  placeholder="1-999,999"
-                  title="Enter quantity (1 to 999,999)"
-                />
+        <TableCell className="text-center">
+          {isEditing ? (
+            <div className="flex items-center justify-center gap-2">
+              <Input
+                type="number"
+                value={editingItems[item.id]}
+                onChange={(e) => handleQuantityEdit(item.id, e.target.value)}
+                className="w-24"
+                min="1"
+                max="999999"
+                placeholder="1-999,999"
+                title="Enter quantity (1 to 999,999)"
+              />
+              <Button
+                size="sm"
+                onClick={() => handleQuantitySave(item.id)}
+              >
+                <Save className="h-3 w-3" />
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => handleQuantityCancel(item.id)}
+              >
+                <X className="h-3 w-3" />
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-2">
+              <span>{item.requiredQuantity || 0}</span>
+              {permissions.canEdit && (
                 <Button
                   size="sm"
-                  onClick={() => handleQuantitySave(item.id)}
+                  variant="ghost"
+                  onClick={() => handleQuantityEdit(item.id, item.requiredQuantity.toString())}
                 >
-                  <Save className="h-3 w-3" />
+                  <Edit className="h-3 w-3" />
                 </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => handleQuantityCancel(item.id)}
-                >
-                  <X className="h-3 w-3" />
-                </Button>
-              </div>
-            ) : (
-              <div className="flex items-center justify-center gap-2">
-                <span>{item.requiredQuantity || 0}</span>
-                {permissions.canEdit && (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => handleQuantityEdit(item.id, item.requiredQuantity.toString())}
-                  >
-                    <Edit className="h-3 w-3" />
-                  </Button>
-                )}
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </TableCell>
         
         <TableCell>
@@ -628,10 +624,10 @@ export function ProjectItemsTable({
               <TableHeader>
                 <TableRow>
                   <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
-                  <SortableHeader field="tier" className="w-[8%] text-center">Tier</SortableHeader>
+                  <SortableHeader field="tier" className="w-[10%] text-center">Tier</SortableHeader>
                   <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                   <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                  <SortableHeader field="progress" className="w-[17%]">Progress</SortableHeader>
+                  <SortableHeader field="progress" className="w-[15%]">Progress</SortableHeader>
                   <TableHead className="w-[16%] text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -672,10 +668,10 @@ export function ProjectItemsTable({
                       <TableHeader>
                         <TableRow>
                           <SortableHeader field="name" className="w-[35%]">Item</SortableHeader>
-                          <SortableHeader field="tier" className="w-[8%] text-center">Tier</SortableHeader>
+                          <SortableHeader field="tier" className="w-[10%] text-center">Tier</SortableHeader>
                           <SortableHeader field="required" className="w-[12%] text-center">Required</SortableHeader>
                           <SortableHeader field="contributed" className="w-[12%] text-center">Contributed</SortableHeader>
-                          <SortableHeader field="progress" className="w-[17%]">Progress</SortableHeader>
+                          <SortableHeader field="progress" className="w-[15%]">Progress</SortableHeader>
                           <TableHead className="w-[16%] text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>
