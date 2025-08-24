@@ -5,6 +5,210 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.1] - Enhanced Quantity Validation & UI Fixes - 2025-01-15
+
+### Added
+
+- **🛡️ Comprehensive 999,999 Quantity Limit**: Implemented frontend validation to prevent project creation failures
+  - **Calculator Inputs**: Added max validation and auto-capping in calculator quantity fields
+  - **Project Creation**: Manual project step now enforces 999,999 limit with helpful UI hints
+  - **Item Editing**: Project item table editing respects maximum quantity with clear messaging
+  - **Contribution Dialog**: Smart validation limits contributions to min(remaining, 999,999)
+  - **User Experience**: Placeholder text, tooltips, and auto-capping prevent invalid inputs
+
+### Fixed
+
+- **✏️ Project Item Editing**: Restored missing edit buttons in project item tables
+  - **Edit Button Recovery**: Re-added pencil icon buttons next to item quantities for editing
+  - **Permission Checking**: Proper canEdit permission validation for edit functionality
+  - **UI Consistency**: Maintained existing save/cancel workflow while adding validation
+  - **Quantity Limits**: Edit inputs now properly cap at 999,999 to prevent API errors
+
+## [1.12.0] - Settlement Projects UX & Stability Overhaul - 2025-01-15
+
+### Added
+
+- **🔄 Sortable Project Tables**: Added sortable columns (Item, Required, Contributed, Progress) with visual indicators
+  - **Sort Icons**: Up/down arrows show current sort state
+  - **Multi-Column Support**: Sort by any column in project item tables
+  - **Consistent Behavior**: Works in both flat view and accordion grouped views
+
+- **📝 Enhanced Add Item Experience**: Complete workflow overhaul for adding items to projects
+  - **Streamlined UI**: Removed duplicate buttons, single "Add Item" action in project header
+  - **Improved Form Layout**: Right-aligned action buttons with proper order (Add Item → Cancel)
+  - **Smart Item Search**: Fixed ItemSearchCombobox integration with proper value binding
+  - **Form State Management**: Proper cleanup and error handling throughout workflow
+
+- **🎯 Smart Accordion Behavior**: Auto-expanding accordions for better user experience
+  - **Small Project Optimization**: Projects with <20 items auto-expand by default
+  - **Reduced Clicks**: Eliminates unnecessary accordion interaction for smaller projects
+  - **Large Project Grouping**: Maintains organization for projects with many items
+
+- **🔢 Robust Quantity Validation**: Comprehensive input validation for item quantities
+  - **Maximum Limits**: 1,000,000 item limit with clear messaging
+  - **Scientific Notation Prevention**: Blocks problematic inputs like `2e173` from extreme numbers
+  - **Input Constraints**: Visual hints (placeholders, tooltips) and proper input field configuration
+  - **Frontend/Backend Sync**: Consistent validation on both client and server
+
+### Fixed
+
+- **📅 Project Date Display**: Resolved "Invalid Date" showing for project creation dates
+  - **Backend/Frontend Alignment**: Fixed Date object vs ISO string mismatch
+  - **Null Safety**: Added proper date validation and fallback handling
+  - **Data Consistency**: Ensured `created_at` field properly mapped across API layers
+
+- **🖼️ Asset & Thumbnail Coverage**: Comprehensive fixes for missing item thumbnails
+  - **Crop Oil Icons**: Fixed missing thumbnails → `VegetableOil.webp`
+  - **Metalworking Flux**: Corrected double-path issue → `MetalworkersFlux.webp`  
+  - **Fish Filets**: All filet variants now use correct `FishFilet.webp` thumbnail
+  - **Tree Sap**: Fixed path mismatch → `Sap.webp`
+  - **Leather Items**: Resolved missing thumbnails for woven caps and leather gloves
+
+- **⚡ Item Quantity Editing**: Fixed critical API field name mismatch
+  - **Field Consistency**: Corrected `requiredQuantity` vs `required_quantity` between frontend/backend
+  - **Error Prevention**: Proper validation prevents database constraint violations
+  - **User Feedback**: Clear error messages for validation failures
+
+- **🎯 Skill Classification Accuracy**: Major improvements to skill inference system
+  - **Specificity-Based Matching**: Replaced order-dependent logic with smart scoring system
+  - **Exact > Boundary > Substring**: Prioritizes precise matches over broad patterns
+  - **Conflict Resolution**: Fixed major misclassifications:
+    - **Brickworking Binding Ash**: Mining → **Masonry** ✅
+    - **Hideworking Salt**: Mining → **Leatherworking** ✅  
+    - **Crop Oil**: Added specific pattern for **Farming** ✅
+    - **Clay Pebbles**: Mining → **Masonry** ✅
+    - **Pelts**: Fishing → **Leatherworking** ✅
+
+- **🔗 Item Linking System**: Improved item hyperlinks in project tables
+  - **Calculator Links**: Switched to reliable `/calculator/[slug]` links
+  - **Data Resolution**: Two-tier system (calculator data → item_desc.json fallback)
+  - **Missing Item Handling**: Eliminated console error spam with proper fallback system
+  - **Performance**: Optimized data loading to prevent rendering loops
+
+### Enhanced
+
+- **🏗️ Component Architecture**: Streamlined form and table components
+  - **Add Item Form**: Removed unnecessary state and props, cleaner component interface
+  - **Project Tables**: Optimized icon resolution with targeted data loading
+  - **Error Handling**: Comprehensive validation and graceful error recovery
+  - **Memory Management**: Proper cleanup and caching for game data operations
+
+- **🎨 Visual Polish**: Consistent UI improvements across project management
+  - **Button Sizing**: Standardized action button proportions and alignment
+  - **Input Fields**: Added placeholders, tooltips, and validation hints
+  - **Icon Coverage**: Complete thumbnail support for all item categories
+  - **Layout Consistency**: Proper spacing and alignment throughout project interfaces
+
+- **📊 Data Quality**: Enhanced item data handling and validation
+  - **Asset Path Resolution**: Intelligent path cleaning and fallback systems
+  - **Skill Pattern Library**: Comprehensive patterns with conflict prevention
+  - **Input Sanitization**: Robust validation for all user inputs
+  - **Type Safety**: Improved TypeScript coverage for data operations
+
+### Technical Improvements
+
+- **Pattern Matching Algorithm**: Implemented specificity-based skill inference with scoring system
+- **Data Resolution System**: Two-tier fallback (calculator data → complete item database)
+- **Component Optimization**: Eliminated heavy operations in render-critical paths
+- **Validation Framework**: Consistent frontend/backend validation with clear error messaging
+- **Asset Management**: Enhanced path resolution with specific mappings for problematic items
+
+---
+
+## [1.11.0] - Advanced Skill Inference & Asset Management System - 2025-01-14
+
+### Added
+
+- **🧠 Centralized Skill Inference System**: Revolutionary skill categorization with 97.5% accuracy
+  - **Smart Pattern Matching**: Comprehensive patterns for all BitCraft professions (6 gathering, 8 crafting)
+  - **Precision Targeting**: Specific patterns prevent conflicts (e.g., "Stone Carvings" → Scholar, not Masonry)
+  - **Official Alignment**: Synchronized with BitCraft leaderboard professions
+  - **Audit Tools**: Built-in validation system to maintain accuracy over time
+
+- **🖼️ Intelligent Asset Management**: Smart thumbnail system with automatic fallbacks
+  - **Multi-Folder Support**: Automatically tries Items → Cargo → Unknown asset paths
+  - **Pattern Recognition**: Handles quality prefixes, plural/singular, ore chunks, and special cases
+  - **Specific Mappings**: Custom handling for roots, bark, hair, flowers, salt, shells, and more
+  - **Performance Optimized**: Cached loading with graceful error handling
+
+- **🎨 Enhanced Project Detail UX**: Streamlined interface improvements
+  - **Cleaner Accordion Headers**: Removed redundant item counts, focus on progress percentages
+  - **Intuitive Icons**: Better contribute button (HandHeart) and visual consistency
+  - **Smart Caching**: Optimized game data loading and image fallback systems
+  - **Responsive Design**: Improved layout consistency and mobile experience
+
+### Fixed
+
+- **Skill Assignment Corrections**: Major categorization improvements
+  - Plant Roots: Farming → **Foraging** ✅
+  - Stone Carvings: Masonry → **Scholar** ✅  
+  - Hideworking Salt: Misc → **Leatherworking** ✅
+  - Sand, Clay, Pebbles: Mining → **Masonry/Foraging** ✅
+  - Wispweave Filament: Farming → **Tailoring** ✅
+  - Animal Names: Various → **Hunting** ✅
+
+- **Asset Loading Issues**: Comprehensive thumbnail fixes
+  - Fixed missing icons for roots, bark, hair, flowers, salt, shells, and crushed items
+  - Resolved 404 errors through intelligent path resolution
+  - Added proper fallback chains for asset discovery
+
+- **Performance Issues**: Optimized data loading and caching
+  - Eliminated redundant `getCalculatorGameData()` calls
+  - Implemented lazy loading for heavy operations
+  - Added module-scoped caching for frequently accessed data
+
+### Technical Improvements
+
+- **Type Safety**: Resolved TypeScript union type issues in project components
+- **Code Organization**: Centralized skill patterns in dedicated modules with documentation
+- **Error Handling**: Robust fallback systems for missing assets and data
+- **Build Quality**: Clean builds with no linting errors or TypeScript issues
+
+---
+
+## [1.10.1] - Calculator-to-Project Integration & Enhanced Project Creation - 2025-01-14
+
+### Added
+
+- **🧙‍♂️ Project Creation Wizard**: Revolutionary project creation workflow with two powerful modes
+  - **Manual Mode**: Traditional item-by-item project creation with enhanced search and validation
+  - **Auto-Generate Mode**: Game-changing calculator integration that converts crafting calculations directly into settlement projects
+  - **Smart Project Titles**: Automatic title generation based on target items and quantities
+  - **Seamless Workflow**: Smooth transitions between calculator exploration and project creation
+
+- **🔗 Calculator-to-Project Bridge**: First-of-its-kind integration between crafting calculator and settlement management
+  - **Material List Export**: Convert any calculator result into a complete project with one click
+  - **Intelligent Item Mapping**: Automatic conversion of calculator materials to project items with proper quantities
+  - **Skill & Tier Preservation**: Maintains crafting context (skills, tiers) when creating projects from calculator
+  - **Quantity Optimization**: Smart rounding and quantity management for realistic project planning
+
+- **🎯 Enhanced Project Creation Interface**:
+  - **Dual-Mode Creation**: Choose between manual item addition or calculator-powered auto-generation
+  - **Advanced Item Search**: Improved combobox with tier filtering and category-based organization
+  - **Real-time Validation**: Instant feedback on item selection and quantity requirements
+  - **Visual Item Display**: Rich item cards with tier badges, icons, and category information
+  - **Flexible Editing**: Add, remove, and modify project items with intuitive controls
+
+- **📊 Calculator Enhancements**:
+  - **Project Export Button**: Direct "Create Project" action from any calculator result
+  - **Enhanced Material Display**: Better visualization of material requirements with export capabilities
+  - **Improved UI Controls**: Streamlined calculator interface optimized for project creation workflow
+
+### Enhanced
+
+- **Project Detail View**: Restored and enhanced project management interface with contribution tracking
+- **Item Search Performance**: Optimized search with better filtering and categorization
+- **Data Flow Integration**: Seamless data transfer between calculator and project systems
+- **User Experience**: Intuitive wizard-based workflow that guides users through project creation
+
+### Technical Improvements
+
+- New `ProjectSeed` system for staging calculator results before project creation
+- Enhanced TypeScript interfaces for calculator-project data flow
+- Improved validation schemas for project creation API
+- Better error handling and user feedback throughout the creation process
+- Optimized component architecture for reusable project creation components
+
 ## [1.10.0] - Remove Invite Code System - 2025-01-13
 
 ### Removed

@@ -94,7 +94,7 @@ export async function createProject(projectData: CreateProjectRequest): Promise<
       const itemsToInsert = validItems.map((item, index) => ({
         project_id: project.id,
         item_name: item.itemName.trim(),
-        required_quantity: Math.max(1, item.requiredQuantity || 1), // Ensure quantity > 0
+        required_quantity: Math.max(1, Math.min(999999, item.requiredQuantity || 1)), // Ensure quantity is 1-999,999
         tier: Math.max(1, Math.min(10, item.tier || 1)), // Ensure tier is 1-10 to match brico's system
         priority: Math.max(1, Math.min(5, item.priority || 3)), // Ensure priority is 1-5
         rank_order: item.rankOrder !== undefined ? item.rankOrder : index,

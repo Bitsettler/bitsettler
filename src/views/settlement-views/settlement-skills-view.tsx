@@ -22,6 +22,7 @@ function getSkillTier(level: number): number {
 }
 
 interface CitizenSkills {
+  id: string;
   name: string;
   playerEntityId: string;
   totalSkillLevel: number;
@@ -244,6 +245,7 @@ export function SettlementSkillsView() {
       const rawMembers = membersResult.data?.members || [];
       
       const memberData: CitizenSkills[] = rawMembers.map((member: { name?: string; player_entity_id?: string; id?: string; total_level?: number; total_xp?: number; highest_level?: number; skills?: Record<string, number>, is_active?: boolean }) => ({
+        id: member.id || '',
         name: member.name || 'Unknown Player',
         playerEntityId: member.player_entity_id || '',
         totalSkillLevel: member.total_level || 0,
@@ -777,14 +779,21 @@ export function SettlementSkillsView() {
             <Table className="table-fixed">
               <TableBody>
                 {sortedCitizens.map((citizen, index) => {
-                  const citizenKey = citizen.playerEntityId || `citizen-${index}`;
+                  const citizenKey = citizen.id || citizen.playerEntityId || `citizen-${index}`;
                   return (
                     <TableRow key={citizenKey} className="hover:bg-muted/30">
                       <TableCell className="sticky left-0 bg-background z-10 border-r font-medium p-3 w-48">
                         <div className="truncate">
                           <button
-                            onClick={() => router.push(`/en/settlement/members/${encodeURIComponent(citizen.playerEntityId)}`)}
+                            onClick={() => {
+                              if (citizen.id) {
+                                router.push(`/en/settlement/members/${encodeURIComponent(citizen.id)}`);
+                              } else {
+                                console.warn('No id found for citizen:', citizen.name);
+                              }
+                            }}
                             className="font-medium text-sm hover:text-primary hover:underline cursor-pointer text-left w-full"
+                            disabled={!citizen.id}
                           >
                             {citizen.name}
                           </button>

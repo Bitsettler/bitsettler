@@ -42,6 +42,338 @@ export default async function ChangelogPage({
             </p>
           </div>
 
+          {/* Version Card - v1.12.0 Settlement Projects UX & Stability Overhaul */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">
+                  v1.12.0 Settlement Projects UX & Stability Overhaul
+                </CardTitle>
+                <Badge variant="default" className="text-sm">
+                  Latest
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Major improvements to settlement project management with enhanced UX, stability fixes, and comprehensive item handling
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Sortable Project Tables */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🔄 Sortable Project Tables
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Multi-Column Sorting
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Sort by Item, Required, Contributed, or Progress with visual up/down arrow indicators showing current sort state.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Consistent Behavior
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Works seamlessly in both flat view and accordion grouped views for all project table layouts.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Enhanced Add Item Experience */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  📝 Enhanced Add Item Experience
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Streamlined UI
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Removed duplicate "Add Item" buttons and fixed form layout with proper button positioning (Add Item → Cancel).
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Smart Item Search Integration
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Fixed ItemSearchCombobox integration with proper value binding and state management throughout the workflow.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Smart Accordion Behavior */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🎯 Smart Accordion Behavior
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Auto-Expanding for Small Projects
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Projects with less than 20 items auto-expand by default, reducing unnecessary clicks for smaller projects.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Major Bug Fixes */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🔧 Major Bug Fixes
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Fixed "Invalid Date" Display
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Resolved project creation date mismatch between backend Date objects and frontend string expectations.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Comprehensive Thumbnail Fixes
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Fixed missing thumbnails for crop oils, metalworking flux, fish filets, tree sap, and leather items with proper asset path resolution.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Skill Classification Accuracy
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Implemented specificity-based skill inference: Brickworking Binding Ash → Masonry, Hideworking Salt → Leatherworking, Pelts → Leatherworking.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Quantity Validation & API Consistency
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Fixed requiredQuantity vs required_quantity mismatch and added validation for extreme numbers (max 1M, prevents scientific notation overflow).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Improvements */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  ⚡ Technical Improvements
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Enhanced Data Resolution
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Two-tier fallback system (calculator data → item_desc.json) with optimized component architecture and performance fixes.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Pattern Matching Algorithm
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Specificity-based skill inference with exact > boundary > substring matching, eliminating order-dependent classification issues.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Separator className="my-8" />
+
+          {/* Version Card - v1.10.1 Calculator-to-Project Integration */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-2xl">
+                  v1.10.1 Calculator-to-Project Integration & Enhanced Project Creation
+                </CardTitle>
+                <Badge variant="outline" className="text-sm">
+                  Previous
+                </Badge>
+              </div>
+              <p className="text-muted-foreground">
+                Revolutionary calculator-to-project workflow with enhanced project creation wizard and seamless crafting integration
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Project Creation Wizard */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🧙‍♂️ Project Creation Wizard
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Dual-Mode Creation
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Choose between Manual Mode for traditional item-by-item creation or Auto-Generate Mode for calculator-powered project generation.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Smart Project Titles
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Automatic title generation based on target items and quantities with seamless workflow transitions.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Enhanced Item Search
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Advanced combobox with tier filtering, category organization, and visual item cards with badges and icons.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Calculator Integration */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  🔗 Calculator-to-Project Bridge
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Material List Export
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Convert any calculator result into a complete settlement project with one click - a first-of-its-kind integration.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Intelligent Item Mapping
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Automatic conversion of calculator materials to project items with proper quantities, skill context, and tier preservation.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Enhanced Calculator UI
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Direct "Create Project" action from calculator results with improved material display and streamlined controls.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Technical Improvements */}
+              <div>
+                <h3 className="text-foreground mb-3 text-lg font-semibold">
+                  ⚙️ Technical Improvements
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        ProjectSeed System
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        New staging system for calculator results with enhanced TypeScript interfaces and optimized data flow integration.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-500"></div>
+                    <div>
+                      <h4 className="text-foreground font-medium">
+                        Enhanced Project Management
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Restored and enhanced project detail view with contribution tracking, improved validation, and better error handling.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Footer */}
+              <div className="pt-4 text-center">
+                <p className="text-muted-foreground text-sm">
+                  Game-changing calculator integration with revolutionary project creation workflow! 🧙‍♂️🔗✨
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Version Card - v1.3.2 Import Path Refactoring */}
           <Card className="mb-8">
             <CardHeader>
@@ -49,8 +381,8 @@ export default async function ChangelogPage({
                 <CardTitle className="text-2xl">
                   v1.3.2 Import Path Refactoring
                 </CardTitle>
-                <Badge variant="default" className="text-sm">
-                  Latest
+                <Badge variant="secondary" className="text-sm">
+                  Previous
                 </Badge>
               </div>
               <p className="text-muted-foreground">

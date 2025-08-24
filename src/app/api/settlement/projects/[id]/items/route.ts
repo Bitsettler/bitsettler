@@ -72,6 +72,12 @@ async function handleAddProjectItem(
     return apiError('Required quantity must be at least 1', ErrorCodes.INVALID_PARAMETER);
   }
 
+  // Set maximum quantity limit
+  const MAX_QUANTITY = 999999;
+  if (itemData.requiredQuantity > MAX_QUANTITY) {
+    return apiError(`Maximum quantity is ${MAX_QUANTITY.toLocaleString()}`, ErrorCodes.INVALID_PARAMETER);
+  }
+
   try {
     // Insert the project item
     const { data: newItem, error } = await supabase

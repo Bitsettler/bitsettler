@@ -461,16 +461,29 @@ export function SettlementProjectsView() {
           }`}>
             <CardContent className="pt-6">
               {!showCreateForm ? (
-                <div className="h-full flex flex-col items-center justify-center text-center py-12 group" onClick={() => setShowCreateForm(true)}>
-                  <div className="rounded-full bg-primary/20 p-4 mb-4 group-hover:bg-primary/30 transition-colors">
+                <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                  <div className="rounded-full bg-primary/20 p-4 mb-4 transition-colors">
                     <Plus className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Create New Project</h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     Start a new settlement project
                   </p>
-                  <div className="text-xs text-muted-foreground">
-                    Click to get started
+                  <div className="flex flex-col gap-2">
+                    <Button 
+                      onClick={() => router.push('/en/settlement/projects/new')}
+                      className="w-full"
+                    >
+                      <Plus className="h-4 w-4 mr-2" />
+                      New Project Wizard
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setShowCreateForm(true)}
+                      className="w-full"
+                    >
+                      Quick Create
+                    </Button>
                   </div>
                 </div>
               ) : (

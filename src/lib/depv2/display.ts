@@ -4,6 +4,7 @@
  */
 import { getIndexes } from './indexes'
 import { getServerIconPath, cleanIconAssetName } from '@/lib/spacetime-db-new/shared/assets'
+import { inferSkillFromPatterns } from '@/lib/skill-inference-patterns'
 
 export type ItemDisplay = {
   id: string       // NOW PREFIXED: "item_123", "cargo_456", etc.
@@ -47,53 +48,12 @@ function readSkill(it: Record<string, unknown>): string | undefined {
 }
 
 function inferGatheringSkill(it: Record<string, unknown>): string | undefined {
-  const name = it?.name?.toLowerCase() || ''
-  const category = it?.category?.toLowerCase() || ''
-  const tags = it?.tags || []
+  const name = String(it?.name || '')
+  const category = String(it?.category || '')
+  const tags = Array.isArray(it?.tags) ? it.tags : []
   
-  // Mining/Extraction
-  if (name.includes('ore') || name.includes('stone') || name.includes('clay') || 
-      name.includes('sand') || name.includes('mineral') || name.includes('gem') ||
-      name.includes('braxite') || name.includes('pebbles') || name.includes('gypsite') ||
-      name.includes('ancient') || name.includes('damaged') ||
-      category.includes('ore') || category.includes('stone')) {
-    return 'Mining'
-  }
-  
-  // Forestry/Logging
-  if (name.includes('wood') || name.includes('log') || name.includes('bark') || 
-      name.includes('sap') || name.includes('timber') || name.includes('branch') ||
-      category.includes('wood') || category.includes('tree')) {
-    return 'Forestry'
-  }
-  
-  // Farming/Foraging
-  if (name.includes('berry') || name.includes('fruit') || name.includes('flower') || 
-      name.includes('seed') || name.includes('grain') || name.includes('vegetable') ||
-      name.includes('herb') || name.includes('plant') || name.includes('root') ||
-      name.includes('bulb') || name.includes('fiber') || name.includes('filament') ||
-      name.includes('straw') || name.includes('cotton') || name.includes('flax') ||
-      category.includes('plant') || category.includes('food') || category.includes('fiber')) {
-    return 'Farming'
-  }
-  
-  // Fishing/Aquaculture  
-  if (name.includes('fish') || name.includes('scale') || name.includes('shell') ||
-      name.includes('seaweed') || name.includes('coral') || name.includes('pearl') ||
-      category.includes('fish') || category.includes('aquatic')) {
-    return 'Fishing'
-  }
-  
-  // Hunting/Animal Husbandry
-  if (name.includes('hide') || name.includes('pelt') || name.includes('leather') ||
-      name.includes('bone') || name.includes('horn') || name.includes('fur') ||
-      name.includes('feather') || name.includes('meat') || name.includes('hair') ||
-      name.includes('wool') || name.includes('silk') ||
-      category.includes('animal') || category.includes('hide')) {
-    return 'Hunting'
-  }
-  
-  return undefined
+  // Use centralized skill inference patterns
+  return inferSkillFromPatterns(name, category, tags)
 }
 
 function iconFrom(it: Record<string, unknown>, id: string, slug?: string): string {

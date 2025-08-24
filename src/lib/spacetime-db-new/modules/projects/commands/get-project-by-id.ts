@@ -96,6 +96,7 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       projectId: item.project_id,
       itemName: item.item_name,
       requiredQuantity: item.required_quantity,
+      contributedQuantity: item.current_quantity, // Map current_quantity to contributedQuantity for frontend
       currentQuantity: item.current_quantity,
       tier: item.tier,
       priority: item.priority,
@@ -142,6 +143,9 @@ export async function getProjectById(projectId: string): Promise<ProjectDetails 
       ownerName: projectData.owner?.name || null,
       createdAt: new Date(projectData.created_at),
       updatedAt: new Date(projectData.updated_at),
+      // Convert Date objects to strings for frontend compatibility
+      created_at: projectData.created_at, // Keep as ISO string
+      created_by: projectData.created_by_player_id,
       items,
       completionPercentage,
       totalItems,

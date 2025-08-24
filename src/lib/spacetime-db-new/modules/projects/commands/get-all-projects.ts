@@ -20,6 +20,7 @@ export interface ProjectItem {
   projectId: string;
   itemName: string;
   requiredQuantity: number;
+  contributedQuantity: number; // Added for frontend compatibility
   currentQuantity: number;
   tier: number;
   priority: number;
@@ -183,6 +184,9 @@ export async function getAllProjectsWithItems(options: GetAllProjectsOptions): P
         completionPercentage,
         totalItems,
         completedItems,
+        // Convert Date objects to strings for frontend compatibility
+        created_at: project.createdAt.toISOString(),
+        created_by: project.createdByMemberId,
       };
     });
 

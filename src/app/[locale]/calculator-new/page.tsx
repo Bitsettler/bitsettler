@@ -9,8 +9,8 @@ interface CalculatorNewPageProps {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Project Calculator - BitSettler',
-    description: 'Project-focused crafting calculator for BitCraft with collaboration features and advanced planning capabilities.',
+    title: 'Material Calculator - BitSettler',
+    description: 'Material-focused crafting calculator for BitCraft with collaboration features and advanced planning capabilities.',
   }
 }
 
