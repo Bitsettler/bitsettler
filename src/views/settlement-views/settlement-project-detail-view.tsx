@@ -5,6 +5,16 @@ import { useParams, useRouter } from 'next/navigation';
 import { useSession } from '@/hooks/use-auth';
 import { Container } from '@/components/container';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { 
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
 
@@ -76,6 +86,7 @@ export function SettlementProjectDetailView() {
   // UI state
   const [contributingItem, setContributingItem] = useState<ProjectItem | null>(null);
   const [showAddItemForm, setShowAddItemForm] = useState(false);
+  const [itemToRemove, setItemToRemove] = useState<{ id: string; name: string } | null>(null);
   
   // Game data for item search - lazy load only when needed
 
@@ -246,12 +257,22 @@ export function SettlementProjectDetailView() {
     }
   };
 
-  // Remove item handler
-  const handleRemoveItem = async (itemId: string) => {
+  // Remove item handler - shows confirmation dialog
+  const handleRemoveItem = (itemId: string) => {
     if (!project) return;
+    
+    const item = project.items.find(i => i.id === itemId);
+    if (item) {
+      setItemToRemove({ id: itemId, name: item.itemName });
+    }
+  };
+
+  // Actual removal after confirmation
+  const confirmRemoveItem = async () => {
+    if (!project || !itemToRemove) return;
 
     try {
-      const result = await api.delete(`/api/settlement/projects/${project.id}/items/${itemId}`);
+      const result = await api.delete(`/api/settlement/projects/${project.id}/items/${itemToRemove.id}`);
 
       if (result.success) {
         await fetchProject(); // Refresh to get updated data
@@ -262,6 +283,8 @@ export function SettlementProjectDetailView() {
     } catch (error) {
       console.error('Failed to remove item:', error);
       toast.error('Failed to remove item');
+    } finally {
+      setItemToRemove(null);
     }
   };
 
@@ -410,6 +433,28 @@ export function SettlementProjectDetailView() {
             onClose={() => setContributingItem(null)}
             onContribute={handleContribute}
           />
+
+          {/* Remove Item Confirmation Dialog */}
+          <AlertDialog open={!!itemToRemove} onOpenChange={() => setItemToRemove(null)}>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Remove Item</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Are you sure you want to remove <strong>{itemToRemove?.name}</strong> from this project?
+                  <br /><br />
+                  <span className="font-semibold text-destructive">
+                    ⚠️ THIS ACTION CANNOT BE UNDONE. All contributions and data for this item will be permanently lost.
+                  </span>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={confirmRemoveItem} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                  Remove Item
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
                           </div>
       </Container>
     </TooltipProvider>

@@ -647,7 +647,14 @@ export function ProjectItemsTable({
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
                     <div className="flex items-center justify-between w-full mr-4">
                       <div className="flex items-center gap-3">
-                        <h3 className="font-semibold text-left">{group.title}</h3>
+                        {group.title.startsWith('Tier ') ? (
+                          <div className="flex items-center gap-2">
+                            <h3 className="font-semibold text-left">{group.title}</h3>
+                            <BricoTierBadge tier={parseInt(group.title.split(' ')[1])} size="sm" />
+                          </div>
+                        ) : (
+                          <h3 className="font-semibold text-left">{group.title}</h3>
+                        )}
                         <Badge variant="secondary">{group.count} items</Badge>
                         <div className="flex items-center gap-2">
                           <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">

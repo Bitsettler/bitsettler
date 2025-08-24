@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.2] - Enhanced Safety & Visual Improvements - 2025-01-16
+
+### Added
+
+- **🛡️ Confirmation Dialogs for Destructive Actions**: Added safety prompts to prevent accidental data loss
+  - **Item Removal Confirmation**: Clear warning dialog when removing items from projects
+  - **Destructive Action Warning**: Emphatic messaging about permanent data loss
+  - **Consistent UX**: Proper destructive styling and cancel options across all confirmation dialogs
+
+- **🎨 Tier Badge Enhancements**: Improved visual hierarchy in project details sorting
+  - **Universal Tier Badges**: All tier groups (1-10) now display colored tier badges alongside text
+  - **Visual Consistency**: Tier badges match the established brico.app styling system
+  - **Better Recognition**: Easier identification of tier levels when sorting "By Tier"
+
+### Fixed
+
+- **⚠️ Accidental Item Deletion**: Previously, clicking "Remove" on project items deleted immediately without confirmation
+- **🎯 Visual Tier Recognition**: Tier groups in project details now have consistent visual indicators
+
 ## [1.12.1] - Enhanced Quantity Validation & UI Fixes - 2025-01-15
 
 ### Added
