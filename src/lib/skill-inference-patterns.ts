@@ -50,7 +50,7 @@ export const SKILL_PATTERNS: SkillPattern[] = [
   {
     skill: 'Farming',
     namePatterns: [
-      'crop oil', 'berry', 'fruit', 'flower', 'seed', 'grain', 'vegetable',
+      'crop oil', 'berry', 'fruit', 'seed', 'grain', 'vegetable',
       'herb', 'bulb', 'fiber', 'straw', 'cotton',
       'flax', 'crop', 'harvest', 'fertilizer', 'tannin', 'bait',
       'cultivated', 'farmed', 'grown'
@@ -86,7 +86,7 @@ export const SKILL_PATTERNS: SkillPattern[] = [
     skill: 'Foraging',
     namePatterns: [
       'wild', 'foraged', 'mushroom', 'nut', 'wild berry', 'wild herb',
-      'wild flower', 'wild plant', 'gathered', 'natural', 'cocoon',
+      'wild flower', 'flower', 'wild plant', 'gathered', 'natural', 'cocoon',
       'plant root', 'plant roots', 'wild root', 'roots', 'root'
       // Removed 'pebbles' - too broad, conflicts with specific materials like 'clay pebbles'
     ],
