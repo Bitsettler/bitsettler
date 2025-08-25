@@ -36,7 +36,7 @@ interface ProjectItemsTableProps {
   };
   onContribute: (itemId: string) => void;
   onEditQuantity: (itemId: string, quantity: number) => Promise<void>;
-  onRemoveItem: (itemId: string) => Promise<void>;
+  onRemoveItem: (itemId: string) => void;
 }
 
 type GroupBy = 'none' | 'skill' | 'tier' | 'status';
