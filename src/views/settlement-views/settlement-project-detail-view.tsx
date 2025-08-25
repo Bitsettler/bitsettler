@@ -25,6 +25,7 @@ import { ProjectItemsTable } from '@/components/settlement/project-items-table';
 import { AddItemForm } from '@/components/settlement/add-item-form';
 import { ContributeItemDialog } from '@/components/settlement/contribute-item-dialog';
 import { ProjectContributions } from '@/components/settlement/project-contributions';
+import { useClaimPlayerContext } from '@/contexts/claim-player-context';
 
 interface ProjectItem {
   id: string;
@@ -77,6 +78,7 @@ export function SettlementProjectDetailView() {
   const router = useRouter();
   const { data: session } = useSession();
   const projectId = params.id as string;
+  const { member } = useClaimPlayerContext();
   
   // Core state
   const [project, setProject] = useState<ProjectDetails | null>(null);
@@ -109,6 +111,13 @@ export function SettlementProjectDetailView() {
       
       if (result.success) {
         const projectData = (result.data as any).data || result.data;
+        
+        if (projectData.settlementId !== member?.claim_settlement_id) {
+          setError('You are not authorized to view this project');
+          router.push('/en/settlement/projects');
+          return;
+        }
+
         setProject(projectData);
       } else {
         setError(result.error || 'Failed to load project');
